@@ -4350,3 +4350,398 @@ int main(void)
 
 	Burada artık else kısmı dıştaki if deyimine ilişkindir. 
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							20. Ders - 04.08.2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	if deyiminin yalnızca yanlış kısmı bulunamaz. Bu işlem koşulun tersi oluşturularak dolaylı biçimde sağlanabilir. Örneğin:
+
+	if (a > 0)
+	else {				/* geçersiz */
+		/* ... */
+	}
+		
+	Burada aslında a > 0 değilse bir işlem yapılmak istenmiştir:
+
+	if (a <= 0) {
+		/* ... */
+	}
+
+	Tabii mademki if deyiminin yalnızca else kısmı bulunamaz. O halde doğru kısmına bir boş deyim yerleştirilerek de aynı durum sağlanabilir:
+
+	if (a > 0)
+		;
+	else {				/* geçerli */
+		/* ... */
+	}
+	
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir program parçasının yinelemeli olarak çalıştırılmasını sağlayan kontrol deyimlerine "döngü (loop)" denilmektedir. C'de döngüler iki kısma ayrılmaktadır:
+
+	1) while Döngüleri (while Loops)
+	2) for Döngüleri (for loops)
+
+	while döngüleri de kendi aralarında "kontrolün başta yapıldığı while döngüleri" ve "kontrolün sonra yapıldığı while döngüleri" olmak üzere ikiye ayrılmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Kontrolün başta yapıldığı while döngülerinin genel biçimi şöyledir:
+
+	while (<ifade>)
+		<deyim>
+
+	while anahtar sözcüğünden sonra parantez içerisinde bir ifadenin bulunması gerekir. while döngüsü bir deyim içerir. Tabii bu deyim, basit, bileşik 
+	ya da herhangi bir deyim olabilir. Yani döngünün içerisine birden fazla deyim yerleştirilecekse bloklama yapılmalıdır. 
+
+	while döngüsü şöyle çalışmaktadır: Derleyici while parantezinin içerisindeki ifadenin sayısal değerini hesaplar. Bu değer sıfır dışı bir değerese (yani doğru ise)
+	döngü deyimi çalıştırılıp başa dönülür. Döngü while parantezi içerisindeki ifadenin değeri 0 olduğunda sonlanır. 
+
+	Aşağıdaki örnekte 0'dan 10'a kadar (10 dahil değil) sayılar ekrana (stdout dosyasına) yazdırılmaktadır. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int i;
+
+	i = 0;
+	while (i < 10) {
+		printf("%d\n", i);
+		++i;
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örnekte 10'dan başlanarak 0'a kadar (0 dahil değil) sayılar ekrana yazdırılmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int i;
+
+	i = 10;
+	while (i) {
+		printf("%d\n", i);
+		--i;
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örnekte klavyeden (stdin dosyasından) 'q' karakteri girilene kadar döngü devam etmektedir. Burada atama operatörüne öncelik vermek için 
+	parantez kullanıldığına dikkat ediniz. Ayrıca getchar fonksiyonunun ve stdin dosyasından okuma yapan diğer fonksiyonların tamponlu (buffered) çalıştırklarını
+	anımsayınız. Eğer tampon doluysa getchar yeni bir giriş istememektedir. Ancak tampon boşsa yeni bir giriş istemektedir. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int ch;
+
+	while ((ch = getchar()) != 'q')
+		putchar(ch);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Virgül operatörünün önce sol tarafının sonra sağ tarafının yapıldığını ve virgül operatörünün sağ tarafındaki ifadenin değerini ürettiğini anımsayınız.
+	O halde yukarıdaki döngü eşdeğer olarak aşağıdaki gibi de olabilirdi.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int ch;
+
+	while (ch = getchar(), ch != 'q')
+		putchar(ch);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örnekte 1'den n'e kadar sayıların toplamı hesplanmaktadır. (Tabii aslında bu toplam tek bir ifade ile de hesaplanabilirdi).
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int i, n, total;
+
+	printf("Bir sayi giriniz:");
+	scanf("%d", &n);
+
+	i = 1;
+	total = 0;
+	while (i <= n) {
+		total += i;
+		++i;
+	}
+	printf("%d\n", total);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aslında scanf fonksiyonun da bir geri dönüş değeri vardır. scanf fonksiyonu başarılı bir biçimde yerleştirilen parça sayısı ile geri dönmektedir. 
+	scanf stdin tamponunun başındaki boşluk karakterlerini (leading space) atar. Sonra format karakterlerine uygun olmayan ilk karakter gördüğünde 
+	onu tampona geri bırakıp işlemini sonlandırır. Örneğin:
+
+	result = scanf("%d", &val);
+
+	Burada biz bir sayı yerine "ali" gibi bir yazı girmiş olalım. Bu durumda scanf fonksiyonu a karakterini tampondan aldığında bunun %d format karakterine  
+	uygun olmadığını tespit eder. Bu a karakterini tampona geri bırakıp 0 değeri ile geri döner. Örneğin:
+
+	result = scanf("%d%d", &a, &b);
+
+	Burada klavyeden şunları girmiş olalım:
+
+	100 ali
+
+	scanf burada yalnızca a için yerleştirme yapabilecektir. Tamponda ali kalacaktır ve b için yerleştirme yapmayacaktır. Bu durumda scanf, 1 değeri ile geri dönecektir. 
+	Bu nedenle aşağıdaki örnekte eğer biz klavyeden bir sayı girmezsek sonsuz döngü oluşacaktır:
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int val;
+	
+	while (scanf("%d", &val), val != 0)
+		printf("%d\n", val * val);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Yukarıdaki örnekte biz eğer klavyeden geçersiz bir karakter girildiğinde döngüyü sonlandırmak istiyorsak scanf fonksiyonunun geri dönüş değerine de
+	bakmalıyız.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int val;
+	
+	while (scanf("%d", &val) && val != 0)
+		printf("%d\n", val * val);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	while parantezi içerisindeki ifadede önek ya da sonek ++ ya da -- operatörü kullanılabilir. Aşağıdaki örnekte önek ++ operatörü kullanılmıştır. 
+	Burada artırım önce yapılıp artırılmış değer karşılaştırmaya sokulacaktır. Dolayısıyla ilk yazılacak değer 1, son yazılacak değer 9 olacaktır. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int i;
+
+	i = 0;
+	while (++i < 10)
+		printf("%d\n", i);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Eğer while parantezi içerisindeki ++ ya da -- operatörü sonek durumundaysa artırım ya da eksiltim öncelik sırasına göre yapılmakla birlikte, sonraki
+	işleme artırılmamış ya da eksiltilmemiş değer sokulacaktır. 
+
+	Aşağıdaki örnekte ilk yazdırılacak değer 1'dir. Son yazdırılacak değer ise 10 olacaktır. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int i;
+
+	i = 0;
+	while (i++ < 10)
+		printf("%d\n", i);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	n bir nesne belirtmek üzere biz n defa yinelenen bir döngüyü while ile şöyle oluşturabiliriz:
+
+	while (n-- > 0) {
+		/* ... */
+	}
+
+	Bu bir kalıp olarak kullanılmaktadır. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int n;
+
+	n = 3;
+	while (n-- > 0)
+		printf("ok\n");		/* üç kere yinelenecek */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aslında while parantezinin içerisinde yalnızca sonek ++ ya da -- operatörü varsa artırmak ya da eksiltme yapılır. Ancak, kontrole nesnenin artırılmamış ya da 
+	eksiltilmemiş değeri sokulur. Dolayısıyla n pozitif olmak üzere aşağıdaki döngüler işlevsel olarak eşdeğerdir:
+
+	while (n-- > 0) {
+		/* ... */
+	}
+
+	while (n--) {
+		/* ... */
+	}
+
+	while (n-- != 0) {
+		/* ... */
+	}
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Kontrolün sonda yapıldığı while döngüleri (do-while döngüleri) seyrek kullanılmaktadır. Genel biçimleri şöyledir:
+
+	do 
+		<deyim>
+	while (<ifade>);
+
+	while parantezi sonundaki ';' boş deyim belirtmez. Kullanılması zorunlu olan sentaksın bir parçasını oluşturmaktadır. Döngünün do anahtar sözcüğü ile
+	başlatıldığına dikkat ediniz. Yine, döngü içerisinde tek bir deyim vardır. Bu deyim basit, bileşik ya da herhangi bir deyim olabilir. Örneğin:
+
+	do 
+		ifade1;
+	while (ifade2);
+
+	Örneğin:
+
+	do {
+		ifade1;
+		ifade2;
+		ifade3;
+	} while (ifade4);
+
+	do-while döngüsünde kontrol noktasının sonda olduğuna dikkat ediniz. Dolayısıyla döngü en az bir kez yinelenmektedir. Burada do anahtar sözcüğü olmasaydı
+	döngü kontrolün başta yapıldığı while döngüsü olarak ele alınırdı. Örneğin:
+	
+	{
+		ifade1;
+		ifade2;
+		ifade3;
+	} while (ifade4);
+
+	Derleyiciye göre buarada iki deyim vardır: Bileşik deyim ve ondan bağımsız olarak kontrolün başta yapıldığı while döngüsü. Dolaysıyla buradaki ';'
+	boş deyim anlamına gelmektedir. 
+
+	Aşağıdaki örnekte ekrana ilk çıkacak değer 0, son çıkacak değer 9'dur.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int i;
+
+	i = 0;
+	do {
+		printf("%d\n", i);
+		++i;
+	} while (i < 10);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Kontrolünm sonda yapıldığı while döngülerine yukarıda da belirttiğimiz gibi aslında oldukça seyrek gereksinim duyulmaktadır. Aşağıdaki örnekte
+	kullanıcıdan 'e' ya da 'h' karakteri ile bir seçim yapması istenmiştir. Eğer kullanıcı e' ya da 'h' karakterinden birini girmemişse aynı soru yinelenmiş 
+	ve kullanıcı bu karakterlerden birini girmeye zorlanmıştır. Buradaki döngünün, kontrolün sonda yapıldığı while döngüsü olması çok daha anlamlıdır. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void clear_stdin(void)
+{
+	while (getchar() != '\n')
+		;
+}
+
+int main(void)
+{
+	int ch;
+
+	do {
+		printf("(e)vet/(h)ayir?");
+		ch = getchar();
+		if (ch != '\n')
+			clear_stdin();
+	} while (ch != 'e' && ch != 'h');
+
+	if (ch == 'e')
+		printf("evet\n");
+	else
+		printf("hayir\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Programcılar, kontrolün başta yapıldığı while döngülerini yanlışlıkla boş deyim ile kapatabilmektedir. Örneğin:
+
+	while (n-- > 0);
+		printf("%d\n", n);
+
+	Burada while parantezinin sonuna yerleştirilen ';' boş deyim belirtir. Dolayısıyla artık aşağıdaki printf, while döngüsünün içerisinde değildir. 
+	Programcı eğer döngüyü gerçekten boş deyim ile kapatmak istiyorsa (örneğin bir gecikme sağlamak istemiş olabilir) bu durumda ';' atomu, sanki bir deyim gibi 
+	hizalanmalıdır. Çünkü kodu gören kişi bunun yanlışlıkla yapılmadığını anlayacaktır:
+
+	while (n-- > 0)
+		;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int n;
+
+	n = 5;
+	while (n-- > 0);			/* dikkat! yanlışlıkla yerleştirilmiş boş deyim */
+		printf("%d\n", n);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bazen sonsuz döngülerin oluşturulması gerekebilir. Bunun için while parantezi içerisine sıfırın dışında herhangi bir sayı yerleştirilebilir. 
+	Tabii, programcılar genellikle 1 sayısını tercih ederler. Örneğin:
+
+	while (1) {				/* sonsuz döngü (infinite loop) */
+		/* ... */
+	}
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
