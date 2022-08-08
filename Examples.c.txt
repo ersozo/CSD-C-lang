@@ -354,7 +354,7 @@
 	0 000 1010		---> +10
 	1 111 0110  	---> -10
 	---------------------
-      1	0 000 0000  --->  0
+  1	0 000 0000  	--->  0
 
   	Bu sistemde tek bir sıfır vardır. O da tüm bitleri 0 olan sıfırdır. Bu sistemde 1 byte içerisinde yazılabilecek en büyük pozitif sayı şöyledir:
 
@@ -719,7 +719,7 @@ int main(void)
 	cl.exe programı derlemeyi yaptıktan sonra zaten "linker" programını kendisi çalıştırmaktadır. 
 
 	4) Artık cl.exe derleme işlemini yapıp bağlayıcı programı da (link.exe) çalıştırdığı için çalıştırılabilir dosya oluşturulmuş olur. Tek yapacağmız şey
-	çalıştırılabilir programın ismini yazarak ENTER tuluna basmaktır. 
+	çalıştırılabilir programın ismini yazarak ENTER tuşuna basmaktır. 
 
 	cl.exe derleyicisinin yalnızca derleme yapmasını ancak bağlayıcıyı çalıştırmamasını istiyorsak /c seçeneğini (switch) kullanmamız gerekir. Örneğin:
 
