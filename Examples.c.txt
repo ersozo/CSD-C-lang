@@ -1059,7 +1059,7 @@ int main(void)
 	olmak zorundadır. C'de iki küme parantezi arasındaki bölgeye "blok (block)" denilmektedir. Bir fonksiyon çalıştırıldığında fonksiyonun ana bloğundaki deyimler
 	sırasıyla çalıştırılır. Ana blok bittiğinde fonksiyon sonlanmış olur. Dolayısıyla main programı bittiğinde tüm program sonlanmış olacaktır. Merhaba Dünya
 	programında main fonksiyonun ana bloğunun içerisinde "printf" isimli bir fonksiyon çağrılmıştır. Bir fonksiyonun çağrılması (call) demek onun çalıştırılması demektir. 
-	Bir fonksiyon çağrıldığında akış fonksiyona gider, fonksiyonun içerisindeki deyimler tek tek çalıştırılır. Fonksiyon bitince akış çağırma noktasından devam eder. 
+	Bir fonksiyon çağrıldığında akış, fonksiyona gider, fonksiyonun içerisindeki deyimler tek tek çalıştırılır. Fonksiyon bitince akış çağırma noktasından devam eder. 
 	printf fonksiyonu çağrıldığında iki tırnak içerisindeki yazıları ekrana basmaktadır. Ekranda bir imleç (cursor) vardır. Yazı bu imlecin bulunduğu yerden itibaren 
 	ekrana yazdırılır. Sonra imleç yazının sonunda bırakılır. İmleç program çalışmaya başladığında sol üst köşededir. printf fonksiyonunda iki tırnak içerisindeki "\n" 
 	"imleci aşağı satırın başına geçir" biçiminde özel bir anlama gelmektedir. Yani bundan sonra biz bir daha printf fonksiyonunu çağıracak olsak artık o yazı aşağı
