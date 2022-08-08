@@ -1027,7 +1027,7 @@ int main(void)
 	;
 	}
 	
-	2) #'li satırlar hariç atomlar istenildiği kadar bitişik yazılabilirler. Ancak anahtar sözcüklerle değişkenler ve sabitler btişiki yazılamazlar. 
+	2) #'li satırlar hariç atomlar istenildiği kadar bitişik yazılabilirler. Ancak anahtar sözcüklerle değişkenler ve sabitler bitişik yazılamazlar. 
 	Merhaba Dünya programını aşağıdaki gibi kompakt bir biçimde de yazabilirdik:
 
 	#include <stdio.h>
