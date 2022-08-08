@@ -826,10 +826,10 @@ int main(void)
 	2) Gerçek Hatalar (Errors)
 	3) Ölümcül Hatalar (Fatal Errors)
 
-	Uyarılar amaç kod oluşumunu engellemeyecek derecede mantıksal hatalar için verilmektedir. Yani derleyici kodu anlamlandırmakla birlike programcının yapmış 
-	olabileceği olası hatalara dikkat çekmek için uyarı vermektedir. Gerçek hatalar object dosyanın oluşunu engelleyecek derecede olan ciddi hatalardır. Genellikle
+	Uyarılar, amaç kod oluşumunu engellemeyecek derecede mantıksal hatalar için verilmektedir. Yani derleyici kodu anlamlandırmakla birlike programcının yapmış 
+	olabileceği olası hatalara dikkat çekmek için uyarı vermektedir. Gerçek hatalar, object dosyanın oluşunu engelleyecek derecede olan ciddi hatalardır. Genellikle
 	dilin kurallarına uyulmaması yani kodun hatalı bir biçimde yazılması sonucunda oluşur. Programcının bu tür hataları mutlaka düzeltmesi gerekir. 
-	Ölümcül hatalar derleme işleminin bile devam ettirilmesini engelleyecek biçimde hatalardır. Normal olarak gerçek bir hata ile karşılaşıldığında tüm hataların
+	Ölümcül hatalar, derleme işleminin bile devam ettirilmesini engelleyecek biçimde hatalardır. Normal olarak gerçek bir hata ile karşılaşıldığında tüm hataların
 	topluca listelenmesi için derleme işlemine devam edilir. Ancak bir ölümcül hata ile karşılaşıldığında artık derleme işlemi bile sonlandırılır Ölümcül hatalar
 	genellikle sistemdeki önemli sorunlar yüzünden ortaya çıkmaktadır. Örneğin diskin tamamen dolu olması, derleyicinin işlemine devam etmek için gereken 
 	RAM'in bulunmaması gibi durumlar tipik ölümcül hata gerekçeleridir. 
