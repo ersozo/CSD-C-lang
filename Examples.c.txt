@@ -2006,7 +2006,7 @@ int main(void)
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	Bir işleme yol açan, işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadeleri ise 
+	Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadeleri ise 
 	"opeand (operand)" denir. Örneğin a + b ifadesinde + bir operatördür. a ve b bu operatörün operand'larıdır. 
 
 	Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
