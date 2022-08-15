@@ -1098,7 +1098,7 @@ int main(void)
 
 	[signed] int: Bu tür, işaretli bir tamsayı türüdür. int türünün kaç byte yer kaplayacağı standartlarda derleyicileri yazanların isteğine bırakılmıştır. 
 	Ancak standartlara göre int türü minimum 2 byte olmalıdır. Bugün 32 bit ve 64 bit Windows ile UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde int türü 4 bye (32 bit) 
-	uzunluktadır. Dolayısıyla int türden bir nesne bu sistemlerde [-2147483678, 2147483647] aralığında tamsayı değerler tutabilir. Bazı mikrodenetleyici 
+	uzunluktadır. Dolayısıyla int türden bir nesne bu sistemlerde [-2147483648, 2147483647] aralığında tamsayı değerler tutabilir. Bazı mikrodenetleyici 
 	derleyicilerinde ise int 2 byte (16 bit) uzunluğunda olabilmektedir. Derleyicileri yazanlar genellikle int türünü o sistemdeki CPU yazmaçlarının uzunluğu kadar 
 	ya da o uzunlukla ifade edilebilecek kadar almaktadır. Bu tür belirtilirken "int" demekle "signed int" demek arasında ya da "int signed" demek arasında 
 	bir fark yoktur.
@@ -1213,7 +1213,7 @@ int main(void)
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
 	C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep "int" türünü, gerçek sayı türü olarak da "double"
-	türünü tercih ederler. C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o dğeişkeni char, short olarak değil 
+	türünü tercih ederler. C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni char, short olarak değil 
 	yine int olarak tanımlar. Fakat, örneğin bir nicelik "int" türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. int türünde küçük 
 	türler programcılar tarafından tekil nesneler için değil, büyük diziler için tercih edilmektedir. Örneğin bir kişinin yaşını bir değişkende tutacak olalım. 
 	Biz yine bu değişkeni int türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi int türünden değil de char türünden
