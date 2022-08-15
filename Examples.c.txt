@@ -1093,7 +1093,7 @@ int main(void)
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
 	Programlama dillerinde "tür (type)" bir nesnenin bellekte kapladığı alanı, onun içerisindeki 1'lerin ve 0'ların nasıl yorumlanacağını, o nesnenin hangi 
-	operatörlerle işleme sokulabileceğini belirten önemli bir bilgidir. C'de her nesnenin ve her ifadenin bir türü vardır. Türler çeşitli anahtar sözüklerle
+	operatörlerle işleme sokulabileceğini belirten önemli bir bilgidir. C'de her nesnenin ve her ifadenin bir türü vardır. Türler çeşitli anahtar sözcüklerle
 	ifade edilirler. Aşağıda temel türler açıklanmaktadır:
 
 	[signed] int: Bu tür, işaretli bir tamsayı türüdür. int türünün kaç byte yer kaplayacağı standartlarda derleyicileri yazanların isteğine bırakılmıştır. 
