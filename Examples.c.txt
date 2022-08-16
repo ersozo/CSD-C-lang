@@ -1925,7 +1925,7 @@ int main(void)
 	printf("Bir sayi giriniz:");
 	scanf("%lf", &a);		/* double %lf ile okunmalıdır */
 
-	printf("%f\n", a);		/* printf fonksiyonunda %lf diye bir formak karakteri yoktur */
+	printf("%f\n", a);		/* printf fonksiyonunda %lf diye bir format karakteri yoktur */
 
 	return 0;
 }
@@ -2007,7 +2007,7 @@ int main(void)
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
 	Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadeleri ise 
-	"opeand (operand)" denir. Örneğin a + b ifadesinde + bir operatördür. a ve b bu operatörün operand'larıdır. 
+	"operan (operand)" denir. Örneğin a + b ifadesinde + bir operatördür. a ve b bu operatörün operand'larıdır. 
 
 	Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
 
@@ -2022,7 +2022,7 @@ int main(void)
 	operatörlere "ilişkisel operatörler (relational operators)" da denilmektedir 
 	3) Mantıksal Operatörler (Logical Operators): Bunlar AND, OR, NOT işlemleri yapan operatörlerdir. 
 	4) Gösterici Operatörleri (Pointer Operators): Adreslerle işlemler yapan operatörlerdir. Bunlar her programlama dilinde bulunmazlar.
-	5) Bit Operatörleri (Bitwise Operators): Bit operatörleri de pek çok dilde bulunmaktadır. Bunların sayıların karşılıklı bitlerini işleme sokan 
+	5) Bit Operatörleri (Bitwise Operators): Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar sayıların karşılıklı bitlerini işleme sokan 
 	operatörlerdir. 
 	6) Özel Amaçlı Operatörler (Special Purpose Operators): Değişik konulara ilişkin işlem yapan yukarıdaki gruplar içerisine girmeyen operatörlerdir. 
 
