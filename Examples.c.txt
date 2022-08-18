@@ -2031,10 +2031,10 @@ int main(void)
 	1) İki operand'lı Operatörler (Binary Operators): Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '*', '/', '-'
 	operatörleri iki operand'lı operatörlerdir. 
 	2) Tek operand'lı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
-	alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. İşaret eksi operatördür ve tek operand'lı bir operatördür. 
+	alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operand'lı bir operatördür. 
 	3) Üç operand'lı operatörler (Ternary Operators): Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır. 
 
-	Operatörler operatörün operan'larına göre konumuna göre de üçe ayrılmaktadır:
+	Operatörler, operatörün operan'larına olan konumuna göre de üçe ayrılmaktadır:
 
 	1) Araek Operatörler (Infix Operators): Bu operatörler iki operand'lıdır ve operand'larının arasına getirilerek kullanılmaktadır. Örneğin a + b işleminde 
 	'+' operatörlerinin araek bir operatör olduğuna dikkat ediniz. 
