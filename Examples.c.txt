@@ -5668,7 +5668,7 @@ int main(void)
 		]
 	}
 
-	switch anahttar sözcüğünden sonra parantez içerisinde bir ifade bulunmak zorundadır. switch deyimi tipik olarak case bölümlerinden oluşur.
+	switch anahtar sözcüğünden sonra parantez içerisinde bir ifade bulunmak zorundadır. switch deyimi tipik olarak case bölümlerinden oluşur.
 	case anahtar sözcüğünden sonra sabit ifadesi bulunması gerekir. case bölümleri tipik olarak break deyimleriyle sonlandırılmaktadır. Ancak bu zorunlu
 	değildir. switch deyiminin isteğe bağlı bir default bölümü olabilir.
 
