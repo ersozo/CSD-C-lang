@@ -5376,3 +5376,346 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							22.Ders - 18/08/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	İç içe döngülerde break deyimi yalnızca kendi döngüsünü sonlandırmaktadır. Yani break hangi döngünün içerisinde kullanılmışsa yalnızca onu 
+	kırmaktadır. 
+
+	Aşağıdaki örnekte ENTER tuşuna basıldığında, iç döngü sonraki yinelemeyle devam eder. q tuşuyna basıldığında, önce iç döngüdeki break ile iç döngüden
+	çıkılır, sonra dış döngüdeki break ile dış döngüden de çıkılır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void clear_stdin(void)
+{
+	while (getchar() != '\n')
+		;
+}
+
+int main(void)
+{
+	int ch;
+
+	for (int i = 0; i < 10; ++i) {
+		for (int k = 0; k < 10; ++k) {
+			printf("(%d, %d)\n", i, k);
+			printf("Press ENTER to continue or q to exit:");
+			ch = getchar();
+			if (ch != '\n')
+				clear_stdin();
+			if (ch == 'q')
+				break;
+		}
+		if (ch == 'q')
+			break;
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örnekte bir prompt çıkartılmıştır. Bu prompt eşliğinde tek karakterli komutlar istenmektedir. q tuşuna basıldığında komut yorumlayıcıdan
+	çıkılmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void clear_stdin(void)
+{
+	while (getchar() != '\n')
+		;
+}
+
+int main(void)
+{
+	int ch;
+
+	for (;;) {
+		printf("CSD>");
+
+		ch = getchar();
+		if (ch != '\n')
+			clear_stdin();
+
+		if (ch == 'q')
+			break;
+		if (ch == 'r')
+			printf("remove command executes...\n");
+		else if (ch == 'c')
+			printf("copy command executes...\n");
+		else if (ch == 'd')
+			printf("dir command executes...\n");
+		else if (ch == 'm')
+			printf("move command executes...\n");
+		else
+			printf("invalid command: %c\n", ch);
+		
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Yukarıdaki örnekteki programı, baştaki SPACE ve TAB karakterlerini atacak biçimde geliştirebiliriz. Aynı zamanda programı baştaki SPACE ve TAB 
+	atıldıktan sonra ENTER tuşuna basılırsa yeni bir prompt'a geçecek biçimde düzenleyebiliriz. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+	int ch;
+
+	while ((ch = getchar()) == ' ' || ch == '\t')
+		;
+
+	if (ch != '\n')
+		while (getchar() != '\n')
+			;
+
+	return ch;
+}
+
+int main(void)
+{
+	int ch;
+
+	for (;;) {
+		printf("CSD>");
+
+		ch = get_command();
+
+		if (ch != '\n') {
+			if (ch == 'q')
+				break;
+			if (ch == 'r')
+				printf("remove command executes...\n");
+			else if (ch == 'c')
+				printf("copy command executes...\n");
+			else if (ch == 'd')
+				printf("dir command executes...\n");
+			else if (ch == 'm')
+				printf("move command executes...\n");
+			else
+				printf("invalid command: %c\n", ch);
+		}
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	if deyiminin doğru kısmında break ya da return gibi deyimler varsa, if deyimine else kısmının konulmasının bir anlamı olmaz. Örneğin:
+
+	if (ifade1)
+		break;
+	else
+		ifade2;
+
+	ile aşağıdaki eşdeğerdir:
+
+	if (ifade1)
+		break;
+	ifade2;
+
+	Aşağıdaki if deyimine bakınız:
+
+	if (ifade1 && ifade2)
+		ifade3;
+
+	Bu işlemin eşdeğeri şöyledir:
+
+	if (ifade1)
+		if (ifade2)
+			ifade3;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	continue deyimi yalnızca döngü içerisinde kullanılaabilen bir deyimdir. Genel biçimi şöyledir:
+
+	continue;
+	
+	Programın akışı continue deyimini gördüğünde döngünün içerisindeki deyim sonlandırılıp yeni bir yinelemeye geçilmektedir. Yani, break deyimi döngü
+	deyiminin kendisini sonlandırırken, continue deyimi döngü içerisindeki deyimin sonlandırılmasına yol açar. continue seyrek kullanılan bir deyimdir. 
+	continue deyimi for döngüsü içerisinde kullanılırsa yeni bir yineleme oluşacağı için for döngüsünün üçüncü kısmı başa dönüşte yapılacaktır. 
+
+	Aşağıdaki örnekte i çift iken akış, continue deyimini görür. Böylece döngüde yeni bir yinelemeye geçilir. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	for (int i = 0; i < 10; ++i) {
+		if (i % 2 == 0)
+			continue;
+		printf("%d\n", i);
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	continue deyimi özelllikle döngüler içerisindeki geniş if bloklarını elimine etmek için kullanılmaktadır. Örneğin:
+
+	for (;;) {
+		ch = get_command();
+		if (ch != '\n') {
+			/* ... */
+		}
+	}
+
+	Bu işlemin eşdeğeri şöyle oluşturulabilir:
+
+	for (;;) {
+		ch = get_command();
+		if (ch == '\n') 
+			continue;
+		/* ... */
+	}
+
+	Tabii bazen bir döngü içerisinde pek çok yerde akışın başa sarılması istenebilir. Bu tür durumlarda continue, tasarımı oldukça sade göstermektedir. 
+	continue deyimi de iç içe döngülerde yalnızca iç döngüyü başa sarar.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+	int ch;
+
+	while ((ch = getchar()) == ' ' || ch == '\t')
+		;
+
+	if (ch != '\n')
+		while (getchar() != '\n')
+			;
+
+	return ch;
+}
+
+int main(void)
+{
+	int ch;
+
+	for (;;) {
+		printf("CSD>");
+
+		ch = get_command();
+		if (ch == '\n')
+			continue;
+		
+		if (ch == 'q')
+			break;
+		if (ch == 'r')
+			printf("remove command executes...\n");
+		else if (ch == 'c')
+			printf("copy command executes...\n");
+		else if (ch == 'd')
+			printf("dir command executes...\n");
+		else if (ch == 'm')
+			printf("move command executes...\n");
+		else
+			printf("invalid command: %c\n", ch);
+		
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	 Yalnızca sabitlerden ve operatörlerden oluşan ifadelere "sabit ifadeleri (constant expression)" denilmektedir. Örneğin:
+
+	 3
+	 2 + 5
+	 2 + 5 * 3
+	 1 + 2 + 3 + 4
+
+	 birer sabit ifadesidir. Sabit ifadelerinin sayısal değerleri, derleyici tarafından derleme aşamasında hesaplanabilmektedir. Pek çok derleyici 
+	 sabit ifadelerini derleme işlemi sırasında hesaplar, böylece bu işlemlerin gereksiz bir biçimde programın çalışma zamanı sırasında yapılmasını engeller. 
+	 Bu optimizasyon temasına "constant folding" denilmektedir. C'de bazı durumlarda sabit ifadelerinin kullanılması zorunludur. Örneğin:
+
+	 - Global değişkenlere verilen ilkdeğerlerin sabit ifadesi olması zorunludur. 
+	 - Global dizilerde (C99 öncesi tüm dizilerde) uzunluk, sabit ifadeleriyle belirtilmek zorundadır.
+	 - case ifadeleri, sabit ifadesi olmak zorundadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	switch deyimi, bir ifadenin çeşitli sayısal değerleri için farklı birtakım işlemlerin yapılması için düşünülmüş bir deyimdir. switch deyimi olmasaydı
+	aslında gereksinim duyulan şeyler if deyimleriyle de yapılabilirdi. Ancak switch deyimi okunabilirliği artırmaktadır ve bazı durumlarda derleyicinin daha etkin 
+	kod üretmesini sağlamaktadır. switch deyiminin tipik genel biçimi şöyledir:
+
+	switch (<ifade>) {
+		case <s.i>:
+			/* ... */
+			[break;]
+		case <s.i>:
+			/* ... */
+			[break;]
+		case <s.i>:
+			/* ... */
+			[break;]
+		/* ... */
+		[default:
+			/* .... */
+		]
+	}
+
+	switch anahttar sözcüğünden sonra parantez içerisinde bir ifade bulunmak zorundadır. switch deyimi tipik olarak case bölümlerinden oluşur. 
+	case anahtar sözcüğünden sonra sabit ifadesi bulunması gerekir. case bölümleri tipik olarak break deyimleriyle sonlandırılmaktadır. Ancak bu zorunlu
+	değildir. switch deyiminin isteğe bağlı bir default bölümü olabilir. 
+
+	switch deyimi şöyle çalışmaktadır: Önce switch parantezi içerisindeki ifadenin sayısal değeri hesaplanır. Sonra bu değere tam eşit olan case bölümü
+	araştırılır. Eğer bu değere eşit olan bir case bölümü varsa akış o bölüme aktarılır. O bölümdeki deyimler çalıştırılır. break deyimi döngülerde olduğu gibi 
+	switch deyiminin de sonlandırılmasına yol açmaktadır. Eğer switch parantezi içerisindeki ifadenin değeri ile eşit olan bir case bölümü yoksa ancak 
+	default bölüm varsa akış default bölüme aktarılmaktadır. default bölüm, olmak zorunda değildir. Eğer, switch parantezi içerisindeki ifadenin sayısal değerine 
+	eşit olan bir case bölümü yoksa ve default bölüm de yoksa akış switch deyimiminin dışındaki ilk deyimle devam eder. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int val;
+
+	printf("Bir deger giriniz:");
+	scanf("%d", &val);
+
+	switch (val) {
+		case 1:
+			printf("bir\n");
+			break;
+		case 2:
+			printf("iki\n");
+			break;
+		case 3:
+			printf("üc\n");
+			break;
+		case 4:
+			printf("dort\n");
+			break;
+		case 5:
+			printf("bes\n");
+			break;
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aynı switch deyiminde, aynı değerde birden fazla case bölümü olamaz. case anahtar sözcüğünün yanındaki ifadenin sabit ifadesi olması zorunludur. 
+	Bu sayede derleyici, case ifadelerinin yinelenmediğini derleme aşamasında tespit edebilmektedir. 
+
+	case bölümlerinin, tamsayı türlerine ilişkin sabit ifadesi olması zorunludur. Yani, case anahtar sözcüğünün yanında float, double, long double gibi 
+	noktalı sayılar bulunamaz. Benzer biçimde switch parantezi içerisindeki ifade de tamsayı türlerine ilişkin olmak zorundadır. 
+
+	switch deyiminde case bölümlerinin sıralı (sorted) olması ya da default bölümün sonda olması bir zorunluluk değildir. Ancak, case bölümlerinin sıralı olması 
+	ve default bölümün sonda olması okunabilirliği artırabilmektedir. 
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
