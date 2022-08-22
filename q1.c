@@ -3,15 +3,15 @@ int main(void)
 
 {
 
-    int m, n;
+    int h, w;
+    printf("enter the height: ");
+    scanf("%d", &h);
     printf("enter the width: ");
-    scanf("%d", &m);
-    printf("enter the width: ");
-    scanf("%d", &n);
+    scanf("%d", &w);
 
-    int i, j, k;
+    int i, j;
 
-    for (i = 1; i <= m; i++)
+    for (i = 1; i <= h; i++)
     {
         putchar('|');
 
@@ -19,7 +19,21 @@ int main(void)
             putchar(' ');
         putchar('*');
 
-        for (k = 1; k <= m - i; k++)
+        for (j = 1; j <= w - i; j++)
+            putchar(' ');
+
+        printf("|\n");
+    }
+
+    for (i = 1; i <= h; i++)
+    {
+        putchar('|');
+
+        for (j = 1; j <= w - i; j++)
+            putchar(' ');
+        putchar('*');
+
+        for (j = 1; j <= i; j++)
             putchar(' ');
 
         printf("|\n");
