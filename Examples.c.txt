@@ -3019,7 +3019,7 @@ int main(void)
 	}
 
 	Burada int fonksiyonun geri dönüş değerinin türüdür. foo ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
-	Fonksiyonun geri dnüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki "int" yazılmış gibi işlem yapılıyordu.
+	Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki "int" yazılmış gibi işlem yapılıyordu.
 	Ancak C99 ile birlikte fonksiyonun geri dönüş değerinin türünün yazılması zorunlu hale getirilmiştir.
 
 	bar()		/* C90'da geçerli C99 ve sonrasında geçerli değil */
@@ -3031,7 +3031,7 @@ int main(void)
 	hiçbir farklılık yoktur. Biz kursumuzda genel olarak parametresiz fonksiyonlarda parametre parantezinin içine void anahtar sözcüğünü yazacağız.
 	Ancak programcıların bir bölümü hiçbir şey yazmamayı tercih etmektedir.
 
-	Biz kurusumuzdki örneklerde "öylesine uydurulmuş fonksiyon isimleri" olarak foo, bar, tar, zar gibi isimleri kullanacağız. Bu isimlerin hiçbir özel
+	Biz kurusumuzdaki örneklerde "öylesine uydurulmuş fonksiyon isimleri" olarak foo, bar, tar, zar gibi isimleri kullanacağız. Bu isimlerin hiçbir özel
 	anlamı yoktur. Örneklerde öylesine uydurulmuş isimlerdir.
 
 	Tanımlanan her fonksiyonun bir ana bloğu vardır. Buna "fonksiyonun gövdesi (function body)" de denilmektedir.
