@@ -80,16 +80,19 @@ int main()
     for (i = 1; i <= h; i++)
     {
         putchar('|');
-        printf("%d", i);
+        // printf("%d", i);
+
         if (i <= w)
         {
             for (j = 1; j <= i - 1; j++)
                 putchar('-');
             putchar('*');
+
             for (j = 1; j <= w - i; j++)
                 putchar('-');
         }
-        else
+
+        if (i > w && i <= 2 * w)
         {
             for (j = 1; j <= 2 * w - i - 1; j++)
                 putchar('-');
