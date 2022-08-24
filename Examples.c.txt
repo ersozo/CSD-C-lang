@@ -1295,7 +1295,7 @@ int main(void)
 	"bildirim" dediğimizde, bildirilen değişken için yer de ayrıldığını varsayacağız. Bildirim olup da tanımlama olmayan durumları özel olarak konular içerisinde
 	vurgulayacağız. Örneğin:
 
-	int a;			/* bu hem bir bildirimdir hem de bir tanımlamadır */
+	int a;				/* bu hem bir bildirimdir hem de bir tanımlamadır */
 	extern int b;		/* bu bir bildirimdir ama tanımlama değildir, tabii extern gibi bir konu henüz görülmedi */
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -5719,3 +5719,621 @@ int main(void)
 	switch deyiminde case bölümlerinin sıralı (sorted) olması ya da default bölümün sonda olması bir zorunluluk değildir. Ancak, case bölümlerinin sıralı olması
 	ve default bölümün sonda olması okunabilirliği artırabilmektedir.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							23.Ders - 23/08/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de switch deyiminde "aşağıya doğru düşme (fall through)" denilen bir özellik vardır. Akış bir case bölümüne devredildikten sonra o case bölümünün
+	sonunda break yok ise aşağıya doğru akmaya devam eder. İlk break görüldüğünde switch'ten çıkılır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int val;
+
+	printf("Bir deger giriniz:");
+	scanf("%d", &val);
+
+	switch (val) {
+		case 1:
+			printf("bir\n");			// fall through
+		case 2:
+			printf("iki\n");
+			break;
+		case 3:
+			printf("üc\n");				// fall through
+		case 4:
+			printf("dort\n");
+			break;
+		case 5:
+			printf("bes\n");
+			break;
+		default:
+			printf("hicbiri\n");
+			break;
+
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Farklı case değerleri için aynı şeylerin yapılması isteniyorsa bunun en pratik yöntemi aşağıdaki gibidir:
+
+	case 1:
+	case 2:
+		...
+		break;
+
+	Bunun daha pratik bir yolu yoktur. Burada switch ifadesi 1 ise fall through nedeniyle zaten 2 ile aynı kod çalıştırılacaktır.
+
+	Aşağıdaki örnekte komut satırı uygulaması switch deyimi ile tekrar yapılmıştır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+	int ch;
+
+	while ((ch = getchar()) == ' ' || ch == '\t')
+		;
+
+	if (ch != '\n')
+		while (getchar() != '\n')
+			;
+
+	return ch;
+}
+
+int main(void)
+{
+	int ch;
+
+	for (;;) {
+		printf("CSD>");
+
+		ch = get_command();
+		if (ch == '\n')
+			continue;
+		if (ch == 'q')
+			break;
+
+		switch (ch) {
+			case 'e':
+			case 'r':
+				printf("remove command executes...\n");
+				break;
+			case 'c':
+				printf("copy command executes...\n");
+				break;
+			case 'd':
+				printf("dir command executes...\n");
+				break;
+			case 'm':
+				printf("move command executes...\n");
+				break;
+			default:
+				printf("invalid command: %c\n", ch);
+				break;
+		}
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	switch deyimlerinde case bölümlerinin çok uzatılması okunabilirliği bozmaktadır. Bu nedenle case bölümlerinde uzun işlemler yapılacaksa
+	o işlemleri yapan fonksiyonlar tanımlanmalı ve case bölümlerinde bu fonksiyonlar çağrılmalıdır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+	int ch;
+
+	while ((ch = getchar()) == ' ' || ch == '\t')
+		;
+
+	if (ch != '\n')
+		while (getchar() != '\n')
+			;
+
+	return ch;
+}
+
+void erase_command(void)
+{
+	printf("erase command executes...\n");
+}
+
+void copy_command(void)
+{
+	printf("copy command executes...\n");
+}
+
+void dir_command(void)
+{
+	printf("dircommand executes...\n");
+}
+
+void move_command(void)
+{
+	printf("move command executes...\n");
+}
+
+int main(void)
+{
+	int ch;
+
+	for (;;) {
+		printf("CSD>");
+
+		ch = get_command();
+		if (ch == '\n')
+			continue;
+		if (ch == 'q')
+			break;
+
+		switch (ch) {
+			case 'e':
+			case 'r':
+				erase_command();
+				break;
+			case 'c':
+				copy_command();
+				break;
+			case 'd':
+				dir_command();
+				break;
+			case 'm':
+				move_command();
+				break;
+			default:
+				printf("invalid command: %c\n", ch);
+				break;
+		}
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de case bölümlerinin hemen switch bloğunun içerisinde olması zorunlu değildir. Bir case bölümü başka bir case bölümünün içerisinde bir yerlerde
+	olabilir. C# ve Java gibi dillerde ise böyle bir özellik yoktur. Örneğin:
+
+	switch (ifade) {
+		case 1:
+			...
+			...
+			if (falanca) {
+				...
+				case 2:
+					.....
+					.....
+					break;
+			}
+		break;
+		...
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a, b;
+
+	printf("Bir deger giriniz:");
+	scanf("%d", &a);
+
+	switch (a) {
+		case 1:
+			printf("bir\n");
+			printf("Bir deger daha giriniz:");
+			scanf("%d", &b);
+			if (b > 0) {
+				case 2:
+					printf("islemler devam ediyor..\n");
+					break;
+			}
+			break;
+		case 3:
+			printf("uc\n");
+			break;
+		default:
+			printf("default\n");
+			break;
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aslında switch içerisinde tek bir deyim varsa switch deyimi de bloklanmak zorunda değildir. Örneğin:
+
+	switch (ifade)
+		case 1:
+			printf("bir\n"); printf("iki\n");
+
+	Burada yalnızca ilk printf çağrısı switch deyiminin içerisindedir. İkinci printf switch içerisinde değildir. Standartlarda case bir deyim olarak
+	şöyle ifade edilmiştir:
+
+	case <sabit ifadesi>: deyim
+
+	switch (ifade)
+		case 1: {
+				printf("bir\n"); printf("iki\n");
+			}
+
+	Burada switch içerisinde yine tek bir deyim vardır. O deyim de bileşik deyimdir. Dolayısıyla iki printf çağrısı da switch içerisinddir. Örneğin:
+
+	switch (a)
+		case 1:
+			printf("bir\n");
+			break;				/* geçersiz! */
+
+	Burada switch içerisinde yalnızca printf çağrısı vardır. break deyimi switch içerisinde değildir. switch ve döngü içerisinde olmayan break deyimleri
+	geçersizdir.
+
+	C standartlarında aslında switch deyiminin genel biçimi şöyle verilmiştir:
+
+	switch (<ifade>)
+		<deyim>
+
+	Yani bu genel biçime göre aslında switch deyimi case deyimini içermeyebilir. Ancak case içermeyen switch deyimleri geçerli olsa da anlamlı değildir. Örneğin:
+
+	switch (ifade) {	/* geçerli ama anlamlı değil */
+		ifade1;
+		ifade2;
+	}
+
+	İşte switch deyiminde eğer bloklama yapılmazsa onun içeriinde tek deyimin olduğu kabul edilmektedir. Örneğin:
+
+	switch (ifade)
+		ifade1; ifade2;
+
+	Burada switch içerisinde case bölümü ya da default bölümü olmadığına göre switch deyimi anlmasızdır. Ancak gerçerlidir. Burada ifade2 switch deyimi
+	dışındadır.
+
+	Bir döngü içerisinde bir switch deyimi olsun. Bu switch deyimi içerisinde break kullandığımızda biz switch deyimini sonlandırmış oluruz. Döngü deyimini
+	sonlandırmış olmayız. Ancak continue deyimi switch için anlamlı olmadığına göre, döngü içerisindeki switch deyiminde continue kullanıldığında,
+	switch deyimi de sonlanarak sonraki yinelemeye geçilir. Örneğin:
+
+	for (;;) {
+		switch (ifade) {
+			case 1:
+				...
+				if (falanca)
+					continue;			/* bu continue döngü başına dönüşü sağlar
+			...
+		}
+		....
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	goto deyimi programın akışını koşulsuz biçimde belli bir noktaya aktarmak için kullanılan bir kontrol deyimidir. Genel biçimi şöyledir:
+
+	goto <label>;
+	.....
+	<label:>
+		....
+
+	goto anahtar sözcüğünün yanına, isimlendirme kuralına uygun bir isim bulunur. Bu isme "etiket (label)" denilmektedir. Daha sonra bu etiket, ':' atomuyla
+	fonksiyonda bir yerde kullanılmak zorudadır. Etiket, akışın aktarılacağı yeri belirtir. Örneğin:
+
+	if (ifade)
+		goto EXIT;
+	...
+	EXIT:
+		....
+
+	Etiketler genelikle programcılar tarafında büyük harflerle isimlendirilmektedir.
+
+	goto deyimi döngü oluşturmak için kullanılmamalıdır. Çünkü goto deyimleri programın okunabilirliğini, anlaşılabilirliğini bozabilmektedir.
+	Aşağıdaki örnekte goto deyiminin çalışmasına ilişkin bir örnek veriyoruz. Ancak goro deyimi aşağıdaki örnekte olduğu gibi döngü oluşturmak için
+	kullanılmamalıdır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int i;
+
+	i = 0;
+REPEAT:
+	printf("%d\n", i);
+	++i;
+	if (i < 10)
+		goto REPEAT;
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	goto deyimi ile başka bir fonksiyona atlanamaz. Aynı fonksiyon içerisinde başka bir yere atlanabilir. Etiketler yalnızca goto işleminde etki gösterir.
+	Yoksa programın akışı sırasında etiketle karşılaşılmasının bir etkisi yoktur. Kaldı ki bir etiketin bulunyor olması bir goto bulundurulmasını zorunlu kılmamaktadır.
+	Tabii, goto'suz etiketlrin de bir anlamı yoktur. Bir etikete birden fazla yerden goto yapılabilir. Örneğin:
+
+	if (falanca)
+		goto EXIT;
+	/* ... */
+	if (filanca)
+		goto EXIT;
+	/* ... */
+	EXIT:
+		/* .... */
+
+	goto etiketleri "fonksiyon faaliyet alanına (function scope)" ilişkindir. Yani bir fonksiyon içeerisinde aynı isimli tek bir goto etiketi olabilir.
+	goto etiketleri blok faaliyet alanına ilişkin değildir. Örneğin:
+
+	int main(void)
+	{
+		/* ... */
+		{
+			/* ... */
+		EXIT:
+			printf("exit\n");
+		}
+		/* ... */
+
+		{
+			/*  ... */
+		EXIT:						/* geçersiz! */
+			printf("exit\n");
+		}
+		return 0;
+	}
+
+	Standratlara göre goto etiketinden sonra bir deyim bulunmak zorundadır. Çünkü, aslında bir deyim için goto yapılmaktadır. Örneğin:
+
+	void foo(void)
+	{
+		/* ... */
+
+		if (falanca)
+			goto EXIT;
+
+		/* ... */
+	EXIT:					/* error, etiketten sonra bir deyim olması gerekir */
+	}
+
+	Bu tür durumlarda boş deyimden faydalanılabilir. Örneğin:
+
+	void foo(void)
+	{
+		/* ... */
+
+		if (falanca)
+			goto EXIT;
+
+		/* ... */
+	EXIT:					/* geçerli, goto etiketinden sonra bir deyim var */
+		;
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	goto deyimi üç durumda anlamlı ve güzel bir biçimde kullanılabilir:
+
+	1) İç içe döngülerden ya da döngü içerisindeki switch deyiminden tek hamlede çıkmak için
+	2) Ters sırada kaynak boşaltımı yapmak için
+	3) Bazı özel algoritmalarda çözümü kolaylaştırmak için
+
+	Aşağıdaki örnekte goto ile, bir iç döngüden tek hamlede çıkılmıştır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int ch;
+
+	for (int i = 0; i < 10; ++i) {
+		for (int k = 0; k < 10; ++k) {
+			printf("(%d,%d)\n", i, k);
+			printf("press q to exit:");
+			ch = getchar();
+			if (ch == 'q')
+				goto EXIT;
+			if (ch != '\n')
+				while (getchar() != '\n')
+					;
+		}
+	}
+
+EXIT:
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örnekte goto ile, bir döngü içerisindeki switch deyiminden tek hamlede çıkılmıştır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+	int ch;
+
+	while ((ch = getchar()) == ' ' || ch == '\t')
+		;
+
+	if (ch != '\n')
+		while (getchar() != '\n')
+			;
+
+	return ch;
+}
+
+int main(void)
+{
+	int ch;
+
+	for (;;) {
+		printf("CSD>");
+
+		ch = get_command();
+		if (ch == '\n')
+			continue;
+
+		switch (ch) {
+			case 'e':
+			case 'r':
+				printf("remove command executes...\n");
+				break;
+			case 'c':
+				printf("copy command executes...\n");
+				break;
+			case 'd':
+				printf("dir command executes...\n");
+				break;
+			case 'm':
+				printf("move command executes...\n");
+				break;
+			case 'q':
+				goto EXIT;
+			default:
+				printf("invalid command: %c\n", ch);
+				break;
+		}
+	}
+EXIT:
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Kaynak tahsisatlarında, ters sırada boşaltım yapmak için goto deyiminden faydalanılmaktadır. Biz kursumuzun bu noktasında henüz bu tür kavramları görmedik.
+	Ancak yine de kavramsal bir örnek verebiliriz. alloc_resource isimli bir fonksiyon, bir kaynağı tahsis ediyor olsun. Eğer tahsisat başarısızsa 0 değerine
+	geri dönüyor olsun. Biz de bu fonksiyonla, bir dizi kaynağı tahsis etmek isteyelim. Yine, tahsisatı geri bırakan free_Source isimli bir fonksiyonun olduğunu düşünelim.
+	Örneğin:
+
+	int foo(void)
+	{
+		int r1, r2, r3, r4, r5;
+
+		r1 = alloc_resource();
+		if (!r1) {
+			return 0;
+		}
+		r2 = alloc_resource();
+		if (!r2) {
+			free_resource(r1);
+			return 0;
+		}
+		r3 = alloc_resource();
+		if (!r3) {
+			free_resource(r1);
+			free_resource(r2);
+			return 0;
+		}
+		r4 = alloc_resource();
+		if (!r4) {
+			free_resource(r1);
+			free_resource(r2);
+			free_resource(r3);
+			return 0;
+		}
+		r5 = alloc_resource();
+		if (!r5) {
+			free_resource(r1);
+			free_resource(r2);
+			free_resource(r3);
+			free_resource(r4);
+
+			return 0;
+		}
+
+		/* işlemler yapılıyor  */
+
+		free_resource(r1);
+		free_resource(r2);
+		free_resource(r3);
+		free_resource(r4);
+		free_resource(r5);
+
+		return 1;		/* başarılı */
+
+	}
+
+	Burada kod tekrarı oldukça kötü bir yazım oluşturmaktadır. İşte bu tür durumlarda goto ile ters sırada boşaltım uygulayabiliriz:
+
+	int foo(void)
+	{
+		int r1, r2, r3, r4, r5;
+
+		r1 = alloc_resource();
+		if (!r1)
+			goro EXIT1;
+
+		r2 = alloc_resource();
+		if (!r2)
+			goto EXIT2;
+
+		r3 = alloc_resource();
+		if (!r3)
+			goto EXIT3;
+
+		r4 = alloc_resource();
+		if (!r4)
+			goto EXIT4;
+
+		r5 = alloc_resource();
+		if (!r5)
+			goto EXIT5;
+
+		/* işlemler yapılıyor  */
+
+		return 1;		/* başarılı */
+
+EXIT5:
+		free_resource(r4);
+EXIT4:
+		free_resource(r3);
+EXIT3:
+		free_resource(r2);
+EXIT2:
+		free_resource(r1);
+EXIT1:
+		return 0;		/* başarısız */
+
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir iç bloğa goto le atlanırken, o blokta tanımlanan değişkenler çöp değer almış olabilirler. Bu tür durumlara dikkat ediniz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int val;
+
+	printf("Bir sayi giriniz: ");
+	scanf("%d", &val);
+	if (val == 0)
+		goto INSIDE;
+
+	{
+		int a;
+
+		a = 10;
+	INSIDE:
+		printf("%d\n", a);
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
