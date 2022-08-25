@@ -1,19 +1,23 @@
 #include <stdio.h>
 
-int main()
+int main(void)
 {
     int n;
-    printf("enter the row #: ");
+
+    printf("enter the row number: ");
     scanf("%d", &n);
 
     for (int i = 1; i <= n; i++)
     {
         for (int j = i; j <= n; j++)
             printf(" ");
+
         for (int j = 1; j <= i; j++)
             printf("*");
+
         for (int j = 1; j <= i; j++)
             printf("*");
+
         printf("\n");
     }
 
@@ -21,10 +25,13 @@ int main()
     {
         for (int j = 1; j <= i; j++)
             printf(" ");
+
         for (int j = i; j <= n - 1; j++)
             printf("*");
+
         for (int j = i; j <= n; j++)
             printf("*");
+
         printf("\n");
     }
 
