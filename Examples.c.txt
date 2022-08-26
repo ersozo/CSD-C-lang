@@ -6337,3 +6337,300 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							24.Ders - 23/08/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de bir atama işlemi sırasında atanan değerin türüne "kaynak tür", atanan değere "kaynak değer" ve atamanın yapıldığı nesnenin türüne ise "hedef tür"
+	denilmektedir. Atama işlemi sırasında kaynak türle hedef tür farklı türler olabilir. Örneğin kaynak tür double iken hedef tür int olabilir.
+	Farkjlı türlerin birbirlerine atanması sırasında kaynak türdeki değer hedef türe dönüştürülür, sonra atama gerçekleştirilir. Örneğin:
+
+	int = double
+
+	gibi bir atama söz konusu olsun. Bu durumda, önce double türü int türüne dönüştürülür, sonra atama gerçekleştirilir. Buna "otomatik tür dönüştürmesi (implicit
+	type conversion)" denilmektedir. Yani bir türden bir türe atamanın olması, o türden o türe otomatik dönüştürmenin olması anlamına gelir.
+	C'de nümerik türler arasında otomatik dönüştürme vardır. Ancak, bu dönüştürmeler sırasında bilgi kaybı söz konusu olabilir. Bu durumda programcının
+	nasıl bir kayıp ile karşı karşıya kalacağını kestirmesi gerekir. Farklı türlerin birbirlerine atanmasında şu kurallar izlenmektedir:
+
+	1) Kaynak türdeki değer hedef türün sınırları içerisinde kalıyorsa, bilgi kaybı söz konusu olmaz. Örneğin, long long int bir değeri int türüne
+	atamak isteyelim: Eğer long long int içerisindeki değer int türünün sınırları içerisinde kalıyorsa bilgi kaybı söz konusu olmaz.
+
+	2) Büyük tamsayı türünden küçük sayı türüne yapılan atamalarda hedef tür işaretsiz bir tamsayı türü ise, kaynak türdeki değerin yüksek anlamlı (most significant)
+	byte'ları kaybedilir, düşük anlamlı (least significant) byte'ları atanır. Ancak hedef tür işaretli bir tamsayı türü ise, bilgi kaybının nasıl
+	olacağı derleyicileri yazanların isteğine bırakılmıştır (implementetion dependent).  Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		int a = 0x12345678;
+		unsigned short b;
+
+		b = a;
+
+		printf("%x\n", b);		/* 5678 */
+
+		return 0;
+	}
+
+	Bu tür durumlarda sayılar 10'luk sistemdeyse, atama işleminde sanki rastgele bir değer elde ediliyormuş duygusuna kapılınabilir. Ancak, aslında yüksek byte'ler atılıp
+	düşük anlamlı byte'lar atanmaktadır. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		int a = 56732683;		/* 0x0361AC0B */
+		unsigned short b;
+
+		b = a;
+
+		printf("%u\n", b);		/* 0xAC0B = 44043 */
+
+		return 0;
+	}
+
+	Büyük tamsayı türünden küçük tamsayı türüne atama yapılırken hedef tür olan küçük tamsayı türü işaretli bir tür ise, bu durumda bilgi kaybının nasıl olacağı
+	derleyicileri yazanların istedğine bırkaılmışsa da derleyicilerin hemen hepsi yine sayının yüksek anlamlı byte'larını atmaktadır. Tabii düşük anlamlı byte
+	atandığı zaman sayının işareti de değişebilmektedir. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		int a = 56732683;		/* 0361AC0B */
+		short b;
+
+		b = a;
+
+		printf("%d\n", b);		/* 0xAC0B = -21493 */
+
+		return 0;
+	}
+
+	3) Kaynak tür işaretli bir tamsayı türü, hedef tür de kaynak türün işaretsiz biçimi ise, bu durumda sayının bit kalıbı değişmez. Yani hedef türdeki
+	değer byte olarak kaynak türe atanır. Başka bir deyişle kaynak türdeki değerin bit karşılığının tamamı hedef türde depolanır. Tabii işaret bitinin
+	anlamı değişecektir. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		unsigned int a = 0xAB8254C2;
+		int b;
+
+		b = a;
+
+		printf("%u\n", b);		/* 0xFFFFFFFF = 4294967295 */
+
+		return 0;
+	}
+
+	İşaretsiz bir tamsayı türü aynı türün işaretli biçimine atanırsa zaten eğer kaynak değer, hedef türün sınırları içerisinde kalıyorsa 1. Madde uygulanır.
+	Kalmıyorsa bilgi kaybının nasıl olacağı derleyicileri yazanların isteğine bırakılmıştır. Fakat derleyicilerin hemen hepsi yine sayının bit kalıbını değiştirmeden
+	hedef türe atamaktadır.
+
+	4) Küçük işaretli tamsayı türünden büyük işaretsiz tamsayı türüne atama yapılırken eğer küçük işaretli tamsayı türü pozitifse, zaten bilgi kaybı söz konusu olmaz.
+	Ancak negatifse bu durumda dönüştürme iki aşamada yapılmaktadır: Önce küçük işaretli türdeki değer büyük türün işaretli biçimine dönüştürülür, sonra
+	büyük türün işaretli biçiminden büyük türün işaretsiz biçimine dönüştürme yapılır. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		signed char a = -1;
+		unsigned int b;
+
+		b = a;					/* önce signed char, signed int türüne sonra da unsigned int türüne dönüştürülür */
+
+		printf("%u\n", b);		/* 4294967295 */
+
+		return 0;
+	}
+
+	5) Gerçek sayı türlerinden tamsayı türlerine yapılan atamalarda eğer gerçek sayı türü içerisindeki değer tamsayı türü ile ifade edilebiliyorsa,
+	zaten 1. Madde uygulanır, bilgi kaybı söz konusu olmaz. Ancak kaynak türdeki gerçek sayı değeri noktalı bir sayı ise, bu durumda sayının noktadan sonraki
+	kısmı tamamen atılır, tam kısmı atanır (truncation toward zero). Eğer sayının noktadan sonraki kısmı atıldıktan sonra tam kısmı hedef türün sınırları
+	içerisine sığmıyorsa bu durum "tanımsız davranışa (undefined behavior)" yol açmaktadır. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		double a = -12.99;
+		int b;
+
+		b = a;					/* -12 */
+		printf("%d\n", b);
+
+		return 0;
+	}
+
+	6) Tamsayı türlerinen gerçek sayı türlerine atama yapılırken eğer basamaksal değil de mantissel bir kayıp oluşursa, kaynak değere en yakın ondan büyük değer
+	ya da kaynak değere en yakın ondan küçük değer elde edilir. Eğer basamaksal bir kayıp oluşursa, bu durum tanımsız davranışa yol açar. Örneğin
+	int ve float türlerinin her ikisinin de 4 byte olduğu sistemlerde (UNIX/Linux ve Windows sistemleri böyledir) int türündeki her değer float türü
+	ile ifade edilemez. Ancak ona yaklaşık bir değer elde edilebilmektedir. Basamaksal kayıp, kaynak türün basamak sayısını ifade edemeyen bir kayıptır. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		unsigned int a = 1234567890;
+		float b;
+
+		b = a;
+		printf("%f\n", b);		/* 1234567936.000000 */
+
+		return 0;
+	}
+
+	7)Küçük gerçek sayı türünden büyük gerçek sayı türüne yapılan atamalarda bilgi kaybı söz konusu olmaz. Yani 1. Madde uygulanır. Ancak büyük gerçek sayı türünden
+	küçük gerçek sayı türüne yapılan atamalarda bilgi kaybı söz konusu olabilir. Eğer kayıp basamaksal değilse, mantis kaybı söz konusu ile kaynak türe en yakın ve
+	ondan küçük ya da kaynak türe en yakın ve ondan büyük sayı elde edilir. Basamaksal kayıp söz konusu olursa bu durum "tanımsız davranışa" yol açacaktır. Örneğin:
+
+	double a = 1e200;
+	float b;
+
+	b = a;						/* undefined behavior */
+
+	Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		double a = 1.234567890123;
+		float b;
+
+		b = a;
+		printf("%.10f\n", b);	/* 1.2345678806 */
+
+		return 0;
+	}
+
+	8) Herhangi bir türden _Bool türüne atama yapıldığında eğer atanan değer 0 ise, 0 değeri atanır, sıfır dışı bir değer ise 1 değeri atanır. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		int a = -123;
+		_Bool b;
+
+		b = a;
+		printf("%d\n", b);		/* 1 */
+
+		return 0;
+	}
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	İki operandlı bir operatör işleme sokulduğunda eğer operandlar aynı türden ise, işlemin sonucu da bu türdne elde edilir. Ancak operand'lar farklı
+	türlerden ise, önce operand'lar aynı türe dönüştürülür, sonra işlem yapılır. İşlemin sonucu da dönüştürmenin yapıldığı ortak tür türünden olur.
+	C'de yalnızca değişkenlerin ve sabitlerin değil, aslında her ifadenin bir türü vardır.
+
+	İşlem öncesi tür dönüştürmesi derleyici tarafından otomatik bir biçimde yapılmaktadır. Dönüştürmenin özet ancak üstünkörü kuralı:
+	"küçük türün büyük türe dönüştürülmesi sonucun büyük tür türünden elde edilmesidir". Örneğin int ile long işleme sokulursa, int önce long'a
+	dnüştürülür sonuç long türünden çıkar. Burada dönüştürme geçici nesne yoluyla yapılmaktadır. Örneğin, a int türünden, b long türünden olsun. c'nin de
+	long türünden olduğunu düşünelim:
+
+	c = a + b;
+
+	Burada dönüştürme geçici nesne yoluyla yapılmaktadır. Yani derleyici önce, long türünden geçici bir nesneyi kendisi yaratır. Sonra, a'yı bu nesneye
+	atar. Sonra, iki long değeri toplar. Sonra, geçici nesneyi yok eder ve sonucu c'ye atar.
+
+	temp = a;
+	c = temp + b;
+	temp yok ediliyor
+
+	Uygulamada derleyiciler bu tür dönüştürmesini CPU yazmaçları içerisinde çok hızlı bir biçimde yaparlar. İşlem öncesi otomatik tür dönüştürmesinin
+	ayrıntalı şöyledir:
+
+	1) Tamsayı türü ile gerçek sayı türü işleme sokulduğunda, dönüştürme her zaman gerçek sayı türüne doğru yapılır. Örneğin, long long ile float işleme
+	sokulacak olsa, long long türü float türüne dönüştürülür ve sonuç float türünden çıkar.
+
+	2) Küçük sayı türü ile büyük tamsayı türü işleme sokulduğunda, küçük tamsyı türü büyük tamsayı türüne dönüştürülür. Örneğin, int ile long işleme sokulduğunda,
+	int türü long türüne dönüştürülür ve sonuç long türünden çıkar. Ancak, küçük işaretsiz tamsayı türü ile büyük işaretli tamsayı türü işleme sokulurken eğer
+	küçük tamsayı türü ile büyük tamsayı türü aynı uzunluktaysa, dönüştürme büyük türün işaretsiz biçimine doğru yapılır. Örneğin, int ile long türlerinin aynı
+	uzunlukta olduğunu varsayalım. Biz unsigned int ile long türünü işleme sokarsak unsigned int türü ve long türü, unsigned long türüne dönüştürülür ve sonuç
+	unsigned long türünden çıkar.
+
+	3) Aynı tamsayı türünün işaretli ve işaretsiz biçimleri işleme sokulursa, işaretli tamsayı türü işaretsize dönüştürülür, sonuç işaretsiz türden çıkar.
+	Örneğin, int ile unsigned int işleme sokulursa int türü unsigned int türüne dönüştürülür ve sonuç unsigned int türünden çıkar. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		unsigned int a = 1;
+		signed char b = -1;
+		unsigned int c;
+
+		c = a * b;
+		printf("%u\n", c);		/* 4294967295 */
+
+		return 0;
+	}
+
+	4) İki gerçek sayı türü kendi aralarında işleme sokulursa, küçük gerçek sayı türü büyük gerçek sayı türüne dönüştürülür, sonuç büyük gerçek sayı türünden çıkar.
+	Örneğin, float ile double işleme sokulursa sonuç double türünden çıkar.
+
+	5) C'de tamsayı işlemleri en az int duyarlılığında yapılmaktadır. int türünden küçük olan türler kendi aralarında işleme sokulursa, önce her iki tür de
+	int türüne dönüştürülür ve sonuç int türünden çıkar. Bu işleme "int türüne yükseltme (integer promotion)" denilmektedir. Örneğin, short ile short işleme sokulursa
+	sonuç short çıkmaz. Önce, her iki operand da bağımısz olarak int türüne dönüştürülür ve sonuç int türünden çıkar. Benzer biçimde örneğin, short türü ile
+	char türü işleme sokulursa önce, her iki tür de bağımsız olarak int türüne dönüştürülür ve sonuç int türünden çıkar. int türüne yükseltme kuralının şöyle bir ayrıntısı
+	vardır: Eğer ilgili sistemde short türü ile int türü aynı uzunluktaysa, bu durumda operandlardan biri unsigned short ve diğeri int ya da int türünden küçük ise, dönüştürme
+	unsigned int türüne yapılmaktadır. Örneğin, short tütü ile int türünün aynı olduğu DOS sisteminde çalışıyor olalım. Burada biz short ile unsigned short türünü
+	işleme soksak sonuç unsigned int türünden çıkar. Benzer biçimde unsigned short ile int türünü işleme soksak sonuç yine unsigned int türünden çıkar.
+
+	6) Bölme işleminde her iki operand da tamsayı türlerine ilişkinse, sonuç tamsayı türüne ilişkin çıkar. Bölüm noktalı olsa bile noktadan sonraki kısım atılmaktadır.
+	Örneğin:
+
+	a = 10 / 4;
+
+	Burada 10 ve 4 int türdendir. Bu durumda a'ya 2 değeri atanır. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)ß
+	{
+		int a = 10;
+		int b = 4;
+		double c;
+
+		c = a / b;
+		printf("%f\n", c);		/* 2.000000 */
+
+		return 0;
+	}
+
+	Burada sonucun double çıkmasını istiyorsak operandlardan en az birinin double yapmamız gerekir. Örneğin:
+
+	a = 10.0 / 4;
+
+	Burada artık sonuç double türünden çıkacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örnekte sayı, tersten  basamaklarına ayrılmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a = 12345;
+	int digit;
+
+	while (a) {
+		digit = a % 10;
+		printf("%d\n", digit);
+		a /= 10;
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
