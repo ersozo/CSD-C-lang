@@ -5093,7 +5093,7 @@ int main(void)
 {
 	double val;
 
-	for (;;) {				/* sonsuz döngü */
+	for (;;) {					/* sonsuz döngü */
 		printf("Bir deger giriniz:");
 		scanf("%lf", &val);
 		printf("%f\n", val * val);
@@ -5263,7 +5263,7 @@ int main(void)
 	for (int i = 0; i < 10; ++i) {
 		/* ... */
 	}
-	printf("%d\n", i);		/* geçersiz! i burada faaliyet göstermiyor */
+	printf("%d\n", i);				/* geçersiz! i burada faaliyet göstermiyor */
 
 	Aşağıdaki örnekte her iki for döngüsündeki i, aslında o for döngülerinde kullanılan farklı yerel i'lerdir.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -5295,7 +5295,7 @@ int main(void)
 	Aşağıdaki durum da geçerli olsa da bu tür kodlardan kaçınınız:
 
 	for (int i = 0; i < 10; ++i)
-		for (int i = 0; i < 10; ++i)  {		/* geçerli */
+		for (int i = 0; i < 10; ++i)  {			/* geçerli */
 			/* Burada i kullanılırsa, iç for döngüsündeki i anlaşılır */
 		}
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
