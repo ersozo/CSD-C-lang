@@ -6338,6 +6338,7 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
+
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
 							24.Ders - 23/08/2022 - Perşembe
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -6630,6 +6631,296 @@ int main(void)
 		printf("%d\n", digit);
 		a /= 10;
 	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							25. Ders - 01/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir işlemde operandlar aynı türden veya farklı türlenden, ancak işlem öncesi otomatik tür dönüştürmesi uygulanmış ve elde edilen değer, söz konusu
+	ortak türün sınırları içerisine girmiyorsa bu duruma "taşma (overflow)" denilmektedir. C'de işaretli tamsayı türleri üzerinde taşma oluşursa bu durum
+	"tanımsız davranışa"" yol açmaktadır. Ancak işaretsiz tamsayı türleri üzerinde taşma olursa, her zaman taşan yüksek anlamlı byte'lar atılmaktadır. Örneğin:
+
+	int a, b, c;
+	...
+	c = a + b;
+
+	Burada a ve b int türden olsun. a + b işleminin sonucu da int türden olacaktır. Ancak a + b int türün sınırları içerisinde kalmıyorsa bu durum tanımsız
+	davranışa yol açar. Örneğin:
+
+	unsigned int a, b, c;
+	...
+	c = a + b;
+
+	Burada a + b işleminin sonucu unsigned int türden olacaktır. Ancak sonuç unsigned int türünün sınırları dışında ise bu durum tanımsız davranış değildir.
+	Yüksek anlamlı byte'lar her zaman atılır. Tabii taşma, bazı tek operandlı operatörlerde de ortaya çıkabilir. Örneğin:
+
+	int a, b;
+
+	a = -2147483648;
+	b = -a;				/* tanımsız davranış */
+
+
+	Burada -a işleminin sonucu da int türdendir. Ancak, bu işlemin sonucunda elde edilen değer int türünün sınırları içerisinde değildir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	İşaretsiz bir tamsayı türüne, işaret eksi operatörü uygulanırsa, tür int türünden küçükse önce int türüne yükseltme kuralı uygulanır. Sonra, eğer sayı işaretsiz
+	ise önce onun negatifi elde edilir. Elde edilen negatif değer işaretsiz türe dönüştürülür. Örneğin:
+
+	usnigned a = 1, b;
+
+	b = -a;
+
+	Burada -a işleminin sonucu unsigned int türden olacaktır. -a işleminde önce -1 elde edilir. Ancak sonuç unsigned int türünden olacağı için unsigned int türüne
+	dönüştürülür. Böylece işlemden en büyük unsigned int değer elde edilir. Başka bir deyişle burada 1 değerine ikiye tümleme işlemi uygulanır ve elde edilen değer
+	unsigned int biçiminde ele alınır.  Ya da örneğin -a gibi bir değer -1 * a olarak düşünülebilir. Bu duurmda a, unsigned int türden ise, -1 de unsigned
+	int türüne dönüştürülür. Buradan en büyük pozitif değer elde edilir. Bu değer a ile çarpılıp yüksek anlamlı byte'lar atılırsa, aslında az önce ifade
+	edilen durumla aynı durum oluşmuş olur.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	unsigned a = 1, b;
+
+	b = -a;
+	printf("%u\n", b);			/* 4294967295 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de geleneksel olarak bir fonksiyonun parametresi int türünden küçük bir türdense, parametre o türden değil, int türünden ifade edilir. Aynı durum, geri
+	dönüş değeri için de uygulanmaktadır. Bu bir zorunluluk değildir. Ancak, gelenektir. Örneğin, foo fonksiyonun parametresinin short bir değer aldığını varsayalım.
+	Programcı parametreyi short yapmaz, int yapar. Benzer biçimde putchar fonksiyonu bir karakterini ekrana (stdout dosyasına) yazdırmaktadır. Parametre char
+	yerine int alınır. Aynı durum geri dönüş değerleri için de benzer biçimde uygulanmaktadır. Bu nedenle C programlarında, genel olarak, fonksiyonlardın parametrelerinde
+	ve geri dönüş değerlerinde char gibi short türler, geleneksel olarak kullanılmaz. Onların yerine int türü kullanılır.
+
+	Pekiyi neden fonksiyonların parametrelerinde ve geri dönüş değerlerinde int türünden küçük türler programcılar tarafından tercih edilmemektedir?
+	Yani, bu geleneğin anlamı nedir? İşte bunun iki nedeni vardır:
+
+	1) C'de  tamsayı işlemler zaten her zaman "int türüne yükseltme kuralı" gereği en az int duyarlılığında yapılmaktadır. Bu durumda bir değişkenin int türünden
+	küçük olmasının çoğu kez bir anlamı yoktur. Aynı zamanda parametre aktarımı ve geri dönüş değerinin oluşturulması da zaten işlemciler tarafından en az
+	int duyarlılıkta yapılmaktadır. Yani, parametrelerin ve geri dönüş değerlerinin int türden olması daha doğal bir gösterim sunmaktadır.
+
+	2) Eskiden fonksiyon prototiplerinin olmadığı zamanlarda zaten "default argument conversion" kuralı gereğince, int türünden küçük olan türler, int türüne
+	yükseltilerek fonksiyona aktarılıyordu. Dolayısıyla bu gelenek, zaten eski zamanlardan beri bu gerekçeyle uygulanıyordu.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C standartlarına göre derleyiciler, bir kodu, kodun etkisi aynı kalacak biçimde ancak daha hızlı çalışacak ya da daha az yer kaplayacak biçimde optimize edebilir.
+	Burada önemli olan programcının varsaydığı ya da oluşturmak istediği, her şeyin, optimize edilmiş kodda oluşturulmuş olmasıdır. Örneğin:
+
+	x = a + b + c + 1;
+	y = a + b + c + 2;
+	z = a + b + c + 3;
+
+	Biz bu kodu böyle yazmış olsak da, örneğin derleyici kodu, daha az işlem yapılacak şekilde, şöyle düzenleyebilir:
+
+	temp = a + b + c;
+	x = temp + 1;
+	y = temp + 2;
+	z = temp + 3;
+
+	Biz, derleyicinin kodu böyle düzenlediğini bilmek zorunda değiliz. Ne de olsa bizim niyetlediğimiz her şeyi, derleyicinin optimize ettiği kod da yapmaktadır. Örneğin:
+
+	for (int i = 0; i < 10; ++i)  {
+		printf("%d\n", i);
+		x = 100;
+	}
+	printf("%d\n", x);
+
+	Burada x'in döngü içerisinde durmasının, programı yavaşlatmak dışında hiçbir anlamı yoktur. Derleyici kodu şöyle optimize edebilir:
+
+	for (int i = 0; i < 10; ++i)  {
+		printf("%d\n", i);
+	}
+	x = 100;
+	printf("%d\n", x);
+
+	Örneğin:
+
+	for (int i = 0; i < 1000000; ++i)
+		ifade;
+
+	Derleyici, bu kodu isterse, aşağıdaki gibi düzenleyebilir ve biz bunu programın çalışması sırasında anlayamayız:
+
+	for (int i = 0;  < 1000000; i += 5) {
+		ifade;
+		ifade;
+		ifade;
+		ifade;
+	}
+
+	Örneğin:
+
+	int foo(void)
+	{
+		return 100;
+	}
+	...
+	x = foo();
+
+	Burada derleyici, aslında bu fonksiyonu hiç çağırmadan aşağıdaki gibi de kod üretebilir:
+
+	x = 100;
+
+	Ancak fonksiyon şöyle olsaydı:
+
+	int foo(void)
+	{
+		printf("foo\n");
+
+		return 100;
+	}
+	...
+	x = foo();
+
+	Artık bu optimizasyonu yukarıdaki gibi yapamayacaktı.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de ismi isxxx başlayan, ismine "karakter test fonksiyonları" denilen bir grup standart C fonksiyonu vardır. Bu fonksiyonların parametreleri int türden
+	ve geri dönüş değerleri de int türdendir. Bu fonksiyonların parametreleri her ne kadar int türdense de, aslında bu fonksiyonlar char bir değeri, parametre
+	olarak alırlar. Bu fonksiyonlar, parametreleriyle aldıkları karakteri test ederler. Eğer test olumlu ise sıfır dışı herhangi bir değere, olumsuz ise sıfır değerine
+	geri dönerler. Bunların listesi şöyledir:
+
+	isupper			Büyük harf bir karakter mi?
+	islower			Küçük harf bir karakter mi?
+	isalpha			Alfabetik karakter mi?
+	isalnum			Alfabetik ya da nümerik bir karakter mi?
+	isdigit			Sayısal bir karakter mi?
+	isxdigit		HEx digit bir karakter mi?
+	isspace			Boşluk karakterlerinden biri mi?
+	ispunct			Noktalama karakterlerinden biri mi?
+	isascii			İlk 128 karakterden biri mi?
+	iscntrl			Kontrol karakterlerinden biri mi? (ASCII tablosunun ilk 32 karakteri kontrol karakterleridir)
+
+	Bu fonksiyonlar kullanılırken <ctype.h> dosyası include edilmelidir. Karakter test fonksiyonları yalnızca ACII tablosundaki karakterler için çalışmaktadır.
+	Biz bu fonksiyonlarla öğrneğin Türkçe karakterleri test edemeyiz.
+
+	Karakter test fonksiyonlarının parametreleri, unsigned char ürüyle temsil edilebilmelidir. Yani, örneğin biz bu fonksiyonlara [0, 255] aralığının dışında herhangi bir değer
+	girersek bu fonksiyonlar tanımsız davranışa yol açarlar. Bu fonksiyonlar, UTF-8 gibi multibyte karakterler için kullanılamazlar. Ancak bir byte'lık encodinglerde lokal spsifik
+	davranılş gösterebilirler.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+	int ch;
+
+	printf("Bir karakter giriniz:");
+	ch = getchar();
+
+	if (isupper(ch))
+		printf("upper case\n");
+	else if (islower(ch))
+		printf("lower case\n");
+	else if (isdigit(ch))
+		printf("digit\n");
+	else if (isspace(ch))
+		printf("white space char\n");
+	else
+		printf("another character\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	İki önemli karakter fonksiyonu da toupper ve tolower fonksiyonlarıdır. toupper fonksiyonu; küçük bir karakteri büyük harfe, tolower fonksiyonu da;
+	büyük harf bir karakteri küçük harfe dönüştürür. toupper eğer parametresi küçük bir karakter değilse aynı karakterle geri dönmektedir.
+	Benzer biçimde tolower fonksiyonu da eğer parametresi büyük bir harf bir karakter, değilse aynı değerle geri döner. Fonksiyonların parametrik yapıları şöyledir:
+
+	int toupper(int ch);
+	int tolower(int ch);
+
+	Her ne kadar bu fonksiyonların parametreleri ve geri dönüş değerleri int türdense de aslında char türden bir bilgiyi kabul etmektedir.
+	Bu fonksiyonların geri döndürdüğü int değerlerin yüksek anlamlı byte'ları her zaman 0'dır. Düşük anlamlı byte'lar için de dönüştürülmüş karakterin numarası vardır.
+	Dolayısıyla biz bu fonksiyonların geri dönüş değerlerini, char türünden bir nesneye atayabiliriz.
+
+	Bu fonksiyonların parametreleri de unsigned char sınırları içerisinde [0, 255] arasında değerler girilebilir.
+
+	Bu fonksiyonları kullanırken de <ctype.h> dosyasının include edilmesi gerekir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+	int ch;
+
+	printf("Bir karakter giriniz:");
+	ch = getchar();
+
+	ch = toupper(ch);
+	putchar(ch);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örnekte "case insensitive" karakter karşılaştırması örneği verilmiştir. Biz bir karakter toupper ya da tolower fonksiyonuna sokup bunun sonucunu
+	karşılaştırırsak "case insensitive" karşılaştırma yapmış oluruz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+	int ch;
+
+	printf("(e)vet/(h)ayir?\n");
+	ch = getchar();
+	ch = tolower(ch);
+
+	if (ch == 'e')
+		printf("evet\n");
+	else if (ch == 'h')
+		printf("hayir\n");
+	else
+		printf("e ya da h girilmedi!\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	toupper fonksiyonunu, basit bir biçimde aşağıdaki yazabiliriz. Tabii, bu yazımda küçük harf ve büyük harflerin karakter tablosunda peşi sıra gittiği
+	varsayılmaktadır. ASCII tablosunda bunlar, gerçekten peşi sıra girmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int mytoupper(int ch)
+{
+	if (ch >= 'a' && ch <= 'z')
+		return ch - 'a' + 'A';
+
+	return ch;
+}
+
+int main(void)
+{
+	char ch;
+
+	ch = getchar();
+	ch = mytoupper(ch);
+
+	putchar(ch);
 
 	return 0;
 }
