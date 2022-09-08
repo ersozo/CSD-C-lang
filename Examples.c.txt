@@ -6926,3 +6926,433 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							26. Ders - 06/09/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de derleme işlemi kaynak dosyada yukarıdan aşağıya doğru yapılmaktadır. Bir fonksiyonun çağrıldığını gören derleyicinin, fonksiyonun çağrılma noktasına kadar,
+	bu fonksiyonun geri dönüş değerinin türü hakkındaki bir bilgiyi edinmesi gereklidir. Çünkü, çağrılma noktasında doğru kodu üretebilmek için, derleyicinin, çağrılan fonksiyonun
+	en azından geri dönüş değerinin türünü biliyor olması gerekmektedir. C90'da fonksiyonun çağrılma noktasına kadar fonksiyonun geri dönüş değerinin türü hakkında
+	derleyici bir bilgi edinememişse fonksiyonun int türden geri dönüş değerine sahip olduğunu ancak herhangi bir parametrik yapıya sahip	olabileceğini varsayarak kod üretmektedir.
+	Bu durumda eğer derleyici, fonksiyonun çağrılma noktasının aşağısında, int geri dönüş değerinin dışında bir geri dönüş değeriyle tanımlnadığını görürse, bu durum geçersizdir
+	ve error oluşturmaktadır. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		foo();
+
+		return 0;
+	}
+
+	int foo(void)
+	{
+		return 100;
+	}
+
+	Bu kod C90'a göre geçerlidir. Çünkü yukarıdan aşağıya doğru derleyici, fonksiyonun çağrılma noktasına kadar, fonksiyonun geri dönüş değerinin türünü anlayamadıysa
+	fonksiyonun int geri dönüş değerine sahip olduğu varsayımıyla kod üretir. Daha sonra fonksiyonun gerçekten de int geri dönüş değerine sahip olarak tanımlandığını görürse
+	kendi varsaydığı durumla gerçekleşen durum aynı olduğu için bu durumda herhangi bir sorun ortaya çıkmaz. Ancak eğer fonksiyonun daha aşağıda
+	int geri dönüş değeri dışında herhangi bir geri dönüş değerine sahip olarak tanmlandığını görürse, bu durumda yanlış ürettiği için derleme işlemi
+	başarısız olacaktır. Derleyici, bu tür durumlarda geri dönüp ürettiği kodu düzeltmemektedir. Örneğin:
+
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		foo();
+
+		return 0;
+	}
+
+	double foo(void)				/* error! */
+	{
+		return 3.14
+	}
+
+	C90'da çağrılma noktasına kadar fonksiyonun geri dönüş değerinin türüne ilişkin derleyici bilgi edinememişse onun int geri dönüş değerine sahip
+	ancak herhangi bir parametrik yapıya ilişkin olabileceği varsayımıyla kod üretmektedir. Yani C90'da da fonksiyon daha aşağıda int geri dönüş değerine sahip
+	ancak farklı bir parametrik yapıyla tanımlanmışsa bu durum yine geçerlidir. Örneğin:
+
+	int main(void)
+	{
+		foo();
+
+		return 0;
+	}
+
+	int foo(int a, int b)			/* C90'da geçerli */
+	{
+		return a + b;
+	}
+
+	Ancak C++'ta ve C99 ve ötesinde yukarıda açıklanan kural değiştirilmiştir. C99 ve ötesinde artık bir fonksiyon çağrılmışsa, derleyicinin mutlaka çağrılma noktasına kadar
+	fonksiyonun en azından geri dönüş değerinin türü hakkında bir bilgiyi edinmiş olması gerekmektedir. Dolayısıyla aşağıdaki örnek C90'da geçerli olduğu halde
+	C99 ve ötesinde (ve C++'ta) geçersizdir:
+
+	int main(void)
+	{
+		foo();						/* C99 ve ötesinde geçersiz! Ancak C90'da geçerli */
+
+		return 0;
+	}
+
+	int foo(void)
+	{
+		return 100
+	}
+
+	İşte derleyicinin, çağrılan fonksiyonun çağrılma noktasına kadar en azından geri dönüş değerinin türü hakkında bir bilgi edinebilmesinin iki
+	yoldu vardır:
+
+	1) Çağrılan fonksiyonu, çağıran fonksiyonun daha yukarısında tanımlamak,
+	2) Çağrılan fonksiyonun, "prototip" denilenm bir bildirimini çağrılma noktasından yukarıda bir yere yerleştirmek. Örneğin:
+
+	double foo(void)
+	{
+		return 3.14;
+	}
+
+	int main(void)
+	{
+		double result;
+
+		result = foo();
+		printf("%f\n", result);
+
+		return 0;
+	}
+
+	Burada çağrılan fonksiyon, çağıran fonksiyonun yukarısında tanımlandığı için herhangi bir sorun yoktur.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Fonksiyon protoipleri bir "tanımalama (definition)" işlemi değildir. Yani derleyici, prototip bildirimini gördüğünde bellekte bir yer ayırmaz.
+	Yalnızca o fonksiyonun geri dönüş değeri ve parametrik yapısı hakkında bilgi edinir. Prototip bildiriminin genel biçimi şöyledir:
+
+	<fonksiyonun geri dönüş değerinin türü> <fonksiyonun_ismi>([parametre bildirimi]);
+
+	Örneğin:
+
+	double foo(void);			/* Fonksiyon prototip bildirimi */
+
+	int main(void)
+	{
+		double result;
+
+		result = foo();
+		printf("%f\n", result);
+
+		return 0;
+	}
+
+	double foo(void)
+	{
+		return 3.14;
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Prototip bildirimi oluşturmanın en pratik yolu, fonksiyon tanımlamasının ilk satırını alıp sonuna ';' atomunu yerleştirmektedir. Örneğin:
+
+	double div(double a, double b)
+	{
+		return a / b;
+	}
+
+	Burada bu fonksiyonun ilk satırı alınıp sonuna ';' konulursa zaten prototip haline gelir.
+
+	double div(double a, double b);
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+double div(double a, double b);
+
+int main(void)
+{
+	double result;
+
+	result = div(3, 2);
+	printf("%f\n", result);
+
+	return 0;
+}
+
+double div(double a, double b)
+{
+	return a / b;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Prototipteki parametre değişkeni isimleriyle tanımlamadaki parametre değişkenlerinin isimlerinin uyuşması bir zorunluluk değildir. Örneğin:
+
+	double div(double x, double y);
+
+	/* .... */
+
+	double div(double a, double b)			/* geçerli */
+	{
+		return a / b;
+	}
+
+	Prototipte yalnızca parametre değişkenlerinin türleri belirtilebilir, isimleri belirtilmeyebilir. Örneğin:
+
+	double div(double, double);				/* geçerli */
+
+	Prototipte belirtilen geri dönüş değeri türü ve parametre türlerinin, eğer tanımlama yapılmışsa, tanımlamadkiyle uyuşması zorunludur. Aksi takdirde
+	kod geçersizdir. Örneğin:
+
+	double div(double a, double b);
+
+	/* .... */
+
+	double div(float a, float b)			/* geçersiz! */
+	{
+		return a / b;
+	}
+
+	Bir fonksiyon ikinci kez tanımlanamaz ancak bir fonksiyonun prototipi birden fazla kez bildirilirse bir sorun oluşturmaz. Tabii bu durumda tüm prototip
+	bildirimlerindeki geri dönüş değeri türü ve parametre türlerinin aynı olması gerekir. Örneğin:
+
+
+	double div(double x, double y);
+	double div(double x, double y);			/* geçerli, aynı olmak koşuluyla bir prototip bildirimi birden fazla kez yazılabilir */
+
+	/* .... */
+
+	double div(double a, double b)			/* geçerli */
+	{
+		return a / b;
+	}
+
+	C90'da prototip bildiriminde, her ne kadar anlamsız olsa da geri dönüş değerinin türü yazılmayabiliyordu. Bu durumda geri dönüş değerinin türü için
+	int yazılmış olduğu varsayılıyordu. Ancak bu kural C99 ile birlikte kaldırılmıştır. Artık prototipte geri dönüş değerinin türü yazılmak zorundadır. Örneğin:
+
+	foo(void);								/* Bu prototip C90'da geçerli ancak C99 ve sonrasında geçersiz! */
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'nin tüm versiyonlarında prototipte, parametre parantezinin içinin boş bırakılmasıyla void yazılması farklı anlamlara gelmektedir. Parametre
+	parantezinin içi boş bırakılırsa, bu durum "derleyicinin çağrılma sırasında parametreleri sayıca kontrol etmeyeceği" anlamına gelmektedir. Oysa parametre
+	parantezinin içine void yazılması, fonksiyonun parametreye sahip olmadığı anlamına gelir. Örneğin:
+
+	#include <stdio.h>
+
+	void foo();             				/* Bu prototip parametrelerin herhangi bir biçimde olabileceği anlamına gelmektedir */
+
+	int main(void)
+	{
+
+		foo(10, 20);        				/* geçerli, parametreler sayıca kontrol edilmiyor */
+
+
+		return 0;
+	}
+
+	void foo(double a, double b)
+	{
+		printf("foo\n");
+	}
+
+	Ancak örneğin:
+
+	#include <stdio.h>
+
+	void foo(void);             			/* bu prototip fonksiyonun parametreye sahip olmadığı anlamına gelmektedir */
+
+	int main(void)
+	{
+
+		foo(10, 20);        				/* geçersiz! Fonksiyon parametreye sahip değil */
+
+		return 0;
+	}
+
+	void foo(void)
+	{
+		printf("foo\n");
+	}
+
+	Tabii eğer parametre parantezinin içinin boş bırakıldığı bir prototipten sonra artık derleyici parametre parantezinin içinin boş bırakılmaıdğı bir prototoip
+	ile ya da fonksiyonun tanımlamasıyla karşılaşırsa, bu durumda artık parametre kontrolü yapılır. Örneğin:
+
+	#include <stdio.h>
+
+	void foo();                 			/* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
+
+	void foo(int a, int b)					/* artın bu tanımlamayla fonksiyonun parametreleri çağrım sırasında derleyici tarafından kontrol edilecektir */
+	{
+		printf("foo\n");
+	}
+
+	int main(void)
+	{
+
+		foo(10, 20, 30);        			/* geçersiz! */
+
+		return 0;
+	}
+
+	Aşağıdaki iki prototip birlikte bulunabilir:
+
+	void foo();                 			/* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
+	void foo(int a, int b);					/* artık derleyici parametre kontrolü yapacaktır */
+
+
+	Tabii parametre parantezinin içi boş bırakıldığında fonksiyon yine uygun olmayan sayıda argümanla çağrılırsa bu durum "tanımsız davranışa" yol açar.
+	Örneğin:
+
+	#include <stdio.h>
+
+	void foo();                 			/* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
+
+	int main(void)
+	{
+
+		foo(10, 20, 30);        			/* geçerli! derleme başarıyla sonuçlanır, ancak tanımsız davranış oluşur */
+
+		return 0;
+	}
+
+	void foo(int a, int b)
+	{
+		printf("foo\n");
+	}
+
+	Peki, prototipte parametre parantezinin içinin boş bırakılabilmesi gibi bir kuralın anlamı nedir? İşte eskiden (80'lerin ilk yarısına kadar) C'de prototip
+	diye bir kavram yoktu. Yalnızca "fonksiyon bildirimi (function declarations)" denilen bir kavram vardı. Fonksiyon bildiriminde de parametre
+	parantezinin içi boş bırakılyordu. Derleyici de o zamanlar fonksiyon bildirimini gördüğünde parametre kontrolü yapmıyordu. Daha sonra C'ye fonksiyon
+	prototipleri eklenince eskiye doğru uyumu korumak için prototiplerde parametre parantezinin içinin boş bırakılabilmesi geçerli kabul edildi.
+	Yani prototiplerde parametre parantezinin içinin boş bırakılabilmesi tamamen eskiye doğru uyumu korumak için düşünülmüştür. Tabii programcı prototip
+	yazarken parametre türlerini belirtmelidir.
+
+	C++, C'nin geçmişe doğru uyumu koruma gibi bir çabasına ortak olmamıştır. Dolayısıyla, örneğin C++'ta prototiplerde parametre parantezinin içinin
+	boş bırakılmasıyla void yazılması arasında hiçbir farklılık yoktur. Her iki durum da "fonksiyonun parametreye sahip olmadığı" anlamına gelmektedir. Örneğin:
+
+	void foo();
+	void foo(void);							// C++'ta ikisi arasında hiçbir farklılık yok
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de, parametre parantezinin içinin boş bırakılmasıyla, void yazılması arasında farklılık olduğunu belirtmiştik. Ancak fonksiyon tanımlaması söz konusu
+	olduğunda parametre parantezinin içinin boş bırakılmasıyla, void yazılması arasında hiçbir farkılık yoktur. Her iki durum da "fonksiyonun" parametreye
+	sahip olmadığı anlamına gelir. Örneğin:
+
+	#include <stdio.h>
+
+	void foo()      						/* tanımlamada parametre parantezinin içinin boş bırakılmasıyla void yazılması arasında farklılık yok */
+	{
+		printf("foo\n");
+	}
+
+	int main(void)
+	{
+
+		foo(10);       						 /* geçersiz! foo'nun parametresi yok! */
+
+		return 0;
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir fonksiyonun prototipinin yazılmış olması onu çağırmayı zorunlu hale getirmez. Yani biz onlarca fonksiyonun prototipini yazıp onları hiç çağırmayabiliriz.
+	Bu durum tamamen geçerlidir. Fonksiyon prototipleri bir tanımlama olmadığından bellekte yer kaplamazlar. Yalnızca derleyici tarafından kod derlenirken bunlardan
+	faydalanılmaktadır. Tabii çok sayıda fonksiyon için prototip yazıldığında derleyici bunların hepsini gözden geçireceği için mikro mertebede de olsa derleme süresi uzayabilir.
+	Ancak program çalışırken bu protiplerin bellek üzerinde ya da performans üzerinde hiçbir etkisi yoktur.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Fonksiyon prototipleri global düzeyde ya da yerel düzeyde bildirilebilir. Eğer prototip global alana yerleştirilirse bu durumda yerleştirildiği
+	yerden dosyanın sonunaa kadar her yerde etikili olur. Eğer prototip bir yerel bloğa yerleştirilmişse yerleştirildiği yerde o bloğun sonuna
+	kadarki bölgede etkili olur. Hemen her zaman programcılar prototipleri global düzeyde, programın tepesinde ya da bir başlık dosyasının içerisinde
+	bildirirler. Örneğin
+
+	#include <stdio.h>
+
+	void foo(void);
+
+	int main(void)
+	{
+		void bar(void);
+
+		foo();        							/* geçerli, prototip bildirimi görülmüş durumda */
+		bar();		  							/* geçerli, prototip bildirimi görülmüş durumda */
+
+		return 0;
+	}
+
+	void tar()
+	{
+		foo();									/* geçerli prototip bildirimi görülmüş durumda */
+		bar();									/* geçersiz! prototip bildirimi derleyici tarafından görülmüyor */
+	}
+
+	void foo(void)      						/* tanımlamada parametre parantezinin içinin boş bırakılmasıyla void yazılması arasında farklılık yok */
+	{
+		printf("foo\n");
+	}
+
+	void bar(void)
+	{
+		printf("bar\n");
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Derleyici, standart C fonksiyonlarının farkında değildir. Yani derleyici bizim foo fonksiyonumuz için ne yapıyorsa printf, sqrt gibi standart C
+	fonksiyonları için de aynı şeyi yapar. Başka bir deyişle, örneğin derleyici printf fonksiyonunu gördüğünde ona hiçbir özel muamele yapmamaktadır.
+	O halde standart C fonksiyonları için de prototip gerekmektedir. Eğer standart C fonksiyonları için prototip yazılmzsa, C90'da onların geri dönüş değerleri
+	int kabul edilmektedir. C99 ve ötesinde zaten bu durum geçerli değildir. Örneğin aşağıdaki kodda sqrt fonksiyonun prototipi olmadığı için
+	C90'da onun geri dönüş değeri int kabul edilecek ve "tanımsız davranış" oluşacaktır. C99 ve ötesinde aşağıdaki kod geçerli değildir:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		double result;
+
+		result = sqrt(10);						/* C90'da tanımsız davranış! C99 ve ötesinde geçersiz' */
+		printf("%f\n", result);
+
+		return 0;
+	}
+
+	Standart C fonksiyonları için prototipleri biz kendimiz yazabiliriz. Ama bu tavsiye edilen bir durum değildir. Örneğin:
+
+	#include <stdio.h>
+
+	double sqrt(double);
+
+	int main(void)
+	{
+		double result;
+
+		result = sqrt(10);						/* geçerli, prototip yazılmış ve doğru */
+		printf("%f\n", result);
+
+		return 0;
+	}
+
+	İşte C'de standart C fonksiyonarının prototipleri gruplara ayrılarak çeşitli başlık dosyalarının içerisine yazılmıştır. Örneğin tüm matematiksel
+	fonksiyonların prototipleri <math.h> dosyasının içerisine, tüm dosya, ekran ve klavye fonksiyonlarının prototipleri <stdio.h> dosyasının içerisine,
+	tüm karakter test fonksiyonlarının prototipleri <ctype.h> dosyasının içerisine yerleştirilmiştir. Böylece programcı standart C fonksiyonlarının
+	protiplerini elle yazmak yerine onların zaten yazılı olduğu başlık dosyasını include eder. Burada önemli bir nokta bu başlık dosyalarında bu fonksiyonların
+	tanımlamalarının yani kodlarının olmadığı, yalnızca prototiplerinin olduğudur.
+
+	Tabii bir bir başlık dosyasını include ettiğimizde aslında bir grup standart C fonksiyonunun prototipini kaynak koda eklemiş oluruz. Ancak yukarıda da
+	belirttiğimiz gibi bir fonksiyonun prototipinin yazılmış olması onu çağırmayı zorunlu hale getirmemektedir.
+
+	O halde programcı, tipik olarak hangi standart C fonksiyonunu çağıracaksa onun prototipinin hangi başlık dosyasında olduğunu öğrenmeli ve o dosyayı
+	include etmelidir.
+
+	Tabii aslında başlık dosyalarının içerisinde prototiplerden başka birtakım bildirimler de vardır. Konular ilerledikçe biz bu başlık dosyalarının içerisinde
+	başka nelerin olduğunu da göreceğiz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
