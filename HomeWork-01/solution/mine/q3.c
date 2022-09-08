@@ -4,7 +4,7 @@
 void primeFactors(int val)
 {
     double val_sqrt = sqrt(val);
-   
+
     while (val % 2 == 0)
     {
         printf("%d ", 2);
