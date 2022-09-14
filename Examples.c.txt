@@ -7356,3 +7356,495 @@ double div(double a, double b)
 	Tabii aslında başlık dosyalarının içerisinde prototiplerden başka birtakım bildirimler de vardır. Konular ilerledikçe biz bu başlık dosyalarının içerisinde
 	başka nelerin olduğunu da göreceğiz.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+							27. Ders - 08/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Başlık dosyalarında standart C fonksiyonlarının prototiplerinin bulunduğunu belirtmiştik. Peki bunların kendileri nerededir? İşte standart C fonksiyonları
+	derlenmiş bir biçimde "kütüphane (library)" denilen özel dosyaların içerisinde bulunmaktadır. Kütüphanelere linker tarafından link işlemi sırasında
+	bakılmaktadır. Linker, standart C fonksiyonlarının bulunduğu kütüphane dosyalarına otomatik olarak bakar, böylece onları oradan alır. Kütüphaneler
+	içerisinde fonksiyonlar derlenmiş bir biçimde bulunmaktadır. Dolayısıyla onların yeniden derlenmesine gerek olmaz.
+
+	Tabii kütüphaneler programcılar tarafından da oluşturulabilmektedir. Programcılar da kütüphane dosyaları oluşturup link aşamasında linker'a oluşturdukları
+	kütüphaneye de bakmasını söyleyebilmektedirler. Yukarıda da belirttiğimiz gibi linker zaten (genellikle) otomatik olarak standart C fonksiyonlarının
+	bulunduğu kütüphanelere de bakmaktadır.
+
+	Kütüphane dosyaları "statik kütüpahenler" ve "dinamik kütüphaneler" olmak üzere ikiye ayrılmaktadır. Statik kütüphane dosyalarının Windows'ta uazantıları
+	".lib" biçiminde UNIX/Linux ve Mac OS sistemlerinde ise ".a" (archive sözcüğünden kısaltma) biçimindedir. Dinamik kütüphanelerin ise Windows'ta uzantıları ".dll"
+	(dynamic link library'den kısaltma) biçimindedir.
+
+	Tabii kütüphaneler programcılar tarafından da oluşturulabilmektedir. Programcılar da kütüphane dosyaları oluşturup link aşamasında linker'a oluşturdukları
+	kütüphaneye de bakmasını söyleyebilmektedirler. Yukarıda da belirttiğimiz gibi linker zaten (genellikle) otomatik olarak standart C fonk/Linux ve MAC OS sistemlerinde
+	ise ".so" (shared object sözcüklerinden kısaltma) biçimindedir. Bugün Windows, UNIX/Linux ve Mac OS sistemlerinde ağırlıklı biçimde dinamik kütüphaneler
+	kullanılmaktadır.
+
+	Statik kütüphane dosyaları "object modüllerden", object modüller ise fonksiyonlardan oluşmaktadır. Yani bir statik kütüphane aslında doğrudan fonksiyonları tutmaz.
+	Object modülleri tutar. Derlenmiş fonksiyonlar object modüllerin içerisindedir. O halde biz bir grup fonksiyonu statik kütüphane dosyasının içerisine yerleştirmek istersek
+	ona onu derleriz. Object modül haline getiririz. Object modülü statik kütüphane dosyasına ekleriz.
+
+	Linker programı kaynak kodda olmayan fonksiyonları belirtilen kütüphane dosyalarında aramaktadır. Eğer fonksiyonu linker bir statik kütüphane dosyasında
+	bulursa onun içinde bulunduğu object modülün tamamını oradan alarak çalıştırılabilen dosyaya enjekte eder. Böylece artık çalıştırılabilen dosya
+	gerçekten kütüphanedeki fonksiyonların makine kodlarını içeriyor durumda olur. Dolayısıyla artık bu program çalıştırılırken statik kütüphane dosyalarının
+	bulundurulmasına gerek kalmamaktadır. Burada iki önemli nokta vardır:
+
+	1) Linker, fonksiyonu statik kütüphane dosyasında bulursa, onun içinde bulunduğu object modülün hepsini çalıştırılabilen koda enjekte eder.
+	Örneğin biz yalnızca foo fonksiyonunu çağırmış olsak bile foo fonksiyonun içinde bulunduğu statik kütüphanede 100 tane fonksiyon varsa bu
+	100 fonksiyonun hepsi çalıştırılabilen dosyaya yazılacaktır.
+
+	2) Çalıştırılabilen dosya, kütüphaneden çekilen object modülleri de içerir. Böylece bu programın çaçıştırılması sırasında artık statik kütüphanelere
+	gereksinim duyulmayacaktır.
+
+	Statik kütüphanelerin en önemli dezavantajı, her çalıştırılabilen dosyanın kullanılan kütüphane fonksiyonlarının kodlarını barındırmasıdır. Bu da çalıştırılabilen
+	dosyaların diskte fazlaca yer kaplaması anlamına gelir. Örneğin, pek çok C programı printf fonksiyonunu kullanmaktadır. O zaman, o programlarının hepsinin
+	içerisinde printf fonksiyonun makine kodları bulunur.
+
+	Dinamik kütüpaheneler içerisinden bir fonksiyon çağrıldığında linker, fonksiyonun kodunu dinamik kütüphaneden alarak çalıştırılabilen dosyaya yazmaz.
+	Bunun yerine linker, çalıştırılabilen dosyaya işletim sistemi için "ilgili programın hangi danamik kütüphanelerinin (onların içerisindeki) hangi fonksiyonları
+	kullandığı bilgisini" yazar. Böylece çalıştırılabilen dosyalar bu fonksiyonların kodlarını içermezler. İşletim sisteminin yükleyicisi (loader), çalıştırılabilen
+	dosyayı belleğe yüklerken o dosyanın kullanmış olduğu dinamik kütüphaneleri de belleğe yüklemektedir. Böylece akış, program çalışırken belleğe yüklenmiş olan
+	dinamik kütüphane içerisine geçerek oradaki kodları çalıştırır. Bu sistemde dinamik kütüphanenin bir bölümü değil, hepsi belleğe yüklenmektedir. (Yani
+	örneğin, biz dinamik kütüphaneden tek bir fonksiyon çağırmış olsak bile onun tamamı belleğe yüklenir.) Dinamik kütüphaneler, programın birer parçası kabul edilmektedir.
+	Dolayısıyla, program başka bir makineye konuşlandırılırken yalnızca çalıştırılabilen dosya değil, o dosyanın kullandığı dinamik kütüphane dosyaları da o sisteme taşınmak
+	zorundadır. Dinamik kütüphane kullanan programlar biraz daha geç yüklenme eğilimindedir. Ancak farklı programlar aynı dinamik kütüphaneyi kullanıyorsa, işletim sistemleri
+	mümkün olduğu kadar o dinamik kütüphaneyi tekrar tekrar belleğe yüklemezler. Bu konunun bazı detayları vardır.
+
+
+	Bugün, Microsoft C derleyicileri, gcc derleyicileri ve bunların linker programları default durumda standart C fonksiyonlarını dinamik kütüphanelerden almaktadır.
+	Tüm standart C fonksiyonları genellikle tek bir dinamik kütüphanede toplanmıştır. Ancak bu durum değişebilmektedir. Tabii bu sistemler aynı standart C fonksiyonlarını
+	statik kütüphanelere de yerleştirmişlerdir. Programcı isterse default durumu değiştirerek standarty C fonksiyonlaırnın statik kütüphanelerden alınmasını sağlayabilir.
+
+	Microsoft derleycilerinde standart C fonksiyonlarının statik kütüphanelerden alınmasını sağlamak için komut satırında /MT ya da /MTd komut satırı argümanları
+	kullanılır. IDE'de bu ayar Proje seçenlerinden C-C++/Code Generation/Runtime Library combobox'ından ayarlanmaktadır. gcc sisteminde -static linker seçeneği
+	derleme link işlemine eklenmelidir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Biz kendimizin tanımalamadağı, yani kaynak dosyamızda olmayan bir fonksiyonu çağırmış olalım. Örneğin:
+
+	#include <stdio.h>
+
+	void xxxxx(void);
+
+	int main()
+	{
+		xxxxx();
+
+		return 0;
+	}
+
+	Burada hata hangi aşamada ortaya çıkacaktır? İşte, kaynak kodda olmayan bir fonksiyon çağrıldığında eğer derleyici fonksiyonu kaynak kodda bulamazsa
+	derlemeyi başarıyla sonuçlandırır. Ancak objecet modüle linker için bir not yazar. Bu notta adeta şöyle demektedir: "Sevgili linker, ben xxxxx isimli
+	bir fonksiyonun çağrıldığını gördüm. Ancak onu kaynak kodda bulamadım. Sen onu, diğer object modüllerde ve kütüphane dosyalarında ara ve bulmaya çalış.
+	Bulmazasan yapacak bir şey yok". İşte linker bu notu okuyarak fonksiyonu arar ve onu bulursa sorun çıkmaz. Ancak bulamazsa link aşamasında error
+	oluşur. O halde olmayan bir fonksiyon çağrıldığında hata derleme aşamasında değil, link aşamasında linker'ın bu fonksiyonu bulamaması biçiminde
+	ortaya çıkmaktadır.
+
+	Aslında standart C fonksiyonlarının standart C fonksiyonu olduğunu, ne derleyici ne de linker bilmektedir. Örneğin derleyici printf fonksiyonunu
+	gördüğünde onu kaynak kodda bulamadığı için object modüle linker için benzer notu yazar. Linker de printf fonksiyonunu tanımamaktadır. Ancak onu kütüphanelerde
+	ararken bulur. Halbuki xxxxx fonksiyonu bulamayacktır. O halde standart C fonksiyonlarının standart C fonksiyonları olduğu, yalnızca programcılar tarafından
+	bilinmektedir. Tabii biz derleyicileri install ederken bu standart C fonksiyonları, statik ya da dinamik kütüphane dosyalarına yerleştirilmiş durumda olur.
+	En azından bu garanti edilmiştir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aslında C derleyicisi kendi içerisinde iki modülden oluşmaktadır: Önişlemci (Preprocessor) ve Derleme (Compile) Modülleri:
+
+				.c ----> Önişlemci Modülü -----> Derleme Modülü -----> Object Dosya
+
+	Kaynak kod önişlemci modülü tarafından alınır. Önişlemci, kaynak kod üzerinde çeşitli düzenlemeleri yapar ve kodu derleme modülüne verir. Derleme işleminin
+	bütün faaliyetleri derleme modülü tarafından yapılmaktadır. Yani C derleyicisi dediğimiz şey aslında bu derleme modülüdür. Ancak, önişlemci de derleyicinin
+	bir parçasıdır.
+
+	C'de  # ile başlayan satırlar önişlemciye ilişkindir. Yani önişlemci #'li satırlarla uğraşmaktadır.
+
+	#'den sonra ismine "önişlemci komutu" denilen bir anahtar sözcük gelir. Önişlemci komutu önişlemciye ne yapması gerektiğini belirtmektedir. Pek çok
+	önişlemci komutu vardır. Ancak bunların arasında "include" ve "define" önişlemci komutları, en çok kullanılanlardır. Biz de kursumuzun bu bölümünde
+	bu iki komutu inceleyeceğiz. Diğer önişlemci komutlarını kursumuzun son bölümlerinde ele alacağız.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							28. Ders - 13/09/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	En çok kullanılan önişlemci komutlarından biri #define komutudur. Bu komutun genel biçimi şöyledir:
+
+	#define STR1	STR2
+
+	Burada #define komutundan sonra boşluk karakterleri atılıp ilk boşluksuz yazı kümesi elde edilir. Buna STR1 diyelim. Sonra yeniden boşluk karakterleri atılıp
+	satır sonuna kadar tüm karakterler elde edilir. Buna da STR2 diyelim. Önişlemci kaynak kodda, STR1 gördüğü yerlere STR2 yazısını yerleştirmektedir. Örneğin:
+
+	#define MAX_VAL		(10 + 20)
+
+	Burada STR1 "MAX_VAL" yazısını, STR2 ise "(10 + 20)" yazısını temsil eder. İşte önişlemci kaynak kodda "MAX_VAL" gördüğü yere "(10 + 20)" yerleştirecektir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define MAX_VAL		(10 + 20)
+
+int main(void)
+{
+	int a;
+
+	a = MAX_VAL * 2;		/* derleme modülü burada a = (10 + 20) * 2 yazısını görecek */
+
+	printf("%d\n", a);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Önişlemcinin derleme yapmadığına, yalnızca kaynak kod üzerinde yazısal düzenlemeler yaptığına dikkat ediniz. Önişlemciden geçirilmiş kod derleme modülüne
+	geldiğinde artık # ile başlayan satırlar koddan silinmiş olacaktır. Yani kaynak kod önişlemciden geçtikten sonra artık #'li satırlardan arındırılmış
+	durumda olur.
+
+	#define komutunun hesap yapmadığına, yalnızca yer değiştirme yaptığına dikkat ediniz. Bu nedenle aşağıdaki kodda ekranda 50 yazısını göreceksiniz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define MAX_VAL		10 + 20
+
+int main(void)
+{
+	int a;
+
+	a = MAX_VAL * 2;		/* a = 10 + 20 * 2 */
+
+	printf("%d\n", a);		/* 50 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir program içerisindeki birtakım sabitler sayı olarak değil, #define komutu ile yazı biçiminde ifade edilirse kodu inceleyen kişi onu daha iyi anlamlandırır.
+	Bu nedenle C programcıları birtakım sayıları programda böyle yazısal biçimde ifade ederler. İşte #define komutu ile bir yazıya bir sayı karşılık getirilmesi
+	durumunda yazıya "sembolik sabit (symbolic constant)" denilmektedir. Örneğin:
+
+	#define MAX_SIZE			100
+	#define LINE_LENGTH			1024
+	#define NITEMS				12
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Önişlemciler tipik olarak geçici bir dosya açarak #'li satırlar üzerindeki düzenlemeyi bu geçici dosyada yaparlar. Sonra, derleme modülüne önişlemden
+	geçirilmiş bu geçici dosyayı verirler. Derleme işleminden sonra da bu geçici dosyayı silerler. Bu nedenle biz bu geçici dosyayı görmeyiz. Ancak derleyicilerin
+	çoğunda önişlemcinin yarattığı dosyayı görebilmemin yolları da vardır. Microsost'un C derleyicisinde /P seçeneği gcc ve clang derleyicilerinde -E
+	seçeneği bu amaçla kullanılabilir. Tabii aynı işlem Visual Studio IDE'sinde proje seçeneklerinde C-C++/Preprocessor/Preprocessor to File seçeneği ile
+	görsel olarak da yapılabilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Sembolik sabitlerin, derleme modülü için bir sabit statüsünde olduğuna dikkat ediniz. C'de bazı durumlarda sabit ifadelerinin zorunlu olduğunu anımsayınız.
+	Örneğin:
+
+	#include <stdio.h>
+
+	#define CMD_DEL		1
+	#define CMD_DIR		2
+	#define CMD_COPY	3
+	...
+
+	switch (a) {
+		case CMD_DEL:
+			break;
+		case CMD_DIR:
+			break;
+		case CMD_COPY:
+			break;
+	}
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Önişlemci, genel olarak C'yi bilmemektedir. Dolayısıyla önişlemci komutlarının bir faaliyet alanı yoktur. Örneğin, #define komutu kaynak kodun herhangi
+	bir yerinde yazılabilir. Bir fonksiyonun içinde yazılması ile dışında yazılması arasında farklılık yoktur. Nerede yazılmışsa oradan kaynak kodun sonuna kadarki
+	bölgede etki göstermektedir.
+
+	#define önişlemci komutları için en iyi yer, programın tepesi ya da bir başlık dosyasının içidir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+	#define komutunda komutun STR1 kısmı değişken ya da anahtar sözcük olabilir. Sabit, ayıraç ya da operatör olamaz. Örneğin aşağıdaki komutlar geçersizdir:
+
+	#define +		-
+	#define 100		200
+	#define ;		+
+
+	Ancak komutun STR2 kısmı herhangi bir yazı olabilir. Aşağıdaki komutlar geçerlidir:
+
+	#define TERMINATOR		;
+	#define ADD				+
+
+
+	Aşağıdaki örnekte program, önişlemciden geçtikten sonra C'ce anlamlı duruma gelecektir.
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+#define tam			int
+#define ana			main
+#define bos			void
+#define	eger		if
+#define degilse		else
+#define don			return
+#define yazf		printf
+
+tam ana(bos)
+{
+	tam i = 0;
+
+	eger (i > 0)
+		yazf("pozitif\n");
+	degilse
+		yazf("negatif ya da sifir\n");
+
+	don 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	#define komutunda genel olarak STR1 yazısına "makro (macro)" da denilmektedir. Örneğin:
+
+	#define MAX		10
+
+	Burada MAX için "sembolik sabit" de diyebiliriz, "makro" da diyebiliriz. Makro daha genel bir isimdir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Önişlemci #'li satırlar üzerinde değişiklik yapmaz. Ancak önişlemci açtığı bir maroyu yeniden önişleme sokmaktadır. Ta ki artık önişleme soktuğunda
+	değiştirilecek bir yazı kalmayana kadar. Örneğin:
+
+	#define MAX		100
+	#define MIN		(MAX - 50)
+
+	...
+
+	x = MIN;
+
+	Burada önişlemci MIN için önce aşağıdaki gibi bir açım yapar:
+
+	(MAX - 50)
+
+	Açtığı kodu yeniden önişleme sokar:
+
+	(100 - 50)
+
+	yazısını elde eder. Artık değiştirilecek bir şey kalmadığı için işlemi bitirir. Yukarıdaki #define komutlarını ters sırada yazsaydık da bir şey değişmeeyecekti:
+
+	#define MIN		(MAX - 50)
+	#define MAX		100
+
+	...
+
+	x = MIN;
+
+	Burada yine önce MIN için şu açımı yapar:
+
+	(MAX - 50)
+
+	Sonra açtığı makroyu yeniden önişleme sokar:
+
+	(100 - 50)
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Önişlemci iki tırnak içerisindeki yazılar (string ifadeler) üzerinde değişiklik yapmaz. Örneğin:
+
+	#include <stdio.h>
+
+	#define MAX		100
+
+	int main(void)
+	{
+		printf("MAX");		/* MAX */
+
+		return 0;
+	}
+
+	Burada MAX iki tırnak içerisind eolduğu için önişlemci bu yazı üzerinde değişiklik yapmamıştır. Dolayısıyla ekrana MAX yazısı çıkacaktır. Tabii
+	biz bir yazıyı, iki tırnaklı bir ifadeyle yer değiştirebiliriz. Örneğin:
+
+	#include <stdio.h>
+
+	#define MSG		"Success\n"
+
+	int main(void)
+	{
+		printf("MSG");		/* MSG */
+		printf(MSG);		/* Success */
+
+		return 0;
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'nin standart başlık dosyalarının içerisinde fonksiyon prototiplerinin yanı sıra #define ile oluşturulmuş çeşitli sembolik sabitler de bulunmaktadır.
+	Dolayısıyla biz bu başlık dosyalarını include ettiğimizde artık bu semboik sabitleri kullanabiliriz. Örneğin <stdio.h> içerisinde EOF isimli, BUFSIZ
+	ve çeşitli başka isimlerle sembolikler sabitler define edilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a;
+
+	a = EOF;				/* EOF <stdio.h> içerisinde define edilmiş */
+	printf("%d\n", a);
+
+	a = BUFSIZ;				/* BUFSIZ <stdio.h> içerisinde define edilmiş */
+	printf("%d\n", a);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	#define komutunda komutun STR2 kısmı hiç olmayabilir. Örneğin:
+
+	#define TEST
+
+	Bu durumda kaynak kodda STR1 görülen yere boşluk atanır, dolayısıyla STR1 yazıları silinmiş olur. Genel olarak STR2 kısmı olmayan #define komutları,
+	bazen kodu inceleyen kişiler için ipucu vermek amacıyla bazen de diğer önişlemci komutları için kullanılmaktadır.
+
+	Aşağıdaki örnekte programın çalışmasında herhangi bir bozukluk olmayacaktır. Çünkü IN yazıları kod derleme modülüne verildiğinde silinmiş olacaktır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define IN
+
+void foo(IN int a)
+{
+	printf("%d\n", a);
+}
+
+int main(void)
+{
+	IN IN
+		IN
+
+		IN
+	foo(10);
+
+	IN
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Makrolar parametreli olabilmektedir. Bunlara "parametreli makolar" ya da "fonksiyon gibi makrolar (function-like macros)" denilmektedir. Bir makroda
+	#define komutunun STR1 kısmında bir parantez açılırsa parantezin içerisindeki ',' ile ayrılmış isimlere "makro parametreleri" denilmektedir. Örneğin:
+
+	#define SQUARE(a)	...
+
+	Burada a, makro parametreisidir. Örneğin:
+
+	#define MAX(a, b)	...
+
+	Burada a ve b makro parametreleridir.
+
+	Parametreli makrolar bir fonksiyon çağrısı gibi işleme sokulurlar. Zaten onlara C standartlarında bu nedenle "function-like macro" denilmektedir.
+	Bir makro çağrıldığında önişlemci parametreleri yerleştirerek makroyu açar. Örneğin:
+
+	#define square(a)		a * a
+	...
+
+	result = square(10);
+
+	Burada 10, a parametresine karşı gelmektedir. O halde önişlemci kodu aşağıdkai gibi açacaktır:
+
+	result = 10 * 10;
+
+	Parametreleri makroların tamamen bir fonksiyon gibi kullanılması gerekir. Halbuki yukarıdaki square makrosu açıldığında tam bir fonksiyon etkisi yaratamaz. Örneğin:
+
+	result = square(10 - 2);
+
+	Eğer square bir fonksiyon olsaydı, önce argümanın değeri hesaplanacaktı ve biz 8'in karesini elde edecektik. Ancak square gerçekte bir makrodur. Önişlemci kodu şöyle
+	açacaktır:
+
+	result = 10 - 2 * 10 - 2;
+
+	Bu açılmış hal derleme modülüne geldiğinde çarpma işleminin önceliği olduğu için istenileni yapamayacaktır. O halde fonksiyon gibi makro yazabilmek için
+	makro parametrelerinin paranzteze alınması gerekir:
+
+	#define square(a)		(a) * (a)
+	...
+	result = square(10 - 2);
+
+	Artık önişlemci makroyu şöyle açacaktır:
+
+	result = (10 - 2) * (10 - 2);
+
+	Görüldüğü gibi şimdi makro fonksiyon gibi davranır hale gelmiştir. Ancak makro parametrelerinin pazarnteze alınması da yetmemektedir. Örneğin:
+
+	result = !square(1 - 1);
+
+	Eğer square bir fonksiyon olsaydı buradan 1 elde edilirdi. Ancak square yukarıdaki gibi makro olursa ! operatörünün önceliğinde dolayı farklı bir değer elde edilecektir.
+
+	#define square(a)		(a) * (a)
+	...
+	result = !square(1 - 1);
+
+	Bu durumda açım şöyle yapılacaktır:
+
+	result = !(1 - 1) * (1 - 1)
+
+	Burada 0 elde edilecektir. O halde parametreli makro yazılırken makro, ayrıca en dıştan da paranteze alınmalıdır:
+
+	#define square(a)		((a) * (a))
+	...
+	result = !square(1 - 1)
+
+	Artık açım şöyle yapılacaktır:
+
+	result = !((1 - 1) * (1 - 1))
+
+	Bu durumda foksiyon gibi makro yazabilmek için iki kuralı uygulamak gerekir:
+
+	1) Komutun STR2 kısmında makro parametreleri paranteze alınmalıdır.
+	2) Komutun STR2 kısmında makro en dıştan paranteze alınmalıdır.
+
+	Örneğin:
+
+	#define square(a)		((a) * (a))
+
+	Parametreli bir makro kodu izleyen tarafından tam bir fonksiyon taklidi yapabilmelidir. Parametreli makro bir fonksiyon değildir. Bir yer değiştirme
+	işlemini yapmakatadır. Ancak yer değiştirilen kod bir fonksiyon gibi etki göstermektedir. Önişlemci, parametreli makro çağrıldığında argümanı makro
+	parametreleriyle eşler ve açımı ona göre yapar. Örneğin:
+
+	#define average(a, b, c)		(((a) + (b) + (c)) / 3.0)
+
+	Biz bu makroyu şöyle işleme sokalım:
+
+	result = average(1 + 2, 3 + 4, 5 + 6);
+
+	Şimdi burada "1 + 2" a parametresi ile, "3 + 4" b parametresi ile ve "5 + 6" c parametresi ile eşleşecektir. Bu durumda önişlemci şöyle bir açım uygulayacaktır:
+
+	result = (((1 + 2) + (3 + 4) + (5 + 6)) / 3.0);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define square(a)		((a) * (a))
+
+int main(void)
+{
+	int result;
+
+	result = square(10 - 2);		/* result = ((10 - 2) * (10 - 2)); */
+	printf("%d\n", result);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Peki biz neden fonksiyon yazmıyoruz da fonksiyon etkisi yaratacak parametreli makro yazmaya çalışıyoruz?
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
