@@ -7846,5 +7846,401 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	Peki biz neden fonksiyon yazmıyoruz da fonksiyon etkisi yaratacak parametreli makro yazmaya çalışıyoruz?
+							29. Ders - 15/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Peki biz neden fonksiyon yazmıyoruz da fonksiyon etkisi yaratacak parametreli makro yazmaya çalışıyoruz? İşte fonksiyon çağırma işlemi bazı makine komutları
+	kullanılarak yapılmaktadır. Oysa makronun enjekte edilmesi fonksiyon çağırma işlemi anlamına gelmediği için fonksiyonun çağrılması sırasındaki
+	makine komutları elimine edilmiş olur. Bir fonksiyon çağrıldığında çağrılan koda eklenen makine komutlarının yarattığı dezavantaja İngilizce "function call overhead"
+	denilmektedir. Örneğin aşağıdaki gibi bir fonksiyon olsun:
+
+	int square(int a)
+	{
+		return a * a;
+	}
+
+	Biz bu fonksiyonu şöyle çağırmış olalım:
+
+	result = square(val);
+
+	32 bit Intel işlemcilerinde burada üretileck makine komutları şunlardır:
+
+	square:
+		push ebp
+		mov	ebp, esp
+
+		mov eax, [ebp + 8]
+		imul eax, [ebp +8]
+
+		pop ebp
+		mov esp, ebp
+
+	...
+	push val
+	call square
+	add esp, 4
+	move result, eax
+
+	Aslında burada çarpma işlemini yalnızca iki makine komutu bu  yapmaktadır:
+
+	mov eax, [ebp + 8]
+	imul eax
+
+	Diğer komutlar fonksiyon çağırma nedeniyle mecburen koda eklenen komutlardır. İşte bir iki satırlık fonksiyonların fonksiyon olarak değil de parametreli
+	makro biçiminde yazılması fonksiyon çağırma sırasında gereken makine komutlarının elimine edilmesine yol açar. Yani makro, fonksiyon çağrısına göre
+	daha hızlı bir çalışmayı sağlar.
+
+	Uzun fonksiyonların makro olarak yazılması ise kötü bir tekniktir. Çünkü:
+
+	1) Uzun bir fonksiyonda birkaç makine komutunun elimine edilmesinin pratik bir faydası olmayabilir.
+	2) Uzun makroların yazılması zordur ve okunabilirliği azaltmaktadır.
+	3) Uzun makrolar her çağrılan yere enjekte edileceği için kodu büyütürler. Elde edilen hıza kodda yaşanan büyüme, kar-zarar ilişkisi dikkate alındığında
+	toplamda zarar oluşturmaktadır.
+
+
+	Makroları çağırırken dikkat etmek gerekir. Makro argümanlarında ++ ve -- gibi operatörler "tanımsız davranış (undefined behavior)" oluşturabilirler. Örneğin:
+
+	#define square(a)			((a) * (a))
+
+	Bu makroyu şöyle çağırmış olalım:
+
+	result = square(++val);
+
+	Burada eğer square bir makro yerine fonksiyon olsaydı, val önce artırılır, artırılmış değerin karesi alınırdı. Halbuki square bir makro olduğunda
+	önişlemci şöyle bir açım uygulayacaktır:
+
+	result = ((++val) * (++val))
+
+	Bu da "tanımsız davranış" oluşturacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aslında bazı küçük standart C fonksiyonları derleyicileri yazanlar tarafından birer fonksiyon olarak değil de makro olarak yazılabilmektedir. Örneğin
+	<ctype.h> içerisindeki karakter test fonksiyonları pek çok derleyici tarafından makro olarak yazılmaktadır. Tabii programcı bunu bilmek zorunda değildir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir C programının yazıldığı editör dar ise biz uzun atomları nasıl yazabiliriz? Örneğin string'lerin tek bir satırda yazılması gerekir. Benzer biçimde
+	#define komutunun da tek bir satırda yazılması gerekir. Peki ya editörümüzün genişliği yeterli değilse? Ya da tek satıra yazmak okunabilirliği bozuyorsa?
+	İşte C'de üst satır ile alt satırı sanki tek bir satırmış gibi derleyiciye göstermenin bir yolu vardır: Eğer bir satırda \ karakterinden hemen sonra LF (Line Feed)
+	karakteri gelirse (yani \ karakterinden hemen sonra ENTER tuşuna basılırsa) önişlemci tarafından işin başında bu iki satır, \ ve LF karakterleri silinerek sanki tek
+	satır haline dönüştürülür. Böylece biz istersek bir satırı kesip aşağıdan bu yöntemle devam edebiliriz. Örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		printf("Hello\
+	 World\n");
+
+		return 0;
+	}
+
+	Ya da örneğin:
+
+	#include <stdio.h>
+
+	int main(void)
+	{
+		int number_of_students;
+
+		number_of_\
+	students = 10;
+
+		printf("%d\n", number_of_students);
+
+		return 0;
+	}
+
+	Bu sayede bir satırdan büyük olan makrolar daha okunabilir biçimde yazılabilirler. C standratlarına göre \ birleştirmesi yapıldıktan sonra derleyicilerin
+	en az 4095 karakterlik satırları desteklemesi gerekmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define error_check(result)			\
+{									\
+	if (!result) {					\
+		printf("Error!\n");			\
+		exit(1);					\
+	}								\
+}
+
+int main(void)
+{
+	int test = 0;
+
+	error_check(0);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Çok satırlı makro yazarken programcı makroyu blok içerisine alır. Ancak blok içerisine alma yine de makronun tam olarak fonksiyon taklidi yapmasına
+	olanak sağlamaz. Örneğin:
+
+	#include <stdio.h>
+	#include <stdlib.h>
+
+	#define error_check(result)			\
+	{									\
+		if (!result) {					\
+			printf("Error!\n");			\
+			exit(1);					\
+		}								\
+	}
+
+	int main(void)
+	{
+		int val = 10;
+		int status = 0;
+
+		if (val > 0)
+			error_check(status);				/* compile time error */
+		else
+			printf("Everything is ok\n");
+
+		return 0;
+	}
+
+	Buradaki kodu önişlemci aşağıdaki gibi açacaktır:
+
+	if (val > 0)
+		if (!status) {
+			printf("Error!\n");
+			exit(1);
+		};
+	else
+		printf("Everything is ok\n");
+
+	Burada error_check(status) ifadesinin sonundaki noktalı virgül başımıza bela açmaktadır. Çünkü önişlemci kodu açtığında artık açılan kodda bu ';'
+	boş deyim olarak ele alınacak ve bloklama yapılmadığı için sentaks hatası oluşacaktır. Tabii biz dıştaki if deyimini bloklarsak sorun çözülür ancak
+	makromuzun da tam bir fonksiyon taklidi yapamadığı açıktır. İşte bu tür durumlarda do-while deyimi imdadımıza yetişmektedir. Yukarıdaki makroyu şöyle yzmış olalım:
+
+	#define error_check(result)			\
+	do  {								\
+		if (!result) {					\
+			printf("Error!\n");			\
+			exit(1);					\
+		}								\
+	} while (0)
+
+	Burada while parantezinin sonuna ';' yerleştirmediğimize dikkat ediniz. Bu while döngüsü aslında hiç dönmeyecektir. while döngüsünün sonundaki ';'
+	bir boş deyim değildir. Olması gereken bir atomdur. O halde makroyu aşağıdaki gibi kullanan kişi gerçekten de koyduğu ';' ile sentaksı tamamlar. Böylece de
+	do-while tek deyim olarak ele alınır:
+
+	if (val > 0)
+		error_check(status);			/* Burada ';' artık boş deyim olmayacak, do-while deyimini tamamlayan ';' haline gelecek
+	else
+		printf("Everything is ok\n");
+
+	Önişmeci makroyu açtığında şu durum oluşacaktır:
+
+	if (val > 0)
+		do {
+			if (!status) {
+				printf("Error!\n");
+				exit(1);
+			}
+		} while (0);
+	else
+		printf("Everything is ok\n");
+
+	Artık if deyiminin doğru kısmında tek bir deyim vardır.
+
+	Bu nedenle, çok satırlı makroların bu biçimde do-while tekniği ile yazıldığını görürseniz şaşırmayınız.
+
+	Tabii çok satırlı makrolar if gibi deyimlerin içerisine yerleştirilemezler. Çok satırları makrolar, geri dönüş değeri void olan fonksiyonlar gibi düşünülmelidir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define error_check(result)			\
+do  {								\
+	if (!result) {					\
+		printf("Error!\n");			\
+		exit(1);					\
+	}								\
+} while (0)
+
+int main(void)
+{
+	int val = 10;
+	int status = 0;
+
+	if (val > 0)
+		error_check(status);
+	else
+		printf("Everything is ok\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Tabii makrolar başka amaçlarla da kullanılabilir. Biz her ne kadar henüz dizileri görmesek de aşağıdaki örnekte tüm elemanları 1 olan bir diziyi
+	makrolar yardımıyla kolay bir biçimde oluşturabilmekteyiz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define FILL10(val)	val, val, val, val, val, val, val, val, val, val
+#define FILL100(val) FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val)
+#define FILL1000(val) FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val)
+
+int main(void)
+{
+	int a[1000] = {FILL1000(1)};
+
+	for (int i = 0; i < 1000; ++i)
+		printf("%d ", a[i]);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C99 ile birlikte C'ye de "inline fonksiyonlar" eklenmiştir. Inline fonksiyonlar, "fonksiyon gibi makrolar"ın güvenli bir alternatifidir. Kursumuzda bu konu
+	ileride ele alınacaktır. Bu nedenle fonksiyona benzer makroların #define ile değil inline fonksiyonlar yoluyla yazılması C99 ve sonrasında daha uygun
+	olabilmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	En çok kullanılan diğer bir önişlemci komutu da #include komutudur. #include komutunu açısal parantezler içerisinde ya da iki tırnak içerisinde
+	bir dosya ismi izler. Yani komutun genel biçimi şöyledir:
+
+	#include <dosya_ismi>
+	#include "dosya_ismi"
+
+	Biz şimdiye kadar hep include işleminde açısal parantezleri kullandık. Önişlemci #include komutunu gördüğünde belirtilen dosyayı açar. Dosyanın içeriğini
+	geçici dosya yoluyla komutun yerleştirildiği yere yapıştırır. Böylece artık kod derleme modülüne geldiğinde derleme modülü #include komutunu değil, o dosyanın içeriğini
+	görecektir.
+
+	include edilecek dosyanın uzantısı ".h" olmak zorunda değildir. Herhangi bir dosya da, örneğin bir .c dosyası da include edilebilir.
+
+	Aşağıdaki örnekte "sample.c" dosyası, "test.c" dosyasını include etmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* sample.c */
+
+#include <stdio.h>
+#include "test.c"
+
+int main(void)
+{
+	foo();
+
+	return 0;
+}
+
+/* test.c */
+
+void foo(void)
+{
+	printf("foo\n");
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	#include komutu kaynak kodun herhangi bir yerine yerleştirilebilir. Tabii yerleştirme yerine göre yerleştirilen dosya içeriğinin anlamlı olması
+	gerekir. #include komutu da tek bir satıra yazılmak zorundadır.
+
+	Aşağıdaki örnekte #include komutu yerel bir blokta bulundurulmuştur. İçerik itibari ile bulundurulanyer geçerli bir kod oluşturur.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* sample.c */
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a =
+#include "test.c"
+		;
+
+	printf("%d\n", a);
+
+	return 0;
+}
+
+/* test.c */
+
+10
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	#include komutunda önişlemci, include edilen dosyayı komutun bulunduğu yere yapıştırdıktan sonra önişlem işlemlerini yeniden açtığı dosya üzerinde de yapar.
+	Böylece biz include dosyalarına önişlemci komutlarını yerleştirebiliriz. Örneğin include ettiğimiz dosyaların içerisinde #define önişlemci komutları da
+	olabilir. Bu durumda bu komutlar da etki gösterecektir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* sample.c */
+
+#include <stdio.h>
+#include "test.h"
+
+int main(void)
+{
+	for (int i = 0; i < SIZE; ++i)
+		printf("%d\n", i);
+
+	printf("%d\n", square(10));
+
+	return 0;
+}
+
+/* test.h */
+
+#define SIZE	10
+#define square(a)	((a) * (a))
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	include edilen dosyada başka include komutları da buılunabilir. Bu durumda yukarıda da belirtildiği gibi özyinelemeli bir biçimde include işlemi
+	uygulanır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* sample.c */
+
+#include "project.h"
+
+int main(void)
+{
+	printf("%f\n", sqrt(10));
+
+	return 0;
+}
+
+/* project.h */
+
+#include <stdio.h>
+#include <math.h>
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'nin standart başlık dosyalarında "include koruması (include guard)" uygulanmıştır. Bu nedenle bu standart başlık dosyalarının doğrudan ya da dolaylı
+	olarak birden fazla kez include edilmiş olması bir soruna yol açmaz. include koruması ileride ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <stdio.h>		/* soruna yol açmaz, ama gereksiz */
+#include <stdio.h>		/* soruna yol açmaz, ama gereksiz */
+
+int main(void)
+{
+	printf("ok\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	include işleminde "döngüsel (cyclic) durumlar" error oluşturmaktadır. Örneğin biz "a.h" dosyasını include etmiş olalım. Bu dosya da "b.h" dosyasını include
+	etmiş olsun. "b.h" dosyası da "a.h" dosyasını include etmiş olsun. Bu durum döngüsellik oluşturmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	include işleminin açısal parantezlerle yapılması ile iki tırnak içerisinde yapılması arasında farklılık vardır. Ancak bu farklılık C standartlarında
+	açık bir biçimde belirtilmemiş, daha çok "derleyicileri yazanların isteğine (implementation defined)" bırakılmıştır.
+
+	Standartlarda bu konuda şunlar söylenmiştir:
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
