@@ -8244,3 +8244,339 @@ int main(void)
 
 	Standartlarda bu konuda şunlar söylenmiştir:
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							30. Ders - 20/09/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	include işleminin açısal parantezlerle yapılması ile iki tırnak içerisinde yapılması arasında farklılık vardır. Ancak bu farklılık C standartlarında
+	açık bir biçimde belirtilmemiş, daha çok "derleyicileri yazanların isteğine (implementation defined)" bırakılmıştır.
+
+	Standartlarda bu konuda şunlar söylenmiştir:
+
+	- Eğer include işlemi açısal parantezlerle yapılmışsa önişlemci dosyayı kendisinin belirlediği bazı dizinlerde arar. Bu dizinlerin nasıl belirleneceği
+	derleyicileri yazanların isteğine bırakışmıştır.
+
+	- Eğer dosya ismi iki tırnak içerisinde belirtilmişse bu durumda önişlemci dosyayı kendisinin belirlediği bir biçimde ve dizinlerde arar. Ancak dosya
+	bu aramada bulunamazsa sanki include işlemi açlsal parantezlerle yapılmış gibi bu kez dosya açısal parantezlerle belirtildiğinde aranan dizinlerde de aranır.
+
+	Her ne kadar standartlar belirlemeleri oldukça gevşek bırakmışsa da uygulamada pek çok derleyici şu biçimde işlem yapmaktadır:
+
+	- Eğer dosya açısal parantezlerle include edilmişse dosya C'nin standart başlık dosyalarının yüklendiği dizinde aranmaktadır. Programcılar genellikle C'nin standart
+	başlık dosyalarını bu biçimde include ederler.
+
+	- Eğer dosya iki tırnak içerisinde include edilmişse bu durumda yaygın derleyiciler dosyayı önce "o anda bulunulan dizinde (current working directory)" aramaktadır.
+	Eğer dosya o anda bulunulan dizinde bulunamazsa bu kez dosya standart C başlık dosyalarının bulunduğu dizinde de aranmaktadır.
+
+	Bu durumda en yaygın kullanım, programcının standart başlık dosyalarını açısal parantezlerle, kendi başlık dosyalarını ise iki tırnak ile include etmesidir. Örneğin:
+
+	#include <stdio.h>
+	#include "project.h"
+
+	İki tırnak ile include işlemi yapıldığında eğer Visual Studio gibi IDE'lerde çalışıyorsanız "içinde bulunulan dizin (current working directory)",
+	proje dizini olacaktır. Ancak komut satırından derleme işlemini yapıyorsanız içinde bulunulan dizin, promptta gördüğünüz dizin olacaktır.
+
+	C'nin standart başlık dosyalarının iki tırnak ile include edilmesinde bir sorun oluşmayacağına dikkat ediniz. Ancak kendi başlık dosyalarınızı açısal parantezlerle
+	include ederseniz muhtemelen önişlemci dosyayı bulamayacaktır.
+
+	C derleyicisi kurulurken (örneğin Visual Studio IDE'si kurulurken) başlık dosyalarının hangi dizine yerleştirileceği derleyiciden derleyiciye hatta aynı derleyicilerde
+	versyiondan versiyona değişebilmektedir. UNIX/Linux sistemleri geleneksel olarka standart başlık dosyalarını /usr/include dizinin içerisinde bulundurmaktadır.
+	Microsoft Visual Studio IDE'si, kurulum sırasında kurulum dizinini bize de sorabilmektedir. Ancak Microsoft versiyondan versiyona strateji değiştirebilmektedir.
+
+	Aslında açısal parantez ile include işlemi yapıldığında önişlemcinin arama dizinlerine ekler yapılabilmektedir. Microsft Visual Studio IDE'sinde
+	Proje seçeneklerinde "C-C++/General/Additional Include Directories" sekmesinde dizinler, aralarına ';' konularak girilebilmektedir. Bu durumda
+	önişlemci açısal parantezlerle include işlemi yapıldığında burada girilen dizinlere de bakmaktadır. Hatta projeden bağımsız olarak bu dizinlere kalıcı eklemeler de
+	yapılabilmektedir. Microsoft cl.exe komut satırı derleyicisinde gcc ve clang derleyicilerinde -I seçeneği de bu amaçla kullanılabilmekltedir. Örneğin:
+
+	gcc -o sample -I /home/kaan/Study/C  sample.c
+
+	Birden fazla dizine bakılması için birden fazla kez -I seçeneği kullanmak gerekir. Örneğin:
+
+	gcc -o sample -I /home/kaan/Study/C  -I /home/kaan/personal sample.c
+
+	Ayrıca derleyiciler bu dizinleri belirlemek için bazı çevre değişkenlerinden de faydalanabilmektedir. Örneğin gcc derleyicilerinde CPATH çevre değişkenine
+	derleyici önişlem aşamasında başvurmaktadır.
+
+	#include komutunda dosya isimlerinin yol ifadesi içerip içermeyeceği de derleyicileri yazanların isteğine bırakılmıştır. Genel olarak dosya isimlerinde yol ifadesi
+	kullanmayınız. Derleyicilerin çoğu en azından göreli yol ifadelerine izin vermektedir.
+
+	Standart C başlık dosyalarının include edilme sırasının hiçbir önemi yoktur. Programcılar genellikle çok kullanılan başlık dosyalarını daha daha yukarıda
+	include etme eğilimindedirler.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir derleyicinin standartlara uygunluğu "standartlara uygun programı başarılı bir biçimde derlemesi ile" ölçülmektedir. Daha önceden de belirtildiği gibi
+	standartlara uygun olmayan hatalı kodların derleyiciler tarafından derlenip derlenmemesi derleyicilerin bir tercihidir. İşte C derleyicileri standartlarda
+	olmayan ek birtakım özelliklere de sahip olabilmektedir. Bunlara "eklenti (extension)" denilmektedir. Örneğin bir C derleyicisi standartlarda olmayan ekstra
+	deyimlere, ekstra türlere, ekstra fonksiyonlara sahip olabilir. Burada önemli olan standartlara uygun programların başarılı bir biçimde derlenip
+	derlenmediğidir. Yani standartlar aslında asgariyi belirtmektedir. Tabii her derleyicinin kendine özgü eklentileri bulunabilmektedir. Bu durumda spesifik bir
+	derleyicinin eklentilerini kodumuzda kullanırsak bu kod başka derleyicilerde derlenmeyebilir. Bazı eklentiler oldukça yaygındır. Hatta pek çok programcı bunu
+	standart bir özellik sanmaktadır.
+
+	Örneğin Linux çekirdeğinin kaynak kodlarında çok sayıda gcc eklentisi kullanılmıştır. Bu durumda biz Linux kaynak kodlarını örneğin Microsoft derleyicilerinde
+	derleyemeyiz. Ancak gcc derleyicilerinde derleyebiliriz. Burada da görüldüğü gibi eklentilerin yoğun kullanılması kaynak kodun belli bir derleyiciye bağlı
+	olmasına yol açmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'nin üç operand'lı (ternary) tek bir operatörü vardır. Bu operatöre "koşul operatörü (conditional operator)" denilmektedir. Koşul operatörü ?: ile
+	belirtilir ve gene kullanımı şöyledir:
+
+	ifade1 ? ifade2 : ifade3
+
+	Koşul operatörü if deyimini çağrıştıran ancak deyim olmayan bir operatördür. Her operatörde olduğu gibi koşul operatörü de bir değer üretir.
+	Koşul operatörü şöyle çalışır: Önce soru işaretinin solundaki ifade (yukarıdaki ifade1) yapılır. Bu ifade sıfır dışı bir değerse (yani doğruysa) yalnızca soru işareti ile
+	iki nokta üst üste arasındaki ifade (yukarıdaki ifade2) yapılır. Eğer bu ifade sıfır ise (yani yanlış ise) bu durumda da yalnızca iki nokta üst üstenin sağındaki ifade
+	(yukarıdaki ifade3) yapılır. Koşul operatörünün çalışması if deyimine benziyor olsa da koşul bir değer üretmektedir. Programcı koşul operatörünün ürettiği değeri genellikle
+	bir nesneye atar. Koşul operatörü soru işaretinin solundaki ifade sıfır dışı bir değerdeyse soru işareti ve iki nokta üst üste arasındaki ifadenin değerini üretir,
+	soru işaretinin solundaki ifade sıfır ise iki nokta üst üstenin sağındaki ifadenin değerini üretir.
+
+	Örneğin:
+
+	result = val % 2 == 0 ? 100 : 200;
+
+	Burada val çift ise koşul operatöründen 100, tek ise 200 elde edilecektir. Bu durumda result değişkenine 100 ya da 200 atanacaktır. Yukarıdaki kodun işlevsel eşdeğeri
+	if deyimi ile de oluşturulabilir:
+
+	if (val % 2 == 0)
+		result = 100;
+	else
+		result = 200;
+
+	Burada da görüldüğü gibi koşul operatörü ile yapılan her şey aslında if deyimiyle de yapılabilmektedir. Ancak koşul operatörü bazı durumlarda kompakt bir
+	görünüm sunduğu için daha kısa yazımlara olanak sağlamaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int val, result;
+
+	printf("Bir degere giriniz:");
+	scanf("%d", &val);
+
+	result = val % 2 == 0 ? 100 : 200;
+	printf("%d\n", result);
+
+	return 0;
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Koşul operatöründe, operatörün ürettiği değerin bir biçimde kullanılması gerekir. Eğer operatörün ürettiği değer kullanılmazsa her ne kadar kod geçerli olsa da
+	kötü bir teknik uygulanmış olur. Örneğin:
+
+	val % 2 == 0 ? ++x : ++y;		/* kötü teknik */
+
+	Koşul operatörünün kullanılması gereken üç durum vardır.
+
+	1) Bir karşılaştırmanın sonucuna göre elde edilen değerin bir nesneye atanması gerektiği durumlar. Örneğin:
+
+	result = val % 2 == 0 ? 100 : 200;
+
+	Bu işlemin eşdeğer if karşılığı şöyledir:
+
+	if (val % 2 == 0)
+		result = 100;
+	else
+		result = 200;
+
+	2) Fonksiyon çağırırken argüman ifadelerinde koşul operatörü kullanılabilir. Örneğin:
+
+	foo(val % 2 == 0 ? 100 : 200);
+
+	Bu işlemin eşdeğer if karşılığı şöyledir:
+
+	if (val % 2 == 0)
+		foo(100);
+	else
+		foo(200);
+
+	3) return ifadelerinde de koşul operatörü kullanılabilir. Örneğin:
+
+	return val % 2 == 0 ? 100 : 200;
+
+	Bu ifadenin de eşdeğer if karşılığı şöyledir:
+
+	if (val % 2 == 0)
+		return 100;
+	else
+		return 200;
+
+
+	Aşağıdaki örnekte sayının çift ya da tek olduğu koşul operatörü sayesinde pratik bir biçimde ekrana yazdırılmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int val, result;
+
+	printf("Bir degere giriniz:");
+	scanf("%d", &val);
+
+	printf(val % 2 == 0 ? "cift\n" : "tek\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Örneğin 0'dan 100'e kadar sayıları beşer beşer aşağıdkai gibi yazdırmak isteylim:
+
+	0 1 2 3 4
+	5 6 7 8 9
+	10 11 12 13 14
+	...
+
+	Çözümlerden biri aşağıdaki gibi olabilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	for (int i = 0; i < 100; ++i) {
+		printf("%d", i);
+		putchar(i % 5 == 4 ? '\n' : ' ');
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aslında yukarıdaki kodu aşağıdaki gibi daha kompakt biçimde de yazabilirdik. Bu koddaki kritik bölüm şudur:
+
+	printf("%d%c", i, i % 5 == 4 ? '\n' : ' ');
+
+	Burada %d format karakteri i ile, %c format karakteri ise '\n' ya da ' ' ile eşleşmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	for (int i = 0; i < 100; ++i)
+		printf("%d%c", i, i % 5 == 4 ? '\n' : ' ');
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örnekte max fonksiyonu, iki parametresinin büyük olanına geri dönmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int max(int a, int b)
+{
+	return a > b ? a : b;
+}
+
+int main(void)
+{
+	int result;
+
+	result = max(3, 7);			/* 7 */
+	printf("%d\n", result);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Daha önceden de belirttiğimiz gibi birer satırlık fonksiyonların makro olarak yazıalması genel bir hız kazancı sağlamaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define MAX(a, b)		((a) > (b) ? (a) : (b))
+
+int main(void)
+{
+	int result;
+
+	result = MAX(3, 7);			/* result = ((3) > (7) ? (3) : (7)) */
+	printf("%d\n", result);		/* 7 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Koşul operatörü öncelik tablosunda atama operatörünün hemen yukarısında, sağdan sola grupta bulunmaktadır:
+
+	()					Soldan-Sağa
+	+ - ++ -- !			Sağdan-Sola
+	* / %				Soldan-Sağa
+	+ -					Soldan-Sağa
+	<  > <= >=			Soldan-Sağa
+	!= ==				Soldan-Sağa
+	&&					Soldan-Sağa
+	||					Soldan-Sağa
+	?:					Sağdan-Sola
+	=, +=, /=, *=,...	Sağdan-Sola
+	,					Soldan-Sağa
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Koşul operatörü iç içe (nested) kullanılabilir. İç içe kullanımda parantez kullanmaya gerek yoktur. Örneğin üç sayının en büyüğünü bulmaya çalışalım:
+
+	result = a > b ? a > c ? a : c : b > c ? b : c;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a, b, c;
+	int result;
+
+	printf("a:");
+	scanf("%d", &a);
+
+	printf("b:");
+	scanf("%d", &b);
+
+	printf("c:");
+	scanf("%d", &c);
+
+	result = a > b ? a > c ? a : c : b > c ? b : c;
+	printf("%d\n", result);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Yukarıdaki gibi iç içe koşul operatöründe gerekmese bile okunabilirliği artırmak için parantez kullanılmalıdır. Örneğin:
+
+	result = a > b ? (a > c ? a : c) : (b > c ? b : c);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a, b, c;
+	int result;
+
+	printf("a:");
+	scanf("%d", &a);
+
+	printf("b:");
+	scanf("%d", &b);
+
+	printf("c:");
+	scanf("%d", &c);
+
+	result = a > b ? (a > c ? a : c) : (b > c ? b : c);
+	printf("%d\n", result);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
