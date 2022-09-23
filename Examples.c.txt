@@ -8580,3 +8580,167 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							31. Ders - 22/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Koşul operatörünün öncelik tablosunda atama operatörlerinin hemen yukarısında olduğunu anımsayınız. Örneğin:
+
+	x = a % 2 == 0 ? 100 + 200 : 300 + 400;
+
+	Burada derleyiciye göre iki operatör vardır: Koşul operatörü ve atama operatörü. Diğer operatörler aslında koşul operatörünün operand'larını oluşturmaktadır.
+	Peki neden yukarıdaki örnekte soru işaretinin solundaki her şey koşul operatörünün ilk operandını oluşturmamaktadır? İşte ayrıştırma (parsing) şöyle yapılmaktadır:
+	Derleyici soru işaretinin solunda, koşul operatöründen daha düşük öncelikli bir operatör görene kadar ilerler (örmeğimizde atama operatörüne kadar).
+	O kısım koşul operatörünün birinci operandını oluşturmaktadır. Soru işareti ile ':' arasındaki kısım, koşul operatörünün ikinci operandını ve ':' den koşul operatöründen
+	daha düşük öncelikli operatöre kadar olan kısım ise koşul operatörünün üçüncü kısmını oluşturmaktadır.
+
+	Bazen bir operatörü koşul operatörünün operandı olmaktan çıkartmak isteyebiliriz. Bunun için parantezlerin kullanılması gerekir. Örneğin:
+
+	x = (a % 2 == 0 ? 100 : 200) + 300;
+
+	Burada a çift ise x'e 100 + 300, tek ise 200 + 300 atanacaktır. Çünkü artık '+' operatörü koşul operatörünün üçüncü operandı olmaktan çıkarrılmıştır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a;
+	int result;
+
+	printf("Bir deger giriniz:");
+	scanf("%d", &a);
+
+	result = (a % 2 == 0 ? 100 : 200) + 300;
+	printf("%d\n", result);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki örnekte belli bir tarihin hangi gün olduğunu ekrana (stdout dosyasına) yazan disp_day isimli fonksiyon yazılmıştır.
+	Bu örneği anlayabilmek için şu noktalara dikkat ediniz:
+
+	- Bir yılın artık (leap year) olup olmadığı şöyle belirlenmektedir: 4'e tam bölünüp 100'e tam bölünmeyen ya da 400'e tam bölünen yıllar artıktır.
+	- Önce 01/01/1900'den ilgili tarihe kadar geçen gün sayısı hesaplanmıştır. Sonra bu değerin 7'ye bölümünden elde edilen kalana bakılmıştır.
+	- 01/01/1900 güneü Pazar günüdür.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define isleap(year)	((year) % 4 == 0 && (year) % 100 != 0 || (year) % 400 == 0 )
+
+long total_days(int day, int month, int year)
+{
+	long tdays = 0;
+
+	for (int i = 1900; i < year; ++i)
+		tdays += isleap(i) ? 366 : 365;
+
+	switch (month - 1) {
+		case 12:			/* unreachable */
+			tdays += 31;
+		case 11:
+			tdays += 30;
+		case 10:
+			tdays += 31;
+		case 9:
+			tdays += 30;
+		case 8:
+			tdays += 31;
+		case 7:
+			tdays += 31;
+		case 6:
+			tdays += 30;
+		case 5:
+			tdays += 31;
+		case 4:
+			tdays += 30;
+		case 3:
+			tdays += 31;
+		case 2:
+			tdays += isleap(year) ? 29 : 28;
+		case 1:
+			tdays += 31;
+	}
+
+	tdays += day;
+
+	return tdays;
+}
+
+void disp_day(int day, int month, int year)
+{
+	long tdays;
+
+	tdays = total_days(day, month, year);
+
+	switch (tdays % 7) {
+		case 0:
+			printf("Pazar\n");
+			break;
+		case 1:
+			printf("Pazartesi\n");
+			break;
+		case 2:
+			printf("Sali\n");
+			break;
+		case 3:
+			printf("Carsamba\n");
+			break;
+		case 4:
+			printf("Persembe\n");
+			break;
+		case 5:
+			printf("Cuma\n");
+			break;
+		case 6:
+			printf("Cumartesi\n");
+			break;
+	}
+}
+
+int main(void)
+{
+	disp_day(23, 4, 1920);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bilgisayar sistemlerinde ""ana belleğin (main memory)" (RAM olarak da bilinir) her bir byte'ına ilk byte 0 olmak üzere artan sırada bir sayı karşılık
+	getirilmiştir. Bu sayıya ilgili byte'ın "doğrusal adresi (linear address)" denilmektedir. Doğrusal adres terimi yerine "fiziksel adres (physical address)" terimi de
+	kullanılabilmektedir. Ancak doğrusal adres terimi "sayfalama (paging)" mekanizmasının bulunduğu işlemcilerde daha çok tercih edilmektedir.
+
+	Doğrusal adresler bilgisayarın çalışma prensibinde mikroişlemciler tarafından elektriksel düzeyde kullanılmaktadır. Çünkü mikroişlemciler RAM'de belli bir yere
+	onun doğrusal adresini bilerek erişirler. Her byte'ın ayrı bir doğrusal adresi vardır. Anımsanacağı gibi C Programlama Dilinde her byte 8 bit olmak zorunda değildir.
+	Dolayısıyla char türü de 8 bit olmak zorunda değildir. Ancak neredeyse sistemlerin hemen hepsinde 1 byte 8 bitten oluşmaktadır.
+
+	Doğrusal adresler geleneksel olarak 16'lık sistemde belirtilirler. Ancak böyle bir zorunluluk yoktur.
+
+	Bir programdaki her nesne bellekte yer kaplayacağına göre onların birer doğrusal adresleri vardır. Bir byte'tan büyük nesnelerin doğrusal adresleri
+	onların en düşük adres değeriyle ifade edilmektedir. Örneğin int bir nesne bellekte aslında 4 byte oturmuş durumdadır. O halde bu int nesnenin 4 adresi olması gerekir.
+	Ancak biz bu int nesnenin doğrusal adresini ifade ederken onun en düşük adres değerini kullanırız. Örneğin int türden a nesnesi bellekte aşağıdaki gibi bulunuyor olsun:
+
+	...
+	1FC14 --|
+	1FC15	|
+	1FC16	|	a
+	1FC17---|
+	...
+
+	Biz burada a'nın doğrsal adresini 1FC14 olarak ifade ederiz. Gerçekten de aslında işlemci de bir nesneyi RAM'den alırken ya da RAM'e yazarken,
+	eğer nesne 1 byte'tan uzunsa, onun en düşük adresini belirtir. Yani işlemci RAM'e şunu söylemektedir: "1FC14 doğrusal adresinden başlayan 4 byte'lık değeri bana ver".
+	Tabii aslında işlemci de derleyici tarafından üretilmiş olan makine komutlarını çalıştırmaktadır. Eğer kod derlendikten sonra bellekte uygun yere yüklenirse
+	tüm program sorunsuz çalışabilmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de adresler de ayrı bir tür belirtmektedir. Ancak yazılımsal adres iki bileşenli bir bilgidir. Yazılımsal adresin bileşenleri: "tür bileşeni" ve "sayısal bileşendir."
+	Sayısal bileşen, bir doğrusal adres numarası belirtir. Tür bileşeni ise o doğrusal adres numarasından başlayan bilginin türünü belirtmektedir.
+	Donanımsal olarak adres yalnızca bir sayıdan oluşmaktadır. Ancak C'de adresler bir sayı ve bir tür bilgisinden oluşur. Adresin sayısal bileşeni nesnenin yerini,
+	tür bileşeni ise o adresteki nesnenin türünü belirtmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
