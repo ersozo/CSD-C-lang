@@ -8741,6 +8741,313 @@ int main(void)
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
 	C'de adresler de ayrı bir tür belirtmektedir. Ancak yazılımsal adres iki bileşenli bir bilgidir. Yazılımsal adresin bileşenleri: "tür bileşeni" ve "sayısal bileşendir."
 	Sayısal bileşen, bir doğrusal adres numarası belirtir. Tür bileşeni ise o doğrusal adres numarasından başlayan bilginin türünü belirtmektedir.
-	Donanımsal olarak adres yalnızca bir sayıdan oluşmaktadır. Ancak C'de adresler bir sayı ve bir tür bilgisinden oluşur. Adresin sayısal bileşeni nesnenin yerini,
-	tür bileşeni ise o adresteki nesnenin türünü belirtmektedir.
+	Donanımsal olarak adres yalnızca bir sayıdan oluşmaktadır.  Yazılımsal adresin sayısal bileşeni bir doğrusal adres numarası belirtir. Tür bileşeni ise
+	o doğrusal adresten başlayan nesnenin türüne ilişkindir.
+
+	Bundan sonra "adres" denildiğinde yalnızca" yazılımsal adres" belirtilecektir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							32. Ders - 27/09/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Adres bilgileri C'de ayrı bir tür belirtmektedir. Bir adres sabiti oluşturmanın genel biçimi şöyledir:
+
+	(tür_bileşeni *) saısal_bileşen
+
+	Örneğin:
+
+	(int *) 0x1FC140
+
+	Burada bu adres sabitinin sayısal bileşeni 0X1FC140 biçimindedir. Bu bir doğrusal adres belirtir. Bu adres sabitinin tür bileşeni int biçiminmdedir.
+	Adres sabitlerinin tür bileşenlerinin 16'lık sistemde belirtilmesi zorunlu değildir. Ancak yaygın bir gösterimdir. Aslında yukarıdaki adres sabiti
+	bir tür dönüştürme işlemidir. Bu işlemin (int *) kısmıdaki int, adresin tür bileşenini belirtir. Buradaki * ise adres kavramı için kullanılmaktadır.
+
+	C'de adres bilgileri adresin tür belişeni belirtilerek ifade edilir. Yani örneğin "adres" denmez, "int türden adres, double türden adres vs." denir.
+	İngilizce "adres" kavramı "pointer" sözcüğü ile ifade edilmektedir. "int türden adres" ise "pointer to int", "long türden adres" "pointer to long"
+	biçiminde belirtilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aralarında fiziksel ya da mantıksal ilişki bulunan bir grup nesnenin oluşturğu topluluğa "veri yapısı (data structure)" denilmektedir. Veri yapısı
+	kavramı bir grup nesneyi çağrıştırmalıdır. Örneğin diziler, bağlı listeler, kuyruk sistemleri bir grup nesneden oluşan topluluklardır. Bunlar birer veri yapısıdır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Diziler (arrays), elemanları aynı türden olan ve bellekte ardışıl bir biçimde bulunan veri ytapılarıdır. Dizilerin elemanları aynı türdendir. Elemanlar arasında
+	hiç boşluk yoktur. Buradaki "ardışıl (contiguous)", bir elemandan sonra hemen diğerinin geldiği yani arada hiç boşluk olmadığı anlamına gelmektedir.
+
+	Dizi tanımlamanın genel biçimi şöyledir:
+
+	<tür> <dizi_ismi><[<uzunluk_ifadesi>]>;
+
+	Örneğin:
+
+	int a[10];
+	double b[20];
+
+	C90'da dizi tanımlamasında dizi uzunluklarının sabit ifadesi biçiminde belirtilmesi zorunludur. Ancak C99 ile birlikte yerel diziler için dizi uzunluklarının
+	sabit ifadesi yerine değişken içeren ifadelerle de belirtilmesine olanak sağlanmıştır. Örneğin:
+
+	{
+		int n = 10;
+		int a[n];		/* C90'da geçersiz, C99 ve ötesinde geçerli */
+		...
+	}
+
+	C++ her ne kadar C'yi kapsıyor olsa da C99 ile eklenen bu özelliği hiçbir zaman benimsememiştir. Microsoft C derleicileri de dil ayarı C99, C11, C17 yapılsa
+	bile halen bu özelliği desteklememktedir.
+
+	Bir diziyi dizi yapan iki özellik vardır:
+
+	1) Dizinin tüm elemanları aynı türdendir.
+	2) Elemanlar arasında hiç boşluk yoktur. Yani elemanlar bellekte ardışıl bir biçimde tutulur.
+
+	Biz bir grup nesneyi tanımladığımızda bunların ardışıllığı konusunda C'de hiçbir garanti verilmemektedir. Örneğin:
+
+	int x, y, z;
+
+	Burada x, y ve z'nin bellekteki yerleşimleri herhangi bir biçimde olabilir. Ardışıllığı garanti edilmemektedir. Oysa örneğin:
+
+	int a[3];
+
+	Buradaki 3 int eleman kesinlikle ardışıl bir biçimde tutulur.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de bir dizi bütünsel olarak işleme sokulamaz. Dizinin elemanlarına erişlilir. Dizinin elemanları bağımısız nesneler biçiminde işleme sokulur.
+	Dizi elemanlarıne erişmek için [...] operatörü kullanılır. Elemana erişmenin genel biçimi şöyledir:
+
+	dizi_ismi[ifade]
+
+	Dizinin ilk elemanı 0'ıncı indeksli elemandır. Bu durumda n elemanlı bir dizinin son elemanı n - 1'inci indeksli elemanıdır. Dizi elemanlarına erişilirken
+	köşeli parantez içerisindeki ifade sabit ifadesi olmak zorunda değildir. Ancak index belirten ifadenin tamsayı türlerine ilişkin olması zorunludur.
+	Aslında eleman erişmekte kullanılan köşeli parantezler "tek operandlı sonek (unary postfix)" operatör belirtmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Dizilerin en önemli kullanılma nedeni bir döngü içerisinde onların tüm elemanlarının işleme sokulmasıdır. Örneğin:
+
+	int a[1000];
+
+	for (int i = 0; i < 1000; ++i)
+		a[i] = 0;
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main()
+{
+    int a[10];
+
+    for (int i = 0; i < 10; ++i)
+        a[i] = i * i;
+
+    for (int i = 0; i < 10; ++i)
+        printf("%d\n", a[i]);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Global bir dizinin tüm elemanlarında başlangıçta 0 değerleri bulunur. Ancak yerel dizilerin içerisinde başlangıçta çöp değerler bulunmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir bildirimde tür belirten sözüğün dışındaki atomlara "dekleratör (declarator)" denilmektedir. Örneğin:
+
+	int a, b, c;
+
+	Burada int tür, a, b, ve c dekleratörlerdir. Örneğin:
+
+	double a[10];
+
+	Burada double tür, a[10] ise dekleratördür. C'de bildirimdeki tür tüm dekleratörlerin ortak türüdür. Örneğin:
+
+	int a[10], b;
+
+	Bu tanımlama geçerlidir. Burada a 10 elemanlı int bir dizi, b ise int bir nesnedir. Yani dizilerle normal nesneler beraber tanımlanabilirler.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir diziye, diziyi tanımlar tanımlamaz, küme parantezleri içerisinde ilkdeğer verebiliriz. Bu durumda verilen ilkdeğerler sırasıyla dizi elemanlarına
+	yerleştirilir. Örneğin:
+
+	int a[5] = {10, 20, 30, 40, 50};
+
+	Babii bu işlem daha sonra yapılamaz. Örneğin:
+
+	intr a[5];
+
+	a = {10, 20, 30, 40, 50};		/* geçersiz! */
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main()
+{
+    int a[5] = {10, 20, 30, 40, 50};
+
+    for (int i = 0; i < 5; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Dizinin az sayıda elemanına ilkdeğer verilebilir. Bu durumda gerei kalan elemanlar dizi yerel de olsa, global da olsa kesinlikle derleyici tarafından
+	sıfırlanmaktadır. Ancak, dizinin fazla sayıda elemanına ilkdeğer vermek geçersizdir. Örneğin:
+
+	int a[5] = {10, 20, 30};				/* geri kalan 2 eleman 0 */
+	int b[5] = {10, 20, 30, 40, 50, 60};	/* error! dizi 5 elemanlık ancak 6 elemana ilkdeğer verilmiş */
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main()
+{
+    int a[5] = {10, 20};
+
+    for (int i = 0; i < 5; ++i)
+        printf("%d ", a[i]);    /* 10 20 0 0 0 */
+    printf("\n");
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Dizilere ilkdeğer verme işleminde küme parantezlerinin içi boş bırakılamaz. Örneğin:
+
+	int a[10] = {};		/* geçersiz! */
+
+	Yerel dizinin tüm elemanlarının 0 olmasını istiyorsak, bunu en yalın ancak aşağıdaki gibi sağlayabiliriz:
+
+	int a[10] = {0};	/* a'nın tüm elemanları 0 */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Dizilere ilkdeğer verilirken dizi uzunlukları belirtilmeyebilir. Bu durumda derleyici verilen ilkdeğerleri sayar ve dizinin o uzunlukta açılmış olduğunu kabul eder.
+	Örneğin:
+
+	int a[] = {10, 20, 30};		/* burada dizi 3 uzunlukta */
+	int b[];					/* geçersiz! dizi uzunluğu belirtilmek zorunda */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir dizinin en büyük elemanı şöyle bulunur: Önce, ilk eleman en büyük kabul edilir ve bir değişkende saklanır. Sonra, diğer tüm elemanlar tek tek gözden geçirilir.
+	Daha büyük eleman bulununca o eleman saklanır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define SIZE        10
+
+int main()
+{
+    int a[SIZE] = {3, 5, 7, 7, 12, 67, 3, 34, 11, 23};
+    int max;
+
+    max = a[0];
+
+    for (int i = 1; i < SIZE; ++i)
+        if (a[i] > max)
+            max = a[i];
+
+    printf("%d\n", max);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıda bir dizinin aritmetik ortalamasını bulan bir program örneği verilmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define SIZE        10
+
+int main()
+{
+    int a[SIZE] = {3, 5, 7, 7, 12, 67, 3, 34, 11, 23};
+    int total;
+    double avg;
+
+    total = 0;
+    for (int i = 0; i < SIZE; ++i)
+        total += a[i];
+
+    avg = (double)total / SIZE;
+
+    printf("%f\n", avg);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir diziyi ters çevirmek için baştaki ve sondaki elemanları yer değiştirebiliriz. Tabii bu işlemi dizi uzunluğunun yarısı kadar yapmak gerekir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define SIZE        10
+
+int main()
+{
+    int a[SIZE] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int temp;
+
+    for (int i = 0; i < SIZE / 2; ++i) {
+        temp = a[i];
+        a[i] = a[SIZE - 1 - i];
+        a[SIZE - 1 - i] = temp;
+    }
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir dizide bir elemanı arayıp, onu bulduğunda bulduğu yerin indeksini ekrana yazdıran bir program örneği aşağıda verilmiştir. Bir dizinin tüm elemanlarını
+	kontrol ederek arama işlemine "sıralı arama (sequential search)" denilmektedir. Sıralı aramada eğer arama başarılı ise (successful search),
+	ortalama karşılaştırma sayısı n / 2'dir. Ancak, arama başarısız olursa n karşılaştırma yapılır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define SIZE        10
+
+int main()
+{
+    int a[SIZE] = {23, 12, 76, 45, 23, 65, 11, 98, 42, 81};
+    int val;
+    int i;
+
+    printf("Bir değer giriniz:");
+    scanf("%d", &val);
+
+    for (i = 0; i < SIZE; ++i)
+        if (a[i] == val)
+            break;
+
+    if (i == SIZE)
+        printf("bulunamadi!\n");
+    else
+        printf("%d. indekste bulundu\n", i);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
