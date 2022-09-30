@@ -9051,3 +9051,362 @@ int main()
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							33. Ders - 29/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Dizilerin sıraya dizilmesine İngilizce "sorting" denilmektedir. Dizileri sıraya dizmek için pek çok algoritma vardır. Bunlardan en yalını
+	"kabarcık sıralaması (bubble sort)" denilen yöntemdir. Bu yöntemde yan yana iki eleman karşılaştırılır. Duruma göre yer değiştirilir. Bu işlem bir kez
+	yapıldığında dizi sıraya dizilmiş olmaz. Ancak en büyük eleman (ya da en küçük eleman) sona gider. O halde bu işlemi diziyi daraltarak tekrar tekrar yapmak
+	gerekir. Algoritmanın döngü yapısı şöyledir: Dizinin uzunluğu n olmak üzere iç içe iki döngü vardır. Dıştaki döngü n - 1 kez, içteki döngü n - 1 - i kez
+	döndürülür.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define SIZE        10
+
+int main(void)
+{
+    int a[SIZE] = {23, 12, 76, 45, 23, 65, 11, 98, 42, 81};
+    int temp;
+
+    for (int i = 0; i < SIZE - 1; ++i)
+        for (int k = 0; k < SIZE - 1 - i; ++k)
+            if (a[k + 1] < a[k]) {
+                temp = a[k];
+                a[k] = a[k + 1];
+                a[k + 1] = temp;
+            }
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Kabarcık sıralamasının değişik gerçekleştirimleri yapılabilir. Örneğin eğer yan yana elemanlar karşılaştırılıp hiç yer değiştirme yapılmıyorsa
+	dizi zaten sıraya dizilmiş demektir. Döngünün devam ettirilmesine gerek yoktur.
+
+	Aşağıdaki gerçekleştirimde eğer dizi zaten sıraya dizilmişse dış döngü devam ettirilmemektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define SIZE        10
+
+#define TRUE        1
+#define FALSE       0
+
+int main(void)
+{
+    int a[SIZE] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int temp;
+    int replace_flag;
+
+    for (int i = 0; i < SIZE - 1; ++i) {
+        replace_flag = FALSE;
+        for (int k = 0; k < SIZE - 1 - i; ++k)
+            if (a[k + 1] < a[k]) {
+                temp = a[k];
+                a[k] = a[k + 1];
+                a[k + 1] = temp;
+                replace_flag = TRUE;
+            }
+        if (!replace_flag)
+            break;
+    }
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Yukarıdaki biçim do-while döngüsüyle de ifade edilebilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define SIZE        10
+
+#define TRUE        1
+#define FALSE       0
+
+int main(void)
+{
+    int a[SIZE] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int temp;
+    int replace_flag;
+    int n = SIZE - 1;
+
+    do {
+        replace_flag = FALSE;
+        for (int k = 0; k < n; ++k)
+            if (a[k + 1] < a[k]) {
+                temp = a[k];
+                a[k] = a[k + 1];
+                a[k + 1] = temp;
+                replace_flag = TRUE;
+            }
+        --n;
+    } while (replace_flag);
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Diğer çok bilinen bir sıralama yöntemine "seçerek sıralama (selection sort)" denilmektedir. Bu yöntemde dizinin en küçük elemanı bulunur. İlk elemanla
+	yer değiştirilir. Sonra dizi daraltılır. Aynısı daraltılmış dizi için yapılır. İşlemler böyle böyle devam ettirilir. Örneğin:
+
+	| 8 3 6 1 5
+
+	1 | 3 6 8 5
+	1 3 | 6 8 5
+	1 3 5 | 8 6
+	1 3 5 6 | 8
+
+	Bu algoritmada iç içe iki döngü kullanılır. Dıştaki döngü diziyi daraltmakta kullanılır. İçteki döngü ise daraltılmış dizinin en küçük elemanını
+	bulup daraltılmış dizinin ilk elemanı ile yer değiştirir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+#define SIZE        10
+
+int main(void)
+{
+    int a[SIZE] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    int min, min_index;
+
+    for (int i = 0; i < SIZE - 1; ++i) {
+        min = a[i];
+        min_index = i;
+        for (int k = i + 1; k < SIZE; ++k)
+            if (a[k] < min) {
+                min = a[k];
+                min_index = k;
+            }
+        a[min_index] = a[i];
+        a[i] = min;
+    }
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir dizinin olmayan bir elemanına erişmeye çalışmak "tanımsız davranışa" yol açar. Örneğin:
+
+	int a[10];
+
+	for (int i = 0; i <= 10; ++i)       /* tanımsız davranış! */
+		a[i] = 0;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Daha önceden de belirttiğimiz gibi, bir yazı aslında karakterlerden oluşan bir dizi belirtmektedir. Karakterler ise aslında o karakterlerin karakter tablosundaki
+	sıra numarasını belirtir. O halde aslında bir yazı, bir sayı dizisi gibi ele alınabilir. Peki mademki bir yazı bir sayı dizisi gibidir. O halde yazının karakterlerine
+	karşı gelen sayıları hangi türden dizide tutmalıyız? Tabii bunun için en uygun tür char türüdür. Çünkü zaten C'de char bir kadarkterin sıra numarasını tutabilecek
+	büyüklüğü temsil etmektedir. C'de karakterler 1 byte içerisinde tutulmaktadır. Karakterlerin sıra numaralarını tutmak için en uygun tür char türüdür.
+	O halde bir yazı char türden bir dizide tutulmalıdır. Yazının her bir karakteri char türden dizinin bir elemanında tutulursa dizi yazıyı tutar hale gelir.
+
+	Genel olarak yazıyı tutan bir char dizi, yazınının uzunluğundan büyük olur. Yani bir char dizinin içerisindeki yazı, onun başından itibaren belli bir kısmındadır.
+	Bu char diziyi alan programcı yazının bu dizinin başından başladığını bilir ancak nerede bittiğini de anlaması gerekir. İşte C'de char bir dizi
+	içerisindekiş yazının bitiş yeri özel bir karakterle belirtilmektedir. Bu karaktere "null kartakter" denir. Programcılar ve C'nin bazı semantik kuralları
+	bir yazının sonunda null karakter olması gerektiği konusunda anlaşmış durumdadırlar. Null karakter karakter tablosunun ilk karakteridir ve sayısal değeri
+	0'dır. (Bunu '0' karakteri ile karıştırmayınız.) Null karakter '\0' ile temsil edilir. Aslında '\0' teknik olarak 0 sabiti ile aynı anlamdadır.
+	Ancak programcılar null karakter için '\0' gösterimini tercih ederler. Çünkü '\0' gösterimi bir karakter görüntüsünde olduğu için okunabilirliği daha fazladır.
+
+	Programcı char türden bir dizinin içerisine bir yazı yerleştirecekse null karakteri yazının sonuna yerleştirmek onun sorumluluğundadır. Örneğin:
+
+	char s[10];
+
+	s[0] = 'a';
+	s[1] = 'l';
+	a[2] = 'i';
+	a[3] = '\0';
+
+	Null karakter, dizinin içerisinde bir yer kaplar. Bu durumda n eleman uzunluğundaki bir char diziye biz en fazla n - 1 karakterli bir yazı yerleştirebiliriz.
+	Örneğin elimizde 10 elemanlı bir char dizi varsa biz onun içerisine en fazla 9 karakterli bir yazı yerleştirebiliriz. Çünkü son elemanda null karakter olmak zorundadır.
+	Null karakterin dizinin sonunda değil, dizinin içerisindeki yazının sonunda olması gerektiğine dikkat ediniz.
+
+	Biz bir char diziye ilkdeğer verme sentaksıyla da bir yazı yerleştirebiliriz. Örneğin:
+
+	char s[100] = {'a', 'n', 'k', 'a', 'r', 'a', '\0'};
+
+	Tabii burada aslında null karakteri hiç belirtmeseydik de dizinin geri kalan elemanları sıfırlanacağından dolayı, null karakter de 0 olduğu için
+	sanki null karakter yazının sonuna eklenmiş gibi olacaktı. Örneğin:
+
+	char s[100] = {'a', 'n', 'k', 'a', 'r', 'a'};		/* geçerli zaten 0 ile null karakter aynı */
+
+	Tabii null karakterin açıkça belirtilmesi daha anlaşılabilir bir görüntü sunmaktadır. Örneğin:
+
+	char s[] = {'a', 'l', 'i'};		/* geçerli ancak null karakter yazının sonuna eklenmemiş */
+
+	Burada dizi uzunluğu belirtilmediği için verilen ilkdeğerler kadar dizi açılır. Ancak null karakter yazının sonuna eklenmemiştir. Programcının
+	yazının sonuna null karakter eklenmesini sağlaması gerekir:
+
+	char s[] = {'a', 'l', 'i', '\0'};
+
+	C'de char, unsigned char ya da signed char türünden bir diziye iki tırnak ile bir yazı pratik bir biçimde de yerleştirilebilmektedr. Örneğin:
+
+	char s[100] = "ankara";
+
+	C'de char, unsigned char ve signed char türünden bir diziye iki tırnak ile ilkdeğer verilmişse bu durumda derleyici bu iki tırnak içerisindeki
+	karakterleri tek tek diziye yerleştirir. Yazının sonuna null karakteri kendisi ekler. Örneğin:
+
+	char s[] = "ankara";
+
+	Burada derleyici null karakteri kendisi ekleyeceği için dizinin 7 eleman uzunluğunda açıldığını kabul eder. İki tırnak ile yalnızca char, signed char ve
+	unsigned char türünden dizilere ilkdeğer verilebilmektedir. Örneğin:
+
+	int s[] = "ankara"; 	/* geçersiz! iki tırnak ile int bir diziye ilkdeğer verilemez! */
+
+	Daha sonra bir diziye iki tırnak ile atama yapamayız. İki tıornak sentaksının ilkdeğer verme sırasında geçerli olduğuna dikkat ediniz. Örneğin:
+
+	char s[100];
+
+	s = "ankara";		/* geçersiz! */
+
+	Bir diziye fazla sayıda elemanla ilkdeğer veremediğimizi belirtmiştik. Örneğin:
+
+	char s[3] = "ankara";		/* geçersiz! */
+
+	Özel bir durum olarak, eğer iki tırnak içerisindeki karakter sayısı dizi unluğu kadar ise bu durum C'de geçerli kabul edilmektedir. Ancak derleyici bu durumda
+	null karakteri yazının sonuna eklememektedir. Örneğin:
+
+	char s[3] = "ali";		/* geçerli ama dikkat null karakter yazının sonuna eklenmeyecek */
+
+	Bu durum, hata kaynağı oluşturabileceği gerekçesiyle C++'ta geçersiz kabul edilmektedir.
+
+	char, signed char ve unsigned char türünden dizilere iki tırnak ile ilkdeğer veridliğinde dizinin geri kalan elemanlarının hepsi yine sıfırlanmaktadır. Örneğin:
+
+	char s[100] = "ali"; 	/* null karakter eklendikten sonra geri kalan elemanların hepsi sıfırlanır */
+
+	İlkdeğer verilirken iki tırnağın içi boş olabilir. Örneğin:
+
+	char s[100] = "";
+
+	Burada diziye null karakter yerleştirilir. Sonra geri kalan tüm elemanlar sıfırlanır. Tabii null karakterin numarası 0 olduğuna göre aslıunda tüm dizi sıfırlanmaktadır.
+	Örneğin:
+
+	char s[] = "";
+
+	Burada dizi 1 eleman olarak açılır ve o bir elemana da null karakter yerleştirilir.
+
+
+	char türündeki bir dizinin içerisinde sonu null karakterle biten bir yazı bulunuyor olsun. Bu yazıyı ekrana (stdout dosyasına) nasıl yazdırabiliriz?
+
+	char s[100] = "ankara";
+
+	for (int i = 0; s[i] != '\0'; ++i)
+		putchar(s[i]);
+
+	Tabii madem ki null karakterin sayısal değeri 0'dır. o zaman dönü şöyle de ifade edilebilirdi:
+
+	for (int i = 0; s[i]; ++i)
+		putchar(s[i]);
+
+	Ancak okunabilirlik bakımından önceki biçim tercih edilebilir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char s[100] = "ankara";
+
+    for (int i = 0; s[i] != '\0'; ++i)
+        putchar(s[i]);
+    putchar('\n');
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir char dizisinin başındaki yazının karakter uzunluğu aşağıdaki gibi bulunabilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char s[100] = "istanbul";
+    int i;
+
+    for (i = 0; s[i] != '\0'; ++i)
+        ;
+
+    printf("%d\n", i);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	char türden bir dizinin içerisindeki yazıyı tersten yazdırmaya çalışalım. Bunun tek yolu önce yazının sonuna gitmek, sonra oradan başa doğru giderek
+	karakterleri yazdırmak olabilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char s[] = "istanbul";
+    int i;
+
+    for (i = 0; s[i] != '\0'; ++i)
+        ;
+
+    for (--i; i >= 0; --i)
+        putchar(s[i]);
+    putchar('\n');
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	char bir dizinin içerisindeki yazıyı ters çevirmek isteyelim. Biz daha önce int bir diziyi ters çevirmiştik. Aynı algoritmayı uygulayabiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char s[100] = "ankara";
+    int n;
+    char temp;
+
+    for (n = 0; s[n] != '\0'; ++n)
+        ;
+
+    for (int i = 0; i < n / 2; ++i) {
+        temp = s[i];
+        s[i] = s[n - 1 - i];
+        s[n - 1 - i] = temp;
+    }
+
+    for (int i = 0; s[i] != '\0'; ++i)
+        putchar(s[i]);
+    putchar('\n');
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
