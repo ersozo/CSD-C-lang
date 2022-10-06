@@ -9410,3 +9410,365 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							34. Ders - 04/10/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'nin, prototipi <stdio.h> içerisinde bulunan standart "puts" isimli fonksiyonu bir yazıyı ekrana (stdout dosyasına) yazdırmak için kullanılmaktadır.
+	Fonksiyonun genel kullanımı şöyledir:
+
+	puts(<dizi_ismi>);
+
+	Aslında ileride görüleceği gibi puts fonksiyonu char türden bir adres almaktadır. Ancak biz şimdilik bu fonksiyonun parametre olarak, yazının içinde bulunduğu
+	char türden dizinin ismini alacağını belirtelim. C'de programcı dışında, başkaları tarafından yazılmış olan (standart fonksiyonlar da dahil) hiçbir fonksiyon
+	bir dizinin uzunluğunu bilemez. Dizinin uzunluğunu yalnızca onu açan programcı biliyor durumdadır.
+
+	puts fonksiyonu dizinin başından başlayarak null karakter görene kadar tüm karakterleri yan yana yazdırır. En sonunda imleci aşağı satırın başına geçirerek
+	orada bırakır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[100] = "ankara";
+
+	puts(s);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	puts fonksiyonu dizinin başından null karakter görene kadar karakterleri yazdırmaktadır. Eğer null karakter bir biçimde ezilmişse puts durmaz,
+	dizinin elemanlarını ilk null karakter görene kadar, karakter olarak yazdırır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[100];
+
+	s[0] = 'a';
+	s[1] = 'l';
+	s[2] = 'i';
+	s[3] = '\0';
+
+	puts(s);
+
+	s[3] = 'x';
+	puts(s);		/* alix'ten sonra tuhaf karakterler çıkabilir */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Yazılar tipik olarak char türden dizilerin içerisine yerleştirilirler (char türü 1 byte gibi görece küçük boyutta olduğu için tercih edilmekte).
+	Ama bunun tersi doğru değildir. Yani char türden dizilere yazı yerleştirmek	zorunda değiliz. Pekala biz char türden bir diziyi az yer kaplayan
+	bir tamsayı dizisi olarak kullanabiliriz. Bu durumda dizinin sonuna null karakter yerleştirmenin bir anlamı yoktur. Örneğin:
+
+	char s[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+	Burada s dizisi 1 byte yer kaplayan bir tamsayı dizisi gibi kullanılmak üzere oluşturulmuştur. Bu kullanımda null karakter ile bir işimiz yok.
+	Biz char türden dizilere bir yazı yerleştireceksek, yazının sonuna null karakteri yerleştirmeliyiz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[] = {1, 2, 3, 4, 5};
+
+	for (int i = 0; i < 5; ++i)
+		printf("%d ", s[i]);
+	printf("\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Null karakter ile '0' karakterinin ilgisi olmadığına dikkat ediniz. Null karakter gerçekten 0 değerine ilişkin karakterdir. Yani null karakterin sayısal değeri
+	0'dır. Ancak '0' karakterinin sayısal değeri ASCII tablosundan 48'dir. Daha önceden de belirttiğimiz gibi '\0' gösterimi ile 0 gösterimi arasında teknik
+	bir farklılık yoktur. Ancak karakter vurgusu yapmak için null karakteri '\0' biçiminde göstermek iyi bir tekniktir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char c;
+
+	c = '0';
+
+	printf("%d\n", c);		/* 48 */
+
+	c = '\0';
+	printf("%d\n", c);		/* 0 */
+
+	c = 0;
+	printf("%d\n", c);		/* 0 */
+
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bellekte karakter diye bir bilginin olmadığına dikkat ediniz. Karakterler bellekte aslında birer sayı olarak bulunurlar. Biz C'de bir karakteri tek tırnak
+	içerisine aldığımızda o karakterin ilgili karakter tablosundaki sıra numarısını belirtmiş oluruz. Yani örneğin ASCII tablosunun kullanıldığı bir C derleyicisinde
+	'a' ile 97 arasında bir farklılık yoktur. Bellekte her şeyin aslında ikilik sistemde sayılar biçiminde bulunduğuna, onun nasıl yorumlanacağına programcının karar verdiğine
+	dikkat ediniz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[10] = {97, 98, 99, 0};
+
+	puts(s);		/* abc */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C standartlarında bir özelliğin "deprecated" olması "ileride kaldırabileceği, ancak şimdilik muhafaza edildiği" anlamına gelmektedir. Mademki deprecated
+	özellikler ileride kaldırılabilecek özelliklerdir, o halde programcıların deprecated özellikleri kullanmaması gerekir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	gets isimli standart C fonksiyonu C'nin ilk günlerinden beri vardı. Ancak bir tasarım bozukluğundan dolayı C99'da deprecated yapıldı ve C11'de
+	standart fonksiyon listesinden çıkartıldı. Bugünkü derleyiclerde gets halen desteklenmektedir. Ancak bu fonksiyon kullanılırken derleme ya da link aşamasında
+	uyarı oluşabilmektedir. Her ne kadar gets fonksiyonu C11 ile C'den çıkartılmışsa da kursumuzda eğitim amaçlı nedenlerle bu fonksiyonu kullanacağız.
+	C11, gets yerine gets_s isimli yeni bir fonksiyonu kütüphaneye eklemiştir. Ancak maalesef bu fonksiyon da standartlarda "optional" yapılmıştır. Optional
+	özellik demek ilgili derleyicinin barındırp barındırmayacağı derleyiciyi yazanlara bağlı demektir. Gerçekten de gets_s fonksiyonu gcc derleyicilerinde henüz
+	bulunmamaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	gets fonksiyonu, klavyeden (stdin dosyasından) bir yazı okumak için kullanılmaktadır. tipik kullanımı şöyledir:
+
+	gets(dizi_ismi);
+
+	gets aslında char türden bir adres almaktadır. Ancak ileride bu konu ele alınacaktır. gets fonksiyonu ENTER tuşuna basılana kadar girilen karakterleri
+	(yani onların sayısal karşılıklarını) diziye tek tek yerleştirir. Yazının sonuna null karakteri ekler ve işlemini sonlandırır. Örneğin:
+
+	char s[100];
+
+	gets(s);
+
+	gets fonksiyonunun kusuru, kullanıcı uzun yazı girerse diziyi taşırabilmesidir. Biz gets ile n eleman uzunluğundaki bir char diziye en fazla n - 1 karakterli bir
+	yazı girmeliyiz. Çünkü gets, null karakteri de yazının sonuna eklemektedir. Null karakter de dizinin içerisinde kalmak zorundadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[1024];
+
+	printf("Bir yazi giriniz:");
+	gets(s);
+
+	puts(s);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de bir dizinin taşırılması "tanımsız davranış (undefined behavior)" oluşturmaktadır. Eğer biz gets fonksiyonu için küçük bir dizi açarsak ve klavyeden
+	çok karakter girersek dizi taşar ve programımız çökebilir. n elemanlı bir char diziye gets ile en fazla n - 1 karakterli bir yazı girebiliriz.
+	Aşağıdaki örnekte uzun bir yazı girerek sonucu gözleyiniz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[5];			/* dikkat dizi çok küçük, taşabilir! */
+
+	printf("Bir yazi giriniz:");
+	gets(s);
+
+	puts(s);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir char dizi içerisindeki karakterleri null karakter görene kadar yazdırmak için puts fonksiyonun yanı sıra printf fonksiyonu da kullanılabilir.
+	printf fonksiyonunda %s format karakterine char türden bir dizi ismi (aslında bir adres) karşı getirilirse printf dizinin içerisindeki karakterleri
+	null karakter görene kadar yan yana ekrana (stdout dosyasına) yazar. Tabii printf imleci aşağı satıra otomatik geçirmemektedir. O halde:
+
+	puts(char_dizi_ismi);
+
+	işleminin eşdeğeri:
+
+	printf("%s\n", char_dizi_ismi);
+
+	biçimindedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[1024];
+
+	printf("Bir yazi giriniz:");
+	gets(s);
+
+	printf("%s\n", s);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir dizi içerisindeki yazıyı başka bir diziye nasıl kopyalayabiliriz? İlk akla gelen yöntem null karakter görene kadar kopyalama yapmaktır. Tabii
+	null karakterin de hedef diziye kopyalanması gerekir.
+
+	char s[100] = "this is a test";
+	char d[100];
+	int i;
+
+	for (i = 0; s[i] != '\0'; ++i)
+		d[i] = s[i];
+	d[i] = '\0';
+
+	Aslında bu işlem daha kısa şöyle yapılabilir:
+
+	for (int i = 0; (d[i] = s[i]) != '\0'; ++i)
+		;
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[100];
+	char d[100];
+
+	printf("Bir yazi giriniz:");
+	gets(s);
+
+	for (int i = 0; (d[i] = s[i]) != '\0'; ++i)
+		;
+
+	puts(s);
+	puts(d);
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Adres bilgilerinin yerleştirildiği nesnelere "gösterici (pointer)" denilmektedir. Bir adres bilgisi int bir nesneye, double bir nesneye yerleştirilemez.
+	Adresler iki bileşenli özel türlerdir. Elimizde bir adres bilgisi varsa biz onu ancak bir göstericiye atayabiliriz. Yani, adres tutan nesnelere
+	gösterici denilmektedir. C'de bir gösterici bildiriminin genel biçimi şöyledir:
+
+	<tür> *<gösterici_ismi>;
+
+	Örneğin:
+
+	int *pi;
+	long *pl;
+
+	Burada '*' atomunun çarpmayla bir ilgisi yoktur. Buradaki '*' göstericiyi belirtmektedir. Atomlar arasında istenildiği kadar boşluk karakteri bırakılabileceğine
+	göre bu bildirimler örneğin aşağıdaki gibi de yazılabilir:
+
+	int
+		*
+	pi;
+
+	long* pl;
+
+	Ritchie/Kernighan yazım biçiminde * atomu gösterici ismine bitiştirilmektedir. Biz de bu yazım biçimini kullanacağız.
+
+	Bir göstericiye, herhangi bir adres bilgisi atanamaz. Ancak tür bileşeni uygun olan bir adres bilgisi atanabilir. Örneğin:
+
+	int *pi;
+
+	Burada pi göstericisine biz ancak tür bileşeni int olan bir adres bilgisi atayabiliriz. Örneğin:
+
+	pi = (int *)0x1FC14;		/* geçerli pi int türdne gösterici, ona int türden bir adres bilgisi atanmış */
+
+	Örneğin:
+
+	int *pi;
+
+	pi = (double *)0x1B12C0;		/* geçersiz! pi'ye int türden bir adres bilgisinin atanması gerekirdi. Halbuki double türden bir adres bilgisi atanmıştır */
+
+	Bir adres bilgisi gösterici olmayan bir nesneye de atanamaz. Örneğin:
+
+	int a;
+
+	a = (int *) 0x1FC90;	/* geçersiz! adres bilgileri temel türlere atanamaz, göstericilere atanabilir */
+
+	Bir göstericiye bir tamsayı da atayamayız. Ancak aynı türden bir adres bilgisi atayabiliriz. Örneğin:
+
+	int *pi;
+
+	pi = 0x1FC10;	/* geçersiz! int türden göstericiye adi bir int atanamaz, int türden adres bilgisinin atanması gerekir */
+
+	Yani özetle bir göstericiye aynı türden bir adres bilgisi atanabilir. Bir adres bilgisi de yalnızca aynı türden bir göstericiye atanabilir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir adres bilgisi aynı türden bir göstericiye atandığında göstericiye adresin yalnızca sayısal bileşeni yerleştirilir. Çünkü tür bileşeni
+	zaten bildirimde derleyici tarafından bilinmektedir. Örneğin:
+
+	int *pi;
+
+	pi = (int *) 0x1FC14;
+
+	Burada pi'nin içerisinde 1FC14 değeri bulunur.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Tek operandlı önek & operatörüne C'de "address of" operatör denilmektedir. Bu operatörün operandı bir nesne olmak zorundadır. Bu operatör, ilgili nesnenin
+	bellek adresini elde eder. & operatörü ile elde edilen adresin tür bileşeni, operandı olan nesnenin türüyle aynı olan türdendir. Sayısal bileşeni ise
+	nesnenin bellekteki doğrual adresidir. Tabii nesne bellekte bir byte'tan daha uzun yer kaplıyorsa, onun en düşük anlamlı adresi doğrusal adresi olur.
+
+	Bir nesnenin adresini aldığımızda biz onu aynı türden bir göstericiye yerleştirebiliriz. Örneğin:
+
+	int a;
+	int *pi;
+
+	pi = &a;	/* geçerli */
+
+	Burada &a ile elde edilen adres bilgisinin tür bileşeni int biçimdedir. O zaman bizim bu adresi int türden bir göstericiye atamamız gerekir. Tabii bu
+	atamadan sonra pi göstericisi aslında adresin sayısal bileşenini tutar durumda olur. Örneğin:
+
+	char a;
+	int *pi;
+
+	pi = &a;		/* geçersiz! char türden bir adres bilgisi int türden göstericiye atanmış */
+
+	Örneğin:
+
+	int a;
+	int b;
+
+	a = &b;			/* geçersiz! bir adres bilgisi int bir nesneye atanamaz! */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir göstericinin içerisinde bir adresin bulunması o göstericinin o adresi gösterdiği anlamına gelmektedir. Yani biz "falanca gösterici şu adresi gösteriyor"
+	dediğimizde anlaşılması gereken şey, o göstericinin içerisinde o adresin bulunduğudur.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de adres bilgileri sembolik olarak "tür *" biçiminde gösterilir. Örneğin:
+
+	int a;
+
+	&a ifadesinin türü "int *" biçiminde ifade edilir. "int *" demek int türden bir adres bilgisi demektir. Örneğin:
+
+	int a;
+	int *pi;
+
+	Burada a'nın türü int, pi'nin türü int * biçimindedir. Buradaki '*' adres anlamına gelmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
