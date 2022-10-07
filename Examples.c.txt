@@ -9691,13 +9691,13 @@ int main(void)
 
 	Burada pi göstericisine biz ancak tür bileşeni int olan bir adres bilgisi atayabiliriz. Örneğin:
 
-	pi = (int *)0x1FC14;		/* geçerli pi int türdne gösterici, ona int türden bir adres bilgisi atanmış */
+	pi = (int *)0x1FC14;		/* geçerli. pi int türdne gösterici, ona int türden bir adres bilgisi atanmış */
 
 	Örneğin:
 
 	int *pi;
 
-	pi = (double *)0x1B12C0;		/* geçersiz! pi'ye int türden bir adres bilgisinin atanması gerekirdi. Halbuki double türden bir adres bilgisi atanmıştır */
+	pi = (double *) 0x1B12C0;		/* geçersiz! pi'ye int türden bir adres bilgisinin atanması gerekirdi. Halbuki double türden bir adres bilgisi atanmıştır */
 
 	Bir adres bilgisi gösterici olmayan bir nesneye de atanamaz. Örneğin:
 
@@ -9771,4 +9771,456 @@ int main(void)
 	int *pi;
 
 	Burada a'nın türü int, pi'nin türü int * biçimindedir. Buradaki '*' adres anlamına gelmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							35. Ders - 06/10/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de diziler onların bütün elemanlarından oluşan bileşik bir nesne gibi ele alınmaktadır. Örneğin:
+
+	char s[10];
+
+	Burada s dizisi 10 elemanlı ve char türdendir. C'de bir dizinin ismi bir ifade içeerisinde kullanıldığında otomatik olarak derleyici tarafından
+	o dizinin başlangıç adresine dönüştürülür. Yani dizi isimleri C'de dizilerin başlangıç adreslerini belirtmektedir. Dizi isimleri ile belirtilen
+	adreslerin tür bileşeni dizi türü ile aynı olan türdendir. Sayısal bileşeni ise dizinin bellekteki başlangıç adresidir. Diziler elemanları ardışıl bulunduğuna
+	göre ve dizinin elemanları ilk eleman düşük adreste olacak biçimde yerleştirildiğine göre aslında bir dizinin ismi yani dizinin adresi aynı zamanda
+	dizinin ilk elemanının adresidir. Örneğin:
+
+	int a[10];
+
+	Burada a ifadesi ile &a[0] ifadesi tamamen aynı anlamdadır. a adresi int türden bir adres belirtir. O halde C'de dizi isimleri aynı türden göstericilere atanabilir.
+	Örneğin:
+
+	int a[10];
+	int *pi;
+
+	pi = a;		/* geçerli */
+
+	Örneğin:
+
+	char s[10];
+	int *pi;
+
+	pi = s;		/* geçersiz! */
+
+	Burada göstericiye farklı türden bir adres bilgisi atanmıştır. Normal nesnelerin adreslerini & operatörüyle almaktayız. Ancak dizi isimleri zaten
+	adres belirtmektedir. Dolayısıyla dizi isimlerine & operatörünü uygulamamalıyız. (Aslında bu başka bir anlama gelmektedir.)
+
+	C'de dizi isimleri nesne belirtmemektedir. Biz bir dizi ismini kullandığımızda adeta derleyici o dizi ismini bir adres sabitine dönüştürmektedir.
+	Örneğin:
+
+	int a[3];
+
+	Burada a[0], a[1], a[2] birer nesne belirtir. Ancak a bir nesne belirtmez. Yani a için bir yer ayrılmamaktadır. a ifadesi tüm diziyi temsil etmektedir.
+
+	a = 10;		/* geçersiz! a bir nesne belirtmiyor */
+
+	Örneğin:
+
+	char s[3];
+	char *pc;
+
+	Burada s dizisinin bellekte 1B12C0 adresinden itibaren yerleştirildiğini varsayalım:
+
+	pc = s;
+
+	Aslında bu işlemde derleyici aşağıdaki gibi bir kod üretmektedir:
+
+	pc = (char *) 0x1B12C0;
+
+
+	char *pc;
+	char *p2;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de önemli bir adres operatörü de "* (indirection)" operatördür. Bu operatörün çarpma işlemini yapan * operatörü ile bir ilgisi yoktur. Tamamen
+	farklı bir operatördür. * operatörü tek operandlı önek bir adres operatörüdür. * operatörünün operandı bir adres bilgisi olmak zorundadır. * operatörü
+	operandı olan adresteki nesneye erişimi sağlar. * operatörü ile erişilen nesnenin türü, operand olarak kullanılan nesnenin türü ile aynı türdendir.
+	Örneğin:
+
+	int a = 10;
+	int *pi;
+
+	pi = &a;
+
+	Burada pi'nin içerisinde a nesnesinin adresi vardır. Şimdi biz *pi dediğimizde pi adresindeki int nesneye erişmiş oluruz. Yani *pi ile a tamamen
+	aynı nesneyi belirtmektedir. *pi ifadesi burada int türdendir. Çünkü pi adresi int türden bir adres bilgisidir. Böylece biz bir nesnenin adresini
+	alıp onu bir göstericiye yerleştirdikten sonra o göstericiyi * operatörü ile kullandığımızda adresini aldığımız nesneye erişmiş oluruz. Örneğin:
+
+	int a;
+	int *pi;
+
+	pi = &a;
+
+	Burada artık *pi ile a aynı nesnelerdir. Bu nesneye a ifadesi ile erişmekle *pi ifadesi ile erişmek arasında hiçbir farklılık yoktur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a = 10;
+	int *pi;
+
+	pi = &a;
+
+	printf("%d\n", *pi);		/* 10 */
+	*pi = 20;
+	printf("%d\n", a);			/* 20 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir dizinin ismi o dizinin bellekteki adresini (yani ilk elemanının adresini) belirtiyordu. O halde biz dizinin ismini aynı türden bir gösteriye atayıp
+	o göstericiyi * operatörü ile kullanırsak dizinin ilk elemanına erişmiş oluruz. Örneğin:
+
+	int a[] = {10, 20, 30};
+	int *pi;
+
+	pi = a;
+
+	Burada *pi aslında a[0] nesnesidir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a[] = {10, 20, 30};
+	int *pi;
+
+	pi = a;
+
+	printf("%d\n", *pi);		/* 10 */
+
+	*pi = 100;
+
+	printf("%d\n", a[0]);		/* 100 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	* adres operatörüne İngilizce "indirection" operatörü denilmektedir. Biz bu operatöre Türkçe "içerik operatörü" de diyeceğiz". İçerik operatörünün
+	operandının bir adres bilgisi olması gerekir. Örneğin:
+
+	int a = 0x1FC12D;
+
+	*a = 10;		/* geçersiz! * operatörünün operandı adi bir int, bir adres bilgisi değil */
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de bir adres bilgisi ile tamsayı türlerine ilişkin bir bilgi toplanabilir. Bir adres bilgisinden tamsayı türlerine ilişkin bir bilgi çıkartılabilir.
+	Yani p bir adres bilgisi, i de bir tamsayı belirtmek üzere p + i ya da i + p işlemi geçerlidir. p - i işlemi geçerlidir, ancak i - p işlemi geçerli değildir.
+	Adres bilgileriyle tamsayı türlerine ilişkin bilgiler çarpılıp bölünemezler. Bir adres bilgisi bir tamsayı ile toplandığında ya da çıkartıldığında elde edilen ürün
+	aynı türden bir adres bilgisi olur. Bir adres bilgisi 1 artırılıdğında adresin sayısal bileşeni, adresin türünün uzunluğu kadar artmaktadır. Benzer biçimde bir adres
+	bilgisinden 1 çıkartıldığında adresin sayısal bileşeni, adresinin türünün uzunluğu kadar eksilir. Örneğin pi, int türden bir adres bilgisini temsil etsin. İlgili sistemde de
+	int türünün 4 byte olduğunu varsayalım. pi + 1 ifadesi ile elde edilen adresin sayısal bileşeni pi'nin sayısal bileşeninden 4 fazla olacaktır. Örneğin pc char türden
+	bir adres belirtiyor olsun. pc + 1 işleminden elde edilen adresin sayısal bileşeni pc adresinin sayısal bileşeninden 1 fazla olacaktır. Çünkü char 1 byte uzunluktadır.
+	Benzer biçimde pi bir gösterici ise ++pi işlemi sonucunda pi'nin içerisinde adresin sayısal bileşeni 4 artacaktır. Yani pi bir sonraki int nesneyi gösterir duruma
+	gelecektir. Örneğin:
+
+	int a[] = {10, 20, 30};
+	int *pi;
+
+	pi = a;
+
+	Burada pi dizinin ilk elemanını göstermektedir. Biz *pi'yi yazdırırsak 10 görürüz. pi'yi 1 artıralım:
+
+	++pi;
+
+	Şimdi pi'nin içerisindeki adresin sayısal bileşeni 4 artmış olacaktır. Şimdi *pi'yi yazdırırsak 20'yi göreceğiz. Çünkü dizi elemanları ardışıl olmak zorundadır.
+	Yani bizim pi'yi 1 artırdığımızda dizinin sonraki elemanına erişebilmemiz için dizi elemanları arasında hiç boşluk olmayacağını garanti etmiş olmamız gerekir. Örneğin:
+
+	int a = 10, b = 20, c = 30;
+	int *pi;
+
+	pi = &a;
+
+	Burada a, b ve c nesnelerinin bellekte peşi sıra dizilmelerinin hiçbir garantisi yoktur. Dolayısıyla burada biz pi'yi artırarak b ve c'ye erişemeyiz.
+	Ancak dizilerde bu ardışıllık garanti edilmiştir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a[] = {10, 20, 30};
+	int *pi;
+
+	pi = a;
+
+	printf("%d\n", *pi);		/* 10 */
+	++pi;
+	printf("%d\n", *pi);		/* 20 */
+	++pi;
+	printf("%d\n", *pi);		/* 30 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir yazıyı char türden bir dizinin içerisine yerleştirip dizinin başlangıç adresini de char türden bir göstericiya atayabiliriz. Bu durumda göstericiyi
+	artıra artıra yazının karakterlerine erişebiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	char *pc;
+
+	pc = s;
+
+	putchar(*pc);		/* a */
+	++pc;
+	putchar(*pc);		/* n */
+	++pc;
+	putchar(*pc);		/* k */
+	++pc;
+	putchar(*pc);		/* a */
+	++pc;
+	putchar(*pc);		/* r */
+	++pc;
+	putchar(*pc);		/* a */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Tabii yukarıdaki örneği bir döngü içerisinde de yapabilirdik.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	char *pc;
+
+	pc = s;
+	while (*pc != '\0') {
+		putchar(*pc);
+		++pc;
+	}
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de adres ile ilgili işlem yapan 4 operatör vardır: &, *, [] ve -> operatörleri. Biz burada bu operatörleri biraz daha ayrıntılı olarak inceleyeceğiz.
+	Ancak -> operatörü "yapılar (structures)" konusu ile ilgili olduğu için onu yapılar konusunda göreceğiz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	& operatörü, tek operandlı önek (unary prefix) bir adres operatörüdür. Bu operatör operandı olan nesnenin bellek adresini verir. Daha önceden de belirtildiği gibi
+	& operatörü ile elde edilen adresin tür bileşeni, operand olan nesnenin türü ile aynı olan türden, sayısal bileşeni ise operand olan nesnenin bellekteki doğrusal adresinden
+	oluşmaktadır. Biz bir nesnenin adresini aldığımızda onu aynı türden bir göstericiye yerleştirebiliriz. Örneğin:
+
+	int a;
+	int *pi;
+	char *pc;
+
+	pi = &a;
+	pc = &a;		/* geçersiz! */
+
+	& operatörü öncelik tablosunda tablonun ikinci düzeyinde sağdan sola grupta bulunmaktadır:
+
+
+	()					Soldan-Sağa
+	+ - ++ -- !	&		Sağdan-Sola
+	* / %				Soldan-Sağa
+	+ -					Soldan-Sağa
+	<  > <= >=			Soldan-Sağa
+	!= ==				Soldan-Sağa
+	&&					Soldan-Sağa
+	||					Soldan-Sağa
+	?:					Sağdan-Sola
+	=, +=, /=, *=,...	Sağdan-Sola
+	,					Soldan-Sağa
+
+	Örneğin a bir nesne belirtmek üzere &a + 1 gibi bir ifadede önce a'nın adresi alınır, sonra bu adrese 1 toplanır. & operatörünün operandının bir nesne
+	belirtmesi gerekir. Çünkü yalnızca nesnelerin adresleri vardır. Örneğin &10 ifadesi geçersizdir. Çünkü operand olan 10, bir nesne belirtmez. Örneğin &(a + 1),
+	burada a + 1 ifadesi bir nesne belirtmez yani sol taraf değeri (lvalue) değildir. Bu nedenle biz a'nın adresini alabiliriz ancak a + 1'in adresini alamayız.
+	Dizi isimleri zaten adres belirtmektedir. Dizi isimlerine yeniden & operatörü uygulanmaz. (Ancak C'de aslında dizi isimlerinin adresleri alınabilir. Ancak bu durum
+	tamamen farklı bir anlam ifade etmektedir. İleride ele alınacaktır.)
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	* (indirection) operatörü, tek operandlı önek bir adres operatörüdür. Bu operatörün operandı bir adres bilgisi olmak zorundadır. Operatör, operandı olan
+	adresteki nesneye erişmekte kullanılır. * operatörü ile erişilen nesnenin türü, operandı olan adresin türüyle aynı türdendir. Yani örneğin *p işleminde
+	elde edilen nesne, p adresi hangi türdense o türden olacaktır. * operatörü de öncelik tablosunun ikinci düzeyinde sağdan sola grupta bulunmaktadır.
+
+	()					Soldan-Sağa
+	+ - ++ -- !	& *		Sağdan-Sola
+	* / %				Soldan-Sağa
+	+ -					Soldan-Sağa
+	<  > <= >=			Soldan-Sağa
+	!= ==				Soldan-Sağa
+	&&					Soldan-Sağa
+	||					Soldan-Sağa
+	?:					Sağdan-Sola
+	=, +=, /=, *=,...	Sağdan-Sola
+	,					Soldan-Sağa
+
+	* operatörünün operandı bir adres bilgisi olmak zorunadır. Örneğin göstericiler, dizi isimleri birer adres belirtmektedir:
+
+	int a[] = {10, 20, 30}
+
+	Bırada *a bu dizinin ilk elemanını belirtir.
+
+	a bir nesne belirtmek üzere *&a işleminde öce & operatörü sonra * operatörü yapılacaktır. Çünkü bu iki operatör sağdan sola aynı öncelik grubundadır.
+	O halde *&a ile a arasında hiçbir farklılık yoktur. Yani, biz bir nesnenin adresini alıp ona erişirsek aynı nesneyi elde ederiz. Örneğin:
+
+	int a = 0x1FC20D;
+
+	printf("%d\n", *a);		/* geçersiz! * operatörünün operandı adres bilgisi değil adi bir int */
+
+	Tabii, adres sabitleri de adres belirttiğine göre onlara da * operatörü uygulanabilir. Örneğin *(int *)0x1FCD0 burada bellekte 1FCD0 adresinden başlayan
+	4 byte (int türünün 4 byte olduğunu varsayıyoruz) int olarak değerlendirilip oraya erişilecektir. Tabii aslında bizim bellekte rastegele bölgelere bu yolla
+	erişmememiz gerekir. Bu konu ileride "gösteri hataları" başlığı ile ele alınacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a = 10;
+	int b[] = {10, 20, 30};
+
+	printf("%d\n", *&a);	/* 10 */
+
+	*&a = 20;
+
+	printf("%d\n", a);		/* 20 */
+
+	printf("%d\n", *b);		/* 10 */
+	*b = 100;
+	printf("%d\n", b[0]);	/* 100 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Dizi elemanlarına erişmekte kullandığımız [] aslında bir adres operatörüdür. Köşeli parantez operatörü, tek operandlı sonek (unary postfix) bir operatördür.
+	p[n] ifadesi tamamen *(p + n) ile eşdeğerdir. Yani p[n] "p adresinden n ilerinin içeriği" anlamına gelmektedir. Tabii burada p adresinden n ileri demekle
+	p adresinden n byte ileriyi kastetmiyoruz. p adresinden n * p'nin türünün uzunluğu kadar byte ilerinin içeriğini kastediyoruz. [] operatöründe köşeli parantez
+	içerisindeki ifadenin tamsayı türlerine ilişkin olması gerekir. [] opeatörü öncelik tablosunun en yukarısında soldan öncelikli grupta bulunmaktadır:
+
+	() []				Soldan-Sağa
+	+ - ++ -- !	& *		Sağdan-Sola
+	* / %				Soldan-Sağa
+	+ -					Soldan-Sağa
+	<  > <= >=			Soldan-Sağa
+	!= ==				Soldan-Sağa
+	&&					Soldan-Sağa
+	||					Soldan-Sağa
+	?:					Sağdan-Sola
+	=, +=, /=, *=,...	Sağdan-Sola
+	,					Soldan-Sağa
+
+	[] operatörünün operandı bir adres bilgisi olmak zorundadır. Yani operand örneğin, bir gösterici olabilir, bir dizi ismi olabilir. Biz daha önce []
+	operatörünü dizi elemanlarına erişmekte kullanmıştık. Örneğin a[i] ifadesini a dizisinin i'inci indisli elemanına erişmek için kullanmıştık. a dizi ismi
+	dizinin başlangıç adresi anlamına geldiğine göre a[i] ifadesi tamamen *(a + i) ile eşdeğerdir. Tabii [] operatörünü biz daha önce hep dizi ismiyle kullanmıştık.
+	Aslında bu operatörün operandı herhangi bir adres bilgisi olabilir. Örneğin [] operatörünü bir gösterici ile kullanabiliriz:
+
+	int a[] = {10, 20, 30, 40, 50};
+	int *pi;
+
+	pi = a;
+
+	Örneğin burada a[3] ile pi[3] arasında hiçbir farklılık yoktur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a[] = {10, 20, 30, 40, 50};
+	int *pi;
+
+	for (int i = 0; i < 5; ++i)
+		printf("%d %d\n", a[i], *(a + i));
+
+	pi = a;
+
+	printf("%d\n", pi[3]);		/* 40 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Tabii aslında [] operatöründe köşeli parantezler içerisindeki ifade negatif olabilir. Örneğin pi[-2] gibi bir ifade tamamen normaldir. Bu işlem *(pi - 2)
+	anlamına gelmektedir. Yani biz burada pi'nin belirttiği adresten iki önceki elemana erişmiş oluruz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a[] = {10, 20, 30, 40, 50};
+	int *pi;
+
+	pi = a + 3;
+	printf("%d\n", *pi);		/* 40 */
+
+	printf("%d\n", pi[-2]);		/* 20 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	p bir adres belirtmek üzere p[0] ile *(p + 0) ve *p tamamen aynı anlamdadır. Yani örneğin biz, a isimli bir dizinin ilk elemanına a[0] ifadesi ile de *a
+	ifadesi ile de erişebiliriz.
+
+	p bir adres belirtmek üzere *(p + n) ile *p + n tamaen farklı anlamlara gelmektedir. *(p + n) ifadesinde önce parantez içi yapılacak ve p adresinden n ilerideki
+	adres elde edilecektir. Sonra * operatörü ile bu adresin içeriği elde edilecektir. Halbuki *p + n ifadesinde önce *p ile p adresindeki nesneye erişilecek
+	o nesnenin değeri n ile toplanacaktı.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de aslında [] operatörünün operand'ları yer değiştirebilmektedir. Yani p[n] ifadesi aslında n[p] biçiminde de yazılabilmektedir. Bu çok az bilinen
+	bir özelliktir. Zaten programcılar tarafından hiç kullanılmaz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+	int a[] = {10, 20, 30, 40, 50};
+
+	printf("%d\n", a[2]);		/* 30 */
+	printf("%d\n", 2[a]);		/* 30 */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	p bir adres belirtmek üzere örneğin ++*p gibi bir ifadede biz asılında *p'yi bir artırmış oluruz. Yani bu ifade *p = *p + 1 ile aynı anlamdadır.
+	Ancak *++p ifadesinde biz önce p göstericisinin içerisinde adresi bir artırıp (bir byte değil), sonra artırılmış adresteki nesneye erişiriz. p bir adres
+	belirtmek üzere &*p ifadesinde önce p adresindeki nesneye erişilip, sonra onun adresi alınmıştır. Bu da tabii p adresiyle aynıdır. a bir nesne belirtmek üzere
+	*&a ifadesi de daha önce belirttiğimiz gibi a ile aynı anlamdadır.
+
+	[] operatörünün & operatöründen daha öncelikli olduğuna dikkat ediniz. Örneğin &a[n] ifadesi a adresinden n ilerinin içeriğinin adresi anlamına gelmektedir. Bu ifade
+	&*(a + n) ifadesi ile eşdeğer olduğuna göre aslında a + n ile de eşdeğerdir. Yani a adresinden n ilerinin içeriğinin adresi, aslında a adresinden n ilerinin adresi aynı anlamdadır.
+	Örneğin:
+
+	int a = 10;
+
+	&a[0] = 20;		/* geçersiz */
+
+	Buarad [] operatörü önceliklidir. Dolayısıyla [] operatörünün operandı adres bilgisi olmadığı için ifade geçersizdir. İfadeyi şöyle düzeltelim:
+
+	(&a)[0] = 20;		/* geçerli */
+
+	Bu ifade geçerlidir. Burada a'ya 20 atanmaktadır.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
