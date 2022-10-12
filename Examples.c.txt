@@ -1911,7 +1911,7 @@ int main(void)
 
 	scanf("%x", &a);
 
-	Burada %x klavyedne girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak a nesnesine yerleştirecektir. printf fonksiyonuyla scanf fonksiyonu arasındaki
+	Burada %x klavyeden girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak a nesnesine yerleştirecektir. printf fonksiyonuyla scanf fonksiyonu arasındaki
 	format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. printf fonksiyonunda hem float hem de double %f ile yazdırılır. Ancak scanf fonksiyonunda
 	float %f ile double %lf ile okunmaktadır.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -10224,3 +10224,469 @@ int main(void)
 
 	Bu ifade geçerlidir. Burada a'ya 20 atanmaktadır.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+							36. Ders - 11/10/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki gibi bir gösterici bildirimi olsun:
+
+	int *pi;
+
+	Bu bildirimden iki şey anlaşılmaktadır. Birincisi, pi nesnesi int * türündendir. Burada "int *" int türden adres bilgisi anlamına gelir. (pi'yi
+	parmağınızla kapatıp sola bakın). İkincisi, *pi yani pi'nin gösterdiği yer int türdendir. (*pi'yi parmağınızla kapatıp sola bakın).
+
+	T türünden adres türü C'de T * biçiminde temsil edilmektedir. T1 türünden T2 türüne otomatik dönüştürme olması T1 * türünden T2 * türüne otomatik dönüştürme olacağı
+	anlamına gelmez. Örneğin int türünden double türüne otomatik dönüştürme vardır. Ancak int * türünden double * türüne otomatik dönüştürme yoktur.
+	Bir adres bilgisini ancak aynı türden bir göstericiye atayabiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir göstericiye ilkdeğer verebiliriz. Tabii verilen ilkdeğerin gösterici ile aynı türden bir adres bilgisi olması gerekir. Örneğin:
+
+	int a;
+	int *pi = &a;		/* geçerli */
+
+	Tabii burada verilen ilkdeğer pi'nin içerisine yerleştirilmektedir. *pi'ye yerleştirilmemektedir. Zaten buradaki * bir operatör görevinde değildir.
+	Bildirimdeki dekleratörde bulunmaktadır. Örneğin:
+
+	int a[] = {10, 20, 30, 40, 50};
+	int *pi = a;		/* geçerli */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir fonksiyonun parametre değişkeni bir gösterici olabilir. Bu durumda fonksiyon, aynı türden bir adres bilgisi ile çağrılmalıdır. Örneğin:
+
+	void foo(int *pi)
+	{
+		/* ... */
+	}
+	...
+	int a;
+	foo(&a);			/* geçerli */
+	foo(a);				/* geçersiz */
+
+	Bir fonksiyonun parametre değişkeni bir gösterici ise, biz de o fonksiyonu aynı türden bir nesnenin adresi ile çağırmışsak, fonksiyonun içerisinde
+	* operatörü kullanıldığında biz aslında adresini aldığımız nesneye erişiriz. İşte bir fonksiyonun başka bir fonksiyonun yerel değişkenini değiştirebilmesi
+	için onun adresini alması gerekir.
+
+	Bir fonksiyonu bir değerle çağırmaya İngilizce "call by value", bir adresle çağırmaya "call by reference" denilmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void foo(int *pi)
+{
+    *pi = 20;
+}
+
+int main(void)
+{
+    int a = 10;
+
+    printf("%d\n", a);      /* 10 */
+
+    foo(&a);
+
+    printf("%d\n", a);      /* 20 */
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	İki değişken içerisindeki değeri yer değiştiren swap isimli bir fonksiyon yazmak isteyelim. Bu fonksiyonu aşağıdaki gibi yazamayız:
+
+	void swap(int x, int y)
+	{
+		int temp = x;
+		x = y;
+		y = temp;
+	}
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void swap(int x, int y)
+{
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
+int main(void)
+{
+    int a = 10, b = 20;
+
+    printf("a = %d b = %d\n", a, b);
+
+    swap(a, b);
+
+    printf("a = %d b = %d\n", a, b);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bu fonksiyonu yazabilmek için nesnelerin adreslerini parametre olarak almak gerekir. Örneğin:
+
+	void swap(int *x, int *y)
+	{
+		int temp = *x;
+		*x = *y;
+		*y = temp;
+	}
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main(void)
+{
+    int a = 10, b = 20;
+
+    printf("a = %d b = %d\n", a, b);
+
+    swap(&a, &b);
+
+    printf("a = %d b = %d\n", a, b);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Şimdi artık scanf fonksiyonunun neden nesnenin adresini aldığını anlayabiliriz. Eğer scanf nesnenin adresini almasaydı o nesnenin içerisine
+	bir şey yerleştiremezdi. Bir fonksiyonun bizim yerel değişkenimize bir şey yerleştirebilmesi için bizim değişkenimizin adresini	alması gerekir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+
+int main(void)
+{
+    int a;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);				/* scanf a'nın adresini alarak oraya değeri yerleştirmektedir */
+
+    printf("%d\n", a * a);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	C'de bir dizinin fonksiyona parametre yoluyla aktarılması tipik olarak iki parametre ile yapılmaktadır. Fonksiyonun parametrelerinden biri, bir gösterici
+	olur. Bu gösterici dizinin başlangıç adresini alır. Diğer parametre de int, unsigned int gibi tamsayı türlerine ilişkin bir türden olur. Bu parametre de
+	dizinin uzunlupunu alır. Böylece fonksiyon, dizinin başlangıç adresini ve uzunluğunu aldığında o göstericiyi artırarak dizinin elemanlarının hepsine
+	erişebilir. Tabii bu biçiminde aktarımın mümkün olmasının asıl nedeni dizi elemanlarının ardışıllığıdır. Fonksiyona dizinin uzunluğunun da geçirilmesinin
+	nedeni fonksiyonun dizinin sonunu tespit edebilmesi içindir.
+
+	Aşağıdaki int bir dizinin elemanlarını yazdıran disp isimli fonksiyon örnek olarak verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void disp(int *pi, int size)
+{
+    for (int i = 0; i < size; ++i) {
+        printf("%d ", *pi);
+        ++pi;
+    }
+    printf("\n");
+}
+
+int main(void)
+{
+    int a[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int b[5] = {100, 200, 300, 400, 500};
+
+    disp(a, 10);
+    disp(b, 5);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Yukarıdaki örnekte dizi elemanlarına [] operatörü ile de erişebiliriz. Aslında bu tür fonksiyonlarda * yerine daha çok [] operatörü tercih edilmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void disp(int *pi, int size)
+{
+    for (int i = 0; i < size; ++i)
+        printf("%d ", pi[i]);
+    printf("\n");
+}
+
+int main(void)
+{
+    int a[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int b[5] = {100, 200, 300, 400, 500};
+
+    disp(a, 10);
+    disp(b, 5);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir dizinin uzunluğunun int bir tür ile ifade edilmesi bazı sistemlerde yetersiz kalabilir. Örneğin bir sistemin bellek büyüklüğü int sınırlarını
+	aşıyor olabilir. Bu durumda çok büyük dizilerin uzunluklarını int türü ile ifade edemeyiz. Bu tür durumlarda unsigned int, long, unsigned long gibi türler
+	denenebilir. Tabii bir bir sistemde açılabilecek maksimum dizi uzunluğu o sistemin bellek büyüklüğü ile ilgilidir. Bunu da ancak derleyicileri yazanlar
+	biliyor olabilirler. İşte C'de ilgili sistemdeki bellek büyüklüğünü etkin bir biçimde temsil edebilmek için size_t isimli bir tür ismi düşünülmüştür.
+	size_t aslında bir tür değildir. Başka bir türün alternatif bir ismidir. Bu biçimdeki alternatif isimler typedef bildirimi ile oluşturulurlar.
+	Biz kursumuzda ileride typedef bildirimlerini göreceğiz. size_t türünün typedef bildirimleri <stdio.h>, <stdlib.h>, <stddef.h> , <string.h> gibi
+	dosyalarda yapılmış durumdadır. Yani bu tür ismini kullanabilmemeiz için bu dosyalardan birini include etmiş olmamız gerekir. size_t bir anahtar sözcük değildir.
+	Bir değişken olan sembolik bir isimdir. C standartlarına göre size_t işaretsiz bir tamsayı türü olmak üzere derleyicileri yazanlar tarafından
+	typedef edilmiş bir tür olmak zorundadır. Aslında programcının size_t türünün hangi tür olarak belirlendiğini bilmesine gerek yoktur.
+
+	İşte C'de dizi uzunlukları da genellikle programcılar tarafından size_t türü ile temsil edilmektedir. Biz de kursumuzda her ne kadar henüz typedef
+	işlemlerini görmemiş olsak da bu size_t türünü kullanacağız.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void disp(int *pi, size_t size)
+{
+    for (size_t i = 0; i < size; ++i)
+        printf("%d ", pi[i]);
+    printf("\n");
+}
+
+int main(void)
+{
+    int a[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int b[5] = {100, 200, 300, 400, 500};
+
+    disp(a, 10);
+    disp(b, 5);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıda int bir dizinin en büyük elemanını bulan bir fonksiyon örneği verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int getmax(int *pi, size_t size)
+{
+    int max = pi[0];
+
+    for (size_t i = 1; i < size; ++i)
+        if (pi[i] > max)
+            max = pi[i];
+
+    return max;
+}
+
+int main(void)
+{
+    int a[10] = {45, 23, 11, 67, 21, 7, 32, 76, 22, 47};
+    int max;
+
+    max = getmax(a, 10);
+    printf("%d\n", max);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdkai double bir dizinin ortalamasına geri dönen mean isimli bir fonksiyon örneği verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+double mean(double *pd, size_t size)
+{
+    double total;
+
+    total = 0;
+    for (size_t i = 0; i < size; ++i)
+        total += pd[i];
+
+    return total / size;
+}
+
+int main(void)
+{
+    double a[5] = {1, 2, 3, 4, 5};
+    double result;
+
+    result = mean(a, 5);
+    printf("%f\n", result);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Bir göstericiye aynı türden bir adres bilgisinin atanabildiğini anımsayınız. Bu durumda int bir dizinin en büyük elemanına geri dönen aşağıdaki
+	gibi bir fonksiyon olsun:
+
+	int getmax(int *pi, size_t size);
+
+	Burada bu fonksiyon, int bir dizinin en büyük elemanını bulabilir, long, double gibi türlere ilişkin dizilerin en büyük elemanlarını bulamaz.
+	Çünkü örneğin double bir türden dizinin adresi double türden adres belirtir. Halbuki fonksiyonun parametresi int türden bir göstericidir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıdaki int türden bir diziyi bubble sort algoritmasıyla sıraya dizen bir fonksiyon örneği verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void bsort(int *pi, size_t size);
+
+int main(void)
+{
+    int a[10] = {2, 56, 11, 1, 58, 23, 32, 43, 67, 15};
+
+    bsort(a, 10);
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+void bsort(int *pi, size_t size)
+{
+    int temp;
+    int flag;
+    size_t i;
+
+    i = 0;
+    do {
+        flag = 0;
+        for (size_t k = 0; k < size - 1 - i; ++k) {
+            if (pi[k] > pi[k + 1]) {
+                flag = 1;
+                temp = pi[k];
+                pi[k] = pi[k + 1];
+                pi[k + 1] = temp;
+            }
+        }
+        ++i;
+    }  while (flag == 1);
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Aşağıda int bir diziyi ters çeviren bir fonksiyon örneği verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void reverse(int *pi, size_t size);
+
+int main(void)
+{
+    int a[10] = {2, 56, 11, 1, 58, 23, 32, 43, 67, 15};
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    reverse(a, 10);
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+void reverse(int *pi, size_t size)
+{
+    for (size_t i = 0; i < size / 2; ++i) {
+        int temp = pi[i];
+        pi[i] = pi[size - 1 - i];
+        pi[size - 1 - i] = temp;
+    }
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Yukarıdaki örneği yazarken iki int değeri yer değiştiren swap fonksiyonundan da faydalanabilirdik.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void reverse(int *pi, size_t size);
+
+int main(void)
+{
+    int a[10] = {2, 56, 11, 1, 58, 23, 32, 43, 67, 15};
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    reverse(a, 10);
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+void swap(int *pi1, int *pi2)
+{
+    int temp = *pi1;
+    *pi1 = *pi2;
+    *pi2 = temp;
+}
+
+void reverse(int *pi, size_t size)
+{
+    for (size_t i = 0; i < size / 2; ++i)
+        swap(&pi[i], &pi[size - 1 - i]);
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	[] operatörünün * ve & operatörlerinden daha öncelikli olduğunu anımsayınız. Bu durumda p bir adres belirtmek üzere &p[n] ile p + n aynı anlamdadır.
+	Yani, p adresinden n ilerinin içeriğinin adresi aslında p adresindne n ilerinin adresidir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Yazıların fonksiyonlara parametre yoluyla aktarılması için tipik olarak fonksiyonun parametre değişkeni char tüdrden bir gösterici olur. Fonksiyon da
+	yazının başlangıç adresiyle çağrılır. Yazının uzunluğunun fonksiyona geçirilmesine gerek yoktur. Çünkü yazının sonunda zaten null karakter vardır.
+	Fonksiyon da null karakter görene kadar yazının tüm karakterlerini elde edebilir.
+
+	Örneğin aslında puts fonksiyonun prototipi şöyledir:
+
+	void puts(char *str);
+
+	Fonksiyon yazının başlangıç adresini alır, null karakter görene kadar tüm karakterleri yan yana yazdırır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+void myputs(char *str)
+{
+    while (*str != '\0') {
+        putchar(*str);
+        ++str;
+    }
+}
+
+int main(void)
+{
+    char s[] = "ankara";
+
+    myputs(s);
+
+    return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
