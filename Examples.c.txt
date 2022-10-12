@@ -1039,7 +1039,7 @@ int main(void)
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	Aşağıdaki Merhaba Dünya programının açıklaması şöyldir:
+	Aşağıdaki Merhaba Dünya programının açıklaması şöyledir:
 
 	Burada #include <stdio.h> satırı "stdio.h" isimli bir dosyanın kaynak koda dahil edildiğini belirtmektedir. Yani bu satır "stdio.h" dosyasının içeriğinin
 	oraya "paste edileceği" anlamına gelmektedir. Başka bir deyişle biz "stdio.h" dosyasını bu komutun bulunduğu yere yerleştirip bu komuttu silsek tamamen aynı
