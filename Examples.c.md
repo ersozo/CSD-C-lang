@@ -1176,12 +1176,12 @@ ifade edilirler. Aşağıda temel türler açıklanmaktadır:
   Örneğin tipik olarak eğer adreslenebilen en küçük birim 8 bit ise char 8 bittir. Ancak 10 bit ise char 10 bittir. Görüldüğü gibi eğer C standartlarında
   char yerine byte terimi kullanılsaydı byte 8 bit olduğu için bu uç durum temsil edilemeyebilirdi. Tabii bugünkü sistemlerin %99.9'unda adreslenebilen en küçük
   birim 8 bittir. Dolayısıyla yaygın sistemlerin hepsinde gerçekten char türü 8 bit yani bir byte uzunluğundadır. Zaten C standartlarında "byte" terimi tamamen
-  bit uzunluğu farklı olabilen yani "adreslenebilen en küçük birim" anlamında kullanılmaktadır. Başka bir dyişle bu tanımla "char" ile "byte" aynı anlamdadır.
+  bit uzunluğu farklı olabilen yani "adreslenebilen en küçük birim" anlamında kullanılmaktadır. Başka bir deyişle bu tanımla "char" ile "byte" aynı anlamdadır.
   Ayrıca standartlar, derleyicinin ilgili sistemdeki adreslenebilen en küçük birimdeki bit sayısının kaç bit olduğunu (yani char türünün kaç bitten oluştuğunu)
-  `<limits.h>` dosyası içerisinde CHAR_BITS sembolik sabitiyle belirtmesini zorunlu tutmaktadır.
+  `<limits.h>` dosyası içerisinde `CHAR_BITS` sembolik sabitiyle belirtmesini zorunlu tutmaktadır.
 
-Mademki char türü yaygın sistemlerin hepsinde 8 bitten oluşmaktadır. O halde signed char türünün de bu sistemlerdeki sınırları [-128, +127]
-arasındadır. Özetle signed char, bir byte'lık işaretli tamsayı türünü belirtmektedir.
+  Mademki char türü yaygın sistemlerin hepsinde 8 bitten oluşmaktadır. O halde signed char türünün de bu sistemlerdeki sınırları [-128, +127]
+  arasındadır. Özetle signed char, bir byte'lık işaretli tamsayı türünü belirtmektedir.
 
 - **unsigned char**: Bu tür, char türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
   bit uzunluğu kadardır. 8 bitlik yaygın sistemlerde unsigned char türünden bir nesneye [0, +255] arasında değerler yerleştirilebilir.
@@ -1222,12 +1222,12 @@ Bir C derleyicisinde aslında "float", "double" ve "long double" türlerinin hep
 
 C99 ile birlikte C'ye ikili değerler turmak için `_Bool` isminde yeni bir tür daha eklenmiştir. (Bu tür isminin bu biçimde size tuhaf gelecek şekilde isimlendirilmesinin
 amacı geçmişe doğru uyumu koruyabilmektir. C99 çıktğında, "bool" gibi bir ismi programcılar kendi programlarında kullanmış olabileceklerinden dolayı,
-bu türü temsil etmek için "reserved" isimlerden biri tercih edilmiştir. C'de başı "\_" ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
+bu türü temsil etmek için "reserved" isimlerden biri tercih edilmiştir. C'de başı '\_' ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
 yasaklanmış durumdaydı.) `_Bool` türü için standatlar, 0 ve 1 değerlerini tutabilen bir yapıda olması gerektiğini belirtmişlerdir. Dolayısıyla `_Bool` türü aslında
 herhangi bir tamsayı türünün uzunluğu kadar olabilir. Tabii derleyiciler bu türden nesneler için genel olarak 1 byte yer ayırmaktadır.
 
-`_Bool` türü `<stdbool.h>` dosyası içerisinde "bool" ismiyle de typedef edilmiştir. Dolaysıyla, programcı isterse bool başlık dosyasını include edip `_Bool` yerine
-bool ismini de kullanabilir. Genellikle bool türünün olduğu diğer programlama dillerinde, "true" ve "false" biçiminde anahtar sözcükler de bulundurulmaktadır.
+`_Bool` türü `<stdbool.h>` dosyası içerisinde "bool" ismiyle de typedef edilmiştir. Dolaysıyla, programcı isterse `<stdbool.h>` başlık dosyasını include edip `_Bool` yerine
+`bool` ismini de kullanabilir. Genellikle bool türünün olduğu diğer programlama dillerinde, "true" ve "false" biçiminde anahtar sözcükler de bulundurulmaktadır.
 Ancak C99'da bu biçimde anahtar sözcükler yoktur. Ancak `<stdbool.h>` içerisinde "true" 1 olarak, "false" 0 olarak define edilmiştir. Dolayısıyla eğer
 `<stdbool.h>` dosyası include edilirse, "true" ve "false" sözcükleri 1 ve 0 yerine kullanılabilir.
 
@@ -1241,7 +1241,7 @@ karmaşık sayı türü dile eklenmiş durumdadır:
     long double _Complex
 ```
 
-Karmaşık sayılar, gerçek ve sanal kısımları float, double ve long double olan iki bileşenli sayılardır. Karmaşık sayı için "i" sembolü C99'da
+Karmaşık sayılar, gerçek ve sanal kısımları float, double ve long double olan iki bileşenli sayılardır. Karmaşık sayı için 'i' sembolü C99'da
 `_COMPLEX_I` anahtar sözcüğü ile temsil edilmiştir. Dolaysyıyla örneğin double `_Complex` türünden bir `z` değişkenine biz `3.2 + 2.4i` değerini şöyle atarız:
 
 ```
@@ -1269,7 +1269,7 @@ değişkenlerin kullanılmadan önce derleyiciye tanıtılması işlemine "bildi
     <tür> <değişken_listesi>;
 ```
 
-Buradaki değişken listesi aralarına "," atomu getirilmiş bir ya da birden fazla değişkenden oluşabilir. Örneğin:
+Buradaki değişken listesi aralarına ',' atomu getirilmiş bir ya da birden fazla değişkenden oluşabilir. Örneğin:
 
 ```
     int a;
@@ -1331,21 +1331,24 @@ Biz kursumuzda ağırlıklı olarak **klasik C tarzı yazımı (yılan notasyonu
 Bir bildirim işlemiyle eğer derleyici, bildirilen değişken için bellekte yer ayırıyorsa o bildirime aynı zamanda "tanımlama (definition)" da denilmektedir.
 Örneğin:
 
-    `int a;`
+```
+    int a;
+```
 
 Bu bir bildirimdir. Ama aynı zamanda tanımlamadır. Çünkü derleyici bu bildirimde bildirilen a değişkeni için aynı zamanda bellekte yer ayırmaktadır.
-Her tanımalam bir bildirimdir ancak her bildirim bir tanımlama değildir. Tabii bildirim olup da tanımlama olmayan durumlar da vardır ancak seyrektir. Biz, aksi söylenmediği sürece
-"bildirim" dediğimizde, bildirilen değişken için yer de ayrıldığını varsayacağız. Bildirim olup da tanımlama olmayan durumları özel olarak konular içerisinde
+Her tanımalam bir bildirimdir ancak her bildirim bir tanımlama değildir. Tabii bildirim olup da tanımlama olmayan durumlar da vardır ancak seyrektir. Biz, aksi söylenmediği sürece "bildirim" dediğimizde, bildirilen değişken için yer de ayrıldığını varsayacağız. Bildirim olup da tanımlama olmayan durumları özel olarak konular içerisinde
 vurgulayacağız. Örneğin:
 
 ```
-    int a;				/* bu hem bir bildirimdir hem de bir tanımlamadır */
-    extern int b;		/* bu bir bildirimdir ama tanımlama değildir, tabii extern gibi bir konu henüz görülmedi */
+    int a;              /* bu hem bir bildirimdir hem de bir tanımlamadır */
+    extern int b;       /* bu bir bildirimdir ama tanımlama değildir, tabii extern gibi bir konu henüz görülmedi */
 ```
 
 Bir değişkene bildirim sırasında değer atayabiliriz. Bu işleme "ilkdeğer verme (initializtion)" denilmektedir. Örneğin:
 
-    `int a = 10, b, c = 20;`
+```
+    int a = 10, b, c = 20;
+```
 
 Burada a ve c değişkenlerine ilkdeğer verilmiştir. Ancak b değişkenine ilkdeğer verilmemiştir. İlkdeğer verme ile değişkene ilk kez değer atama aynı şey değildir.
 Örneğin:
@@ -1944,7 +1947,7 @@ stdin tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
 
     Tampon => a\n
 
-    İlk getchar tampondaki sıradaki karakter olan 'a' okuyacaktır. Ancak ikinci getchar tapon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
+    İlk getchar tampondaki sıradaki karakter olan 'a' okuyacaktır. Ancak ikinci getchar tampon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
     Tampondaki '\n' karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o cgetchar tampon boş olduğu için klavyedne okuma
     isteyecektir.
 
