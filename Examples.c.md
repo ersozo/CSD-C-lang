@@ -1,0 +1,11026 @@
+[1. Ders - 24/05/22 - Salı]()
+
+##### Giriş ve Tarihçe
+
+C Programlama Dili 1970 yılında Dennis Ritchie tarafından AT&T Bell Lab'ta UNIX işletim sisteminin bir yan ürünü olarak geliştirilmişir. AT&T Bell Lab.
+Ken Thompson, Brian Kernighan gibi önemli kişilerle UNIX isimli işletim sistemini geliştiriyordu. UNIX işletim sistemi o zamanın DEC PDP-8 makineleri
+için yazılıyordu. İlk UNIX sistemleri ağırlıklı olarak sembolik makine dilinde yazılmıştır. Ancak yazımı kolaylaştırmak için Ken Thompson'ın B ismini verdiği
+programlama dilciğinden de faydalanılmıştır. İşte Dennis Ritchie bu B Programlama Dilini geliştirerek C haline getirmiştir. UNIX işletim sistemi 1973
+yılında tamamen C kullanılarak yeniden yazılmıştır.
+
+[2. Ders - 26/05/22 - Perşembe]()
+
+1978 yılında Dennis Ricthie ve Brian Kernighan C'yi tanıtan **The C Programming Language** isimli bir kitap yazdılar. Daha sonra bu kitabın 1987 yılında 2. Baskısı
+(Second Edition) oluşturuldu. Nihayet 1989 yılında C Programlama Dili ANSI (American National Standard Institute) tarafından standardize edildi.
+C'nin ANSI standartları **ANSI C** olarak bilinmektedir ve kısaca bu standrtlara **C89** denilmektedir. C'de 1989 öncesi devire **standart öncesi devir** denir.
+1990 yılında ISO kurumu C'nin ANSI standratlarını alarak bölüm numaralandırmalarını değiştirip tasdik etmiştir. Bu standartlar **ANSI/ISO 9899:1990** kod numarasıyla
+basılmıştır. Bu standarda halk arasında **C90** denilmektedir. C Programlama Dili 90'lı yıllarda dünyanın en popüler ve yaygın programlama dili haline gelmiştir.
+ISO 1999 yılında C'ye bazı kurallar ekleyerek yeni bir standart oluşturdu. Bu standartlara da **ISO/IEC 9899:1999** kod numarasını verdi. Bu standartlar
+halk arasında kısaca **C99** olarak ifade edilmektedir. Daha sonra ISO yine C'ye bazı eklemeler yaparak 2011 standartlarını oluşturdu. Bu standartların kod
+numarası **ISO/IEC 9899:2011** biçimindedir. Bu standartlar da kalk arasında **C11** olarak ifade edilmektedir. Nihayet ISO 2017 yılında yeni bir standart oluşturdu.
+Ancak bu standart C11'in bir düzeltmesi biçimindedir. Şu anda C'nin en son standardı **ISO/IEC 9899:2017** kod numarasıyla tasdik edilen biçimidir. Bu da halk arasında
+**C17** olarak ifade edilmektedir.
+
+C++ Programlama Dili C Programlama Dilinin nesne yönelimli bir biçimi olarak düşünülebilir. İdeal olmasa da C++, C'yi kapsamaktadır ve fazlalıkları vardır.
+C++'a bu fazlalıklar "Nesne Yönelimli Programlama Tekniğini (NYPT)" uygulamak için eklenmiştir. Derneğimizde C++ Programlama Dilinin eğitimi C bilenlere
+yönelik olarak verilmektedir.
+
+C++ Programlama Dilinin standart gelişimi de şöyledir:
+
+- ISO/IEC 14882: 1998 (C++98)
+- ISO/IEC 14882 :2003 (C++03)
+- ISO/IEC 14882 :2011 (C++11)
+- ISO/IEC 14882 :2014 (C++14)
+- ISO/IEC 14882 :2017 (C++17)
+- ISO/IEC 14882 :2020 (C++20)
+
+Bilgisayar donanımını yöneten, donanım ile kullanıcı arasında arayüz oluşturan temel sistem programlarına "işletim sistemi (operating system)" denilmektedir.
+İşletim sistemleri iki katman olarak düşünülebilir. Çekirdek (kernel) işletim sisteminin donanımı yöneten motor kısmıdır. Kabuk (shell) ise kullanıcı ile
+arayüz oluşturan kısmıdır. İşletim sistemleri çeşitli bakımlardan sınıflandırılabilir. Örneğin:
+
+- Tek prosesli işletim sistemleri
+- Çok prosesli işletim sistemleri
+- Gerçek zamanlı işletim sistemleri
+- Masaüstü (desktop) ve mobil işletim sistemleri
+- Server işletim sistemleri
+
+Bugün masaüstü işletim sistemlerinin en yaygın kullanılanı Windows sistemleridir (%75 civarı). Bunu Mac OS X izlemektedir (%22 civarı) bunu da Linux izlemektedir.
+(%2.5 civarı). Mobil işletim sistemlerinin en yaygın olanı ise %70 civarında kullanıma sahip olan Android sistemleridir. Bunu %25 civarlarında kullanıma sahip olan iOS sistemleri izlemektedir. Diğer mobil işletim sistemleri %1'in oldukça altındadır.
+
+Linux sistemleri Server dünyasında en yaygın kullanılan işletim sistemleridir. Server sistemlerinin %70 civarı Linux makinelerden oluşmaktadır. Artık pek çok gömülü sistem
+projelerinde de Linux işletim sistemi kullanılmaktadır.
+
+Bazı işletim sistemleri sıfırdan yazılmıştır. Bazı işletim sistemleri ise mevcut işletim sistemlerinin kodlarından faydalanılarak oluşturulmuştur. Örneğin Android
+büyük ölçüde Linux çekirdeğinin kodlarına sahiptir. Windows, Linux özgün kod temeline sahip olan işletim sistemleridir. Eskiden BSD sistemleri özgün değildi.
+Sonra tamamen sıfırdan yeniden yazıldı. Benzer biçimde Solaris gibi sistemlerde sıfırdan yazılmıştır. Ancak Mac OS sistemleri böyle değildir. Mac sistemleri FreeBSD ve Mach isimli çekirdeklerin birleşimiyle oluşturulmuştur.
+
+Bir bilgisayar sisteminde en önemli üç birim "CPU", "RAM" ve "Disk" birimleridir. Bütün işlemler CPU (Central Processing Unit) tarafından yapılır.
+CPU işlemlerin yapıldığı kavramsal birimdir. Bunun entegre devre biçiminde üretilmiş haline "mikroişlemci (microprocessor)" denilmektedir.
+CPU'nun elektiriksel olarak bağlantılı olduğu belleklere "ana bellek (main memory)", ya da "birincil bellek (primary memory)" denilmektedir. Ana belleklere
+halk arasında RAM denilmektedir. Programlama dillerindeki değişkenler program çalışırken RAM'de bulunurlar. Ancak işlemler CPU tarafından yapılır. Örneğin:
+
+```
+    a = b + c;
+```
+
+gibi bir işlemde aslında a, b, ve c RAM'de bulunmaktadır. Bu işlem yapılırken b ve c CPU'ya çekilir. CPU içerisindeki elektrik devreleri toplama işlemini yapar.
+Sonuç RAM'deki a'ya aktarılır. Bilgisayarın güç kaynağı kapatıldığında RAM'deki bilgiler silinmektedir. Bunun için bu bilgilerin daha kalıcı bir bellekte saklanması gerekir.
+Bu tür beleklere "ikinci bllekler (secondart memory)" denilmektedir. Eskiden ikincil bellek olarak floppy disketler, CD/DVD ROM'lar ve Hard diskler kullanılıyordu.
+Ancak günümüzde artık SSD (Solid State Disk) denilen "flash bellekler" kullanılmaktadır. Genellikle bilgisayar sistemlerinde ikincil belleklerle birincil bellekler arasında bir aktarım yolu bulunmaktadır.
+
+[3. Ders - 31/05/22 - Salı]()
+
+C doğal kodlu bir çalışma sistemi için tasarlanmıştır. Biz C'de bir kod yazıp bunu derlediğimizde ve bağladığımızda çalıştırılabilir (executable)
+bir dosya elde ederiz. Bu dosyanın içerisinde o anda çalışmakta olduğumuz mikroişlemcinin doğrudan çalıştırabileceği makine komutları bulunmaktadır.
+Yani C'de yazdığımız ve derlediğimiz program mikroişlemci tarafından doğrudan çalıştırılmaktadır.
+
+Ancak 1990'lı yılların ortalarında Java ortamıyla (framework) birlikte ve sonra da 2002 yılında .NET ortamıyla birlikte "arakodlu çalışma sistemi" yaygınlaşmaya
+başlamıştır. Bu sistemde derleyicilerin ürettiği kodlar gerçek bir mikroişlemcinin makine kodları değildir. Kendi içerisinde belli bir standardı olan ancak
+hiçbir mikroişlemcinin makine kodu olmayan yapay bir ara koddur (intermediate code). Dolayısıyla bu arakod mikroişlemci tarafında çalıştırılamaz. İşte
+bu arakodlar çalıştırılmak istendiğinde bu ortamların (frameworks) bir alt sistemi devreye girmekte ve bu arakodları o anda gerçek makine komutlarına dünüştürüp
+çalıştırmaktadır. Bu sürece "tam zamanında derleme (Just In Time Compilation)" denilmektedir.
+
+Java ismi hem bir ortam (framework) belirtmekte hem de bir programlama dilini belirtmektedir. Oysa .NET platformun ismi, C# ise programlama dilinin ismidir.
+Java Programlama Dilinde yazılmış olan kodun derlenmesiyle elde edilen ara koda "Java Byte Code" denilmektedir. Benzer biçimde C# ile yazılmış kodun derlenmesiyle
+elde edilen arakoda ise "Common Intermediate Language (CIL)" denilmektedir. Her iki oramda da bu kodlar doğrudan değil bunların alt sistemleri tarafından
+çalıştırılmak istedniğinde, belli bir düzen içerisinde o anda gerçek makine komutlarına dönüştürülmektedir. Tabii böyle bir arakod sistemi JIT derlemesi nedeniyle
+doğal kodlu sistemlere göre daha yavaş bir çalışma sunmaktadır. Microsoft kendi .NET sistemi için buradaki zaman kaybının %18 civarında olduğunu belirtmektedir.
+
+C'de yazılmış ve derlenmiş olan bir program hem işletim sistemine hem de işlemciye bağımlıdır. Yani biz Windows sistemlerinde X86 serisi Intel işlemcilerinin
+bulunduğu bir bilgisayareda yazdığımız ve derlediğimiz kodu Linux'ta çalıştıramayız. İşte Java gibi .NET gibi ortamlarda yazılmış ve derlenmiş olan kodlar
+işletim sisteminden ve işlemciden bağımsız arakoda dönüştürülmektedir. Böylece bu ortamlar çeşitli işletim sistemi ve mikroişlemci mimarileri için yazılmış
+olduğundan Java ve .NET ortamları için yazılan programlar "platform bağımsız" bir biçimde her yerde çalışabilmektedir.
+
+Java ve .NET gibi ortamlara İngilizce "framework" denilmekltedir. Platform sözcüğü İngilizce daha çok "işletim sistemi ve işlemcinin" oluşturduğu
+küme için söylenmektedir.
+
+Taşınabilirlik (portability) eski bir terimdir ve hale kullanılmaktadır. Taşınabilirlik default durumda kaynak kodun taşınabilirliğini belirtmektedir.
+Örneğin C'nin taşınabilir bir dil olması demek C programlarının standart bir dilde yazıldığından her C derleyicisinin bunu kabul etmesi demektir.
+Ancak son 30 yıldır, derlenmiş olan programların taşınabilirliği biçiminde "binary portability" terimi gündeme gelmiştir. Derlenmiş programın taşınabilirliği
+onun başka platformlara götürüldüğünde sorunsuz çalışabilmesi anlamına gelmektedir. Java, .NET gibi ortamlar bunu hedeflemektedir.
+
+Bir programlama dilinde yazılmış olan bir programı eşdeğer olarak başka bir dile dönüştüren araçlara "çevirici programlar (translators)" denilmektedir.
+Çevirici programlarda çevrilecek dile "kaynak dil (source language)" çevirme işleminin sonunda elde edilen programın diline ise "hedef dil (target language)"
+denilmektedir. Hedef dili alçak seviyeli olan çevirici programlara ise "derleyici (compiler)" denilmekltedir. Saf makine dilleri, sembolik makine dilleri
+ve ara kodlar alçak seviyeli dillerdir.
+
+Yorumlayıcılar (interpreters) kaynak kodu okuyup, hiç hedef kod üretmeden doğrudan çalıştıran programlardır. Dolayısıyla yorumlayıcılar aslında çevirici programlar
+değildir. Bazı dillerde yalnızca derleyicilerle çalışılır (örneğin C, C++). Bazı dillerde ise yalnızca yorumlayıcılar bulunmaktadır. (Örneğin Ruby, R gibi).
+Bazı dillerde ise hem derleyiciler hem de yorumlayıcılarla programlar çalıştırılabilir (örneğin Basic).
+
+Derleyici yazmak yorumlayıcı yazmaktan daha zordur. Derleyiciler ile yazılan kod genel olarak daha hızlı çalıştırılmaktadır. Yorumlayıcılarla çalışırken
+biz kaynak kodu gizleyemeyiz. Ancak derleyicilerle çalışırken üretilen makine kodlarını karşı tarafa verebiliriz.
+
+Eğer bir derleyici kendisinin çalıştığı işlemciden farklı bir işlemci için kod üretiyorsa o tür derleyicilere "çapraz derleyiciler (cross compilers)"
+denilmektedir. Örneğin X86 işlemcilerinin bulunduğu Windows sistemlerinde çalışan bir C derleyicisi eğer örneğin PIC işlemcileri için kod üretiyorsa bu bir
+çapraz derleyicidir.
+
+Kendisi bir bilgisayar olmayıp asıl amacı başka işlemleri yapmak olan aygıtlardaki bilgisayar devrelerine "gömülü sistemler (embedded systems)"
+denilmektedir. Örneğin ölçü aletleri, kapı güvenlik sistemleri, turnike geçiş sistemleri, çamaşır makineleri, buzdolapları, fırınlar, kahve makineleri
+gömülü sistemlere örnek olarak verilebilir. Gömülü sistemlerdeki bilgisayar devreleri genel olarak düşük güçlü, düşük kapasiteli, ancak ucuz ve düşük güç
+harcayan biçimlerdedir. Mikrodenetleyiciler bu tür gömülü sistemlerde yoğun olarak kullanılmaktadır. Dolayısıyla gömülü sistemler dünyasında aşağı seviyeli bir
+çalışma söz konusu olduğu için C Programlama Dili de yoğun olarak kullanılmaktadır.
+
+Dil (language) iletişimde kullanılan semboller kümesidir. Dil karmaşık bir olgudur. Bir olgunun dil olarak değerlendirilmesi için iki kural topluluğunun
+o olguda bulunuyor olması gerekir: Sentaks ve semantik. Bir dilin en yalın öğelerine "atom (token)" denilmektedir. Örneğin doğal dillerde atomlar
+sözcüklerdir. İşte sentaks atomların doğru yazılmasına ve doğru dizilmesine ilişkin kurallardır. Örneğin:
+
+```
+    I going to am school
+```
+
+Burada bir sentaks hatası yapılmıştır. Buradaki atomlar uygun bir biçimde yan yana getirilmemiştir. Burada yapılan hata aşağıdaki C kodunda yapılan
+hataya tamamen benzemektedir:
+
+```
+    if a > ( 10 ) printf("Ok");
+```
+
+Sentaks bakımından doğru olan atom dizilimlerinin ne anlam ifade ettiğine ilişkin kurallara "semantik" denilmektedir. Sentaks ve semantik kurallara
+sahip her olguya dil denilmektedir. Örneğin HTML'de bir senataks vardır. Oluşturulan tag'ların bir anlamı da vardır. O zaman HTML bir dildir.
+
+Diller doğal diller ve kurgusal diller olmak üzere iki ayrılır. Doğal diller Türkçe gibi İngilizce gibi doğal yaşam sonucunda oluşmuş dillerdir.
+Doğal dillerde sentaksın matematiksel düzeyde kesin olarak ifade edilmesi mümkün değildir. Çünkü doğal dillerde çok istisnalar vardır. Kurgusal diller insanların
+belli bir mantık çerçevesinde belli bir amaç doğrultusunda tasarladığı dillerdir. Bunların sentaksları kesindir. İki anlamlılık ve istisna çok yoktur
+ya da çok azdır. Bilgisayar alanında kullanılan kurgusal dillere "bilgisayar dilleri (computer languages)" denilmektedir. Bir bilgisayar dilinde
+bir akış varsa ona aynı zamanda "programlama dili (programming language)" denilmektedir. Örneğin HTML bir bilgisayar dilidir. Ancak bir programlama
+dili değildir.
+
+[4. Ders - 02/06/22 - Perşembe]()
+
+Programlama dilleri çeşitli biçimlerde sınıflandırılabilmektedir. En çok kullanılan sınıflandırma biçimleri şunlardır:
+
+**1. Seviyelerine göre sınıflandırma**
+**2. Uygulama alanlarına göre sınıflandırma**
+**3. Programlama modeline göre sınıflandırma**
+
+Seviye (level) bir programalama dilinin insan algısına yakınlığının bir ölçüsüdür. Yüksek seviyeli diller insana yakın alçak seviyeli diller makineye yakın
+dillerdir. Seviyelerine göre diller yüksekten alçağa kategorik olarak genellikle şöyle sınıflandırılmaktadır:
+
+- _Çok Yüksek Seviyeli Diller_
+- _Yüksek Seviyeli Diller_
+- _Orta Seviyeli Diller_
+- _Sembolik Makine Dilleri_
+- _Saf Makine Dilleri ve Arakodlar_
+
+C orta seviyeli (middle level) bir programlama dilidir. Ancak Java, C#, Python gibi diller yüksek seviyeli diller olarak gruplanmaktadır. Çok yüksek seviyeli dillerde
+artık algoritma da ortadan kalkmaktadır. Genellikle bu tür diller "belli bir alana yönelik (domain specific)" biçimdedirler. Saf makike dilleri
+ve arakodlar 1'lerden ve 0'lardan oluşmaktadır. Bunların sembolik biçimlerine "sembolik makine dilleri (assembly languages)" denilmektedir. Sembolik
+makine dilleri, saf makine dilleri ve arakodlara da "alçak seviyeli diller" denir.
+
+Programlama dillerinin uygulama alanlarına göre sınıflandırılması "hangi tür uygulamalar için hangi dilin daha uygun olacağı" ile ilgilidir.
+Bu bakımdan pek çok alt sınıflandırma yapılabilmektedir. Aşağıda birkaç önemli alt sınıf verilmiştir:
+
+- _Bilimsel ve Mühendislik Diller (Scientific and Enginnering Languages)_: Fortran, C, C++, Pascal, Java, C#, ...
+- _Veritabanı Dilleri (Database Languages)_: SQL, Clipper, ...
+- _Web Dilleri (Web Languages)_: Java Script, PHP, Ruby, Java, C#, Python, ...
+- _Yapay Zeka Dilleri (Artificial Intelligence Langauges)_: Lisp, Prolog, Python, C, C++,...
+- _Görsel ve Animasyon Dilleri (Visual and Animation Languages)_: Action Script, ...
+- _Sistem Proramlama Dilleri (System Programming Languages)_: C, C++, Sembolik Makine Dilleri, Rust, Go
+- _Genel Amaçlı Diller (General Purpose Languages)_: C, C++, Java, C#, Pascal, ...
+
+C Programlama Dili bilimsel ve mühendislik alanlarda kullanılan, genel amaçlı, uzmanlığı sistem programlama olan bir dildir.
+
+Sistem programlama bilgisayar donanımı ile arayüz oluşturan, uygulama programlarına çeşitli bakımlardan hizmet veren, aşağı seviyeli temel yazılımların
+oluşturulması için yapılan programlama faaliyetlerine denilmektedir.
+
+Programlama modeli (programming paradigm) programlama yaparken kullandığımız genel yöntemleri ve biçimleri anlatan bir kavramdır. Programlama dilleri
+belli programlama modellerini uygulayabilmek için özel tasarlanmıştır. Bu bakından dilleri tipik olarak aşağıdaki gibi sınıflara ayırabiliriz:
+
+- _Prosedürel Diller (Procedural Languages)_: Bunlar altprogramların birbirlerini çağırması ile program yazma tekniğini desteklerler. Fortran, C, Basic,
+  Pascal gibi 90 öncesi klasik programlama dillerinin büyük bölümü böyledir.
+
+- _Nesne Yönelimli ve Nesne Tabanlı Diller (Object Oriented Languages)_: İçerisinde sınıf kavramı geçen diller. Bunlar sınıflarla program yazma modelini
+  desteklemektedir.
+
+- _Fonksiyonel Diller (Functional Languages)_: Bıunlar adeta formül yazar gibi program yazmaya olanak sağlayan dillerdir. Aslında kendi aralarında bir spektrum
+  oluştururlar. Fonksiyonel dil demekle genellikle yüksek oranda fonksiyonal olan (pure functional) diller kastedilmektedir.
+
+- _Imperative Diller (Imperative Languages)_: Programların deyim deyim çalıştırıldığı, mantıksal, görsel ve fonksiyonel dillerin dışındaki diller genel olarak
+  imperative diller olarak bilinmektedir.
+
+- _Mantıksal Diller (Logical Languages)_: Mantıksal ifadelerin ve sonuç çıkartma işlemlerinin yoğun kullanıldığı dillerdir. Lisp ve Prolog gibi.
+
+- _Görsel Diller (Visual Languages)_: Program akışının fare hareketleriyle ya da el kol hareketleriyle oluşturulduğu çok yüksek seviyeli dillerdir.
+  Programlama eğitiminde kullanılan Scratch gibi.
+
+- _Çok Modelli Diller (Multiparadigm Languages)_: Yukarıdaki modellerden birden fazlasını belli ölçülerde destekleyen dillerdir. Örneğin C++'ta biz C gibi
+  kod yazabiliriz. Ama sınıflar kullanarak da kod yazabiliriz. Fonksiyonel bazı dil özelliklerini de C++'ta kullanabiliriz. O zaman C++ çok modelli
+  bir programlama dilidir. Yeni tasarlanan diller zaten genel olarak çok modelli olma eğilimindedir. Örneğin bu yeni diller hem nesne yönelimli hem de
+  fonksiyonel özellikleri bünyesinde barındırmaktadır.
+
+_**C Programalama Dili orta seviyeli, prosedürel, imperative, genel amaçlı, bilimsel ve mühendislik çalışmalarda kullanılan ancak uzmanlık alanı sistem programlama olan bir dildir.**_
+
+Uygulama geliştirmeyi kolaylaştıran, kendi içerisinde editörü olan, menüleri olan, genellikle debugger'ları olan, başka birtakım araçları bulunan
+yazılımlara "IDE (Integrated Developmen Environment)" denilmektedir. IDE derleyici değildir. IDE derleyiciyi barındırmaz. IDE'de derleme işlemi yapılırken
+IDE derleyiciyi dışarıdan kullanır. Derleyiciler genel olarak komut satırında çalışan GUI arayüzü olmayan programlardır.
+
+C için önemli IDE'ler şunlardır:
+
+- Windows sistemleri için Microsoft'un "Visual Studio" IDE'si. Kursumuzda bunun "Community-2022" parasız versiyonunu kullanacağız.
+- QtCreator IDE'si. Cross platform bir IDE'dir. Aslında Qt denilen framework için yazılmıştır. Ancak genel amaçlı C/C++ IDE'si olarak
+  kullanılabilmektedir. Mac OS ve Linux sistemlerine iyi bir alternatiftir.
+- Eclipse IDE'si. Bu IDE bir Java IDE'si olarak çıkmıştı. Ondan sonra pek çok programlama dili için "plugin" yöntemiyle kullanılabilmeye başlandı.
+  Bu IDE'nin C/C++ versiyonu doğrudan indirilebilir.
+- CLion IDE'si. Bu JetBrains firmasının C/C++ IDE'sidir. Ancak paralıdır ve community versiyonu yoktur.
+- Visual Studio Code IDE'si Aslında bu yazılım IDE ile editör arasında bir yerdedir. Ancak cross platform bir IDE'dir. Kullanımı biraz daha zahmetli olsa da
+  çok az yer kaplamaktadır (light weight IDE).
+- XCode IDE'si. Bu IDE Apple firmasının temel IDE'sidir. Dolayısıyla adeta Visual Studio IDE'sinin Apple versiyonu gibi düşünülebilir. Her ne kadar
+  Apple'ın temel dili Swift ve Objective-C olsa da XCode C/C++ çalışmasını desteklemektedir.
+
+[5. Ders - 07/06/2022 - Salı]()
+
+Biz 10'luk sistemi (decimal system) kullanmaktayız. 10'luk sistemde sayıları ifade etmek için 10 sembol vardır:
+
+```
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+```
+
+10'luk sistemde sayının her bir basamağı 10'un kuvvetleriyle çarpılıp toplanmaktadır. Örneğin:
+
+```
+    123.25 = 3 * 10^0 + 2 * 10^1 + 1 * 10^2 + 2 * 10^-1 + 5 * 10^-2
+```
+
+Halbuki bilgisayarlar 2'lik sistemi (binary system) kullanmaktadır. 2'lik sistemde sayıları ifade etmek için 2 sembol kullanılmaktadır:
+
+```
+    0
+    1
+```
+
+2'lik sistemde sayının her bir basamağına "bit (binary digit)" denilmektedir. 2'lik sistemde sayının her basamağı 2'nin kuvvetiyle çarpılarak sayı elde edilir.
+Bit en küçük bellek birimidir. 8 bite 1 byte denilmektedir. Genellikle bitler 4'erli gruplanarak yazılırlar. Örneğin:
+
+```
+    1010 0010
+```
+
+Burada 1 byte'lık bir bilgi vardır. Byte temel bellek birimidir.
+
+Byte da küçük bir birimdir. Kilo diğer bilimlerde "1000 katı" anlamına gelmektedir. Ancak bilgisayarlar 2'lik sistemi kullandığj için 1000 katı iyi bir
+kat değildir. Bu nedenle genel olarak Kilo byte için 2'nin 10'uncu kuvveti olan 1024 kat kullanılır. Yani 1KB (kısaca 1K) 1024 byte'tır. Mega diğer bilimlerde
+kilonun 1000 katıdır. Dolayısıyla milyon kat anlamına gelmektedir. Ancak bilgisayar bilimlerinde genel olarak mega kilonun 1024 katı olarak alınır.
+Bu durumda 1 MB = 1024 _ 1024 (2^20) byte'tır. Giga ise meganın 1024 katıdır. Bu durumda 1 GB = 1024 _ 1024 \* 1024 byte'tır ( 2^30). Giga'dan sonra tera, tera'dan sonra
+peta, ondan sonra da exa gelmektedir.
+
+1 byte içerisinde yazılabilecek en küçük ve en büyük sayılar şöyledir:
+
+```
+    0000 0000               ---> 0
+    1111 1111               ---> 255
+```
+
+1 byte içerisinde 1 ve 0'ların bütün permütasyonları 256 tanedir. 2 byte içerisinde en büyük sayıyı yazacak olsak şöyle olurdu:
+
+```
+    1111 1111 1111 1111     ---> 65535
+```
+
+Biz burada ikilik sistemde, tamsayıları ifade ettik. Ama bütün sayıları pozitif kabul ettik. Peki negatif tamsayılar nasıl ifade edilmektedir?
+
+Bugün negatif sayıların ifade edilmesi için "ikiye tümleyen (two's complement)" sistemi denilen bir sistem kullanılmaktadır. Bu sistemde pozitif ve
+negatif sayılar birbirlerinin ikiye tümleyenidirler. ikiye tümleyen, bire tümleyene bir (1) eklenerek bulunmaktadır. Bir sayının bire tümleyeni sayıdaki
+0'ların 1, 1'lerin 0 yapılmasıyla bulunur. Bu durumda ikiye tümleyen şöyle hesaplanır. Örneğin aşağıdaki sayının ikiye tümleyenini bulmaya çalışalım:
+
+```
+    0101 0110
+```
+
+Sayının bire tümleyenine bir ekleyeceğiz:
+
+```
+    1010 1001
+    0000 0001
+   --------------
+    1010 1010
+```
+
+Aslında ikiye tümleyeni bulmanın kolay bir yolu da vardır: Sayıda sağdan sola ilk 1 görene dek ilk 1 dahil olmak üzere aynısı yazılarak ilerlenir.
+Sonra 0'lar 1, 1'ler 0 yapılarak devam edilir. Örneğin:
+
+```
+0101 0110
+```
+
+sayının ikiye tümleyenini tek hamlede bulalım:
+
+```
+    10101010
+```
+
+Negatif sayıları ifade edebilmek için kullanılan ikiye tümleme sisteminde en soldaki bir işaret bitidir. Bu bit 0 ise sayı pozitif, 1 ise negatiftir.
+Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidir. Örneğin bu sistemde +10 yazmak isteyelim. Bunu, işareti 0 yaparak yazabiliriz:
+
+```
+    0 000 1010 ---> +10
+```
+
+Şimdi -10 yazmak isteyelim. Bunun için +10'un ikiye tümleyenini alalım:
+
+```
+    1 111 0110 ---> -10
+```
+
+Bu sistemde +n ile -n toplandığında 0 elde edilir:
+
+```
+    0 000 1010 ---> +10
+    1 111 0110 ---> -10
+  -----------------------
+    1 0 000 0000 ---> 0
+```
+
+Bu sistemde tek bir sıfır vardır. O da tüm bitleri 0 olan sıfırdır. Bu sistemde 1 byte içerisinde yazılabilecek en büyük pozitif sayı şöyledir:
+
+```
+    0 111 1111 ---> +127
+```
+
+Şimdi bunun ikiye tümleyenini alalım:
+
+```
+    1 000 0001 ---> -127
+```
+
+Peki en küçük negatif sayı nedir? Bu sistemde bir tane sıfır olduğuna göre 255 tane permütasyon eşit bölünemez. Demek ki ya pozitif sayılar ya negatif sayılar
+bir tane daha fazla olmak zorundadır. Bu sistemde ikiye tümleyeni olmayan iki sayı vardır:
+
+```
+    0000 0000
+    1000 0000
+```
+
+Birincisi 0'dır. İkinci sayı -127'den bir eksik olan sayıdır. O halde bu sayının -128 kabul edilmesi daha uygundur.
+
+Demek ki bu sistemde n byte içerisinde yazılabilecek en büyük pozitif sayı ilk biti 0 olan diğer tüm bitleri 1 olan sayıdır. En küçük
+negatif sayı ise ilk biti 1 olan diğer tüm bitleri 0 olan sayıdır. Örneğin bu sistemde iki byte ile yazabileceğimiz en büyük pozitif sayı şöyledir:
+
+```
+    0111 1111 1111 1111 ---> +32767
+```
+
+En küçük negatif sayı ise şöyledir:
+
+```
+    1000 0000 0000 000 ---> -32768
+```
+
+Bu sisteme ilişkin tipik sorular ve yanıtları şöyledir:
+
+**SORU** : Bu sistemde +n sayısını nasıl yazarsınız?
+**CEVAP** : En soldaki bit 0 yapılıp n sayısı 2'lik sistemde yazılır.
+
+**SORU** : Bu sistemde -n nasıl yazarsınız?
+**CEVAP** : Yazabiliyorsanız doğrudan yazın. Ancak doğrudan yazamıyorsanız önce +n değerini yazın ve ikiye tümleyenini alın. Örneğin bu sistemde -1
+yazalım. Önce +1 yazalım:
+
+```
+    0000 0001 --> +1
+```
+
+Şimdi bunun ikiye tümleyenini alalım:
+
+```
+    1111 1111 ---> -1
+```
+
+**SORU** : Bu sistemde bir sayının kaç olduğu bize sorulsa bunu nasıl yanıtlarız?
+**CEVAP** : Eğer en soldaki bit 0 ise sayının değeri doğrudan hesplanır. Eğer en soldaki bit 1 ise bu sayının negatif olduğunu gösterir. Bu durumda
+sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Örneğin 1110 1110 sayısı kaçtır? Burada işaret biti 1 olduğuna göre sayı negatiftir.
+Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidirler. O zaman bu sayının ikiye tümleyenini alıp pozitifinden faydalanarak sayıyı bulalım:
+
+```
+    0001 0010 ---> +18
+```
+
+o zaman bize sorulan sayı -18'dir.
+
+Bu sistemde örneğin 1 byte içerisinde yazılabilecek en büyük pozitif sayıya 1 ekleyelim:
+
+```
+    0111 1111 ---> +127
+    1000 0000 ---> -128
+```
+
+Demek ki bu sistemde bir sayıyı üst limitten taşırırsak yüksek bir negatif sayıyla karşılaşırız.
+
+Tamsayılar ikilik sistemde "işaretsiz (unsigned)" ya da "işaretli (signed)" sistemde yorumlanabilirler. İşaretsiz sistemde sayının en solundaki bit işaret biti
+olarak yorumlanmaz. Sayı herzaman sıfır ya da pozitiftir. İşaretli sistemde ise sayının en solundaki bit işaret bitidir. Sayı ikiye tümleyen aritmetiğine
+göre yorumlanır.
+
+Peki sayının işaretli mi işaretsiz mi olduğuna nasıl karar verilmektedir? Programcı sayıyı tutacağı değişkeni C'de işaretli ya da işaretsiz tamsayı
+türü olarak belirleyebilir. İşlemciler aslında genellikle işaretli ve işaretsiz ayırımını yapmazlar. Çünkü bu tür de aslında aynı biçimde işleme
+sokulmaktadır. Sonucun yorumu değişmektedir.
+
+Peki noktalı sayılar ikilik sistemde nasıl ifade edilmektedir? İşte insanlar noktalı sayıları ifade etmek için iki format geliştirmişlerdir. Bunlardan birine
+"sabit noktalı formatlar (fixed point formats)" diğerine "kayan noktalı formatlar (floating point formats)" denilmektedir. Sabit noktalı formatlar eski
+devirlerde basit bir mantıkla tasarlanmıştır. Bu formatlar bugün hala kullanılıyor olsa da artık bunların çağı büyük ölçüde kapanmıştır. Bugün kayan noktalı
+format denilen formatlar kullanılmaktadır.
+
+Sabit noktalı formatlarda noktalı sayı için n byte yer ayrılır. Noktanın yeri önceden bellidir. Örneğin sayı 4 byte ile ifade edilsin.
+Noktanın yeri de tam ortada olsun. Bu durumda sayının tam kısmı 2 byte ile noktalı kısmı 2 byte ile ifade edilir. Ancak sayının noktalı kısmı 2'nin
+negatif kuvvetleriyle kodlanmaktadır. Böylece iki sabit noktalı sayıyı paralel toplayıcılarla kolay bir biçimde toplayabiliriz: Örneğin bu sistemde
+5.25 ile 6.25 sayılarını ifade edip toplayalım:
+
+```
+    0000 0000 0000 0101 . 0100 0000 0000 0000 ---> 5.25
+    0000 0000 0000 0110 . 0100 0000 0000 0000 ---> 6.25
+   -------------------------------------------------------
+    0000 0000 0000 1011 . 1000 0000 0000 0000 ---> 11.5
+```
+
+Peki bu yöntemin ne dezavantajı vardır? Yöntemin en önemli dezavantajı dinamik olmamasıdır.
+
+[6. Ders - 09/06/2022 - Perşembe]()
+
+Sabit noktalı formatların dinamik olmaması nedeniyle kayan noktalı formatlar geliştirilmiştir. Bu formatlarda noktanın yeri sabit değildir.
+Noktanın yeri format içerisinde ayrıca tutulmaktadır. Noktalı sayının noktası yokmuş gibi ifade edilmesi durumunda sayının bu haline "mantis (mantissa)"
+denilmektedir. İşte kayan formatlarda sayı için ayrılan alanın bir bölümünde mantis bir bölümünde de "noktanın yeri" tutulmaktadır. Noktanın yerini belirleyen
+kısma "üstel kısım (exponential part)" denilmektedir. Tabii bir de sayının başında işaret biti bulunur. Bu durumda kayan noktalı bir sayının formatı aşağıdakine benzerdir:
+
+```
+    [işaret biti] [mantis] [noktanın yeri (exponential)]
+```
+
+Bugün ağırlıklı kullanılan kayan noktalı format IEEE 754 denilen formattır. Bu formatın üç farklı genişlikte biçimi vardır:
+
+- IEEE 754 - Short Real Format (4 byte)
+- IEEE 754 - Long Real Format (8 byte)
+- IEEE 754 - Extended Real Format (10 byte)
+
+Bugün Intel, ARM, MIPS, Alpha, Power PC gibi yaygın işlemciler donanımsal olarak bu formatı desteklemektedir. Aynı zamanda bu format yaygın olarak Reel Sayı Ünitesi
+olmayan mikrodenetleyicilerdeki derleyiciler tarafından da kullanılmaktadır.
+
+Kayan noktalı formatların (örneğin IEEE 754 formatının) en ilginç ve problemli tarafı "yuvarlama hatası (rounding error)" denilen durumdur. Yuvarlama hatası
+noktalı sayının tam olarak ifade edilemeyip onun yerine ona yakın bir sayının ifade edilmesiyle oluşan hatadır. Yuvarlama hatası, sayıyı ilk kez depolarken de
+oluşabilir, aritmetik işlemlerin sonucunda da oluşabilir. Tabii noktalı sayıların bir bölümü bu formatta hiçbir yuvarlama hatasına maruz kalmadan ifade edilebilmektedir.
+Ancak bazı sayılarda bu hata oluşabilmektedir. Bu hatayı ortadan kaldırmanın yolu yoktur. Tabii sayı için daha fazla bit ayrılırsa yuvarlama hatasının etkisi de azalacaktır.
+
+Yuvarlama hatalarından dolayı programlama dillerinde iki noktalı sayının tam eşitliğinin karşılaştırılması anlamlı değildir. Örneğin aşağıdaki işlemde
+yuvarlama hatasından dolayı sayılar sanki eşit değişmiş gibi ele alınacaktır.
+
+```
+    0.3 - 0.1 == 0.2 (false)
+```
+
+Peki, yuvarlama hatasının önemli olduğu ve bunun istenmediği tarzda uygulamalarda (örneğin finansal uygulamalarda, bilimsel birtakım uygulamalarda)
+ne yapak gerekir? İşte bunun tek yolu noktalı sayıları kayan noktalı formatta tutmamak olabilir. Bazı programlama dillerinde noktalı sayıyı
+kayan noktalı formatta tutmayan böylece yuvarlama hatalarına maruz bırakmayan özel türler (örneğin C#'taki decimal) vardır. Ancak bu türler işlemciler tarafından
+desteklenmediği için yapay türlerdir.
+
+Yazılar da aslında bilgisayar belleğinde, 2'lik sistemdeki sayılar biçiminde tutulmaktadır. Bir yazıyı oluşturan elemanlara "karakter" denilmektedir. İşte
+bir yazıda her bir karakter 2'lik sistemde bir sayı ile ifade edilir. Böylece yazı aslında ikilik sistemde bir sayı dizisi gibi tutulmaktadır. İşte
+bir karakter için o karakterin hangi sayıya karşı geldiğini belirten tablolara "karakter tabloları" denilmektedir. Karakter tablosundaki karakter şekillerine "glyph"
+denilmektedir. Her karaktere tabloda bir sıra numarası verilmiştir. Buna da "code point" denilmektedir. Dünyanın ilk standart karakter tablosu "ASCII (American
+Standard Code Information Interchange)" denilen tablodur. ASCII tablosu aslında 7 bit bir tablodur. Dolayısıyla tabloda 128 tane glyph için code point
+bulundurulmuştur. ASCII dışında IBM EBCDIC tablosunu geliştirmiştir. Wang firması WISCII tablosunu kullanmıştır. ASCII tablosu Amerikalılar tarafından yalnızca İngilizce
+karakterleri ifade etmek için oluşturulmuştur. Bilgisayarlar yaygınlaşmaya başladığında farklı karakterlere sahip olan Türkiye gibi, Yunanistan gibi, Almanya gibi
+ülkeler bu ASCII tablosunu 8 bite çıkartıp elde edilen 128'lik yeni alanı kendi karakterlerini ifade etmek için kullanmışlardır. ASCII tablosunun ilk yarısı
+(yani [0, 128] numaraları karakterler) standarttır. Ancak ikinci yarısı "code page" adı altında farklı ülkeler tarafından farklı yerleşimler yapılarak kullanılmaktadır.
+DOS zamanlarında Türkçe karakterler için OEM 857 denilen code page kullanılıyordu. Daha sonra Microsoft Windows sistemlerinde Türkçe karakterler için 1254 code page'i
+düzenledi. ISO bu code page'leri standart hale getirmiştir. Bugün Türkçe karakterler ISO tarafından ASCII 8859-9 Code page'i ile düzenlenmiştir.
+
+ASCII tablosu ve onların code page'leri uzun süre kullanılmış ve hala kullanılmakta olsa da maalesef karışıklıklara yol açmaktadır. İşte son 20 yıldır
+artık karakterleri 2 byte içerisinde ifade ederek dünyanın bütün dillerinin ve ortak sembollerinin tek bir tabloya yerleştirilmesi ile ismine UNICODE
+denilen bir tablo oluşturulmuştur (www-unicode.org). UNICODE tablo ISO tarafından 10646 ismiyle de bazı farklılıklarla standardize edilmiştir. UNICODE tablonun
+ilk 128 karakteri standart ASCII karakterleri, ikinci 128 karakteri ISO 8859-9 code page'indeki karakterlerdir.
+
+Bir karakter tablosundaki code point'lerin ikilik sistemde ifade edilme biçimine "encoding" denilmektedir. ASCII code page'lerinde encoding doğrudan
+code point'in 1 byte'lık sayı karşılığıdır. Ancak UNICODE tablonun değişik encoding'leri kullanılmaktadır. UNICODE tablonun klasik encoding'i UTF-16'dır.
+Burada code point doğrudan 16 bitlik bir sayı biçiminde ifade edilir. UTF-32 encoding'inde ise code point 32 bitlik bir sayı biçiminde ifade edilmektedir.
+Ancak UNICODE tablonun en yaygın kullanılan encoding'i UTF-8 encoding'idir. UTF-8 kodlamasında standart ASCII karakterler 1 byte ile, diğer karakterler
+2 byte, 3 byte, 4 byte ve 5 byte kodlanabilmekedir. Türkçe karakterler UTF-8 encoding'inde 2 byte yer kaplamaktadr. UTF-8 encoding'i UNICODE bir yazının
+adeta sıkıştırılmış bir hali gibi düşünülebilir.
+
+Bugün pek çok programlama editörleri default durumda dosyayı UNICODE UTF-8 encoding'ine göre saklamaktadır.
+
+Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de 16'lık sistemdir. 16'lık sisteme İngilizce "hexadecimal system" denilmektedir. 16'lık
+sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 10'luk sistemdeki sembollerden alınmıştır. Sonraki 6 sembol alfabetik karakterlerden alınmıştır.
+
+```
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    A
+    B
+    C
+    D
+    E
+    F
+```
+
+16'lık sistemdeki her bir basamağa "hex digit" denilmektedir. Örneğin:
+
+```
+    1FC8
+```
+
+Burada 4 hex digit'lik bir sayı vardır. 16'lık sistemdeki bir sayıyı 10'luk sisteme dönüştürmek için her hex digit 16'lık kuvvetleriyle çarpılıp toplanır.
+Ancak 16'lık sistemdeki bir sayı, kullanım gereği bakımından aslında 10'lu sisteme pek dönüştürülmez. 16'lık sistemdeki her bir hex digit 4 bit ile ifade edilebilmektedir:
+
+```
+    0       0000
+    1       0001
+    2       0010
+    3       0011
+    4       0100
+    5       0101
+    6       0110
+    7       0111
+    8       1000
+    9       1001
+    A       1010
+    B       1011
+    C       1100
+    D       1101
+    E       1110
+    F       1111
+```
+
+16'lık sistemden 2'lik sisteme dönüştürme yapmak çok kolaydır. Tek yapılacak şey, her bir hex digit'e karşılık yandaki tablodaki 4 biti getirmektir. Örneğin:
+
+```
+    1FC9  =  0001 1111 1100 1001
+    FA3D  =  1111 1010 0011 1101
+```
+
+2'lik sistemdeki bir sayı da 16'lık sisteme çok kolay dönüştürülür. Tek yapılacak şey, sayıyı dörderli gruplayıp ona karşı gelen hex digit'i yazmaktır. Örneğin:
+
+```
+    1010 0001 1110 1000 0011 0101 = A1E835
+```
+
+Bilgisayar dünyasında 16'lık sistem aslında 2'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Yani 2'lik sistem çok yer kapladığı için kişiler
+2'lik sistem yerine 16'lık sistemi kullanırlar. Bu nedenle belleği, dosyayı gösteren programlar bunları 2'lik sistem yerine 16'lık sistemde gösterirler.
+
+1 byte 2 hex digit ile ifade edilmektedir. Örneğin:
+
+```
+    1A 23 5C 78
+```
+
+Burada 4 byte'lık bir bilgi vardır. Örneğin 2 byte içerisinde yazılabilecek en küçük negatif işaretli sayının hex karşılığı 8000 biçimindedir. Örneğin
+bir byte'lık işaretli sistemde yazılabilecek en büyük pozitif sayı 7F biçimindedir. İşareti tamsayı sisteminde 4 byte içerisinde -1 sayısı FFFFFFFF
+biçimindedir.
+
+Eskiden daha fazla kullanılıyor olsa da toplamda oldukça seyrek kullanılan dğer bir sayı sistemi de 8'lik sayı sistemidir. Bu sisteme İngilizce
+"octal system" denilmektedir. 8'lik sayı sistemindeki her bir basamağa "octal digit" denir. Octal digit sembolleri olarak 10'luk sistemin ilk 8 sembolü
+kullanılmaktadır:
+
+```
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+```
+
+Her octal digit 3 bit ile ifade edilebilir:
+
+```
+    0       000
+    1       001
+    2       010
+    3       011
+    4       100
+    5       101
+    6       110
+    7       111
+```
+
+Bu durumda bir octal sayı 2'lik sisteme kolay bir biçimde dönüştürülebilir:
+
+```
+    476	            --->    100 111 110
+    741	            --->    111 100 001
+```
+
+Benzer biçimde 2'lik sistemdeki bir sayı da sağdan sola üçer bit gruplandırılarak 8'lik sisteme dönüştürülebilmektedir. Örneğin:
+
+```
+    1011 1011       --->    273
+    0111 1110	    --->    176
+```
+
+8'lik sistem de 2'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Ancak 8'i tam ortalayamadığı için kullanımı seyrektir.
+
+[7. Ders - 14/06/2022 - Salı]()
+
+Klavyeden bastığımız tuşlara ilişkin karakterlerin İngilizce isimleri şöyledir:
+
+```
+    +		plus
+    -		minus, dash, hyphen
+    *		asterisk
+    /		slash
+    \		back slash
+    %		percent sign
+    ()		paranthesis (left, right, opening, closing)
+    {}		(curly) brace (left, right)
+    []		(square) bracket (left, right)
+    =		equal sign
+    #		sharp, number sign
+    '		single quote
+    ""		doueble quote
+    _		underscore
+    ^		caret
+    &		ampersand
+    !		exclamation mark
+    ,		comma
+    :		colon
+    ;		semicolon
+    |		pipe
+    <		less than
+    >		greater than
+    .		period
+    ?		question mark
+    `		back tick
+    ~		tilde
+    @		at
+    ...		ellipsis
+    $		dollar sign
+```
+
+Ekrana Merhaba Dünya yazısını çıkartan örnek C programı aşağıdaki gibidir.
+
+```
+    #include <stdio.h>
+
+    int main(void)
+    {
+        printf("Hello World\n");
+
+        return 0;
+
+    }
+```
+
+Bir C programı en yalın olarak önce bir text editör ile yazılır ve diske uzantısı ".c" biçiminde kaydedilir. Sonra komut satırından C derleyicisi ile
+derlenir. Derleyiciler genel olarak komut satırından çalıştırılacak biçimde yazılırlar. En çok kullanılan C derleyicileri şunlardır:
+
+- Microsoft C Derleyicisi
+- gcc Derleyicisi
+- clang Derleyicisi
+- Intel derleyicisi
+
+Bu derleyicilerin dışında daha pek çok C derleyicisi vardır ve çeşitli kesimler tarafından kullanılmaktadır. Windows'ta ağırlıklı olarak Microsoft C
+Derleyicisi kullanılmaktadır. UNIX/Linux ve Mac OS sistemlerinde ise çoğu kez "gcc" ya da "clang" derleyicileri tercih edilmektedir. "gcc" derleyicisinin ve clang
+derleyicisinin Windows versiyonu da vardır. "gcc" derleyicisinin Windows port'una "mingw (minimalist gnu for windows)" denilmektedir.
+
+C programını C derleyicisi ile derledikten sonra eğer hiçbir hata yoksa derleyici bize "relocatable object module" dosyasını üretir. Bu dosyaya biz Türkçe
+"amaç kod dosyası" da diyeceğiz. Amaç kod dosyası (relocatable object module) daha sonra "bağlayıcı (linker)" denilen bir programa sokulur. Bu linker programı
+"çalıştırılabilir (executable)" dosyaysı üretir. Biz de nihayetinde bu dosyayı çalıştırırz.
+
+```
+                .c -----> C Derleyicisi -----> Object file -----> Bağlayıcı (Linker) -----> Çalıştırılabilir (executable)
+```
+
+Bağlayıcı (linker da diyeceğiz) aslında bir grup amaç dosyayı alıp tek bir çalıştırılabilir dosya oluşturmaktadır. Bir amaç dosyanın içerisinde derlenmiş kodların
+yanı sıra bağlayıcnın birleştirme yapabilmesi için çeşitli bilgiler de vardır.
+
+Windows'ta bağlayıcı olarak genellikle Microsoft'un "link.exe" isimli programı kullanılmaktadır. UNIX/Linux sistemlerinde ağırklıklı olarak "GNU ld" isimli
+bağlayıcı ya da "clang ldd bağlayıcısı" kullanılır.
+
+Derleyicinin ürettiği amaç dosyanın uzantısı Windows sistemlerinde ".obj" biçimindedir. UNIX/Linux ve Mac OS sistemlerinde derleyicinin ürettiği amaç dosya
+".o" uzantılı olur.
+
+Bağlayıcnın ürettiği "çalıştırılabilir" dosya ise Windows sistemlerinde ".exe" uzantılıdır. UNIX/Linux ve Mac OS sistemlerinde dosyanın çalıştırılabilir olup
+olmadığı uzantı ile değil dosya özellikleri (attributes) ile belirlenmektedir.
+
+Windows sistemlerinde Merhaba Dünya programının komut satırından derlenip çalıştırışması şöyle yapılır:
+
+**1.** Program bir editörde yazılır ve .c uzantılı biçimde saklanır. Biz bunun "sample.c" olduğunu varsayalım.
+
+**2.** Daha sonra komut satırı programı çalıştırılır ve dosayanın saklandığı dizine gidilir. Komut satırı programı olarak "cmd.exe" programını doğrudan kullanmayınız.
+Çünkü bu program gerekli "path ayarlarına" sahip değildir. Bunun yerine komut satırına geçmek için "Developer Command Prompt for VS 2022" programını kullanınız.
+Bu kısa yolu masaüstüne taşırsanız rahat edersiniz.
+
+**3.** Microsoft'un C derleyicisi "cl.exe" isimli programdır. Bu program en basit olarak şöyle çalıştırılır:
+
+```
+    cl <kaynak dosya ismi>
+```
+
+Örneğin:
+
+```
+    cl sample.c
+```
+
+cl.exe programı derlemeyi yaptıktan sonra zaten "linker" programını kendisi çalıştırmaktadır.
+
+**4.** Artık cl.exe derleme işlemini yapıp bağlayıcı programı da (link.exe) çalıştırdığı için çalıştırılabilir dosya oluşturulmuş olur. Tek yapacağmız şey
+çalıştırılabilir programın ismini yazarak ENTER tuşuna basmaktır.
+
+cl.exe derleyicisinin yalnızca derleme yapmasını ancak bağlayıcıyı çalıştırmamasını istiyorsak /c seçeneğini (switch) kullanmamız gerekir. Örneğin:
+
+```
+    cl /c sample.c
+```
+
+Şimdi artık derleyici linker programını çalıştırmayacaktır. Yalnızca .obj dosyayı oluşturacaktır. Biz istersek bağlayıcı programı da bağımsız olarak çalıştırabiliriz.
+Microsoft'un bağlayıcı programı "link.exe" isimli programdır.
+
+```
+    link sample.obj
+```
+
+Baradan "sample.exe" programı elde edilecektir. cl.exe derleyicisinde çalıştırılabilir dosyanın ismini değiştirebilmek için /Fe:<dosya ismi> seçeneği
+kullanılmaktadır. Örneğin:
+
+```
+    cl /Fe:test.exe sample.c
+```
+
+Artık çalıştırılabilir dosyanın ismi "sample.exe" değil "test.exe" olacaktır.
+
+Linux sistemlerinde Merhaba Dünya programının derlenerek çalıştırılması da şöyle yapılmaktadr:
+
+**1.** Yine önce bir editörde program yazılır ve .c dosyası olarak kaydedilir. Biz kaynak dosyamıza "sample.c" ismini vermiş olalım.
+
+**2.** Komut satırından kaynak dosyanın bulunduğu dizine geçilir. gcc derleyicisi ile clang derleyicilerinin komut satırı seçenkleri tamamen aynıdır.
+Derleme işlemi için şu komut uygulanır:
+
+```
+    gcc <kanak dosya ismi>
+    clang <kaynak dosya ismi>
+```
+
+Örneğin:
+
+```
+    gcc sample.c
+```
+
+gcc de tıpkı cl.exe programında olduğu gibi önce derleme işlemini yapar. Sonra bağlayıcı programı çalıştırıp çalıştırılabilen dosyayı oluşturur.
+gcc derleyicisi derlemeyi bitirip bağlayıcıyı çalıştırdıktan sonra "object dosyayı" silmektedir. Bu biçimde oluşturulan çalıştırılabilen dosya "a.out"
+ismindedir. Bu dosyanın çalıştırılması şöyle yapılmalıdır:
+
+```
+    ./a.out
+```
+
+Windows sistemlerinde çalıştırılabilir dosyanın yalnızca isminin yazılması yeterlidir. Ancak UNIX/Linux ve Mac OS sistemlerinde ./isim biçiminde çalıştırma
+yapılır. gcc derleyicisinde çalıştırılabilir dosyaya isim vermek için "-o isim" seçeneği kullanılır. Örneğin:
+
+```
+    gcc -o sample sample.c
+
+```
+
+Burada sample.c dosyası derlenir ve sample isimli çalıştırılabilir dosya oluşturulur. Tabii istersek gcc derleyicilerinde de yalnızca derleme yapıp
+bağlayıcıyı çalıştırmayabiliriz. Bunun için "-c" seçeneği kullanılmaktadır. Örneğin:
+
+```
+    gcc -c sample.c
+
+```
+
+Burada derleme işlemi yapılır, "sample.o" object dosyası oluşturulur ancak başlayıcı çalıştırılmaz.
+
+Micrsoft Visual Studio IDE'sinde bir C programının derlenip çalıştırılabilmesi için tipik olarak şunlar yapılmalıdır:
+
+**1.** Önce Visual Studio IDE'si çalıştırılır (Kurs yapıldığı sırada kullanılan IDE Visual Studio 2022 Community Edition biçimidedir.) IDE açlıştırıldıktan
+sonra bir giriş sayfası gözükür. Oradan "Continue without code" seçilerek ana ekrana geçilir.
+
+**2.** Visual Studio IDE'sinde bir çalışma yapmak için bir proje yaratılmalıdır. Ancal projeler de "solution" denilen kapların içerisindedir. O halde aslında bir
+proje yaratmak için bir solution da yaratılmaktadır. Bir solution aslında birdne fazla projeyi tutan bir kap gibidir. Proje yaratmak için File/New/Project
+seçilir. Proje türü olarak "C++ Empty Project" seçilir.
+
+**3.** Bundan sonra Projeye bir isim verilir. Visual Studio proje bilgilerini burada ismi verilen bir dizin yaratarak onun içerisine yerleştirmektedir. "Location"
+proje dizininin hangi dizinin altında yaratılacağını belirtir. "Place solution and project in the same directory" checkbox'ı çarpılanmalıdır. Sonra proje
+yaratılır. Artık elimizde içi boş bir proje vardır. Bir proje yaratıldığında aynı zamanda bir "solution" da yaratılmış olur. Solution'ı idare etmek için
+"Solution Explorer" denilen pencereden faydalanılır.
+
+**4.** Artık sıra projeye bir kaynak dosya eklemeye gelmiştir. Bu işlem Project/Add New Item menüsü ile ya da "Solution Explorer"da proje üzerinde bağlam menüsünü
+açıp Add/New Item seçilerek de yapılabilir. Artık karşımıza başka bir diyalog penceresi çıkacaktır. Burada "C++ File" seçilip dosya ismi "uzantısı .c olacak biçimde"
+seçilmelidir. Microsoft C++ demekle aynı zamanda C'yi kastetmektedir. Aslında cl.exe derleyicisi hem C hem de C++ derleyicisidir. Bu derleyici hangi dile göre derleme yapacağına
+kaynak kodun uzantısına bakarak karar verir. Dolayısıyla bizim dosya uzantısını kesinlikle .c" biçiminde girmemiz gerekir.
+
+**5.** Kaynak dosya projeye eklendikten sonra kod yazılır.
+
+**6.** Build/Compile seçilirse dosya yalnızca derlenir. "Build" kavramı C/C++ dünyasında "derleme ve link işlemini" anlatmaktadır. Build/Build Solution seçilirse
+solution içerisindeki tüm projeler derlenip link edilir. Build/Build XXX seçilirse (burada XXX aktif projenin ismidir) bu durumda yalnızca aktif proje derlenerek link edilir.
+
+**7.** Programı çalıştırmak için Debug/Start Withoout Debugging seçilir. Bunun kısa yol tuşu "Ctrl + F5"tir. Zaten Ctrl+F5'e bastığımızda dosyada bir
+değişiklik varsa build işlemi yapılmaktadır. O halde aslında bizim tek yapacağımız şey Ctrl+F5 tuşlarına basmaktır.
+
+Projeyi (solution'u) kapatma işlemi File/Close Solution menüsü ile yapılabilir. Bir projeyi açmanın en kolay yolu giriş ekranındaki "Open recent"
+listesinden son projelerden birini seçmektir. Dğer yolu File/Open-Project menüsünü seçip buradan solution dizininne gelip uzantısı ".sln" olan dosyayı seçmektir.
+
+[8. Ders - 16/06/2022 - Perşembe]()
+
+C/C++ için çok tercih edilen diğer bir IDE de "Qt Creator" denieln IDE'dir. Buradaki çalışma biçimi ana hatlarıyla Visual Studio'ya benzemektedir.
+Önce yine bir proje yaratılmalıdır. Bunun için File/New File or Project menüsü seçilir. Template olarak "None Qt Project" seçilir. Buradan da "Plain C Application"
+seçilir. Projeye isim verilir ve projenin yaratılacağı dizin belirtilir. Qt Creator IDE'si bu seçenekle bir C dosyasını projeye ekleyip onun içerisine birkaç satırlık
+"Merhaba Dünya" programını yazmaktadır. Derleme ve link işlemi ve çalıştırma işlemi tek tuşla (Ctrl+R) yapılabilir. Yine bu işlem GUI ekranındaki çalıştır düğmesine
+tıklanarak da yapılabilmektedir.
+
+Kod derleyici tarafından derlenirken derleyiciler bazı sorunlar karşısında "hata mesajları" ile bu sorunları programcıya iletirler. Derleyicilerin verdiği
+hata mesajları üçe ayrılmaktadır:
+
+**1.** Uyarılar (Warnings)
+**2.** Gerçek Hatalar (Errors)
+**3.** Ölümcül Hatalar (Fatal Errors)
+
+Uyarılar, amaç kod oluşumunu engellemeyecek derecede mantıksal hatalar için verilmektedir. Yani derleyici kodu anlamlandırmakla birlike programcının yapmış
+olabileceği olası hatalara dikkat çekmek için uyarı vermektedir. Gerçek hatalar, object dosyanın oluşunu engelleyecek derecede olan ciddi hatalardır. Genellikle
+dilin kurallarına uyulmaması yani kodun hatalı bir biçimde yazılması sonucunda oluşur. Programcının bu tür hataları mutlaka düzeltmesi gerekir.
+Ölümcül hatalar, derleme işleminin bile devam ettirilmesini engelleyecek biçimde hatalardır. Normal olarak gerçek bir hata ile karşılaşıldığında tüm hataların
+topluca listelenmesi için derleme işlemine devam edilir. Ancak bir ölümcül hata ile karşılaşıldığında artık derleme işlemi bile sonlandırılır Ölümcül hatalar
+genellikle sistemdeki önemli sorunlar yüzünden ortaya çıkmaktadır. Örneğin diskin tamamen dolu olması, derleyicinin işlemine devam etmek için gereken
+RAM'in bulunmaması gibi durumlar tipik ölümcül hata gerekçeleridir.
+
+Derleyiciler genellikle hata mesajlarında hatanın kaynak kodun neresinde eolduğunu belirtirler. Pek çok derleyici hata mesajlarına içsel birer numara
+vermektedir. Bu numara yoluyla hata mesajı hakkında daha fazla bilgi elde edilebilmektedir. Hata mesajları standart mesajlar değildir, derleyiciden derleyiciye
+değişebilmektedir.
+
+Bir programlama dilinde kendi başına anlamlı olan en küçük birime "atom (token)" denilmektedir. Örneğin aşağıdaki gibi bir C kodu olsun:
+
+```
+
+    if (a > 10)
+    	x = 10;
+    else
+    	y = 20;
+
+    Bu kodu şöyle atomlarına ayırabiliriz:
+
+    if
+    (
+    a
+    >
+    10
+    )
+    x
+    =
+    10
+    ;
+    else
+    y
+    =
+    20
+    ;
+
+    Merhaba Dünya programı da şöyle atomlarına ayrılabilir:
+
+    #
+    include
+    <
+    stdio.h
+    >
+    int
+    main
+    (
+    void
+    )
+    {
+    printf
+    (
+    "Hello World\n"
+    )
+    ;
+    return
+    0
+    ;
+    }
+
+```
+
+Gerçekten de derleyiciler derlemenin ilk aşamasında kaynak kodu bu biçimde parçalara ayırmaktadır. Derleyicilerin bu işi yapan modüllerine "scanner" ya da
+"lexical analyzer" ya da "tokenizer" denilmektedir.
+
+Atomlar tipik olarak 6 gruba ayrılmaktadır:
+
+**1. Anahtar Sözcükler (Keywords/Reserved Words):** Dil için özel anlamı olan, değişken olarak kullanılması yasaklanmış sözcüklerden oluşan atomlardır.
+Örneğin "if" gibi, "return" gibi, "int" gibi.
+
+**2. Değişkenler (Identifers):** İsmini programcının istediği gibi verebildiği atomlardır. Örneğin bir programdaki i, count, a, b gibi atomlar tipik olarak değişken
+atomlardır. Merhaba Dümya programındaki printf ve main anahtar sözcük değildir. Değişken atom statüsündedir. Bir atomun anahtar sözcük olması için derleyicinin
+onu gördüğünde değişkenden farklı bir işlem uygulaması gerekir (Halbuki derleyici printf, main için farklı bir işlem uygulamaz, o halde printf ve main anahtar
+sözcük degillerdir.)
+
+**3. Sabitler (Literals/Constants):** Bir sayı ya bir değişkenin içerisindedir ya da program içerisinde doğrudan yazılmıştır. İşte programda doğrudan
+yazılmış olan sayılara "sabit" denilmektedir. Örneğin:
+
+```
+
+    a = b + 10;
+
+```
+
+Burada a ve b değişken atomdur, ancak 10 sabit atomdur.
+
+**4. Operatörler (Operators):** Bir işleme yol açan ve işlem sonucunda bir değer üretilmesini sağlayan + gibi - gibi, \* gibi atomlara operatör denilmektedir.
+Örneğin:
+
+```
+
+    a = b + c * 3
+
+```
+
+Bu ifadedeki atomlar ve türleri şöyledir:
+
+```
+
+    a	değişken
+    =	operatör
+    b	değişken
+    + 	operatör
+    c	değişken
+    *	operatör
+    3	sabit
+
+```
+
+**5. Stringler (String literals):** İki tırnak içerisindeki yazılar iki tırnaklarıyla birlikte tek bir atom belirtir. Bunlara "string" denilmektedir.
+
+**6. Ayıraçlar (Delimiters/Punctuators):** Yukarıdaki grupların dışında kalan ifadeleri birbirine ayırmak için kullanılan tüm atomlar ayıraç grubundadır.
+
+##### İfade (Expression)
+
+Değişkenlerin, operatörlerin ve sabitlerin her bir kombinasyonuna "ifade (expression)" denilmektedir. Örneğin:
+
+```
+
+    a + b
+    a + b - 2
+    10
+    3 * 4
+    3 - 2 * a
+    foo()
+    a = b * c
+
+```
+
+birer ifadedir. Tek başına bir değişken ve tek başına bir sabit, bir ifade belirtir. Ancak tek başına bir operatör ifade belirtmez.
+
+##### Nesne (Object)
+
+Bellekte yer kaplayan ve erişilebilen bölgelere "nesne (object)" denilmektedir (_not: burada sözü geçen nesne kavramının nesne yönelimli programlamadaki nesne kavramıyla
+bir ilişkisi yoktur._) Programlama dillerindeki değişkenler genellikle nesne durumundadır. Örneğin:
+
+```
+
+    a = 10
+
+```
+
+gibi bir ifadede a bir nesne durumundadır. biz bu a ismiyle a'nın bellek bölgesine erişebilmekteyiz. Bir olgunun nesne belirtmesi için yalnızca bellekte yer kaplaması
+yetmez. Aynı zamanada "erişilebilir" olması gerekir. Örneğin sabitler de bellekte yer kaplarlar. Ancak erişilebilir olmadıkları için nesne değillerdir.
+
+C'de bir ifade ya nesne belirtir ya da nesne belirtmez. Nesne belirten ifadelere "sol taraf değeri (lvalue)", nesne belirtmeyen ifadelere
+"sağ taraf değeri (rvalue)" denilmektedir. Örneğin:
+
+```
+
+    a                       ifadesi nesne belirtir. Sol taraf değeridir.
+    b[i]                    ifadesi nesne belirtir, sol taraf değeridir.
+    a + b                   ifadesi nesne belirtmez, sağ taraf değeridir.
+    10                      ifadesi nesne belirtmez, sağ taraf değeridir.
+    printf("Helo World")    ifadesi nesne belirtmez sağ taraf değeridir.
+
+```
+
+Sol taraf değeri (left value) ismi tipik olarak bu tür iafadelerin atama operatörünün soluna getirilebilmesi nedeniyle verilmiştir. Sağ taraf değeri
+(right value) atama operatörünün soluna getirilemeyen ifadelere denilmektedir. Tabii bunlar tipik olarak atama operatörünün sağına getirilirler.
+Ancak atama operatörünün sağına getirilen her şey sağ taraf değeri değildir. Soluna getirilemeyenler sağ taraf değeridir.
+
+Sentaks açıklamak için çeşitli "meta diller (meta languages)" oluşturulmuştur. Bunların en çok kullanılanı "BNF (Backus Naur Form)" denilen notasyondur.
+BNF notasyonu "EBNF (Extended BNF)" biçiminde ISO tarafından standardize de edillmiştir. Gerçekten de programlama dillerinin standartları genellikle
+BNF notasyonu ile ya da onun bir türevi ile açıklanmaktadır. Ancak biz kursumuzda "açısal parantez-köşeli parantez" tekniğini kullanacağız. Bu teknikte
+açısal parantezler içerisinde öğeler zorunlu öğeleri, köşeli parantezler içerisindeki öğeler "isteğe bağlı (optional)" öğeleri belirtmektedir. Bunların dışındaki
+tüm atomların aynı pozisyonda bulundurulması gerekir. Örneğin if deyimi şöyle ifade edilebilir:
+
+```
+
+    if (<ifade>)
+    	<deyim>
+    [
+    else
+    	<deyim>
+    ]
+
+```
+
+[9. Ders - 21/06/2022 - Salı]()
+
+Boşluk duygusu oluşturmak için kullanılan karakterlere "boşluk karakterleri (white space)" denilmektedir. Boşuk karakterli şunlardır:
+
+```
+
+    SPACE                   (32)
+    LF (Line Feed)          (10)
+    CR (Carriage Return)    (13)
+    TAB                     (9)
+    VTAB                    (11)
+
+```
+
+TAB karakter aslında tek bir karakterdir. Bu karakteri gören editörler imleci belli bir miktarda ilerletirler. Bazı editörler biz TAB tuşuna bastığımızda
+dosyaya TAB karakter basmaz bunun yerine editörün ayarlarında belirtildiği miktarda SPACE karakteri basar. Bunun nedeni kaynak kod başka bir TAB ayarına
+ayarlanmış bir editörde açıldığında aynı biçimde gözükmesini sağlamaktır.
+
+**C'nin yazım kuralı iki madde ile özetlenebilir:**
+
+**1.** #'li satırlar hariç atomlar arasında istenildiği kadar boşluk karakterleri bırakılabilir. Örneğin aşağıdaki program geçerlidir:
+
+```
+    #include <stdio.h>
+
+    int
+
+    		main
+    		(    void
+    )
+    			{
+    	printf
+    			(
+    	"Hello World\n"
+    			)
+    	;
+
+    	return
+    				0
+    ;
+    }
+```
+
+**2.** #'li satırlar hariç atomlar istenildiği kadar bitişik yazılabilirler. Ancak anahtar sözcüklerle değişkenler ve sabitler bitişik yazılamazlar.
+Merhaba Dünya programını aşağıdaki gibi kompakt bir biçimde de yazabilirdik:
+
+```
+
+    #include <stdio.h>
+
+    int main(void){printf("Hello World\n");return 0;}
+
+```
+
+Tabii programcının kodunu güzel gözükecek ve iyi okunabilecek biçimde yazması gerekir. C'de çeşitli yazım stilleri vardır. En yaygın kullanılan yazım stili
+Dennis Ritchie ve Brian Kernighan'ın "The C Programming Language" kitabında uyguladığı yazım biçimidir. Buna "Ritchie Kernighan Tarzı" denilmektedir.
+
+Aşağıdaki Merhaba Dünya programının açıklaması şöyledir:
+
+Burada `#include <stdio.h>` satırı `stdio.h` isimli bir dosyanın kaynak koda dahil edildiğini belirtmektedir. Yani bu satır `stdio.h` dosyasının içeriğinin
+oraya "paste edileceği" anlamına gelmektedir. Başka bir deyişle biz `stdio.h` dosyasını bu komutun bulunduğu yere yerleştirip bu komuttu silsek tamamen aynı
+durum oluşacaktır. Programda main isimli bir fonksiyon tanımlanmıştır. Bir fonksiyonun tanımlanması onun bizim tarafımızdan yazılması anlamına gelir.
+Yani bu programda biz main isimli bir fonksiyon yazmış durumdayız. Bir fonksiyonu tanımlamanın (yani yazmanın) genel biçimi şöyledir:
+
+    [fonksiyonun geri dönüş değerinin türü] <fonksiyonun ismi> ([parametre bildirimi])
+    {
+    	/* ... */
+    }
+
+Fonksiyonun geri dönüş değerinin türü C90'da yazılmayabiliyordu. Bu durumda C90 bunun "int" olarak yazılmış olduğunu varsayıyordu. Ancak C99 ile birlikte
+geri dönüş değerinin türünün yazılması zorunlu tutulmuştur. main fonksiyonun geri dönüş değerinin türü, standartlara göre "int" olmak zorundadır.
+C'de "main" özel bir fonksiyondur. C programları her zaman "main" isimli fonksiyondan çalışmaya başlar. Programlama dillerinde programın çalışmaya
+başladığı fonksiyonlara "entry point" denilmektedir. Bir fonksiyonun parametreleri olabilir ya da olmayabilir. Eğer fonksiyonun parametresi yoksa parametre parantezi
+boş bırakılabilir ya da oraya "void" yazılabilir. Tanımlama sırasında boş bırakmakla "void" yazmak arasında bir fark yoktur. Her fonksiyonun bir ana bloğu
+olmak zorundadır. C'de iki küme parantezi arasındaki bölgeye "blok (block)" denilmektedir. Bir fonksiyon çalıştırıldığında fonksiyonun ana bloğundaki deyimler
+sırasıyla çalıştırılır. Ana blok bittiğinde fonksiyon sonlanmış olur. Dolayısıyla main programı bittiğinde tüm program sonlanmış olacaktır. Merhaba Dünya
+programında main fonksiyonun ana bloğunun içerisinde "printf" isimli bir fonksiyon çağrılmıştır. Bir fonksiyonun çağrılması (call) demek onun çalıştırılması demektir.
+Bir fonksiyon çağrıldığında akış, fonksiyona gider, fonksiyonun içerisindeki deyimler tek tek çalıştırılır. Fonksiyon bitince akış çağırma noktasından devam eder.
+printf fonksiyonu çağrıldığında iki tırnak içerisindeki yazıları ekrana basmaktadır. Ekranda bir imleç (cursor) vardır. Yazı bu imlecin bulunduğu yerden itibaren
+ekrana yazdırılır. Sonra imleç yazının sonunda bırakılır. İmleç program çalışmaya başladığında sol üst köşededir. printf fonksiyonunda iki tırnak içerisindeki "\n"
+"imleci aşağı satırın başına geçir" biçiminde özel bir anlama gelmektedir. Yani bundan sonra biz bir daha printf fonksiyonunu çağıracak olsak artık o yazı aşağı
+satırın başından itibaren yazılacaktır. printf bir standart C fonksiyonudur. Standart C fonksiyonları derleyicileri yazanlar tarafından yazılmış (tanımlanmış)
+biçimde bulunan fonksiyonlardır. main fonksiyonun sonundaki return deyimi bulunmak zorunda değildir. Bu deyim ileride açıklanacaktır.
+
+        #include <stdio.h>
+
+        int main(void)
+        {
+            printf("Hello World\n");
+
+            return 0;
+        }
+
+C'nin C90, C99, C11 ve C17 standartlarının olduğunu belirtmiştik. Derleyiciler genel olarak bu standartlara uygun olacak biçimde derleme yapabilmektedir.
+Visual Studio IDE'sinde derleyicinin uygulayacağı standardı ayarlamak için proje seçeneklerine gelinir. C-C++/Language/C Language Standart sekmesinden
+standart belirlenir. Biz kursumuzda burada "ISO C17" standardını aktif hale getireceğiz. Aynı şey Qt_Creator IDE'sinde PRO dosyasının içerisine aşağıdaki
+satırın eklenmesiyle yapılabilmektedir:
+
+```
+    CONFIG += c17
+```
+
+gcc ve clang derleyicilerinde komut satırında derleme yaparken -std=c90, -std=c99, -std=c11, -std=c17 seçenekleriyle derleme standardı ayarlanabilir. Örneğin:
+
+```
+    gcc -std=c17 -o sample sample.c
+```
+
+Ayrıca Microsoft derleyicilerinde proje seçeneklerinden C-C++ sekmesinde "SDL Checks" seçeneği "No" yapılarak kapatılmalıdır.
+
+Programlama dillerinde "tür (type)" bir nesnenin bellekte kapladığı alanı, onun içerisindeki 1'lerin ve 0'ların nasıl yorumlanacağını, o nesnenin hangi
+operatörlerle işleme sokulabileceğini belirten önemli bir bilgidir. C'de her nesnenin ve her ifadenin bir türü vardır. Türler çeşitli anahtar sözcüklerle
+ifade edilirler. Aşağıda temel türler açıklanmaktadır:
+
+- **[signed] int**: Bu tür, işaretli bir tamsayı türüdür. int türünün kaç byte yer kaplayacağı standartlarda derleyicileri yazanların isteğine bırakılmıştır.
+  Ancak standartlara göre int türü minimum 2 byte olmalıdır. Bugün 32 bit ve 64 bit Windows ile UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde int türü 4 bye (32 bit)
+  uzunluktadır. Dolayısıyla int türden bir nesne bu sistemlerde [-2147483648, 2147483647] aralığında tamsayı değerler tutabilir. Bazı mikrodenetleyici
+  derleyicilerinde ise int 2 byte (16 bit) uzunluğunda olabilmektedir. Derleyicileri yazanlar genellikle int türünü o sistemdeki CPU yazmaçlarının uzunluğu kadar
+  ya da o uzunlukla ifade edilebilecek kadar almaktadır. Bu tür belirtilirken "int" demekle "signed int" demek arasında ya da "int signed" demek arasında
+  bir fark yoktur.
+
+- **[unsigned] int**: Her işaretli tamsayı türünün bir de işaretsiz biçimi vardır. "signed int" türünün işaretsiz biçimi "unsigned int" türüdür. Tamsayı türlerinin
+  işaretli biçimleri ile işaretsiz biçimleri aynı miktarda yer kaplarlar. Aralarındaki tek fark işaret bitinin yorumudur. Dolayısıyla bu tür de 32 bit ve
+  64 bit Windows ile UNIX/Linux ve Mac OS sistemlerinde 4 byte yer kaplamaktadır. unsigned int türünden bir nesne içerisine bu sistemlerde yerleştirilebilecek sayı
+  sınırı [0, +4294967295] biçimindedir. Bu türü biz "unsigned" biçiminde ya da "unsigned int" biçiminde ya da "int unsigned" biçiminde ifade edebiliriz.
+
+- **[signed] long [int]**: long türü, int türünden uzun olabilir ya da int türüyle aynı uzunlukta olabilir. Ancak int türünden daha kısa olamaz. Standratlara
+  göre long türü en az 4 byte (32 bit) uzunlukta olmak zorundadır. long türü de "işaretli" bir tamsayı türüdür. Buradaki "long" ismi "int türünden uzun olabilen"
+  anlamına gelmektedir. 32 bit ve 64 bit Windows sistemlerindeki derleyicilerde long türü int türüyle aynı uzunluktadır (yani 4 byte). Ancak 32 bit UNIX/Linux ve
+  Mac OS sistemlerindeki derleyicilerde long türü 4 byte iken, 64 bit UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde long türü 8 byte (64 bit) uzunluğundadır.
+  long türünü biz en kısa biçimde "long" olarak ifade edebiliriz. Ancak "signed long int", "long int", "signed int long" gibi anahtar sözcleri yer değiştirerek de ifade
+  edebiliriz.
+
+[10. Ders - 23/06/2022 - Perşembe]()
+
+- **unsigned long [int]**: Bu tür, long türünün işaretsiz biçimidir. Dolayısıyla sistemlerde long türüyle aynı uzunlukta yer kaplar ancak sayının başındaki bit
+  işaret biti olarak ele alınmaz. 32 ve 64 bit Windows Sistemleri ile 32 bit UNIX/Linux ve Mac OS sistemlerinde bu tür, long türünde olduğu gibi
+  4 byte (yani 32 bit) yer kaplamaktadır. Dolayısıyla bu sistemlerdeki sınıfı [0, +4294967295] biçimindedir.
+
+- **[signed] short [int]**: Bu tür, int türünden küçük olabilen ya da int türü ile aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlara göre short türü
+  en az 2 byte (yan 16 bit) olmak zorundadır. 32 bit ve 64 bit Windows Sistemleri ile UNIX/Linux ve Mac OS sistemlerinde short türü 2 byte (yani 16 bit) uzunluktadır.
+  Dolayısıyla bu sistemlerde bu türden bir nesnesinin içerisine biz [-32768, +32767] sınırları içerisinde bir tamsayı yerleştirebiliriz.
+
+- **unsigned short [int]**: Bu tür, signed short türünün işaretsiz biçimidir. Dolayısıyla short türü kadar yer kaplar. short türünün 2 byte olduğu sistemlerde
+  bu türden bir nesnenin içerisine biz [0, +65535] arasında tamsayı değerler yerleştirebiliriz.
+
+- **signed char**: C standartlarında "byte" lafı pek az yerde kullanılmıştır. Çünkü "byte" genellikle 8 bit için kullanılan bir terimdir. Oysa bazı
+  bilgisayar sistemlerinde RAM'deki adreslenebilen birimler 8 bit değil 10, 11 bit değerler de olabilmektedir. Tabii bu sistemler son derece seyrektir.
+  Ancak standartlar bu uç durumu da dikkate almaktadır. C standartlarında "char" terimi "RAM'de adreslenebilen en küçük birimin büyüklüğünü" temsil etmektedir.
+  Örneğin tipik olarak eğer adreslenebilen en küçük birim 8 bit ise char 8 bittir. Ancak 10 bit ise char 10 bittir. Görüldüğü gibi eğer C standartlarında
+  char yerine byte terimi kullanılsaydı byte 8 bit olduğu için bu uç durum temsil edilemeyebilirdi. Tabii bugünkü sistemlerin %99.9'unda adreslenebilen en küçük
+  birim 8 bittir. Dolayısıyla yaygın sistemlerin hepsinde gerçekten char türü 8 bit yani bir byte uzunluğundadır. Zaten C standartlarında "byte" terimi tamamen
+  bit uzunluğu farklı olabilen yani "adreslenebilen en küçük birim" anlamında kullanılmaktadır. Başka bir dyişle bu tanımla "char" ile "byte" aynı anlamdadır.
+  Ayrıca standartlar, derleyicinin ilgili sistemdeki adreslenebilen en küçük birimdeki bit sayısının kaç bit olduğunu (yani char türünün kaç bitten oluştuğunu)
+  `<limits.h>` dosyası içerisinde CHAR_BITS sembolik sabitiyle belirtmesini zorunlu tutmaktadır.
+
+Mademki char türü yaygın sistemlerin hepsinde 8 bitten oluşmaktadır. O halde signed char türünün de bu sistemlerdeki sınırları [-128, +127]
+arasındadır. Özetle signed char, bir byte'lık işaretli tamsayı türünü belirtmektedir.
+
+- **unsigned char**: Bu tür, char türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
+  bit uzunluğu kadardır. 8 bitlik yaygın sistemlerde unsigned char türünden bir nesneye [0, +255] arasında değerler yerleştirilebilir.
+
+- **char**: Yalnızca char denildiğinde bunun "signed char" mı yoksa "unsigned char" mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
+  Microsoft C derleyicileri, gcc ve clang derleyicileri char türünü default olarak "signed char" kabul etmektedir. Fakat başka derleyiciler "unsigned char"
+  kabul edebilirler. Aslında Microsoft derleyicilerinde, gcc ve clang derleyicilerinde char denildiğinde default durum derleyici ayarlarından da değiştirilebilmektedir.
+  Her ne kadar char türü, ilgili sistemde "signed char" ya da "unsigned char" anlamına geliyorsa da "char", "signed char" ve "unsigned char" ne olursa olsun
+  farklı türler gibi değerlendirilmektedir. Bunun önemi başka konularda ortaya çıkacaktır.
+
+- **[signed] long long [int]**: Bu tür, C99 ile birlikte standartlara dahil edilmiştir. Dolısıyla C90 uyumlu eski C derleyicilerinde bu türü kullanamayabilrsiniz.
+  long long türü, long türünden uzun ya da long türüyle aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlarda minimum 8 byte (yani 64 bit) olabileceği
+  belirtilmiştir. Şu andaki yaygın derleyicilerin hepsinde long long türü, 8 byte uzunluktadır. 8 byte uzuluk için long long türünden bir nesneye yerleştirilebilecek
+  sayı sınırı [-9223372036854775808, +9223372036854775807] (katrilyar mertebesinde, 8 exabyte) biçimindedir.
+
+- **unsigned long long [int]**: Bu tür de long long türünün işaretsiz biçimidir. Dolayısıyla yaygın sistemlerin hepsinde 8 byte (yani 64 bit) uzunluktadır.
+  unsigned long long türünden bir nesneye yerleştirilecek sayı sınırı da [0, +18446744073709551615] (16 exabyte) biçimindedir.
+
+Yukarıdaki tüm türlere C'nin tamsayı türleri denilmektedir. C'de ayrıca üç tane de gerçek sayı (noktalı sayı) türü vardır: float, double ve long double.
+Gerçek syaı türlerinin işaretli ve işaretsiz biçimleri yoktur. Bunlar zaten doğuştan işaretlidir.
+
+- **float**: Bu tür, 4 byte uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
+  "Implementation Limits" kısmında gerçek sayı türleri için belirtilen limitler "IEE 754" standardını ima etmektedir. Bu durumda float türü hemen her sistemde
+  4 byte uzunluktadır. float türünün yuvarlama hatalarına direnci zayıftır. Bu nedenle float türü aslında C programcıları tarafından az tercih edilen bir gerçek
+  sayı türüdür.
+
+- **double**: Standartlara göre double türü, float türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
+  double türü 8 byte uzunluktadır ve "IEEE 754 Long Real Format" biçiminde temsil edilmektedir. Ancak bazı mikrodenetleyici derleyicilerinde
+  double türü float ile tamamen aynı uzunlukta olabilmektedir. C prograöcılarının en fazla tercih ettiği gerçek sayı türü, double türüdür. Çünkü bu türün
+  yuvarlama hatalarına direnci float türünden çok daha iyidir.
+
+- **long double**: long double türü, standartala göre double ile aynı duyarlılıkta ya da double türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
+  gcc ve clang derleyicilerinde long double türü tamamen double türüyle aynı özelliktedir. Yani bu tür de bu derleyicilerde "IEEE 754 Long Real Format" biçiminde
+  ifade edilmektedir. Fakat bazı derleyicilerde (Örneğin eski Borland firmasının C derleyicilerinde) long double türü 10 byte'lık "IEEE 754 Extended Real Format"
+  biçiminde de alınabilmektedir.
+
+Bir C derleyicisinde aslında "float", "double" ve "long double" türlerinin hepsi 4 byte uzunlukta olabilir.
+
+C99 ile birlikte C'ye ikili değerler turmak için `_Bool` isminde yeni bir tür daha eklenmiştir. (Bu tür isminin bu biçimde size tuhaf gelecek şekilde isimlendirilmesinin
+amacı geçmişe doğru uyumu koruyabilmektir. C99 çıktğında, "bool" gibi bir ismi programcılar kendi programlarında kullanmış olabileceklerinden dolayı,
+bu türü temsil etmek için "reserved" isimlerden biri tercih edilmiştir. C'de başı "\_" ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
+yasaklanmış durumdaydı.) `_Bool` türü için standatlar, 0 ve 1 değerlerini tutabilen bir yapıda olması gerektiğini belirtmişlerdir. Dolayısıyla `_Bool` türü aslında
+herhangi bir tamsayı türünün uzunluğu kadar olabilir. Tabii derleyiciler bu türden nesneler için genel olarak 1 byte yer ayırmaktadır.
+
+`_Bool` türü `<stdbool.h>` dosyası içerisinde "bool" ismiyle de typedef edilmiştir. Dolaysıyla, programcı isterse bool başlık dosyasını include edip `_Bool` yerine
+bool ismini de kullanabilir. Genellikle bool türünün olduğu diğer programlama dillerinde, "true" ve "false" biçiminde anahtar sözcükler de bulundurulmaktadır.
+Ancak C99'da bu biçimde anahtar sözcükler yoktur. Ancak `<stdbool.h>` içerisinde "true" 1 olarak, "false" 0 olarak define edilmiştir. Dolayısıyla eğer
+`<stdbool.h>` dosyası include edilirse, "true" ve "false" sözcükleri 1 ve 0 yerine kullanılabilir.
+
+Son olarak C99 ile birlikte C'ye karmaşık sayı (complex number) türü de eklenmiştir. Karmaşık sayı belirtmek için `_Complex` tür ismi, anahtar sözcük olarak
+dile eklenmiştir. Ancak `_Complex` tek başına kullanılamaz. float, double ve long double tür isimleriyle birlikte kullanılabilir. Yani C99 ile birlikte üç
+karmaşık sayı türü dile eklenmiş durumdadır:
+
+```
+    float _Complex
+    double _Complex
+    long double _Complex
+```
+
+Karmaşık sayılar, gerçek ve sanal kısımları float, double ve long double olan iki bileşenli sayılardır. Karmaşık sayı için "i" sembolü C99'da
+`_COMPLEX_I` anahtar sözcüğü ile temsil edilmiştir. Dolaysyıyla örneğin double `_Complex` türünden bir `z` değişkenine biz `3.2 + 2.4i` değerini şöyle atarız:
+
+```
+    z = 3.2 + 2.4 * _COMPLEX_I
+```
+
+Ayrıca yazım kolaylığı için `<complex.h>` dosyası içerisinde `_COMPLEX` anahtar sözcüğü `complex` ismiyle typedef edilmiştir. Yani biz eğer `<complex.h>` dosyasını
+include edersek `_COMPLEX` yerine `complex` sözcüğünü de kullanabiliriz. Benzer biçimde `<complex.h>` içerisinde `I` isimli sembolik sabit de `_COMPLEX_I` olacak biçimde
+define edilmiştir. Yani biz `<complex.h>` dosyasını include etmiş isek, `i` sayısı için `_COMPLEX_I` yerine `I` harfini de kullanabiliriz.
+
+_C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep "int" türünü, gerçek sayı türü olarak da "double"
+türünü tercih ederler. C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni char, short olarak değil
+yine int olarak tanımlar. Fakat, örneğin bir nicelik "int" türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. int türünde küçük
+türler programcılar tarafından tekil nesneler için değil, büyük diziler için tercih edilmektedir. Örneğin bir kişinin yaşını bir değişkende tutacak olalım.
+Biz yine bu değişkeni int türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi int türünden değil de char türünden
+oluşturabiliriz. Aynı durum double türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa float türünü tercih etmelidir._
+
+[11. Ders - 28/06/2022 - Salı]()
+
+C/C++, Java, C# gibi statik tür sistemine sahip programlama dillerinde bir değişkeni kullanmadan önce onun derleyiciyte tanıtılması gerekir. İşte
+değişkenlerin kullanılmadan önce derleyiciye tanıtılması işlemine "bildirim (declaration)" denilmektedir. Bildirim işleminin basit genel biçimi
+şöyledir:
+
+```
+    <tür> <değişken_listesi>;
+```
+
+Buradaki değişken listesi aralarına "," atomu getirilmiş bir ya da birden fazla değişkenden oluşabilir. Örneğin:
+
+```
+    int a;
+    long b, c, d;
+    double weight;
+```
+
+Aslında bildirim işleminin genel biçimi biraz daha ayrıntılıdır. Burada biz basit bir genel biçim verdik.
+
+C "büyük harf - küçük harf duyarlılığı olan (case sensitive)" bir programlama dilidir. Yani C'de değişken isimlendirmesinde büyük harflerle küçük harfler
+farklı karakterler olarak ele alınırlar. Değişken isimlendirmesinde pek çok programlama dilindeki benzer kurallar geçerlidir:
+
+- Değişken isimleri nümerik karakterlerle başlatılamaz. Ancak alfabetik karakterlerle başlatılıp nümerik karakterlerle devam ettirilebilir.
+- Değişken isimleri boşluk içeremez, operatör içeremez.
+- Değişkenler anahtar sözcüklerden oluşturulamazlar.
+- Alt tire karakteri alfabetik karakter gibi kullanılabilmektedir.
+- Değişken isimlerindeki karakterler İnglizce küçük harfler, İngilizce büyük harfler, alt tire karakterleri ve sayısal karakterler olabilir.
+  Türkçe gibi diğer dillerin karakterlerinin kullanılıp kullanılmayacağı derleyicileri yazanların isteğine bırakılmıştır. Yani bazı derleyiciler örneğin
+  Türkçe karakterlerden oluşan isimleri kabul ederken bazı derleyiciler hiç etmeyebilirler.
+- Değişkenlerdeki karakter sayısı istenildiği kadar uzun olabilir. Ancak derleyiciler uzun değişken isimlerinin ilk n karakterini dikkate alırlar.
+  Bu n değeri derleyiciden derleyiciye değişebilmektedir. Bugün kullanılan yaygın derleyiciler en az 256 karakteri desteklemektedir. Bu da zaten oldukça uzundur.
+
+C'de başı iki alt tire ile başlayan ve başı bir alt tire ve büyük harfle başlayan tüm isimler "reserved" yapılmıştır. Programcıların bu biçimde isimlendirme
+yapmaması gerekir. Eğer programcılar böyle isimlendirme yaparsa kodları derlenir ancak çalışma sırasında olumsuzluk gözükebilir. (Bu duruma "tanımsız davranış (undefined behavior)"
+denilmektedir. Bu kavram ileride açıklanacaktır.) Başı tek alt tire ile başlayan tüm isimler global faaliyet alanında "reserved" yapılmıştır. (Yani örneğin biz
+`_count` gibi bir ismi global değişken olarak kullanamayız. Ancak yerek değişken olarak kullanabiliriz. Global ve yerel faaliyet alanları konusu ileride ele alınacaktır.)
+
+C'de ağırlıklı bir biçimde küçük harfli isimlendirmeler tercih edilmektedir. Değişken isimlerinin anlamlı ve telaffuz edilebilir olması tavsiye edilir.
+Birden çok sözcükten oluşan değişken isimlerinde sözcüklerin ayrımsanması için üç çeşit harflendirme biçimi kullanılmaktadır:
+
+**1. Klasik C Tarzı Harflendirme:** Buna "yılan notasyonu (Snake Casting)" de denilmektedir. Burada sözcüklerin arasında alt tire bulundurulur. Örneğin:
+
+```
+    number_of_students
+    total_count
+    weight
+```
+
+**2. Deve Notasyonu (Camel Casting):** Burada ilk sözcüğün tamamı küçük harflerle yazılır. Ancak sonraki sözcüklerin yalnızca ilk harfleri büyük yazılır.
+Örneğin:
+
+```
+    numberOfStudents
+    totalCount
+    weight
+```
+
+**3. Pascal Notasyonu (Pascal Casting):** Burada da her sözcüğün ilk harfi büyük yazılır. Örneğin:
+
+```
+    NumberOfStudents
+    CreateWindow
+    SetWindowText
+    Sample
+```
+
+Biz kursumuzda ağırlıklı olarak **klasik C tarzı yazımı (yılan notasyonu)** kullanacağız.
+
+Bir bildirim işlemiyle eğer derleyici, bildirilen değişken için bellekte yer ayırıyorsa o bildirime aynı zamanda "tanımlama (definition)" da denilmektedir.
+Örneğin:
+
+    `int a;`
+
+Bu bir bildirimdir. Ama aynı zamanda tanımlamadır. Çünkü derleyici bu bildirimde bildirilen a değişkeni için aynı zamanda bellekte yer ayırmaktadır.
+Her tanımalam bir bildirimdir ancak her bildirim bir tanımlama değildir. Tabii bildirim olup da tanımlama olmayan durumlar da vardır ancak seyrektir. Biz, aksi söylenmediği sürece
+"bildirim" dediğimizde, bildirilen değişken için yer de ayrıldığını varsayacağız. Bildirim olup da tanımlama olmayan durumları özel olarak konular içerisinde
+vurgulayacağız. Örneğin:
+
+```
+    int a;				/* bu hem bir bildirimdir hem de bir tanımlamadır */
+    extern int b;		/* bu bir bildirimdir ama tanımlama değildir, tabii extern gibi bir konu henüz görülmedi */
+```
+
+Bir değişkene bildirim sırasında değer atayabiliriz. Bu işleme "ilkdeğer verme (initializtion)" denilmektedir. Örneğin:
+
+    `int a = 10, b, c = 20;`
+
+Burada a ve c değişkenlerine ilkdeğer verilmiştir. Ancak b değişkenine ilkdeğer verilmemiştir. İlkdeğer verme ile değişkene ilk kez değer atama aynı şey değildir.
+Örneğin:
+
+```
+    int a;
+
+    a = 10;
+```
+
+Buradaki işlem bir ilkdeğer verme değildir. İlkdeğer verme, bildirim sırasında değer atama anlamına gelmeketedir.
+
+Aslında C standartlarında "ekran" ve "klavye" lafları hiç geçmemektedir. Örneğin C standartları printf fonksiyonun "ekrana yazdığını" söylememektedir.
+Standartlara göre printf fonksiyonu "stdout" denilen bir dosyaya yazmaktadır. Ancak bu dosya bir aygıta yönlendirilmiş olabilir. Örneğin klasik bilgisayar
+sistemlerimizde stdout, ekranı kontrol eden terminal aygıt sürücüsüne yönlendirilmiş durumdadır. Dolayısıyla printf, stdout dosyasına yazar ancak yazılanlar
+ekranda görülür. Tabii bir sistemde stdout, başka aygıtlara ya da dosyalara yönlendirilmiş olabilir. Örneğin stdout seri porta yönlendirilmişse artık printf
+fonksiyonun yazdıkları seri porta aktarılır. Aynı durum klavye için de geçerlidir. Aslında klavyeden okumak diye bir şey yoktur. stdin dosyasından okumak
+diye bir şey vardır. stdin dosyası da klasik bilgisayar sistemlerinde genellikle klavyeye yönlendirilmiştir. Ancak, örneğin stdin seri porta
+yönlendirilmişse artık seri porttan gelen bilgiler okunur. Görüldüğü gibi "stdout" ve "stdin" aslında değişik kaynakları temsil ediyor olabilir.
+Biz kurusumuzda bazen "ekran" ve "klavye" laflarını edeceğiz. Burada tenik olarak "stdout" ve "stdin" dosyaları anlaşılmalıdır.
+
+printf aslında oldukça kapsamlı bir fonksiyondur. printf fonksiyonunda iki tırnak içerisindeki karakterler ekrana (yani stdout dosyasına) basılır.
+Ancak printf, % karakterini gördüğünde % karakterini ve onun yanındaki bir ya da iki karakteri ekrana yazdırmaz. % karakterinin yanındaki bazı özel karakterlere
+format karakterleri denilmektedir. % karakteri ve format karakterleri, birlikte "yer tutucu" belirtir. Bu yer tutucular printf'in iki tırnak argümanından sonraki argümanlarla
+sırasıyla eşleştirilmektedir. Böylece aslında format karakterleri değil de bu argümanların değerleri yer tutucu yerine yazdırılır. Örneğin:
+
+```
+    int a = 10, b = 20;
+
+    printf("a = %d, b = %d\n", a, b);
+```
+
+Burada %d yer tutucudur. İlk %d yerine a'nın değeri, ikinci %d yerine b'nin değeri yazdırılır.
+
+[12. Ders - 30/06/2022 - Perşembe]()
+
+Format karakterleri eşleşen argümanın türünü ve yazdırma için kullanılan tabanı belirtecek biçimde farklılık göstermektedir.
+En çok kullanılan format karakterleri şunlardır:
+
+```
+    %d      --->    signed char, short ve int türlerini 10'luk sistemde yazdırmak için
+    %x      --->    işaretli ve işaretsiz char, short ve int türlerini 16'lık sistemde yazdırmak için
+    %o      --->    işaretli ve işaretsiz char, short ve int türlerini 8'lik sistemde yazdırmak için
+    %ld     --->    long türünü 10'luk sistemde yazdırmak için
+    %lld    --->    long long türünü 10'luk sistemde yazdırmak için
+    %lx     --->    long türünü 16'lık sistemde yazdırmak için
+    %llx    --->    long long türünü 16'lık sistemde yazdırmak için
+    %lo     --->    long türünü 8'lik sistemde yazdırmak için
+    %llo    --->    long long türünü 8'lik sistemde yazdırmak için
+    %u      --->    unsigned char, unsigned short ve unsigned int türlerini 10'luk sistemde yazdırmak için
+    %lu     --->    uunsigned long türünü 10'luk sistemde yazdırmak için
+    %f      --->    float ve double türlerini 10'luk sistemde yazdırmak için (default durumda noktadan sonra 6 basamak yuvarlanarak yazdırılır)
+    %e      --->    float ve double türlerini üstel niçimde yazdırmak için.
+    %c      --->    char, short ve int türlerini karakter görüntüsü olarak yazdırmak için
+```
+
+```
+    #include <stdio.h>
+
+
+    main(void)
+    {
+    	int a = 97;
+    	double b = 12.45;
+    	unsigned int c = 32503456;
+    	int d = 100;
+    	double e = 12000.345678;
+
+    	printf("%d - %c\n", a, a);		/* 97 - a */
+    	printf("%f\n", b);				/* 12.450000 */
+    	printf("%u\n", c);				/* 32503456 */
+    	printf("%x\n", d);				/* 64 */
+    	printf("%e\n", e);				/* 1.200035e+04 */
+
+    	return 0;
+    }
+```
+
+printf fonksiyonunda % karakterinden sonra fakat format karakterinden önce bir sayı belirtilirse ilgili argüman, o sayı ile belirtilen genişlikte
+bir alan ayrılarak o alanda yazılır. Default durum sağa dayalı olarak yazdırılmasıdır. Sola dayalı yazdırmak için genişlik belirtilen bu sayının
+önüne ayrıca bir de '-' karakteri eklenir. Özellikle sütunsal hizalamalar için %-nd gibi (buarada n yerine bir sayı getirilmelidir) format karakterleri
+kullanılmaktadır. Eğer genişlik belirten sayı yazdırılacak sayının basamak sayısından az ise, sayının hepsi yazdırılmaktadır.
+
+```
+    #include <stdio.h>
+    #include <math.h>
+
+    main(void)
+    {
+    	int a = 10;
+    	int b = 7;
+    	int c = 121;
+    	int d = 1234567;
+
+    	printf("%-20d%f\n", a, sqrt(a));
+    	printf("%-20d%f\n", b, sqrt(b));
+    	printf("%-20d%f\n", c, sqrt(c));
+    	printf("%-20d%f\n", d, sqrt(d));
+
+    	return 0;
+    }
+```
+
+float ve double sayılarda sayının toplam genişliği ve noktadan sonraki kısmın genişliği ayrı ayrı belirtilebilmektedir. Örneğin "%10.2f" toplam 10 alan içerisinde,
+sayı noktadan sonra iki basamak olacak biçimde yazdırılır. Burada yalnızca noktanın sağ tarafının kaç basamak yazdırılacağı da belirtilebilir. Örneğin
+"%.3f" sayının tam kısmının tam olarak yazılacağı ancak noktadan sonraki kısmın üç basamak biçiminde yuvarlanarak yazdırılacağı anlamına gelir.
+
+```
+    #include <stdio.h>
+
+    main(void)
+    {
+    	double a = 12.346;
+
+    	printf("___%10.2f___\n", a);	/*___     12.35___*/
+    	printf("___%-10.2f___\n", a);	/*___12.35     ___*/
+    	printf("___%.10f___\n", a);		/*___12.3460000000___*/
+    	printf("___%.0f___\n", a);		/*___12___*/
+
+    	return 0;
+    }
+```
+
+C'de bildirimler üç yerde yapılabilir:
+
+**1.** _Fonksiyonların içerisinde_: Fonskiyonların içerisinde bildirilen değişkenlere "yerel değişkenler (local variables)" denilmektedir.
+**2.** _Fonksiyonların dışında_: Fonksiyonların dışında bildirilen değişkenlere "global değişkenler (global variables)" denilmektedir.
+**3.** _Fonksiyonların parametre parantezleri içerisinde_: Fonksiyonların parametre parantezleri içerisinde bildirilen değişkenlere "parametre değişkenleri
+(parameters)" denilmektedir.
+
+```
+    #include <stdio.h>
+
+    int x;				/* global deişken */
+
+    void foo(int n)			/* Parametre değişkeni */
+    {
+    	int a;			/* yerel değişken */
+    	/* ... */
+    }
+
+    int y;				/* global değişken */
+
+    int main(void)
+    {
+    	int b;			/* yerel değişken */
+    	/* ... */
+
+    	return 0;
+    }
+```
+
+C'de küme parantezleri arasındaki bölgeye "blok (block)" denilmektedir. Bir fonksionun ana bir bloğu olmak zorundadır. Ancak o ana bloğun içerisinde
+istenildiği kadar çok iç içe ya da ayrık blok bulundurulabilir. Örneğin:
+
+```
+    void foo(void)
+    {
+    	...
+    	{
+    		...
+    	}
+    	{
+    		...
+    		{
+    			...
+    		}
+    	}
+    	....
+    }
+```
+
+C90'da yerel değişkenler blokların başında bildirilmek zorundaydı. Burada blokların başı demekle, blokların ilk işlemi olacak biçimde bildirim yapma
+kastedilmektedir. Ancak bu kural C99 ve ötesinde değiştirilmiştir. C99 ve ötesinde yerel değişkenler blokların herhangi bir yerinde bildirilebilirler. Örneğin:
+
+```
+    int main()
+    {
+    	printf("this is a test\n");
+    	int a;			/* C90'da geçersiz! C99 ve ötesinde geçerli */
+
+    	{
+    		int b;		/* C90'da da geçerli */
+    		printf("this is a test\n");
+    	}
+
+    	int c;			/* C90'da geçersiz! C99 ve ötesinde geçerli */
+    }
+```
+
+C'de bir tamsayı 10'luk, 16'lık ve 8'lik sistemde bir sabit biçiminde belirtilebilmektedir. Default sistem 10'luk sistemdir. Ancak bir tamsayı 0x ile
+ya da 0X ile başlanarak yazılırsa, bu durumda sayının 16'lık sistemde yazılmış olduğu kabul edilir. Eğer bir sayı başına 0 getirilerek yazılırsa bu da
+sayının 8'lik sistemde yazılmış olduğu anlamına gelir. Örneğin:
+
+```
+    100         (10'luk sistemde 100)
+    0x64		(16'lık sistemdeki 64 yani 10'luk sistemde 100)
+    012			(8'lik sistemde 12 yani 10'luk sistemde 10)
+```
+
+Tabii biz tamsayı değeri kaçlık sistemde yazarsak yazalım, aslında bu sayı bellekte her zaman 2'lik sistemde tutulmaktadır.
+
+C'de bir tamsayıyı 2'lik sistemde yazmanın bir yolu yoktur.
+
+```
+    #include <stdio.h>
+
+    main(void)
+    {
+    	int a;
+
+    	a = 100;
+    	printf("%d\n", a);		    /* 100 */
+
+    	a = 0x64;
+    	printf("%d\n", a);		    /* 100 */
+
+    	a = 012;
+    	printf("%d\n", a);		    /* 10 */
+
+    	return 0;
+    }
+```
+
+C'de bir noktalı sayı, üstel biçimde de yazılabilir. Bunun için sayıdan sonra 'e' ya da 'E' karakteri ve üs sayısı belirtilir. Buradaki üs 10'un
+kaçıncı kuvveti olduğunu belirtmektedir. Örneğin:
+
+```
+    a = 1.23e20;
+    b = 1.23E-12;
+
+    #include <stdio.h>
+
+    main(void)
+    {
+    	double a;
+
+    	a = 123.456e5;
+    	printf("%f\n", a);			/* 12345600.000000 */
+
+    	a = 1.23e-5;
+    	printf("%f\n", a);			/* 0.000012 */
+
+    	a = 1e20;
+    	printf("%f\n", a);			/* 100000000000000000000.000000 */
+
+    	return 0;
+    }
+```
+
+Doğrudan yazılan sayılara "sabit (literal)" denilmektedir. C'de yalnızca değişkenlerin değil, sabitlerin de türleri vardır. Bir sabitin türü onun
+nasıl yazıldığına ve niceliğine bakılarak belirlenmektedir. Bir C programcısının da, bir sabiti gördüğünde onun türünü tespit edebilmesi gerekir.
+
+**1.** Sayı nokta içermiyorsa, sonuda bir ek yoksa ve 10'luk sistemde yazılmışsa; sayı sırasıyla "int", "long" ve ""long long" türlerinin hangisinin
+içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
+
+0 int türden sabit
+123 int türden sabit
+-123 Bu bir sabit değildir. Burada sabit olan 123'tür. Sayının başındaki '-' bir operatördür.
+
+Şimdi çalıştığımız sistemde int ve long türünün 4 byte ancak long long türünün 8 byte olduğunu varsayalım. Bu durumda:
+
+    	3000000000				long long türden sabit
+    	10000000000000			long long türden sabit
+
+**2.** Sayı nokta içermiyorsa, sonunda ek yoksa ve 16'lık sistemde ya da 8'lik sistemde yazılmışsa; sayı sırasıyla "int", "unsigned int", "long", "unisgned long",
+"long long" ve "unsigned long long" sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir. Çalıştığımız sistemde int ve long türünün 4 byte
+ancak long long türünün 8 byte olduğunu varsayalım.
+
+    0x10 int türden sabit
+    0xFC123478 unsigned int türden sabit
+    1231231321223123123; long long türdne sabit
+
+**3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde 'u' ya da 'U' varsa; sayı 10'luk, 16'lık, 8'lik sistemde yazıldığında
+sırasıyla "unsigned int", "unsigned long int" ve "unsigned long long" türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir.
+Örneğin:
+
+    123U unsigned int türünden sabit
+    0u unsigned int türdne sabit
+    30000000000000U unsigned long long türünden sabit
+    0x1234u unsigned int türünden sabit
+    01234U unsigned int türünden sabit
+
+**4.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde 'l' ya da 'L' harfi varsa ve sayı 10'luk sistemde yazılmışsa; sayı "long" ve
+"long long" türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
+
+    1L long türden bir sabit
+    1234567890123L long long türden sabit
+
+**5.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde 'l' ya da 'L' harfi varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa;
+sayı "long" ve "unsigned long" "long long" ve "unsigned long long" türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
+
+    0x12L long ütrden sabit
+    0123L long türden sabit
+
+**6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık "ul ya da lu" varsa ('u' ya da 'l' ler büyük ya da küçük olabilir) ve sayı 10'luk sistemde,
+16'lık sistemde ya da 8'lik sistemde yazıldığında sırasıyla "unsigned long" ve "unsigned long long" sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir.
+Örneğin:
+
+    12LU unsigned long int türden sabit
+    1234567890123ul unsigned long long türden sabit
+
+**7.** Sayı nokta içermiyorsa, sayının sonunda "ll" ya da "LL" soneki varsa ve sayı 10'luk sistemde yazılmışsa; "long long" türden sabit belirtir. Örneğin:
+
+    1LL long long türden sabit
+    100ll long long türden sabit
+
+**8.** Sayı nokta içermiyorsa, sayının sonunda "ll" ya da "LL" soneki varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa; "long long" ve "unsigned long long"
+türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir. Örneğin:
+
+    0x12LL long long türden sabit
+
+**9.** Sayı nokta içermiyorsa ve sayının sonunda "ull" ya da "llu" soneki varsa (burada 'u' ve "ll" büyük harf ya da küçük harf olabilir); bu durumda sabit unsigned long long türündendir.
+Örneğin:
+
+    1uLL unsigned long long türdne sabit
+
+**10.** Sayı nokta içeriyorsa ve sayının sonunda bir ek yoksa; sabit double türdendir. Örneğin:
+
+        1.2						double türden sabit
+        0.2						double türden sabit
+
+    Not:
+    Noktanın solunda ve sağında bir şey yoksa orada 0 olduğu kabul edilmektedir. Bu Fortran zamanından beri kullanılan bir gelenektir. Örneğin.
+
+        .12						double türden sabit, 0.12 ile aynı anlamda
+        12.						double türden sabit, 12.0 ile aynı anlamda
+
+    Sayı üstel biçimde yazılmışsa sayı nokta içermese bile double türden olur. Örneğin:
+
+        1e3						Bu sayı 1000 anlamına geliyor olsa da üstel biçimde yazıldığı için double türden sabit belirtmektedir.
+
+**11.** Sayı nokta içeriyorsa ve sayının sonunda 'f' ya da 'F' varsa; sabit float türdendir. Örneğin:
+
+        12.3f					float türden sabit
+        .1F						float türden sabit
+        12.F					float türden sabit
+
+    Sayı nokta içermiyorsa sayının sonuna 'f' ya da 'F' soneki getirilemez. Örneğin:
+
+        12F						geçersiz sabit!
+        1e3F					geçerli, burada noktaya gerek yok, çünkü sayı üstel biçimde yazılmış
+
+**12.** Sayı nokta içeriyorsa ancak sayının sonunda 'l' ya da 'L' varsa; sabit long double türden olur. Örneğin:
+
+        12L						long türden sabit
+        12.3					double türden
+        12.3L					long double türden
+
+[13. Ders 05/07/2022 - Salı]()
+
+**13.** C'de tek tırnakla iki tırnak arasında çok fark vardır. (Halbuki bazı dillerde tek tırnak ile iki tırnak arasında farklılık yoktur.) C'de bir karakter
+tek tırnak içerisine alınırsa bu ilgili karakterin karakter tablosundaki sıra numarasını belirten bir sayı anlamına gelir. Örneğin C'de 'a' ifadesi
+aslında eğer ACII karakter tablosu kullanılıyorsa 97 sayısı ile aynı anlamdadır.
+
+    C'de bir karakter tek tırnak içerisine alınırsa bu ifade int türden sabit kabul edilir. Bu biçimdeki ifadeleri "int türden karakter sabitleri denilmektedir". Örneğin:
+
+```
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	int ch;
+
+    	ch = 'a';
+
+    	printf("ch = %d, ch = %c\n", ch, ch);		/* ch = 97, ch = a */
+
+    	return 0;
+    }
+```
+
+Ancak karakter tablolarındaki bazı karakterlerin görüntü karşılığı yoktur. Yani bu karakterleri ekrana yazdırmak istediğimizde bir şey görmeyiz. Ancak
+bazı eylemler gerçekleşir. Bu tür karakterlere "görüntülenemeyen karakterler (non-printable characters)" denilmektedir. İşte bu görüntülenemeyen bazı karakterlere
+ilişkin karakter sabitleri özel bir biçimde ifade edilmektedir. ASCII karakter tablosunun (dolayısıyla UNICODE karakter tablosunun da) ilk 32 karakteri
+görüntülenemeyen özek kontrol karakterinden oluşmaktadır. İşte çok kullanılan bazı görüntülenemeyen karakter tek tırnak içerisinde önce bir ters bölü sonra
+özel bazı karakterler ile temsil edilmektedir. Bu karakter sabitlerine "ters bölü karakter sabitleri (escape sequnces)" denilmektedir. Bunlar listesi şöyledir:
+
+```
+    '\a'		alert (7 numaralı ASCII karakteri), beep sesi çıkar
+    '\b'		back space (8 numaralı ASCII karakteri), sanki back space tuşuna basılmış etkisi oluşur
+    '\f'		form feed (12 numaralı SCII karakterş),  bir sayfa atar
+    '\n'		line feed (10 numaralı ASCII karakteri), imleç aşağı satırın başına geçer
+    '\r'		carriage return  (13 numaralaı ASCII karakteri), imleç bulunduğu satırın başına geçer)
+    '\t'		tab (9 numaralı ASCII karakteri), imle. bir tab ileri gider
+    '\v'		vertical tab (11 numaralı ASCII karakteri), imleç düşey olarak kaydırılır.
+```
+
+Burada önemli olan nokta '\n' gibi bir karakter sabitin her na kadar tırnak içerisinde iki karakter varsa da aslında tek bir karaktere ilişkin karakter sabiti
+belirttiğidir. Yani '\n' ne ters bölü karakterinin ne de n karakterinin sabitidir. Tamamen başka bir karakte rolan LF (line feed) denilen karakterin karakter
+sabitidir.
+
+Ters bölü karakter sabitleri iki tırnak içerisinde tek bir karakter olarak ele alınmaktadır. Örneğin:
+
+```
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	printf("ali\aveli\nselami\tfatma\nsacit\n");
+
+    	return 0;
+    }
+```
+
+Ters bölü karakterinin kendisine ilişkin karakter sabiti '\' biçiminde yazılamaz. Eğer biz böle bir şey yazarsak derleyici sanki ters bölü karakter
+sabitlerinden birisni yazmak istiyormuşuz da onu yazamamışız gibi durumu değerlendirir. Ters bölü karakterinin kendisine ilişkin karakter sabitini
+'\\' biçiminde yazabiliriz. Örneğin:
+
+```
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	char ch;
+
+    	ch = '\\';
+    	printf("%c\n", ch);
+
+    	return 0;
+    }
+```
+
+Benzer biçimde iki tırnak içerisinde de ters bölü karakterinin kendisini yazdırmak istiyorsak iki ters bölü karakteri kullanmalıyız. Örneğin:
+
+```
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	printf("c:\temp\a.dat\n");		/* yanlış yazım */
+    	printf("c:\\temp\\a.dat\n");	/* doğru yazım */
+
+    	return 0;
+    }
+```
+
+Tek tırnak karakterine ilişkin karakter sabiti ''' biçiminde yazılamaz. Bu durumda derleyici durumu sanki tek tırnağın içerisine bir şey yazılmamış gibi
+yorumlayacaktır. Tek tırnak karakterinin karakter sabiti '\'' biçiminde yazılmalıdır. Örneğin:
+
+```
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	char ch;
+
+    	ch = '\'';
+    	printf("%c\n", ch);
+
+    	return 0;
+    }
+```
+
+İki tırnağın içerisinde tek tırnak karakterini ters bölüsüz de yazabilriz. Örneğin:
+
+```
+    printf("Izmir'in merkezi\n");		/* geçerli */
+```
+
+Tabii istersek yine de bu tek tırnağı ters bölü karakteri biçiminde de yazabilirdik. Örneğin:
+
+```
+    printf("Izmir\'in merkezi\n");		/* geçerli, yukarıdaki ile aynı */
+```
+
+    Ancak iki tırnak içerisinde iki tırnak doğrudan yazılamaz. Örneğin:
+
+    printf(""Ankara"");					/* geçersi! */
+
+    İki tırnak içerisinde iki tırnak karakteri \" biçiminde belirtilmelidir. Örneğin:
+
+    printf("\Ankara\"");				/* geçerli "Ankara" yazısı çıkacak.
+
+    Tebii tek tırnak içerisinde iki tırnak karakteri de sorunsuz olarak kullanılabilir. Örneğin:
+
+    ch = '"';							/* geçerli, sorun yok */
+
+    Tabii sorun yaratmıyor olsa da biz istersek tek tırnak içerisinde iki tırnak karakterini \" biçiminde de belirtebiliriz. Örneğin:
+
+    ch = '\"';
+
+    Aslında C'de tek tırnak içerisine tek bir karakter yerleştirilmek zorunluluğu yoktur. Tek tırnak içerisine int türünün byte uzunluğu kadar karakter
+    yerleştirilebilir (örneğin int türü 4 byte ise 4 karakter, 8 byte ise 8 karakter yerleştirilebilir). Tek tırnak içerisine birden fazla karakter yerleştirildiğinde
+    bunlara "multibyte karakterler" denilmektedir. Multibyte karakterlerin ne belirttiği derleyicileri yazanların isteğine bırakılmıştır. Biz bu multibyte
+    karakter kavramını ileride yeniden ele alacağız.
+
+    Bir karakter sabitinin başına onunla yapışık bir L harfi (L harfi büyük harf olmak zorundadır) getirilebilir. Bu tür karakter sabitlerine "geniş
+    karakter sabitleri (wide character constants)" denilmektedir. Örneğin:
+
+    L'a'
+
+    Geniş sabitleri wchar_t türündendir. Bu konu ileride ele alınacaktır.
+
+    C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık 'u' ve 'U' getirilebilmektedir. Örneğin:
+
+    u'a'
+    U'b'
+
+    'u' öneki getirilmiş karakter sabitleri UNICODE UTF-16 encoding'ini, 'U' öneki getirilmiş karakter sabitleri de UNICODE UTF-32 encoding'ini belirtir.
+    Bunlar sırasıyla char16_t ve char32_t türündendir. Bu konu da ileride ele alınacaktır.
+
+    1)  C'de int türden küçük türlerin sabitleri yoktur. Yani C'de char, signed char, unsigned char, short ve unsigned short türünden sabitler yoktur.
+    En küçük sabit int türündendir. Tek tırnak içerisine yazılmış karakter sabitlerinin de aslında int türdne olduğunu anımsayınız.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de karakter sabitleri sayısal işlemlere sokulabilir. Çünkü zaten onlar birer sayı belirtmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int result;
+
+    result = 'a' + 1;
+
+    printf("%c, %d\n", result, result);		/* b, 98 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+putchar fonksiyonu bizden int türden bir değer alır. O değere karşı gelen karakter numarasına ilişkin karakterin görüntüsünü ekrana (stdout dosyasına) yazar.
+Yani putchar(ch) çağrısıyla printf("%c", ch) çağrısı işlevsel olarak tamamen eşdeğerdir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    a = 48;
+
+    putchar(a);		/* 0 */
+    putchar('\n');
+    putchar('?');	/* ? */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+getchar fonksiyonu adeta putchar fonksiyonun tersini yapmaktadır. Bu fonksiyonun parametresi yoktur. Fonksiyon çağrıldığında klavyeden (stdin dosyasından)
+bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter tablosundaki sıra numarasına geri döner. getchar bize int türden bir değer vermektedir.
+Örneğin:
+
+    int ch;
+
+    ch = getchar();
+
+    getchar fonksiyonunu yanlışlıkla aşağıdaki gibi kullanmaya çalışmayınız:
+
+    getchar(ch);
+
+    getchar fonksiyonun parametresi yoktur. Bunun verdiği değeri bir değişkene yerleştirmelisiniz:
+
+    ch = getchar();
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int ch;
+
+    ch = getchar();
+    putchar(ch);
+    putchar('\n');
+    printf("ch %d, ch = %c\n", ch, ch);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aslında klavyeden (stdin dosyasından) okumalar bir tapon eşliğinde yapılmaktadır. Biz getchar fonksiyonunda birden fazla karakter girebiliriz. Bu durumda
+girilen tüm karakterler önce bir "tampona (buffer)" yerleştirilir sonra o tampondan alınarak verilir. getchar için basıl ENTER tuşu da tampona '\n'
+karakteri olarak eklenmektedir. getchar (ve stdin dosyasından okuma yapan diğer fonksiyonlar) eğer tamponda zaten karakter varsa bizden karakter istemezler.
+stdin tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
+
+    int ch;
+
+    ch = getchar();
+    putchar(ch);
+
+    ch = getchar();
+    putchar(ch);
+
+    Biz burada ilk getchar için 'a' karakterine basıp ENTER tuşuna basmış olalım. Bu durumda taponun içeriği şöyle olacaktır:
+
+    Tampon => a\n
+
+    İlk getchar tampondaki sıradaki karakter olan 'a' okuyacaktır. Ancak ikinci getchar tapon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
+    Tampondaki '\n' karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o cgetchar tampon boş olduğu için klavyedne okuma
+    isteyecektir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+printf fonksiyonunun klavyeden (stdin dosyasından) okuma yapan scanf isimli kardeşi vardır. scanf temel olarak printf gibi kullanılmaktadır. Ancak
+scanf fonksiyonundaki format karakterleri çıktı ile ilgili değil yapılan giriş ile ilgili bilgi verir. Örneğin printf fonksiyonunda %d "int bir değeri 10'luk
+sistemde ekrana yaz" anlamına gelirken scanf fonksiyonunda %d "int bir nesne için "10'luk sistemde giriş yap" anlamına gelmektedir. scanf fonksiyonunda
+iki tırnaktan sonraki değişkenlerin önümne & operatörü getirilir. (Bu operatör ileride ele alınacaktır). Örneğin:
+
+    int a;
+
+    scanf("%d", &a);
+
+    Burada klavyeden girilen sayı a nesnesinin içerisine yerleştirilir. scanf fonksiyonundaki iki tırnak içerisine format karakterlerindne başka bir şey
+    yazmayınız. Buraya yazdığınız başka karakterler başka anlamlara gelmektedir. scanf buradaki karakterleri ekrana yazdırmaz. Ekrana bir şey yazdırmak istiyorsanız
+    printf fonksiyonunu kullanmalısınız. Örneğin:
+
+    int a;
+
+    scanf("%x", &a);
+
+    Burada %x klavyeden girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak a nesnesine yerleştirecektir. printf fonksiyonuyla scanf fonksiyonu arasındaki
+    format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. printf fonksiyonunda hem float hem de double %f ile yazdırılır. Ancak scanf fonksiyonunda
+    float %f ile double %lf ile okunmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+double a;
+
+    printf("Bir sayi giriniz:");
+    scanf("%lf", &a);		/* double %lf ile okunmalıdır */
+
+    printf("%f\n", a);		/* printf fonksiyonunda %lf diye bir format karakteri yoktur */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Tek bir scanf ile birden fazla nesne için okuma yapılabilir. Burada format karakterlerinin dışında şimdilik başka bir karakter bulundurmayınız.
+Girişler sırasında istenildiği kadar boşluk karakteri (SPACE, TAB, ENTER) bulundurulabilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b;
+
+    printf("Iki deger giriniz:");
+    scanf("%d%d", &a, &b);
+
+    printf("a = %d, b = %d\n", a, b);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki programda klavyeden (stdin dosyasından) iki int değe rokunmuş bunların çarpımı ekrana (stdout dosyasına) yazdırılmıştır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b;
+
+    printf("Iki deger giriniz:");
+    scanf("%d%d", &a, &b);
+
+    printf("%d\n", a * b);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Yeni öğrenen tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna \n konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int ain(void)
+{
+int a, b;
+
+    printf("Iki deger giriniz:");
+    scanf("%d%d\n", &a, &b);		/* dikkat! yanlışlıkla \n konulmuş! */
+
+    printf("%d\n", a * b);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Tabii scanf ile biz getchar gibi karakter de okuyabiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char ch;
+
+    scanf("%c", &ch);
+    putchar(ch);
+
+    return 0;
+
+}
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 14. Ders 07/07/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadeleri ise
+"operan (operand)" denir. Örneğin a + b ifadesinde + bir operatördür. a ve b bu operatörün operand'larıdır.
+
+    Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
+
+    1) İşlevlerine Göre
+    2) Operand Sayılarına Göre
+    3) Operatörün Konumuna Göre
+
+    İşlevlerine göre sınıflandırmada operatörün hangi amaçla kullanıldığına göre sınıflandırma yapılır. Tipik sınıflandırma şöyle yapılmaktadır:
+
+    1) Artirmetik Operatorleer (Arithmetic Operators): Bunlar toplama, çarpma gibi klasik operatörlerdir.
+    2) Karşılaştırma Operatörleri (Comparision Operators): Bunlar >, <, >=, <=, ==, != gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
+    operatörlere "ilişkisel operatörler (relational operators)" da denilmektedir
+    3) Mantıksal Operatörler (Logical Operators): Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
+    4) Gösterici Operatörleri (Pointer Operators): Adreslerle işlemler yapan operatörlerdir. Bunlar her programlama dilinde bulunmazlar.
+    5) Bit Operatörleri (Bitwise Operators): Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar sayıların karşılıklı bitlerini işleme sokan
+    operatörlerdir.
+    6) Özel Amaçlı Operatörler (Special Purpose Operators): Değişik konulara ilişkin işlem yapan yukarıdaki gruplar içerisine girmeyen operatörlerdir.
+
+    Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
+
+    1) İki operand'lı Operatörler (Binary Operators): Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '*', '/', '-'
+    operatörleri iki operand'lı operatörlerdir.
+    2) Tek operand'lı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
+    alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operand'lı bir operatördür.
+    3) Üç operand'lı operatörler (Ternary Operators): Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır.
+
+    Operatörler, operatörün operan'larına olan konumuna göre de üçe ayrılmaktadır:
+
+    1) Araek Operatörler (Infix Operators): Bu operatörler iki operand'lıdır ve operand'larının arasına getirilerek kullanılmaktadır. Örneğin a + b işleminde
+    '+' operatörlerinin araek bir operatör olduğuna dikkat ediniz.
+    2) Önek Operatörler (Prefix Operators): Bunlar operand'larının önüne getirilerek kullanılırlar. Örneğin !a gibi bir kullanımda ! operatörü operand'ının önüne
+    getirilmiştir.
+    3) Sonek Operatörler (Postfix Operators): Bunlar da operand'larının sonuna getirilerek kullanılırlar. Örneğin foo() gibi bir ifadede parantezler operatör
+    görevindedir. foo ise bu operatörün operandıdır. Burada operatör operand'ının sonuna getirilmiştir.
+
+    Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
+    Örneğin, "/ operatörü iki operand'lı araek (binart infix) bir artimetik operatördür." Ya da örneğin "! operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
+    Ya da örneğin "& operatörü iki operand'lı araek bir bit operatörüdür".
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir ifadede birden fazla operatör kullanıldığında bunlar birbirlerine göre belli bir sırada yapılırlar. Bu duruma "operatörler arasındaki öncelik
+ilişkisi (operator precedency)" denilmektedir. Operatörlerin arasındaki öncelik ilişkisi "operatörlerin öncelik tablousu" denilen bir tabloyla
+betimlenmektedir. Bu tablo satırlardan oluşur. Üst satırrdaki operatörler alt satırdaki operatörlerden daha önceliklidir. Aynı satırdaki operatörler
+eşit öncelikli biçimde bulunurlar. Ancak aynı satırdaki operatörlerin önceliği "soldan sağa (left to right)" ya da "sağdan sola (right to left)" biçimde
+olabilir. Soldan sağa öncelik demek o satırda bulunanlardan ifade içerisinde hangisi soldaysa o önce yapılır demektir. Sağdan sola öncelik de benzerdir.
+Aşağıda operatmrlerin öncelik tablosunun iskelet hali verilmiştir:
+
+    ()				Soldan-Sağa
+    * /				Soldan-Sağa
+    + -				Soldan-Sağa
+    =				Sağdan-Sola
+
+    Buradaki () operatörü öncellik parantezini ve fonksiyon çağırma operatörünü anlatmaktadır. Örneğin:
+
+    a = b - c * d;
+
+    İ1: c * d
+    İ2: b - İ1
+    İ3 a = İ2
+
+    Burada aslında b'dn c * d'nin çıkartıldığına dikkat ediniz. Örneğin:
+
+    a = b / c * d
+
+    Burada / ve * soldan-sağa eşit önceliklidir. İfade içerisinde (öncleik tablosunda değil) solda / olduğu için önce / sonra * yapılacaktır:
+
+    İ1: b / c
+    İ2: İ1 * d
+    İ3: a = İ2
+
+    Örneğin:
+
+    a = b + c + d;
+
+    Burada solda olan '+' önce yapılacaktır:
+
+    İ1: b + c
+    İ2: İ1 + d
+    İ3: a = İ2
+
+    Örneğin:
+
+    a = b = c;
+
+    Atama operatörünün sağdan-sola grupta olduğuna dikkat ediniz:
+
+    İ1: b = c
+    İ2: a = İ1
+
+    Öncelik tablosundaki satırlarda bulunan operatörler o satırda değişik sırada yazılabilirler. Çünkü aynı satırdaki operatörlerin o satırdaki sırasının
+    bir önemi yoktur. "Soldan-sağa" ya da "sağdan-sola" ifade içerisindkei duruma ilişkindir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+_, /, + ve - operatörleri "iki operand'lı araek (binary infix)" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+% operatörü iki operand'lı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
+üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda _ ve / ile soldan sağa eşit öncelik grupta bulunur.
+Negarit sayının pozitif sayıya bölümünden elde edilen kalan nagtiftir. Pozitif sayının negatif sayıya bölümündne elde edilen kalan pozitiftir.
+
+    ()				Soldan-Sağa
+    * / %			Soldan-Sağa
+    + -				Soldan-Sağa
+    =				Sağdan-Sola
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int result;
+
+    result = 10 % 4;
+    printf("%d\n", result);			/* 2 */
+
+    result = -10 % 4;
+    printf("%d\n", result);			/* -2 */
+
+    result = 10 % -4;
+    printf("%d\n", result);			/* 2 */
+
+    result = -10 % -4;
+    printf("%d\n", result);			/* -2 */
+
+    return 0;
+
+}
+
+/\*--------------------------------------------------------------------------------------------------------------------------------------------------- + ve - sembolleri hem toplama ve çıkartma operatörü hem de işaret - ve işaret + operatörünü temsil etmektedir. İşaret + ve işaret - operatörleri
+"tek operand'lı öncek (unary prefix)" operatörlerdir. İşaret - operatörü operand'ının negatif değerini üretir. İşaret + operatörü ise operand'ı ile aynı
+değeri üretmektedir. (Yani aslında işaert + operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola gruğta bulunurlar:
+
+    ()				Soldan-Sağa
+    + -				Sağdan-Sola
+    * / %			Soldan-Sağa
+    + -				Soldan-Sağa
+    =				Sağdan-Sola
+
+    Örneğin:
+
+    a = b - - - c;
+
+    İ1: -c
+    İ2: -İ1
+    İ3: b - İ2
+    İ4: a = İ3
+
+    Burada işl - sembolün "çıkartma" diğerlerinin "işaret -" olduğuna dikkat ediniz.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int result;
+int a = -4;
+
+    result = 10 - - - - -a;
+    printf("%d\n", result);		/* 14 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğiniz gibi ++ ve
+-- operatmrleri de vardır. Dolayısıyla ++ ve -- yan yana yazılırsa iki ayrı işaret + ve işaret - operatörü değil ++ ve -- operatörleri anlaşılır
+Benzer biçimde a>=3 gibi bir ifadede a, >= ve 3 biçiminde üç farklı atom vardır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+++ ve -- operatörleri "tek operand'lı, öncek ve sonek olarak kullanılabilen" operatörlerdir. Yani biz bu operatörleri ++a gibi de a++ gibi de kullanabiliriz.
+Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. ++ operatörüne "artırma (increment)", -- operatörüne "eksiltme (decrement)" operatörleri
+denilmektedir. ++ operatörü "operandı içerisindeki değeri 1 artır, -- operatörü operandı içerisindeki değeri 1 eksilt anlamına gelir."
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    a = 3;
+
+    ++a;					/* a = a + 1 */;
+    printf("%d\n", a);		/* 4 */
+
+    a++;
+    printf("%d\n", a);		/* 5 */
+
+    a = 3;
+
+    --a;					/* a = a - 1 */
+    printf("%d\n", a);		/* 2 */
+
+    a--;
+    printf("%d\n", a);		/* 1 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+++ ve -- operatörleri öncelik tablosunun ikinci düzeyinde sağda-sola grupta bulunmaktadır:
+
+    ()				Soldan-Sağa
+    + - ++ --		Sağdan-Sola
+    * / %			Soldan-Sağa
+    + -				Soldan-Sağa
+    =				Sağdan-Sola
+
+    Aslında C'nin tek operand'lı (unary) bütün operatörleri zaten öncelik tablosunun ikinci düzeyinde sağdan-sola gruba yerleştirilmiştir.
+
+    ++ ve -- operatörleri her zaman tablodaki öncelikte yapılır. Ancak sonraki işleme eğer operatörler önek olarka kullanılmışsa artırılmış ya da eksiltilmiş değer,
+    sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokulmaktadır. Örneğin:
+
+    a = 3;
+    b = ++a * 2;
+
+    Burada 3 operatör vardır. En önceliklisi ++ operatördür. O halde a 1 artırılacak ve 4 olacaktır. Sonraki işlem * işlemidir. O halde * işlemine
+    artırma öncek yapıldığı için artırılmış değer olan 4 sokulacaktır. Bu duurmda 4 değişkeni 4 değerine olurken b değişkeni 8 olacaktır. Şimdi aynı işlemi
+    sonek olarak yapalım:
+
+    a = 3;
+    b = a++ * 2;
+
+    Burada da a önce artırılır 4 olur. Ancak sonraki işlem olan * işlemine a'nın artırılmış değeri olan 3 sokulur. Bu durumda a 4 olurken b ise
+    6 olacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b;
+
+    a = 3;
+
+    b = ++a * 2;
+    printf("a = %d, b = %d\n", a, b);		/* a = 4, b = 8 */
+
+    a = 3;
+
+    b = a++ * 2;
+    printf("a = %d, b = %d\n", a, b);		/* a = 4, b = 6 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Önek ve sonek etki aşağıdaki basit örnekle de daha iyi anlaşılabilir:
+
+    a = 3;
+    b = --a;
+
+    Burada önce a eksiltilir, 2 olur. Sonraki işlem atama işlemidir. O halde b'ye a'nın eksiltilmiş değeri atanır. Yani b de 2 olacaktır. Fakat örneğin:
+
+    a = 3;
+    b = a--;
+
+    Burada yine a bir eksiltilir ve 2 olur. Ancak sonraki işlem olan atama işlemine a'nın eksiltilmemiş değeri olan 3 sokulur. Böylece b 3 olur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b;
+
+    a = 3;
+
+    b = --a;
+    printf("a = %d, b = %d\n", a, b);	/* a = 2, b = 2 */
+
+    a = 3;
+
+    b = a--;
+    printf("a = %d, b = %d\n", a, b);	/* a = 2, b = 3 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Tabii ++ ve -- operatörleri tek başlarına kullanılıyorsa bunların önek ve sonek kullanımları arasında bir fark oluşmaz yani örneğin:
+
+    ++a;
+
+    ile
+
+    a++;
+
+    arasında bir fark yoktur. Fark ifadede başka operatörler varsa ortaya çıkmaktadır. Örneğin:
+
+    a = 3;
+    b = 2;
+
+    c = ++a * b--;
+
+    Burada önce b eksiltilir 1 olur. Sonra a artırılır 4 olur. Çarpma işlemine a'nın artırılmış değeri ancak b'nin eksiltilmemiş değeri sokulur. Bu durumda
+    c'ye 8 atanacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b, c;
+
+    a = 3;
+    b = 2;
+
+    c = ++a * b--;
+    printf("a = %d, b = %d, c = %d\n", a, b, c);		/* a = 4, b = 1, c = 8 */
+
+    return 0;
+
+}
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 15. Ders 19/07/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Tabii başka bir hiçbir operatör yoksa ++ ve -- operatörlerinin önek ve sonek kullanımları arasında bir fark oluşmaz. Örneğin:
+
+    ++a;
+
+    ile
+
+    a++;
+
+    arasında bir farklılık yoktur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    a = 3;
+    ++a;
+
+    printf("a = %d\n", a);		/* a = 4 */
+
+    a = 3;
+    a++;
+
+    printf("a = %d\n", a);		/* a = 4 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+++ ve -- operatörlerinin operand'larının nesne belirtmesi yani sol tarafa değeri olması gerekir. Örneğin aşağıdaki gibi bir ifade geçerli değildir:
+
+    ++3;		/* geçersiz! */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C (ve C++) standartlarında "tanımsız davranış (undefined behavior)" denilen bir kavram vardır. Tanımsız davranış terimi standartlarda semantik bir tanımın
+yapılmadığı kodlar için kullanılmaktadır. Tanımsız davranışa yol açan kodlar sentaks bakımdan geçerlidir. Dolayısıyla başarılı bir biçimde derlenirler.
+Ancak programın çalışma zamanı sırasında sorunlar ortaya çıkabilmektedir. Bu sorunlar "programın çökmesi", "programın umulmadık biçimde çalışması",
+"hatalı birtakım değerlerin ortaya çıkması" biçiminde olabilir. Bazen tanımsız davranışa yol açam kodlar görünüşte bir soruna yol açmayabilir. Ancak
+programın değişik zamanlarda çalıştırılması sırasında tutarsızlıklar oluşturabilmektedir. Sonuç olarak bir kod eğer "tanımsız davranışa" yol açıyorsa
+programcının o kodu kullanmaması gerekir. Kullanırsa artık programın sağlıklı çalışması garanti olmaz. Tanımsız davranışların "derleme aşamasına ilişkin değil",
+"programın çalışma zamanına ilişkin" olumsuzluklar doğurabildiğine dikkat ediniz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C (ve C++) standartlarında karşılaşılan diğer bir kavram da "derleyiciye bağlı davranış (implementation depnedent (defined) behavior)" kavramıdır.
+Standratlarda bazı durumlarda ilgili özelliğin derleyiciden derleyiciye değişebileceği belirtilmiştir. Yani ilgili özellik için açık bir belirleme yapmak yerine
+standartlar bu belirlemenin derleyicileri yazanlar tarafından yapılacağını belirtmektedir. Örneğin int türünün (ve char dışındaki diğer türlerin)
+uzunlukları derleyiden derleyiciye değişebilmektedir. Bu uzunluklar "derleyiciye bağlı bir davranışa" yol açmaktadır. Ancak derleyiciye bağlı davranışların
+ilgili derleyicinin dokümantasyonunda dokümante edilmiş olması gerekmektedir. Yani derleyicilerin bir referans gibi kitapları olmalıdır. Orada standartlarda
+belirtilen "derleyiciye bağlı davranışların" o derleyicide nasıl ele alındığının belirtilmesi gerekmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C (ve C++) standartlarında geçen diğer önemli bir kavram da "belirsiz davranış (unspecified behavior)" kavramıdır. Belirsiz davranışta sınırlı sayıda seçenek
+söz konusudur. Ancak bu seçeneklerin hangisinin uygulnadığı derleyiciden derleyiciye değişebilir. Bu seçeneklerin hiçbiri normal koşullarda programın
+çökmesine ya da hatalı sonuçların oluşmasına yol açmamaktadır. Derleyiciler belirsiz davranışlarda hangi seçeneği seçtiklerini dokümante etmek zorunda değillerdir.
+Belirsiz davranışın tanımsız davranıştan en önemli farkı, tanımsız davranışın tamamen patolojik bir durum olması ancak belirsiz davranışın patolojik bir durum olmamasıdır.
+Belirsiz davranışın derleyiciye bağlı davranıştan en önemli farkı, belirsiz davranış için derleyicilerin bunları dokümante etme zorunluluklarının olmamasıdır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C (ve C++) standartlarındaki önemli bir durum da şudur: C standartları dilin sentaks ve semantik kısıtlarına uyulmadığı durumlarda bu durum için derleyicilerin
+en az bir hata mesajı vermesi gerektiğini belirtmektedir. Standartlara göre geçerli bir program derleyici tarafından başarılı bir biçimde derlenmek zorundadır
+ancak geçersiz bir program derleyici tarafından yine de başarılı bir biçimde derlenebilir. Yani standartlar geçersiz programların başarılı bir biçimde derlenip
+derlenmeyeceği konusunda bir yargıda bulunmamaktadır. Gerçekten de pek çok derleyici bazı geçersiz kodları birer uyarı vererek başarılı bir biçimde derlemektedir.
+Ancak bu durum kodun geçerli olduğu anlamına gelmemektedir. (Dolayısıyla C'de bizim bir durumun geçerliliği hakkında derleyicinin kodu başarılı bir biçimde derleyip
+derlemediğine bakarak karar vermememiz gerekir. Çünkü derleyiciler geçersiz kodları da başarılı bir biçimde derleyebilmektedir.)Tabii bizim dilin kurallarına tamamen
+uymamız gerekir. Çünkü bir derleyici geçersiz programı derliyor olsa da diğer bir derleyici onu derlemeyebilir. Ancak kodumuz geçerliyse her derleyici kodumuzu derlemek zorundadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de bir nesne bir ifadede ++ ya da -- operatörleriyle kullanılmışsa artık o ifadede bir daha o nesne kullanılmamalıdır. Eğer kullanılırsa bu durum
+tanımsız davranışa yol açmaktadır. Bu durumda aşağıdaki gibi kodların hepsi geçerli ancak tanımsız davranışa yol açan kodlardır:
+
+    b = ++a + a;
+    b = a++ + a;
+    b = ++a + ++a;
+    a = ++a;
+    b = a + a--;
+
+    Bu kodlarda nasıl bir sonuç elde edileceğinin bir garantisi yoktur. Ancak yukarıdaki kodlar örneğin Java ve C# gibi dillerde "tanımlı (well defined)"
+    kodlardır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de toplam 6 tane karşılaştırma operatörü vardır:
+
+    <, >, <=, >=
+    == !=
+
+    Öncelik tablosunda karşılaştırma operatörleri aritmetik operatörlerden daha düşük öncelikli biçimde bulunmaktadır:
+
+    ()				Soldan-Sağa
+    + - ++ --		Sağdan-Sola
+    * / %			Soldan-Sağa
+    + -				Soldan-Sağa
+    <  > <= >=		Soldan-Sağa
+    != ==			Soldan-Sağa
+    =				Sağdan-Sola
+
+    Karşılaştırma operatörlerinin de öncelik tablosunda iki farklı düzeyde bulunduğuna dikkat ediniz.
+
+    C'de karşılaştırma operatörlerinin ürettiği değerler int türdendir. Eğer önerme doğruysa bu operatörler 1 değerini, yanlışsa 0 değerini üretirler.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int result;
+
+    result = 3 > 1;
+    printf("%d\n", result);		/* 1 */
+
+    result = 3 == 1;
+    printf("%d\n", result);		/* 0 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki ifadeye dikkat ediniz:
+
+    b = 10 < a < 20;
+
+    Bu ifade matematikte a'nın 10 ile 20 arasında olduğuna ilişkin bir anlama gelse de C'de böyle bir anlama gelmemektedir. C'de bu ifade şöyle ele alınmaktadır:
+
+    İ1: 10 < a	(1 ya da 0 elde edilir)
+    İ2: İ1 < 20
+    İ3: b = İ2
+
+    Karşılaştırma operatörleri aritmektik operatörlerden düşük önceliklidir. Örneğin:
+
+    a + b > c + d
+
+    Böyle bir işlemde a + b ile c + d karşılaştırılmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int result;
+
+    result = 1 + 2 < 3 + 4;
+    printf("%d\n", result);		/* 1 */
+
+    result = 1 + (2 < 3) + 4;
+    printf("%d\n", result);		/* 6 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de üç mantıksal operatör vardır:
+
+    !		NOT
+    &&		AND
+    ||		OR
+
+    && ve || operatörleri iki operand'lı arek operatörlerdir. Ancak ! operatörü tek operand'lı önek bir operatördür. Öncelik tablosunda ! operatörü
+    diğer tek operand'lı operatörlerin bulunduğu ikinci düzeydedir. Ancak && ve || operatörleri karşılaştırma operatörlerinden daha düşük önceliklidir.
+
+    ()				Soldan-Sağa
+    + - ++ -- !		Sağdan-Sola
+    * / %			Soldan-Sağa
+    + -				Soldan-Sağa
+    <  > <= >=		Soldan-Sağa
+    != ==			Soldan-Sağa
+    &&				Soldan-Sağa
+    ||				Soldan-Sağa
+    =				Sağdan-Sola
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Mantıksal operatörler her zaman int türden değer üretirler. İşlem sonucu Doğru ise 1 değerini, yanlış ise 0 değerini üretmektedirler. Bu operatörler
+önce operand'larını Doğru ya da Yanlış olarak ele alırlar. Eğer operand sıfır dışı (non-zero) herhangi bir değerdeyse Doğru olarak, sıfır değerindeyse
+Yanlış olarak ele alınmaktadır. Örneğin:
+
+    -3 && 5.7
+
+    Burada -3 Doğru olarak, 5.7 de Doğru olarak ele alınır. Doğru ve Doğru işlemi Doğru sonucunu verir. Doğru için 1 değeri üretilecektir. Örneğin:
+
+    -1 || 0
+
+    Buradan 1 değeri üretilir. Örneğin:
+
+    0 && -8
+
+    Buradan 0 değeri üretilir.
+
+    ! operatörü Doğruyu Yanlış, Yanlışı Doğru yapan bir operatördür. Öncelik tablosunun ikinci düzeyinde sağdan sola öncelikte bulunur. Örneğin:
+
+    result = !3.5;
+
+    Burada 3.5 Doğru olarak ele alınır. ! operatörü Yanlış değeri için 0 üretmektedir. Örneğin:
+
+    result = !!!-3.2;
+
+    İ1: !-3.2    ---> 0
+    İ2: !İ1      ---> 1
+    İ3: !İ2      ---> 0
+    İ4: result = İ3
+
+    Örneğin:
+
+    result = !0 + 2
+
+    İ1: !0	     ---> 1
+    İ2: İ1 + 2   ---> 3
+    İ3: result = İ2
+
+    && ve || operatörlerinin karşılaştırma operatörlerinden düşük öncelikli olması karşılaştırmanın sonuçlarının mantıksal işlemesokulacağı anlamına gelmektedir. Örneğin:
+
+    result = a > 10 && a < 20;
+
+    Burada iki koşulk da doğruysa 1 değeri diğer durumlarda 0 değeri elde edilecektir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+int result;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);
+
+    result = a >= 10 && a <= 20;
+
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+&& ve || operatörlerinin "kısa devre (short circuit)" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
+sağında ne kadar öncelikli operatör olursa olsun bunların önce sol tarafı yapılır. Eğer && operatöründe sol taraf sıfır ise sağ taraf hiç yapılmaz
+sonuç hemen 0 olarak belirlenir. Eğer && operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı dırım || operatörü için de
+geçerlidir. Bu operatörün sol tarafı eğer sıfır dışı bir değerdeyse sağ tarafı hiç yapılmaz ve sonuç 1 olarak belirlenir. Eğer bu operatörün sol tarafı
+sıfır ise bu durumda sağ tarafı yapılır.
+
+    Aşağıdaki program bu durumun anlaşılması için verilmiştir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b;
+int result;
+
+    a = 1;
+    b = 3;
+    result = a > 10 && ++b > 2;
+
+    printf("result = %d, b = %d\n", result, b);		/* result = 0, b = 3 */
+
+    a = 20;
+    b = 3;
+    result = a > 10 && ++b > 2;
+
+    printf("result = %d, b = %d\n", result, b);		/* result = 1, b = 4 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Her ne kadar henüz fonksiyonlar konusunu görmediysek de aşağıdaki örnekte bar fonksiyonu çağrılmayacaktır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int foo(void)
+{
+printf("foo\n");
+
+    return 0;
+
+}
+
+int bar(void)
+{
+printf("bar\n");
+
+    return 1;
+
+}
+
+int main(void)
+{
+int result;
+
+    result = foo() && bar();
+
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 16. Ders 21/07/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+&& ve || operatörleri aynı ifadede kullanıldığında yine en soldaki operatörün sol tarafı önce yapılır. Aslında kısa devre özelliği yalnızca sonucun hızlı bir
+biçimde bulunmasına yol açmaktadır. Yoksa kısa devre özelliğinin olmadığı durumla, olduğu durum arasında bir sonuç farklılığı oluşmaz. Örneğin:
+
+    ifade1 || ifade2 && ifade3
+
+    Burada önce ifade1 yapılır. Eğer ifade1 sıfır dışı bir değerse başka hiçbir şey yapılmaz. Sonuç 1 olarak elde edilir. Eğer ifade1 sıfır ise bu durumda
+    ifade2 yapılır. İfade2 de sıfır ise ifade3 yapılmaz. Burada tüm ifadelerin yapılması için ifade1'in sıfır, ifade2'nin sıfır dışı bir değer vermesi gerekir.
+    Örneğin:
+
+    ifade1 && ifade2 || ifade3
+
+    Burada yine ifade1 önce yapılır. İfade1 sıfır ise ifade2 yapılmaz. Ancak ifade3 yapılır. Eğer ifade1 sıfır dışı bir değerde ise bu durumda ifade2 yapılır.
+    Eğer ifade2 de sıfır dışı ise ifade3 yapılmaz. Aşağıdaki ifadede önce ifade3'ün yapılması sonucun daha hızlı elde edilmesine yol açabileceği halde her zaman && ve || operatörlerinin sol tarafı
+    önce yapılmaktadır. Yani aşağıdaki örnekte yine ifade1 önce yapılacaktır.:
+
+    ifade1 && ifade2 || ifade3
+
+    Her ne kadar henüz fonksiyonları görmemiş olsak da aşağıdaki örnek kısa devre özelliğini incelemek amacıyla kullanılabilir. Tabii aslında parantezler de
+    işlemlerin yapılma sırası bakımından bir şeyi değiştirmeyecektir. Örneğin:
+
+    ifade1 && (ifade2 || ifade3)
+
+    Burada her ne kadar || işlemi paranteze alınmışsa da bu parantez içi önce yapılmaz. Çünkü önce yapılsaydı && operatörünün sağ tarafı önce yapılmış olurdu.
+    Burada da yine önce ifade1 yapılır. İfade1 0 ise başka bir şey yapılmaz.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int foo(void)
+{
+printf("foo\n");
+
+    return 0;
+
+}
+
+int bar(void)
+{
+printf("bar\n");
+
+    return 0;
+
+}
+
+int tar(void)
+{
+printf("tar\n");
+
+    return 1;
+
+}
+
+int main(void)
+{
+int result;
+
+    result = foo() || bar() && tar();
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Atama operatörü iki operand'lı araek özel amaçlı bir operatördür. Bu operatörün sol tarafındaki operand'ın bir nesne belirtmesi gerekir. Yani sol taraf değeri
+(LValue) olması gerekir. Atama operatörü de bir değer üretmektedir. Atama operatörünün ürettiği değer sol taraftaki nesneye atanmış olan değerdir.
+Atama operatörü öncelik tablosunda düşük düzeyde sağdan sola grupta bulunmaktadır.
+
+    ()				Soldan-Sağa
+    + - ++ -- !		Sağdan-Sola
+    * / %			Soldan-Sağa
+    + -				Soldan-Sağa
+    <  > <= >=		Soldan-Sağa
+    != ==			Soldan-Sağa
+    &&				Soldan-Sağa
+    ||				Soldan-Sağa
+    =				Sağdan-Sola
+
+    Bu durumda örneğin:
+
+    a = b = 10;
+
+    İ1: b = 10 --> 10
+    İ2: a = İ1
+
+    Böylece burada 10 hem b'ye hem de a'ya atanmış olur. Örneğin:
+
+    a = b = 10 + 20;
+
+    Burada a ve b'ye 30 atanmaktadır. Ancak örneğin:
+
+    a = (b = 10) + 20;
+
+    Burada parantez içi önce yapılacağına göre b'ye 10 atanacak ve bu işlemden 10 değeri elde edilecektir. Sonra bu 10 değeri 20 ile toplanıp a'ya atanacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b;
+
+    a = b = 10 + 20;
+
+    printf("a = %d, b = %d\n", a, b);		/* a = 30, b = 30 */
+
+    a = (b = 10) + 20;
+
+    printf("a = %d, b = %d\n", a, b);		/* a = 30, b = 10 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Tanımlama sırasında tanımlanan değişkene '=' atomu ile ilkdeğer verilebiliyordu. İlkdeğer vermedeki '=' bir operatör olarak değerlendirilmemektedir.
+Bu işlem bildirim işleminin bir parçasıdır. Dolayısıyla buradaki '=' bir operatör olarak ele alınmaz. Böyle olunca da buradaki '=' atomunun bir değer
+üretmesi söz konusu değildir. Örneğin aşağıdaki gibi bir bildirim geçerli değildir:
+
+    int a = b = 10;			/* geçersiz! Buradaki '=' bir operatör değil */
+
+    Ancak aşağıdaki gibi bir bildirim geçerlidir:
+
+    int a = 10, b = a;		/* geçerli */
+
+    C'de bir değişken dekleratörden sonra (bu kavram ileride açıklanacaktır) ancak ilkdeğer vermeden önce faaliyet alanına sokulmuş olmaktadır. Dolayısıyla
+    C'de aşağıdaki gibi bir bildirim geçerli ancak anlamsızdır. Örneğin:
+
+    int a = a;
+
+    Burada a yerel bir değişkense a'ya çöp değer, global bir değişkense 0 atanmaktadır.
+
+    Bazen programcı bir değeri önce atayıp, atanmış değeri başka bir değerle karşılaştırmak isteyebilir. Bunun için atama operatörüne öncelik vermek gerekir.
+    Örneğin:
+
+    (ch = getchar()) != 'q'
+
+    Burada önce getchar ile klavyeden (stdin dosyasından) okunan değer ch değişkenine atanmıştır. Sonra bu atanan değer karşılaştırma işlemine sokulmuştur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de bir grup +=, -=, _=, /=, %=, ... biçiminde "bileşik atama operatörü (compound assignment operator)" vardır. Bu operatörlerin hepsi iki operand'lı
+araek operatörlerdir. "op", +, -, \*, / gibi bir operatör belirtmek üzere:
+
+    a op= b
+
+    işlemi tamamen,
+
+    a = a op b
+
+    işlemi ile eşdeğerdir. Örneğn:
+
+    a += 2;
+
+    ile
+
+    a = a + 2;
+
+    eşdeğerdir. Örneğin:
+
+    a *= b;
+
+    ile
+
+    a = a * b;
+
+    eşdeğerdir.
+
+    Bileşik atama operatörleri öncelik tablosunda atama operatör ile sağdan sola aynı grupta bulunmaktadır.
+
+    ()					Soldan-Sağa
+    + - ++ -- !			Sağdan-Sola
+    * / %				Soldan-Sağa
+    + -					Soldan-Sağa
+    <  > <= >=			Soldan-Sağa
+    != ==				Soldan-Sağa
+    &&					Soldan-Sağa
+    ||					Soldan-Sağa
+    =, +=, /=, *=,...	Sağdan-Sola
+
+    Örneğin:
+
+    a *= 2 + 3;
+
+    Burada önce 2 ile 3 toplanır. Sonra *= işlemi yapılır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a = 2;
+
+    a *= 2 * 3;
+
+    printf("%d\n", a);		/* 12 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bileşik atama operatörleri de değer üretmektedir. Bu operatörlerin ürettiği değerler yine sol taraftaki nesneye atanmış olan değerlerdir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a = 2, b;
+
+    b = (a *= 2) * 3;
+
+    printf("a = %d, b = %d\n", a, b);		/* a = 4, b = 12 */
+
+    a = 2;
+    b = a *= 2 * 3;
+
+    printf("a = %d, b = %d\n", a, b);		/* a = 12, b = 12 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Virgül (',') de iki operand'lı araek bir operatördür. Öncelik tablosunun en düşük öncelikli operatörüdür.
+
+    ()					Soldan-Sağa
+    + - ++ -- !			Sağdan-Sola
+    * / %				Soldan-Sağa
+    + -					Soldan-Sağa
+    <  > <= >=			Soldan-Sağa
+    != ==				Soldan-Sağa
+    &&					Soldan-Sağa
+    ||					Soldan-Sağa
+    =, +=, /=, *=,...	Sağdan-Sola
+    ,					Soldan-Sağa
+
+    Virgül operatörü aslında iki ifadeyi tek bir ifade biçiminde ifade edebilmek için düşünülmüştür. Tipik kullanım biçimi şöyledir:
+
+    ifade1, ifade2
+
+    Virgül operatörünün sağında ne kadar yüksek öncelikli bir operatör olursa olsun, önce onun sol tarafı tamamen yapılır bitirilir, sonra sağ tarafı
+    tamamen yapılır bitirilir. Virgül operatöründen elde edeilen değer sağ taraftaki ifadenin değeridir. Örneğin:
+
+    a = 10; b = 20;
+
+    Burada iki ayrı ifade vardır. Ancak örneğin:
+
+    a = 10, b = 20;
+
+    Burada tek bir ifade vardır. Bazen sentaks olarak tek bir ifadenin gerektiği yerde birden fazla ifade kullanılabilmesi için bu iki ifadenin virgül operatörü
+    ile birleştirilmesi gerekebilmektedir. Virgül öncelik tablosunun en düşük öncelikli operatörüdür. Dolayısıyla örneğin:
+
+    a = 10, b = 20;
+
+    gibi bir işlem şu sırada yapılır:
+
+    İ1: a = 10
+    İ2: b = 20
+    İ3: İ1, İ2
+
+    Virgül operatörünün ürettiği değer sağ taraftaki ifadenin değeridir. Yani virgül operatörünün solundaki ifadenin değer üretmekte bir etkisi yoktur.
+    Örneğin:
+
+    c = (a = 10, b = 20);
+
+    Burada parantezler sayesinde en soldaki atama operatörü virgül operatöründen ayrıştrılmıştır. Burada önce parantez içi yapılacaktır. Parantez içerisinde
+    virgül operatörü vardır. O zaman virgül operatörünün sol tarafı önce yapılacağına göre önce a = 10 işlemi sonra b = 20 işlemi yapılır. Virgül operatöründen
+    elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan 20 elde edilecektir. İşte bu 20 aynı zamanda c'ye atanmıştır.
+    ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b, c;
+
+    c = (a = 10, b = 20);
+    printf("a = %d, b = %d, c = %d\n", a, b, c);		/* a = 10, b = 20, c = 20 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Tabii her virgül, virgül operatörü değildir. Örneğin bildirim yaparken kullandığımız virgüller bu bağlamda bir operatör belirtmezler. Buradaki virgüller
+ayıraç atom görevindedir. Örneğin:
+
+    int a, b, c;		/* Buradaki virgüller operatör görevinde değil */
+
+    Örneğin bir fonksiyon çağırırken argümanları ayırmak için kullandığımız virgül de ayıraç atom görevindedir:
+
+    foo(a, b, c);		/* Buradaki virgüller de operatör görevinde değil */
+
+    Eğer argümandaki ',' atomunun virgül operatör olması isteniyorsa bu durumda parantezler kullanılmalıdır. Örneğin:
+
+    foo(a, b);
+
+    Buradaki ',' operatör görevinde değildir. Dolayısıyla foo fonksiyonunun iki parametresi vardır. Fakat örneğin:
+
+    foo((a, b));
+
+    Buradaki virgül artık paranteze alındığı için operatör görevinddir. Parantez içerisinden b'nin değeir elde edilecektir. Dolayısıyla fonksiyonun aslında
+    tek parametresi vardır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b;
+
+    printf("%d\n", (a = 10, b = 20));		/* tuhaf ama geçerli, b yazdırılıyor */
+    printf("%d\n", a);						/* 10 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Virgül operatörü de soldan-sağa önceliklidir. Yani bir ifadede birden fazla virgül operatörü bulunabilir. Örneğin:
+
+    ifade1, ifade2, ifade3
+
+    Burada işlemler şöyle yütülür:
+
+    İ1: ifade1, ifade2
+    İ2: İ1, ifade3
+
+    Yani burada sonuçta bu ifadeler soldan sağa sırasıyla yapılacaktır. Buradan elde edilen toplam sonuç en sağdaki ifadenin değeridir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    a = (10, 20, 30);		/* geçerli ama tuhaf, a'ya 30 atanır */
+
+    printf("%d\n", a);		/* 30 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de ';' ifadeleri sonlandırmak için kullanılmaktadır. Bu görevdeki atomlara programlama dillerinde "sonlandırıcı (terminator)" denilmektedir.
+Biz ifadenin sonuna ';' koyduğumuzda artık o ifadeyle sonraki ifadenin ayrı ifadeler olduğunu derleyiciye söylemiş oluruz. Eğer bir ifadenin sonundaki
+';' unutulursa derleyici önceki ifadeyle sonraki ifadeyi tek bir ifade olarak ele alır. Bu da sentaks hatasına yol açar. Örneğin:
+
+    a = 10
+    b = 20;
+
+    Burada muhtemelen a = 10'dan sonraki ';' atomu unutulmuştur. O halde derleyiciye göre burada tek bir ifade vardır. Ancak bu ifade geçerli değildir.
+
+    Bazı dillerde sonlandırıcı olarak LF karakteri kullanılmaktadır. Dolayısıyla o dillerde aynı satıra tek bir ifade yazılmak zorundadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Biz şimdiye kadar zaten var olan fonksiyonları çağırdık. Artık biz de fonksiyon yazacağız. Bir fonksiyonun yazılmasına C standartlarında "fonksiyonun
+tanımlanması (function definition)" denilmektedir. Fonksiyon tanımlamanın genel biçimi şöyledir:
+
+    <fonksiyonun geri dönüş değerinin türü> <fonksiyon ismi> ([parametre bildirimi])
+    {
+    	/* ... */
+    }
+
+    Örneğin:
+
+    int foo()
+    {
+    	/* ... */
+    }
+
+    Burada int fonksiyonun geri dönüş değerinin türüdür. foo ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
+    Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki "int" yazılmış gibi işlem yapılıyordu.
+    Ancak C99 ile birlikte fonksiyonun geri dönüş değerinin türünün yazılması zorunlu hale getirilmiştir.
+
+    bar()		/* C90'da geçerli C99 ve sonrasında geçerli değil */
+    {
+    	/* ... */
+    }
+
+    Eğer fonksiyonun parametresi yoksa parametre parantezinin içi boş bırakılabilir ya da parametre parantezinin içerisine void yazılabilir. İkisi arasında
+    hiçbir farklılık yoktur. Biz kursumuzda genel olarak parametresiz fonksiyonlarda parametre parantezinin içine void anahtar sözcüğünü yazacağız.
+    Ancak programcıların bir bölümü hiçbir şey yazmamayı tercih etmektedir.
+
+    Biz kurusumuzdaki örneklerde "öylesine uydurulmuş fonksiyon isimleri" olarak foo, bar, tar, zar gibi isimleri kullanacağız. Bu isimlerin hiçbir özel
+    anlamı yoktur. Örneklerde öylesine uydurulmuş isimlerdir.
+
+    Tanımlanan her fonksiyonun bir ana bloğu vardır. Buna "fonksiyonun gövdesi (function body)" de denilmektedir.
+
+    C'de iç içe (nested) fonksiyon tanımlaması yapılamaz. Her fonksiyon, biribirinin dışında ve global düzeyde tanımlanmak zorundadır. Örneğin:
+
+    int foo()
+    {
+    	int bar()			/* geçersiz! */
+    	{
+    		/* ...*/
+    	}
+    	/* ... */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 17. Ders 26/07/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir fonksiyon çağrıldıktan sonra onu çağıran fonksiyona ilettiği değere "geri dönüş değeri (return value)" denilmektedir. Fonksiyonun geri dönüş değerinin
+bir türü vardır. Bu tür fonksiyon isminin soluna yazılır. Geri dönüş değerini oluşturmak için return deyimi kullanılır. return deyiminin genel biçimi şöyledir:
+
+    return [ifade]
+
+    return deyimi hem fonksiyonu sonlandırır hem de geri dönüş değerini oluşturur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int foo(void)
+{
+printf("foo\n");
+
+    return 100;
+
+}
+
+int main(void)
+{
+int result;
+
+    result = foo() * 2;
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir fonksiuonun geri dönüş değerinin olması onu kullanmayı zorunlu hale getirmez. Yani, fonksiyonların geri dönüş değerlerini fonksiyonu çağıran
+hiç kullanmayabilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int foo(void)
+{
+printf("foo\n");
+
+    return 100;
+
+}
+
+int main(void)
+{
+foo(); /_ foo çağrıldı ancak geri dönüş değeri kullanılmadı, tamamen geçerli _/
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Fonksiyon tanımlarken geri dönüş değerinin türü yerine "void" anahtar sözcüğü yazılırsa bu durum "fonksiyonun bir değer geri döndürmediği" anlamına gelmektedir.
+Böyle fonksiyonlar geri dönüş değerinin kullanıldığı bir ifadede kullanılamazlar. Örneğin:
+
+    void foo(void)
+    {
+    	printf("foo\n");
+    }
+    ...
+    x = foo();			/* geçersiz! foo'nun geri dönüş değer yok */
+    x = foo() * 2;		/* geçersiz! foo'nun geri dönüş değeri yok */
+    foo();				/* geçerli */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void foo(void)
+{
+printf("foo\n");
+}
+
+int main(void)
+{
+foo();
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Geri dönüş değeri void olan fonksiyonlara "void fonksiyonlar" da denilmektedir. void fonksiyonlarda return deyimi kullanılabilir ancak return deyiminin yanına bir ifade
+yazılamaz. Örneğin:
+
+    void foo(void)
+    {
+    	printf("foo\n");
+
+    	return;			/* geçerli */
+    }
+
+    void bar(void)
+    {
+    	printf("foo\n");
+
+    	return 10;			/* geçersiz! void fonksiyon bir değerle geri döndürülemez */
+    }
+
+    Peki o zaman void fonksiyonlardaki return deyimi ne işe yaramaktadır? İşte void fonksiyonlardaki return deyimleri fonksiyonu bir koşul altında
+    erken sonlandırmak için kullanılabilir. void fonksiyonlarda return kullanılmazsa, akış fonksiyonun ana bloğunu bitirdiğinde, fonksiyon zaten sonlanmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void foo(void)
+{
+printf("foo\n");
+
+    return;			/* geçerli */
+
+}
+
+int main(void)
+{
+foo();
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Geri dönüş değeri void olmayan fonksiyonlarda ana blok, eğer akış return deyimini görmeden sonlanırsa, bu durum C'de geçerlidir (halbuki C#, Java gibi dillerde
+geçersizdir). Bu durumda geri dönüş değeri olarak çöp bir değer elde edilmektedir. Genellikle derleyiciler böylesi durumlarda bir uyarı mesajı ile programcıyı
+uyarmaktadır. Ancak geri dönüş değeri void olmayan fonksiyonlarda return deyiminde return ifadesinin mutlaka bulundurulması gerekir. Örneğin:
+
+    int foo(void)
+    {
+    	printf("foo\n");
+    }					/* dikkat! fonksiyon çöp değerle geri dönüyor */
+
+    int bar(void)
+    {
+    	printf("bar\n");
+
+    	return;			/* geçersiz! return anahtar sözcüğünün yanında bir ifade olması gerekirdi */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int foo(void)
+{
+printf("foo\n");
+}
+
+int main(void)
+{
+int result;
+
+    result = foo();					/* dikkat! geçerli ama çöp değer elde ediliyor */
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Mademki akış return deyimini göründe fonksiyon sonlanmaktadır. O halde return deyiminin altına deyim yazmanın bir anlamı yoktur. Bu durum anlamsız olsa da
+C'de geçerlidir. Örneğin:
+
+    int foo(void)
+    {
+    	printf("foo\n");
+
+    	return 100;
+
+    	printf("foo ends...\n");		/* unreachable code */
+    }
+
+    Akışın asla ulaşamayacağı erişilemeyen bölgelere İngilizce "unreachable code" denilmektedir. Derleyiciler erişilemeyen kodları tespit edip bir uyarı
+    mesajı ile programcıya bildirebilmektedir. Pek çok derleyici erişilemeyen kodları tamaman koddan çıkartarak bir optimizasyon yapmaktadır. Bu optimizasyon
+    temasına "dead code elimination" denilmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de main fonksiyonun geri dönüş değeri int türden olmak zorundadır. Ancak derleyiciler eğer isterlerse main fonksiyonunun başka türlerden geri
+dönüş değerine sahip olmasına izin verebilirler. main fonksiyonundaki return deyimi aynı zamanda programı da sonlandırmaktadır. İşletim sistemleri dünyasında
+çalışmakta olan programlara "process" denilmektedir. main fonksiyonu sonlandığında return deyimindeki ifade işletim sistemine "exit code" olarak iletilmektedir.
+İşletim sistemleri bu exit kodu alır, eğer başka prosesler isterse belli koşullarda onlara verebilir. Ancak exit kodunun kaç olduğuyla ilgilenmez.
+Fakat geleneksel olarak C'de başarılı ve mutlu sonlanmalar için exit kodu olarak 0, başarısız sonlanmalar için sıfır dışı değerler kullanılmaktadır.
+Biz örneklerimizde main fonksaiyonunu her zaman 0 ile geri döndüreceğiz. Aslında C standartlarında main fonksiyonuna özgü olarak, eğer main fonksiyonunda hiç
+return kullanılmazsa sanki ana bloğun sonuna return 0 yazılmış gibi işlem uygulanmaktadır. Yani main fonksiyonunda biz hiç return yazmasak da zaten return 0
+yazmış gibi bir durum oluşmaktadır. Tabii bu durum yalnızca main fonksiyonuna özgüdür.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Fonksiyonların geri dönüş değerleri geçici nesne yoluyla onu çağıran fonksiyona iletilmektedir. Programın akışı return deyimini gördüğünde önce derleyici,
+geri dönüş değeri türünden geçici bir nesne yaratır. Sonra, return ifadesini bu geçici nesneye atar. Biz geri dönüş değerini kullandığımızda aslında o geçici
+nesneyi kullanmış oluruz. Fonksiyonun çağrısı bittiğinde bu geçici nesne de derleyici tarafındna otomatik olarak yok edilmektedir. Örneğin:
+
+    int foo(void)
+    {
+    	/* ... */
+
+    	return ifade;
+    }
+    ...
+    x = foo() * 2;
+
+    Burada aslında arka planda aşağıdaki gibi işlemler gerçekleşmektedir:
+
+    int temp = ifade;		/* akış return deyimine geldiğinde */
+    ...
+    x = temp * 2;
+    /* temp yok ediliyor */
+
+    O halde fonksiyonun geri dönüş değerinin türü, aslında return işlemiyle yaratılacak olan geçici nesnenin türünü belirtir. return işlemi de aslında
+    bu geçici nesneye yapılan atama işlemi gibidir. O halde return işlemi aslında gizli bir atama işlemidir. Bizim ileride atama işlemi hakkında söyleceğimiz
+    her şey return işlemi için de geçerlidir. Derleyiciler genel olarak mümkün olduğunca return işlemi sırasındaki geçici nesneleri CPU yazmaçlarında
+    yaratmaktadır.
+
+    void fonksiyonlarda böyle bir geçici nesnenin hiç yaratılmayacağına da dikkat ediniz.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Fonksiyonların dış dünyadan aldıkları değerlere "parametre (parameter)" denilmektedir. C'de fonksiyon parametreleri, parametre parantezinin içerisinde
+tür ve değişken ismi belirtilerek ve ',' atomu ile parametreler ayrılarak bildirilmektedir. Örneğin:
+
+    void foo(int a, long b, double c)
+    {
+    	/* ... */
+    }
+
+    void bar(double a, int b)
+    {
+    	/* ... */
+    }
+
+    Parametreler aynı türden olsa bile tür belirten sözcüğün yeniden yazılması gerekmektedir. Örneğin:
+
+    void foo(int a, b)		/* geçersiz! */
+    {
+    	/* ... */
+    }
+
+    Yuklarıdaki tanımlama geçersizdir. Şöyle yapılması gerekirdi:
+
+    void foo(int a, int b)
+    {
+    	/* ... */
+    }
+
+    Parametreli bir fonksiyon parametre sayısı kadar "argümanla" çağrılmalıdır. Argümanlar herhangi birer ifade olabilir. Örneğin:
+
+    void foo(int a, int b)
+    {
+    	/* ... */
+    }
+    ...
+    foo(10 + 20, 30 + 40);		/* geçerli */
+
+    Argüman olan ifadeler yine ',' atomu ile ayrılmaktadır. Fonksiyonu çağırırken yazılan ifadelere "argüman (argument)" denilmektedir.
+
+    Parametreli bir fonksiyon çağrıldığında önce, argümanların değerleri hesaplanır. Sonra, argümanlardan parametre değişkenlerine karşılık bir atama
+    yapılır. Sonra da akış fonksiyona geçirilir. Yani C'de parametre aktarımı, atama (ya da kopyalama) biçiminde yapılmaktadır. Örneğin:
+
+    void foo(int a, int b)
+    {
+    	/* ... */
+    }
+    /* ... */
+    int x = 10, y = 20;
+
+    foo(x + 1, y + 2)
+
+    Burada foo fonksiyonu çağrıldığında önce x + 1 ve y + 2 ifadelerinin değerleri hesaplanacak sonra x + 1 değeri a'ya, y + 2 değeri ise b'ye atanacaktır.
+    Sonra da akış, fonksiyona geçirilecektir. Parametre değişkenlerinin bağımsız ayrı nesneler olduğuna dikkat ediniz. Fonksiyon çağırma işlemi argümanlardan
+    parametre değişkenlerine yapılan gizli bir atama işlemini gerektirmektedir. O halde C'de atama anlamına gelen üç durum vardır:
+
+    1) Açıkça '=' operatörü ile yapılan atamalar,
+    2) return işlemi sırasında geçici nesneye yapılan atamalar,
+    3) Fonksiyon çağırma sırasında argümanlardan parametre değişkenlerine yapılan atamalar.
+
+    Bizim ileride atama işlemi için söyleyeceğimiz her şey, bu üç durum için de geçerli olacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void foo(int a, int b)
+{
+printf("a = %d, b = %d\n", a, b);
+}
+
+int main(void)
+{
+int x = 100, y = 200;
+
+    foo(10, 20);
+    foo(10 + 1, 20 + 2);
+    foo(x, y);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bazen fonksiyonlar parametreleriyle aldıkları değeri birtakım işlemlere sokup onu geri dönüş değeri olarak verebilirler.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int add(int a, int b)
+{
+return a + b;
+}
+
+int main(void)
+{
+int result;
+
+    result = add(10, 2);
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de bir atama işleminde, kaynak tür ile hedef tür farklı olabilir. Örneğin:
+
+    a = b;
+
+    Burada a ve b'nin türleri farklı olabilir. Ancak bu konu ileride özel olarak ele alınacaktır. Siz şimdilik bu konu ele alınana kadar atama işleminde
+    kaynak türle hedef türü aynı türden yapmaya özen gösteriniz. Örneğin:
+
+    #include <stdio.h>
+
+    double add(int a, int b)
+    {
+    	int result;
+
+    	result = a + b;
+
+    	return result;			/* dikkat! farklı türler birbirlerine atanıyor, ileri ele alınacak */
+    }
+
+    int main(void)
+    {
+    	double x = 2.3, y = 4.5;
+    	int result;
+
+    	result = add(x, y);		/* dikkat farklı türler birbirlerine atanıyor, ileride ele alınacak */
+    	printf("%d\n", result);
+
+    	return 0;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de parametreleriyle aldığı değerler üzerinde işlemler yaparak sonucu geri dönüş değeri olarak veren standart matematiksel fonksiyonlar vardır.
+Bu fonksiyonları kullanmadan önce <math.h> dosyası include edilmelidir. Örneğin sqrt fonksiyonun parametrik yapısı şöyledir:
+
+    double sqrt(double x);
+
+    Fonksiyon, parametresiyle aldığı double sayının kareköküne geri dönmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+double val, result;
+
+    printf("Bir deger giriniz:");
+    scanf("%lf", &val);
+
+    result = sqrt(val);
+    printf("%f\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+pow fonksiyonu, bir sayının belli bir kuvvetine geri dönmektedir. Fonksiyonun parametrik yapısı şöyledir:
+
+    double pow(double a, double b);
+
+    Fonksiyon, a üzeri b işlemine geri dönmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+double a, b, result;
+
+    printf("Taban:");
+    scanf("%lf", &a);
+
+    printf("Us:");
+    scanf("%lf", &b);
+
+    result = pow(a, b);
+    printf("%f\n", result);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+sin, cos, tan, asin, acos, atan fonksiyonları trigonometrik işlemler yapmaktadır. Bu fonksiyonların parametreleri ve geri dönüş değerleri double
+türdendir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+double result, radian;
+
+    result = sin(3.141592653589793238462643 / 2);
+    printf("%f\n", result);
+
+    radian = asin(result);
+    printf("%f\n", radian);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+round fonksiyonu, double bir değeri parametre olarak alıp ona en yakın tamsayıyı yine double bir değer olarak vermektedir.
+Fonksiyonun parametrik yapısı şöyledir:
+
+    double round(double x);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+double result;
+
+    result = round(3.6);
+    printf("%f\n", result);		/* 4 */
+
+    result = round(3.4);
+    printf("%f\n", result);		/* 3 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C99 ile birlikte, roundf ve roundl fonksiyonları da standartlara eklenmiştir. Bunların parametrik yapıları şöyledir:
+
+    float roundf(float x);
+    long double roundl(float x);
+
+    Yine C99 ile birlikte, tamsayı değerlere geri dönen aşağıdaki fonksiyonlar da eklenmiştir.
+
+    long int lround(double x);
+    long int lroundf(float x);
+    long int lroundl(long double x);
+    long long int llround(double x);
+    long long int llroundf(float x);
+    long long int llroundl(long double x);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+long result;
+
+    result= lround(3.6);
+    printf("%ld\n", result);		/* 4 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+floor isimli fonksiyon, double bir sayıya en yakın ondan küçük ya da ona eşit tamsayıyı, bize double türden vermektedir. ceil ise tam tersi işlem yapar. Yani
+bir double sayıdan büyük ya da ona eşit en yakın tamsayıyı, double türden vermektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+double result;
+
+    result= floor(3.9);
+    printf("%f\n", result);		/* 3 */
+
+    result = floor(-3.9);
+    printf("%f\n", result);		/* -4 */
+
+    result = ceil(3.1);
+    printf("%f\n", result);		/* 4 */
+
+    result = ceil(-3.1);
+    printf("%f\n", result);		/* -3 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C99 ile birlikte, float ve long double için aşağıdaki fonksiyonlar da standartlara eklenmiştir:
+
+    float floorf(float x);
+    long double floorl(long double x);
+    float ceilf(float x);
+    long double ceill(long double x);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 18. Ders 28/07/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bildirilen bir değişkenin kullanılabildiği program aralığına "faaliyet alanı (scope)" denilmektedir. C'de üç faaliyet alanı vardır:
+
+    1) Blok Faaliyet Alanı (Block Scope): Yalnızca bir blokta, o bloğun kapsadığı bloklarda tanınma aralığıdır.
+    2) Dosya Faaliyet Alanı (File Scope): Tüm fonksiyonlarda yani her yerde tanınma aralığıdır.
+    3) Fonksiyon Faaliyet Alanı (Function Scope): Bir fonksiyonun her yerinde tanınma aralığıdır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de yerel değişkenler blok faaliyet alanı kuralına uyarlar. Yani bildirildikleri yerden bildirildikleri bloğun sonuna kadarki bölgede kullanılabilirler.
+Anımsanacağı gibi C90'da yerel değişkenler blokların başlarında yani blokların ilk işlemleri olacak biçimde bildirilmek zorundaydı. Bu kural C99'da
+kaldırıldı. Yerel değişkenlerin bloğun herhangi bir yerinde bildirilmeleri sağlandı. Örneğin:
+
+    void foo(void)
+    {
+    	printf("foo\n");
+
+    	int a;					/* C90'da geçersiz! C99'dan itibaren geçerli */
+    }
+
+    void bar(void)
+    {
+    	int a;					/* C90'da da geçerli */
+
+    	printf("bar\n");
+    }
+
+    Bir fonksiyonun içerisinde içerisinde istenildiği kadar iç içe ve ayrık blok oluşturulabilir. Örneğin:
+
+    void foo(void)
+    {
+    	{
+    		printf("Ok\n");
+    		/* .... */
+    	}
+    	{
+    		printf("Ok\n");
+    	}
+    }
+
+    Yerel değişkenler bildirildikleri yerden itibaren bildirildikleri bloğun sonuna kadarki bölgede kullanılabilirler. Örneğin:
+
+    void foo(void)
+    {
+    	int a;
+
+    	{
+    		int b;
+
+    		a = 10;				/* geçerli, a faaliyet gösteriyor */
+    		b = 20;				/* geçerli, b faaliyet gösteriyor */
+    	}
+    	printf("%d\n", a);		/* geçerli, a faaliyet gösteriyor */
+    	printf("%d\n", b);		/* geçersiz! b burada faaliyet göstermiyor */
+    }
+
+    void bar(void)
+    {
+    	a = 100;				/* geçersiz, a burada faaliyet göstermiyor */
+    }
+
+    Tabii C99 ve sonrasında bildirilen bir yeral değişken bildirim yerinden önce de kullanılamaz. Örneğin:
+
+    void bar(void)
+    {
+    	a = 10;					/* geçersiz! a faaliyet göstermiyor */
+
+    	int a;
+
+    	a = 20;					/* geçerli */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de aynı faaliyet alanına ilişkin aynı isimli birden fazla değişken tanımlanamaz. Ancak farklı faaliyet alanlarına ilişkin aynı isimli değişkenler
+tanımlanabilir. Aynı bloğun farklı yerlerinde tanımlanan değişkenler bu bakımdan aynı faaliyet alanı içerisinde kabul edilirler. Bu nedenle C'de aynı
+blok içerisinde aynı isimli birden fazla değişken tanımlanamaz. Ancak farklı bloklarda aynı isimli değişkenler tanımlanabilir. Örneğin:
+
+    void foo(void)
+    {
+    	int a;
+    	/* ....*/
+    	double a;				/* geçersiz! aynı blok içerisinde aynı isimli tek bir değişken tanımlanabilir */
+    }
+
+    Örneğin:
+
+    void bar(void)
+    {
+    	int a;
+    	{
+    		double a;			/* geçerli iç içe bloklarda aynı isimli değişkenler tanımlanabilir */
+    		/* ... */
+    	}
+    	/* ... */
+    }
+
+    void tar(void)
+    {
+    	int a;					/* geçerli */
+    	/* ... */
+    }
+
+    Farklı bloklardaki aynı isimli değişkenler aslında tamamen farklı nesneler belirtirler, bunların yalnızca isimleri aynıdır. Örneğin:
+
+    void foo(void)
+    {
+    	int a;
+
+    	{
+    		int a;				/* Bu tamamen farklı bir a */
+    		/* ... */
+    	}
+    }
+
+    C'de aynı blokta birden fazla aynı isimli değişken faaliyet gösteriyorsa o blokta o değişken kullanıldığında her zaman "dar faaliyet alanına sahip olan"
+    değişkenin kullanılmış olduğu kabul edilir. Örneğin:
+
+    {
+    	int a;
+
+    	{
+    		int a;
+
+    		a = 10;				/* dar faaliyet alanına sahip olan iç bloktaki a'dır */
+    	}
+
+    	a = 20;					/* dış bloktaki a, zaten iç bloktaki a burada faaliyet göstermiyor */
+    }
+
+    İç içe bloklarda aynı isimli değişkenlerin bildirildiği durumda iç blokta, dış bloktaki değişkene erişmenin herhangi bir yolu yoktur. Bu duruma
+    "iç bloktaki değişkenin dış bloktakini gizlemesi (hiding)" denilmektedir.
+
+    C99 ve sonrasında bir yerel değişken bloğun herhangi bir yerinde bildirilebildiğine göre bildirim yerine kadar üst bloktaki değişken faaliyet gösteriyor
+    durumdadır ve henüz üst bloktaki aynı isimli değişken gizlenmemiştir. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	int a;
+
+    	{
+    		a = 20;				/* ana bloktaki a */
+
+    		int a = 30;
+
+    		printf("%d\n", a);	/* iç bloktaki a */
+    	}
+
+    	printf("%d", a);		/* ana bloktaki a */
+
+    	return 0;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bildirimi fonksiyonların dışında yapılan global değişkenler "dosya faaliyet alanı (file scope)" kuralına uyarlar. Yani kaynak dosyanın her yerinde,
+tüm fonksiyonların içerisinde biz global değişkenleri kullanabiliriz. Ancak C'de derleme işleminin de bir yönü vardır. Bu yön yukarıdan aşağıya
+doğrudur. Bir değişken bildirilmeden önce kullanılamaz. Bu nedenle bir global değişkeni aşağıda bir yerde bildirirsek bildirim yerinden aşağıya kadar
+her yerde kullanırız. Ancak genel olarak global değişkenler kaynak dosyanın tepesinde bildirilirler. Öneğin:
+
+    int a;
+
+    void foo(void)
+    {
+    	a = 20;					/* global olan a */
+    }
+
+    int main(void)
+    {
+    	a = 10;					/* global a */
+    	foo();
+    	printf("%d\n", a);		/* global a, 20 çıkacak */
+    }
+
+    Bir global değişken için en iyi tanımlama yeri kaynak kodun tepesidir. Örneğin:
+
+
+    void foo(void)
+    {
+    	a = 10;					/* geçersiz! henüz derleyici a'yı görmedi */
+    }
+
+    int a;
+
+    void bar(void)
+    {
+    	a = 20;					/* geçerli  */
+    }
+
+    void tar(void)
+    {
+    	a = 30;					/* geçerli */
+    }
+
+    Bir global değişkenle aynı isimli bir yerel değişken tanımlanabilir. Çünkü bunların faaliyet alanları farklıdır. Bir blokta aynı isimli birden fazla
+    değişken faaliyet gösteriyorsa o blokta dar faaliyet alanına sahip olan değişkene erişilmektedir. Örneğin:
+
+    #include <stdio.h>
+
+    int x;
+
+    void foo(void)
+    {
+    	double x;
+
+    	x = 20;					/* yerel x kullanılıyor */
+    }
+
+    int main(void)
+    {
+    	x = 10;					/* global x */
+
+    	foo();
+    	printf("%d\n", x);		/* global x, 10 çıkacak */
+
+    	return 0;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de istisnai olarak ilkdeğer verilmemiş birden fazla aynı isimli global değişken tanımlanabilir. Buna "tentative definition" denilmektedir.
+Bu durumda aslında toplamda tek bir nesne yaratılır. Yani birden fazla tanımlama bu istisnasi durumda birden fazla nesne anlamına gelmez.
+Aynı nesnenin gereksiz bir biçimde yeniden "tentative" olarak belirtilmesi anlamına gelir. Tabii bu durum yerel değişkenler için söz konusu değildir.
+Tamamen istisnai bir durumdur ve yalnızca global değişkenler için söz konusudur. Bu nedenle aşağıdaki tanımlama geçerlidir. Ancak aşağıdaki kodda
+tek bir x nesnesi vardır. "Tentative" sözcüğü "deneme niteliğinde" gibi bir anlama gelmektedir:
+
+    #include <stdio.h>
+
+    int x;
+    int x;						/* geçerli, özel bir durum, tentative definition */
+
+    int main(void)
+    {
+    	x = 10;
+    	printf("%d\n", x);
+
+    	return 0;
+    }
+
+    int x;						/* geçerli, tentative definiton */
+
+    Tentative tanımlama olması için global değişkene ilkdeğer verilmemiş olması gerekmektedir. Aynı isimli bir global değişkene bir kez ilkdeğer verilebilir.
+    Ancak birden fazla kez ilkdeğer verilemez. Örneğin:
+
+    int a = 10;					/* geçerli, tentative değil */
+    int a;						/* geçerli, tentative, aslında burada bir a yaratılmıyor */
+
+    Ancak örneğin:
+
+    int a = 10;
+    int a = 20;					/* geçersiz! tentative değil */
+
+    Bu kural ileride yeniden başka bir konunun içerisinde ele alınacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Daha önce de belirtidliği gibi içerisine henüz değer atanmamış yerel değişkenin içeisinde bellekte daha önceden kalmış olan "çöp bir değer (garbage value)"
+bulunur. Ancak içerisine henüz değer atanmamış global bir değişkende her zaman 0 değeri olması garanti edilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int x;
+
+int main(void)
+{
+int a;
+
+    printf("%d\n", a);			/* geçerli, içerisine henüz değer atanmamış yerel değişkenler içerisinde çöp değer vardır */
+    printf("%d\n", x);			/* içerisine henüz değer atanmamış global nesneler içerisinde her zaman 0 olur */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Genel olarak global değişkenlerin yalnızca gerektiği durumlarda kullanılması gerekir. Yerel değişkenlerle yapabileceğimiz şeyler için global değişken
+tanımlamak kötü bir tekniktir. Örneğin programımızda yalnızca main fonksiyonu olsun. Bu durumda global bir değişken tanımlamaya hiç gerek yoktur.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Fonksiyonların parametre değişkenleri faaliyet alanı bakımından ana bloğun başında tanımlanmış olan yerel değişkenler gibidir. Örneğin:
+
+    void foo(int a, int b)
+    {
+    	/* ... */
+    }
+
+    Buradaki a ve b parametre değişkenleri faaliyet alanı bakımından aşağıdaki fonksiyonla eşdeğerdir:
+
+    void foo()
+    {
+    	int a, int b;
+
+    	/* ... */
+    }
+
+    Görüldüğü gibi fonksiyonların parametre değişkenleri "blok faaliyet alanı (block scope)" uymaktadır. Yani yalnızca o fonksiyonda kullanılabilirler.
+    Dolayısıyla farklı iki fonksiyonun parametre değişkenleri aynı isimde olabilir. Örneğin:
+
+    void foo(int a)
+    {
+    	/* ... */
+    }
+
+    void bar(int a)				/* geçerli, a yalnızca bu fonksiyonda kullanılabilir.
+    {
+    	/* ... */
+    }
+
+    Mademki fonksiyonun parametre değişkenleri faaliyet alanı bakımından ana bloğun başında bildirilen değişkenler gibidir, o halde fonksiyonun ana bloğunda
+    parametre değişkeni ile	aynı isimli bir değişken bildirilemez. Örneğin:
+
+    void foo(int a)
+    {
+    	int a;					/* geçersiz! parametre değişkeni olan a da aynı faaliyet alanına sahip */
+
+    	/* ... */
+    }
+
+    Fakat örneğin:
+
+    void foo(int a)
+    {
+    	{
+    		int a;				/* geçerli! iç içe yerel bloklarda aynı isimli değişkenler tanımlanabilir */
+
+    		/* ... */
+    	}
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de fonksiyon faaliyet alanına sahip tek değişken "goto etiketleridir". Goto deyimi, deyimlerin ele alındığı gelecek bölümlerde görülecektir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Daha önceden de belirtildiği gibi C Programlama Dili "Prosedürel Programlama Modeline (Procedural Programming Paradigm)" uygun tasarlanmıştır.
+Prosedürel programlamada "fonksiyonlar" birer yapı taşıdır. Programlar fonksiyonların birbirlerini çağırması biçiminde organize edilirler. Halbuki
+"Nesne Yönelimli Programlama Modeli"nin yapıtaşı "sınıf" denilen kavramdır. C++ Programlama Dili zaten C Programlama Dilinin, Nesne Yönelimli Programlama Modelinin
+uygulanabilmesi için genişletilmiş bir biçimidir.
+
+    Peki prosedürel teknikte neden program fonksiyonların birbirlerini çağırması biçiminde organize edilmektedir? Yani, neden bürün program main fonksiyonunda
+    yazılıp bitirilmemektedir? Programın fonksiyonlar biçiminde organize edilmesinin birkaç açık sebebi vardır:
+
+    1) Mühendislikte karmaşık bir problem genellikle parçalarına ayrılarak çözülmektedir. İşte fonksiyonlar, karmaşık problemin parçalarını oluşturmak
+    için kulalnılmaktadır. Karmaşık işlemin parçaları fonksiyonlara yaptırılır. Sonra bu fonksiyonların çağrılmasıyla karmaşık işlem gerçekleştirilir.
+    Örneğin bir otomobil aslında çok fazla parçadan oluşmaktadır. Bu parçalar birbirleriyle monte edilmiştir. Sonuçta otomobil çalışır hale gelmiştir.
+    Aynı yöntem yazılımda da izlenmektedir.
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 19. Ders - 02.08.2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+    2) Fonksiyonlar "yeniden kullanılabilirliği (reusability)" mümkün hale getirmektedir. Yani işin bir kısmını yapan kodları fonksiyon olarak yazarsak
+    başka projelerde de aynı fonksiyonları kullanabiliriz. Fonksiyonların oluşturduğu topluluğa "kütüphane (library)" denilmektedir. Örneğin standart C
+    fonksiyonları kütüphane biçiminde oluşturulmuştur. Biz onları farklı projelerde kullanabilmekteyiz.
+
+    3) Fonksiyonlar tekrarı engellemek amacıyla kullanılmaktadır. Bir iş, kodun çeşitli yerlerinde yineleniyorsa onu fonksiyon olarak yazarsak projemizde
+    bu kodlardan toplamda bir tane bulundurmuş oluruz. Fonksiyonlar olmasaydı aynı kodu tekrar tekrar yazmak zorunda kalırdık. Bu durumda kod tekrarı
+    toplamda kodun fazla yer kaplamasına yol açardı. O kısımda yapılacak değişikler programın pek çok yerinde yapılmak zorunda kalırdı. Bu durum kodun aynı
+    zamanda daha karmaşık gözükmesine yol açardı.
+
+    4) Fonksiyonlar okunabilirliği de artırmaktadır. Fonksiyonların isimleri olduğu için kodu inceleyen kişiler onu daha kolay anlamlandırırlar.
+    Bu isimler aslında o kodun ne yaptığı hakkında da bilgi verir.
+
+    Bir programlama dilindeki "çalıştırma birimlerine" "deyim (statement)" denilmektedir. Yani program aslında deyim denilen kod parçalarının peşi sıra
+    çalıştırılmasıyla çalışmaktadır. Deyimler C'de 5 gruba ayrılmaktadır:
+
+    1) Basit Deyimler (Simple Statements): Bunlar bir ifadenin sonuna ';' atomu konularak elde edilen deyimlerdir. Yani,
+
+    	ifade;
+
+    biçiminde bir görünüme sahiplerdir. Örneğin:
+
+    	a = b + c;
+    	foo();
+
+    Bunlar birer basit deyimdir. İfade (expression) kavramının ';' atomunu içermediğine, ifadenin sonuna ';' getirildiğinde onun bir deyim olduğuna
+    dikkat ediniz.
+
+    2) Bileşik Deyimler (Compound Statements): Bir blok içerisine sıfır tane ya da daha fazla deyim yerleştirilirse bloğun kendisi de bir deyim olur.
+    Buna "bileşik deyim" denilmektedir. Örneğin
+
+    {
+    	ifade1;
+    	ifade2;
+    	ifade3;
+    }
+
+    Burada bu bloğun tamamı dışarıdan bakıldığında tek bir deyimdir.
+
+    3) Kontrol Deyimleri (Control Statements): Programlama dillerinde programın akışı üzerinde etkili olan, if gibi, while gibi, for gibi deyimlere
+    "kontrol deyimleri" denilmektedir. Kontrol deyimleri dışarıdan bakıldığında tek bir deyim olarak ele alınırlar.
+
+    4) Bildirim Deyimleri (Declaration Statements): Bildirim yapmakta kullandığımız sentaks biçimi de aslında bir deyim belirtir. Bunlara bildirim deyimleri
+    denilmektedir. Örneğin:
+
+    	int a, b, c;
+
+    5) Boş Deyimler (Null Statements): Solunda ifade olmadan kullanılan noktalı virgüller de bir deyim belirtir. Bunlara boş deyim denilmektedir. Örneğin:
+
+    	x = 10;;
+
+    Burada iki deyim vardır. Birincisi x = 10; deyimidir. Bu bir basit deyimdir. İkincisi bundan sonraki noktalı virgüldür. Boş deyimler için bir şey yapılmıyor
+    olsa da bunlar yine bir deyim statüsündedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Yukarıda da belirtildiği gibi bir program, deyimlerin çalıştırılmasıyla çalıştırılmaktadır. Her deyim çalıştığında bir şeyler yapılır. Şimdi bu deyimler
+çalıştırıldığında ne olacağı üzerinde duralım:
+
+    - Bir basit deyimin çalıştırılması demek o basit deyimdeki ifadenin çalıştırılması demektir.
+
+    - Bir bileşik deyimin çalıştırılması bileşik deyimi oluşturan deyimlerin sırasıyla çalıştırılması anlamına gelmektedir. Örneğin:
+
+    {
+    	ifade1;
+    	ifade2;
+    	{
+    		ifade3;
+    		ifade4;
+    	}
+    }
+    ifade5;
+
+    Burada dışarıdan bakıldığında iki deyim vardır: Bileşik deyim ve basit deyim. Bir bileşik deyimin çalıştırılması onu oluşturan deyimlerin sırasıyla
+    çalıştırılması anlamına geldiğine göre burada sırasıyla aslında ifade1, ifade2, ifade3, ifade4, ifade5 çalıştırılacaktır.
+
+    - Kontrol deyimleri çalıştırıldığında nelerin olacağı zaten sonraki başlıklarda ele alınacaktır.
+
+    - Bir bildirim deyimi çalıştırıldığında bildirilen değişkenler için bellekte yerler ayrılmaktadır. Örneğin:
+
+    	int a, b, c;
+
+    Burada a, b ve c nesneleri için yerler ayrılacaktır.
+
+    - Boş deyimin çalıştırılması sırasında bir şey yapılmamaktadır. Yani boş deyimler bir yan etkiye yol açmamaktadır.
+
+    Bir fonksiyon çağrıldığında fonksiyonun belirttiği ana blok, yani bileşik deyim çalıştırılır. Bu durumda bir C programının çalışması demek aslında
+    main fonksiyonun çağrılması demektir. Örneğin:
+
+    int add(int a, int b)
+    {
+    	return a + b;
+    }
+
+    int main(void)
+    {
+    	int a;
+
+    	a = add(10, 20);
+    	printf("%d\n", a);
+
+    	return 0;
+    }
+
+    Burada main fonksiyonu çağrıldığında onun ana bloğunun belirttiği bileşik deyim çalıştırılır. Bu bileşik deyim içerisinde bir bildirim deyimi, 2 tane basit deyim ve bir
+    tane kontrol deyimi vardır. a = add(10, 20) basit deyimi çalıştırılırken de add fonksiyonun ana beloğunun belrttiği bileşik deyim çalıştırılmış olur.
+    Yani görüldüğü gibi aslında program deyimlerin çalıştırılmasıyla çalıştırılmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+En yaygın kullanılan kontrol deyimi if deyimidir. if deyiminin genel biçimi şöyledir:
+
+    if (<ifade>)
+    	<deyim>
+
+[ else
+<deyim> ]
+
+    if anahtar sözcüğünden sonra parantezler içerisinde bir ifadenin bulunması gerekir. if deyiminin "doğru" ve "yanlış" kısımları vardır. Doğru ve yanlış kısımlarında
+    tek bir deyim bulunmak zorundadır. Programcı burada birden fazla deyim bulundurmak istiyorsa onu bileşik deyim olarak ifade etmelidir. if deyimiin yanlış kısmı
+    olmak zorunda değildir. if deyiminin tamamı dışarıdan bakıldığında tek bir deyim olarak ele alınmaktadır.
+
+    if deyimi şöyle çalıştırılmaktadır: Önce if parantezi içerisindeki ifadenin sayısal değeri hesaplanır. Bu değer sıfır dışı bir değerse deyimin yalnızca
+    "doğru" kısmındaki deyim çalıştırılır. Bu ifadenin değeri 0 ise deyimin yalnızca "yanlış" kısmındaki deyim çalıştırılır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);
+
+    if (a > 0)
+    	printf("pozitif\n");
+    else
+    	printf("negatif ya da sifir\n");
+
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki programda ikinci derece denklemin kökleri yazdırılmıştır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+#include <math.h>
+
+void disp_roots(double a, double b, double c)
+{
+double delta;
+double x1, x2;
+
+    delta = b * b - 4 * a * c;
+    if (delta >= 0) {
+    	x1 = (-b + sqrt(delta)) / (2 * a);
+    	x2 = (-b - sqrt(delta)) / (2 * a);
+
+    	printf("x1 = %f, x2 = %f\n", x1, x2);
+    }
+    else
+    	printf("Gercek kok yok!..\n");
+
+}
+
+int main(void)
+{
+double a, b, c;
+
+    printf("a:");
+    scanf("%lf", &a);
+
+    printf("b:");
+    scanf("%lf", &b);
+
+    printf("c:");
+    scanf("%lf", &c);
+
+    disp_roots(a, b, c);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+İç içe (nested) if deyimi söz konusu olabilir. Örneğin aşağıda üç sayının en büyüğünü bulan bir if deyimi kullanılmıştır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b, c;
+
+    printf("a:");
+    scanf("%d", &a);
+
+    printf("b:");
+    scanf("%d", &b);
+
+    printf("c:");
+    scanf("%d", &c);
+
+    if (a > b)
+    	if (a > c)
+    		printf("%d\n", a);
+    	else
+    		printf("%d\n", c);
+    else
+    	if (b > c)
+    		printf("%d\n", b);
+    	else
+    		printf("%d\n", c);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+if deyiminin "yanlış" kısmı yani else kısmı, olmak zoruda değildir. Eğer derleyici if deyiminin "doğru" kısmından sonra else anahtar sözcüğünü
+göremezse, bunun "else kısmı olmayan bir if" olduğuna karar verir ve if deyiminin bittiğini düşünür. Örneğin:
+
+    if (ifade1) ifade2; ifade3;
+
+    Burada if eyiminin doğru kısmı ifade2 ile bitmiştir ve else anahtar sözcüğü gelmemiştir. Bu durumda artık ifade3, if içerisinde değildir. Bu kod parçasına
+    dışarıdan bakıldığında iki deyim vardır: if deyimi ve bir basit deyim (ifade3;).
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);
+
+    if (a > 0)
+    	printf("pozitif\n");
+    printf("son\n");			/* if deyiminin dışında */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bazen yeni programcılar if deyiminin doğru kısmını yanlışlıkla boş deyimle kapatırlar. Budurumda kod geçerli olduğu halde istenileni yapmaz hale
+gelir. Örneğin:
+
+    if (ifade1);				/* dikkat! yanlışlıkla yerleştirilmiş boş deyim */
+    	ifade2
+
+    Burada artık if deyiminin "doğru" kısmında boş deyim vardır. Boş deyimden sonra else anahtar sözcüğü gemediği için if deyimi bitmiştir.
+    Dolayısıyla ifade2; if deyimi dışındadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);
+
+    if (a > 0);					/* dikkat! yanlışlıkla yerleştirilmiş boş deyim */
+    	printf("pozitif\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki kod parçasında programcı if deyiminin "doğru" kısmına birden fazla deyim yerleştirmiştir. Bunları bloklayarak tek deyim biçiminde
+ifade etmesi gerekirdi:
+
+    if (ifade1)
+    	ifade2;
+    	ifade3;
+    else
+    	ifade4;
+
+    Derleyici bakış açısıyla kodu incelediğimizde derleyici if parantezinden sonra blok açılmadığını gördüğünde yalnızca ifade2; deyiminin if deyiminin doğru
+    kısmını oluşturduğunu düşünmektedir. ifade2; deyiminden sonra else gelmediği için derleyiciye göre if deyimi sonlanmıştır. Derleyici daha sonra
+    else anahtar sözcüğünü gördüğünde durumu "sanki if olmadan yalnız başına else anahtar sözcüğü kullanılmış gibi" ele almaktadır. Bu durumda verilen mesaj
+    "error: else without if" gibi bir şey olabilir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir koşul doğru iken diğerlerinin doğru olma olasılığı yoksa bu koşullara "ayrık koullar" denir. Yani ayrık koşullarda, koşulların yalnızca bir
+tanesi doğru olabilmektedir. Örneğin:
+
+    a > 0
+    a < 0
+    a == 0
+
+    Bu koşullar ayrıktır. Örneğin:
+
+    a == 1
+    a == 2
+    a == 3
+
+    Bu koşullar da ayrıktır. Ancak örneğin:
+
+    a > 0
+    a > 10
+
+    Bu koşullar ayrık değildir.
+
+    Ayrık koşulların ayrı if deyimleri ile ele alınması kötü bir tekniktir. Örneğin:
+
+    if (a == 1)
+    	printf("bir\n");
+    if (a == 2)
+    	printf("iki\n");
+    if (a == 3)
+    	printf("uc\n");
+
+    Burada a == 1 ise gereksiz bir biçimde diğer iki koşul da -doğrulanmayacağı halde*- gereksiz bir biçimde yapılmaktadır. a == 2 ise de a == 3 koşulu
+    gereksiz biçimde yapılacaktır. İşte ayrık koşullar "else if" ile ele alınmalıdır. Örneğin:
+
+    if (a == 1)
+    	printf("bir\n");
+    else
+    	if (a == 2)
+    		printf("iki\n");
+    	else
+    		if (a == 3)
+    			printf("üc\n");
+
+    Burada dışarıdan bakıldığında tek bir if deyimi vardır. Her if diğerinin else kısmı içerisindedir. Pek çok programcı böyle else-if merdivenlerini
+    aşağıdaki gibi alt alta yazmaktadır:
+
+    if (a == 1)
+    	printf("bir\n");
+    else if (a == 2)
+    	printf("iki\n");
+    else if (a == 3)
+    	printf("uc\n");
+    else if (a == 4)
+    	printf("dort\n");
+    else
+    	printf("hicbiri\n");
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);
+
+    if (a == 1)
+    	printf("bir\n");
+    else if (a == 2)
+    	printf("iki\n");
+    else if (a == 3)
+    	printf("uc\n");
+    else if (a == 4)
+    	printf("dort");
+    else
+    	printf("bes\n");
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte sayının işareti yazdırılmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);
+
+    if (a > 0)
+    	printf("pozitif\n");
+    else if (a < 0)
+    	printf("negatif\n");
+    else
+    	printf("sifir\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C, C++, Java ve C# gibi dillerde "dangling else" denilen bir durum vardır. Eğer iki if için tek bir else varsa bu else, içteki if deyimine
+ilişkin kabul edilmektedir. Örneğin:
+
+    if (ifade1) if (ifade2) ifade3; else ifade4;
+
+    Buradaki else içteki if deyiminin else kısmıdır. Bunu daha güzel şöyle yazabiliriz:
+
+    if (ifade1)
+    	if (ifade2)
+    		ifade3;
+    	else
+    		ifade4;
+
+    Bazen deneyimli programcılar bile bu "dangling else" durumunda hata yapabilmektedir. Örneğin aşağıdaki gibi bir kodla karşılaşmış olalım:
+
+    if (ifade1)
+    	if (ifade2)
+    		ifade3;
+    else
+    	ifade4;
+
+    Burada muhtemelen programcı ifade4; deyiminin dıştaki if deyimin else kısmında olmasını istemiştir. Çünkü hizalaması bunu düşündürmektedir.
+    Ancak derleyici hizalamaya bakmamaktadır. Dolayısıyla derleyici buradaki else kısmının içteki if deyiminin else kısmı olduğuna karar verir.
+    O halde programcı bir "bug" yapmıştır. Bu tür "dangling else" durumlarında eğer gerçekten else kısmın dıştaki if deyimine ilişkin olması isteniyorsa
+    bilinçli bloklama yapılmalıdır. Örneğin:
+
+    if (ifade1) {
+    	if (ifade2)
+    		ifade3;
+    }
+    else
+    	ifade4;
+
+    Burada artık else kısmı dıştaki if deyimine ilişkindir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 20. Ders - 04.08.2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+if deyiminin yalnızca yanlış kısmı bulunamaz. Bu işlem koşulun tersi oluşturularak dolaylı biçimde sağlanabilir. Örneğin:
+
+    if (a > 0)
+    else {				/* geçersiz */
+    	/* ... */
+    }
+
+    Burada aslında a > 0 değilse bir işlem yapılmak istenmiştir:
+
+    if (a <= 0) {
+    	/* ... */
+    }
+
+    Tabii mademki if deyiminin yalnızca else kısmı bulunamaz. O halde doğru kısmına bir boş deyim yerleştirilerek de aynı durum sağlanabilir:
+
+    if (a > 0)
+    	;
+    else {				/* geçerli */
+    	/* ... */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir program parçasının yinelemeli olarak çalıştırılmasını sağlayan kontrol deyimlerine "döngü (loop)" denilmektedir. C'de döngüler iki kısma ayrılmaktadır:
+
+    1) while Döngüleri (while Loops)
+    2) for Döngüleri (for loops)
+
+    while döngüleri de kendi aralarında "kontrolün başta yapıldığı while döngüleri" ve "kontrolün sonra yapıldığı while döngüleri" olmak üzere ikiye ayrılmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Kontrolün başta yapıldığı while döngülerinin genel biçimi şöyledir:
+
+    while (<ifade>)
+    	<deyim>
+
+    while anahtar sözcüğünden sonra parantez içerisinde bir ifadenin bulunması gerekir. while döngüsü bir deyim içerir. Tabii bu deyim, basit, bileşik
+    ya da herhangi bir deyim olabilir. Yani döngünün içerisine birden fazla deyim yerleştirilecekse bloklama yapılmalıdır.
+
+    while döngüsü şöyle çalışmaktadır: Derleyici while parantezinin içerisindeki ifadenin sayısal değerini hesaplar. Bu değer sıfır dışı bir değerese (yani doğru ise)
+    döngü deyimi çalıştırılıp başa dönülür. Döngü while parantezi içerisindeki ifadenin değeri 0 olduğunda sonlanır.
+
+    Aşağıdaki örnekte 0'dan 10'a kadar (10 dahil değil) sayılar ekrana (stdout dosyasına) yazdırılmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    i = 0;
+    while (i < 10) {
+    	printf("%d\n", i);
+    	++i;
+    }
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte 10'dan başlanarak 0'a kadar (0 dahil değil) sayılar ekrana yazdırılmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    i = 10;
+    while (i) {
+    	printf("%d\n", i);
+    	--i;
+    }
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte klavyeden (stdin dosyasından) 'q' karakteri girilene kadar döngü devam etmektedir. Burada atama operatörüne öncelik vermek için
+parantez kullanıldığına dikkat ediniz. Ayrıca getchar fonksiyonunun ve stdin dosyasından okuma yapan diğer fonksiyonların tamponlu (buffered) çalıştırklarını
+anımsayınız. Eğer tampon doluysa getchar yeni bir giriş istememektedir. Ancak tampon boşsa yeni bir giriş istemektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int ch;
+
+    while ((ch = getchar()) != 'q')
+    	putchar(ch);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Virgül operatörünün önce sol tarafının sonra sağ tarafının yapıldığını ve virgül operatörünün sağ tarafındaki ifadenin değerini ürettiğini anımsayınız.
+O halde yukarıdaki döngü eşdeğer olarak aşağıdaki gibi de olabilirdi.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int ch;
+
+    while (ch = getchar(), ch != 'q')
+    	putchar(ch);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte 1'den n'e kadar sayıların toplamı hesplanmaktadır. (Tabii aslında bu toplam tek bir ifade ile de hesaplanabilirdi).
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i, n, total;
+
+    printf("Bir sayi giriniz:");
+    scanf("%d", &n);
+
+    i = 1;
+    total = 0;
+    while (i <= n) {
+    	total += i;
+    	++i;
+    }
+    printf("%d\n", total);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aslında scanf fonksiyonun da bir geri dönüş değeri vardır. scanf fonksiyonu başarılı bir biçimde yerleştirilen parça sayısı ile geri dönmektedir.
+scanf stdin tamponunun başındaki boşluk karakterlerini (leading space) atar. Sonra format karakterlerine uygun olmayan ilk karakter gördüğünde
+onu tampona geri bırakıp işlemini sonlandırır. Örneğin:
+
+    result = scanf("%d", &val);
+
+    Burada biz bir sayı yerine "ali" gibi bir yazı girmiş olalım. Bu durumda scanf fonksiyonu a karakterini tampondan aldığında bunun %d format karakterine
+    uygun olmadığını tespit eder. Bu a karakterini tampona geri bırakıp 0 değeri ile geri döner. Örneğin:
+
+    result = scanf("%d%d", &a, &b);
+
+    Burada klavyeden şunları girmiş olalım:
+
+    100 ali
+
+    scanf burada yalnızca a için yerleştirme yapabilecektir. Tamponda ali kalacaktır ve b için yerleştirme yapmayacaktır. Bu durumda scanf, 1 değeri ile geri dönecektir.
+    Bu nedenle aşağıdaki örnekte eğer biz klavyeden bir sayı girmezsek sonsuz döngü oluşacaktır:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int val;
+
+    while (scanf("%d", &val), val != 0)
+    	printf("%d\n", val * val);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Yukarıdaki örnekte biz eğer klavyeden geçersiz bir karakter girildiğinde döngüyü sonlandırmak istiyorsak scanf fonksiyonunun geri dönüş değerine de
+bakmalıyız.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int val;
+
+    while (scanf("%d", &val) && val != 0)
+    	printf("%d\n", val * val);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+while parantezi içerisindeki ifadede önek ya da sonek ++ ya da -- operatörü kullanılabilir. Aşağıdaki örnekte önek ++ operatörü kullanılmıştır.
+Burada artırım önce yapılıp artırılmış değer karşılaştırmaya sokulacaktır. Dolayısıyla ilk yazılacak değer 1, son yazılacak değer 9 olacaktır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    i = 0;
+    while (++i < 10)
+    	printf("%d\n", i);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Eğer while parantezi içerisindeki ++ ya da -- operatörü sonek durumundaysa artırım ya da eksiltim öncelik sırasına göre yapılmakla birlikte, sonraki
+işleme artırılmamış ya da eksiltilmemiş değer sokulacaktır.
+
+    Aşağıdaki örnekte ilk yazdırılacak değer 1'dir. Son yazdırılacak değer ise 10 olacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    i = 0;
+    while (i++ < 10)
+    	printf("%d\n", i);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+n bir nesne belirtmek üzere biz n defa yinelenen bir döngüyü while ile şöyle oluşturabiliriz:
+
+    while (n-- > 0) {
+    	/* ... */
+    }
+
+    Bu bir kalıp olarak kullanılmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int n;
+
+    n = 3;
+    while (n-- > 0)
+    	printf("ok\n");		/* üç kere yinelenecek */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aslında while parantezinin içerisinde yalnızca sonek ++ ya da -- operatörü varsa artırmak ya da eksiltme yapılır. Ancak, kontrole nesnenin artırılmamış ya da
+eksiltilmemiş değeri sokulur. Dolayısıyla n pozitif olmak üzere aşağıdaki döngüler işlevsel olarak eşdeğerdir:
+
+    while (n-- > 0) {
+    	/* ... */
+    }
+
+    while (n--) {
+    	/* ... */
+    }
+
+    while (n-- != 0) {
+    	/* ... */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Kontrolün sonda yapıldığı while döngüleri (do-while döngüleri) seyrek kullanılmaktadır. Genel biçimleri şöyledir:
+
+    do
+    	<deyim>
+    while (<ifade>);
+
+    while parantezi sonundaki ';' boş deyim belirtmez. Kullanılması zorunlu olan sentaksın bir parçasını oluşturmaktadır. Döngünün do anahtar sözcüğü ile
+    başlatıldığına dikkat ediniz. Yine, döngü içerisinde tek bir deyim vardır. Bu deyim basit, bileşik ya da herhangi bir deyim olabilir. Örneğin:
+
+    do
+    	ifade1;
+    while (ifade2);
+
+    Örneğin:
+
+    do {
+    	ifade1;
+    	ifade2;
+    	ifade3;
+    } while (ifade4);
+
+    do-while döngüsünde kontrol noktasının sonda olduğuna dikkat ediniz. Dolayısıyla döngü en az bir kez yinelenmektedir. Burada do anahtar sözcüğü olmasaydı
+    döngü kontrolün başta yapıldığı while döngüsü olarak ele alınırdı. Örneğin:
+
+    {
+    	ifade1;
+    	ifade2;
+    	ifade3;
+    } while (ifade4);
+
+    Derleyiciye göre buarada iki deyim vardır: Bileşik deyim ve ondan bağımsız olarak kontrolün başta yapıldığı while döngüsü. Dolaysıyla buradaki ';'
+    boş deyim anlamına gelmektedir.
+
+    Aşağıdaki örnekte ekrana ilk çıkacak değer 0, son çıkacak değer 9'dur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    i = 0;
+    do {
+    	printf("%d\n", i);
+    	++i;
+    } while (i < 10);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Kontrolünm sonda yapıldığı while döngülerine yukarıda da belirttiğimiz gibi aslında oldukça seyrek gereksinim duyulmaktadır. Aşağıdaki örnekte
+kullanıcıdan 'e' ya da 'h' karakteri ile bir seçim yapması istenmiştir. Eğer kullanıcı e' ya da 'h' karakterinden birini girmemişse aynı soru yinelenmiş
+ve kullanıcı bu karakterlerden birini girmeye zorlanmıştır. Buradaki döngünün, kontrolün sonda yapıldığı while döngüsü olması çok daha anlamlıdır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+void clear_stdin(void)
+{
+while (getchar() != '\n')
+;
+}
+
+int main(void)
+{
+int ch;
+
+    do {
+    	printf("(e)vet/(h)ayir?");
+    	ch = getchar();
+    	if (ch != '\n')
+    		clear_stdin();
+    } while (ch != 'e' && ch != 'h');
+
+    if (ch == 'e')
+    	printf("evet\n");
+    else
+    	printf("hayir\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Programcılar, kontrolün başta yapıldığı while döngülerini yanlışlıkla boş deyim ile kapatabilmektedir. Örneğin:
+
+    while (n-- > 0);
+    	printf("%d\n", n);
+
+    Burada while parantezinin sonuna yerleştirilen ';' boş deyim belirtir. Dolayısıyla artık aşağıdaki printf, while döngüsünün içerisinde değildir.
+    Programcı eğer döngüyü gerçekten boş deyim ile kapatmak istiyorsa (örneğin bir gecikme sağlamak istemiş olabilir) bu durumda ';' atomu, sanki bir deyim gibi
+    hizalanmalıdır. Çünkü kodu gören kişi bunun yanlışlıkla yapılmadığını anlayacaktır:
+
+    while (n-- > 0)
+    	;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int n;
+
+    n = 5;
+    while (n-- > 0);			/* dikkat! yanlışlıkla yerleştirilmiş boş deyim */
+    	printf("%d\n", n);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bazen sonsuz döngülerin oluşturulması gerekebilir. Bunun için while parantezi içerisine sıfırın dışında herhangi bir sayı yerleştirilebilir.
+Tabii, programcılar genellikle 1 sayısını tercih ederler. Örneğin:
+
+    while (1) {				/* sonsuz döngü (infinite loop) */
+    	/* ... */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 21. Ders - 16.08.2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+En çok kullanılan döngüler for döngüleridir. for döngülerinin genel biçimi şöyledir:
+
+    for ([ifade1]; [ifade2]; [ifade3])
+    	<deyim>
+
+    for anahtar sözcüğünden sonra parantezler içerisinde iki tane ';' bulunmak zorundadır. Bu iki ';' for döngüsünü üç kısma ayırır. for döngüsünün
+    bu kısımlarında "ifade (expression)" tanımna uyan herhangi ifadeler bulunabilir. for döngüsünün içeirsindeki deyim yine herhangi bir deyim olabilir.
+
+    for döngüleri en fazla aşağıdaki gibi karşımıza çıkar:
+
+    for (ilkdeğer; koşul; artırım) {
+    	/* ... */
+    }
+
+    Örneğin:
+
+    for (i = 0; i < 10; ++i) {
+    	/* ... */
+    }
+
+    for döngüsü şöyle çalışmaktadır: Önce döngüye girişte for döngüsünün birinci kısmındaki ifade, bir kez çalıştırılır. Artık bu ifade bir daha çalıştırılmaz.
+    İkinci kısımdaki ifade, ilk girişte ve her yinelemede çalıştırılmaktadır. Döngü, bu ikinci kısımdaki ifade sıfır dışı bir değerde olduğu sürece yinelenmektedir.
+    Döngünün üçüncü kısmı, döngü deyimi çalıştırıldıktan sonra başa dönerken çalıştırılmaktadır. for döngüsünün çalışması aşağıdaki ile tamamen eşdeğerdir:
+
+    ifade1;
+    while (ifade2) {
+    	<deyim>
+    	ifade3;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    for (i = 0; i < 10; ++i)
+    	printf("%d\n", i);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Örneğin biz artırımı ikişer ikişer de yapabiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    for (i = 0; i < 10; i += 2)
+    	printf("%d\n", i);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki döngüde belli bir değerden eksiltme uygulanarak sıfıra kadar yinelenme sağlanmıştır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    for (i = 10; i != 0; --i)
+    	printf("%d\n", i);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngüsünün üçüncü kısmında ++ ya da -- operatörü kullanıldığında, bunun önek mi yoksa sonek mi olduğunun hiçbir önemi yoktur. Örneğin:
+
+    for (i = 0; i < 10; ++i) {
+    	/* ... */
+    }
+
+    ile
+
+    for (i = 0; i < 10; i++) {
+    	/* ... */
+    }
+
+    eşdeğerdir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngüsünün üç kısmında da ifade tanımına uyan herhangi bir ifade yerleştirilebilir. Önemli olan bunun programcının amacına uygunluğudur.
+Örneğin aşağıdaki gibi bir for döngüsü tamamen geçerlidir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    i = 0;
+    for (printf("ifade1\n"); i < 3; printf("ifade3\n")) {
+    	printf("deyim\n");
+    	++i;
+    }
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte 0'dan 6.28'e kadar sayıların sinüs değerleri, 0.1 artırımla yazdırılmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+double x, y;
+
+    for (x = 0; x < 6.28; x += 0.1) {
+    	y = sin(x);
+    	printf("%f\t%f\n", x, y);
+    }
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte 1'den klavyeden girilen sayıya kadar sayıların toplamı hesaplanmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int n, total, i;
+
+    printf("Bir sayi giriniz:");
+    scanf("%d", &n);
+
+    total = 0;
+    for (i = 1; i <= n; ++i)
+    	total += i;
+
+    printf("%d\n", total);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte isprime fonksiyonu bir sayının asal olup olmadığını tespit etmektedir. Eğer sayı asalsa, fonksiyon 1 değeri ile, asal değilse 0
+değeri ile geri dönmektedir. Bir döngü içerisinde return deyimini kullanırsak fonksiyon sonlanır, dolayısıyla döngü de sonlanmış olur.
+
+    Aşağıdaki örnekte isprime fonksiyonundan faydalanılarak 2'den 1000'e kadar asal sayılar yan yana yazdrılmıştır.
+
+    (Not: Asal sayılar, 1 ve kendisi dışındaki bir sayıya tam olarak bölünemeyen sayılardır. En küçük asal sayı 2'dir. 2 dışında asal sayıların hepsi tek sayıdır.)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int isprime(int val)
+{
+int i;
+
+    for (i = 2; i < val; ++i)
+    	if (val % i == 0)
+    		return 0;
+
+    return 1;
+
+}
+
+int main(void)
+{
+int i;
+
+    for (i = 2; i < 1000; ++i)
+    	if (isprime(i))
+    		printf("%d ", i);
+    printf("\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Öklit teoremine göre aslında sayı asal değilse, sayının kareköküne kadar bir çarpanı mutlaka vardır. Yani sayının kareköküne kadar kontrol yapmak yeterlidir.
+Ayrıca çift sayıların kontrol edilmesine de gerek yoktur. Ancak 2 için özel bir durum vardır. 2 çift olmasına karşın asal bir sayıdır.
+
+    O halde yukarıdaki isprime fonksiyonunu daha etkin çalışacak biçimde aşağıdaki gibi düzeltebiliriz.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+#include <math.h>
+
+int isprime(int val)
+{
+int i;
+double val_sqrt;
+
+    if (val % 2 == 0)
+    	return val == 2;
+
+    val_sqrt = sqrt(val);
+    for (i = 3; i <= val_sqrt; i += 2)
+    	if (val % i == 0)
+    		return 0;
+
+    return 1;
+
+}
+
+int main(void)
+{
+int i;
+
+    for (i = 2; i < 1000; ++i)
+    	if (isprime(i))
+    		printf("%d", i);
+    printf("\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngüsünün birinci kısmındaki ifade hiç yazılmayabilir. Örneğin döngünün birinci kısmındaki ifade yukarıya alınırsa değişen hiçbir şey olmaz:
+
+    for (ifade1; ifade2; ifade3)
+    	<deyim>
+
+    ile
+
+    ifade1;
+    for(; ifade2; ifade3)
+    	<deyim>
+
+    eşdeğerdir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    i = 0;
+    for (; i < 10; ++i)
+    	printf("%d\n", i);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngüsünün üçüncü kısmı da yazılmayabilir. Örneğin:
+
+    for (ifade1; ifade2; ifade3)
+    	<deyim>
+
+    ile
+
+    ifade1;
+    for (; ifade2; ) {
+    	<deyim>
+    	ifade3;
+    }
+
+    eşdeğerdir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Birinci ve üçüncü kısmı olmayan for döngüleri, while döngüleriyle tamamen eşdeğerdir. Örneğin:
+
+    while (ifade) {
+    	/* ... */
+    }
+
+    ile
+
+    for (; ifade; ) {
+    	/* .... */
+    }
+
+    eşdeğerdir.
+
+    Görüldüğü gibi for döngüsü while döngüsü gibi, while döngüsü de for döngüsü gibi kullanılabilmektedir:
+
+    ifade1;
+    while (ifade2) {
+    	<deyim>
+    	ifade3;
+    }
+
+    ile
+
+
+    for (ifade1; ifade2; ifade3)
+    	<deyim>
+
+    eşdeğerdir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngülerinin ikinci ksımındaki ifade de hiç yazılmayabilir. Bu durumda koşulun sürekli bir biçimde sağlandığı kabul edilmektedir. Örneğin:
+
+    for (ifade1;; ifade2) {
+    	/* .... */
+    }
+
+    Burada döngü sürekli yinelenir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    for (i = 0;; ++i)			/* sonsuz döngü */
+    	printf("%d\n", i);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aslında for döngüsünün hiçbir kısmı olmayabilir. Ancak her zaman iki tane ';' parantez içerisinde bulunmak zorundadır. Böyle for döngüleri "sonsuz döngü"
+oluşturmak için kullanılabilmektedir. Örneğin:
+
+    for (;;) {
+    	/* ... */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+double val;
+
+    for (;;) {					/* sonsuz döngü */
+    	printf("Bir deger giriniz:");
+    	scanf("%lf", &val);
+    	printf("%f\n", val * val);
+    }
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngüsünün kısımlarında ifadeler virgül operatörü kullanılarak genişletilebilir. Örneğin biz for döngüsünün birinci kısmında birden fazla değişkene
+virgül operatöründen faydalanarak değer atayabiliriz. Benzer biçimde üçüncü kısımda da virgül operatörü ile birden fazla işlem yapabiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i, k;
+
+    for (i = 0, k = 100; i + k > 50; ++i, k -= 2)
+    	printf("%d %d\n", i, k);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngüsü yanlışlıkla boş deyim ile kapatılabilmektedir. Bu durumda boş deyim, döngü deyimi gibi ele alınır. Dolayısıyla kodun anlamı tamamen
+değişir. Örneğin:
+
+    for (i = 0; i < 10; ++i);
+    	printf("%d\n", i);
+
+    Burada döngü yanlışlıkla boş deyim ile kapatılmıştır. Bu durumda printf artık döngünün dışında kalmıştır. Tabii bazen döngü gerçekten boş deyim ile
+    kapatılmak istenebilir. Bu durumda ';' atomu bir tab içeden yazılarak okunabilirlik artırılabilir. Örneğin:
+
+    for (i = 0; i < 1000000; ++i)
+    	;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    for (i = 0; i < 10; ++i);			/* dikkat! döngü yanlışlıkla boş deyim ile kapatılmış! */
+    	printf("%d\n", i);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte ilk getchar(), klavyeden okunanları tampona yerleştirir ve ilk karakterin sıra numarasıyla geri döner. Sonraki getchar(), çağrıları
+tamponda bulunan sıradaki karakterleri alır. Tamponun sonunda ENTER tuşu nedeniyle '\n' karakteri bulunacaktır. O halde aşağıdaki kodda, klavyeden girilen
+karakterlerin sayısı hesaplanmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    for (i = 0; getchar() != '\n'; ++i)
+    	;
+
+    printf("%d\n", i);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+İç içe (nested) döngüler söz konusu olabilir. Döngü deyimleri de dışarıdan bakıldığında tek bir deyim durumundadır. Eğer bir döngünün içerisinde
+başka bir döngü varsa blok açmaya hiç gerek yoktur.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i, k;
+
+    for (i = 0; i < 10; ++i)
+    	for (k = 0; k < 10; ++k)
+    		printf("(%d, %d)\n", i, k);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte klavyeden okunan n, satır sayısı olmak üzere şu kalıp bastırılmaktadır:
+
+    *
+    **
+    ***
+    ****
+    ...
+    ****.... ****
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int n;
+int i, k;
+
+    printf("Bir sayi giriniz:");
+    scanf("%d", &n);
+
+    for (i = 1; i <= n; ++i) {
+    	for (k = 0; k < i; ++k)
+    		putchar('*');
+    	putchar('\n');
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'ye C99 ile birlikte C++'ta da zaten olan "for döngüsünün birinci kısmında bildirim yapabilme" olanağı eklendi. Bu kurala göre biz döngü
+değişkenini doğrudan for döngüsünün birinci kısmında bildirebiliriz. Örneğin:
+
+    for (int i = 0; i < 10; ++i) {
+    	/* ... */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+for (int i = 0; i < 10; ++i)
+printf("%d ", i);
+printf("\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngüsünün birinci kısmında bildirilen değişkene ilkdeğer vermek gerekir. Standartlarda, burada bildirilen değişkenlere ilkdeğer vermemek
+geçerli kabul edilse de toplamda anlamsızdır. Örneğin:
+
+    for (int i; i < 10; ++i)  {		/* geçerli ama anlamsız */
+    	/* ... */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngüsünün birinci kısmında bildirilen değişkenler yalnızca o for döngüsünde kullanılabilir. Çünkü orada gizli bir bloğun olduğu kabul edilmektedir.
+Yani örneğin:
+
+    for (bildirim; ifade2; ifade3)
+    	<deyim>
+
+    döngüsünü eşdeğeri şöyledir:
+
+    {
+    	bildirim;
+    	for (; ifade2; ifade3)
+    		<deyim>
+    }
+
+    Böylece örneğin:
+
+    for (int i = 0; i < 10; ++i) {
+    	/* ... */
+    }
+    printf("%d\n", i);				/* geçersiz! i burada faaliyet göstermiyor */
+
+    Aşağıdaki örnekte her iki for döngüsündeki i, aslında o for döngülerinde kullanılan farklı yerel i'lerdir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+for (int i = 0; i < 10; ++i)
+printf("%d ", i);
+printf("\n");
+
+    for (int i = 0; i < 10; ++i)
+    	printf("%d ", i);
+    printf("\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki gibi bir durum da mümkündür:
+
+    int i;
+
+    for (int i = 0; i < 10; ++i) {
+    	/* burada i'yi kullanırsak bu, for döngüsünün birinci kısmında bildirilen i olur */
+    }
+
+    Aşağıdaki durum da geçerli olsa da bu tür kodlardan kaçınınız:
+
+    for (int i = 0; i < 10; ++i)
+    	for (int i = 0; i < 10; ++i)  {			/* geçerli */
+    		/* Burada i kullanılırsa, iç for döngüsündeki i anlaşılır */
+    	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+for (int i = 0; i < 10; ++i)
+for (int i = 0; i < 10; ++i) /_ geçerli ama kötü teknik _/
+putchar('.');
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+for döngüsünün birinci kısmında birden fazla değişkenin bildirimi yapılabilir. Bu durumda bu değişkenlerin aynı türdne olması gerekir. Farklı türlerden
+değişkenlerin birinci kısımda bildirilme olanağı yoktur. Örneğin:
+
+    for (int i = 0, k = 100; i + k > 50; ++i, k -= 2) {		/* geçerli
+    	/* ... */
+    }
+
+    Ancak örneğin:
+
+    for (int i = 0, double k = 0; ;) {						/* geçersiz! böyle bir sentaks yok! */
+    	/* .... */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+for (int i = 0, k = 100; i + k > 50; ++i, k -= 2)
+printf("%d %d\n", i, k);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+break deyimi, döngü deyimlerinin içerisinde ya da switch deyiminin içerisinde kullanılabilir. Genel biçimi şöyledir:
+
+    break;
+
+    Programın akışı break deyimini gördüğünde, içinde bulunulan döngü deyimi sonlandırılır. Programın akışı, döngü deyiminden sonraki deyim ile devam eder.
+    Yani break döngüyü bitirmektedir. Tabii döngüde break genellikle bir koşul altında kullanılır. Örneğin:
+
+    for (;;) {
+    	/* .... */
+    	if (koşul)
+    		break;
+    	/* ... */
+    }
+
+    Sonsuz döngülerden çıkmak için break tek seçenektir. Ancak break deyimi sonsuz olmayan döngülerde de kullanılabilir.
+
+    Bazen döngülerden çıkış koşulları çok çeşitli olabilmektedir. Bu tür durumlarda programcılar döngüyü sonsuz döngü yapıp içeriden break ile çıkmayı
+    tercih edebilmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+double val;
+
+    for (;;) {
+    	printf("Bir sayi giriniz:");
+    	scanf("%lf", &val);
+    	if (val == 0)
+    		break;
+    	printf("%f\n", val * val);
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+22.Ders - 18/08/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+İç içe döngülerde break deyimi yalnızca kendi döngüsünü sonlandırmaktadır. Yani break hangi döngünün içerisinde kullanılmışsa yalnızca onu
+kırmaktadır.
+
+    Aşağıdaki örnekte ENTER tuşuna basıldığında, iç döngü sonraki yinelemeyle devam eder. q tuşuyna basıldığında, önce iç döngüdeki break ile iç döngüden
+    çıkılır, sonra dış döngüdeki break ile dış döngüden de çıkılır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void clear_stdin(void)
+{
+while (getchar() != '\n')
+;
+}
+
+int main(void)
+{
+int ch;
+
+    for (int i = 0; i < 10; ++i) {
+    	for (int k = 0; k < 10; ++k) {
+    		printf("(%d, %d)\n", i, k);
+    		printf("Press ENTER to continue or q to exit:");
+    		ch = getchar();
+    		if (ch != '\n')
+    			clear_stdin();
+    		if (ch == 'q')
+    			break;
+    	}
+    	if (ch == 'q')
+    		break;
+    }
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte bir prompt çıkartılmıştır. Bu prompt eşliğinde tek karakterli komutlar istenmektedir. q tuşuna basıldığında komut yorumlayıcıdan
+çıkılmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+void clear_stdin(void)
+{
+while (getchar() != '\n')
+;
+}
+
+int main(void)
+{
+int ch;
+
+    for (;;) {
+    	printf("CSD>");
+
+    	ch = getchar();
+    	if (ch != '\n')
+    		clear_stdin();
+
+    	if (ch == 'q')
+    		break;
+    	if (ch == 'r')
+    		printf("remove command executes...\n");
+    	else if (ch == 'c')
+    		printf("copy command executes...\n");
+    	else if (ch == 'd')
+    		printf("dir command executes...\n");
+    	else if (ch == 'm')
+    		printf("move command executes...\n");
+    	else
+    		printf("invalid command: %c\n", ch);
+
+    }
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Yukarıdaki örnekteki programı, baştaki SPACE ve TAB karakterlerini atacak biçimde geliştirebiliriz. Aynı zamanda programı baştaki SPACE ve TAB
+atıldıktan sonra ENTER tuşuna basılırsa yeni bir prompt'a geçecek biçimde düzenleyebiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+int ch;
+
+    while ((ch = getchar()) == ' ' || ch == '\t')
+    	;
+
+    if (ch != '\n')
+    	while (getchar() != '\n')
+    		;
+
+    return ch;
+
+}
+
+int main(void)
+{
+int ch;
+
+    for (;;) {
+    	printf("CSD>");
+
+    	ch = get_command();
+
+    	if (ch != '\n') {
+    		if (ch == 'q')
+    			break;
+    		if (ch == 'r')
+    			printf("remove command executes...\n");
+    		else if (ch == 'c')
+    			printf("copy command executes...\n");
+    		else if (ch == 'd')
+    			printf("dir command executes...\n");
+    		else if (ch == 'm')
+    			printf("move command executes...\n");
+    		else
+    			printf("invalid command: %c\n", ch);
+    	}
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+if deyiminin doğru kısmında break ya da return gibi deyimler varsa, if deyimine else kısmının konulmasının bir anlamı olmaz. Örneğin:
+
+    if (ifade1)
+    	break;
+    else
+    	ifade2;
+
+    ile aşağıdaki eşdeğerdir:
+
+    if (ifade1)
+    	break;
+    ifade2;
+
+    Aşağıdaki if deyimine bakınız:
+
+    if (ifade1 && ifade2)
+    	ifade3;
+
+    Bu işlemin eşdeğeri şöyledir:
+
+    if (ifade1)
+    	if (ifade2)
+    		ifade3;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+continue deyimi yalnızca döngü içerisinde kullanılaabilen bir deyimdir. Genel biçimi şöyledir:
+
+    continue;
+
+    Programın akışı continue deyimini gördüğünde döngünün içerisindeki deyim sonlandırılıp yeni bir yinelemeye geçilmektedir. Yani, break deyimi döngü
+    deyiminin kendisini sonlandırırken, continue deyimi döngü içerisindeki deyimin sonlandırılmasına yol açar. continue seyrek kullanılan bir deyimdir.
+    continue deyimi for döngüsü içerisinde kullanılırsa yeni bir yineleme oluşacağı için for döngüsünün üçüncü kısmı başa dönüşte yapılacaktır.
+
+    Aşağıdaki örnekte i çift iken akış, continue deyimini görür. Böylece döngüde yeni bir yinelemeye geçilir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+for (int i = 0; i < 10; ++i) {
+if (i % 2 == 0)
+continue;
+printf("%d\n", i);
+}
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+continue deyimi özelllikle döngüler içerisindeki geniş if bloklarını elimine etmek için kullanılmaktadır. Örneğin:
+
+    for (;;) {
+    	ch = get_command();
+    	if (ch != '\n') {
+    		/* ... */
+    	}
+    }
+
+    Bu işlemin eşdeğeri şöyle oluşturulabilir:
+
+    for (;;) {
+    	ch = get_command();
+    	if (ch == '\n')
+    		continue;
+    	/* ... */
+    }
+
+    Tabii bazen bir döngü içerisinde pek çok yerde akışın başa sarılması istenebilir. Bu tür durumlarda continue, tasarımı oldukça sade göstermektedir.
+    continue deyimi de iç içe döngülerde yalnızca iç döngüyü başa sarar.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+int ch;
+
+    while ((ch = getchar()) == ' ' || ch == '\t')
+    	;
+
+    if (ch != '\n')
+    	while (getchar() != '\n')
+    		;
+
+    return ch;
+
+}
+
+int main(void)
+{
+int ch;
+
+    for (;;) {
+    	printf("CSD>");
+
+    	ch = get_command();
+    	if (ch == '\n')
+    		continue;
+
+    	if (ch == 'q')
+    		break;
+    	if (ch == 'r')
+    		printf("remove command executes...\n");
+    	else if (ch == 'c')
+    		printf("copy command executes...\n");
+    	else if (ch == 'd')
+    		printf("dir command executes...\n");
+    	else if (ch == 'm')
+    		printf("move command executes...\n");
+    	else
+    		printf("invalid command: %c\n", ch);
+
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Yalnızca sabitlerden ve operatörlerden oluşan ifadelere "sabit ifadeleri (constant expression)" denilmektedir. Örneğin:
+
+     3
+     2 + 5
+     2 + 5 * 3
+     1 + 2 + 3 + 4
+
+     birer sabit ifadesidir. Sabit ifadelerinin sayısal değerleri, derleyici tarafından derleme aşamasında hesaplanabilmektedir. Pek çok derleyici
+     sabit ifadelerini derleme işlemi sırasında hesaplar, böylece bu işlemlerin gereksiz bir biçimde programın çalışma zamanı sırasında yapılmasını engeller.
+     Bu optimizasyon temasına "constant folding" denilmektedir. C'de bazı durumlarda sabit ifadelerinin kullanılması zorunludur. Örneğin:
+
+     - Global değişkenlere verilen ilkdeğerlerin sabit ifadesi olması zorunludur.
+     - Global dizilerde (C99 öncesi tüm dizilerde) uzunluk, sabit ifadeleriyle belirtilmek zorundadır.
+     - case ifadeleri, sabit ifadesi olmak zorundadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+switch deyimi, bir ifadenin çeşitli sayısal değerleri için farklı birtakım işlemlerin yapılması için düşünülmüş bir deyimdir. switch deyimi olmasaydı
+aslında gereksinim duyulan şeyler if deyimleriyle de yapılabilirdi. Ancak switch deyimi okunabilirliği artırmaktadır ve bazı durumlarda derleyicinin daha etkin
+kod üretmesini sağlamaktadır. switch deyiminin tipik genel biçimi şöyledir:
+
+    switch (<ifade>) {
+    	case <s.i>:
+    		/* ... */
+    		[break;]
+    	case <s.i>:
+    		/* ... */
+    		[break;]
+    	case <s.i>:
+    		/* ... */
+    		[break;]
+    	/* ... */
+    	[default:
+    		/* .... */
+    	]
+    }
+
+    switch anahtar sözcüğünden sonra parantez içerisinde bir ifade bulunmak zorundadır. switch deyimi tipik olarak case bölümlerinden oluşur.
+    case anahtar sözcüğünden sonra sabit ifadesi bulunması gerekir. case bölümleri tipik olarak break deyimleriyle sonlandırılmaktadır. Ancak bu zorunlu
+    değildir. switch deyiminin isteğe bağlı bir default bölümü olabilir.
+
+    switch deyimi şöyle çalışmaktadır: Önce switch parantezi içerisindeki ifadenin sayısal değeri hesaplanır. Sonra bu değere tam eşit olan case bölümü
+    araştırılır. Eğer bu değere eşit olan bir case bölümü varsa akış o bölüme aktarılır. O bölümdeki deyimler çalıştırılır. break deyimi döngülerde olduğu gibi
+    switch deyiminin de sonlandırılmasına yol açmaktadır. Eğer switch parantezi içerisindeki ifadenin değeri ile eşit olan bir case bölümü yoksa ancak
+    default bölüm varsa akış default bölüme aktarılmaktadır. default bölüm, olmak zorunda değildir. Eğer, switch parantezi içerisindeki ifadenin sayısal değerine
+    eşit olan bir case bölümü yoksa ve default bölüm de yoksa akış switch deyimiminin dışındaki ilk deyimle devam eder.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int val;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &val);
+
+    switch (val) {
+    	case 1:
+    		printf("bir\n");
+    		break;
+    	case 2:
+    		printf("iki\n");
+    		break;
+    	case 3:
+    		printf("üc\n");
+    		break;
+    	case 4:
+    		printf("dort\n");
+    		break;
+    	case 5:
+    		printf("bes\n");
+    		break;
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aynı switch deyiminde, aynı değerde birden fazla case bölümü olamaz. case anahtar sözcüğünün yanındaki ifadenin sabit ifadesi olması zorunludur.
+Bu sayede derleyici, case ifadelerinin yinelenmediğini derleme aşamasında tespit edebilmektedir.
+
+    case bölümlerinin, tamsayı türlerine ilişkin sabit ifadesi olması zorunludur. Yani, case anahtar sözcüğünün yanında float, double, long double gibi
+    noktalı sayılar bulunamaz. Benzer biçimde switch parantezi içerisindeki ifade de tamsayı türlerine ilişkin olmak zorundadır.
+
+    switch deyiminde case bölümlerinin sıralı (sorted) olması ya da default bölümün sonda olması bir zorunluluk değildir. Ancak, case bölümlerinin sıralı olması
+    ve default bölümün sonda olması okunabilirliği artırabilmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+23.Ders - 23/08/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de switch deyiminde "aşağıya doğru düşme (fall through)" denilen bir özellik vardır. Akış bir case bölümüne devredildikten sonra o case bölümünün
+sonunda break yok ise aşağıya doğru akmaya devam eder. İlk break görüldüğünde switch'ten çıkılır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int val;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &val);
+
+    switch (val) {
+    	case 1:
+    		printf("bir\n");			// fall through
+    	case 2:
+    		printf("iki\n");
+    		break;
+    	case 3:
+    		printf("üc\n");				// fall through
+    	case 4:
+    		printf("dort\n");
+    		break;
+    	case 5:
+    		printf("bes\n");
+    		break;
+    	default:
+    		printf("hicbiri\n");
+    		break;
+
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Farklı case değerleri için aynı şeylerin yapılması isteniyorsa bunun en pratik yöntemi aşağıdaki gibidir:
+
+    case 1:
+    case 2:
+    	...
+    	break;
+
+    Bunun daha pratik bir yolu yoktur. Burada switch ifadesi 1 ise fall through nedeniyle zaten 2 ile aynı kod çalıştırılacaktır.
+
+    Aşağıdaki örnekte komut satırı uygulaması switch deyimi ile tekrar yapılmıştır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+int ch;
+
+    while ((ch = getchar()) == ' ' || ch == '\t')
+    	;
+
+    if (ch != '\n')
+    	while (getchar() != '\n')
+    		;
+
+    return ch;
+
+}
+
+int main(void)
+{
+int ch;
+
+    for (;;) {
+    	printf("CSD>");
+
+    	ch = get_command();
+    	if (ch == '\n')
+    		continue;
+    	if (ch == 'q')
+    		break;
+
+    	switch (ch) {
+    		case 'e':
+    		case 'r':
+    			printf("remove command executes...\n");
+    			break;
+    		case 'c':
+    			printf("copy command executes...\n");
+    			break;
+    		case 'd':
+    			printf("dir command executes...\n");
+    			break;
+    		case 'm':
+    			printf("move command executes...\n");
+    			break;
+    		default:
+    			printf("invalid command: %c\n", ch);
+    			break;
+    	}
+    }
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+switch deyimlerinde case bölümlerinin çok uzatılması okunabilirliği bozmaktadır. Bu nedenle case bölümlerinde uzun işlemler yapılacaksa
+o işlemleri yapan fonksiyonlar tanımlanmalı ve case bölümlerinde bu fonksiyonlar çağrılmalıdır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+int ch;
+
+    while ((ch = getchar()) == ' ' || ch == '\t')
+    	;
+
+    if (ch != '\n')
+    	while (getchar() != '\n')
+    		;
+
+    return ch;
+
+}
+
+void erase_command(void)
+{
+printf("erase command executes...\n");
+}
+
+void copy_command(void)
+{
+printf("copy command executes...\n");
+}
+
+void dir_command(void)
+{
+printf("dircommand executes...\n");
+}
+
+void move_command(void)
+{
+printf("move command executes...\n");
+}
+
+int main(void)
+{
+int ch;
+
+    for (;;) {
+    	printf("CSD>");
+
+    	ch = get_command();
+    	if (ch == '\n')
+    		continue;
+    	if (ch == 'q')
+    		break;
+
+    	switch (ch) {
+    		case 'e':
+    		case 'r':
+    			erase_command();
+    			break;
+    		case 'c':
+    			copy_command();
+    			break;
+    		case 'd':
+    			dir_command();
+    			break;
+    		case 'm':
+    			move_command();
+    			break;
+    		default:
+    			printf("invalid command: %c\n", ch);
+    			break;
+    	}
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de case bölümlerinin hemen switch bloğunun içerisinde olması zorunlu değildir. Bir case bölümü başka bir case bölümünün içerisinde bir yerlerde
+olabilir. C# ve Java gibi dillerde ise böyle bir özellik yoktur. Örneğin:
+
+    switch (ifade) {
+    	case 1:
+    		...
+    		...
+    		if (falanca) {
+    			...
+    			case 2:
+    				.....
+    				.....
+    				break;
+    		}
+    	break;
+    	...
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);
+
+    switch (a) {
+    	case 1:
+    		printf("bir\n");
+    		printf("Bir deger daha giriniz:");
+    		scanf("%d", &b);
+    		if (b > 0) {
+    			case 2:
+    				printf("islemler devam ediyor..\n");
+    				break;
+    		}
+    		break;
+    	case 3:
+    		printf("uc\n");
+    		break;
+    	default:
+    		printf("default\n");
+    		break;
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aslında switch içerisinde tek bir deyim varsa switch deyimi de bloklanmak zorunda değildir. Örneğin:
+
+    switch (ifade)
+    	case 1:
+    		printf("bir\n"); printf("iki\n");
+
+    Burada yalnızca ilk printf çağrısı switch deyiminin içerisindedir. İkinci printf switch içerisinde değildir. Standartlarda case bir deyim olarak
+    şöyle ifade edilmiştir:
+
+    case <sabit ifadesi>: deyim
+
+    switch (ifade)
+    	case 1: {
+    			printf("bir\n"); printf("iki\n");
+    		}
+
+    Burada switch içerisinde yine tek bir deyim vardır. O deyim de bileşik deyimdir. Dolayısıyla iki printf çağrısı da switch içerisinddir. Örneğin:
+
+    switch (a)
+    	case 1:
+    		printf("bir\n");
+    		break;				/* geçersiz! */
+
+    Burada switch içerisinde yalnızca printf çağrısı vardır. break deyimi switch içerisinde değildir. switch ve döngü içerisinde olmayan break deyimleri
+    geçersizdir.
+
+    C standartlarında aslında switch deyiminin genel biçimi şöyle verilmiştir:
+
+    switch (<ifade>)
+    	<deyim>
+
+    Yani bu genel biçime göre aslında switch deyimi case deyimini içermeyebilir. Ancak case içermeyen switch deyimleri geçerli olsa da anlamlı değildir. Örneğin:
+
+    switch (ifade) {	/* geçerli ama anlamlı değil */
+    	ifade1;
+    	ifade2;
+    }
+
+    İşte switch deyiminde eğer bloklama yapılmazsa onun içeriinde tek deyimin olduğu kabul edilmektedir. Örneğin:
+
+    switch (ifade)
+    	ifade1; ifade2;
+
+    Burada switch içerisinde case bölümü ya da default bölümü olmadığına göre switch deyimi anlmasızdır. Ancak gerçerlidir. Burada ifade2 switch deyimi
+    dışındadır.
+
+    Bir döngü içerisinde bir switch deyimi olsun. Bu switch deyimi içerisinde break kullandığımızda biz switch deyimini sonlandırmış oluruz. Döngü deyimini
+    sonlandırmış olmayız. Ancak continue deyimi switch için anlamlı olmadığına göre, döngü içerisindeki switch deyiminde continue kullanıldığında,
+    switch deyimi de sonlanarak sonraki yinelemeye geçilir. Örneğin:
+
+    for (;;) {
+    	switch (ifade) {
+    		case 1:
+    			...
+    			if (falanca)
+    				continue;			/* bu continue döngü başına dönüşü sağlar
+    		...
+    	}
+    	....
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+goto deyimi programın akışını koşulsuz biçimde belli bir noktaya aktarmak için kullanılan bir kontrol deyimidir. Genel biçimi şöyledir:
+
+    goto <label>;
+    .....
+    <label:>
+    	....
+
+    goto anahtar sözcüğünün yanına, isimlendirme kuralına uygun bir isim bulunur. Bu isme "etiket (label)" denilmektedir. Daha sonra bu etiket, ':' atomuyla
+    fonksiyonda bir yerde kullanılmak zorudadır. Etiket, akışın aktarılacağı yeri belirtir. Örneğin:
+
+    if (ifade)
+    	goto EXIT;
+    ...
+    EXIT:
+    	....
+
+    Etiketler genelikle programcılar tarafında büyük harflerle isimlendirilmektedir.
+
+    goto deyimi döngü oluşturmak için kullanılmamalıdır. Çünkü goto deyimleri programın okunabilirliğini, anlaşılabilirliğini bozabilmektedir.
+    Aşağıdaki örnekte goto deyiminin çalışmasına ilişkin bir örnek veriyoruz. Ancak goro deyimi aşağıdaki örnekte olduğu gibi döngü oluşturmak için
+    kullanılmamalıdır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int i;
+
+    i = 0;
+
+REPEAT:
+printf("%d\n", i);
+++i;
+if (i < 10)
+goto REPEAT;
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+goto deyimi ile başka bir fonksiyona atlanamaz. Aynı fonksiyon içerisinde başka bir yere atlanabilir. Etiketler yalnızca goto işleminde etki gösterir.
+Yoksa programın akışı sırasında etiketle karşılaşılmasının bir etkisi yoktur. Kaldı ki bir etiketin bulunyor olması bir goto bulundurulmasını zorunlu kılmamaktadır.
+Tabii, goto'suz etiketlrin de bir anlamı yoktur. Bir etikete birden fazla yerden goto yapılabilir. Örneğin:
+
+    if (falanca)
+    	goto EXIT;
+    /* ... */
+    if (filanca)
+    	goto EXIT;
+    /* ... */
+    EXIT:
+    	/* .... */
+
+    goto etiketleri "fonksiyon faaliyet alanına (function scope)" ilişkindir. Yani bir fonksiyon içeerisinde aynı isimli tek bir goto etiketi olabilir.
+    goto etiketleri blok faaliyet alanına ilişkin değildir. Örneğin:
+
+    int main(void)
+    {
+    	/* ... */
+    	{
+    		/* ... */
+    	EXIT:
+    		printf("exit\n");
+    	}
+    	/* ... */
+
+    	{
+    		/*  ... */
+    	EXIT:						/* geçersiz! */
+    		printf("exit\n");
+    	}
+    	return 0;
+    }
+
+    Standratlara göre goto etiketinden sonra bir deyim bulunmak zorundadır. Çünkü, aslında bir deyim için goto yapılmaktadır. Örneğin:
+
+    void foo(void)
+    {
+    	/* ... */
+
+    	if (falanca)
+    		goto EXIT;
+
+    	/* ... */
+    EXIT:					/* error, etiketten sonra bir deyim olması gerekir */
+    }
+
+    Bu tür durumlarda boş deyimden faydalanılabilir. Örneğin:
+
+    void foo(void)
+    {
+    	/* ... */
+
+    	if (falanca)
+    		goto EXIT;
+
+    	/* ... */
+    EXIT:					/* geçerli, goto etiketinden sonra bir deyim var */
+    	;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+goto deyimi üç durumda anlamlı ve güzel bir biçimde kullanılabilir:
+
+    1) İç içe döngülerden ya da döngü içerisindeki switch deyiminden tek hamlede çıkmak için
+    2) Ters sırada kaynak boşaltımı yapmak için
+    3) Bazı özel algoritmalarda çözümü kolaylaştırmak için
+
+    Aşağıdaki örnekte goto ile, bir iç döngüden tek hamlede çıkılmıştır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int ch;
+
+    for (int i = 0; i < 10; ++i) {
+    	for (int k = 0; k < 10; ++k) {
+    		printf("(%d,%d)\n", i, k);
+    		printf("press q to exit:");
+    		ch = getchar();
+    		if (ch == 'q')
+    			goto EXIT;
+    		if (ch != '\n')
+    			while (getchar() != '\n')
+    				;
+    	}
+    }
+
+EXIT:
+return 0;
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte goto ile, bir döngü içerisindeki switch deyiminden tek hamlede çıkılmıştır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int get_command(void)
+{
+int ch;
+
+    while ((ch = getchar()) == ' ' || ch == '\t')
+    	;
+
+    if (ch != '\n')
+    	while (getchar() != '\n')
+    		;
+
+    return ch;
+
+}
+
+int main(void)
+{
+int ch;
+
+    for (;;) {
+    	printf("CSD>");
+
+    	ch = get_command();
+    	if (ch == '\n')
+    		continue;
+
+    	switch (ch) {
+    		case 'e':
+    		case 'r':
+    			printf("remove command executes...\n");
+    			break;
+    		case 'c':
+    			printf("copy command executes...\n");
+    			break;
+    		case 'd':
+    			printf("dir command executes...\n");
+    			break;
+    		case 'm':
+    			printf("move command executes...\n");
+    			break;
+    		case 'q':
+    			goto EXIT;
+    		default:
+    			printf("invalid command: %c\n", ch);
+    			break;
+    	}
+    }
+
+EXIT:
+return 0;
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Kaynak tahsisatlarında, ters sırada boşaltım yapmak için goto deyiminden faydalanılmaktadır. Biz kursumuzun bu noktasında henüz bu tür kavramları görmedik.
+Ancak yine de kavramsal bir örnek verebiliriz. alloc_resource isimli bir fonksiyon, bir kaynağı tahsis ediyor olsun. Eğer tahsisat başarısızsa 0 değerine
+geri dönüyor olsun. Biz de bu fonksiyonla, bir dizi kaynağı tahsis etmek isteyelim. Yine, tahsisatı geri bırakan free_Source isimli bir fonksiyonun olduğunu düşünelim.
+Örneğin:
+
+    int foo(void)
+    {
+    	int r1, r2, r3, r4, r5;
+
+    	r1 = alloc_resource();
+    	if (!r1) {
+    		return 0;
+    	}
+    	r2 = alloc_resource();
+    	if (!r2) {
+    		free_resource(r1);
+    		return 0;
+    	}
+    	r3 = alloc_resource();
+    	if (!r3) {
+    		free_resource(r1);
+    		free_resource(r2);
+    		return 0;
+    	}
+    	r4 = alloc_resource();
+    	if (!r4) {
+    		free_resource(r1);
+    		free_resource(r2);
+    		free_resource(r3);
+    		return 0;
+    	}
+    	r5 = alloc_resource();
+    	if (!r5) {
+    		free_resource(r1);
+    		free_resource(r2);
+    		free_resource(r3);
+    		free_resource(r4);
+
+    		return 0;
+    	}
+
+    	/* işlemler yapılıyor  */
+
+    	free_resource(r1);
+    	free_resource(r2);
+    	free_resource(r3);
+    	free_resource(r4);
+    	free_resource(r5);
+
+    	return 1;		/* başarılı */
+
+    }
+
+    Burada kod tekrarı oldukça kötü bir yazım oluşturmaktadır. İşte bu tür durumlarda goto ile ters sırada boşaltım uygulayabiliriz:
+
+    int foo(void)
+    {
+    	int r1, r2, r3, r4, r5;
+
+    	r1 = alloc_resource();
+    	if (!r1)
+    		goro EXIT1;
+
+    	r2 = alloc_resource();
+    	if (!r2)
+    		goto EXIT2;
+
+    	r3 = alloc_resource();
+    	if (!r3)
+    		goto EXIT3;
+
+    	r4 = alloc_resource();
+    	if (!r4)
+    		goto EXIT4;
+
+    	r5 = alloc_resource();
+    	if (!r5)
+    		goto EXIT5;
+
+    	/* işlemler yapılıyor  */
+
+    	return 1;		/* başarılı */
+
+EXIT5:
+free*resource(r4);
+EXIT4:
+free_resource(r3);
+EXIT3:
+free_resource(r2);
+EXIT2:
+free_resource(r1);
+EXIT1:
+return 0; /* başarısız \_/
+
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir iç bloğa goto le atlanırken, o blokta tanımlanan değişkenler çöp değer almış olabilirler. Bu tür durumlara dikkat ediniz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int val;
+
+    printf("Bir sayi giriniz: ");
+    scanf("%d", &val);
+    if (val == 0)
+    	goto INSIDE;
+
+    {
+    	int a;
+
+    	a = 10;
+    INSIDE:
+    	printf("%d\n", a);
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+24.Ders - 23/08/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de bir atama işlemi sırasında atanan değerin türüne "kaynak tür", atanan değere "kaynak değer" ve atamanın yapıldığı nesnenin türüne ise "hedef tür"
+denilmektedir. Atama işlemi sırasında kaynak türle hedef tür farklı türler olabilir. Örneğin kaynak tür double iken hedef tür int olabilir.
+Farkjlı türlerin birbirlerine atanması sırasında kaynak türdeki değer hedef türe dönüştürülür, sonra atama gerçekleştirilir. Örneğin:
+
+    int = double
+
+    gibi bir atama söz konusu olsun. Bu durumda, önce double türü int türüne dönüştürülür, sonra atama gerçekleştirilir. Buna "otomatik tür dönüştürmesi (implicit
+    type conversion)" denilmektedir. Yani bir türden bir türe atamanın olması, o türden o türe otomatik dönüştürmenin olması anlamına gelir.
+    C'de nümerik türler arasında otomatik dönüştürme vardır. Ancak, bu dönüştürmeler sırasında bilgi kaybı söz konusu olabilir. Bu durumda programcının
+    nasıl bir kayıp ile karşı karşıya kalacağını kestirmesi gerekir. Farklı türlerin birbirlerine atanmasında şu kurallar izlenmektedir:
+
+    1) Kaynak türdeki değer hedef türün sınırları içerisinde kalıyorsa, bilgi kaybı söz konusu olmaz. Örneğin, long long int bir değeri int türüne
+    atamak isteyelim: Eğer long long int içerisindeki değer int türünün sınırları içerisinde kalıyorsa bilgi kaybı söz konusu olmaz.
+
+    2) Büyük tamsayı türünden küçük sayı türüne yapılan atamalarda hedef tür işaretsiz bir tamsayı türü ise, kaynak türdeki değerin yüksek anlamlı (most significant)
+    byte'ları kaybedilir, düşük anlamlı (least significant) byte'ları atanır. Ancak hedef tür işaretli bir tamsayı türü ise, bilgi kaybının nasıl
+    olacağı derleyicileri yazanların isteğine bırakılmıştır (implementetion dependent).  Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	int a = 0x12345678;
+    	unsigned short b;
+
+    	b = a;
+
+    	printf("%x\n", b);		/* 5678 */
+
+    	return 0;
+    }
+
+    Bu tür durumlarda sayılar 10'luk sistemdeyse, atama işleminde sanki rastgele bir değer elde ediliyormuş duygusuna kapılınabilir. Ancak, aslında yüksek byte'ler atılıp
+    düşük anlamlı byte'lar atanmaktadır. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	int a = 56732683;		/* 0x0361AC0B */
+    	unsigned short b;
+
+    	b = a;
+
+    	printf("%u\n", b);		/* 0xAC0B = 44043 */
+
+    	return 0;
+    }
+
+    Büyük tamsayı türünden küçük tamsayı türüne atama yapılırken hedef tür olan küçük tamsayı türü işaretli bir tür ise, bu durumda bilgi kaybının nasıl olacağı
+    derleyicileri yazanların istedğine bırkaılmışsa da derleyicilerin hemen hepsi yine sayının yüksek anlamlı byte'larını atmaktadır. Tabii düşük anlamlı byte
+    atandığı zaman sayının işareti de değişebilmektedir. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	int a = 56732683;		/* 0361AC0B */
+    	short b;
+
+    	b = a;
+
+    	printf("%d\n", b);		/* 0xAC0B = -21493 */
+
+    	return 0;
+    }
+
+    3) Kaynak tür işaretli bir tamsayı türü, hedef tür de kaynak türün işaretsiz biçimi ise, bu durumda sayının bit kalıbı değişmez. Yani hedef türdeki
+    değer byte olarak kaynak türe atanır. Başka bir deyişle kaynak türdeki değerin bit karşılığının tamamı hedef türde depolanır. Tabii işaret bitinin
+    anlamı değişecektir. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	unsigned int a = 0xAB8254C2;
+    	int b;
+
+    	b = a;
+
+    	printf("%u\n", b);		/* 0xFFFFFFFF = 4294967295 */
+
+    	return 0;
+    }
+
+    İşaretsiz bir tamsayı türü aynı türün işaretli biçimine atanırsa zaten eğer kaynak değer, hedef türün sınırları içerisinde kalıyorsa 1. Madde uygulanır.
+    Kalmıyorsa bilgi kaybının nasıl olacağı derleyicileri yazanların isteğine bırakılmıştır. Fakat derleyicilerin hemen hepsi yine sayının bit kalıbını değiştirmeden
+    hedef türe atamaktadır.
+
+    4) Küçük işaretli tamsayı türünden büyük işaretsiz tamsayı türüne atama yapılırken eğer küçük işaretli tamsayı türü pozitifse, zaten bilgi kaybı söz konusu olmaz.
+    Ancak negatifse bu durumda dönüştürme iki aşamada yapılmaktadır: Önce küçük işaretli türdeki değer büyük türün işaretli biçimine dönüştürülür, sonra
+    büyük türün işaretli biçiminden büyük türün işaretsiz biçimine dönüştürme yapılır. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	signed char a = -1;
+    	unsigned int b;
+
+    	b = a;					/* önce signed char, signed int türüne sonra da unsigned int türüne dönüştürülür */
+
+    	printf("%u\n", b);		/* 4294967295 */
+
+    	return 0;
+    }
+
+    5) Gerçek sayı türlerinden tamsayı türlerine yapılan atamalarda eğer gerçek sayı türü içerisindeki değer tamsayı türü ile ifade edilebiliyorsa,
+    zaten 1. Madde uygulanır, bilgi kaybı söz konusu olmaz. Ancak kaynak türdeki gerçek sayı değeri noktalı bir sayı ise, bu durumda sayının noktadan sonraki
+    kısmı tamamen atılır, tam kısmı atanır (truncation toward zero). Eğer sayının noktadan sonraki kısmı atıldıktan sonra tam kısmı hedef türün sınırları
+    içerisine sığmıyorsa bu durum "tanımsız davranışa (undefined behavior)" yol açmaktadır. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	double a = -12.99;
+    	int b;
+
+    	b = a;					/* -12 */
+    	printf("%d\n", b);
+
+    	return 0;
+    }
+
+    6) Tamsayı türlerinen gerçek sayı türlerine atama yapılırken eğer basamaksal değil de mantissel bir kayıp oluşursa, kaynak değere en yakın ondan büyük değer
+    ya da kaynak değere en yakın ondan küçük değer elde edilir. Eğer basamaksal bir kayıp oluşursa, bu durum tanımsız davranışa yol açar. Örneğin
+    int ve float türlerinin her ikisinin de 4 byte olduğu sistemlerde (UNIX/Linux ve Windows sistemleri böyledir) int türündeki her değer float türü
+    ile ifade edilemez. Ancak ona yaklaşık bir değer elde edilebilmektedir. Basamaksal kayıp, kaynak türün basamak sayısını ifade edemeyen bir kayıptır. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	unsigned int a = 1234567890;
+    	float b;
+
+    	b = a;
+    	printf("%f\n", b);		/* 1234567936.000000 */
+
+    	return 0;
+    }
+
+    7)Küçük gerçek sayı türünden büyük gerçek sayı türüne yapılan atamalarda bilgi kaybı söz konusu olmaz. Yani 1. Madde uygulanır. Ancak büyük gerçek sayı türünden
+    küçük gerçek sayı türüne yapılan atamalarda bilgi kaybı söz konusu olabilir. Eğer kayıp basamaksal değilse, mantis kaybı söz konusu ile kaynak türe en yakın ve
+    ondan küçük ya da kaynak türe en yakın ve ondan büyük sayı elde edilir. Basamaksal kayıp söz konusu olursa bu durum "tanımsız davranışa" yol açacaktır. Örneğin:
+
+    double a = 1e200;
+    float b;
+
+    b = a;						/* undefined behavior */
+
+    Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	double a = 1.234567890123;
+    	float b;
+
+    	b = a;
+    	printf("%.10f\n", b);	/* 1.2345678806 */
+
+    	return 0;
+    }
+
+    8) Herhangi bir türden _Bool türüne atama yapıldığında eğer atanan değer 0 ise, 0 değeri atanır, sıfır dışı bir değer ise 1 değeri atanır. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	int a = -123;
+    	_Bool b;
+
+    	b = a;
+    	printf("%d\n", b);		/* 1 */
+
+    	return 0;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+İki operandlı bir operatör işleme sokulduğunda eğer operandlar aynı türden ise, işlemin sonucu da bu türdne elde edilir. Ancak operand'lar farklı
+türlerden ise, önce operand'lar aynı türe dönüştürülür, sonra işlem yapılır. İşlemin sonucu da dönüştürmenin yapıldığı ortak tür türünden olur.
+C'de yalnızca değişkenlerin ve sabitlerin değil, aslında her ifadenin bir türü vardır.
+
+    İşlem öncesi tür dönüştürmesi derleyici tarafından otomatik bir biçimde yapılmaktadır. Dönüştürmenin özet ancak üstünkörü kuralı:
+    "küçük türün büyük türe dönüştürülmesi sonucun büyük tür türünden elde edilmesidir". Örneğin int ile long işleme sokulursa, int önce long'a
+    dnüştürülür sonuç long türünden çıkar. Burada dönüştürme geçici nesne yoluyla yapılmaktadır. Örneğin, a int türünden, b long türünden olsun. c'nin de
+    long türünden olduğunu düşünelim:
+
+    c = a + b;
+
+    Burada dönüştürme geçici nesne yoluyla yapılmaktadır. Yani derleyici önce, long türünden geçici bir nesneyi kendisi yaratır. Sonra, a'yı bu nesneye
+    atar. Sonra, iki long değeri toplar. Sonra, geçici nesneyi yok eder ve sonucu c'ye atar.
+
+    temp = a;
+    c = temp + b;
+    temp yok ediliyor
+
+    Uygulamada derleyiciler bu tür dönüştürmesini CPU yazmaçları içerisinde çok hızlı bir biçimde yaparlar. İşlem öncesi otomatik tür dönüştürmesinin
+    ayrıntalı şöyledir:
+
+    1) Tamsayı türü ile gerçek sayı türü işleme sokulduğunda, dönüştürme her zaman gerçek sayı türüne doğru yapılır. Örneğin, long long ile float işleme
+    sokulacak olsa, long long türü float türüne dönüştürülür ve sonuç float türünden çıkar.
+
+    2) Küçük sayı türü ile büyük tamsayı türü işleme sokulduğunda, küçük tamsyı türü büyük tamsayı türüne dönüştürülür. Örneğin, int ile long işleme sokulduğunda,
+    int türü long türüne dönüştürülür ve sonuç long türünden çıkar. Ancak, küçük işaretsiz tamsayı türü ile büyük işaretli tamsayı türü işleme sokulurken eğer
+    küçük tamsayı türü ile büyük tamsayı türü aynı uzunluktaysa, dönüştürme büyük türün işaretsiz biçimine doğru yapılır. Örneğin, int ile long türlerinin aynı
+    uzunlukta olduğunu varsayalım. Biz unsigned int ile long türünü işleme sokarsak unsigned int türü ve long türü, unsigned long türüne dönüştürülür ve sonuç
+    unsigned long türünden çıkar.
+
+    3) Aynı tamsayı türünün işaretli ve işaretsiz biçimleri işleme sokulursa, işaretli tamsayı türü işaretsize dönüştürülür, sonuç işaretsiz türden çıkar.
+    Örneğin, int ile unsigned int işleme sokulursa int türü unsigned int türüne dönüştürülür ve sonuç unsigned int türünden çıkar. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	unsigned int a = 1;
+    	signed char b = -1;
+    	unsigned int c;
+
+    	c = a * b;
+    	printf("%u\n", c);		/* 4294967295 */
+
+    	return 0;
+    }
+
+    4) İki gerçek sayı türü kendi aralarında işleme sokulursa, küçük gerçek sayı türü büyük gerçek sayı türüne dönüştürülür, sonuç büyük gerçek sayı türünden çıkar.
+    Örneğin, float ile double işleme sokulursa sonuç double türünden çıkar.
+
+    5) C'de tamsayı işlemleri en az int duyarlılığında yapılmaktadır. int türünden küçük olan türler kendi aralarında işleme sokulursa, önce her iki tür de
+    int türüne dönüştürülür ve sonuç int türünden çıkar. Bu işleme "int türüne yükseltme (integer promotion)" denilmektedir. Örneğin, short ile short işleme sokulursa
+    sonuç short çıkmaz. Önce, her iki operand da bağımısz olarak int türüne dönüştürülür ve sonuç int türünden çıkar. Benzer biçimde örneğin, short türü ile
+    char türü işleme sokulursa önce, her iki tür de bağımsız olarak int türüne dönüştürülür ve sonuç int türünden çıkar. int türüne yükseltme kuralının şöyle bir ayrıntısı
+    vardır: Eğer ilgili sistemde short türü ile int türü aynı uzunluktaysa, bu durumda operandlardan biri unsigned short ve diğeri int ya da int türünden küçük ise, dönüştürme
+    unsigned int türüne yapılmaktadır. Örneğin, short tütü ile int türünün aynı olduğu DOS sisteminde çalışıyor olalım. Burada biz short ile unsigned short türünü
+    işleme soksak sonuç unsigned int türünden çıkar. Benzer biçimde unsigned short ile int türünü işleme soksak sonuç yine unsigned int türünden çıkar.
+
+    6) Bölme işleminde her iki operand da tamsayı türlerine ilişkinse, sonuç tamsayı türüne ilişkin çıkar. Bölüm noktalı olsa bile noktadan sonraki kısım atılmaktadır.
+    Örneğin:
+
+    a = 10 / 4;
+
+    Burada 10 ve 4 int türdendir. Bu durumda a'ya 2 değeri atanır. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)ß
+    {
+    	int a = 10;
+    	int b = 4;
+    	double c;
+
+    	c = a / b;
+    	printf("%f\n", c);		/* 2.000000 */
+
+    	return 0;
+    }
+
+    Burada sonucun double çıkmasını istiyorsak operandlardan en az birinin double yapmamız gerekir. Örneğin:
+
+    a = 10.0 / 4;
+
+    Burada artık sonuç double türünden çıkacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte sayı, tersten basamaklarına ayrılmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a = 12345;
+int digit;
+
+    while (a) {
+    	digit = a % 10;
+    	printf("%d\n", digit);
+    	a /= 10;
+    }
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------/
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 25. Ders - 01/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir işlemde operandlar aynı türden veya farklı türlenden, ancak işlem öncesi otomatik tür dönüştürmesi uygulanmış ve elde edilen değer, söz konusu
+ortak türün sınırları içerisine girmiyorsa bu duruma "taşma (overflow)" denilmektedir. C'de işaretli tamsayı türleri üzerinde taşma oluşursa bu durum
+"tanımsız davranışa"" yol açmaktadır. Ancak işaretsiz tamsayı türleri üzerinde taşma olursa, her zaman taşan yüksek anlamlı byte'lar atılmaktadır. Örneğin:
+
+    int a, b, c;
+    ...
+    c = a + b;
+
+    Burada a ve b int türden olsun. a + b işleminin sonucu da int türden olacaktır. Ancak a + b int türün sınırları içerisinde kalmıyorsa bu durum tanımsız
+    davranışa yol açar. Örneğin:
+
+    unsigned int a, b, c;
+    ...
+    c = a + b;
+
+    Burada a + b işleminin sonucu unsigned int türden olacaktır. Ancak sonuç unsigned int türünün sınırları dışında ise bu durum tanımsız davranış değildir.
+    Yüksek anlamlı byte'lar her zaman atılır. Tabii taşma, bazı tek operandlı operatörlerde de ortaya çıkabilir. Örneğin:
+
+    int a, b;
+
+    a = -2147483648;
+    b = -a;				/* tanımsız davranış */
+
+
+    Burada -a işleminin sonucu da int türdendir. Ancak, bu işlemin sonucunda elde edilen değer int türünün sınırları içerisinde değildir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+İşaretsiz bir tamsayı türüne, işaret eksi operatörü uygulanırsa, tür int türünden küçükse önce int türüne yükseltme kuralı uygulanır. Sonra, eğer sayı işaretsiz
+ise önce onun negatifi elde edilir. Elde edilen negatif değer işaretsiz türe dönüştürülür. Örneğin:
+
+    usnigned a = 1, b;
+
+    b = -a;
+
+    Burada -a işleminin sonucu unsigned int türden olacaktır. -a işleminde önce -1 elde edilir. Ancak sonuç unsigned int türünden olacağı için unsigned int türüne
+    dönüştürülür. Böylece işlemden en büyük unsigned int değer elde edilir. Başka bir deyişle burada 1 değerine ikiye tümleme işlemi uygulanır ve elde edilen değer
+    unsigned int biçiminde ele alınır.  Ya da örneğin -a gibi bir değer -1 * a olarak düşünülebilir. Bu duurmda a, unsigned int türden ise, -1 de unsigned
+    int türüne dönüştürülür. Buradan en büyük pozitif değer elde edilir. Bu değer a ile çarpılıp yüksek anlamlı byte'lar atılırsa, aslında az önce ifade
+    edilen durumla aynı durum oluşmuş olur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+unsigned a = 1, b;
+
+    b = -a;
+    printf("%u\n", b);			/* 4294967295 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de geleneksel olarak bir fonksiyonun parametresi int türünden küçük bir türdense, parametre o türden değil, int türünden ifade edilir. Aynı durum, geri
+dönüş değeri için de uygulanmaktadır. Bu bir zorunluluk değildir. Ancak, gelenektir. Örneğin, foo fonksiyonun parametresinin short bir değer aldığını varsayalım.
+Programcı parametreyi short yapmaz, int yapar. Benzer biçimde putchar fonksiyonu bir karakterini ekrana (stdout dosyasına) yazdırmaktadır. Parametre char
+yerine int alınır. Aynı durum geri dönüş değerleri için de benzer biçimde uygulanmaktadır. Bu nedenle C programlarında, genel olarak, fonksiyonlardın parametrelerinde
+ve geri dönüş değerlerinde char gibi short türler, geleneksel olarak kullanılmaz. Onların yerine int türü kullanılır.
+
+    Pekiyi neden fonksiyonların parametrelerinde ve geri dönüş değerlerinde int türünden küçük türler programcılar tarafından tercih edilmemektedir?
+    Yani, bu geleneğin anlamı nedir? İşte bunun iki nedeni vardır:
+
+    1) C'de  tamsayı işlemler zaten her zaman "int türüne yükseltme kuralı" gereği en az int duyarlılığında yapılmaktadır. Bu durumda bir değişkenin int türünden
+    küçük olmasının çoğu kez bir anlamı yoktur. Aynı zamanda parametre aktarımı ve geri dönüş değerinin oluşturulması da zaten işlemciler tarafından en az
+    int duyarlılıkta yapılmaktadır. Yani, parametrelerin ve geri dönüş değerlerinin int türden olması daha doğal bir gösterim sunmaktadır.
+
+    2) Eskiden fonksiyon prototiplerinin olmadığı zamanlarda zaten "default argument conversion" kuralı gereğince, int türünden küçük olan türler, int türüne
+    yükseltilerek fonksiyona aktarılıyordu. Dolayısıyla bu gelenek, zaten eski zamanlardan beri bu gerekçeyle uygulanıyordu.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C standartlarına göre derleyiciler, bir kodu, kodun etkisi aynı kalacak biçimde ancak daha hızlı çalışacak ya da daha az yer kaplayacak biçimde optimize edebilir.
+Burada önemli olan programcının varsaydığı ya da oluşturmak istediği, her şeyin, optimize edilmiş kodda oluşturulmuş olmasıdır. Örneğin:
+
+    x = a + b + c + 1;
+    y = a + b + c + 2;
+    z = a + b + c + 3;
+
+    Biz bu kodu böyle yazmış olsak da, örneğin derleyici kodu, daha az işlem yapılacak şekilde, şöyle düzenleyebilir:
+
+    temp = a + b + c;
+    x = temp + 1;
+    y = temp + 2;
+    z = temp + 3;
+
+    Biz, derleyicinin kodu böyle düzenlediğini bilmek zorunda değiliz. Ne de olsa bizim niyetlediğimiz her şeyi, derleyicinin optimize ettiği kod da yapmaktadır. Örneğin:
+
+    for (int i = 0; i < 10; ++i)  {
+    	printf("%d\n", i);
+    	x = 100;
+    }
+    printf("%d\n", x);
+
+    Burada x'in döngü içerisinde durmasının, programı yavaşlatmak dışında hiçbir anlamı yoktur. Derleyici kodu şöyle optimize edebilir:
+
+    for (int i = 0; i < 10; ++i)  {
+    	printf("%d\n", i);
+    }
+    x = 100;
+    printf("%d\n", x);
+
+    Örneğin:
+
+    for (int i = 0; i < 1000000; ++i)
+    	ifade;
+
+    Derleyici, bu kodu isterse, aşağıdaki gibi düzenleyebilir ve biz bunu programın çalışması sırasında anlayamayız:
+
+    for (int i = 0;  < 1000000; i += 5) {
+    	ifade;
+    	ifade;
+    	ifade;
+    	ifade;
+    }
+
+    Örneğin:
+
+    int foo(void)
+    {
+    	return 100;
+    }
+    ...
+    x = foo();
+
+    Burada derleyici, aslında bu fonksiyonu hiç çağırmadan aşağıdaki gibi de kod üretebilir:
+
+    x = 100;
+
+    Ancak fonksiyon şöyle olsaydı:
+
+    int foo(void)
+    {
+    	printf("foo\n");
+
+    	return 100;
+    }
+    ...
+    x = foo();
+
+    Artık bu optimizasyonu yukarıdaki gibi yapamayacaktı.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de ismi isxxx başlayan, ismine "karakter test fonksiyonları" denilen bir grup standart C fonksiyonu vardır. Bu fonksiyonların parametreleri int türden
+ve geri dönüş değerleri de int türdendir. Bu fonksiyonların parametreleri her ne kadar int türdense de, aslında bu fonksiyonlar char bir değeri, parametre
+olarak alırlar. Bu fonksiyonlar, parametreleriyle aldıkları karakteri test ederler. Eğer test olumlu ise sıfır dışı herhangi bir değere, olumsuz ise sıfır değerine
+geri dönerler. Bunların listesi şöyledir:
+
+    isupper			Büyük harf bir karakter mi?
+    islower			Küçük harf bir karakter mi?
+    isalpha			Alfabetik karakter mi?
+    isalnum			Alfabetik ya da nümerik bir karakter mi?
+    isdigit			Sayısal bir karakter mi?
+    isxdigit		HEx digit bir karakter mi?
+    isspace			Boşluk karakterlerinden biri mi?
+    ispunct			Noktalama karakterlerinden biri mi?
+    isascii			İlk 128 karakterden biri mi?
+    iscntrl			Kontrol karakterlerinden biri mi? (ASCII tablosunun ilk 32 karakteri kontrol karakterleridir)
+
+    Bu fonksiyonlar kullanılırken <ctype.h> dosyası include edilmelidir. Karakter test fonksiyonları yalnızca ACII tablosundaki karakterler için çalışmaktadır.
+    Biz bu fonksiyonlarla öğrneğin Türkçe karakterleri test edemeyiz.
+
+    Karakter test fonksiyonlarının parametreleri, unsigned char ürüyle temsil edilebilmelidir. Yani, örneğin biz bu fonksiyonlara [0, 255] aralığının dışında herhangi bir değer
+    girersek bu fonksiyonlar tanımsız davranışa yol açarlar. Bu fonksiyonlar, UTF-8 gibi multibyte karakterler için kullanılamazlar. Ancak bir byte'lık encodinglerde lokal spsifik
+    davranılş gösterebilirler.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+int ch;
+
+    printf("Bir karakter giriniz:");
+    ch = getchar();
+
+    if (isupper(ch))
+    	printf("upper case\n");
+    else if (islower(ch))
+    	printf("lower case\n");
+    else if (isdigit(ch))
+    	printf("digit\n");
+    else if (isspace(ch))
+    	printf("white space char\n");
+    else
+    	printf("another character\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+İki önemli karakter fonksiyonu da toupper ve tolower fonksiyonlarıdır. toupper fonksiyonu; küçük bir karakteri büyük harfe, tolower fonksiyonu da;
+büyük harf bir karakteri küçük harfe dönüştürür. toupper eğer parametresi küçük bir karakter değilse aynı karakterle geri dönmektedir.
+Benzer biçimde tolower fonksiyonu da eğer parametresi büyük bir harf bir karakter, değilse aynı değerle geri döner. Fonksiyonların parametrik yapıları şöyledir:
+
+    int toupper(int ch);
+    int tolower(int ch);
+
+    Her ne kadar bu fonksiyonların parametreleri ve geri dönüş değerleri int türdense de aslında char türden bir bilgiyi kabul etmektedir.
+    Bu fonksiyonların geri döndürdüğü int değerlerin yüksek anlamlı byte'ları her zaman 0'dır. Düşük anlamlı byte'lar için de dönüştürülmüş karakterin numarası vardır.
+    Dolayısıyla biz bu fonksiyonların geri dönüş değerlerini, char türünden bir nesneye atayabiliriz.
+
+    Bu fonksiyonların parametreleri de unsigned char sınırları içerisinde [0, 255] arasında değerler girilebilir.
+
+    Bu fonksiyonları kullanırken de <ctype.h> dosyasının include edilmesi gerekir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+int ch;
+
+    printf("Bir karakter giriniz:");
+    ch = getchar();
+
+    ch = toupper(ch);
+    putchar(ch);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte "case insensitive" karakter karşılaştırması örneği verilmiştir. Biz bir karakter toupper ya da tolower fonksiyonuna sokup bunun sonucunu
+karşılaştırırsak "case insensitive" karşılaştırma yapmış oluruz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+int ch;
+
+    printf("(e)vet/(h)ayir?\n");
+    ch = getchar();
+    ch = tolower(ch);
+
+    if (ch == 'e')
+    	printf("evet\n");
+    else if (ch == 'h')
+    	printf("hayir\n");
+    else
+    	printf("e ya da h girilmedi!\n");
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+toupper fonksiyonunu, basit bir biçimde aşağıdaki yazabiliriz. Tabii, bu yazımda küçük harf ve büyük harflerin karakter tablosunda peşi sıra gittiği
+varsayılmaktadır. ASCII tablosunda bunlar, gerçekten peşi sıra girmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int mytoupper(int ch)
+{
+if (ch >= 'a' && ch <= 'z')
+return ch - 'a' + 'A';
+
+    return ch;
+
+}
+
+int main(void)
+{
+char ch;
+
+    ch = getchar();
+    ch = mytoupper(ch);
+
+    putchar(ch);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 26. Ders - 06/09/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de derleme işlemi kaynak dosyada yukarıdan aşağıya doğru yapılmaktadır. Bir fonksiyonun çağrıldığını gören derleyicinin, fonksiyonun çağrılma noktasına kadar,
+bu fonksiyonun geri dönüş değerinin türü hakkındaki bir bilgiyi edinmesi gereklidir. Çünkü, çağrılma noktasında doğru kodu üretebilmek için, derleyicinin, çağrılan fonksiyonun
+en azından geri dönüş değerinin türünü biliyor olması gerekmektedir. C90'da fonksiyonun çağrılma noktasına kadar fonksiyonun geri dönüş değerinin türü hakkında
+derleyici bir bilgi edinememişse fonksiyonun int türden geri dönüş değerine sahip olduğunu ancak herhangi bir parametrik yapıya sahip olabileceğini varsayarak kod üretmektedir.
+Bu durumda eğer derleyici, fonksiyonun çağrılma noktasının aşağısında, int geri dönüş değerinin dışında bir geri dönüş değeriyle tanımlnadığını görürse, bu durum geçersizdir
+ve error oluşturmaktadır. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	foo();
+
+    	return 0;
+    }
+
+    int foo(void)
+    {
+    	return 100;
+    }
+
+    Bu kod C90'a göre geçerlidir. Çünkü yukarıdan aşağıya doğru derleyici, fonksiyonun çağrılma noktasına kadar, fonksiyonun geri dönüş değerinin türünü anlayamadıysa
+    fonksiyonun int geri dönüş değerine sahip olduğu varsayımıyla kod üretir. Daha sonra fonksiyonun gerçekten de int geri dönüş değerine sahip olarak tanımlandığını görürse
+    kendi varsaydığı durumla gerçekleşen durum aynı olduğu için bu durumda herhangi bir sorun ortaya çıkmaz. Ancak eğer fonksiyonun daha aşağıda
+    int geri dönüş değeri dışında herhangi bir geri dönüş değerine sahip olarak tanmlandığını görürse, bu durumda yanlış ürettiği için derleme işlemi
+    başarısız olacaktır. Derleyici, bu tür durumlarda geri dönüp ürettiği kodu düzeltmemektedir. Örneğin:
+
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	foo();
+
+    	return 0;
+    }
+
+    double foo(void)				/* error! */
+    {
+    	return 3.14
+    }
+
+    C90'da çağrılma noktasına kadar fonksiyonun geri dönüş değerinin türüne ilişkin derleyici bilgi edinememişse onun int geri dönüş değerine sahip
+    ancak herhangi bir parametrik yapıya ilişkin olabileceği varsayımıyla kod üretmektedir. Yani C90'da da fonksiyon daha aşağıda int geri dönüş değerine sahip
+    ancak farklı bir parametrik yapıyla tanımlanmışsa bu durum yine geçerlidir. Örneğin:
+
+    int main(void)
+    {
+    	foo();
+
+    	return 0;
+    }
+
+    int foo(int a, int b)			/* C90'da geçerli */
+    {
+    	return a + b;
+    }
+
+    Ancak C++'ta ve C99 ve ötesinde yukarıda açıklanan kural değiştirilmiştir. C99 ve ötesinde artık bir fonksiyon çağrılmışsa, derleyicinin mutlaka çağrılma noktasına kadar
+    fonksiyonun en azından geri dönüş değerinin türü hakkında bir bilgiyi edinmiş olması gerekmektedir. Dolayısıyla aşağıdaki örnek C90'da geçerli olduğu halde
+    C99 ve ötesinde (ve C++'ta) geçersizdir:
+
+    int main(void)
+    {
+    	foo();						/* C99 ve ötesinde geçersiz! Ancak C90'da geçerli */
+
+    	return 0;
+    }
+
+    int foo(void)
+    {
+    	return 100
+    }
+
+    İşte derleyicinin, çağrılan fonksiyonun çağrılma noktasına kadar en azından geri dönüş değerinin türü hakkında bir bilgi edinebilmesinin iki
+    yoldu vardır:
+
+    1) Çağrılan fonksiyonu, çağıran fonksiyonun daha yukarısında tanımlamak,
+    2) Çağrılan fonksiyonun, "prototip" denilenm bir bildirimini çağrılma noktasından yukarıda bir yere yerleştirmek. Örneğin:
+
+    double foo(void)
+    {
+    	return 3.14;
+    }
+
+    int main(void)
+    {
+    	double result;
+
+    	result = foo();
+    	printf("%f\n", result);
+
+    	return 0;
+    }
+
+    Burada çağrılan fonksiyon, çağıran fonksiyonun yukarısında tanımlandığı için herhangi bir sorun yoktur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Fonksiyon protoipleri bir "tanımalama (definition)" işlemi değildir. Yani derleyici, prototip bildirimini gördüğünde bellekte bir yer ayırmaz.
+Yalnızca o fonksiyonun geri dönüş değeri ve parametrik yapısı hakkında bilgi edinir. Prototip bildiriminin genel biçimi şöyledir:
+
+    <fonksiyonun geri dönüş değerinin türü> <fonksiyonun_ismi>([parametre bildirimi]);
+
+    Örneğin:
+
+    double foo(void);			/* Fonksiyon prototip bildirimi */
+
+    int main(void)
+    {
+    	double result;
+
+    	result = foo();
+    	printf("%f\n", result);
+
+    	return 0;
+    }
+
+    double foo(void)
+    {
+    	return 3.14;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Prototip bildirimi oluşturmanın en pratik yolu, fonksiyon tanımlamasının ilk satırını alıp sonuna ';' atomunu yerleştirmektedir. Örneğin:
+
+    double div(double a, double b)
+    {
+    	return a / b;
+    }
+
+    Burada bu fonksiyonun ilk satırı alınıp sonuna ';' konulursa zaten prototip haline gelir.
+
+    double div(double a, double b);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+double div(double a, double b);
+
+int main(void)
+{
+double result;
+
+    result = div(3, 2);
+    printf("%f\n", result);
+
+    return 0;
+
+}
+
+double div(double a, double b)
+{
+return a / b;
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Prototipteki parametre değişkeni isimleriyle tanımlamadaki parametre değişkenlerinin isimlerinin uyuşması bir zorunluluk değildir. Örneğin:
+
+    double div(double x, double y);
+
+    /* .... */
+
+    double div(double a, double b)			/* geçerli */
+    {
+    	return a / b;
+    }
+
+    Prototipte yalnızca parametre değişkenlerinin türleri belirtilebilir, isimleri belirtilmeyebilir. Örneğin:
+
+    double div(double, double);				/* geçerli */
+
+    Prototipte belirtilen geri dönüş değeri türü ve parametre türlerinin, eğer tanımlama yapılmışsa, tanımlamadkiyle uyuşması zorunludur. Aksi takdirde
+    kod geçersizdir. Örneğin:
+
+    double div(double a, double b);
+
+    /* .... */
+
+    double div(float a, float b)			/* geçersiz! */
+    {
+    	return a / b;
+    }
+
+    Bir fonksiyon ikinci kez tanımlanamaz ancak bir fonksiyonun prototipi birden fazla kez bildirilirse bir sorun oluşturmaz. Tabii bu durumda tüm prototip
+    bildirimlerindeki geri dönüş değeri türü ve parametre türlerinin aynı olması gerekir. Örneğin:
+
+
+    double div(double x, double y);
+    double div(double x, double y);			/* geçerli, aynı olmak koşuluyla bir prototip bildirimi birden fazla kez yazılabilir */
+
+    /* .... */
+
+    double div(double a, double b)			/* geçerli */
+    {
+    	return a / b;
+    }
+
+    C90'da prototip bildiriminde, her ne kadar anlamsız olsa da geri dönüş değerinin türü yazılmayabiliyordu. Bu durumda geri dönüş değerinin türü için
+    int yazılmış olduğu varsayılıyordu. Ancak bu kural C99 ile birlikte kaldırılmıştır. Artık prototipte geri dönüş değerinin türü yazılmak zorundadır. Örneğin:
+
+    foo(void);								/* Bu prototip C90'da geçerli ancak C99 ve sonrasında geçersiz! */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'nin tüm versiyonlarında prototipte, parametre parantezinin içinin boş bırakılmasıyla void yazılması farklı anlamlara gelmektedir. Parametre
+parantezinin içi boş bırakılırsa, bu durum "derleyicinin çağrılma sırasında parametreleri sayıca kontrol etmeyeceği" anlamına gelmektedir. Oysa parametre
+parantezinin içine void yazılması, fonksiyonun parametreye sahip olmadığı anlamına gelir. Örneğin:
+
+    #include <stdio.h>
+
+    void foo();             				/* Bu prototip parametrelerin herhangi bir biçimde olabileceği anlamına gelmektedir */
+
+    int main(void)
+    {
+
+    	foo(10, 20);        				/* geçerli, parametreler sayıca kontrol edilmiyor */
+
+
+    	return 0;
+    }
+
+    void foo(double a, double b)
+    {
+    	printf("foo\n");
+    }
+
+    Ancak örneğin:
+
+    #include <stdio.h>
+
+    void foo(void);             			/* bu prototip fonksiyonun parametreye sahip olmadığı anlamına gelmektedir */
+
+    int main(void)
+    {
+
+    	foo(10, 20);        				/* geçersiz! Fonksiyon parametreye sahip değil */
+
+    	return 0;
+    }
+
+    void foo(void)
+    {
+    	printf("foo\n");
+    }
+
+    Tabii eğer parametre parantezinin içinin boş bırakıldığı bir prototipten sonra artık derleyici parametre parantezinin içinin boş bırakılmaıdğı bir prototoip
+    ile ya da fonksiyonun tanımlamasıyla karşılaşırsa, bu durumda artık parametre kontrolü yapılır. Örneğin:
+
+    #include <stdio.h>
+
+    void foo();                 			/* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
+
+    void foo(int a, int b)					/* artın bu tanımlamayla fonksiyonun parametreleri çağrım sırasında derleyici tarafından kontrol edilecektir */
+    {
+    	printf("foo\n");
+    }
+
+    int main(void)
+    {
+
+    	foo(10, 20, 30);        			/* geçersiz! */
+
+    	return 0;
+    }
+
+    Aşağıdaki iki prototip birlikte bulunabilir:
+
+    void foo();                 			/* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
+    void foo(int a, int b);					/* artık derleyici parametre kontrolü yapacaktır */
+
+
+    Tabii parametre parantezinin içi boş bırakıldığında fonksiyon yine uygun olmayan sayıda argümanla çağrılırsa bu durum "tanımsız davranışa" yol açar.
+    Örneğin:
+
+    #include <stdio.h>
+
+    void foo();                 			/* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
+
+    int main(void)
+    {
+
+    	foo(10, 20, 30);        			/* geçerli! derleme başarıyla sonuçlanır, ancak tanımsız davranış oluşur */
+
+    	return 0;
+    }
+
+    void foo(int a, int b)
+    {
+    	printf("foo\n");
+    }
+
+    Peki, prototipte parametre parantezinin içinin boş bırakılabilmesi gibi bir kuralın anlamı nedir? İşte eskiden (80'lerin ilk yarısına kadar) C'de prototip
+    diye bir kavram yoktu. Yalnızca "fonksiyon bildirimi (function declarations)" denilen bir kavram vardı. Fonksiyon bildiriminde de parametre
+    parantezinin içi boş bırakılyordu. Derleyici de o zamanlar fonksiyon bildirimini gördüğünde parametre kontrolü yapmıyordu. Daha sonra C'ye fonksiyon
+    prototipleri eklenince eskiye doğru uyumu korumak için prototiplerde parametre parantezinin içinin boş bırakılabilmesi geçerli kabul edildi.
+    Yani prototiplerde parametre parantezinin içinin boş bırakılabilmesi tamamen eskiye doğru uyumu korumak için düşünülmüştür. Tabii programcı prototip
+    yazarken parametre türlerini belirtmelidir.
+
+    C++, C'nin geçmişe doğru uyumu koruma gibi bir çabasına ortak olmamıştır. Dolayısıyla, örneğin C++'ta prototiplerde parametre parantezinin içinin
+    boş bırakılmasıyla void yazılması arasında hiçbir farklılık yoktur. Her iki durum da "fonksiyonun parametreye sahip olmadığı" anlamına gelmektedir. Örneğin:
+
+    void foo();
+    void foo(void);							// C++'ta ikisi arasında hiçbir farklılık yok
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de, parametre parantezinin içinin boş bırakılmasıyla, void yazılması arasında farklılık olduğunu belirtmiştik. Ancak fonksiyon tanımlaması söz konusu
+olduğunda parametre parantezinin içinin boş bırakılmasıyla, void yazılması arasında hiçbir farkılık yoktur. Her iki durum da "fonksiyonun" parametreye
+sahip olmadığı anlamına gelir. Örneğin:
+
+    #include <stdio.h>
+
+    void foo()      						/* tanımlamada parametre parantezinin içinin boş bırakılmasıyla void yazılması arasında farklılık yok */
+    {
+    	printf("foo\n");
+    }
+
+    int main(void)
+    {
+
+    	foo(10);       						 /* geçersiz! foo'nun parametresi yok! */
+
+    	return 0;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir fonksiyonun prototipinin yazılmış olması onu çağırmayı zorunlu hale getirmez. Yani biz onlarca fonksiyonun prototipini yazıp onları hiç çağırmayabiliriz.
+Bu durum tamamen geçerlidir. Fonksiyon prototipleri bir tanımlama olmadığından bellekte yer kaplamazlar. Yalnızca derleyici tarafından kod derlenirken bunlardan
+faydalanılmaktadır. Tabii çok sayıda fonksiyon için prototip yazıldığında derleyici bunların hepsini gözden geçireceği için mikro mertebede de olsa derleme süresi uzayabilir.
+Ancak program çalışırken bu protiplerin bellek üzerinde ya da performans üzerinde hiçbir etkisi yoktur.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Fonksiyon prototipleri global düzeyde ya da yerel düzeyde bildirilebilir. Eğer prototip global alana yerleştirilirse bu durumda yerleştirildiği
+yerden dosyanın sonunaa kadar her yerde etikili olur. Eğer prototip bir yerel bloğa yerleştirilmişse yerleştirildiği yerde o bloğun sonuna
+kadarki bölgede etkili olur. Hemen her zaman programcılar prototipleri global düzeyde, programın tepesinde ya da bir başlık dosyasının içerisinde
+bildirirler. Örneğin
+
+    #include <stdio.h>
+
+    void foo(void);
+
+    int main(void)
+    {
+    	void bar(void);
+
+    	foo();        							/* geçerli, prototip bildirimi görülmüş durumda */
+    	bar();		  							/* geçerli, prototip bildirimi görülmüş durumda */
+
+    	return 0;
+    }
+
+    void tar()
+    {
+    	foo();									/* geçerli prototip bildirimi görülmüş durumda */
+    	bar();									/* geçersiz! prototip bildirimi derleyici tarafından görülmüyor */
+    }
+
+    void foo(void)      						/* tanımlamada parametre parantezinin içinin boş bırakılmasıyla void yazılması arasında farklılık yok */
+    {
+    	printf("foo\n");
+    }
+
+    void bar(void)
+    {
+    	printf("bar\n");
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Derleyici, standart C fonksiyonlarının farkında değildir. Yani derleyici bizim foo fonksiyonumuz için ne yapıyorsa printf, sqrt gibi standart C
+fonksiyonları için de aynı şeyi yapar. Başka bir deyişle, örneğin derleyici printf fonksiyonunu gördüğünde ona hiçbir özel muamele yapmamaktadır.
+O halde standart C fonksiyonları için de prototip gerekmektedir. Eğer standart C fonksiyonları için prototip yazılmzsa, C90'da onların geri dönüş değerleri
+int kabul edilmektedir. C99 ve ötesinde zaten bu durum geçerli değildir. Örneğin aşağıdaki kodda sqrt fonksiyonun prototipi olmadığı için
+C90'da onun geri dönüş değeri int kabul edilecek ve "tanımsız davranış" oluşacaktır. C99 ve ötesinde aşağıdaki kod geçerli değildir:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	double result;
+
+    	result = sqrt(10);						/* C90'da tanımsız davranış! C99 ve ötesinde geçersiz' */
+    	printf("%f\n", result);
+
+    	return 0;
+    }
+
+    Standart C fonksiyonları için prototipleri biz kendimiz yazabiliriz. Ama bu tavsiye edilen bir durum değildir. Örneğin:
+
+    #include <stdio.h>
+
+    double sqrt(double);
+
+    int main(void)
+    {
+    	double result;
+
+    	result = sqrt(10);						/* geçerli, prototip yazılmış ve doğru */
+    	printf("%f\n", result);
+
+    	return 0;
+    }
+
+    İşte C'de standart C fonksiyonarının prototipleri gruplara ayrılarak çeşitli başlık dosyalarının içerisine yazılmıştır. Örneğin tüm matematiksel
+    fonksiyonların prototipleri <math.h> dosyasının içerisine, tüm dosya, ekran ve klavye fonksiyonlarının prototipleri <stdio.h> dosyasının içerisine,
+    tüm karakter test fonksiyonlarının prototipleri <ctype.h> dosyasının içerisine yerleştirilmiştir. Böylece programcı standart C fonksiyonlarının
+    protiplerini elle yazmak yerine onların zaten yazılı olduğu başlık dosyasını include eder. Burada önemli bir nokta bu başlık dosyalarında bu fonksiyonların
+    tanımlamalarının yani kodlarının olmadığı, yalnızca prototiplerinin olduğudur.
+
+    Tabii bir bir başlık dosyasını include ettiğimizde aslında bir grup standart C fonksiyonunun prototipini kaynak koda eklemiş oluruz. Ancak yukarıda da
+    belirttiğimiz gibi bir fonksiyonun prototipinin yazılmış olması onu çağırmayı zorunlu hale getirmemektedir.
+
+    O halde programcı, tipik olarak hangi standart C fonksiyonunu çağıracaksa onun prototipinin hangi başlık dosyasında olduğunu öğrenmeli ve o dosyayı
+    include etmelidir.
+
+    Tabii aslında başlık dosyalarının içerisinde prototiplerden başka birtakım bildirimler de vardır. Konular ilerledikçe biz bu başlık dosyalarının içerisinde
+    başka nelerin olduğunu da göreceğiz.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------_/ 27. Ders - 08/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Başlık dosyalarında standart C fonksiyonlarının prototiplerinin bulunduğunu belirtmiştik. Peki bunların kendileri nerededir? İşte standart C fonksiyonları
+derlenmiş bir biçimde "kütüphane (library)" denilen özel dosyaların içerisinde bulunmaktadır. Kütüphanelere linker tarafından link işlemi sırasında
+bakılmaktadır. Linker, standart C fonksiyonlarının bulunduğu kütüphane dosyalarına otomatik olarak bakar, böylece onları oradan alır. Kütüphaneler
+içerisinde fonksiyonlar derlenmiş bir biçimde bulunmaktadır. Dolayısıyla onların yeniden derlenmesine gerek olmaz.
+
+    Tabii kütüphaneler programcılar tarafından da oluşturulabilmektedir. Programcılar da kütüphane dosyaları oluşturup link aşamasında linker'a oluşturdukları
+    kütüphaneye de bakmasını söyleyebilmektedirler. Yukarıda da belirttiğimiz gibi linker zaten (genellikle) otomatik olarak standart C fonksiyonlarının
+    bulunduğu kütüphanelere de bakmaktadır.
+
+    Kütüphane dosyaları "statik kütüpahenler" ve "dinamik kütüphaneler" olmak üzere ikiye ayrılmaktadır. Statik kütüphane dosyalarının Windows'ta uazantıları
+    ".lib" biçiminde UNIX/Linux ve Mac OS sistemlerinde ise ".a" (archive sözcüğünden kısaltma) biçimindedir. Dinamik kütüphanelerin ise Windows'ta uzantıları ".dll"
+    (dynamic link library'den kısaltma) biçimindedir.
+
+    Tabii kütüphaneler programcılar tarafından da oluşturulabilmektedir. Programcılar da kütüphane dosyaları oluşturup link aşamasında linker'a oluşturdukları
+    kütüphaneye de bakmasını söyleyebilmektedirler. Yukarıda da belirttiğimiz gibi linker zaten (genellikle) otomatik olarak standart C fonk/Linux ve MAC OS sistemlerinde
+    ise ".so" (shared object sözcüklerinden kısaltma) biçimindedir. Bugün Windows, UNIX/Linux ve Mac OS sistemlerinde ağırlıklı biçimde dinamik kütüphaneler
+    kullanılmaktadır.
+
+    Statik kütüphane dosyaları "object modüllerden", object modüller ise fonksiyonlardan oluşmaktadır. Yani bir statik kütüphane aslında doğrudan fonksiyonları tutmaz.
+    Object modülleri tutar. Derlenmiş fonksiyonlar object modüllerin içerisindedir. O halde biz bir grup fonksiyonu statik kütüphane dosyasının içerisine yerleştirmek istersek
+    ona onu derleriz. Object modül haline getiririz. Object modülü statik kütüphane dosyasına ekleriz.
+
+    Linker programı kaynak kodda olmayan fonksiyonları belirtilen kütüphane dosyalarında aramaktadır. Eğer fonksiyonu linker bir statik kütüphane dosyasında
+    bulursa onun içinde bulunduğu object modülün tamamını oradan alarak çalıştırılabilen dosyaya enjekte eder. Böylece artık çalıştırılabilen dosya
+    gerçekten kütüphanedeki fonksiyonların makine kodlarını içeriyor durumda olur. Dolayısıyla artık bu program çalıştırılırken statik kütüphane dosyalarının
+    bulundurulmasına gerek kalmamaktadır. Burada iki önemli nokta vardır:
+
+    1) Linker, fonksiyonu statik kütüphane dosyasında bulursa, onun içinde bulunduğu object modülün hepsini çalıştırılabilen koda enjekte eder.
+    Örneğin biz yalnızca foo fonksiyonunu çağırmış olsak bile foo fonksiyonun içinde bulunduğu statik kütüphanede 100 tane fonksiyon varsa bu
+    100 fonksiyonun hepsi çalıştırılabilen dosyaya yazılacaktır.
+
+    2) Çalıştırılabilen dosya, kütüphaneden çekilen object modülleri de içerir. Böylece bu programın çaçıştırılması sırasında artık statik kütüphanelere
+    gereksinim duyulmayacaktır.
+
+    Statik kütüphanelerin en önemli dezavantajı, her çalıştırılabilen dosyanın kullanılan kütüphane fonksiyonlarının kodlarını barındırmasıdır. Bu da çalıştırılabilen
+    dosyaların diskte fazlaca yer kaplaması anlamına gelir. Örneğin, pek çok C programı printf fonksiyonunu kullanmaktadır. O zaman, o programlarının hepsinin
+    içerisinde printf fonksiyonun makine kodları bulunur.
+
+    Dinamik kütüpaheneler içerisinden bir fonksiyon çağrıldığında linker, fonksiyonun kodunu dinamik kütüphaneden alarak çalıştırılabilen dosyaya yazmaz.
+    Bunun yerine linker, çalıştırılabilen dosyaya işletim sistemi için "ilgili programın hangi danamik kütüphanelerinin (onların içerisindeki) hangi fonksiyonları
+    kullandığı bilgisini" yazar. Böylece çalıştırılabilen dosyalar bu fonksiyonların kodlarını içermezler. İşletim sisteminin yükleyicisi (loader), çalıştırılabilen
+    dosyayı belleğe yüklerken o dosyanın kullanmış olduğu dinamik kütüphaneleri de belleğe yüklemektedir. Böylece akış, program çalışırken belleğe yüklenmiş olan
+    dinamik kütüphane içerisine geçerek oradaki kodları çalıştırır. Bu sistemde dinamik kütüphanenin bir bölümü değil, hepsi belleğe yüklenmektedir. (Yani
+    örneğin, biz dinamik kütüphaneden tek bir fonksiyon çağırmış olsak bile onun tamamı belleğe yüklenir.) Dinamik kütüphaneler, programın birer parçası kabul edilmektedir.
+    Dolayısıyla, program başka bir makineye konuşlandırılırken yalnızca çalıştırılabilen dosya değil, o dosyanın kullandığı dinamik kütüphane dosyaları da o sisteme taşınmak
+    zorundadır. Dinamik kütüphane kullanan programlar biraz daha geç yüklenme eğilimindedir. Ancak farklı programlar aynı dinamik kütüphaneyi kullanıyorsa, işletim sistemleri
+    mümkün olduğu kadar o dinamik kütüphaneyi tekrar tekrar belleğe yüklemezler. Bu konunun bazı detayları vardır.
+
+
+    Bugün, Microsoft C derleyicileri, gcc derleyicileri ve bunların linker programları default durumda standart C fonksiyonlarını dinamik kütüphanelerden almaktadır.
+    Tüm standart C fonksiyonları genellikle tek bir dinamik kütüphanede toplanmıştır. Ancak bu durum değişebilmektedir. Tabii bu sistemler aynı standart C fonksiyonlarını
+    statik kütüphanelere de yerleştirmişlerdir. Programcı isterse default durumu değiştirerek standarty C fonksiyonlaırnın statik kütüphanelerden alınmasını sağlayabilir.
+
+    Microsoft derleycilerinde standart C fonksiyonlarının statik kütüphanelerden alınmasını sağlamak için komut satırında /MT ya da /MTd komut satırı argümanları
+    kullanılır. IDE'de bu ayar Proje seçenlerinden C-C++/Code Generation/Runtime Library combobox'ından ayarlanmaktadır. gcc sisteminde -static linker seçeneği
+    derleme link işlemine eklenmelidir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Biz kendimizin tanımalamadağı, yani kaynak dosyamızda olmayan bir fonksiyonu çağırmış olalım. Örneğin:
+
+    #include <stdio.h>
+
+    void xxxxx(void);
+
+    int main()
+    {
+    	xxxxx();
+
+    	return 0;
+    }
+
+    Burada hata hangi aşamada ortaya çıkacaktır? İşte, kaynak kodda olmayan bir fonksiyon çağrıldığında eğer derleyici fonksiyonu kaynak kodda bulamazsa
+    derlemeyi başarıyla sonuçlandırır. Ancak objecet modüle linker için bir not yazar. Bu notta adeta şöyle demektedir: "Sevgili linker, ben xxxxx isimli
+    bir fonksiyonun çağrıldığını gördüm. Ancak onu kaynak kodda bulamadım. Sen onu, diğer object modüllerde ve kütüphane dosyalarında ara ve bulmaya çalış.
+    Bulmazasan yapacak bir şey yok". İşte linker bu notu okuyarak fonksiyonu arar ve onu bulursa sorun çıkmaz. Ancak bulamazsa link aşamasında error
+    oluşur. O halde olmayan bir fonksiyon çağrıldığında hata derleme aşamasında değil, link aşamasında linker'ın bu fonksiyonu bulamaması biçiminde
+    ortaya çıkmaktadır.
+
+    Aslında standart C fonksiyonlarının standart C fonksiyonu olduğunu, ne derleyici ne de linker bilmektedir. Örneğin derleyici printf fonksiyonunu
+    gördüğünde onu kaynak kodda bulamadığı için object modüle linker için benzer notu yazar. Linker de printf fonksiyonunu tanımamaktadır. Ancak onu kütüphanelerde
+    ararken bulur. Halbuki xxxxx fonksiyonu bulamayacktır. O halde standart C fonksiyonlarının standart C fonksiyonları olduğu, yalnızca programcılar tarafından
+    bilinmektedir. Tabii biz derleyicileri install ederken bu standart C fonksiyonları, statik ya da dinamik kütüphane dosyalarına yerleştirilmiş durumda olur.
+    En azından bu garanti edilmiştir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aslında C derleyicisi kendi içerisinde iki modülden oluşmaktadır: Önişlemci (Preprocessor) ve Derleme (Compile) Modülleri:
+
+    			.c ----> Önişlemci Modülü -----> Derleme Modülü -----> Object Dosya
+
+    Kaynak kod önişlemci modülü tarafından alınır. Önişlemci, kaynak kod üzerinde çeşitli düzenlemeleri yapar ve kodu derleme modülüne verir. Derleme işleminin
+    bütün faaliyetleri derleme modülü tarafından yapılmaktadır. Yani C derleyicisi dediğimiz şey aslında bu derleme modülüdür. Ancak, önişlemci de derleyicinin
+    bir parçasıdır.
+
+    C'de  # ile başlayan satırlar önişlemciye ilişkindir. Yani önişlemci #'li satırlarla uğraşmaktadır.
+
+    #'den sonra ismine "önişlemci komutu" denilen bir anahtar sözcük gelir. Önişlemci komutu önişlemciye ne yapması gerektiğini belirtmektedir. Pek çok
+    önişlemci komutu vardır. Ancak bunların arasında "include" ve "define" önişlemci komutları, en çok kullanılanlardır. Biz de kursumuzun bu bölümünde
+    bu iki komutu inceleyeceğiz. Diğer önişlemci komutlarını kursumuzun son bölümlerinde ele alacağız.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 28. Ders - 13/09/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+En çok kullanılan önişlemci komutlarından biri #define komutudur. Bu komutun genel biçimi şöyledir:
+
+    #define STR1	STR2
+
+    Burada #define komutundan sonra boşluk karakterleri atılıp ilk boşluksuz yazı kümesi elde edilir. Buna STR1 diyelim. Sonra yeniden boşluk karakterleri atılıp
+    satır sonuna kadar tüm karakterler elde edilir. Buna da STR2 diyelim. Önişlemci kaynak kodda, STR1 gördüğü yerlere STR2 yazısını yerleştirmektedir. Örneğin:
+
+    #define MAX_VAL		(10 + 20)
+
+    Burada STR1 "MAX_VAL" yazısını, STR2 ise "(10 + 20)" yazısını temsil eder. İşte önişlemci kaynak kodda "MAX_VAL" gördüğü yere "(10 + 20)" yerleştirecektir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+#define MAX_VAL (10 + 20)
+
+int main(void)
+{
+int a;
+
+    a = MAX_VAL * 2;		/* derleme modülü burada a = (10 + 20) * 2 yazısını görecek */
+
+    printf("%d\n", a);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Önişlemcinin derleme yapmadığına, yalnızca kaynak kod üzerinde yazısal düzenlemeler yaptığına dikkat ediniz. Önişlemciden geçirilmiş kod derleme modülüne
+geldiğinde artık # ile başlayan satırlar koddan silinmiş olacaktır. Yani kaynak kod önişlemciden geçtikten sonra artık #'li satırlardan arındırılmış
+durumda olur.
+
+    #define komutunun hesap yapmadığına, yalnızca yer değiştirme yaptığına dikkat ediniz. Bu nedenle aşağıdaki kodda ekranda 50 yazısını göreceksiniz.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+#define MAX_VAL 10 + 20
+
+int main(void)
+{
+int a;
+
+    a = MAX_VAL * 2;		/* a = 10 + 20 * 2 */
+
+    printf("%d\n", a);		/* 50 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir program içerisindeki birtakım sabitler sayı olarak değil, #define komutu ile yazı biçiminde ifade edilirse kodu inceleyen kişi onu daha iyi anlamlandırır.
+Bu nedenle C programcıları birtakım sayıları programda böyle yazısal biçimde ifade ederler. İşte #define komutu ile bir yazıya bir sayı karşılık getirilmesi
+durumunda yazıya "sembolik sabit (symbolic constant)" denilmektedir. Örneğin:
+
+    #define MAX_SIZE			100
+    #define LINE_LENGTH			1024
+    #define NITEMS				12
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Önişlemciler tipik olarak geçici bir dosya açarak #'li satırlar üzerindeki düzenlemeyi bu geçici dosyada yaparlar. Sonra, derleme modülüne önişlemden
+geçirilmiş bu geçici dosyayı verirler. Derleme işleminden sonra da bu geçici dosyayı silerler. Bu nedenle biz bu geçici dosyayı görmeyiz. Ancak derleyicilerin
+çoğunda önişlemcinin yarattığı dosyayı görebilmemin yolları da vardır. Microsost'un C derleyicisinde /P seçeneği gcc ve clang derleyicilerinde -E
+seçeneği bu amaçla kullanılabilir. Tabii aynı işlem Visual Studio IDE'sinde proje seçeneklerinde C-C++/Preprocessor/Preprocessor to File seçeneği ile
+görsel olarak da yapılabilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Sembolik sabitlerin, derleme modülü için bir sabit statüsünde olduğuna dikkat ediniz. C'de bazı durumlarda sabit ifadelerinin zorunlu olduğunu anımsayınız.
+Örneğin:
+
+    #include <stdio.h>
+
+    #define CMD_DEL		1
+    #define CMD_DIR		2
+    #define CMD_COPY	3
+    ...
+
+    switch (a) {
+    	case CMD_DEL:
+    		break;
+    	case CMD_DIR:
+    		break;
+    	case CMD_COPY:
+    		break;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Önişlemci, genel olarak C'yi bilmemektedir. Dolayısıyla önişlemci komutlarının bir faaliyet alanı yoktur. Örneğin, #define komutu kaynak kodun herhangi
+bir yerinde yazılabilir. Bir fonksiyonun içinde yazılması ile dışında yazılması arasında farklılık yoktur. Nerede yazılmışsa oradan kaynak kodun sonuna kadarki
+bölgede etki göstermektedir.
+
+    #define önişlemci komutları için en iyi yer, programın tepesi ya da bir başlık dosyasının içidir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+#define komutunda komutun STR1 kısmı değişken ya da anahtar sözcük olabilir. Sabit, ayıraç ya da operatör olamaz. Örneğin aşağıdaki komutlar geçersizdir:
+
+    #define +		-
+    #define 100		200
+    #define ;		+
+
+    Ancak komutun STR2 kısmı herhangi bir yazı olabilir. Aşağıdaki komutlar geçerlidir:
+
+    #define TERMINATOR		;
+    #define ADD				+
+
+
+    Aşağıdaki örnekte program, önişlemciden geçtikten sonra C'ce anlamlı duruma gelecektir.
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+#define tam int
+#define ana main
+#define bos void
+#define eger if
+#define degilse else
+#define don return
+#define yazf printf
+
+tam ana(bos)
+{
+tam i = 0;
+
+    eger (i > 0)
+    	yazf("pozitif\n");
+    degilse
+    	yazf("negatif ya da sifir\n");
+
+    don 0;
+
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+#define komutunda genel olarak STR1 yazısına "makro (macro)" da denilmektedir. Örneğin:
+
+    #define MAX		10
+
+    Burada MAX için "sembolik sabit" de diyebiliriz, "makro" da diyebiliriz. Makro daha genel bir isimdir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Önişlemci #'li satırlar üzerinde değişiklik yapmaz. Ancak önişlemci açtığı bir maroyu yeniden önişleme sokmaktadır. Ta ki artık önişleme soktuğunda
+değiştirilecek bir yazı kalmayana kadar. Örneğin:
+
+    #define MAX		100
+    #define MIN		(MAX - 50)
+
+    ...
+
+    x = MIN;
+
+    Burada önişlemci MIN için önce aşağıdaki gibi bir açım yapar:
+
+    (MAX - 50)
+
+    Açtığı kodu yeniden önişleme sokar:
+
+    (100 - 50)
+
+    yazısını elde eder. Artık değiştirilecek bir şey kalmadığı için işlemi bitirir. Yukarıdaki #define komutlarını ters sırada yazsaydık da bir şey değişmeeyecekti:
+
+    #define MIN		(MAX - 50)
+    #define MAX		100
+
+    ...
+
+    x = MIN;
+
+    Burada yine önce MIN için şu açımı yapar:
+
+    (MAX - 50)
+
+    Sonra açtığı makroyu yeniden önişleme sokar:
+
+    (100 - 50)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Önişlemci iki tırnak içerisindeki yazılar (string ifadeler) üzerinde değişiklik yapmaz. Örneğin:
+
+    #include <stdio.h>
+
+    #define MAX		100
+
+    int main(void)
+    {
+    	printf("MAX");		/* MAX */
+
+    	return 0;
+    }
+
+    Burada MAX iki tırnak içerisind eolduğu için önişlemci bu yazı üzerinde değişiklik yapmamıştır. Dolayısıyla ekrana MAX yazısı çıkacaktır. Tabii
+    biz bir yazıyı, iki tırnaklı bir ifadeyle yer değiştirebiliriz. Örneğin:
+
+    #include <stdio.h>
+
+    #define MSG		"Success\n"
+
+    int main(void)
+    {
+    	printf("MSG");		/* MSG */
+    	printf(MSG);		/* Success */
+
+    	return 0;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'nin standart başlık dosyalarının içerisinde fonksiyon prototiplerinin yanı sıra #define ile oluşturulmuş çeşitli sembolik sabitler de bulunmaktadır.
+Dolayısıyla biz bu başlık dosyalarını include ettiğimizde artık bu semboik sabitleri kullanabiliriz. Örneğin <stdio.h> içerisinde EOF isimli, BUFSIZ
+ve çeşitli başka isimlerle sembolikler sabitler define edilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    a = EOF;				/* EOF <stdio.h> içerisinde define edilmiş */
+    printf("%d\n", a);
+
+    a = BUFSIZ;				/* BUFSIZ <stdio.h> içerisinde define edilmiş */
+    printf("%d\n", a);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+#define komutunda komutun STR2 kısmı hiç olmayabilir. Örneğin:
+
+    #define TEST
+
+    Bu durumda kaynak kodda STR1 görülen yere boşluk atanır, dolayısıyla STR1 yazıları silinmiş olur. Genel olarak STR2 kısmı olmayan #define komutları,
+    bazen kodu inceleyen kişiler için ipucu vermek amacıyla bazen de diğer önişlemci komutları için kullanılmaktadır.
+
+    Aşağıdaki örnekte programın çalışmasında herhangi bir bozukluk olmayacaktır. Çünkü IN yazıları kod derleme modülüne verildiğinde silinmiş olacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+#define IN
+
+void foo(IN int a)
+{
+printf("%d\n", a);
+}
+
+int main(void)
+{
+IN IN
+IN
+
+    	IN
+    foo(10);
+
+    IN
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Makrolar parametreli olabilmektedir. Bunlara "parametreli makolar" ya da "fonksiyon gibi makrolar (function-like macros)" denilmektedir. Bir makroda
+#define komutunun STR1 kısmında bir parantez açılırsa parantezin içerisindeki ',' ile ayrılmış isimlere "makro parametreleri" denilmektedir. Örneğin:
+
+    #define SQUARE(a)	...
+
+    Burada a, makro parametreisidir. Örneğin:
+
+    #define MAX(a, b)	...
+
+    Burada a ve b makro parametreleridir.
+
+    Parametreli makrolar bir fonksiyon çağrısı gibi işleme sokulurlar. Zaten onlara C standartlarında bu nedenle "function-like macro" denilmektedir.
+    Bir makro çağrıldığında önişlemci parametreleri yerleştirerek makroyu açar. Örneğin:
+
+    #define square(a)		a * a
+    ...
+
+    result = square(10);
+
+    Burada 10, a parametresine karşı gelmektedir. O halde önişlemci kodu aşağıdkai gibi açacaktır:
+
+    result = 10 * 10;
+
+    Parametreleri makroların tamamen bir fonksiyon gibi kullanılması gerekir. Halbuki yukarıdaki square makrosu açıldığında tam bir fonksiyon etkisi yaratamaz. Örneğin:
+
+    result = square(10 - 2);
+
+    Eğer square bir fonksiyon olsaydı, önce argümanın değeri hesaplanacaktı ve biz 8'in karesini elde edecektik. Ancak square gerçekte bir makrodur. Önişlemci kodu şöyle
+    açacaktır:
+
+    result = 10 - 2 * 10 - 2;
+
+    Bu açılmış hal derleme modülüne geldiğinde çarpma işleminin önceliği olduğu için istenileni yapamayacaktır. O halde fonksiyon gibi makro yazabilmek için
+    makro parametrelerinin paranzteze alınması gerekir:
+
+    #define square(a)		(a) * (a)
+    ...
+    result = square(10 - 2);
+
+    Artık önişlemci makroyu şöyle açacaktır:
+
+    result = (10 - 2) * (10 - 2);
+
+    Görüldüğü gibi şimdi makro fonksiyon gibi davranır hale gelmiştir. Ancak makro parametrelerinin pazarnteze alınması da yetmemektedir. Örneğin:
+
+    result = !square(1 - 1);
+
+    Eğer square bir fonksiyon olsaydı buradan 1 elde edilirdi. Ancak square yukarıdaki gibi makro olursa ! operatörünün önceliğinde dolayı farklı bir değer elde edilecektir.
+
+    #define square(a)		(a) * (a)
+    ...
+    result = !square(1 - 1);
+
+    Bu durumda açım şöyle yapılacaktır:
+
+    result = !(1 - 1) * (1 - 1)
+
+    Burada 0 elde edilecektir. O halde parametreli makro yazılırken makro, ayrıca en dıştan da paranteze alınmalıdır:
+
+    #define square(a)		((a) * (a))
+    ...
+    result = !square(1 - 1)
+
+    Artık açım şöyle yapılacaktır:
+
+    result = !((1 - 1) * (1 - 1))
+
+    Bu durumda foksiyon gibi makro yazabilmek için iki kuralı uygulamak gerekir:
+
+    1) Komutun STR2 kısmında makro parametreleri paranteze alınmalıdır.
+    2) Komutun STR2 kısmında makro en dıştan paranteze alınmalıdır.
+
+    Örneğin:
+
+    #define square(a)		((a) * (a))
+
+    Parametreli bir makro kodu izleyen tarafından tam bir fonksiyon taklidi yapabilmelidir. Parametreli makro bir fonksiyon değildir. Bir yer değiştirme
+    işlemini yapmakatadır. Ancak yer değiştirilen kod bir fonksiyon gibi etki göstermektedir. Önişlemci, parametreli makro çağrıldığında argümanı makro
+    parametreleriyle eşler ve açımı ona göre yapar. Örneğin:
+
+    #define average(a, b, c)		(((a) + (b) + (c)) / 3.0)
+
+    Biz bu makroyu şöyle işleme sokalım:
+
+    result = average(1 + 2, 3 + 4, 5 + 6);
+
+    Şimdi burada "1 + 2" a parametresi ile, "3 + 4" b parametresi ile ve "5 + 6" c parametresi ile eşleşecektir. Bu durumda önişlemci şöyle bir açım uygulayacaktır:
+
+    result = (((1 + 2) + (3 + 4) + (5 + 6)) / 3.0);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+#define square(a) ((a) \* (a))
+
+int main(void)
+{
+int result;
+
+    result = square(10 - 2);		/* result = ((10 - 2) * (10 - 2)); */
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 29. Ders - 15/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Peki biz neden fonksiyon yazmıyoruz da fonksiyon etkisi yaratacak parametreli makro yazmaya çalışıyoruz? İşte fonksiyon çağırma işlemi bazı makine komutları
+kullanılarak yapılmaktadır. Oysa makronun enjekte edilmesi fonksiyon çağırma işlemi anlamına gelmediği için fonksiyonun çağrılması sırasındaki
+makine komutları elimine edilmiş olur. Bir fonksiyon çağrıldığında çağrılan koda eklenen makine komutlarının yarattığı dezavantaja İngilizce "function call overhead"
+denilmektedir. Örneğin aşağıdaki gibi bir fonksiyon olsun:
+
+    int square(int a)
+    {
+    	return a * a;
+    }
+
+    Biz bu fonksiyonu şöyle çağırmış olalım:
+
+    result = square(val);
+
+    32 bit Intel işlemcilerinde burada üretileck makine komutları şunlardır:
+
+    square:
+    	push ebp
+    	mov	ebp, esp
+
+    	mov eax, [ebp + 8]
+    	imul eax, [ebp +8]
+
+    	pop ebp
+    	mov esp, ebp
+
+    ...
+    push val
+    call square
+    add esp, 4
+    move result, eax
+
+    Aslında burada çarpma işlemini yalnızca iki makine komutu bu  yapmaktadır:
+
+    mov eax, [ebp + 8]
+    imul eax
+
+    Diğer komutlar fonksiyon çağırma nedeniyle mecburen koda eklenen komutlardır. İşte bir iki satırlık fonksiyonların fonksiyon olarak değil de parametreli
+    makro biçiminde yazılması fonksiyon çağırma sırasında gereken makine komutlarının elimine edilmesine yol açar. Yani makro, fonksiyon çağrısına göre
+    daha hızlı bir çalışmayı sağlar.
+
+    Uzun fonksiyonların makro olarak yazılması ise kötü bir tekniktir. Çünkü:
+
+    1) Uzun bir fonksiyonda birkaç makine komutunun elimine edilmesinin pratik bir faydası olmayabilir.
+    2) Uzun makroların yazılması zordur ve okunabilirliği azaltmaktadır.
+    3) Uzun makrolar her çağrılan yere enjekte edileceği için kodu büyütürler. Elde edilen hıza kodda yaşanan büyüme, kar-zarar ilişkisi dikkate alındığında
+    toplamda zarar oluşturmaktadır.
+
+
+    Makroları çağırırken dikkat etmek gerekir. Makro argümanlarında ++ ve -- gibi operatörler "tanımsız davranış (undefined behavior)" oluşturabilirler. Örneğin:
+
+    #define square(a)			((a) * (a))
+
+    Bu makroyu şöyle çağırmış olalım:
+
+    result = square(++val);
+
+    Burada eğer square bir makro yerine fonksiyon olsaydı, val önce artırılır, artırılmış değerin karesi alınırdı. Halbuki square bir makro olduğunda
+    önişlemci şöyle bir açım uygulayacaktır:
+
+    result = ((++val) * (++val))
+
+    Bu da "tanımsız davranış" oluşturacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aslında bazı küçük standart C fonksiyonları derleyicileri yazanlar tarafından birer fonksiyon olarak değil de makro olarak yazılabilmektedir. Örneğin
+<ctype.h> içerisindeki karakter test fonksiyonları pek çok derleyici tarafından makro olarak yazılmaktadır. Tabii programcı bunu bilmek zorunda değildir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir C programının yazıldığı editör dar ise biz uzun atomları nasıl yazabiliriz? Örneğin string'lerin tek bir satırda yazılması gerekir. Benzer biçimde
+#define komutunun da tek bir satırda yazılması gerekir. Peki ya editörümüzün genişliği yeterli değilse? Ya da tek satıra yazmak okunabilirliği bozuyorsa?
+İşte C'de üst satır ile alt satırı sanki tek bir satırmış gibi derleyiciye göstermenin bir yolu vardır: Eğer bir satırda \ karakterinden hemen sonra LF (Line Feed)
+karakteri gelirse (yani \ karakterinden hemen sonra ENTER tuşuna basılırsa) önişlemci tarafından işin başında bu iki satır, \ ve LF karakterleri silinerek sanki tek
+satır haline dönüştürülür. Böylece biz istersek bir satırı kesip aşağıdan bu yöntemle devam edebiliriz. Örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	printf("Hello\
+     World\n");
+
+    	return 0;
+    }
+
+    Ya da örneğin:
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+    	int number_of_students;
+
+    	number_of_\
+    students = 10;
+
+    	printf("%d\n", number_of_students);
+
+    	return 0;
+    }
+
+    Bu sayede bir satırdan büyük olan makrolar daha okunabilir biçimde yazılabilirler. C standratlarına göre \ birleştirmesi yapıldıktan sonra derleyicilerin
+    en az 4095 karakterlik satırları desteklemesi gerekmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define error_check(result) \
+{ \
+ if (!result) { \
+ printf("Error!\n"); \
+ exit(1); \
+ } \
+}
+
+int main(void)
+{
+int test = 0;
+
+    error_check(0);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Çok satırlı makro yazarken programcı makroyu blok içerisine alır. Ancak blok içerisine alma yine de makronun tam olarak fonksiyon taklidi yapmasına
+olanak sağlamaz. Örneğin:
+
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    #define error_check(result)			\
+    {									\
+    	if (!result) {					\
+    		printf("Error!\n");			\
+    		exit(1);					\
+    	}								\
+    }
+
+    int main(void)
+    {
+    	int val = 10;
+    	int status = 0;
+
+    	if (val > 0)
+    		error_check(status);				/* compile time error */
+    	else
+    		printf("Everything is ok\n");
+
+    	return 0;
+    }
+
+    Buradaki kodu önişlemci aşağıdaki gibi açacaktır:
+
+    if (val > 0)
+    	if (!status) {
+    		printf("Error!\n");
+    		exit(1);
+    	};
+    else
+    	printf("Everything is ok\n");
+
+    Burada error_check(status) ifadesinin sonundaki noktalı virgül başımıza bela açmaktadır. Çünkü önişlemci kodu açtığında artık açılan kodda bu ';'
+    boş deyim olarak ele alınacak ve bloklama yapılmadığı için sentaks hatası oluşacaktır. Tabii biz dıştaki if deyimini bloklarsak sorun çözülür ancak
+    makromuzun da tam bir fonksiyon taklidi yapamadığı açıktır. İşte bu tür durumlarda do-while deyimi imdadımıza yetişmektedir. Yukarıdaki makroyu şöyle yzmış olalım:
+
+    #define error_check(result)			\
+    do  {								\
+    	if (!result) {					\
+    		printf("Error!\n");			\
+    		exit(1);					\
+    	}								\
+    } while (0)
+
+    Burada while parantezinin sonuna ';' yerleştirmediğimize dikkat ediniz. Bu while döngüsü aslında hiç dönmeyecektir. while döngüsünün sonundaki ';'
+    bir boş deyim değildir. Olması gereken bir atomdur. O halde makroyu aşağıdaki gibi kullanan kişi gerçekten de koyduğu ';' ile sentaksı tamamlar. Böylece de
+    do-while tek deyim olarak ele alınır:
+
+    if (val > 0)
+    	error_check(status);			/* Burada ';' artık boş deyim olmayacak, do-while deyimini tamamlayan ';' haline gelecek
+    else
+    	printf("Everything is ok\n");
+
+    Önişmeci makroyu açtığında şu durum oluşacaktır:
+
+    if (val > 0)
+    	do {
+    		if (!status) {
+    			printf("Error!\n");
+    			exit(1);
+    		}
+    	} while (0);
+    else
+    	printf("Everything is ok\n");
+
+    Artık if deyiminin doğru kısmında tek bir deyim vardır.
+
+    Bu nedenle, çok satırlı makroların bu biçimde do-while tekniği ile yazıldığını görürseniz şaşırmayınız.
+
+    Tabii çok satırlı makrolar if gibi deyimlerin içerisine yerleştirilemezler. Çok satırları makrolar, geri dönüş değeri void olan fonksiyonlar gibi düşünülmelidir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define error_check(result) \
+do { \
+ if (!result) { \
+ printf("Error!\n"); \
+ exit(1); \
+ } \
+} while (0)
+
+int main(void)
+{
+int val = 10;
+int status = 0;
+
+    if (val > 0)
+    	error_check(status);
+    else
+    	printf("Everything is ok\n");
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Tabii makrolar başka amaçlarla da kullanılabilir. Biz her ne kadar henüz dizileri görmesek de aşağıdaki örnekte tüm elemanları 1 olan bir diziyi
+makrolar yardımıyla kolay bir biçimde oluşturabilmekteyiz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+#define FILL10(val) val, val, val, val, val, val, val, val, val, val
+#define FILL100(val) FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val), FILL10(val)
+#define FILL1000(val) FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val), FILL100(val)
+
+int main(void)
+{
+int a[1000] = {FILL1000(1)};
+
+    for (int i = 0; i < 1000; ++i)
+    	printf("%d ", a[i]);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C99 ile birlikte C'ye de "inline fonksiyonlar" eklenmiştir. Inline fonksiyonlar, "fonksiyon gibi makrolar"ın güvenli bir alternatifidir. Kursumuzda bu konu
+ileride ele alınacaktır. Bu nedenle fonksiyona benzer makroların #define ile değil inline fonksiyonlar yoluyla yazılması C99 ve sonrasında daha uygun
+olabilmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+En çok kullanılan diğer bir önişlemci komutu da #include komutudur. #include komutunu açısal parantezler içerisinde ya da iki tırnak içerisinde
+bir dosya ismi izler. Yani komutun genel biçimi şöyledir:
+
+    #include <dosya_ismi>
+    #include "dosya_ismi"
+
+    Biz şimdiye kadar hep include işleminde açısal parantezleri kullandık. Önişlemci #include komutunu gördüğünde belirtilen dosyayı açar. Dosyanın içeriğini
+    geçici dosya yoluyla komutun yerleştirildiği yere yapıştırır. Böylece artık kod derleme modülüne geldiğinde derleme modülü #include komutunu değil, o dosyanın içeriğini
+    görecektir.
+
+    include edilecek dosyanın uzantısı ".h" olmak zorunda değildir. Herhangi bir dosya da, örneğin bir .c dosyası da include edilebilir.
+
+    Aşağıdaki örnekte "sample.c" dosyası, "test.c" dosyasını include etmiştir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_ sample.c _/
+
+#include <stdio.h>
+#include "test.c"
+
+int main(void)
+{
+foo();
+
+    return 0;
+
+}
+
+/_ test.c _/
+
+void foo(void)
+{
+printf("foo\n");
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+#include komutu kaynak kodun herhangi bir yerine yerleştirilebilir. Tabii yerleştirme yerine göre yerleştirilen dosya içeriğinin anlamlı olması
+gerekir. #include komutu da tek bir satıra yazılmak zorundadır.
+
+    Aşağıdaki örnekte #include komutu yerel bir blokta bulundurulmuştur. İçerik itibari ile bulundurulanyer geçerli bir kod oluşturur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_ sample.c _/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a =
+#include "test.c"
+;
+
+    printf("%d\n", a);
+
+    return 0;
+
+}
+
+/_ test.c _/
+
+10
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+#include komutunda önişlemci, include edilen dosyayı komutun bulunduğu yere yapıştırdıktan sonra önişlem işlemlerini yeniden açtığı dosya üzerinde de yapar.
+Böylece biz include dosyalarına önişlemci komutlarını yerleştirebiliriz. Örneğin include ettiğimiz dosyaların içerisinde #define önişlemci komutları da
+olabilir. Bu durumda bu komutlar da etki gösterecektir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_ sample.c _/
+
+#include <stdio.h>
+#include "test.h"
+
+int main(void)
+{
+for (int i = 0; i < SIZE; ++i)
+printf("%d\n", i);
+
+    printf("%d\n", square(10));
+
+    return 0;
+
+}
+
+/_ test.h _/
+
+#define SIZE 10
+#define square(a) ((a) \* (a))
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+include edilen dosyada başka include komutları da buılunabilir. Bu durumda yukarıda da belirtildiği gibi özyinelemeli bir biçimde include işlemi
+uygulanır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_ sample.c _/
+
+#include "project.h"
+
+int main(void)
+{
+printf("%f\n", sqrt(10));
+
+    return 0;
+
+}
+
+/_ project.h _/
+
+#include <stdio.h>
+#include <math.h>
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'nin standart başlık dosyalarında "include koruması (include guard)" uygulanmıştır. Bu nedenle bu standart başlık dosyalarının doğrudan ya da dolaylı
+olarak birden fazla kez include edilmiş olması bir soruna yol açmaz. include koruması ileride ele alınacaktır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+#include <stdio.h> /_ soruna yol açmaz, ama gereksiz _/
+#include <stdio.h> /_ soruna yol açmaz, ama gereksiz _/
+
+int main(void)
+{
+printf("ok\n");
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+include işleminde "döngüsel (cyclic) durumlar" error oluşturmaktadır. Örneğin biz "a.h" dosyasını include etmiş olalım. Bu dosya da "b.h" dosyasını include
+etmiş olsun. "b.h" dosyası da "a.h" dosyasını include etmiş olsun. Bu durum döngüsellik oluşturmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+include işleminin açısal parantezlerle yapılması ile iki tırnak içerisinde yapılması arasında farklılık vardır. Ancak bu farklılık C standartlarında
+açık bir biçimde belirtilmemiş, daha çok "derleyicileri yazanların isteğine (implementation defined)" bırakılmıştır.
+
+    Standartlarda bu konuda şunlar söylenmiştir:
+
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 30. Ders - 20/09/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+include işleminin açısal parantezlerle yapılması ile iki tırnak içerisinde yapılması arasında farklılık vardır. Ancak bu farklılık C standartlarında
+açık bir biçimde belirtilmemiş, daha çok "derleyicileri yazanların isteğine (implementation defined)" bırakılmıştır.
+
+    Standartlarda bu konuda şunlar söylenmiştir:
+
+    - Eğer include işlemi açısal parantezlerle yapılmışsa önişlemci dosyayı kendisinin belirlediği bazı dizinlerde arar. Bu dizinlerin nasıl belirleneceği
+    derleyicileri yazanların isteğine bırakışmıştır.
+
+    - Eğer dosya ismi iki tırnak içerisinde belirtilmişse bu durumda önişlemci dosyayı kendisinin belirlediği bir biçimde ve dizinlerde arar. Ancak dosya
+    bu aramada bulunamazsa sanki include işlemi açlsal parantezlerle yapılmış gibi bu kez dosya açısal parantezlerle belirtildiğinde aranan dizinlerde de aranır.
+
+    Her ne kadar standartlar belirlemeleri oldukça gevşek bırakmışsa da uygulamada pek çok derleyici şu biçimde işlem yapmaktadır:
+
+    - Eğer dosya açısal parantezlerle include edilmişse dosya C'nin standart başlık dosyalarının yüklendiği dizinde aranmaktadır. Programcılar genellikle C'nin standart
+    başlık dosyalarını bu biçimde include ederler.
+
+    - Eğer dosya iki tırnak içerisinde include edilmişse bu durumda yaygın derleyiciler dosyayı önce "o anda bulunulan dizinde (current working directory)" aramaktadır.
+    Eğer dosya o anda bulunulan dizinde bulunamazsa bu kez dosya standart C başlık dosyalarının bulunduğu dizinde de aranmaktadır.
+
+    Bu durumda en yaygın kullanım, programcının standart başlık dosyalarını açısal parantezlerle, kendi başlık dosyalarını ise iki tırnak ile include etmesidir. Örneğin:
+
+    #include <stdio.h>
+    #include "project.h"
+
+    İki tırnak ile include işlemi yapıldığında eğer Visual Studio gibi IDE'lerde çalışıyorsanız "içinde bulunulan dizin (current working directory)",
+    proje dizini olacaktır. Ancak komut satırından derleme işlemini yapıyorsanız içinde bulunulan dizin, promptta gördüğünüz dizin olacaktır.
+
+    C'nin standart başlık dosyalarının iki tırnak ile include edilmesinde bir sorun oluşmayacağına dikkat ediniz. Ancak kendi başlık dosyalarınızı açısal parantezlerle
+    include ederseniz muhtemelen önişlemci dosyayı bulamayacaktır.
+
+    C derleyicisi kurulurken (örneğin Visual Studio IDE'si kurulurken) başlık dosyalarının hangi dizine yerleştirileceği derleyiciden derleyiciye hatta aynı derleyicilerde
+    versyiondan versiyona değişebilmektedir. UNIX/Linux sistemleri geleneksel olarka standart başlık dosyalarını /usr/include dizinin içerisinde bulundurmaktadır.
+    Microsoft Visual Studio IDE'si, kurulum sırasında kurulum dizinini bize de sorabilmektedir. Ancak Microsoft versiyondan versiyona strateji değiştirebilmektedir.
+
+    Aslında açısal parantez ile include işlemi yapıldığında önişlemcinin arama dizinlerine ekler yapılabilmektedir. Microsft Visual Studio IDE'sinde
+    Proje seçeneklerinde "C-C++/General/Additional Include Directories" sekmesinde dizinler, aralarına ';' konularak girilebilmektedir. Bu durumda
+    önişlemci açısal parantezlerle include işlemi yapıldığında burada girilen dizinlere de bakmaktadır. Hatta projeden bağımsız olarak bu dizinlere kalıcı eklemeler de
+    yapılabilmektedir. Microsoft cl.exe komut satırı derleyicisinde gcc ve clang derleyicilerinde -I seçeneği de bu amaçla kullanılabilmekltedir. Örneğin:
+
+    gcc -o sample -I /home/kaan/Study/C  sample.c
+
+    Birden fazla dizine bakılması için birden fazla kez -I seçeneği kullanmak gerekir. Örneğin:
+
+    gcc -o sample -I /home/kaan/Study/C  -I /home/kaan/personal sample.c
+
+    Ayrıca derleyiciler bu dizinleri belirlemek için bazı çevre değişkenlerinden de faydalanabilmektedir. Örneğin gcc derleyicilerinde CPATH çevre değişkenine
+    derleyici önişlem aşamasında başvurmaktadır.
+
+    #include komutunda dosya isimlerinin yol ifadesi içerip içermeyeceği de derleyicileri yazanların isteğine bırakılmıştır. Genel olarak dosya isimlerinde yol ifadesi
+    kullanmayınız. Derleyicilerin çoğu en azından göreli yol ifadelerine izin vermektedir.
+
+    Standart C başlık dosyalarının include edilme sırasının hiçbir önemi yoktur. Programcılar genellikle çok kullanılan başlık dosyalarını daha daha yukarıda
+    include etme eğilimindedirler.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir derleyicinin standartlara uygunluğu "standartlara uygun programı başarılı bir biçimde derlemesi ile" ölçülmektedir. Daha önceden de belirtildiği gibi
+standartlara uygun olmayan hatalı kodların derleyiciler tarafından derlenip derlenmemesi derleyicilerin bir tercihidir. İşte C derleyicileri standartlarda
+olmayan ek birtakım özelliklere de sahip olabilmektedir. Bunlara "eklenti (extension)" denilmektedir. Örneğin bir C derleyicisi standartlarda olmayan ekstra
+deyimlere, ekstra türlere, ekstra fonksiyonlara sahip olabilir. Burada önemli olan standartlara uygun programların başarılı bir biçimde derlenip
+derlenmediğidir. Yani standartlar aslında asgariyi belirtmektedir. Tabii her derleyicinin kendine özgü eklentileri bulunabilmektedir. Bu durumda spesifik bir
+derleyicinin eklentilerini kodumuzda kullanırsak bu kod başka derleyicilerde derlenmeyebilir. Bazı eklentiler oldukça yaygındır. Hatta pek çok programcı bunu
+standart bir özellik sanmaktadır.
+
+    Örneğin Linux çekirdeğinin kaynak kodlarında çok sayıda gcc eklentisi kullanılmıştır. Bu durumda biz Linux kaynak kodlarını örneğin Microsoft derleyicilerinde
+    derleyemeyiz. Ancak gcc derleyicilerinde derleyebiliriz. Burada da görüldüğü gibi eklentilerin yoğun kullanılması kaynak kodun belli bir derleyiciye bağlı
+    olmasına yol açmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'nin üç operand'lı (ternary) tek bir operatörü vardır. Bu operatöre "koşul operatörü (conditional operator)" denilmektedir. Koşul operatörü ?: ile
+belirtilir ve gene kullanımı şöyledir:
+
+    ifade1 ? ifade2 : ifade3
+
+    Koşul operatörü if deyimini çağrıştıran ancak deyim olmayan bir operatördür. Her operatörde olduğu gibi koşul operatörü de bir değer üretir.
+    Koşul operatörü şöyle çalışır: Önce soru işaretinin solundaki ifade (yukarıdaki ifade1) yapılır. Bu ifade sıfır dışı bir değerse (yani doğruysa) yalnızca soru işareti ile
+    iki nokta üst üste arasındaki ifade (yukarıdaki ifade2) yapılır. Eğer bu ifade sıfır ise (yani yanlış ise) bu durumda da yalnızca iki nokta üst üstenin sağındaki ifade
+    (yukarıdaki ifade3) yapılır. Koşul operatörünün çalışması if deyimine benziyor olsa da koşul bir değer üretmektedir. Programcı koşul operatörünün ürettiği değeri genellikle
+    bir nesneye atar. Koşul operatörü soru işaretinin solundaki ifade sıfır dışı bir değerdeyse soru işareti ve iki nokta üst üste arasındaki ifadenin değerini üretir,
+    soru işaretinin solundaki ifade sıfır ise iki nokta üst üstenin sağındaki ifadenin değerini üretir.
+
+    Örneğin:
+
+    result = val % 2 == 0 ? 100 : 200;
+
+    Burada val çift ise koşul operatöründen 100, tek ise 200 elde edilecektir. Bu durumda result değişkenine 100 ya da 200 atanacaktır. Yukarıdaki kodun işlevsel eşdeğeri
+    if deyimi ile de oluşturulabilir:
+
+    if (val % 2 == 0)
+    	result = 100;
+    else
+    	result = 200;
+
+    Burada da görüldüğü gibi koşul operatörü ile yapılan her şey aslında if deyimiyle de yapılabilmektedir. Ancak koşul operatörü bazı durumlarda kompakt bir
+    görünüm sunduğu için daha kısa yazımlara olanak sağlamaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int val, result;
+
+    printf("Bir degere giriniz:");
+    scanf("%d", &val);
+
+    result = val % 2 == 0 ? 100 : 200;
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Koşul operatöründe, operatörün ürettiği değerin bir biçimde kullanılması gerekir. Eğer operatörün ürettiği değer kullanılmazsa her ne kadar kod geçerli olsa da
+kötü bir teknik uygulanmış olur. Örneğin:
+
+    val % 2 == 0 ? ++x : ++y;		/* kötü teknik */
+
+    Koşul operatörünün kullanılması gereken üç durum vardır.
+
+    1) Bir karşılaştırmanın sonucuna göre elde edilen değerin bir nesneye atanması gerektiği durumlar. Örneğin:
+
+    result = val % 2 == 0 ? 100 : 200;
+
+    Bu işlemin eşdeğer if karşılığı şöyledir:
+
+    if (val % 2 == 0)
+    	result = 100;
+    else
+    	result = 200;
+
+    2) Fonksiyon çağırırken argüman ifadelerinde koşul operatörü kullanılabilir. Örneğin:
+
+    foo(val % 2 == 0 ? 100 : 200);
+
+    Bu işlemin eşdeğer if karşılığı şöyledir:
+
+    if (val % 2 == 0)
+    	foo(100);
+    else
+    	foo(200);
+
+    3) return ifadelerinde de koşul operatörü kullanılabilir. Örneğin:
+
+    return val % 2 == 0 ? 100 : 200;
+
+    Bu ifadenin de eşdeğer if karşılığı şöyledir:
+
+    if (val % 2 == 0)
+    	return 100;
+    else
+    	return 200;
+
+
+    Aşağıdaki örnekte sayının çift ya da tek olduğu koşul operatörü sayesinde pratik bir biçimde ekrana yazdırılmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int val, result;
+
+    printf("Bir degere giriniz:");
+    scanf("%d", &val);
+
+    printf(val % 2 == 0 ? "cift\n" : "tek\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Örneğin 0'dan 100'e kadar sayıları beşer beşer aşağıdkai gibi yazdırmak isteylim:
+
+    0 1 2 3 4
+    5 6 7 8 9
+    10 11 12 13 14
+    ...
+
+    Çözümlerden biri aşağıdaki gibi olabilir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+for (int i = 0; i < 100; ++i) {
+printf("%d", i);
+putchar(i % 5 == 4 ? '\n' : ' ');
+}
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aslında yukarıdaki kodu aşağıdaki gibi daha kompakt biçimde de yazabilirdik. Bu koddaki kritik bölüm şudur:
+
+    printf("%d%c", i, i % 5 == 4 ? '\n' : ' ');
+
+    Burada %d format karakteri i ile, %c format karakteri ise '\n' ya da ' ' ile eşleşmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+for (int i = 0; i < 100; ++i)
+printf("%d%c", i, i % 5 == 4 ? '\n' : ' ');
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte max fonksiyonu, iki parametresinin büyük olanına geri dönmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int max(int a, int b)
+{
+return a > b ? a : b;
+}
+
+int main(void)
+{
+int result;
+
+    result = max(3, 7);			/* 7 */
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Daha önceden de belirttiğimiz gibi birer satırlık fonksiyonların makro olarak yazıalması genel bir hız kazancı sağlamaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
+int main(void)
+{
+int result;
+
+    result = MAX(3, 7);			/* result = ((3) > (7) ? (3) : (7)) */
+    printf("%d\n", result);		/* 7 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Koşul operatörü öncelik tablosunda atama operatörünün hemen yukarısında, sağdan sola grupta bulunmaktadır:
+
+    ()					Soldan-Sağa
+    + - ++ -- !			Sağdan-Sola
+    * / %				Soldan-Sağa
+    + -					Soldan-Sağa
+    <  > <= >=			Soldan-Sağa
+    != ==				Soldan-Sağa
+    &&					Soldan-Sağa
+    ||					Soldan-Sağa
+    ?:					Sağdan-Sola
+    =, +=, /=, *=,...	Sağdan-Sola
+    ,					Soldan-Sağa
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Koşul operatörü iç içe (nested) kullanılabilir. İç içe kullanımda parantez kullanmaya gerek yoktur. Örneğin üç sayının en büyüğünü bulmaya çalışalım:
+
+    result = a > b ? a > c ? a : c : b > c ? b : c;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b, c;
+int result;
+
+    printf("a:");
+    scanf("%d", &a);
+
+    printf("b:");
+    scanf("%d", &b);
+
+    printf("c:");
+    scanf("%d", &c);
+
+    result = a > b ? a > c ? a : c : b > c ? b : c;
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Yukarıdaki gibi iç içe koşul operatöründe gerekmese bile okunabilirliği artırmak için parantez kullanılmalıdır. Örneğin:
+
+    result = a > b ? (a > c ? a : c) : (b > c ? b : c);
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a, b, c;
+int result;
+
+    printf("a:");
+    scanf("%d", &a);
+
+    printf("b:");
+    scanf("%d", &b);
+
+    printf("c:");
+    scanf("%d", &c);
+
+    result = a > b ? (a > c ? a : c) : (b > c ? b : c);
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 31. Ders - 22/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Koşul operatörünün öncelik tablosunda atama operatörlerinin hemen yukarısında olduğunu anımsayınız. Örneğin:
+
+    x = a % 2 == 0 ? 100 + 200 : 300 + 400;
+
+    Burada derleyiciye göre iki operatör vardır: Koşul operatörü ve atama operatörü. Diğer operatörler aslında koşul operatörünün operand'larını oluşturmaktadır.
+    Peki neden yukarıdaki örnekte soru işaretinin solundaki her şey koşul operatörünün ilk operandını oluşturmamaktadır? İşte ayrıştırma (parsing) şöyle yapılmaktadır:
+    Derleyici soru işaretinin solunda, koşul operatöründen daha düşük öncelikli bir operatör görene kadar ilerler (örmeğimizde atama operatörüne kadar).
+    O kısım koşul operatörünün birinci operandını oluşturmaktadır. Soru işareti ile ':' arasındaki kısım, koşul operatörünün ikinci operandını ve ':' den koşul operatöründen
+    daha düşük öncelikli operatöre kadar olan kısım ise koşul operatörünün üçüncü kısmını oluşturmaktadır.
+
+    Bazen bir operatörü koşul operatörünün operandı olmaktan çıkartmak isteyebiliriz. Bunun için parantezlerin kullanılması gerekir. Örneğin:
+
+    x = (a % 2 == 0 ? 100 : 200) + 300;
+
+    Burada a çift ise x'e 100 + 300, tek ise 200 + 300 atanacaktır. Çünkü artık '+' operatörü koşul operatörünün üçüncü operandı olmaktan çıkarrılmıştır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+int result;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);
+
+    result = (a % 2 == 0 ? 100 : 200) + 300;
+    printf("%d\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki örnekte belli bir tarihin hangi gün olduğunu ekrana (stdout dosyasına) yazan disp_day isimli fonksiyon yazılmıştır.
+Bu örneği anlayabilmek için şu noktalara dikkat ediniz:
+
+    - Bir yılın artık (leap year) olup olmadığı şöyle belirlenmektedir: 4'e tam bölünüp 100'e tam bölünmeyen ya da 400'e tam bölünen yıllar artıktır.
+    - Önce 01/01/1900'den ilgili tarihe kadar geçen gün sayısı hesaplanmıştır. Sonra bu değerin 7'ye bölümünden elde edilen kalana bakılmıştır.
+    - 01/01/1900 güneü Pazar günüdür.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+#define isleap(year) ((year) % 4 == 0 && (year) % 100 != 0 || (year) % 400 == 0 )
+
+long total_days(int day, int month, int year)
+{
+long tdays = 0;
+
+    for (int i = 1900; i < year; ++i)
+    	tdays += isleap(i) ? 366 : 365;
+
+    switch (month - 1) {
+    	case 12:			/* unreachable */
+    		tdays += 31;
+    	case 11:
+    		tdays += 30;
+    	case 10:
+    		tdays += 31;
+    	case 9:
+    		tdays += 30;
+    	case 8:
+    		tdays += 31;
+    	case 7:
+    		tdays += 31;
+    	case 6:
+    		tdays += 30;
+    	case 5:
+    		tdays += 31;
+    	case 4:
+    		tdays += 30;
+    	case 3:
+    		tdays += 31;
+    	case 2:
+    		tdays += isleap(year) ? 29 : 28;
+    	case 1:
+    		tdays += 31;
+    }
+
+    tdays += day;
+
+    return tdays;
+
+}
+
+void disp_day(int day, int month, int year)
+{
+long tdays;
+
+    tdays = total_days(day, month, year);
+
+    switch (tdays % 7) {
+    	case 0:
+    		printf("Pazar\n");
+    		break;
+    	case 1:
+    		printf("Pazartesi\n");
+    		break;
+    	case 2:
+    		printf("Sali\n");
+    		break;
+    	case 3:
+    		printf("Carsamba\n");
+    		break;
+    	case 4:
+    		printf("Persembe\n");
+    		break;
+    	case 5:
+    		printf("Cuma\n");
+    		break;
+    	case 6:
+    		printf("Cumartesi\n");
+    		break;
+    }
+
+}
+
+int main(void)
+{
+disp_day(23, 4, 1920);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bilgisayar sistemlerinde ""ana belleğin (main memory)" (RAM olarak da bilinir) her bir byte'ına ilk byte 0 olmak üzere artan sırada bir sayı karşılık
+getirilmiştir. Bu sayıya ilgili byte'ın "doğrusal adresi (linear address)" denilmektedir. Doğrusal adres terimi yerine "fiziksel adres (physical address)" terimi de
+kullanılabilmektedir. Ancak doğrusal adres terimi "sayfalama (paging)" mekanizmasının bulunduğu işlemcilerde daha çok tercih edilmektedir.
+
+    Doğrusal adresler bilgisayarın çalışma prensibinde mikroişlemciler tarafından elektriksel düzeyde kullanılmaktadır. Çünkü mikroişlemciler RAM'de belli bir yere
+    onun doğrusal adresini bilerek erişirler. Her byte'ın ayrı bir doğrusal adresi vardır. Anımsanacağı gibi C Programlama Dilinde her byte 8 bit olmak zorunda değildir.
+    Dolayısıyla char türü de 8 bit olmak zorunda değildir. Ancak neredeyse sistemlerin hemen hepsinde 1 byte 8 bitten oluşmaktadır.
+
+    Doğrusal adresler geleneksel olarak 16'lık sistemde belirtilirler. Ancak böyle bir zorunluluk yoktur.
+
+    Bir programdaki her nesne bellekte yer kaplayacağına göre onların birer doğrusal adresleri vardır. Bir byte'tan büyük nesnelerin doğrusal adresleri
+    onların en düşük adres değeriyle ifade edilmektedir. Örneğin int bir nesne bellekte aslında 4 byte oturmuş durumdadır. O halde bu int nesnenin 4 adresi olması gerekir.
+    Ancak biz bu int nesnenin doğrusal adresini ifade ederken onun en düşük adres değerini kullanırız. Örneğin int türden a nesnesi bellekte aşağıdaki gibi bulunuyor olsun:
+
+    ...
+    1FC14 --|
+    1FC15	|
+    1FC16	|	a
+    1FC17---|
+    ...
+
+    Biz burada a'nın doğrsal adresini 1FC14 olarak ifade ederiz. Gerçekten de aslında işlemci de bir nesneyi RAM'den alırken ya da RAM'e yazarken,
+    eğer nesne 1 byte'tan uzunsa, onun en düşük adresini belirtir. Yani işlemci RAM'e şunu söylemektedir: "1FC14 doğrusal adresinden başlayan 4 byte'lık değeri bana ver".
+    Tabii aslında işlemci de derleyici tarafından üretilmiş olan makine komutlarını çalıştırmaktadır. Eğer kod derlendikten sonra bellekte uygun yere yüklenirse
+    tüm program sorunsuz çalışabilmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de adresler de ayrı bir tür belirtmektedir. Ancak yazılımsal adres iki bileşenli bir bilgidir. Yazılımsal adresin bileşenleri: "tür bileşeni" ve "sayısal bileşendir."
+Sayısal bileşen, bir doğrusal adres numarası belirtir. Tür bileşeni ise o doğrusal adres numarasından başlayan bilginin türünü belirtmektedir.
+Donanımsal olarak adres yalnızca bir sayıdan oluşmaktadır. Yazılımsal adresin sayısal bileşeni bir doğrusal adres numarası belirtir. Tür bileşeni ise
+o doğrusal adresten başlayan nesnenin türüne ilişkindir.
+
+    Bundan sonra "adres" denildiğinde yalnızca" yazılımsal adres" belirtilecektir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 32. Ders - 27/09/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Adres bilgileri C'de ayrı bir tür belirtmektedir. Bir adres sabiti oluşturmanın genel biçimi şöyledir:
+
+    (tür_bileşeni *) saısal_bileşen
+
+    Örneğin:
+
+    (int *) 0x1FC140
+
+    Burada bu adres sabitinin sayısal bileşeni 0X1FC140 biçimindedir. Bu bir doğrusal adres belirtir. Bu adres sabitinin tür bileşeni int biçiminmdedir.
+    Adres sabitlerinin tür bileşenlerinin 16'lık sistemde belirtilmesi zorunlu değildir. Ancak yaygın bir gösterimdir. Aslında yukarıdaki adres sabiti
+    bir tür dönüştürme işlemidir. Bu işlemin (int *) kısmıdaki int, adresin tür bileşenini belirtir. Buradaki * ise adres kavramı için kullanılmaktadır.
+
+    C'de adres bilgileri adresin tür belişeni belirtilerek ifade edilir. Yani örneğin "adres" denmez, "int türden adres, double türden adres vs." denir.
+    İngilizce "adres" kavramı "pointer" sözcüğü ile ifade edilmektedir. "int türden adres" ise "pointer to int", "long türden adres" "pointer to long"
+    biçiminde belirtilir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aralarında fiziksel ya da mantıksal ilişki bulunan bir grup nesnenin oluşturğu topluluğa "veri yapısı (data structure)" denilmektedir. Veri yapısı
+kavramı bir grup nesneyi çağrıştırmalıdır. Örneğin diziler, bağlı listeler, kuyruk sistemleri bir grup nesneden oluşan topluluklardır. Bunlar birer veri yapısıdır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Diziler (arrays), elemanları aynı türden olan ve bellekte ardışıl bir biçimde bulunan veri ytapılarıdır. Dizilerin elemanları aynı türdendir. Elemanlar arasında
+hiç boşluk yoktur. Buradaki "ardışıl (contiguous)", bir elemandan sonra hemen diğerinin geldiği yani arada hiç boşluk olmadığı anlamına gelmektedir.
+
+    Dizi tanımlamanın genel biçimi şöyledir:
+
+    <tür> <dizi_ismi><[<uzunluk_ifadesi>]>;
+
+    Örneğin:
+
+    int a[10];
+    double b[20];
+
+    C90'da dizi tanımlamasında dizi uzunluklarının sabit ifadesi biçiminde belirtilmesi zorunludur. Ancak C99 ile birlikte yerel diziler için dizi uzunluklarının
+    sabit ifadesi yerine değişken içeren ifadelerle de belirtilmesine olanak sağlanmıştır. Örneğin:
+
+    {
+    	int n = 10;
+    	int a[n];		/* C90'da geçersiz, C99 ve ötesinde geçerli */
+    	...
+    }
+
+    C++ her ne kadar C'yi kapsıyor olsa da C99 ile eklenen bu özelliği hiçbir zaman benimsememiştir. Microsoft C derleicileri de dil ayarı C99, C11, C17 yapılsa
+    bile halen bu özelliği desteklememktedir.
+
+    Bir diziyi dizi yapan iki özellik vardır:
+
+    1) Dizinin tüm elemanları aynı türdendir.
+    2) Elemanlar arasında hiç boşluk yoktur. Yani elemanlar bellekte ardışıl bir biçimde tutulur.
+
+    Biz bir grup nesneyi tanımladığımızda bunların ardışıllığı konusunda C'de hiçbir garanti verilmemektedir. Örneğin:
+
+    int x, y, z;
+
+    Burada x, y ve z'nin bellekteki yerleşimleri herhangi bir biçimde olabilir. Ardışıllığı garanti edilmemektedir. Oysa örneğin:
+
+    int a[3];
+
+    Buradaki 3 int eleman kesinlikle ardışıl bir biçimde tutulur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de bir dizi bütünsel olarak işleme sokulamaz. Dizinin elemanlarına erişlilir. Dizinin elemanları bağımısız nesneler biçiminde işleme sokulur.
+Dizi elemanlarıne erişmek için [...] operatörü kullanılır. Elemana erişmenin genel biçimi şöyledir:
+
+    dizi_ismi[ifade]
+
+    Dizinin ilk elemanı 0'ıncı indeksli elemandır. Bu durumda n elemanlı bir dizinin son elemanı n - 1'inci indeksli elemanıdır. Dizi elemanlarına erişilirken
+    köşeli parantez içerisindeki ifade sabit ifadesi olmak zorunda değildir. Ancak index belirten ifadenin tamsayı türlerine ilişkin olması zorunludur.
+    Aslında eleman erişmekte kullanılan köşeli parantezler "tek operandlı sonek (unary postfix)" operatör belirtmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Dizilerin en önemli kullanılma nedeni bir döngü içerisinde onların tüm elemanlarının işleme sokulmasıdır. Örneğin:
+
+    int a[1000];
+
+    for (int i = 0; i < 1000; ++i)
+    	a[i] = 0;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main()
+{
+int a[10];
+
+    for (int i = 0; i < 10; ++i)
+        a[i] = i * i;
+
+    for (int i = 0; i < 10; ++i)
+        printf("%d\n", a[i]);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Global bir dizinin tüm elemanlarında başlangıçta 0 değerleri bulunur. Ancak yerel dizilerin içerisinde başlangıçta çöp değerler bulunmaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir bildirimde tür belirten sözüğün dışındaki atomlara "dekleratör (declarator)" denilmektedir. Örneğin:
+
+    int a, b, c;
+
+    Burada int tür, a, b, ve c dekleratörlerdir. Örneğin:
+
+    double a[10];
+
+    Burada double tür, a[10] ise dekleratördür. C'de bildirimdeki tür tüm dekleratörlerin ortak türüdür. Örneğin:
+
+    int a[10], b;
+
+    Bu tanımlama geçerlidir. Burada a 10 elemanlı int bir dizi, b ise int bir nesnedir. Yani dizilerle normal nesneler beraber tanımlanabilirler.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir diziye, diziyi tanımlar tanımlamaz, küme parantezleri içerisinde ilkdeğer verebiliriz. Bu durumda verilen ilkdeğerler sırasıyla dizi elemanlarına
+yerleştirilir. Örneğin:
+
+    int a[5] = {10, 20, 30, 40, 50};
+
+    Babii bu işlem daha sonra yapılamaz. Örneğin:
+
+    intr a[5];
+
+    a = {10, 20, 30, 40, 50};		/* geçersiz! */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main()
+{
+int a[5] = {10, 20, 30, 40, 50};
+
+    for (int i = 0; i < 5; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Dizinin az sayıda elemanına ilkdeğer verilebilir. Bu durumda gerei kalan elemanlar dizi yerel de olsa, global da olsa kesinlikle derleyici tarafından
+sıfırlanmaktadır. Ancak, dizinin fazla sayıda elemanına ilkdeğer vermek geçersizdir. Örneğin:
+
+    int a[5] = {10, 20, 30};				/* geri kalan 2 eleman 0 */
+    int b[5] = {10, 20, 30, 40, 50, 60};	/* error! dizi 5 elemanlık ancak 6 elemana ilkdeğer verilmiş */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main()
+{
+int a[5] = {10, 20};
+
+    for (int i = 0; i < 5; ++i)
+        printf("%d ", a[i]);    /* 10 20 0 0 0 */
+    printf("\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Dizilere ilkdeğer verme işleminde küme parantezlerinin içi boş bırakılamaz. Örneğin:
+
+    int a[10] = {};		/* geçersiz! */
+
+    Yerel dizinin tüm elemanlarının 0 olmasını istiyorsak, bunu en yalın ancak aşağıdaki gibi sağlayabiliriz:
+
+    int a[10] = {0};	/* a'nın tüm elemanları 0 */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Dizilere ilkdeğer verilirken dizi uzunlukları belirtilmeyebilir. Bu durumda derleyici verilen ilkdeğerleri sayar ve dizinin o uzunlukta açılmış olduğunu kabul eder.
+Örneğin:
+
+    int a[] = {10, 20, 30};		/* burada dizi 3 uzunlukta */
+    int b[];					/* geçersiz! dizi uzunluğu belirtilmek zorunda */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir dizinin en büyük elemanı şöyle bulunur: Önce, ilk eleman en büyük kabul edilir ve bir değişkende saklanır. Sonra, diğer tüm elemanlar tek tek gözden geçirilir.
+Daha büyük eleman bulununca o eleman saklanır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main()
+{
+int a[SIZE] = {3, 5, 7, 7, 12, 67, 3, 34, 11, 23};
+int max;
+
+    max = a[0];
+
+    for (int i = 1; i < SIZE; ++i)
+        if (a[i] > max)
+            max = a[i];
+
+    printf("%d\n", max);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıda bir dizinin aritmetik ortalamasını bulan bir program örneği verilmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main()
+{
+int a[SIZE] = {3, 5, 7, 7, 12, 67, 3, 34, 11, 23};
+int total;
+double avg;
+
+    total = 0;
+    for (int i = 0; i < SIZE; ++i)
+        total += a[i];
+
+    avg = (double)total / SIZE;
+
+    printf("%f\n", avg);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir diziyi ters çevirmek için baştaki ve sondaki elemanları yer değiştirebiliriz. Tabii bu işlemi dizi uzunluğunun yarısı kadar yapmak gerekir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main()
+{
+int a[SIZE] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int temp;
+
+    for (int i = 0; i < SIZE / 2; ++i) {
+        temp = a[i];
+        a[i] = a[SIZE - 1 - i];
+        a[SIZE - 1 - i] = temp;
+    }
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir dizide bir elemanı arayıp, onu bulduğunda bulduğu yerin indeksini ekrana yazdıran bir program örneği aşağıda verilmiştir. Bir dizinin tüm elemanlarını
+kontrol ederek arama işlemine "sıralı arama (sequential search)" denilmektedir. Sıralı aramada eğer arama başarılı ise (successful search),
+ortalama karşılaştırma sayısı n / 2'dir. Ancak, arama başarısız olursa n karşılaştırma yapılır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main()
+{
+int a[SIZE] = {23, 12, 76, 45, 23, 65, 11, 98, 42, 81};
+int val;
+int i;
+
+    printf("Bir değer giriniz:");
+    scanf("%d", &val);
+
+    for (i = 0; i < SIZE; ++i)
+        if (a[i] == val)
+            break;
+
+    if (i == SIZE)
+        printf("bulunamadi!\n");
+    else
+        printf("%d. indekste bulundu\n", i);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 33. Ders - 29/09/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Dizilerin sıraya dizilmesine İngilizce "sorting" denilmektedir. Dizileri sıraya dizmek için pek çok algoritma vardır. Bunlardan en yalını
+"kabarcık sıralaması (bubble sort)" denilen yöntemdir. Bu yöntemde yan yana iki eleman karşılaştırılır. Duruma göre yer değiştirilir. Bu işlem bir kez
+yapıldığında dizi sıraya dizilmiş olmaz. Ancak en büyük eleman (ya da en küçük eleman) sona gider. O halde bu işlemi diziyi daraltarak tekrar tekrar yapmak
+gerekir. Algoritmanın döngü yapısı şöyledir: Dizinin uzunluğu n olmak üzere iç içe iki döngü vardır. Dıştaki döngü n - 1 kez, içteki döngü n - 1 - i kez
+döndürülür.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main(void)
+{
+int a[SIZE] = {23, 12, 76, 45, 23, 65, 11, 98, 42, 81};
+int temp;
+
+    for (int i = 0; i < SIZE - 1; ++i)
+        for (int k = 0; k < SIZE - 1 - i; ++k)
+            if (a[k + 1] < a[k]) {
+                temp = a[k];
+                a[k] = a[k + 1];
+                a[k + 1] = temp;
+            }
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Kabarcık sıralamasının değişik gerçekleştirimleri yapılabilir. Örneğin eğer yan yana elemanlar karşılaştırılıp hiç yer değiştirme yapılmıyorsa
+dizi zaten sıraya dizilmiş demektir. Döngünün devam ettirilmesine gerek yoktur.
+
+    Aşağıdaki gerçekleştirimde eğer dizi zaten sıraya dizilmişse dış döngü devam ettirilmemektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+#define TRUE 1
+#define FALSE 0
+
+int main(void)
+{
+int a[SIZE] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+int temp;
+int replace_flag;
+
+    for (int i = 0; i < SIZE - 1; ++i) {
+        replace_flag = FALSE;
+        for (int k = 0; k < SIZE - 1 - i; ++k)
+            if (a[k + 1] < a[k]) {
+                temp = a[k];
+                a[k] = a[k + 1];
+                a[k + 1] = temp;
+                replace_flag = TRUE;
+            }
+        if (!replace_flag)
+            break;
+    }
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Yukarıdaki biçim do-while döngüsüyle de ifade edilebilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+#define TRUE 1
+#define FALSE 0
+
+int main(void)
+{
+int a[SIZE] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+int temp;
+int replace_flag;
+int n = SIZE - 1;
+
+    do {
+        replace_flag = FALSE;
+        for (int k = 0; k < n; ++k)
+            if (a[k + 1] < a[k]) {
+                temp = a[k];
+                a[k] = a[k + 1];
+                a[k + 1] = temp;
+                replace_flag = TRUE;
+            }
+        --n;
+    } while (replace_flag);
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Diğer çok bilinen bir sıralama yöntemine "seçerek sıralama (selection sort)" denilmektedir. Bu yöntemde dizinin en küçük elemanı bulunur. İlk elemanla
+yer değiştirilir. Sonra dizi daraltılır. Aynısı daraltılmış dizi için yapılır. İşlemler böyle böyle devam ettirilir. Örneğin:
+
+    | 8 3 6 1 5
+
+    1 | 3 6 8 5
+    1 3 | 6 8 5
+    1 3 5 | 8 6
+    1 3 5 6 | 8
+
+    Bu algoritmada iç içe iki döngü kullanılır. Dıştaki döngü diziyi daraltmakta kullanılır. İçteki döngü ise daraltılmış dizinin en küçük elemanını
+    bulup daraltılmış dizinin ilk elemanı ile yer değiştirir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main(void)
+{
+int a[SIZE] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+int min, min_index;
+
+    for (int i = 0; i < SIZE - 1; ++i) {
+        min = a[i];
+        min_index = i;
+        for (int k = i + 1; k < SIZE; ++k)
+            if (a[k] < min) {
+                min = a[k];
+                min_index = k;
+            }
+        a[min_index] = a[i];
+        a[i] = min;
+    }
+
+    for (int i = 0; i < SIZE; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir dizinin olmayan bir elemanına erişmeye çalışmak "tanımsız davranışa" yol açar. Örneğin:
+
+    int a[10];
+
+    for (int i = 0; i <= 10; ++i)       /* tanımsız davranış! */
+    	a[i] = 0;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Daha önceden de belirttiğimiz gibi, bir yazı aslında karakterlerden oluşan bir dizi belirtmektedir. Karakterler ise aslında o karakterlerin karakter tablosundaki
+sıra numarasını belirtir. O halde aslında bir yazı, bir sayı dizisi gibi ele alınabilir. Peki mademki bir yazı bir sayı dizisi gibidir. O halde yazının karakterlerine
+karşı gelen sayıları hangi türden dizide tutmalıyız? Tabii bunun için en uygun tür char türüdür. Çünkü zaten C'de char bir kadarkterin sıra numarasını tutabilecek
+büyüklüğü temsil etmektedir. C'de karakterler 1 byte içerisinde tutulmaktadır. Karakterlerin sıra numaralarını tutmak için en uygun tür char türüdür.
+O halde bir yazı char türden bir dizide tutulmalıdır. Yazının her bir karakteri char türden dizinin bir elemanında tutulursa dizi yazıyı tutar hale gelir.
+
+    Genel olarak yazıyı tutan bir char dizi, yazınının uzunluğundan büyük olur. Yani bir char dizinin içerisindeki yazı, onun başından itibaren belli bir kısmındadır.
+    Bu char diziyi alan programcı yazının bu dizinin başından başladığını bilir ancak nerede bittiğini de anlaması gerekir. İşte C'de char bir dizi
+    içerisindekiş yazının bitiş yeri özel bir karakterle belirtilmektedir. Bu karaktere "null kartakter" denir. Programcılar ve C'nin bazı semantik kuralları
+    bir yazının sonunda null karakter olması gerektiği konusunda anlaşmış durumdadırlar. Null karakter karakter tablosunun ilk karakteridir ve sayısal değeri
+    0'dır. (Bunu '0' karakteri ile karıştırmayınız.) Null karakter '\0' ile temsil edilir. Aslında '\0' teknik olarak 0 sabiti ile aynı anlamdadır.
+    Ancak programcılar null karakter için '\0' gösterimini tercih ederler. Çünkü '\0' gösterimi bir karakter görüntüsünde olduğu için okunabilirliği daha fazladır.
+
+    Programcı char türden bir dizinin içerisine bir yazı yerleştirecekse null karakteri yazının sonuna yerleştirmek onun sorumluluğundadır. Örneğin:
+
+    char s[10];
+
+    s[0] = 'a';
+    s[1] = 'l';
+    a[2] = 'i';
+    a[3] = '\0';
+
+    Null karakter, dizinin içerisinde bir yer kaplar. Bu durumda n eleman uzunluğundaki bir char diziye biz en fazla n - 1 karakterli bir yazı yerleştirebiliriz.
+    Örneğin elimizde 10 elemanlı bir char dizi varsa biz onun içerisine en fazla 9 karakterli bir yazı yerleştirebiliriz. Çünkü son elemanda null karakter olmak zorundadır.
+    Null karakterin dizinin sonunda değil, dizinin içerisindeki yazının sonunda olması gerektiğine dikkat ediniz.
+
+    Biz bir char diziye ilkdeğer verme sentaksıyla da bir yazı yerleştirebiliriz. Örneğin:
+
+    char s[100] = {'a', 'n', 'k', 'a', 'r', 'a', '\0'};
+
+    Tabii burada aslında null karakteri hiç belirtmeseydik de dizinin geri kalan elemanları sıfırlanacağından dolayı, null karakter de 0 olduğu için
+    sanki null karakter yazının sonuna eklenmiş gibi olacaktı. Örneğin:
+
+    char s[100] = {'a', 'n', 'k', 'a', 'r', 'a'};		/* geçerli zaten 0 ile null karakter aynı */
+
+    Tabii null karakterin açıkça belirtilmesi daha anlaşılabilir bir görüntü sunmaktadır. Örneğin:
+
+    char s[] = {'a', 'l', 'i'};		/* geçerli ancak null karakter yazının sonuna eklenmemiş */
+
+    Burada dizi uzunluğu belirtilmediği için verilen ilkdeğerler kadar dizi açılır. Ancak null karakter yazının sonuna eklenmemiştir. Programcının
+    yazının sonuna null karakter eklenmesini sağlaması gerekir:
+
+    char s[] = {'a', 'l', 'i', '\0'};
+
+    C'de char, unsigned char ya da signed char türünden bir diziye iki tırnak ile bir yazı pratik bir biçimde de yerleştirilebilmektedr. Örneğin:
+
+    char s[100] = "ankara";
+
+    C'de char, unsigned char ve signed char türünden bir diziye iki tırnak ile ilkdeğer verilmişse bu durumda derleyici bu iki tırnak içerisindeki
+    karakterleri tek tek diziye yerleştirir. Yazının sonuna null karakteri kendisi ekler. Örneğin:
+
+    char s[] = "ankara";
+
+    Burada derleyici null karakteri kendisi ekleyeceği için dizinin 7 eleman uzunluğunda açıldığını kabul eder. İki tırnak ile yalnızca char, signed char ve
+    unsigned char türünden dizilere ilkdeğer verilebilmektedir. Örneğin:
+
+    int s[] = "ankara"; 	/* geçersiz! iki tırnak ile int bir diziye ilkdeğer verilemez! */
+
+    Daha sonra bir diziye iki tırnak ile atama yapamayız. İki tıornak sentaksının ilkdeğer verme sırasında geçerli olduğuna dikkat ediniz. Örneğin:
+
+    char s[100];
+
+    s = "ankara";		/* geçersiz! */
+
+    Bir diziye fazla sayıda elemanla ilkdeğer veremediğimizi belirtmiştik. Örneğin:
+
+    char s[3] = "ankara";		/* geçersiz! */
+
+    Özel bir durum olarak, eğer iki tırnak içerisindeki karakter sayısı dizi unluğu kadar ise bu durum C'de geçerli kabul edilmektedir. Ancak derleyici bu durumda
+    null karakteri yazının sonuna eklememektedir. Örneğin:
+
+    char s[3] = "ali";		/* geçerli ama dikkat null karakter yazının sonuna eklenmeyecek */
+
+    Bu durum, hata kaynağı oluşturabileceği gerekçesiyle C++'ta geçersiz kabul edilmektedir.
+
+    char, signed char ve unsigned char türünden dizilere iki tırnak ile ilkdeğer veridliğinde dizinin geri kalan elemanlarının hepsi yine sıfırlanmaktadır. Örneğin:
+
+    char s[100] = "ali"; 	/* null karakter eklendikten sonra geri kalan elemanların hepsi sıfırlanır */
+
+    İlkdeğer verilirken iki tırnağın içi boş olabilir. Örneğin:
+
+    char s[100] = "";
+
+    Burada diziye null karakter yerleştirilir. Sonra geri kalan tüm elemanlar sıfırlanır. Tabii null karakterin numarası 0 olduğuna göre aslıunda tüm dizi sıfırlanmaktadır.
+    Örneğin:
+
+    char s[] = "";
+
+    Burada dizi 1 eleman olarak açılır ve o bir elemana da null karakter yerleştirilir.
+
+
+    char türündeki bir dizinin içerisinde sonu null karakterle biten bir yazı bulunuyor olsun. Bu yazıyı ekrana (stdout dosyasına) nasıl yazdırabiliriz?
+
+    char s[100] = "ankara";
+
+    for (int i = 0; s[i] != '\0'; ++i)
+    	putchar(s[i]);
+
+    Tabii madem ki null karakterin sayısal değeri 0'dır. o zaman dönü şöyle de ifade edilebilirdi:
+
+    for (int i = 0; s[i]; ++i)
+    	putchar(s[i]);
+
+    Ancak okunabilirlik bakımından önceki biçim tercih edilebilir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[100] = "ankara";
+
+    for (int i = 0; s[i] != '\0'; ++i)
+        putchar(s[i]);
+    putchar('\n');
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir char dizisinin başındaki yazının karakter uzunluğu aşağıdaki gibi bulunabilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[100] = "istanbul";
+int i;
+
+    for (i = 0; s[i] != '\0'; ++i)
+        ;
+
+    printf("%d\n", i);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+char türden bir dizinin içerisindeki yazıyı tersten yazdırmaya çalışalım. Bunun tek yolu önce yazının sonuna gitmek, sonra oradan başa doğru giderek
+karakterleri yazdırmak olabilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[] = "istanbul";
+int i;
+
+    for (i = 0; s[i] != '\0'; ++i)
+        ;
+
+    for (--i; i >= 0; --i)
+        putchar(s[i]);
+    putchar('\n');
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+char bir dizinin içerisindeki yazıyı ters çevirmek isteyelim. Biz daha önce int bir diziyi ters çevirmiştik. Aynı algoritmayı uygulayabiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[100] = "ankara";
+int n;
+char temp;
+
+    for (n = 0; s[n] != '\0'; ++n)
+        ;
+
+    for (int i = 0; i < n / 2; ++i) {
+        temp = s[i];
+        s[i] = s[n - 1 - i];
+        s[n - 1 - i] = temp;
+    }
+
+    for (int i = 0; s[i] != '\0'; ++i)
+        putchar(s[i]);
+    putchar('\n');
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 34. Ders - 04/10/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'nin, prototipi <stdio.h> içerisinde bulunan standart "puts" isimli fonksiyonu bir yazıyı ekrana (stdout dosyasına) yazdırmak için kullanılmaktadır.
+Fonksiyonun genel kullanımı şöyledir:
+
+    puts(<dizi_ismi>);
+
+    Aslında ileride görüleceği gibi puts fonksiyonu char türden bir adres almaktadır. Ancak biz şimdilik bu fonksiyonun parametre olarak, yazının içinde bulunduğu
+    char türden dizinin ismini alacağını belirtelim. C'de programcı dışında, başkaları tarafından yazılmış olan (standart fonksiyonlar da dahil) hiçbir fonksiyon
+    bir dizinin uzunluğunu bilemez. Dizinin uzunluğunu yalnızca onu açan programcı biliyor durumdadır.
+
+    puts fonksiyonu dizinin başından başlayarak null karakter görene kadar tüm karakterleri yan yana yazdırır. En sonunda imleci aşağı satırın başına geçirerek
+    orada bırakır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[100] = "ankara";
+
+    puts(s);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+puts fonksiyonu dizinin başından null karakter görene kadar karakterleri yazdırmaktadır. Eğer null karakter bir biçimde ezilmişse puts durmaz,
+dizinin elemanlarını ilk null karakter görene kadar, karakter olarak yazdırır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[100];
+
+    s[0] = 'a';
+    s[1] = 'l';
+    s[2] = 'i';
+    s[3] = '\0';
+
+    puts(s);
+
+    s[3] = 'x';
+    puts(s);		/* alix'ten sonra tuhaf karakterler çıkabilir */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Yazılar tipik olarak char türden dizilerin içerisine yerleştirilirler (char türü 1 byte gibi görece küçük boyutta olduğu için tercih edilmekte).
+Ama bunun tersi doğru değildir. Yani char türden dizilere yazı yerleştirmek zorunda değiliz. Pekala biz char türden bir diziyi az yer kaplayan
+bir tamsayı dizisi olarak kullanabiliriz. Bu durumda dizinin sonuna null karakter yerleştirmenin bir anlamı yoktur. Örneğin:
+
+    char s[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    Burada s dizisi 1 byte yer kaplayan bir tamsayı dizisi gibi kullanılmak üzere oluşturulmuştur. Bu kullanımda null karakter ile bir işimiz yok.
+    Biz char türden dizilere bir yazı yerleştireceksek, yazının sonuna null karakteri yerleştirmeliyiz.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[] = {1, 2, 3, 4, 5};
+
+    for (int i = 0; i < 5; ++i)
+    	printf("%d ", s[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Null karakter ile '0' karakterinin ilgisi olmadığına dikkat ediniz. Null karakter gerçekten 0 değerine ilişkin karakterdir. Yani null karakterin sayısal değeri
+0'dır. Ancak '0' karakterinin sayısal değeri ASCII tablosundan 48'dir. Daha önceden de belirttiğimiz gibi '\0' gösterimi ile 0 gösterimi arasında teknik
+bir farklılık yoktur. Ancak karakter vurgusu yapmak için null karakteri '\0' biçiminde göstermek iyi bir tekniktir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char c;
+
+    c = '0';
+
+    printf("%d\n", c);		/* 48 */
+
+    c = '\0';
+    printf("%d\n", c);		/* 0 */
+
+    c = 0;
+    printf("%d\n", c);		/* 0 */
+
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bellekte karakter diye bir bilginin olmadığına dikkat ediniz. Karakterler bellekte aslında birer sayı olarak bulunurlar. Biz C'de bir karakteri tek tırnak
+içerisine aldığımızda o karakterin ilgili karakter tablosundaki sıra numarısını belirtmiş oluruz. Yani örneğin ASCII tablosunun kullanıldığı bir C derleyicisinde
+'a' ile 97 arasında bir farklılık yoktur. Bellekte her şeyin aslında ikilik sistemde sayılar biçiminde bulunduğuna, onun nasıl yorumlanacağına programcının karar verdiğine
+dikkat ediniz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[10] = {97, 98, 99, 0};
+
+    puts(s);		/* abc */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C standartlarında bir özelliğin "deprecated" olması "ileride kaldırabileceği, ancak şimdilik muhafaza edildiği" anlamına gelmektedir. Mademki deprecated
+özellikler ileride kaldırılabilecek özelliklerdir, o halde programcıların deprecated özellikleri kullanmaması gerekir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+gets isimli standart C fonksiyonu C'nin ilk günlerinden beri vardı. Ancak bir tasarım bozukluğundan dolayı C99'da deprecated yapıldı ve C11'de
+standart fonksiyon listesinden çıkartıldı. Bugünkü derleyiclerde gets halen desteklenmektedir. Ancak bu fonksiyon kullanılırken derleme ya da link aşamasında
+uyarı oluşabilmektedir. Her ne kadar gets fonksiyonu C11 ile C'den çıkartılmışsa da kursumuzda eğitim amaçlı nedenlerle bu fonksiyonu kullanacağız.
+C11, gets yerine gets_s isimli yeni bir fonksiyonu kütüphaneye eklemiştir. Ancak maalesef bu fonksiyon da standartlarda "optional" yapılmıştır. Optional
+özellik demek ilgili derleyicinin barındırp barındırmayacağı derleyiciyi yazanlara bağlı demektir. Gerçekten de gets_s fonksiyonu gcc derleyicilerinde henüz
+bulunmamaktadır.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+gets fonksiyonu, klavyeden (stdin dosyasından) bir yazı okumak için kullanılmaktadır. tipik kullanımı şöyledir:
+
+    gets(dizi_ismi);
+
+    gets aslında char türden bir adres almaktadır. Ancak ileride bu konu ele alınacaktır. gets fonksiyonu ENTER tuşuna basılana kadar girilen karakterleri
+    (yani onların sayısal karşılıklarını) diziye tek tek yerleştirir. Yazının sonuna null karakteri ekler ve işlemini sonlandırır. Örneğin:
+
+    char s[100];
+
+    gets(s);
+
+    gets fonksiyonunun kusuru, kullanıcı uzun yazı girerse diziyi taşırabilmesidir. Biz gets ile n eleman uzunluğundaki bir char diziye en fazla n - 1 karakterli bir
+    yazı girmeliyiz. Çünkü gets, null karakteri de yazının sonuna eklemektedir. Null karakter de dizinin içerisinde kalmak zorundadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[1024];
+
+    printf("Bir yazi giriniz:");
+    gets(s);
+
+    puts(s);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de bir dizinin taşırılması "tanımsız davranış (undefined behavior)" oluşturmaktadır. Eğer biz gets fonksiyonu için küçük bir dizi açarsak ve klavyeden
+çok karakter girersek dizi taşar ve programımız çökebilir. n elemanlı bir char diziye gets ile en fazla n - 1 karakterli bir yazı girebiliriz.
+Aşağıdaki örnekte uzun bir yazı girerek sonucu gözleyiniz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[5]; /_ dikkat dizi çok küçük, taşabilir! _/
+
+    printf("Bir yazi giriniz:");
+    gets(s);
+
+    puts(s);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir char dizi içerisindeki karakterleri null karakter görene kadar yazdırmak için puts fonksiyonun yanı sıra printf fonksiyonu da kullanılabilir.
+printf fonksiyonunda %s format karakterine char türden bir dizi ismi (aslında bir adres) karşı getirilirse printf dizinin içerisindeki karakterleri
+null karakter görene kadar yan yana ekrana (stdout dosyasına) yazar. Tabii printf imleci aşağı satıra otomatik geçirmemektedir. O halde:
+
+    puts(char_dizi_ismi);
+
+    işleminin eşdeğeri:
+
+    printf("%s\n", char_dizi_ismi);
+
+    biçimindedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[1024];
+
+    printf("Bir yazi giriniz:");
+    gets(s);
+
+    printf("%s\n", s);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir dizi içerisindeki yazıyı başka bir diziye nasıl kopyalayabiliriz? İlk akla gelen yöntem null karakter görene kadar kopyalama yapmaktır. Tabii
+null karakterin de hedef diziye kopyalanması gerekir.
+
+    char s[100] = "this is a test";
+    char d[100];
+    int i;
+
+    for (i = 0; s[i] != '\0'; ++i)
+    	d[i] = s[i];
+    d[i] = '\0';
+
+    Aslında bu işlem daha kısa şöyle yapılabilir:
+
+    for (int i = 0; (d[i] = s[i]) != '\0'; ++i)
+    	;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[100];
+char d[100];
+
+    printf("Bir yazi giriniz:");
+    gets(s);
+
+    for (int i = 0; (d[i] = s[i]) != '\0'; ++i)
+    	;
+
+    puts(s);
+    puts(d);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Adres bilgilerinin yerleştirildiği nesnelere "gösterici (pointer)" denilmektedir. Bir adres bilgisi int bir nesneye, double bir nesneye yerleştirilemez.
+Adresler iki bileşenli özel türlerdir. Elimizde bir adres bilgisi varsa biz onu ancak bir göstericiye atayabiliriz. Yani, adres tutan nesnelere
+gösterici denilmektedir. C'de bir gösterici bildiriminin genel biçimi şöyledir:
+
+    <tür> *<gösterici_ismi>;
+
+    Örneğin:
+
+    int *pi;
+    long *pl;
+
+    Burada '*' atomunun çarpmayla bir ilgisi yoktur. Buradaki '*' göstericiyi belirtmektedir. Atomlar arasında istenildiği kadar boşluk karakteri bırakılabileceğine
+    göre bu bildirimler örneğin aşağıdaki gibi de yazılabilir:
+
+    int
+    	*
+    pi;
+
+    long* pl;
+
+    Ritchie/Kernighan yazım biçiminde * atomu gösterici ismine bitiştirilmektedir. Biz de bu yazım biçimini kullanacağız.
+
+    Bir göstericiye, herhangi bir adres bilgisi atanamaz. Ancak tür bileşeni uygun olan bir adres bilgisi atanabilir. Örneğin:
+
+    int *pi;
+
+    Burada pi göstericisine biz ancak tür bileşeni int olan bir adres bilgisi atayabiliriz. Örneğin:
+
+    pi = (int *)0x1FC14;		/* geçerli. pi int türdne gösterici, ona int türden bir adres bilgisi atanmış */
+
+    Örneğin:
+
+    int *pi;
+
+    pi = (double *) 0x1B12C0;		/* geçersiz! pi'ye int türden bir adres bilgisinin atanması gerekirdi. Halbuki double türden bir adres bilgisi atanmıştır */
+
+    Bir adres bilgisi gösterici olmayan bir nesneye de atanamaz. Örneğin:
+
+    int a;
+
+    a = (int *) 0x1FC90;	/* geçersiz! adres bilgileri temel türlere atanamaz, göstericilere atanabilir */
+
+    Bir göstericiye bir tamsayı da atayamayız. Ancak aynı türden bir adres bilgisi atayabiliriz. Örneğin:
+
+    int *pi;
+
+    pi = 0x1FC10;	/* geçersiz! int türden göstericiye adi bir int atanamaz, int türden adres bilgisinin atanması gerekir */
+
+    Yani özetle bir göstericiye aynı türden bir adres bilgisi atanabilir. Bir adres bilgisi de yalnızca aynı türden bir göstericiye atanabilir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir adres bilgisi aynı türden bir göstericiye atandığında göstericiye adresin yalnızca sayısal bileşeni yerleştirilir. Çünkü tür bileşeni
+zaten bildirimde derleyici tarafından bilinmektedir. Örneğin:
+
+    int *pi;
+
+    pi = (int *) 0x1FC14;
+
+    Burada pi'nin içerisinde 1FC14 değeri bulunur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Tek operandlı önek & operatörüne C'de "address of" operatör denilmektedir. Bu operatörün operandı bir nesne olmak zorundadır. Bu operatör, ilgili nesnenin
+bellek adresini elde eder. & operatörü ile elde edilen adresin tür bileşeni, operandı olan nesnenin türüyle aynı olan türdendir. Sayısal bileşeni ise
+nesnenin bellekteki doğrual adresidir. Tabii nesne bellekte bir byte'tan daha uzun yer kaplıyorsa, onun en düşük anlamlı adresi doğrusal adresi olur.
+
+    Bir nesnenin adresini aldığımızda biz onu aynı türden bir göstericiye yerleştirebiliriz. Örneğin:
+
+    int a;
+    int *pi;
+
+    pi = &a;	/* geçerli */
+
+    Burada &a ile elde edilen adres bilgisinin tür bileşeni int biçimdedir. O zaman bizim bu adresi int türden bir göstericiye atamamız gerekir. Tabii bu
+    atamadan sonra pi göstericisi aslında adresin sayısal bileşenini tutar durumda olur. Örneğin:
+
+    char a;
+    int *pi;
+
+    pi = &a;		/* geçersiz! char türden bir adres bilgisi int türden göstericiye atanmış */
+
+    Örneğin:
+
+    int a;
+    int b;
+
+    a = &b;			/* geçersiz! bir adres bilgisi int bir nesneye atanamaz! */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir göstericinin içerisinde bir adresin bulunması o göstericinin o adresi gösterdiği anlamına gelmektedir. Yani biz "falanca gösterici şu adresi gösteriyor"
+dediğimizde anlaşılması gereken şey, o göstericinin içerisinde o adresin bulunduğudur.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de adres bilgileri sembolik olarak "tür _" biçiminde gösterilir. Örneğin:
+
+    int a;
+
+    &a ifadesinin türü "int *" biçiminde ifade edilir. "int *" demek int türden bir adres bilgisi demektir. Örneğin:
+
+    int a;
+    int *pi;
+
+    Burada a'nın türü int, pi'nin türü int * biçimindedir. Buradaki '*' adres anlamına gelmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 35. Ders - 06/10/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de diziler onların bütün elemanlarından oluşan bileşik bir nesne gibi ele alınmaktadır. Örneğin:
+
+    char s[10];
+
+    Burada s dizisi 10 elemanlı ve char türdendir. C'de bir dizinin ismi bir ifade içeerisinde kullanıldığında otomatik olarak derleyici tarafından
+    o dizinin başlangıç adresine dönüştürülür. Yani dizi isimleri C'de dizilerin başlangıç adreslerini belirtmektedir. Dizi isimleri ile belirtilen
+    adreslerin tür bileşeni dizi türü ile aynı olan türdendir. Sayısal bileşeni ise dizinin bellekteki başlangıç adresidir. Diziler elemanları ardışıl bulunduğuna
+    göre ve dizinin elemanları ilk eleman düşük adreste olacak biçimde yerleştirildiğine göre aslında bir dizinin ismi yani dizinin adresi aynı zamanda
+    dizinin ilk elemanının adresidir. Örneğin:
+
+    int a[10];
+
+    Burada a ifadesi ile &a[0] ifadesi tamamen aynı anlamdadır. a adresi int türden bir adres belirtir. O halde C'de dizi isimleri aynı türden göstericilere atanabilir.
+    Örneğin:
+
+    int a[10];
+    int *pi;
+
+    pi = a;		/* geçerli */
+
+    Örneğin:
+
+    char s[10];
+    int *pi;
+
+    pi = s;		/* geçersiz! */
+
+    Burada göstericiye farklı türden bir adres bilgisi atanmıştır. Normal nesnelerin adreslerini & operatörüyle almaktayız. Ancak dizi isimleri zaten
+    adres belirtmektedir. Dolayısıyla dizi isimlerine & operatörünü uygulamamalıyız. (Aslında bu başka bir anlama gelmektedir.)
+
+    C'de dizi isimleri nesne belirtmemektedir. Biz bir dizi ismini kullandığımızda adeta derleyici o dizi ismini bir adres sabitine dönüştürmektedir.
+    Örneğin:
+
+    int a[3];
+
+    Burada a[0], a[1], a[2] birer nesne belirtir. Ancak a bir nesne belirtmez. Yani a için bir yer ayrılmamaktadır. a ifadesi tüm diziyi temsil etmektedir.
+
+    a = 10;		/* geçersiz! a bir nesne belirtmiyor */
+
+    Örneğin:
+
+    char s[3];
+    char *pc;
+
+    Burada s dizisinin bellekte 1B12C0 adresinden itibaren yerleştirildiğini varsayalım:
+
+    pc = s;
+
+    Aslında bu işlemde derleyici aşağıdaki gibi bir kod üretmektedir:
+
+    pc = (char *) 0x1B12C0;
+
+
+    char *pc;
+    char *p2;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de önemli bir adres operatörü de "_ (indirection)" operatördür. Bu operatörün çarpma işlemini yapan _ operatörü ile bir ilgisi yoktur. Tamamen
+farklı bir operatördür. _ operatörü tek operandlı önek bir adres operatörüdür. _ operatörünün operandı bir adres bilgisi olmak zorundadır. _ operatörü
+operandı olan adresteki nesneye erişimi sağlar. \* operatörü ile erişilen nesnenin türü, operand olarak kullanılan nesnenin türü ile aynı türdendir.
+Örneğin:
+
+    int a = 10;
+    int *pi;
+
+    pi = &a;
+
+    Burada pi'nin içerisinde a nesnesinin adresi vardır. Şimdi biz *pi dediğimizde pi adresindeki int nesneye erişmiş oluruz. Yani *pi ile a tamamen
+    aynı nesneyi belirtmektedir. *pi ifadesi burada int türdendir. Çünkü pi adresi int türden bir adres bilgisidir. Böylece biz bir nesnenin adresini
+    alıp onu bir göstericiye yerleştirdikten sonra o göstericiyi * operatörü ile kullandığımızda adresini aldığımız nesneye erişmiş oluruz. Örneğin:
+
+    int a;
+    int *pi;
+
+    pi = &a;
+
+    Burada artık *pi ile a aynı nesnelerdir. Bu nesneye a ifadesi ile erişmekle *pi ifadesi ile erişmek arasında hiçbir farklılık yoktur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a = 10;
+int \*pi;
+
+    pi = &a;
+
+    printf("%d\n", *pi);		/* 10 */
+    *pi = 20;
+    printf("%d\n", a);			/* 20 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir dizinin ismi o dizinin bellekteki adresini (yani ilk elemanının adresini) belirtiyordu. O halde biz dizinin ismini aynı türden bir gösteriye atayıp
+o göstericiyi _ operatörü ile kullanırsak dizinin ilk elemanına erişmiş oluruz. Örneğin:
+
+    int a[] = {10, 20, 30};
+    int *pi;
+
+    pi = a;
+
+    Burada *pi aslında a[0] nesnesidir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a[] = {10, 20, 30};
+int \*pi;
+
+    pi = a;
+
+    printf("%d\n", *pi);		/* 10 */
+
+    *pi = 100;
+
+    printf("%d\n", a[0]);		/* 100 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+_ adres operatörüne İngilizce "indirection" operatörü denilmektedir. Biz bu operatöre Türkçe "içerik operatörü" de diyeceğiz". İçerik operatörünün
+operandının bir adres bilgisi olması gerekir. Örneğin:
+
+    int a = 0x1FC12D;
+
+    *a = 10;		/* geçersiz! * operatörünün operandı adi bir int, bir adres bilgisi değil */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de bir adres bilgisi ile tamsayı türlerine ilişkin bir bilgi toplanabilir. Bir adres bilgisinden tamsayı türlerine ilişkin bir bilgi çıkartılabilir.
+Yani p bir adres bilgisi, i de bir tamsayı belirtmek üzere p + i ya da i + p işlemi geçerlidir. p - i işlemi geçerlidir, ancak i - p işlemi geçerli değildir.
+Adres bilgileriyle tamsayı türlerine ilişkin bilgiler çarpılıp bölünemezler. Bir adres bilgisi bir tamsayı ile toplandığında ya da çıkartıldığında elde edilen ürün
+aynı türden bir adres bilgisi olur. Bir adres bilgisi 1 artırılıdğında adresin sayısal bileşeni, adresin türünün uzunluğu kadar artmaktadır. Benzer biçimde bir adres
+bilgisinden 1 çıkartıldığında adresin sayısal bileşeni, adresinin türünün uzunluğu kadar eksilir. Örneğin pi, int türden bir adres bilgisini temsil etsin. İlgili sistemde de
+int türünün 4 byte olduğunu varsayalım. pi + 1 ifadesi ile elde edilen adresin sayısal bileşeni pi'nin sayısal bileşeninden 4 fazla olacaktır. Örneğin pc char türden
+bir adres belirtiyor olsun. pc + 1 işleminden elde edilen adresin sayısal bileşeni pc adresinin sayısal bileşeninden 1 fazla olacaktır. Çünkü char 1 byte uzunluktadır.
+Benzer biçimde pi bir gösterici ise ++pi işlemi sonucunda pi'nin içerisinde adresin sayısal bileşeni 4 artacaktır. Yani pi bir sonraki int nesneyi gösterir duruma
+gelecektir. Örneğin:
+
+    int a[] = {10, 20, 30};
+    int *pi;
+
+    pi = a;
+
+    Burada pi dizinin ilk elemanını göstermektedir. Biz *pi'yi yazdırırsak 10 görürüz. pi'yi 1 artıralım:
+
+    ++pi;
+
+    Şimdi pi'nin içerisindeki adresin sayısal bileşeni 4 artmış olacaktır. Şimdi *pi'yi yazdırırsak 20'yi göreceğiz. Çünkü dizi elemanları ardışıl olmak zorundadır.
+    Yani bizim pi'yi 1 artırdığımızda dizinin sonraki elemanına erişebilmemiz için dizi elemanları arasında hiç boşluk olmayacağını garanti etmiş olmamız gerekir. Örneğin:
+
+    int a = 10, b = 20, c = 30;
+    int *pi;
+
+    pi = &a;
+
+    Burada a, b ve c nesnelerinin bellekte peşi sıra dizilmelerinin hiçbir garantisi yoktur. Dolayısıyla burada biz pi'yi artırarak b ve c'ye erişemeyiz.
+    Ancak dizilerde bu ardışıllık garanti edilmiştir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a[] = {10, 20, 30};
+int \*pi;
+
+    pi = a;
+
+    printf("%d\n", *pi);		/* 10 */
+    ++pi;
+    printf("%d\n", *pi);		/* 20 */
+    ++pi;
+    printf("%d\n", *pi);		/* 30 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir yazıyı char türden bir dizinin içerisine yerleştirip dizinin başlangıç adresini de char türden bir göstericiya atayabiliriz. Bu durumda göstericiyi
+artıra artıra yazının karakterlerine erişebiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[] = "ankara";
+char \*pc;
+
+    pc = s;
+
+    putchar(*pc);		/* a */
+    ++pc;
+    putchar(*pc);		/* n */
+    ++pc;
+    putchar(*pc);		/* k */
+    ++pc;
+    putchar(*pc);		/* a */
+    ++pc;
+    putchar(*pc);		/* r */
+    ++pc;
+    putchar(*pc);		/* a */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Tabii yukarıdaki örneği bir döngü içerisinde de yapabilirdik.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+char s[] = "ankara";
+char \*pc;
+
+    pc = s;
+    while (*pc != '\0') {
+    	putchar(*pc);
+    	++pc;
+    }
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de adres ile ilgili işlem yapan 4 operatör vardır: &, _, [] ve -> operatörleri. Biz burada bu operatörleri biraz daha ayrıntılı olarak inceleyeceğiz.
+Ancak -> operatörü "yapılar (structures)" konusu ile ilgili olduğu için onu yapılar konusunda göreceğiz.
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+& operatörü, tek operandlı önek (unary prefix) bir adres operatörüdür. Bu operatör operandı olan nesnenin bellek adresini verir. Daha önceden de belirtildiği gibi
+& operatörü ile elde edilen adresin tür bileşeni, operand olan nesnenin türü ile aynı olan türden, sayısal bileşeni ise operand olan nesnenin bellekteki doğrusal adresinden
+oluşmaktadır. Biz bir nesnenin adresini aldığımızda onu aynı türden bir göstericiye yerleştirebiliriz. Örneğin:
+
+    int a;
+    int *pi;
+    char *pc;
+
+    pi = &a;
+    pc = &a;		/* geçersiz! */
+
+    & operatörü öncelik tablosunda tablonun ikinci düzeyinde sağdan sola grupta bulunmaktadır:
+
+
+    ()					Soldan-Sağa
+    + - ++ -- !	&		Sağdan-Sola
+    * / %				Soldan-Sağa
+    + -					Soldan-Sağa
+    <  > <= >=			Soldan-Sağa
+    != ==				Soldan-Sağa
+    &&					Soldan-Sağa
+    ||					Soldan-Sağa
+    ?:					Sağdan-Sola
+    =, +=, /=, *=,...	Sağdan-Sola
+    ,					Soldan-Sağa
+
+    Örneğin a bir nesne belirtmek üzere &a + 1 gibi bir ifadede önce a'nın adresi alınır, sonra bu adrese 1 toplanır. & operatörünün operandının bir nesne
+    belirtmesi gerekir. Çünkü yalnızca nesnelerin adresleri vardır. Örneğin &10 ifadesi geçersizdir. Çünkü operand olan 10, bir nesne belirtmez. Örneğin &(a + 1),
+    burada a + 1 ifadesi bir nesne belirtmez yani sol taraf değeri (lvalue) değildir. Bu nedenle biz a'nın adresini alabiliriz ancak a + 1'in adresini alamayız.
+    Dizi isimleri zaten adres belirtmektedir. Dizi isimlerine yeniden & operatörü uygulanmaz. (Ancak C'de aslında dizi isimlerinin adresleri alınabilir. Ancak bu durum
+    tamamen farklı bir anlam ifade etmektedir. İleride ele alınacaktır.)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+_ (indirection) operatörü, tek operandlı önek bir adres operatörüdür. Bu operatörün operandı bir adres bilgisi olmak zorundadır. Operatör, operandı olan
+adresteki nesneye erişmekte kullanılır. * operatörü ile erişilen nesnenin türü, operandı olan adresin türüyle aynı türdendir. Yani örneğin *p işleminde
+elde edilen nesne, p adresi hangi türdense o türden olacaktır. \* operatörü de öncelik tablosunun ikinci düzeyinde sağdan sola grupta bulunmaktadır.
+
+    ()					Soldan-Sağa
+    + - ++ -- !	& *		Sağdan-Sola
+    * / %				Soldan-Sağa
+    + -					Soldan-Sağa
+    <  > <= >=			Soldan-Sağa
+    != ==				Soldan-Sağa
+    &&					Soldan-Sağa
+    ||					Soldan-Sağa
+    ?:					Sağdan-Sola
+    =, +=, /=, *=,...	Sağdan-Sola
+    ,					Soldan-Sağa
+
+    * operatörünün operandı bir adres bilgisi olmak zorunadır. Örneğin göstericiler, dizi isimleri birer adres belirtmektedir:
+
+    int a[] = {10, 20, 30}
+
+    Bırada *a bu dizinin ilk elemanını belirtir.
+
+    a bir nesne belirtmek üzere *&a işleminde öce & operatörü sonra * operatörü yapılacaktır. Çünkü bu iki operatör sağdan sola aynı öncelik grubundadır.
+    O halde *&a ile a arasında hiçbir farklılık yoktur. Yani, biz bir nesnenin adresini alıp ona erişirsek aynı nesneyi elde ederiz. Örneğin:
+
+    int a = 0x1FC20D;
+
+    printf("%d\n", *a);		/* geçersiz! * operatörünün operandı adres bilgisi değil adi bir int */
+
+    Tabii, adres sabitleri de adres belirttiğine göre onlara da * operatörü uygulanabilir. Örneğin *(int *)0x1FCD0 burada bellekte 1FCD0 adresinden başlayan
+    4 byte (int türünün 4 byte olduğunu varsayıyoruz) int olarak değerlendirilip oraya erişilecektir. Tabii aslında bizim bellekte rastegele bölgelere bu yolla
+    erişmememiz gerekir. Bu konu ileride "gösteri hataları" başlığı ile ele alınacaktır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a = 10;
+int b[] = {10, 20, 30};
+
+    printf("%d\n", *&a);	/* 10 */
+
+    *&a = 20;
+
+    printf("%d\n", a);		/* 20 */
+
+    printf("%d\n", *b);		/* 10 */
+    *b = 100;
+    printf("%d\n", b[0]);	/* 100 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Dizi elemanlarına erişmekte kullandığımız [] aslında bir adres operatörüdür. Köşeli parantez operatörü, tek operandlı sonek (unary postfix) bir operatördür.
+p[n] ifadesi tamamen _(p + n) ile eşdeğerdir. Yani p[n] "p adresinden n ilerinin içeriği" anlamına gelmektedir. Tabii burada p adresinden n ileri demekle
+p adresinden n byte ileriyi kastetmiyoruz. p adresinden n \* p'nin türünün uzunluğu kadar byte ilerinin içeriğini kastediyoruz. [] operatöründe köşeli parantez
+içerisindeki ifadenin tamsayı türlerine ilişkin olması gerekir. [] opeatörü öncelik tablosunun en yukarısında soldan öncelikli grupta bulunmaktadır:
+
+    () []				Soldan-Sağa
+    + - ++ -- !	& *		Sağdan-Sola
+    * / %				Soldan-Sağa
+    + -					Soldan-Sağa
+    <  > <= >=			Soldan-Sağa
+    != ==				Soldan-Sağa
+    &&					Soldan-Sağa
+    ||					Soldan-Sağa
+    ?:					Sağdan-Sola
+    =, +=, /=, *=,...	Sağdan-Sola
+    ,					Soldan-Sağa
+
+    [] operatörünün operandı bir adres bilgisi olmak zorundadır. Yani operand örneğin, bir gösterici olabilir, bir dizi ismi olabilir. Biz daha önce []
+    operatörünü dizi elemanlarına erişmekte kullanmıştık. Örneğin a[i] ifadesini a dizisinin i'inci indisli elemanına erişmek için kullanmıştık. a dizi ismi
+    dizinin başlangıç adresi anlamına geldiğine göre a[i] ifadesi tamamen *(a + i) ile eşdeğerdir. Tabii [] operatörünü biz daha önce hep dizi ismiyle kullanmıştık.
+    Aslında bu operatörün operandı herhangi bir adres bilgisi olabilir. Örneğin [] operatörünü bir gösterici ile kullanabiliriz:
+
+    int a[] = {10, 20, 30, 40, 50};
+    int *pi;
+
+    pi = a;
+
+    Örneğin burada a[3] ile pi[3] arasında hiçbir farklılık yoktur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a[] = {10, 20, 30, 40, 50};
+int \*pi;
+
+    for (int i = 0; i < 5; ++i)
+    	printf("%d %d\n", a[i], *(a + i));
+
+    pi = a;
+
+    printf("%d\n", pi[3]);		/* 40 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Tabii aslında [] operatöründe köşeli parantezler içerisindeki ifade negatif olabilir. Örneğin pi[-2] gibi bir ifade tamamen normaldir. Bu işlem _(pi - 2)
+anlamına gelmektedir. Yani biz burada pi'nin belirttiği adresten iki önceki elemana erişmiş oluruz.
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a[] = {10, 20, 30, 40, 50};
+int \*pi;
+
+    pi = a + 3;
+    printf("%d\n", *pi);		/* 40 */
+
+    printf("%d\n", pi[-2]);		/* 20 */
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+p bir adres belirtmek üzere p[0] ile _(p + 0) ve *p tamamen aynı anlamdadır. Yani örneğin biz, a isimli bir dizinin ilk elemanına a[0] ifadesi ile de *a
+ifadesi ile de erişebiliriz.
+
+    p bir adres belirtmek üzere *(p + n) ile *p + n tamaen farklı anlamlara gelmektedir. *(p + n) ifadesinde önce parantez içi yapılacak ve p adresinden n ilerideki
+    adres elde edilecektir. Sonra * operatörü ile bu adresin içeriği elde edilecektir. Halbuki *p + n ifadesinde önce *p ile p adresindeki nesneye erişilecek
+    o nesnenin değeri n ile toplanacaktı.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de aslında [] operatörünün operand'ları yer değiştirebilmektedir. Yani p[n] ifadesi aslında n[p] biçiminde de yazılabilmektedir. Bu çok az bilinen
+bir özelliktir. Zaten programcılar tarafından hiç kullanılmaz.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a[] = {10, 20, 30, 40, 50};
+
+    printf("%d\n", a[2]);		/* 30 */
+    printf("%d\n", 2[a]);		/* 30 */
+
+    return 0;
+
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+p bir adres belirtmek üzere örneğin ++*p gibi bir ifadede biz asılında *p'yi bir artırmış oluruz. Yani bu ifade *p = _p + 1 ile aynı anlamdadır.
+Ancak _++p ifadesinde biz önce p göstericisinin içerisinde adresi bir artırıp (bir byte değil), sonra artırılmış adresteki nesneye erişiriz. p bir adres
+belirtmek üzere &_p ifadesinde önce p adresindeki nesneye erişilip, sonra onun adresi alınmıştır. Bu da tabii p adresiyle aynıdır. a bir nesne belirtmek üzere
+_&a ifadesi de daha önce belirttiğimiz gibi a ile aynı anlamdadır.
+
+    [] operatörünün & operatöründen daha öncelikli olduğuna dikkat ediniz. Örneğin &a[n] ifadesi a adresinden n ilerinin içeriğinin adresi anlamına gelmektedir. Bu ifade
+    &*(a + n) ifadesi ile eşdeğer olduğuna göre aslında a + n ile de eşdeğerdir. Yani a adresinden n ilerinin içeriğinin adresi, aslında a adresinden n ilerinin adresi aynı anlamdadır.
+    Örneğin:
+
+    int a = 10;
+
+    &a[0] = 20;		/* geçersiz */
+
+    Buarad [] operatörü önceliklidir. Dolayısıyla [] operatörünün operandı adres bilgisi olmadığı için ifade geçersizdir. İfadeyi şöyle düzeltelim:
+
+    (&a)[0] = 20;		/* geçerli */
+
+    Bu ifade geçerlidir. Burada a'ya 20 atanmaktadır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 36. Ders - 11/10/2022 - Salı
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki gibi bir gösterici bildirimi olsun:
+
+    int *pi;
+
+    Bu bildirimden iki şey anlaşılmaktadır. Birincisi, pi nesnesi int * türündendir. Burada "int *" int türden adres bilgisi anlamına gelir. (pi'yi
+    parmağınızla kapatıp sola bakın). İkincisi, *pi yani pi'nin gösterdiği yer int türdendir. (*pi'yi parmağınızla kapatıp sola bakın).
+
+    T türünden adres türü C'de T * biçiminde temsil edilmektedir. T1 türünden T2 türüne otomatik dönüştürme olması T1 * türünden T2 * türüne otomatik dönüştürme olacağı
+    anlamına gelmez. Örneğin int türünden double türüne otomatik dönüştürme vardır. Ancak int * türünden double * türüne otomatik dönüştürme yoktur.
+    Bir adres bilgisini ancak aynı türden bir göstericiye atayabiliriz.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir göstericiye ilkdeğer verebiliriz. Tabii verilen ilkdeğerin gösterici ile aynı türden bir adres bilgisi olması gerekir. Örneğin:
+
+    int a;
+    int *pi = &a;		/* geçerli */
+
+    Tabii burada verilen ilkdeğer pi'nin içerisine yerleştirilmektedir. *pi'ye yerleştirilmemektedir. Zaten buradaki * bir operatör görevinde değildir.
+    Bildirimdeki dekleratörde bulunmaktadır. Örneğin:
+
+    int a[] = {10, 20, 30, 40, 50};
+    int *pi = a;		/* geçerli */
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir fonksiyonun parametre değişkeni bir gösterici olabilir. Bu durumda fonksiyon, aynı türden bir adres bilgisi ile çağrılmalıdır. Örneğin:
+
+    void foo(int *pi)
+    {
+    	/* ... */
+    }
+    ...
+    int a;
+    foo(&a);			/* geçerli */
+    foo(a);				/* geçersiz */
+
+    Bir fonksiyonun parametre değişkeni bir gösterici ise, biz de o fonksiyonu aynı türden bir nesnenin adresi ile çağırmışsak, fonksiyonun içerisinde
+    * operatörü kullanıldığında biz aslında adresini aldığımız nesneye erişiriz. İşte bir fonksiyonun başka bir fonksiyonun yerel değişkenini değiştirebilmesi
+    için onun adresini alması gerekir.
+
+    Bir fonksiyonu bir değerle çağırmaya İngilizce "call by value", bir adresle çağırmaya "call by reference" denilmektedir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void foo(int *pi)
+{
+*pi = 20;
+}
+
+int main(void)
+{
+int a = 10;
+
+    printf("%d\n", a);      /* 10 */
+
+    foo(&a);
+
+    printf("%d\n", a);      /* 20 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+İki değişken içerisindeki değeri yer değiştiren swap isimli bir fonksiyon yazmak isteyelim. Bu fonksiyonu aşağıdaki gibi yazamayız:
+
+    void swap(int x, int y)
+    {
+    	int temp = x;
+    	x = y;
+    	y = temp;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void swap(int x, int y)
+{
+int temp = x;
+x = y;
+y = temp;
+}
+
+int main(void)
+{
+int a = 10, b = 20;
+
+    printf("a = %d b = %d\n", a, b);
+
+    swap(a, b);
+
+    printf("a = %d b = %d\n", a, b);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bu fonksiyonu yazabilmek için nesnelerin adreslerini parametre olarak almak gerekir. Örneğin:
+
+    void swap(int *x, int *y)
+    {
+    	int temp = *x;
+    	*x = *y;
+    	*y = temp;
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void swap(int *x, int *y)
+{
+int temp = *x;
+*x = *y;
+*y = temp;
+}
+
+int main(void)
+{
+int a = 10, b = 20;
+
+    printf("a = %d b = %d\n", a, b);
+
+    swap(&a, &b);
+
+    printf("a = %d b = %d\n", a, b);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Şimdi artık scanf fonksiyonunun neden nesnenin adresini aldığını anlayabiliriz. Eğer scanf nesnenin adresini almasaydı o nesnenin içerisine
+bir şey yerleştiremezdi. Bir fonksiyonun bizim yerel değişkenimize bir şey yerleştirebilmesi için bizim değişkenimizin adresini alması gerekir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int main(void)
+{
+int a;
+
+    printf("Bir deger giriniz:");
+    scanf("%d", &a);				/* scanf a'nın adresini alarak oraya değeri yerleştirmektedir */
+
+    printf("%d\n", a * a);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de bir dizinin fonksiyona parametre yoluyla aktarılması tipik olarak iki parametre ile yapılmaktadır. Fonksiyonun parametrelerinden biri, bir gösterici
+olur. Bu gösterici dizinin başlangıç adresini alır. Diğer parametre de int, unsigned int gibi tamsayı türlerine ilişkin bir türden olur. Bu parametre de
+dizinin uzunlupunu alır. Böylece fonksiyon, dizinin başlangıç adresini ve uzunluğunu aldığında o göstericiyi artırarak dizinin elemanlarının hepsine
+erişebilir. Tabii bu biçiminde aktarımın mümkün olmasının asıl nedeni dizi elemanlarının ardışıllığıdır. Fonksiyona dizinin uzunluğunun da geçirilmesinin
+nedeni fonksiyonun dizinin sonunu tespit edebilmesi içindir.
+
+    Aşağıdaki int bir dizinin elemanlarını yazdıran disp isimli fonksiyon örnek olarak verilmiştir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void disp(int *pi, int size)
+{
+for (int i = 0; i < size; ++i) {
+printf("%d ", *pi);
+++pi;
+}
+printf("\n");
+}
+
+int main(void)
+{
+int a[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+int b[5] = {100, 200, 300, 400, 500};
+
+    disp(a, 10);
+    disp(b, 5);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Yukarıdaki örnekte dizi elemanlarına [] operatörü ile de erişebiliriz. Aslında bu tür fonksiyonlarda _ yerine daha çok [] operatörü tercih edilmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void disp(int \*pi, int size)
+{
+for (int i = 0; i < size; ++i)
+printf("%d ", pi[i]);
+printf("\n");
+}
+
+int main(void)
+{
+int a[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+int b[5] = {100, 200, 300, 400, 500};
+
+    disp(a, 10);
+    disp(b, 5);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir dizinin uzunluğunun int bir tür ile ifade edilmesi bazı sistemlerde yetersiz kalabilir. Örneğin bir sistemin bellek büyüklüğü int sınırlarını
+aşıyor olabilir. Bu durumda çok büyük dizilerin uzunluklarını int türü ile ifade edemeyiz. Bu tür durumlarda unsigned int, long, unsigned long gibi türler
+denenebilir. Tabii bir bir sistemde açılabilecek maksimum dizi uzunluğu o sistemin bellek büyüklüğü ile ilgilidir. Bunu da ancak derleyicileri yazanlar
+biliyor olabilirler. İşte C'de ilgili sistemdeki bellek büyüklüğünü etkin bir biçimde temsil edebilmek için size_t isimli bir tür ismi düşünülmüştür.
+size_t aslında bir tür değildir. Başka bir türün alternatif bir ismidir. Bu biçimdeki alternatif isimler typedef bildirimi ile oluşturulurlar.
+Biz kursumuzda ileride typedef bildirimlerini göreceğiz. size_t türünün typedef bildirimleri <stdio.h>, <stdlib.h>, <stddef.h> , <string.h> gibi
+dosyalarda yapılmış durumdadır. Yani bu tür ismini kullanabilmemeiz için bu dosyalardan birini include etmiş olmamız gerekir. size_t bir anahtar sözcük değildir.
+Bir değişken olan sembolik bir isimdir. C standartlarına göre size_t işaretsiz bir tamsayı türü olmak üzere derleyicileri yazanlar tarafından
+typedef edilmiş bir tür olmak zorundadır. Aslında programcının size_t türünün hangi tür olarak belirlendiğini bilmesine gerek yoktur.
+
+    İşte C'de dizi uzunlukları da genellikle programcılar tarafından size_t türü ile temsil edilmektedir. Biz de kursumuzda her ne kadar henüz typedef
+    işlemlerini görmemiş olsak da bu size_t türünü kullanacağız.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void disp(int \*pi, size_t size)
+{
+for (size_t i = 0; i < size; ++i)
+printf("%d ", pi[i]);
+printf("\n");
+}
+
+int main(void)
+{
+int a[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+int b[5] = {100, 200, 300, 400, 500};
+
+    disp(a, 10);
+    disp(b, 5);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıda int bir dizinin en büyük elemanını bulan bir fonksiyon örneği verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int getmax(int \*pi, size_t size)
+{
+int max = pi[0];
+
+    for (size_t i = 1; i < size; ++i)
+        if (pi[i] > max)
+            max = pi[i];
+
+    return max;
+
+}
+
+int main(void)
+{
+int a[10] = {45, 23, 11, 67, 21, 7, 32, 76, 22, 47};
+int max;
+
+    max = getmax(a, 10);
+    printf("%d\n", max);
+
+    return 0;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdkai double bir dizinin ortalamasına geri dönen mean isimli bir fonksiyon örneği verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+double mean(double \*pd, size_t size)
+{
+double total;
+
+    total = 0;
+    for (size_t i = 0; i < size; ++i)
+        total += pd[i];
+
+    return total / size;
+
+}
+
+int main(void)
+{
+double a[5] = {1, 2, 3, 4, 5};
+double result;
+
+    result = mean(a, 5);
+    printf("%f\n", result);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir göstericiye aynı türden bir adres bilgisinin atanabildiğini anımsayınız. Bu durumda int bir dizinin en büyük elemanına geri dönen aşağıdaki
+gibi bir fonksiyon olsun:
+
+    int getmax(int *pi, size_t size);
+
+    Burada bu fonksiyon, int bir dizinin en büyük elemanını bulabilir, long, double gibi türlere ilişkin dizilerin en büyük elemanlarını bulamaz.
+    Çünkü örneğin double bir türden dizinin adresi double türden adres belirtir. Halbuki fonksiyonun parametresi int türden bir göstericidir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıdaki int türden bir diziyi bubble sort algoritmasıyla sıraya dizen bir fonksiyon örneği verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+void bsort(int \*pi, size_t size);
+
+int main(void)
+{
+int a[10] = {2, 56, 11, 1, 58, 23, 32, 43, 67, 15};
+
+    bsort(a, 10);
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+void bsort(int \*pi, size_t size)
+{
+int temp;
+int flag;
+size_t i;
+
+    i = 0;
+    do {
+        flag = 0;
+        for (size_t k = 0; k < size - 1 - i; ++k) {
+            if (pi[k] > pi[k + 1]) {
+                flag = 1;
+                temp = pi[k];
+                pi[k] = pi[k + 1];
+                pi[k + 1] = temp;
+            }
+        }
+        ++i;
+    }  while (flag == 1);
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Aşağıda int bir diziyi ters çeviren bir fonksiyon örneği verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+void reverse(int \*pi, size_t size);
+
+int main(void)
+{
+int a[10] = {2, 56, 11, 1, 58, 23, 32, 43, 67, 15};
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    reverse(a, 10);
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+void reverse(int \*pi, size_t size)
+{
+for (size_t i = 0; i < size / 2; ++i) {
+int temp = pi[i];
+pi[i] = pi[size - 1 - i];
+pi[size - 1 - i] = temp;
+}
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Yukarıdaki örneği yazarken iki int değeri yer değiştiren swap fonksiyonundan da faydalanabilirdik.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+void reverse(int \*pi, size_t size);
+
+int main(void)
+{
+int a[10] = {2, 56, 11, 1, 58, 23, 32, 43, 67, 15};
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    reverse(a, 10);
+
+    for (size_t i = 0; i < 10; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+
+}
+
+void swap(int *pi1, int *pi2)
+{
+int temp = *pi1;
+*pi1 = *pi2;
+*pi2 = temp;
+}
+
+void reverse(int \*pi, size_t size)
+{
+for (size_t i = 0; i < size / 2; ++i)
+swap(&pi[i], &pi[size - 1 - i]);
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+[] operatörünün _ ve & operatörlerinden daha öncelikli olduğunu anımsayınız. Bu durumda p bir adres belirtmek üzere &p[n] ile p + n aynı anlamdadır.
+Yani, p adresinden n ilerinin içeriğinin adresi aslında p adresindne n ilerinin adresidir.
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Yazıların fonksiyonlara parametre yoluyla aktarılması için tipik olarak fonksiyonun parametre değişkeni char tüdrden bir gösterici olur. Fonksiyon da
+yazının başlangıç adresiyle çağrılır. Yazının uzunluğunun fonksiyona geçirilmesine gerek yoktur. Çünkü yazının sonunda zaten null karakter vardır.
+Fonksiyon da null karakter görene kadar yazının tüm karakterlerini elde edebilir.
+
+    Örneğin aslında puts fonksiyonun prototipi şöyledir:
+
+    void puts(char *str);
+
+    Fonksiyon yazının başlangıç adresini alır, null karakter görene kadar tüm karakterleri yan yana yazdırır.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void myputs(char *str)
+{
+while (*str != '\0') {
+putchar(\*str);
+++str;
+}
+}
+
+int main(void)
+{
+char s[] = "ankara";
+
+    myputs(s);
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+```
+
+```
+
+```
+
+```
