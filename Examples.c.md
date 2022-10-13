@@ -1417,11 +1417,11 @@ En çok kullanılan format karakterleri şunlardır:
     	int d = 100;
     	double e = 12000.345678;
 
-    	printf("%d - %c\n", a, a);		/* 97 - a */
-    	printf("%f\n", b);				/* 12.450000 */
-    	printf("%u\n", c);				/* 32503456 */
-    	printf("%x\n", d);				/* 64 */
-    	printf("%e\n", e);				/* 1.200035e+04 */
+    	printf("%d - %c\n", a, a);      /* 97 - a */
+    	printf("%f\n", b);              /* 12.450000 */
+    	printf("%u\n", c);              /* 32503456 */
+    	printf("%x\n", d);              /* 64 */
+    	printf("%e\n", e);              /* 1.200035e+04 */
 
     	return 0;
     }
@@ -1463,10 +1463,10 @@ sayı noktadan sonra iki basamak olacak biçimde yazdırılır. Burada yalnızca
     {
     	double a = 12.346;
 
-    	printf("___%10.2f___\n", a);	/*___     12.35___*/
-    	printf("___%-10.2f___\n", a);	/*___12.35     ___*/
-    	printf("___%.10f___\n", a);		/*___12.3460000000___*/
-    	printf("___%.0f___\n", a);		/*___12___*/
+    	printf("___%10.2f___\n", a);        /*___     12.35___*/
+    	printf("___%-10.2f___\n", a);       /*___12.35     ___*/
+    	printf("___%.10f___\n", a);         /*___12.3460000000___*/
+    	printf("___%.0f___\n", a);          /*___12___*/
 
     	return 0;
     }
@@ -1482,19 +1482,19 @@ C'de bildirimler üç yerde yapılabilir:
 ```
     #include <stdio.h>
 
-    int x;				/* global deişken */
+    int x;                  /* global deişken */
 
-    void foo(int n)			/* Parametre değişkeni */
+    void foo(int n)         /* Parametre değişkeni */
     {
-    	int a;			/* yerel değişken */
+    	int a;              /* yerel değişken */
     	/* ... */
     }
 
-    int y;				/* global değişken */
+    int y;                  /* global değişken */
 
     int main(void)
     {
-    	int b;			/* yerel değişken */
+    	int b;              /* yerel değişken */
     	/* ... */
 
     	return 0;
@@ -1528,14 +1528,14 @@ kastedilmektedir. Ancak bu kural C99 ve ötesinde değiştirilmiştir. C99 ve ö
     int main()
     {
     	printf("this is a test\n");
-    	int a;			/* C90'da geçersiz! C99 ve ötesinde geçerli */
+    	int a;                                      /* C90'da geçersiz! C99 ve ötesinde geçerli */
 
     	{
-    		int b;		/* C90'da da geçerli */
-    		printf("this is a test\n");
+    	    int b;                                  /* C90'da da geçerli */
+    	    printf("this is a test\n");
     	}
 
-    	int c;			/* C90'da geçersiz! C99 ve ötesinde geçerli */
+    	int c;                                      /* C90'da geçersiz! C99 ve ötesinde geçerli */
     }
 ```
 
@@ -1545,8 +1545,8 @@ sayının 8'lik sistemde yazılmış olduğu anlamına gelir. Örneğin:
 
 ```
     100         (10'luk sistemde 100)
-    0x64		(16'lık sistemdeki 64 yani 10'luk sistemde 100)
-    012			(8'lik sistemde 12 yani 10'luk sistemde 10)
+    0x64        (16'lık sistemdeki 64 yani 10'luk sistemde 100)
+    012         (8'lik sistemde 12 yani 10'luk sistemde 10)
 ```
 
 Tabii biz tamsayı değeri kaçlık sistemde yazarsak yazalım, aslında bu sayı bellekte her zaman 2'lik sistemde tutulmaktadır.
@@ -1605,98 +1605,130 @@ nasıl yazıldığına ve niceliğine bakılarak belirlenmektedir. Bir C program
 **1.** Sayı nokta içermiyorsa, sonuda bir ek yoksa ve 10'luk sistemde yazılmışsa; sayı sırasıyla "int", "long" ve ""long long" türlerinin hangisinin
 içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
-0 int türden sabit
-123 int türden sabit
--123 Bu bir sabit değildir. Burada sabit olan 123'tür. Sayının başındaki '-' bir operatördür.
+```
+    0                       int türden sabit
+    123                     int türden sabit
+    -123                    bu bir sabit değildir. Burada sabit olan 123'tür. Sayının başındaki '-' bir operatördür.
+```
 
 Şimdi çalıştığımız sistemde int ve long türünün 4 byte ancak long long türünün 8 byte olduğunu varsayalım. Bu durumda:
 
-    	3000000000				long long türden sabit
-    	10000000000000			long long türden sabit
+```
+    3000000000              long long türden sabit
+    10000000000000          long long türden sabit
+```
 
 **2.** Sayı nokta içermiyorsa, sonunda ek yoksa ve 16'lık sistemde ya da 8'lik sistemde yazılmışsa; sayı sırasıyla "int", "unsigned int", "long", "unisgned long",
 "long long" ve "unsigned long long" sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir. Çalıştığımız sistemde int ve long türünün 4 byte
 ancak long long türünün 8 byte olduğunu varsayalım.
 
-    0x10 int türden sabit
-    0xFC123478 unsigned int türden sabit
-    1231231321223123123; long long türdne sabit
+```
+    0x10                    int türden sabit
+    0xFC123478              unsigned int türden sabit
+    1231231321223123123     long long türdne sabit
+```
 
 **3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde 'u' ya da 'U' varsa; sayı 10'luk, 16'lık, 8'lik sistemde yazıldığında
 sırasıyla "unsigned int", "unsigned long int" ve "unsigned long long" türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir.
 Örneğin:
 
-    123U unsigned int türünden sabit
-    0u unsigned int türdne sabit
-    30000000000000U unsigned long long türünden sabit
-    0x1234u unsigned int türünden sabit
-    01234U unsigned int türünden sabit
+```
+    123U                    unsigned int türünden sabit
+    0u                      unsigned int türdne sabit
+    30000000000000U         unsigned long long türünden sabit
+    0x1234u                 unsigned int türünden sabit
+    01234U                  unsigned int türünden sabit
+```
 
 **4.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde 'l' ya da 'L' harfi varsa ve sayı 10'luk sistemde yazılmışsa; sayı "long" ve
 "long long" türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
-    1L long türden bir sabit
-    1234567890123L long long türden sabit
+```
+    1L                      long türden bir sabit
+    1234567890123L          long long türden sabit
+```
 
 **5.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde 'l' ya da 'L' harfi varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa;
 sayı "long" ve "unsigned long" "long long" ve "unsigned long long" türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
-    0x12L long ütrden sabit
-    0123L long türden sabit
+```
+    0x12L                   long ütrden sabit
+    0123L                   long türden sabit
+```
 
 **6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık "ul ya da lu" varsa ('u' ya da 'l' ler büyük ya da küçük olabilir) ve sayı 10'luk sistemde,
 16'lık sistemde ya da 8'lik sistemde yazıldığında sırasıyla "unsigned long" ve "unsigned long long" sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir.
 Örneğin:
 
-    12LU unsigned long int türden sabit
-    1234567890123ul unsigned long long türden sabit
+```
+    12LU                    unsigned long int türden sabit
+    1234567890123ul         unsigned long long türden sabit
+```
 
 **7.** Sayı nokta içermiyorsa, sayının sonunda "ll" ya da "LL" soneki varsa ve sayı 10'luk sistemde yazılmışsa; "long long" türden sabit belirtir. Örneğin:
 
-    1LL long long türden sabit
-    100ll long long türden sabit
+```
+    1LL                     long long türden sabit
+    100ll                   long long türden sabit
+```
 
 **8.** Sayı nokta içermiyorsa, sayının sonunda "ll" ya da "LL" soneki varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa; "long long" ve "unsigned long long"
 türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir. Örneğin:
 
-    0x12LL long long türden sabit
+```
+    0x12LL                  long long türden sabit
+```
 
 **9.** Sayı nokta içermiyorsa ve sayının sonunda "ull" ya da "llu" soneki varsa (burada 'u' ve "ll" büyük harf ya da küçük harf olabilir); bu durumda sabit unsigned long long türündendir.
 Örneğin:
 
-    1uLL unsigned long long türdne sabit
+```
+    1uLL                    unsigned long long türdne sabit
+```
 
 **10.** Sayı nokta içeriyorsa ve sayının sonunda bir ek yoksa; sabit double türdendir. Örneğin:
 
-        1.2						double türden sabit
-        0.2						double türden sabit
+```
+    1.2                     double türden sabit
+    0.2                     double türden sabit
+```
 
-    Not:
-    Noktanın solunda ve sağında bir şey yoksa orada 0 olduğu kabul edilmektedir. Bu Fortran zamanından beri kullanılan bir gelenektir. Örneğin.
+Not:
+Noktanın solunda ve sağında bir şey yoksa orada 0 olduğu kabul edilmektedir. Bu Fortran zamanından beri kullanılan bir gelenektir. Örneğin.
 
-        .12						double türden sabit, 0.12 ile aynı anlamda
-        12.						double türden sabit, 12.0 ile aynı anlamda
+```
+    .12                     double türden sabit, 0.12 ile aynı anlamda
+    12.                     double türden sabit, 12.0 ile aynı anlamda
+```
 
-    Sayı üstel biçimde yazılmışsa sayı nokta içermese bile double türden olur. Örneğin:
+Sayı üstel biçimde yazılmışsa sayı nokta içermese bile double türden olur. Örneğin:
 
-        1e3						Bu sayı 1000 anlamına geliyor olsa da üstel biçimde yazıldığı için double türden sabit belirtmektedir.
+```
+    1e3                     bu sayı 1000 anlamına geliyor olsa da üstel biçimde yazıldığı için double türden sabit belirtmektedir.
+```
 
 **11.** Sayı nokta içeriyorsa ve sayının sonunda 'f' ya da 'F' varsa; sabit float türdendir. Örneğin:
 
-        12.3f					float türden sabit
-        .1F						float türden sabit
-        12.F					float türden sabit
+```
+    12.3f                   float türden sabit
+    .1F                     float türden sabit
+    12.F                    float türden sabit
+```
 
-    Sayı nokta içermiyorsa sayının sonuna 'f' ya da 'F' soneki getirilemez. Örneğin:
+Sayı nokta içermiyorsa sayının sonuna 'f' ya da 'F' soneki getirilemez. Örneğin:
 
-        12F						geçersiz sabit!
-        1e3F					geçerli, burada noktaya gerek yok, çünkü sayı üstel biçimde yazılmış
+```
+    12F                     geçersiz sabit!
+    1e3F                    geçerli, burada noktaya gerek yok, çünkü sayı üstel biçimde yazılmış
+```
 
 **12.** Sayı nokta içeriyorsa ancak sayının sonunda 'l' ya da 'L' varsa; sabit long double türden olur. Örneğin:
 
-        12L						long türden sabit
-        12.3					double türden
-        12.3L					long double türden
+```
+    12L                     long türden sabit
+    12.3                    double türden
+    12.3L                   long double türden
+```
 
 [13. Ders 05/07/2022 - Salı]()
 
@@ -1704,7 +1736,7 @@ türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türden
 tek tırnak içerisine alınırsa bu ilgili karakterin karakter tablosundaki sıra numarasını belirten bir sayı anlamına gelir. Örneğin C'de 'a' ifadesi
 aslında eğer ACII karakter tablosu kullanılıyorsa 97 sayısı ile aynı anlamdadır.
 
-    C'de bir karakter tek tırnak içerisine alınırsa bu ifade int türden sabit kabul edilir. Bu biçimdeki ifadeleri "int türden karakter sabitleri denilmektedir". Örneğin:
+C'de bir karakter tek tırnak içerisine alınırsa bu ifade int türden sabit kabul edilir. Bu biçimdeki ifadeleri "int türden karakter sabitleri denilmektedir". Örneğin:
 
 ```
     #include <stdio.h>
