@@ -2558,7 +2558,7 @@ int main(void)
 
 	result = a > 10 && a < 20;
 
-	Burada iki koşulk da doğruysa 1 değeri diğer durumlarda 0 değeri elde edilecektir.
+	Burada iki koşul da doğruysa 1 değeri diğer durumlarda 0 değeri elde edilecektir.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
