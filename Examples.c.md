@@ -1138,19 +1138,19 @@ Programlama dillerinde "tür (type)" bir nesnenin bellekte kapladığı alanı, 
 operatörlerle işleme sokulabileceğini belirten önemli bir bilgidir. C'de her nesnenin ve her ifadenin bir türü vardır. Türler çeşitli anahtar sözcüklerle
 ifade edilirler. Aşağıda temel türler açıklanmaktadır:
 
-- **[signed] int**: Bu tür, işaretli bir tamsayı türüdür. int türünün kaç byte yer kaplayacağı standartlarda derleyicileri yazanların isteğine bırakılmıştır.
+- **`[signed] int`**: Bu tür, işaretli bir tamsayı türüdür. int türünün kaç byte yer kaplayacağı standartlarda derleyicileri yazanların isteğine bırakılmıştır.
   Ancak standartlara göre int türü minimum 2 byte olmalıdır. Bugün 32 bit ve 64 bit Windows ile UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde int türü 4 bye (32 bit)
   uzunluktadır. Dolayısıyla int türden bir nesne bu sistemlerde [-2147483648, 2147483647] aralığında tamsayı değerler tutabilir. Bazı mikrodenetleyici
   derleyicilerinde ise int 2 byte (16 bit) uzunluğunda olabilmektedir. Derleyicileri yazanlar genellikle int türünü o sistemdeki CPU yazmaçlarının uzunluğu kadar
   ya da o uzunlukla ifade edilebilecek kadar almaktadır. Bu tür belirtilirken "int" demekle "signed int" demek arasında ya da "int signed" demek arasında
   bir fark yoktur.
 
-- **[unsigned] int**: Her işaretli tamsayı türünün bir de işaretsiz biçimi vardır. "signed int" türünün işaretsiz biçimi "unsigned int" türüdür. Tamsayı türlerinin
+- **`[unsigned] int`**: Her işaretli tamsayı türünün bir de işaretsiz biçimi vardır. "signed int" türünün işaretsiz biçimi "unsigned int" türüdür. Tamsayı türlerinin
   işaretli biçimleri ile işaretsiz biçimleri aynı miktarda yer kaplarlar. Aralarındaki tek fark işaret bitinin yorumudur. Dolayısıyla bu tür de 32 bit ve
   64 bit Windows ile UNIX/Linux ve Mac OS sistemlerinde 4 byte yer kaplamaktadır. unsigned int türünden bir nesne içerisine bu sistemlerde yerleştirilebilecek sayı
   sınırı [0, +4294967295] biçimindedir. Bu türü biz "unsigned" biçiminde ya da "unsigned int" biçiminde ya da "int unsigned" biçiminde ifade edebiliriz.
 
-- **[signed] long [int]**: long türü, int türünden uzun olabilir ya da int türüyle aynı uzunlukta olabilir. Ancak int türünden daha kısa olamaz. Standratlara
+- **`[signed] long [int]`**: long türü, int türünden uzun olabilir ya da int türüyle aynı uzunlukta olabilir. Ancak int türünden daha kısa olamaz. Standratlara
   göre long türü en az 4 byte (32 bit) uzunlukta olmak zorundadır. long türü de "işaretli" bir tamsayı türüdür. Buradaki "long" ismi "int türünden uzun olabilen"
   anlamına gelmektedir. 32 bit ve 64 bit Windows sistemlerindeki derleyicilerde long türü int türüyle aynı uzunluktadır (yani 4 byte). Ancak 32 bit UNIX/Linux ve
   Mac OS sistemlerindeki derleyicilerde long türü 4 byte iken, 64 bit UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde long türü 8 byte (64 bit) uzunluğundadır.
@@ -1159,18 +1159,18 @@ ifade edilirler. Aşağıda temel türler açıklanmaktadır:
 
 [10. Ders - 23/06/2022 - Perşembe]()
 
-- **unsigned long [int]**: Bu tür, long türünün işaretsiz biçimidir. Dolayısıyla sistemlerde long türüyle aynı uzunlukta yer kaplar ancak sayının başındaki bit
+- **`unsigned long [int]`**: Bu tür, long türünün işaretsiz biçimidir. Dolayısıyla sistemlerde long türüyle aynı uzunlukta yer kaplar ancak sayının başındaki bit
   işaret biti olarak ele alınmaz. 32 ve 64 bit Windows Sistemleri ile 32 bit UNIX/Linux ve Mac OS sistemlerinde bu tür, long türünde olduğu gibi
   4 byte (yani 32 bit) yer kaplamaktadır. Dolayısıyla bu sistemlerdeki sınıfı [0, +4294967295] biçimindedir.
 
-- **[signed] short [int]**: Bu tür, int türünden küçük olabilen ya da int türü ile aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlara göre short türü
+- **`[signed] short [int]`**: Bu tür, int türünden küçük olabilen ya da int türü ile aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlara göre short türü
   en az 2 byte (yan 16 bit) olmak zorundadır. 32 bit ve 64 bit Windows Sistemleri ile UNIX/Linux ve Mac OS sistemlerinde short türü 2 byte (yani 16 bit) uzunluktadır.
   Dolayısıyla bu sistemlerde bu türden bir nesnesinin içerisine biz [-32768, +32767] sınırları içerisinde bir tamsayı yerleştirebiliriz.
 
-- **unsigned short [int]**: Bu tür, signed short türünün işaretsiz biçimidir. Dolayısıyla short türü kadar yer kaplar. short türünün 2 byte olduğu sistemlerde
+- **`unsigned short [int]`**: Bu tür, signed short türünün işaretsiz biçimidir. Dolayısıyla short türü kadar yer kaplar. short türünün 2 byte olduğu sistemlerde
   bu türden bir nesnenin içerisine biz [0, +65535] arasında tamsayı değerler yerleştirebiliriz.
 
-- **signed char**: C standartlarında "byte" lafı pek az yerde kullanılmıştır. Çünkü "byte" genellikle 8 bit için kullanılan bir terimdir. Oysa bazı
+- **`signed char`**: C standartlarında "byte" lafı pek az yerde kullanılmıştır. Çünkü "byte" genellikle 8 bit için kullanılan bir terimdir. Oysa bazı
   bilgisayar sistemlerinde RAM'deki adreslenebilen birimler 8 bit değil 10, 11 bit değerler de olabilmektedir. Tabii bu sistemler son derece seyrektir.
   Ancak standartlar bu uç durumu da dikkate almaktadır. C standartlarında "char" terimi "RAM'de adreslenebilen en küçük birimin büyüklüğünü" temsil etmektedir.
   Örneğin tipik olarak eğer adreslenebilen en küçük birim 8 bit ise char 8 bittir. Ancak 10 bit ise char 10 bittir. Görüldüğü gibi eğer C standartlarında
@@ -1183,37 +1183,37 @@ ifade edilirler. Aşağıda temel türler açıklanmaktadır:
   Mademki char türü yaygın sistemlerin hepsinde 8 bitten oluşmaktadır. O halde signed char türünün de bu sistemlerdeki sınırları [-128, +127]
   arasındadır. Özetle signed char, bir byte'lık işaretli tamsayı türünü belirtmektedir.
 
-- **unsigned char**: Bu tür, char türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
+- **`unsigned char`**: Bu tür, char türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
   bit uzunluğu kadardır. 8 bitlik yaygın sistemlerde unsigned char türünden bir nesneye [0, +255] arasında değerler yerleştirilebilir.
 
-- **char**: Yalnızca char denildiğinde bunun "signed char" mı yoksa "unsigned char" mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
+- **`char`**: Yalnızca char denildiğinde bunun "signed char" mı yoksa "unsigned char" mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
   Microsoft C derleyicileri, gcc ve clang derleyicileri char türünü default olarak "signed char" kabul etmektedir. Fakat başka derleyiciler "unsigned char"
   kabul edebilirler. Aslında Microsoft derleyicilerinde, gcc ve clang derleyicilerinde char denildiğinde default durum derleyici ayarlarından da değiştirilebilmektedir.
   Her ne kadar char türü, ilgili sistemde "signed char" ya da "unsigned char" anlamına geliyorsa da "char", "signed char" ve "unsigned char" ne olursa olsun
   farklı türler gibi değerlendirilmektedir. Bunun önemi başka konularda ortaya çıkacaktır.
 
-- **[signed] long long [int]**: Bu tür, C99 ile birlikte standartlara dahil edilmiştir. Dolısıyla C90 uyumlu eski C derleyicilerinde bu türü kullanamayabilrsiniz.
+- **`[signed] long long [int]`**: Bu tür, C99 ile birlikte standartlara dahil edilmiştir. Dolısıyla C90 uyumlu eski C derleyicilerinde bu türü kullanamayabilrsiniz.
   long long türü, long türünden uzun ya da long türüyle aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlarda minimum 8 byte (yani 64 bit) olabileceği
   belirtilmiştir. Şu andaki yaygın derleyicilerin hepsinde long long türü, 8 byte uzunluktadır. 8 byte uzuluk için long long türünden bir nesneye yerleştirilebilecek
   sayı sınırı [-9223372036854775808, +9223372036854775807] (katrilyar mertebesinde, 8 exabyte) biçimindedir.
 
-- **unsigned long long [int]**: Bu tür de long long türünün işaretsiz biçimidir. Dolayısıyla yaygın sistemlerin hepsinde 8 byte (yani 64 bit) uzunluktadır.
+- **`unsigned long long [int]`**: Bu tür de long long türünün işaretsiz biçimidir. Dolayısıyla yaygın sistemlerin hepsinde 8 byte (yani 64 bit) uzunluktadır.
   unsigned long long türünden bir nesneye yerleştirilecek sayı sınırı da [0, +18446744073709551615] (16 exabyte) biçimindedir.
 
 Yukarıdaki tüm türlere C'nin tamsayı türleri denilmektedir. C'de ayrıca üç tane de gerçek sayı (noktalı sayı) türü vardır: float, double ve long double.
 Gerçek syaı türlerinin işaretli ve işaretsiz biçimleri yoktur. Bunlar zaten doğuştan işaretlidir.
 
-- **float**: Bu tür, 4 byte uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
+- **`float`**: Bu tür, 4 byte uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
   "Implementation Limits" kısmında gerçek sayı türleri için belirtilen limitler "IEE 754" standardını ima etmektedir. Bu durumda float türü hemen her sistemde
   4 byte uzunluktadır. float türünün yuvarlama hatalarına direnci zayıftır. Bu nedenle float türü aslında C programcıları tarafından az tercih edilen bir gerçek
   sayı türüdür.
 
-- **double**: Standartlara göre double türü, float türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
+- **`double`**: Standartlara göre double türü, float türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
   double türü 8 byte uzunluktadır ve "IEEE 754 Long Real Format" biçiminde temsil edilmektedir. Ancak bazı mikrodenetleyici derleyicilerinde
   double türü float ile tamamen aynı uzunlukta olabilmektedir. C prograöcılarının en fazla tercih ettiği gerçek sayı türü, double türüdür. Çünkü bu türün
   yuvarlama hatalarına direnci float türünden çok daha iyidir.
 
-- **long double**: long double türü, standartala göre double ile aynı duyarlılıkta ya da double türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
+- **`long double`**: long double türü, standartala göre double ile aynı duyarlılıkta ya da double türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
   gcc ve clang derleyicilerinde long double türü tamamen double türüyle aynı özelliktedir. Yani bu tür de bu derleyicilerde "IEEE 754 Long Real Format" biçiminde
   ifade edilmektedir. Fakat bazı derleyicilerde (Örneğin eski Borland firmasının C derleyicilerinde) long double türü 10 byte'lık "IEEE 754 Extended Real Format"
   biçiminde de alınabilmektedir.
@@ -1252,12 +1252,16 @@ Ayrıca yazım kolaylığı için `<complex.h>` dosyası içerisinde `_COMPLEX` 
 include edersek `_COMPLEX` yerine `complex` sözcüğünü de kullanabiliriz. Benzer biçimde `<complex.h>` içerisinde `I` isimli sembolik sabit de `_COMPLEX_I` olacak biçimde
 define edilmiştir. Yani biz `<complex.h>` dosyasını include etmiş isek, `i` sayısı için `_COMPLEX_I` yerine `I` harfini de kullanabiliriz.
 
+---
+
 _C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep "int" türünü, gerçek sayı türü olarak da "double"
 türünü tercih ederler. C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni char, short olarak değil
-yine int olarak tanımlar. Fakat, örneğin bir nicelik "int" türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. int türünde küçük
+yine int olarak tanımlar. Fakat, örneğin bir nicelik "int" türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. int türünden küçük
 türler programcılar tarafından tekil nesneler için değil, büyük diziler için tercih edilmektedir. Örneğin bir kişinin yaşını bir değişkende tutacak olalım.
 Biz yine bu değişkeni int türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi int türünden değil de char türünden
 oluşturabiliriz. Aynı durum double türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa float türünü tercih etmelidir._
+
+---
 
 [11. Ders - 28/06/2022 - Salı]()
 
@@ -1786,9 +1790,9 @@ Ters bölü karakter sabitleri iki tırnak içerisinde tek bir karakter olarak e
     }
 ```
 
-Ters bölü karakterinin kendisine ilişkin karakter sabiti '\' biçiminde yazılamaz. Eğer biz böle bir şey yazarsak derleyici sanki ters bölü karakter
+Ters bölü karakterinin kendisine ilişkin karakter sabiti `'\'` biçiminde yazılamaz. Eğer biz böle bir şey yazarsak derleyici sanki ters bölü karakter
 sabitlerinden birisni yazmak istiyormuşuz da onu yazamamışız gibi durumu değerlendirir. Ters bölü karakterinin kendisine ilişkin karakter sabitini
-'\\' biçiminde yazabiliriz. Örneğin:
+`'\\'` biçiminde yazabiliriz. Örneğin:
 
 ```
     #include <stdio.h>
@@ -1811,15 +1815,15 @@ Benzer biçimde iki tırnak içerisinde de ters bölü karakterinin kendisini ya
 
     int main(void)
     {
-    	printf("c:\temp\a.dat\n");		/* yanlış yazım */
-    	printf("c:\\temp\\a.dat\n");	/* doğru yazım */
+    	printf("c:\temp\a.dat\n");          /* yanlış yazım */
+    	printf("c:\\temp\\a.dat\n");        /* doğru yazım */
 
     	return 0;
     }
 ```
 
-Tek tırnak karakterine ilişkin karakter sabiti ''' biçiminde yazılamaz. Bu durumda derleyici durumu sanki tek tırnağın içerisine bir şey yazılmamış gibi
-yorumlayacaktır. Tek tırnak karakterinin karakter sabiti '\'' biçiminde yazılmalıdır. Örneğin:
+Tek tırnak karakterine ilişkin karakter sabiti `'''` biçiminde yazılamaz. Bu durumda derleyici durumu sanki tek tırnağın içerisine bir şey yazılmamış gibi
+yorumlayacaktır. Tek tırnak karakterinin karakter sabiti `'\''` biçiminde yazılmalıdır. Örneğin:
 
 ```
     #include <stdio.h>
@@ -1838,60 +1842,69 @@ yorumlayacaktır. Tek tırnak karakterinin karakter sabiti '\'' biçiminde yazı
 İki tırnağın içerisinde tek tırnak karakterini ters bölüsüz de yazabilriz. Örneğin:
 
 ```
-    printf("Izmir'in merkezi\n");		/* geçerli */
+    printf("Izmir'in merkezi\n");       /* geçerli */
 ```
 
 Tabii istersek yine de bu tek tırnağı ters bölü karakteri biçiminde de yazabilirdik. Örneğin:
 
 ```
-    printf("Izmir\'in merkezi\n");		/* geçerli, yukarıdaki ile aynı */
+    printf("Izmir\'in merkezi\n");      /* geçerli, yukarıdaki ile aynı */
 ```
 
-    Ancak iki tırnak içerisinde iki tırnak doğrudan yazılamaz. Örneğin:
+Ancak iki tırnak içerisinde iki tırnak doğrudan yazılamaz. Örneğin:
 
-    printf(""Ankara"");					/* geçersi! */
+```
+    printf(""Ankara"");                 /* geçersiz! */
+```
 
-    İki tırnak içerisinde iki tırnak karakteri \" biçiminde belirtilmelidir. Örneğin:
+İki tırnak içerisinde iki tırnak karakteri `\"` biçiminde belirtilmelidir. Örneğin:
 
-    printf("\Ankara\"");				/* geçerli "Ankara" yazısı çıkacak.
+```
+    printf("\Ankara\"");                /* geçerli "Ankara" yazısı çıkacak.
+```
 
-    Tebii tek tırnak içerisinde iki tırnak karakteri de sorunsuz olarak kullanılabilir. Örneğin:
+Tabii tek tırnak içerisinde iki tırnak karakteri de sorunsuz olarak kullanılabilir. Örneğin:
 
-    ch = '"';							/* geçerli, sorun yok */
+```
+    ch = '"';                           /* geçerli, sorun yok */
+```
 
-    Tabii sorun yaratmıyor olsa da biz istersek tek tırnak içerisinde iki tırnak karakterini \" biçiminde de belirtebiliriz. Örneğin:
+Tabii sorun yaratmıyor olsa da biz istersek tek tırnak içerisinde iki tırnak karakterini `\"` biçiminde de belirtebiliriz. Örneğin:
 
+```
     ch = '\"';
+```
 
-    Aslında C'de tek tırnak içerisine tek bir karakter yerleştirilmek zorunluluğu yoktur. Tek tırnak içerisine int türünün byte uzunluğu kadar karakter
-    yerleştirilebilir (örneğin int türü 4 byte ise 4 karakter, 8 byte ise 8 karakter yerleştirilebilir). Tek tırnak içerisine birden fazla karakter yerleştirildiğinde
-    bunlara "multibyte karakterler" denilmektedir. Multibyte karakterlerin ne belirttiği derleyicileri yazanların isteğine bırakılmıştır. Biz bu multibyte
-    karakter kavramını ileride yeniden ele alacağız.
+Aslında C'de tek tırnak içerisine tek bir karakter yerleştirilmek zorunluluğu yoktur. Tek tırnak içerisine int türünün byte uzunluğu kadar karakter
+yerleştirilebilir (örneğin int türü 4 byte ise 4 karakter, 8 byte ise 8 karakter yerleştirilebilir). Tek tırnak içerisine birden fazla karakter yerleştirildiğinde
+bunlara "multibyte karakterler" denilmektedir. Multibyte karakterlerin ne belirttiği derleyicileri yazanların isteğine bırakılmıştır. Biz bu multibyte
+karakter kavramını ileride yeniden ele alacağız.
 
-    Bir karakter sabitinin başına onunla yapışık bir L harfi (L harfi büyük harf olmak zorundadır) getirilebilir. Bu tür karakter sabitlerine "geniş
-    karakter sabitleri (wide character constants)" denilmektedir. Örneğin:
+Bir karakter sabitinin başına onunla yapışık bir L harfi (L harfi büyük harf olmak zorundadır) getirilebilir. Bu tür karakter sabitlerine "geniş
+karakter sabitleri (wide character constants)" denilmektedir. Örneğin:
 
+```
     L'a'
+```
 
-    Geniş sabitleri wchar_t türündendir. Bu konu ileride ele alınacaktır.
+Geniş sabitleri `wchar_t` türündendir. Bu konu ileride ele alınacaktır.
 
-    C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık 'u' ve 'U' getirilebilmektedir. Örneğin:
+C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık 'u' ve 'U' getirilebilmektedir. Örneğin:
 
+```
     u'a'
     U'b'
+```
 
-    'u' öneki getirilmiş karakter sabitleri UNICODE UTF-16 encoding'ini, 'U' öneki getirilmiş karakter sabitleri de UNICODE UTF-32 encoding'ini belirtir.
-    Bunlar sırasıyla char16_t ve char32_t türündendir. Bu konu da ileride ele alınacaktır.
+'u' öneki getirilmiş karakter sabitleri UNICODE UTF-16 encoding'ini, 'U' öneki getirilmiş karakter sabitleri de UNICODE UTF-32 encoding'ini belirtir.
+Bunlar sırasıyla char16_t ve char32_t türündendir. Bu konu da ileride ele alınacaktır.
 
-    1)  C'de int türden küçük türlerin sabitleri yoktur. Yani C'de char, signed char, unsigned char, short ve unsigned short türünden sabitler yoktur.
-    En küçük sabit int türündendir. Tek tırnak içerisine yazılmış karakter sabitlerinin de aslında int türdne olduğunu anımsayınız.
+**14.** C'de int türden küçük türlerin sabitleri yoktur. Yani C'de char, signed char, unsigned char, short ve unsigned short türünden sabitler yoktur.
+En küçük sabit int türündendir. Tek tırnak içerisine yazılmış karakter sabitlerinin de aslında int türden olduğunu anımsayınız.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de karakter sabitleri sayısal işlemlere sokulabilir. Çünkü zaten onlar birer sayı belirtmektedir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -1905,12 +1918,14 @@ int result;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
+##### putchar fonksiyonu
+
 putchar fonksiyonu bizden int türden bir değer alır. O değere karşı gelen karakter numarasına ilişkin karakterin görüntüsünü ekrana (stdout dosyasına) yazar.
-Yani putchar(ch) çağrısıyla printf("%c", ch) çağrısı işlevsel olarak tamamen eşdeğerdir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+Yani `putchar(ch)` çağrısıyla `printf("%c", ch)` çağrısı işlevsel olarak tamamen eşdeğerdir.
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -1926,26 +1941,33 @@ int a;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+##### getchar fonksiyonu
+
 getchar fonksiyonu adeta putchar fonksiyonun tersini yapmaktadır. Bu fonksiyonun parametresi yoktur. Fonksiyon çağrıldığında klavyeden (stdin dosyasından)
 bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter tablosundaki sıra numarasına geri döner. getchar bize int türden bir değer vermektedir.
 Örneğin:
 
+```
     int ch;
 
     ch = getchar();
+```
 
-    getchar fonksiyonunu yanlışlıkla aşağıdaki gibi kullanmaya çalışmayınız:
+getchar fonksiyonunu yanlışlıkla aşağıdaki gibi kullanmaya çalışmayınız:
 
+```
     getchar(ch);
+```
 
-    getchar fonksiyonun parametresi yoktur. Bunun verdiği değeri bir değişkene yerleştirmelisiniz:
+getchar fonksiyonun parametresi yoktur. Bunun verdiği değeri bir değişkene yerleştirmelisiniz:
 
+```
     ch = getchar();
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -1960,13 +1982,14 @@ int ch;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Aslında klavyeden (stdin dosyasından) okumalar bir tapon eşliğinde yapılmaktadır. Biz getchar fonksiyonunda birden fazla karakter girebiliriz. Bu durumda
-girilen tüm karakterler önce bir "tampona (buffer)" yerleştirilir sonra o tampondan alınarak verilir. getchar için basıl ENTER tuşu da tampona '\n'
+Aslında klavyeden (stdin dosyasından) okumalar bir tampon eşliğinde yapılmaktadır. Biz getchar fonksiyonunda birden fazla karakter girebiliriz. Bu durumda
+girilen tüm karakterler önce bir "tampona (buffer)" yerleştirilir sonra o tampondan alınarak verilir. getchar için basılan ENTER tuşu da tampona `\n`
 karakteri olarak eklenmektedir. getchar (ve stdin dosyasından okuma yapan diğer fonksiyonlar) eğer tamponda zaten karakter varsa bizden karakter istemezler.
 stdin tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
 
+```
     int ch;
 
     ch = getchar();
@@ -1974,41 +1997,44 @@ stdin tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
 
     ch = getchar();
     putchar(ch);
+```
 
-    Biz burada ilk getchar için 'a' karakterine basıp ENTER tuşuna basmış olalım. Bu durumda taponun içeriği şöyle olacaktır:
+Biz burada ilk getchar için `a` karakterine basıp ENTER tuşuna basmış olalım. Bu durumda taponun içeriği şöyle olacaktır:
 
+```
     Tampon => a\n
+```
 
-    İlk getchar tampondaki sıradaki karakter olan 'a' okuyacaktır. Ancak ikinci getchar tampon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
-    Tampondaki '\n' karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o cgetchar tampon boş olduğu için klavyedne okuma
-    isteyecektir.
+İlk getchar tampondaki sıradaki karakter olan `a` okuyacaktır. Ancak ikinci getchar tampon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
+Tampondaki `\n` karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o getchar tampon boş olduğu için klavyeden okuma
+isteyecektir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 printf fonksiyonunun klavyeden (stdin dosyasından) okuma yapan scanf isimli kardeşi vardır. scanf temel olarak printf gibi kullanılmaktadır. Ancak
-scanf fonksiyonundaki format karakterleri çıktı ile ilgili değil yapılan giriş ile ilgili bilgi verir. Örneğin printf fonksiyonunda %d "int bir değeri 10'luk
+scanf fonksiyonundaki format karakterleri çıktı ile ilgili değil yapılan giriş ile ilgili bilgi verir. Örneğin printf fonksiyonunda `%d` "int bir değeri 10'luk
 sistemde ekrana yaz" anlamına gelirken scanf fonksiyonunda %d "int bir nesne için "10'luk sistemde giriş yap" anlamına gelmektedir. scanf fonksiyonunda
 iki tırnaktan sonraki değişkenlerin önümne & operatörü getirilir. (Bu operatör ileride ele alınacaktır). Örneğin:
 
+```
     int a;
 
     scanf("%d", &a);
+```
 
-    Burada klavyeden girilen sayı a nesnesinin içerisine yerleştirilir. scanf fonksiyonundaki iki tırnak içerisine format karakterlerindne başka bir şey
-    yazmayınız. Buraya yazdığınız başka karakterler başka anlamlara gelmektedir. scanf buradaki karakterleri ekrana yazdırmaz. Ekrana bir şey yazdırmak istiyorsanız
-    printf fonksiyonunu kullanmalısınız. Örneğin:
+Burada klavyeden girilen sayı a nesnesinin içerisine yerleştirilir. scanf fonksiyonundaki iki tırnak içerisine format karakterlerindne başka bir şey
+yazmayınız. Buraya yazdığınız başka karakterler başka anlamlara gelmektedir. scanf buradaki karakterleri ekrana yazdırmaz. Ekrana bir şey yazdırmak istiyorsanız
+printf fonksiyonunu kullanmalısınız. Örneğin:
 
+```
     int a;
 
     scanf("%x", &a);
+```
 
-    Burada %x klavyeden girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak a nesnesine yerleştirecektir. printf fonksiyonuyla scanf fonksiyonu arasındaki
-    format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. printf fonksiyonunda hem float hem de double %f ile yazdırılır. Ancak scanf fonksiyonunda
-    float %f ile double %lf ile okunmaktadır.
+Burada `%x` klavyeden girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak `a` nesnesine yerleştirecektir. `printf` fonksiyonuyla `scanf` fonksiyonu arasındaki
+format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. ,`pintf` fonksiyonunda hem float hem de double `%f` ile yazdırılır. Ancak `scanf` fonksiyonunda
+float `%f` ile double `%lf` ile okunmaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2016,19 +2042,19 @@ int main(void)
 double a;
 
     printf("Bir sayi giriniz:");
-    scanf("%lf", &a);		/* double %lf ile okunmalıdır */
+    scanf("%lf", &a);                   /* double %lf ile okunmalıdır */
 
-    printf("%f\n", a);		/* printf fonksiyonunda %lf diye bir format karakteri yoktur */
+    printf("%f\n", a);                  /* printf fonksiyonunda %lf diye bir format karakteri yoktur */
 
-    return 0;
+return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Tek bir scanf ile birden fazla nesne için okuma yapılabilir. Burada format karakterlerinin dışında şimdilik başka bir karakter bulundurmayınız.
 Girişler sırasında istenildiği kadar boşluk karakteri (SPACE, TAB, ENTER) bulundurulabilir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -2043,11 +2069,11 @@ int a, b;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki programda klavyeden (stdin dosyasından) iki int değe rokunmuş bunların çarpımı ekrana (stdout dosyasına) yazdırılmıştır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -2062,11 +2088,11 @@ int a, b;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Yeni öğrenen tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna \n konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+Yeni öğrenen tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna `\n` konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
 
+```
 #include <stdio.h>
 
 int ain(void)
@@ -2081,11 +2107,11 @@ int a, b;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Tabii scanf ile biz getchar gibi karakter de okuyabiliriz.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -2098,9 +2124,9 @@ char ch;
     return 0;
 
 }
+```
 
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 14. Ders 07/07/2022 - Perşembe
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+[14. Ders 07/07/2022 - Perşembe]()
 
 /\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadeleri ise
@@ -11051,6 +11077,419 @@ char s[] = "ankara";
 }
 
 /\*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/_--------------------------------------------------------------------------------------------------------------------------------------------------- 37. Ders - 13/10/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+str bir yazıyı gösteren bir gösterici olmak üzere null karakter görene kadar ilerleyen döngü iki biçimde oluşturulabilir:
+
+    1) Göstericiyi artırarak
+
+    while (*str != '\0') {
+    	/* ... */
+    	++str;
+    }
+
+    2) [] operatör ile
+
+    for (size_t i = 0; str[i] != '\0'; ++i) {
+    	/* ... */
+    }
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void myputs(char \*str);
+
+int main(void)
+{
+char s[] = "ankara";
+
+    myputs(s);
+    myputs(s + 2);
+
+    return 0;
+
+}
+
+void myputs(char \*str)
+{
+for (size_t i = 0; str[i] != '\0'; ++i)
+putchar(str[i]);
+putchar('\n');
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+Şimdi bir yazıyı tersten yazdıran putsrev isimli bir fonksiyon yazalım. Biz yazıda önce null karakter görene kadar ilerleriz. Sonra geri geri giderek
+karakterleri yazdırırız. Ancak kullanacağımız indisin türü konusunda dikkat ediniz. size_t türü her ne kadar dizi uzunlukları, indeksleri için
+uygun bir türse de C standartlarına göre size_t işaretsiz bir tamsayı türü olarak typedef edilmektedir. İşaretsiz bir tamsayı türünden bir nesnenin içerisinde
+0 varsa ve biz bu değerden 1 çıkartırsak o türün en büyük pozitif tamsayı değerini elde ederiz.
+
+    Aşağıdaki örneği int yerine size_t kullanarak deneyiniz ve problemi belirlemeye çalışınız.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+void putsrev(char \*str);
+
+int main(void)
+{
+char s[] = "ankara";
+
+    putsrev(s);
+
+    return 0;
+
+}
+
+void putsrev(char \*str)
+{
+int i;
+
+    for (i = 0; str[i] != '\0'; ++i)
+    	;
+    for (--i; i >= 0; --i)
+    	putchar(str[i]);
+
+    putchar('\n');
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Yukarıdaki örnekte i değişkeni int değil de size_t türünden yapılırsa oluşacak sorun aşağıdaki gibi giderilebilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+void putsrev(char \*str);
+
+int main(void)
+{
+char s[] = "ankara";
+
+    putsrev(s);
+
+    return 0;
+
+}
+
+void putsrev(char \*str)
+{
+size_t i;
+
+    for (i = 0; str[i] != '\0'; ++i)
+    	;
+    if (i > 0) {
+    	for (--i; i > 0; --i)
+    		putchar(str[i]);
+
+    	putchar(str[i]);
+    }
+    putchar('\n');
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+İşaretsiz bir tamsayı türü ile işaretli bir tamsayı türünü iki operandlı bir operatörler (karşılaştırma operatörleri dahil) işleme soktuğumuzda
+dönüştürmenin işaretsiz türe doğru yapılacağını belirtmiştik. O halde yukarıdaki problem aşağıdaki gibi de çözülebilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+void putsrev(char \*str);
+
+int main(void)
+{
+char s[] = "ankara";
+
+    putsrev(s);
+
+    return 0;
+
+}
+
+void putsrev(char \*str)
+{
+size_t i;
+
+    for (i = 0; str[i] != '\0'; ++i)
+    	;
+
+    for (--i; i != -1; --i)
+    	putchar(str[i]);
+
+    putchar('\n');
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Yukarıdaki problem sonek eksiltim ile de çözülebilir.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+#include <stdio.h>
+
+void putsrev(char \*str);
+
+int main(void)
+{
+char s[] = "";
+
+    putsrev(s);
+
+    return 0;
+
+}
+
+void putsrev(char \*str)
+{
+size_t i;
+
+    for (i = 0; str[i] != '\0'; ++i)
+    	;
+
+    while (i-- > 0)
+    	putchar(str[i]);
+
+    putchar('\n');
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Bir fonksiyonun geri dönüş değerinin türü yerine T bir tür belirtmek üzere T _ kullanılırsa bu durum, fonksiyonun bir adresle geri döndüğü anlamına
+gelmektedir. Örneğin:
+
+    int *foo(void)
+    {
+    	/* ... */
+    }
+
+    Burada foo fonksiyonu int türden bir adres bilgisi ile geri dönmektedir. Ritchie/Kernighan yazım stilinde * atomu fonksiyon ismine bitiştirilmektedir.
+    Ancak bazı programcılar bu tür durumlarda * atomunu tür ile bitiştirirler.
+
+    Örneğin:
+
+    char *bar(void)
+    {
+    	/* ... */
+    }
+
+    Burada bar fonksiyonun geri dönüş değeri char değildir. char türden bir adres bilgisidir. Tabii böyle fonksiyonları çağırdıktan sonra onların geri
+    dönüş değerlerini aynı türden bir göstericiye atayabiliriz. Örneğin:
+
+    int *pi;
+    char *pc;
+
+    pi = foo();
+    pc = bar();
+
+    Bir fonksiyonun geri dönüş değerinin bir adres olması demek aslında return ifadesinin atanacağı geçici değişkenin bir gösterici olması demektir.
+    O halde geri dönüş değeri adres olan fonksiyonlara aynı türden bir adres değeri ile return uygulamak gerekir.
+
+    Aşağıdaki bir dizinin en büyük elemanının dizi içerisindeki adresine geri dönen bir fonksiyon örneği verilmiştir. Bu örnekte önce dizinin ilk elemanı en büyük
+    varsayılmıştır. Onun adresi pmax isimli göstericide tutulmuştur. Sonra daha büyük elemanla karşılaşıldığında pmax adresi bu elemanı gösterecek biçimde değiştirilmiştir.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int *getmax_addr(int *pi, size_t size);
+
+int main(void)
+{
+int a[10] = {34, 23, 12, 67, 25, 12, 89, 11, 26, 67};
+int \*pi;
+
+    pi = getmax_addr(a, 10);
+    printf("%d\n", *pi);
+
+    return 0;
+
+}
+
+int *getmax_addr(int *pi, size_t size)
+{
+int max = pi[0];
+int \*pmax = pi;
+
+    for (size_t i = 1; i < size; ++i)
+    	if (pi[i] > max) {
+    		max = pi[i];
+    		pmax = &pi[i];
+    	}
+
+    return pmax;
+
+}
+
+/_---------------------------------------------------------------------------------------------------------------------------------------------------
+Tabii aslında yukarıdaki örnekteki getmaxx_addr fonksiyonu daha kolay yazılabilir. Şöyle ki, biz zaten en büyük elemanın adresini tutuyorsak
+en büyük elemanı ayrıca tutmamıza gerek yoktur.
+----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+#include <stdio.h>
+
+int *getmax_addr(int *pi, size_t size);
+
+int main(void)
+{
+int a[10] = {34, 23, 12, 67, 25, 12, 89, 11, 26, 67};
+int \*pi;
+
+    pi = getmax_addr(a, 10);
+    printf("%d\n", *pi);
+
+    return 0;
+
+}
+
+int *getmax_addr(int *pi, size_t size)
+{
+int \*pmax = &pi[0];
+
+    for (size_t i = 1; i < size; ++i)
+    	if (pi[i] > *pmax)
+    		pmax = &pi[i];
+
+    return pmax;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+C'de hiçbir nesnenin ve fonksiyonun adresi olamayacak, kullanılmayan boş bir byte'ın adresi NULL adres olarak belirlenmiştir. Ancak C standartlarına göre
+NULL adresin sayısal bileşeninin ne olacağı derleyicileri yazanların isteğine bırakılmıştır. Yani değişik sistemlerde NULL adresin sayısal bileşeni
+farklı olabilir. Derleyicileri yazanlar işletim sistemi tarafından boş bırakılmış olan bir alandaki adresi NULL adres olarak belirleyebilirler.
+Her ne kadar standartlar NULL adresin sayısal bileşeninin ne olacağını derleyicileri yazanların isteğine bırkmışsa da yaygın sistemlerin hemen hepsinde
+NULL adres belleğin tepesindeki 0 numaralı adrestir. Windows, UNIX/Linux, ve Mac OS sistemlerindeki tüm C derleyicileri NULL adresi 0 numaralı adres olarak
+kullanmnaktadır.
+
+    C'de NULL adres düz bir 0 sabiti ile ya da 0 değerini veren tamsayı türlerine ilişkin bir sabit ifadesi ile temsil edilmektedir.  (Aynı zamanda 0 değerini veren
+    (void *) türüne dönüştürülmüş tamsayı türlerine ilişkin sabit ifadeleri de NULL adres anlamına gelmektedir.) Biz C'de 0 sabitini bir adresle ilişkilendirdiğimizde
+    artık bu 0 sabiti, int olan 0 sabiti değil o sistemde derleyicinin belirlediği NULL adres anlamına gelmektedir. NULL adres herhangi türden bir göstericiye
+    atanabilir. Biz C'de bir göstericiye 0 atadığımızda o göstericiye int olan 0'ı atamış olmamaktayız. O sistemde NULL adres neyse onu atamış olmaktayız. Örneğin:
+
+    int *pi;
+
+    pi = 0;		/* geçerli */
+
+    Burada pi'ye 0 sayısı atanmamıştır. 0 adresi de atanmamıştır. Çalışılan sistemde NULL adres olarak hangi adres temsil edildiyse o adres atanmıştır.
+    Yukarıda da belirtitğimiz gibi yaygın sistemlerin hepsinde NULL adres gerçekten 0 adresi olarak seçilmiştir. Tabii aslında standartlara göre NULL adres
+    yalnızca 0 sabiti ile değil, 0 değerini veren tamsayı türlerine ilişkin sabit ifadeleriyle de oluşturulabilir. Örneğin:
+
+    int *pi = 3 - 3;		/* geçerli, pi'ye o sistemdeki NULL adres atanıyor */
+
+    Tabii programcılar tipik olarak NULL adresi düz 0 sabiti olarak kullanırlar. Örneğin:
+
+    int a = 0;
+    int *pi = a;		/* geçersiz! göstericiye int bir değer atanmış */
+
+    Burada göstericiye NULL adres atanmamıştır. Çünkü standartlara göre 0 değerini veren sabit ifadesi NULL adresi temsil etmektedir. Oysa bu örnekte
+    göstericiye bir sabit ifadesi atanmamıştır.
+
+    Benzer biçimde bir gösterici 0 ile (ya da 0 değerini veren tamsayı türlerine ilişkin bir sabit ifadesi ile) karşılaştırıldığında aslında
+    karşılaştırma, göstericinin içerisinde o sistemdeki NULL adresin olup olmadığını anlamaya yönelik yapılmaktadır. Örneğin:
+
+    if (pi == 0) {
+    	/* ... */
+    }
+
+    Burada pi göstericisinin içerisinde 0 adresi olup olmadığına bakılmamaktadır. pi agöstericisinin içerisinde o sistemdeki NULL adresin olup olmadığına bakılmaktadır.
+    Örneğin falanca sistemde NULL adres FFFFFFFF adresi olsun. Ve pi göstericisinin içerisinde bu adresin olduğunu düğünelim bu durumda pi == 0 karşılaştırması
+    doğru yani 1 değerini verecektir. Benzer biçimde bir gösterici != operatörü kullanılarak 0 ile karşılaştırılabilir:
+
+    if (pi != 0) {
+    	/* ... */
+    }
+
+    Burada pi'nin içerisinde o sistemdeki NULL adres yoksa if deyimi doğrudan sapacaktır.
+
+    if deyiminde (while deyiminde de) parantez içerisindeki ifade yalnızca bir adres bilgisinden oluşabilir. Bu durumda karşılaştırma o adres bilgisinin
+    o sistemdeki NULL adres olup olmadığına göre yapılır. Örneğin p bir gösterici olsun:
+
+    if (p) {
+    	/* p NULL adres değilse bu kısım yapılacak */
+    }
+    else {
+    	/* p NULL adres ise bu kısım yapılacak  */
+    }
+
+    Burada p'nin içerisinde o sistemdeki NULL adres varsa if deyimi yanlıştan, yoksa doğrudan sapar. Örneğin falanca sistemde NULL adres FFFFFFFF olsun.
+    p'nin içerisinde de FFFFFFFF değerinin olduğunu varsayalım. Bu durumda if deyimi yanlıştan sapacaktır. Görüldüğü gibi if parantezi içerisinde bir adres
+    bilgisi varsa burada o adresin 0 adresi olup olmadığına değil o sistemdeki NULL adres olup olmadığına bakılmaktadır. Başka bir deyişle:
+
+    if (p) {
+    	/* ... */
+    }
+
+    ile
+
+    if (p != 0) {
+    	/* ... */
+    }
+
+    aynı anlamdadır.
+
+    Bir gösterici (genel olarak adres bilgisi) ! operatörü ile kullanılabilir. Örneğin p bir gösterici olsun !p ifadesi geçerlidir. Bu durumda eğer
+    göstericisinin içerisinde NULL adres varsa bu ifade 1 değerini, yoksa 0 değerini üretir. Örneğin:
+
+    if (!p) {
+    	/* p NULL ise bu kısım yapılacak */
+    }
+
+    Burada p'nin içerisinde NULL adres varsa birtakım şeyler yapılmak istenmiştir.
+
+    C99 ile birlikte C'ye _Bool isimli bir bool türünün eklendiğini belirtmiştik. İşte bir adres türü doğrudan bool türüne atanabilmektedir. Bu durumda
+    adres NULL adres değilse 1 değeri NULL adres ise 0 değeri _Bool türünden değişkene atanmış olur.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+#include <stdio.h>
+
+int main(void)
+{
+\_Bool b;
+int \*pi;
+
+    pi = NULL;
+
+    b = pi;
+    printf("%d\n", b);		/* 0 */
+
+    return 0;
+
+}
+
+/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+NULL adres sabiti okunabilirliği artırmak için bazı başlık dosyalarında da define edilmiştir. Böylece biz NULL adres için 0 kullanmak yerine
+NULL sözcüğünü kullanabiliriz:
+
+    #define NULL	0
+
+    <stdio.h>, <stdlib.h>, <stddef.h>, <string.h> dosyalarında NULL sembolik sabiti NULL adresin okunabilir kullanımı için define edilmiş durumdadır. Bu sayede
+    örneğin biz:
+
+    p = 0;
+
+    yerine:
+
+    p = NULL;
+
+    gibi bir ifade yazabiliriz. Ya da örneğin:
+
+    if (p == NULL) {
+    	/* ... */
+    }
+
+    Burada yine p'nin NULL adres içerip içermediğine bakılmaktadır. NULL sembolik sabiti int 0 olarak kullanılmamalıdır. NULL sembolik sabitinden amaçlanan
+    NULL adresin okunabilir bir biçimde ifade edilmesidir. Aslında standartlara göre, yukarıda da belirttiğimiz gibi, NULL sembolik sabiti aşağıdaki gibi
+    define edilmiş de olabilir:
+
+    #define NULL	((void *)0)
+
+    Biz henüz void adresleri görmediğimiz için (void *)0 ifadesini açıklamayacağız.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------\*/
 
 ```
 
