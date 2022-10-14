@@ -2017,7 +2017,7 @@ int main(void)
 
 	İşlevlerine göre sınıflandırmada operatörün hangi amaçla kullanıldığına göre sınıflandırma yapılır. Tipik sınıflandırma şöyle yapılmaktadır:
 
-	1) Artirmetik Operatorleer (Arithmetic Operators): Bunlar toplama, çarpma gibi klasik operatörlerdir.
+	1) Aritmetik Operatörler (Arithmetic Operators): Bunlar toplama, çarpma gibi klasik operatörlerdir.
 	2) Karşılaştırma Operatörleri (Comparision Operators): Bunlar >, <, >=, <=, ==, != gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
 	operatörlere "ilişkisel operatörler (relational operators)" da denilmektedir
 	3) Mantıksal Operatörler (Logical Operators): Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
@@ -2032,7 +2032,7 @@ int main(void)
 	operatörleri iki operand'lı operatörlerdir.
 	2) Tek operand'lı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
 	alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operand'lı bir operatördür.
-	3) Üç operand'lı operatörler (Ternary Operators): Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır.
+	3) Üç operand'lı Operatörler (Ternary Operators): Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır.
 
 	Operatörler, operatörün operan'larına olan konumuna göre de üçe ayrılmaktadır:
 

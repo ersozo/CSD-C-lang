@@ -2118,37 +2118,37 @@ Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gereki
 
 **1. İşlevlerine Göre**
 
-    İşlevlerine göre sınıflandırmada operatörün hangi amaçla kullanıldığına göre sınıflandırma yapılır. Tipik sınıflandırma şöyle yapılmaktadır:
+İşlevlerine göre sınıflandırmada operatörün hangi amaçla kullanıldığına göre sınıflandırma yapılır. Tipik sınıflandırma şöyle yapılmaktadır:
 
-    1. Artirmetik Operatorleer (Arithmetic Operators): Bunlar toplama, çarpma gibi klasik operatörlerdir.
-    2. Karşılaştırma Operatörleri (Comparision Operators): Bunlar >, <, >=, <=, ==, != gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
-    operatörlere "ilişkisel operatörler (relational operators)" da denilmektedir
-    3. Mantıksal Operatörler (Logical Operators): Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
-    4. Gösterici Operatörleri (Pointer Operators): Adreslerle işlemler yapan operatörlerdir. Bunlar her programlama dilinde bulunmazlar.
-    5. Bit Operatörleri (Bitwise Operators): Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar sayıların karşılıklı bitlerini işleme sokan
-    operatörlerdir.
-    6. Özel Amaçlı Operatörler (Special Purpose Operators): Değişik konulara ilişkin işlem yapan yukarıdaki gruplar içerisine girmeyen operatörlerdir.
+1. Artirmetik Operatörler (Arithmetic Operators): Bunlar toplama, çarpma gibi klasik operatörlerdir.
+2. Karşılaştırma Operatörleri (Comparision Operators): Bunlar >, <, >=, <=, ==, != gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
+   operatörlere "ilişkisel operatörler (relational operators)" da denilmektedir
+3. Mantıksal Operatörler (Logical Operators): Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
+4. Gösterici Operatörleri (Pointer Operators): Adreslerle işlemler yapan operatörlerdir. Bunlar her programlama dilinde bulunmazlar.
+5. Bit Operatörleri (Bitwise Operators): Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar sayıların karşılıklı bitlerini işleme sokan
+   operatörlerdir.
+6. Özel Amaçlı Operatörler (Special Purpose Operators): Değişik konulara ilişkin işlem yapan yukarıdaki gruplar içerisine girmeyen operatörlerdir.
 
 **2. Operand Sayılarına Göre**
 
-    Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
+Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
 
-    1. İki operand'lı Operatörler (Binary Operators): Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '*', '/', '-'
-    operatörleri iki operand'lı operatörlerdir.
-    2. Tek operand'lı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
-    alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operand'lı bir operatördür.
-    3. Üç operand'lı operatörler (Ternary Operators): Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır.
+1. İki operand'lı Operatörler (Binary Operators): Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '\*', '/', '-'
+   operatörleri iki operand'lı operatörlerdir.
+2. Tek operand'lı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
+   alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operand'lı bir operatördür.
+3. Üç operand'lı Operatörler (Ternary Operators): Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır.
 
 **3. Operatörün Konumuna Göre**
 
-    Operatörler, operatörün operan'larına olan konumuna göre de üçe ayrılmaktadır:
+Operatörler, operatörün operan'larına olan konumuna göre de üçe ayrılmaktadır:
 
-    1. Araek Operatörler (Infix Operators): Bu operatörler iki operand'lıdır ve operand'larının arasına getirilerek kullanılmaktadır. Örneğin a + b işleminde
-    '+' operatörlerinin araek bir operatör olduğuna dikkat ediniz.
-    2. Önek Operatörler (Prefix Operators): Bunlar operand'larının önüne getirilerek kullanılırlar. Örneğin !a gibi bir kullanımda ! operatörü operand'ının önüne
-    getirilmiştir.
-    3. Sonek Operatörler (Postfix Operators): Bunlar da operand'larının sonuna getirilerek kullanılırlar. Örneğin foo() gibi bir ifadede parantezler operatör
-    görevindedir. foo ise bu operatörün operandıdır. Burada operatör operand'ının sonuna getirilmiştir.
+1. Araek Operatörler (Infix Operators): Bu operatörler iki operand'lıdır ve operand'larının arasına getirilerek kullanılmaktadır. Örneğin a + b işleminde
+   '+' operatörlerinin araek bir operatör olduğuna dikkat ediniz.
+2. Önek Operatörler (Prefix Operators): Bunlar operand'larının önüne getirilerek kullanılırlar. Örneğin !a gibi bir kullanımda ! operatörü operand'ının önüne
+   getirilmiştir.
+3. Sonek Operatörler (Postfix Operators): Bunlar da operand'larının sonuna getirilerek kullanılırlar. Örneğin foo() gibi bir ifadede parantezler operatör
+   görevindedir. foo ise bu operatörün operandıdır. Burada operatör operand'ının sonuna getirilmiştir.
 
 Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
 Örneğin, "`/` operatörü iki operand'lı araek (binart infix) bir artimetik operatördür." Ya da örneğin "`!` operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
@@ -2356,7 +2356,7 @@ sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokul
     b = ++a * 2;
 ```
 
-Burada 3 operatör vardır. En önceliklisi ++ operatördür. O halde a 1 artırılacak ve 4 olacaktır. Sonraki işlem _ işlemidir. O halde _ işlemine
+Burada 3 operatör vardır. En önceliklisi `++` operatördür. O halde a 1 artırılacak ve 4 olacaktır. Sonraki işlem `*` işlemidir. O halde `*` işlemine
 artırma öncek yapıldığı için artırılmış değer olan 4 sokulacaktır. Bu duurmda 4 değişkeni 4 değerine olurken b değişkeni 8 olacaktır. Şimdi aynı işlemi
 sonek olarak yapalım:
 
@@ -2738,8 +2738,8 @@ int result;
 ```
 
 `&&` ve `||` operatörlerinin "kısa devre (short circuit)" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
-sağında ne kadar öncelikli operatör olursa olsun bunların önce sol tarafı yapılır. Eğer && operatöründe sol taraf sıfır ise sağ taraf hiç yapılmaz
-sonuç hemen 0 olarak belirlenir. Eğer && operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı dırım || operatörü için de
+sağında ne kadar öncelikli operatör olursa olsun bunların önce sol tarafı yapılır. Eğer `&&` operatöründe sol taraf sıfır ise sağ taraf hiç yapılmaz
+sonuç hemen 0 olarak belirlenir. Eğer `&&` operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı dırım `||` operatörü için de
 geçerlidir. Bu operatörün sol tarafı eğer sıfır dışı bir değerdeyse sağ tarafı hiç yapılmaz ve sonuç 1 olarak belirlenir. Eğer bu operatörün sol tarafı
 sıfır ise bu durumda sağ tarafı yapılır.
 
