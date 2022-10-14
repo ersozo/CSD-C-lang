@@ -1950,7 +1950,7 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-Aşağıdaki programda klavyeden (stdin dosyasından) iki int değe rokunmuş bunların çarpımı ekrana (stdout dosyasına) yazdırılmıştır.
+Aşağıdaki programda klavyeden (stdin dosyasından) iki int değer okunmuş, bunların çarpımı ekrana (stdout dosyasına) yazdırılmıştır.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
@@ -1968,7 +1968,7 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	Yeni öğrenen tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna \n konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
+	Yeni öğrenenler tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna \n konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
@@ -2111,7 +2111,7 @@ int main(void)
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
 	% operatörü iki operand'lı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
 	üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda * ve / ile soldan sağa eşit öncelik grupta bulunur.
-	Negarit sayının pozitif sayıya bölümünden elde edilen kalan nagtiftir. Pozitif sayının negatif sayıya bölümündne elde edilen kalan pozitiftir.
+	Negatif sayının pozitif sayıya bölümünden elde edilen kalan negatiftir. Pozitif sayının negatif sayıya bölümünden elde edilen kalan pozitiftir.
 
 	()				Soldan-Sağa
 	* / %			Soldan-Sağa

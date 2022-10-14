@@ -151,9 +151,6 @@ dili değildir.
 Programlama dilleri çeşitli biçimlerde sınıflandırılabilmektedir. En çok kullanılan sınıflandırma biçimleri şunlardır:
 
 **1. Seviyelerine göre sınıflandırma**
-**2. Uygulama alanlarına göre sınıflandırma**
-**3. Programlama modeline göre sınıflandırma**
-
 Seviye (level) bir programalama dilinin insan algısına yakınlığının bir ölçüsüdür. Yüksek seviyeli diller insana yakın alçak seviyeli diller makineye yakın
 dillerdir. Seviyelerine göre diller yüksekten alçağa kategorik olarak genellikle şöyle sınıflandırılmaktadır:
 
@@ -168,6 +165,7 @@ artık algoritma da ortadan kalkmaktadır. Genellikle bu tür diller "belli bir 
 ve arakodlar 1'lerden ve 0'lardan oluşmaktadır. Bunların sembolik biçimlerine "sembolik makine dilleri (assembly languages)" denilmektedir. Sembolik
 makine dilleri, saf makine dilleri ve arakodlara da "alçak seviyeli diller" denir.
 
+**2. Uygulama alanlarına göre sınıflandırma**
 Programlama dillerinin uygulama alanlarına göre sınıflandırılması "hangi tür uygulamalar için hangi dilin daha uygun olacağı" ile ilgilidir.
 Bu bakımdan pek çok alt sınıflandırma yapılabilmektedir. Aşağıda birkaç önemli alt sınıf verilmiştir:
 
@@ -184,6 +182,7 @@ C Programlama Dili bilimsel ve mühendislik alanlarda kullanılan, genel amaçl�
 Sistem programlama bilgisayar donanımı ile arayüz oluşturan, uygulama programlarına çeşitli bakımlardan hizmet veren, aşağı seviyeli temel yazılımların
 oluşturulması için yapılan programlama faaliyetlerine denilmektedir.
 
+**3. Programlama modeline göre sınıflandırma**
 Programlama modeli (programming paradigm) programlama yaparken kullandığımız genel yöntemleri ve biçimleri anlatan bir kavramdır. Programlama dilleri
 belli programlama modellerini uygulayabilmek için özel tasarlanmıştır. Bu bakından dilleri tipik olarak aşağıdaki gibi sınıflara ayırabiliriz:
 
@@ -785,7 +784,6 @@ yapılır. gcc derleyicisinde çalıştırılabilir dosyaya isim vermek için "-
 
 ```
     gcc -o sample sample.c
-
 ```
 
 Burada sample.c dosyası derlenir ve sample isimli çalıştırılabilir dosya oluşturulur. Tabii istersek gcc derleyicilerinde de yalnızca derleme yapıp
@@ -793,7 +791,6 @@ bağlayıcıyı çalıştırmayabiliriz. Bunun için "-c" seçeneği kullanılma
 
 ```
     gcc -c sample.c
-
 ```
 
 Burada derleme işlemi yapılır, "sample.o" object dosyası oluşturulur ancak başlayıcı çalıştırılmaz.
@@ -924,9 +921,7 @@ sözcük degillerdir.)
 yazılmış olan sayılara "sabit" denilmektedir. Örneğin:
 
 ```
-
     a = b + 10;
-
 ```
 
 Burada a ve b değişken atomdur, ancak 10 sabit atomdur.
@@ -935,15 +930,12 @@ Burada a ve b değişken atomdur, ancak 10 sabit atomdur.
 Örneğin:
 
 ```
-
     a = b + c * 3
-
 ```
 
 Bu ifadedeki atomlar ve türleri şöyledir:
 
 ```
-
     a	değişken
     =	operatör
     b	değişken
@@ -951,7 +943,6 @@ Bu ifadedeki atomlar ve türleri şöyledir:
     c	değişken
     *	operatör
     3	sabit
-
 ```
 
 **5. Stringler (String literals):** İki tırnak içerisindeki yazılar iki tırnaklarıyla birlikte tek bir atom belirtir. Bunlara "string" denilmektedir.
@@ -963,7 +954,6 @@ Bu ifadedeki atomlar ve türleri şöyledir:
 Değişkenlerin, operatörlerin ve sabitlerin her bir kombinasyonuna "ifade (expression)" denilmektedir. Örneğin:
 
 ```
-
     a + b
     a + b - 2
     10
@@ -971,7 +961,6 @@ Değişkenlerin, operatörlerin ve sabitlerin her bir kombinasyonuna "ifade (exp
     3 - 2 * a
     foo()
     a = b * c
-
 ```
 
 birer ifadedir. Tek başına bir değişken ve tek başına bir sabit, bir ifade belirtir. Ancak tek başına bir operatör ifade belirtmez.
@@ -982,9 +971,7 @@ Bellekte yer kaplayan ve erişilebilen bölgelere "nesne (object)" denilmektedir
 bir ilişkisi yoktur._) Programlama dillerindeki değişkenler genellikle nesne durumundadır. Örneğin:
 
 ```
-
     a = 10
-
 ```
 
 gibi bir ifadede a bir nesne durumundadır. biz bu a ismiyle a'nın bellek bölgesine erişebilmekteyiz. Bir olgunun nesne belirtmesi için yalnızca bellekte yer kaplaması
@@ -994,13 +981,11 @@ C'de bir ifade ya nesne belirtir ya da nesne belirtmez. Nesne belirten ifadelere
 "sağ taraf değeri (rvalue)" denilmektedir. Örneğin:
 
 ```
-
     a                       ifadesi nesne belirtir. Sol taraf değeridir.
     b[i]                    ifadesi nesne belirtir, sol taraf değeridir.
     a + b                   ifadesi nesne belirtmez, sağ taraf değeridir.
     10                      ifadesi nesne belirtmez, sağ taraf değeridir.
     printf("Helo World")    ifadesi nesne belirtmez sağ taraf değeridir.
-
 ```
 
 Sol taraf değeri (left value) ismi tipik olarak bu tür iafadelerin atama operatörünün soluna getirilebilmesi nedeniyle verilmiştir. Sağ taraf değeri
@@ -1014,14 +999,12 @@ açısal parantezler içerisinde öğeler zorunlu öğeleri, köşeli parantezle
 tüm atomların aynı pozisyonda bulundurulması gerekir. Örneğin if deyimi şöyle ifade edilebilir:
 
 ```
-
     if (<ifade>)
     	<deyim>
     [
     else
     	<deyim>
     ]
-
 ```
 
 [9. Ders - 21/06/2022 - Salı]()
@@ -1029,13 +1012,11 @@ tüm atomların aynı pozisyonda bulundurulması gerekir. Örneğin if deyimi ş
 Boşluk duygusu oluşturmak için kullanılan karakterlere "boşluk karakterleri (white space)" denilmektedir. Boşuk karakterli şunlardır:
 
 ```
-
     SPACE                   (32)
     LF (Line Feed)          (10)
     CR (Carriage Return)    (13)
     TAB                     (9)
     VTAB                    (11)
-
 ```
 
 TAB karakter aslında tek bir karakterdir. Bu karakteri gören editörler imleci belli bir miktarda ilerletirler. Bazı editörler biz TAB tuşuna bastığımızda
@@ -1071,11 +1052,9 @@ ayarlanmış bir editörde açıldığında aynı biçimde gözükmesini sağlam
 Merhaba Dünya programını aşağıdaki gibi kompakt bir biçimde de yazabilirdik:
 
 ```
-
     #include <stdio.h>
 
     int main(void){printf("Hello World\n");return 0;}
-
 ```
 
 Tabii programcının kodunu güzel gözükecek ve iyi okunabilecek biçimde yazması gerekir. C'de çeşitli yazım stilleri vardır. En yaygın kullanılan yazım stili
@@ -1088,10 +1067,12 @@ oraya "paste edileceği" anlamına gelmektedir. Başka bir deyişle biz `stdio.h
 durum oluşacaktır. Programda main isimli bir fonksiyon tanımlanmıştır. Bir fonksiyonun tanımlanması onun bizim tarafımızdan yazılması anlamına gelir.
 Yani bu programda biz main isimli bir fonksiyon yazmış durumdayız. Bir fonksiyonu tanımlamanın (yani yazmanın) genel biçimi şöyledir:
 
+```
     [fonksiyonun geri dönüş değerinin türü] <fonksiyonun ismi> ([parametre bildirimi])
     {
     	/* ... */
     }
+```
 
 Fonksiyonun geri dönüş değerinin türü C90'da yazılmayabiliyordu. Bu durumda C90 bunun "int" olarak yazılmış olduğunu varsayıyordu. Ancak C99 ile birlikte
 geri dönüş değerinin türünün yazılması zorunlu tutulmuştur. main fonksiyonun geri dönüş değerinin türü, standartlara göre "int" olmak zorundadır.
@@ -1108,14 +1089,16 @@ ekrana yazdırılır. Sonra imleç yazının sonunda bırakılır. İmleç progr
 satırın başından itibaren yazılacaktır. printf bir standart C fonksiyonudur. Standart C fonksiyonları derleyicileri yazanlar tarafından yazılmış (tanımlanmış)
 biçimde bulunan fonksiyonlardır. main fonksiyonun sonundaki return deyimi bulunmak zorunda değildir. Bu deyim ileride açıklanacaktır.
 
-        #include <stdio.h>
+```
+    #include <stdio.h>
 
-        int main(void)
-        {
-            printf("Hello World\n");
+    int main(void)
+    {
+        printf("Hello World\n");
 
-            return 0;
-        }
+        return 0;
+    }
+```
 
 C'nin C90, C99, C11 ve C17 standartlarının olduğunu belirtmiştik. Derleyiciler genel olarak bu standartlara uygun olacak biçimde derleme yapabilmektedir.
 Visual Studio IDE'sinde derleyicinin uygulayacağı standardı ayarlamak için proje seçeneklerine gelinir. C-C++/Language/C Language Standart sekmesinden
@@ -2071,7 +2054,7 @@ int a, b;
 }
 ```
 
-Aşağıdaki programda klavyeden (stdin dosyasından) iki int değe rokunmuş bunların çarpımı ekrana (stdout dosyasına) yazdırılmıştır.
+Aşağıdaki programda klavyeden (stdin dosyasından) iki int değer okunmuş, bunların çarpımı ekrana (stdout dosyasına) yazdırılmıştır.
 
 ```
 #include <stdio.h>
@@ -2090,7 +2073,7 @@ int a, b;
 }
 ```
 
-Yeni öğrenen tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna `\n` konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
+Yeni öğrenenler tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna `\n` konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
 
 ```
 #include <stdio.h>
@@ -2128,51 +2111,49 @@ char ch;
 
 [14. Ders 07/07/2022 - Perşembe]()
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadeleri ise
 "operan (operand)" denir. Örneğin a + b ifadesinde + bir operatördür. a ve b bu operatörün operand'larıdır.
 
-    Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
+Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
 
-    1) İşlevlerine Göre
-    2) Operand Sayılarına Göre
-    3) Operatörün Konumuna Göre
+**1. İşlevlerine Göre**
 
     İşlevlerine göre sınıflandırmada operatörün hangi amaçla kullanıldığına göre sınıflandırma yapılır. Tipik sınıflandırma şöyle yapılmaktadır:
 
-    1) Artirmetik Operatorleer (Arithmetic Operators): Bunlar toplama, çarpma gibi klasik operatörlerdir.
-    2) Karşılaştırma Operatörleri (Comparision Operators): Bunlar >, <, >=, <=, ==, != gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
+    1. Artirmetik Operatorleer (Arithmetic Operators): Bunlar toplama, çarpma gibi klasik operatörlerdir.
+    2. Karşılaştırma Operatörleri (Comparision Operators): Bunlar >, <, >=, <=, ==, != gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
     operatörlere "ilişkisel operatörler (relational operators)" da denilmektedir
-    3) Mantıksal Operatörler (Logical Operators): Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
-    4) Gösterici Operatörleri (Pointer Operators): Adreslerle işlemler yapan operatörlerdir. Bunlar her programlama dilinde bulunmazlar.
-    5) Bit Operatörleri (Bitwise Operators): Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar sayıların karşılıklı bitlerini işleme sokan
+    3. Mantıksal Operatörler (Logical Operators): Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
+    4. Gösterici Operatörleri (Pointer Operators): Adreslerle işlemler yapan operatörlerdir. Bunlar her programlama dilinde bulunmazlar.
+    5. Bit Operatörleri (Bitwise Operators): Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar sayıların karşılıklı bitlerini işleme sokan
     operatörlerdir.
-    6) Özel Amaçlı Operatörler (Special Purpose Operators): Değişik konulara ilişkin işlem yapan yukarıdaki gruplar içerisine girmeyen operatörlerdir.
+    6. Özel Amaçlı Operatörler (Special Purpose Operators): Değişik konulara ilişkin işlem yapan yukarıdaki gruplar içerisine girmeyen operatörlerdir.
+
+**2. Operand Sayılarına Göre**
 
     Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
 
-    1) İki operand'lı Operatörler (Binary Operators): Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '*', '/', '-'
+    1. İki operand'lı Operatörler (Binary Operators): Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '*', '/', '-'
     operatörleri iki operand'lı operatörlerdir.
-    2) Tek operand'lı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
+    2. Tek operand'lı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
     alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operand'lı bir operatördür.
-    3) Üç operand'lı operatörler (Ternary Operators): Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır.
+    3. Üç operand'lı operatörler (Ternary Operators): Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır.
+
+**3. Operatörün Konumuna Göre**
 
     Operatörler, operatörün operan'larına olan konumuna göre de üçe ayrılmaktadır:
 
-    1) Araek Operatörler (Infix Operators): Bu operatörler iki operand'lıdır ve operand'larının arasına getirilerek kullanılmaktadır. Örneğin a + b işleminde
+    1. Araek Operatörler (Infix Operators): Bu operatörler iki operand'lıdır ve operand'larının arasına getirilerek kullanılmaktadır. Örneğin a + b işleminde
     '+' operatörlerinin araek bir operatör olduğuna dikkat ediniz.
-    2) Önek Operatörler (Prefix Operators): Bunlar operand'larının önüne getirilerek kullanılırlar. Örneğin !a gibi bir kullanımda ! operatörü operand'ının önüne
+    2. Önek Operatörler (Prefix Operators): Bunlar operand'larının önüne getirilerek kullanılırlar. Örneğin !a gibi bir kullanımda ! operatörü operand'ının önüne
     getirilmiştir.
-    3) Sonek Operatörler (Postfix Operators): Bunlar da operand'larının sonuna getirilerek kullanılırlar. Örneğin foo() gibi bir ifadede parantezler operatör
+    3. Sonek Operatörler (Postfix Operators): Bunlar da operand'larının sonuna getirilerek kullanılırlar. Örneğin foo() gibi bir ifadede parantezler operatör
     görevindedir. foo ise bu operatörün operandıdır. Burada operatör operand'ının sonuna getirilmiştir.
 
-    Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
-    Örneğin, "/ operatörü iki operand'lı araek (binart infix) bir artimetik operatördür." Ya da örneğin "! operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
-    Ya da örneğin "& operatörü iki operand'lı araek bir bit operatörüdür".
+Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
+Örneğin, "`/` operatörü iki operand'lı araek (binart infix) bir artimetik operatördür." Ya da örneğin "`!` operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
+Ya da örneğin "`&` operatörü iki operand'lı araek bir bit operatörüdür".
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir ifadede birden fazla operatör kullanıldığında bunlar birbirlerine göre belli bir sırada yapılırlar. Bu duruma "operatörler arasındaki öncelik
 ilişkisi (operator precedency)" denilmektedir. Operatörlerin arasındaki öncelik ilişkisi "operatörlerin öncelik tablousu" denilen bir tabloyla
 betimlenmektedir. Bu tablo satırlardan oluşur. Üst satırrdaki operatörler alt satırdaki operatörlerden daha önceliklidir. Aynı satırdaki operatörler
@@ -2180,69 +2161,81 @@ eşit öncelikli biçimde bulunurlar. Ancak aynı satırdaki operatörlerin önc
 olabilir. Soldan sağa öncelik demek o satırda bulunanlardan ifade içerisinde hangisi soldaysa o önce yapılır demektir. Sağdan sola öncelik de benzerdir.
 Aşağıda operatmrlerin öncelik tablosunun iskelet hali verilmiştir:
 
+```
     ()				Soldan-Sağa
     * /				Soldan-Sağa
     + -				Soldan-Sağa
     =				Sağdan-Sola
+```
 
-    Buradaki () operatörü öncellik parantezini ve fonksiyon çağırma operatörünü anlatmaktadır. Örneğin:
+Buradaki `()` operatörü öncellik parantezini ve fonksiyon çağırma operatörünü anlatmaktadır. Örneğin:
 
+```
     a = b - c * d;
 
     İ1: c * d
     İ2: b - İ1
     İ3 a = İ2
+```
 
-    Burada aslında b'dn c * d'nin çıkartıldığına dikkat ediniz. Örneğin:
+Burada aslında b'dn c \* d'nin çıkartıldığına dikkat ediniz. Örneğin:
 
+```
     a = b / c * d
+```
 
-    Burada / ve * soldan-sağa eşit önceliklidir. İfade içerisinde (öncleik tablosunda değil) solda / olduğu için önce / sonra * yapılacaktır:
+Burada `/` ve `*` soldan-sağa eşit önceliklidir. İfade içerisinde (öncleik tablosunda değil) solda `/` olduğu için önce `/` sonra `*` yapılacaktır:
 
+```
     İ1: b / c
     İ2: İ1 * d
     İ3: a = İ2
+```
 
-    Örneğin:
+Örneğin:
 
+```
     a = b + c + d;
+```
 
-    Burada solda olan '+' önce yapılacaktır:
+Burada solda olan '+' önce yapılacaktır:
 
+```
     İ1: b + c
     İ2: İ1 + d
     İ3: a = İ2
+```
 
-    Örneğin:
+Örneğin:
 
+```
     a = b = c;
+```
 
-    Atama operatörünün sağdan-sola grupta olduğuna dikkat ediniz:
+Atama operatörünün sağdan-sola grupta olduğuna dikkat ediniz:
 
+```
     İ1: b = c
     İ2: a = İ1
+```
 
-    Öncelik tablosundaki satırlarda bulunan operatörler o satırda değişik sırada yazılabilirler. Çünkü aynı satırdaki operatörlerin o satırdaki sırasının
-    bir önemi yoktur. "Soldan-sağa" ya da "sağdan-sola" ifade içerisindkei duruma ilişkindir.
+Öncelik tablosundaki satırlarda bulunan operatörler o satırda değişik sırada yazılabilirler. Çünkü aynı satırdaki operatörlerin o satırdaki sırasının
+bir önemi yoktur. "Soldan-sağa" ya da "sağdan-sola" ifade içerisindkei duruma ilişkindir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+`_`, `/`, `+` ve `-` operatörleri "iki operand'lı araek (binary infix)" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-_, /, + ve - operatörleri "iki operand'lı araek (binary infix)" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+`%` operatörü iki operand'lı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
+üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda `_` ve `/` ile soldan sağa eşit öncelik grupta bulunur.
+Negatif sayının pozitif sayıya bölümünden elde edilen kalan negatiftir. Pozitif sayının negatif sayıya bölümünden elde edilen kalan pozitiftir.
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-% operatörü iki operand'lı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
-üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda _ ve / ile soldan sağa eşit öncelik grupta bulunur.
-Negarit sayının pozitif sayıya bölümünden elde edilen kalan nagtiftir. Pozitif sayının negatif sayıya bölümündne elde edilen kalan pozitiftir.
-
+```
     ()				Soldan-Sağa
     * / %			Soldan-Sağa
     + -				Soldan-Sağa
     =				Sağdan-Sola
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2264,30 +2257,34 @@ int result;
     return 0;
 
 }
+```
 
-/\*--------------------------------------------------------------------------------------------------------------------------------------------------- + ve - sembolleri hem toplama ve çıkartma operatörü hem de işaret - ve işaret + operatörünü temsil etmektedir. İşaret + ve işaret - operatörleri
+`+` ve `-` sembolleri hem toplama ve çıkartma operatörü hem de `işaret -` ve `işaret +` operatörünü temsil etmektedir. İşaret + ve işaret - operatörleri
 "tek operand'lı öncek (unary prefix)" operatörlerdir. İşaret - operatörü operand'ının negatif değerini üretir. İşaret + operatörü ise operand'ı ile aynı
 değeri üretmektedir. (Yani aslında işaert + operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola gruğta bulunurlar:
 
+```
     ()				Soldan-Sağa
     + -				Sağdan-Sola
     * / %			Soldan-Sağa
     + -				Soldan-Sağa
     =				Sağdan-Sola
+```
 
     Örneğin:
 
+```
     a = b - - - c;
 
     İ1: -c
     İ2: -İ1
     İ3: b - İ2
     İ4: a = İ3
+```
 
-    Burada işl - sembolün "çıkartma" diğerlerinin "işaret -" olduğuna dikkat ediniz.
+Burada işl - sembolün "çıkartma" diğerlerinin "işaret -" olduğuna dikkat ediniz.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2301,19 +2298,17 @@ int a = -4;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğiniz gibi ++ ve
--- operatmrleri de vardır. Dolayısıyla ++ ve -- yan yana yazılırsa iki ayrı işaret + ve işaret - operatörü değil ++ ve -- operatörleri anlaşılır
-Benzer biçimde a>=3 gibi bir ifadede a, >= ve 3 biçiminde üç farklı atom vardır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğiniz gibi `++` ve
+`--` operatmrleri de vardır. Dolayısıyla `++` ve `--` yan yana yazılırsa iki ayrı işaret `+` ve işaret `-` operatörü değil `++` ve `--` operatörleri anlaşılır
+Benzer biçimde `a>=3` gibi bir ifadede `a`, `>=` ve `3` biçiminde üç farklı atom vardır.
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-++ ve -- operatörleri "tek operand'lı, öncek ve sonek olarak kullanılabilen" operatörlerdir. Yani biz bu operatörleri ++a gibi de a++ gibi de kullanabiliriz.
-Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. ++ operatörüne "artırma (increment)", -- operatörüne "eksiltme (decrement)" operatörleri
-denilmektedir. ++ operatörü "operandı içerisindeki değeri 1 artır, -- operatörü operandı içerisindeki değeri 1 eksilt anlamına gelir."
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+`++` ve `--` operatörleri "tek operand'lı, öncek ve sonek olarak kullanılabilen" operatörlerdir. Yani biz bu operatörleri `++a` gibi de `a++` gibi de kullanabiliriz.
+Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. `++` operatörüne "artırma (increment)", `--` operatörüne "eksiltme (decrement)" operatörleri
+denilmektedir. `++` operatörü "operandı içerisindeki değeri 1 artır", `--` operatörü "operandı içerisindeki değeri 1 eksilt" anlamına gelir.
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -2339,36 +2334,41 @@ int a;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-++ ve -- operatörleri öncelik tablosunun ikinci düzeyinde sağda-sola grupta bulunmaktadır:
+`++` ve `--` operatörleri öncelik tablosunun ikinci düzeyinde sağda-sola grupta bulunmaktadır:
 
+```
     ()				Soldan-Sağa
     + - ++ --		Sağdan-Sola
     * / %			Soldan-Sağa
     + -				Soldan-Sağa
     =				Sağdan-Sola
+```
 
-    Aslında C'nin tek operand'lı (unary) bütün operatörleri zaten öncelik tablosunun ikinci düzeyinde sağdan-sola gruba yerleştirilmiştir.
+Aslında C'nin tek operand'lı (unary) bütün operatörleri zaten öncelik tablosunun ikinci düzeyinde sağdan-sola gruba yerleştirilmiştir.
 
-    ++ ve -- operatörleri her zaman tablodaki öncelikte yapılır. Ancak sonraki işleme eğer operatörler önek olarka kullanılmışsa artırılmış ya da eksiltilmiş değer,
-    sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokulmaktadır. Örneğin:
+`++` ve `--` operatörleri her zaman tablodaki öncelikte yapılır. Ancak sonraki işleme eğer operatörler önek olarka kullanılmışsa artırılmış ya da eksiltilmiş değer,
+sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokulmaktadır. Örneğin:
 
+```
     a = 3;
     b = ++a * 2;
+```
 
-    Burada 3 operatör vardır. En önceliklisi ++ operatördür. O halde a 1 artırılacak ve 4 olacaktır. Sonraki işlem * işlemidir. O halde * işlemine
-    artırma öncek yapıldığı için artırılmış değer olan 4 sokulacaktır. Bu duurmda 4 değişkeni 4 değerine olurken b değişkeni 8 olacaktır. Şimdi aynı işlemi
-    sonek olarak yapalım:
+Burada 3 operatör vardır. En önceliklisi ++ operatördür. O halde a 1 artırılacak ve 4 olacaktır. Sonraki işlem _ işlemidir. O halde _ işlemine
+artırma öncek yapıldığı için artırılmış değer olan 4 sokulacaktır. Bu duurmda 4 değişkeni 4 değerine olurken b değişkeni 8 olacaktır. Şimdi aynı işlemi
+sonek olarak yapalım:
 
+```
     a = 3;
     b = a++ * 2;
+```
 
-    Burada da a önce artırılır 4 olur. Ancak sonraki işlem olan * işlemine a'nın artırılmış değeri olan 3 sokulur. Bu durumda a 4 olurken b ise
-    6 olacaktır.
+Burada da a önce artırılır 4 olur. Ancak sonraki işlem olan `*` işlemine a'nın artırılmış değeri olan 3 sokulur. Bu durumda a 4 olurken b ise
+6 olacaktır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2388,22 +2388,25 @@ int a, b;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Önek ve sonek etki aşağıdaki basit örnekle de daha iyi anlaşılabilir:
 
+```
     a = 3;
     b = --a;
+```
 
-    Burada önce a eksiltilir, 2 olur. Sonraki işlem atama işlemidir. O halde b'ye a'nın eksiltilmiş değeri atanır. Yani b de 2 olacaktır. Fakat örneğin:
+Burada önce a eksiltilir, 2 olur. Sonraki işlem atama işlemidir. O halde b'ye a'nın eksiltilmiş değeri atanır. Yani b de 2 olacaktır. Fakat örneğin:
 
+```
     a = 3;
     b = a--;
+```
 
-    Burada yine a bir eksiltilir ve 2 olur. Ancak sonraki işlem olan atama işlemine a'nın eksiltilmemiş değeri olan 3 sokulur. Böylece b 3 olur.
+Burada yine a bir eksiltilir ve 2 olur. Ancak sonraki işlem olan atama işlemine a'nın eksiltilmemiş değeri olan 3 sokulur. Böylece b 3 olur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2423,28 +2426,33 @@ int a, b;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Tabii ++ ve -- operatörleri tek başlarına kullanılıyorsa bunların önek ve sonek kullanımları arasında bir fark oluşmaz yani örneğin:
+Tabii `++` ve `--` operatörleri tek başlarına kullanılıyorsa bunların önek ve sonek kullanımları arasında bir fark oluşmaz yani örneğin:
 
+```
     ++a;
+```
 
     ile
 
+```
     a++;
+```
 
-    arasında bir fark yoktur. Fark ifadede başka operatörler varsa ortaya çıkmaktadır. Örneğin:
+arasında bir fark yoktur. Fark ifadede başka operatörler varsa ortaya çıkmaktadır. Örneğin:
 
+```
     a = 3;
     b = 2;
 
     c = ++a * b--;
+```
 
-    Burada önce b eksiltilir 1 olur. Sonra a artırılır 4 olur. Çarpma işlemine a'nın artırılmış değeri ancak b'nin eksiltilmemiş değeri sokulur. Bu durumda
-    c'ye 8 atanacaktır.
+Burada önce b eksiltilir 1 olur. Sonra a artırılır 4 olur. Çarpma işlemine a'nın artırılmış değeri ancak b'nin eksiltilmemiş değeri sokulur. Bu durumda
+c'ye 8 atanacaktır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2460,23 +2468,25 @@ int a, b, c;
     return 0;
 
 }
+```
 
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 15. Ders 19/07/2022 - Salı
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+[15. Ders 19/07/2022 - Salı]()
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Tabii başka bir hiçbir operatör yoksa ++ ve -- operatörlerinin önek ve sonek kullanımları arasında bir fark oluşmaz. Örneğin:
 
+```
     ++a;
+```
 
     ile
 
+```
     a++;
+```
 
-    arasında bir farklılık yoktur.
+arasında bir farklılık yoktur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2496,15 +2506,14 @@ int a;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-++ ve -- operatörlerinin operand'larının nesne belirtmesi yani sol tarafa değeri olması gerekir. Örneğin aşağıdaki gibi bir ifade geçerli değildir:
+`++` ve `--` operatörlerinin operand'larının nesne belirtmesi yani sol tarafa değeri olması gerekir. Örneğin aşağıdaki gibi bir ifade geçerli değildir:
 
+```
     ++3;		/* geçersiz! */
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 C (ve C++) standartlarında "tanımsız davranış (undefined behavior)" denilen bir kavram vardır. Tanımsız davranış terimi standartlarda semantik bir tanımın
 yapılmadığı kodlar için kullanılmaktadır. Tanımsız davranışa yol açan kodlar sentaks bakımdan geçerlidir. Dolayısıyla başarılı bir biçimde derlenirler.
 Ancak programın çalışma zamanı sırasında sorunlar ortaya çıkabilmektedir. Bu sorunlar "programın çökmesi", "programın umulmadık biçimde çalışması",
@@ -2512,26 +2521,20 @@ Ancak programın çalışma zamanı sırasında sorunlar ortaya çıkabilmektedi
 programın değişik zamanlarda çalıştırılması sırasında tutarsızlıklar oluşturabilmektedir. Sonuç olarak bir kod eğer "tanımsız davranışa" yol açıyorsa
 programcının o kodu kullanmaması gerekir. Kullanırsa artık programın sağlıklı çalışması garanti olmaz. Tanımsız davranışların "derleme aşamasına ilişkin değil",
 "programın çalışma zamanına ilişkin" olumsuzluklar doğurabildiğine dikkat ediniz.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 C (ve C++) standartlarında karşılaşılan diğer bir kavram da "derleyiciye bağlı davranış (implementation depnedent (defined) behavior)" kavramıdır.
 Standratlarda bazı durumlarda ilgili özelliğin derleyiciden derleyiciye değişebileceği belirtilmiştir. Yani ilgili özellik için açık bir belirleme yapmak yerine
 standartlar bu belirlemenin derleyicileri yazanlar tarafından yapılacağını belirtmektedir. Örneğin int türünün (ve char dışındaki diğer türlerin)
 uzunlukları derleyiden derleyiciye değişebilmektedir. Bu uzunluklar "derleyiciye bağlı bir davranışa" yol açmaktadır. Ancak derleyiciye bağlı davranışların
 ilgili derleyicinin dokümantasyonunda dokümante edilmiş olması gerekmektedir. Yani derleyicilerin bir referans gibi kitapları olmalıdır. Orada standartlarda
 belirtilen "derleyiciye bağlı davranışların" o derleyicide nasıl ele alındığının belirtilmesi gerekmektedir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 C (ve C++) standartlarında geçen diğer önemli bir kavram da "belirsiz davranış (unspecified behavior)" kavramıdır. Belirsiz davranışta sınırlı sayıda seçenek
 söz konusudur. Ancak bu seçeneklerin hangisinin uygulnadığı derleyiciden derleyiciye değişebilir. Bu seçeneklerin hiçbiri normal koşullarda programın
 çökmesine ya da hatalı sonuçların oluşmasına yol açmamaktadır. Derleyiciler belirsiz davranışlarda hangi seçeneği seçtiklerini dokümante etmek zorunda değillerdir.
 Belirsiz davranışın tanımsız davranıştan en önemli farkı, tanımsız davranışın tamamen patolojik bir durum olması ancak belirsiz davranışın patolojik bir durum olmamasıdır.
 Belirsiz davranışın derleyiciye bağlı davranıştan en önemli farkı, belirsiz davranış için derleyicilerin bunları dokümante etme zorunluluklarının olmamasıdır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 C (ve C++) standartlarındaki önemli bir durum da şudur: C standartları dilin sentaks ve semantik kısıtlarına uyulmadığı durumlarda bu durum için derleyicilerin
 en az bir hata mesajı vermesi gerektiğini belirtmektedir. Standartlara göre geçerli bir program derleyici tarafından başarılı bir biçimde derlenmek zorundadır
 ancak geçersiz bir program derleyici tarafından yine de başarılı bir biçimde derlenebilir. Yani standartlar geçersiz programların başarılı bir biçimde derlenip
@@ -2539,31 +2542,30 @@ derlenmeyeceği konusunda bir yargıda bulunmamaktadır. Gerçekten de pek çok 
 Ancak bu durum kodun geçerli olduğu anlamına gelmemektedir. (Dolayısıyla C'de bizim bir durumun geçerliliği hakkında derleyicinin kodu başarılı bir biçimde derleyip
 derlemediğine bakarak karar vermememiz gerekir. Çünkü derleyiciler geçersiz kodları da başarılı bir biçimde derleyebilmektedir.)Tabii bizim dilin kurallarına tamamen
 uymamız gerekir. Çünkü bir derleyici geçersiz programı derliyor olsa da diğer bir derleyici onu derlemeyebilir. Ancak kodumuz geçerliyse her derleyici kodumuzu derlemek zorundadır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de bir nesne bir ifadede ++ ya da -- operatörleriyle kullanılmışsa artık o ifadede bir daha o nesne kullanılmamalıdır. Eğer kullanılırsa bu durum
+C'de bir nesne bir ifadede `++` ya da `--` operatörleriyle kullanılmışsa artık o ifadede bir daha o nesne kullanılmamalıdır. Eğer kullanılırsa bu durum
 tanımsız davranışa yol açmaktadır. Bu durumda aşağıdaki gibi kodların hepsi geçerli ancak tanımsız davranışa yol açan kodlardır:
 
+```
     b = ++a + a;
     b = a++ + a;
     b = ++a + ++a;
     a = ++a;
     b = a + a--;
+```
 
-    Bu kodlarda nasıl bir sonuç elde edileceğinin bir garantisi yoktur. Ancak yukarıdaki kodlar örneğin Java ve C# gibi dillerde "tanımlı (well defined)"
-    kodlardır.
+Bu kodlarda nasıl bir sonuç elde edileceğinin bir garantisi yoktur. Ancak yukarıdaki kodlar örneğin Java ve C# gibi dillerde "tanımlı (well defined)" kodlardır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de toplam 6 tane karşılaştırma operatörü vardır:
 
+```
     <, >, <=, >=
     == !=
+```
 
-    Öncelik tablosunda karşılaştırma operatörleri aritmetik operatörlerden daha düşük öncelikli biçimde bulunmaktadır:
+Öncelik tablosunda karşılaştırma operatörleri aritmetik operatörlerden daha düşük öncelikli biçimde bulunmaktadır:
 
+```
     ()				Soldan-Sağa
     + - ++ --		Sağdan-Sola
     * / %			Soldan-Sağa
@@ -2571,13 +2573,13 @@ C'de toplam 6 tane karşılaştırma operatörü vardır:
     <  > <= >=		Soldan-Sağa
     != ==			Soldan-Sağa
     =				Sağdan-Sola
+```
 
-    Karşılaştırma operatörlerinin de öncelik tablosunda iki farklı düzeyde bulunduğuna dikkat ediniz.
+Karşılaştırma operatörlerinin de öncelik tablosunda iki farklı düzeyde bulunduğuna dikkat ediniz.
 
-    C'de karşılaştırma operatörlerinin ürettiği değerler int türdendir. Eğer önerme doğruysa bu operatörler 1 değerini, yanlışsa 0 değerini üretirler.
+C'de karşılaştırma operatörlerinin ürettiği değerler int türdendir. Eğer önerme doğruysa bu operatörler 1 değerini, yanlışsa 0 değerini üretirler.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2593,26 +2595,31 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki ifadeye dikkat ediniz:
 
+```
     b = 10 < a < 20;
+```
 
-    Bu ifade matematikte a'nın 10 ile 20 arasında olduğuna ilişkin bir anlama gelse de C'de böyle bir anlama gelmemektedir. C'de bu ifade şöyle ele alınmaktadır:
+Bu ifade matematikte a'nın 10 ile 20 arasında olduğuna ilişkin bir anlama gelse de C'de böyle bir anlama gelmemektedir. C'de bu ifade şöyle ele alınmaktadır:
 
+```
     İ1: 10 < a	(1 ya da 0 elde edilir)
     İ2: İ1 < 20
     İ3: b = İ2
+```
 
-    Karşılaştırma operatörleri aritmektik operatörlerden düşük önceliklidir. Örneğin:
+Karşılaştırma operatörleri aritmektik operatörlerden düşük önceliklidir. Örneğin:
 
+```
     a + b > c + d
+```
 
-    Böyle bir işlemde a + b ile c + d karşılaştırılmaktadır.
+Böyle bir işlemde a + b ile c + d karşılaştırılmaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2628,17 +2635,20 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de üç mantıksal operatör vardır:
 
+```
     !		NOT
     &&		AND
     ||		OR
+```
 
-    && ve || operatörleri iki operand'lı arek operatörlerdir. Ancak ! operatörü tek operand'lı önek bir operatördür. Öncelik tablosunda ! operatörü
-    diğer tek operand'lı operatörlerin bulunduğu ikinci düzeydedir. Ancak && ve || operatörleri karşılaştırma operatörlerinden daha düşük önceliklidir.
+`&&` ve `||` operatörleri iki operand'lı arek operatörlerdir. Ancak `!` operatörü tek operand'lı önek bir operatördür. Öncelik tablosunda `!` operatörü
+diğer tek operand'lı operatörlerin bulunduğu ikinci düzeydedir. Ancak `&&` ve `||` operatörleri karşılaştırma operatörlerinden daha düşük önceliklidir.
 
+```
     ()				Soldan-Sağa
     + - ++ -- !		Sağdan-Sola
     * / %			Soldan-Sağa
@@ -2648,55 +2658,66 @@ C'de üç mantıksal operatör vardır:
     &&				Soldan-Sağa
     ||				Soldan-Sağa
     =				Sağdan-Sola
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Mantıksal operatörler her zaman int türden değer üretirler. İşlem sonucu Doğru ise 1 değerini, yanlış ise 0 değerini üretmektedirler. Bu operatörler
 önce operand'larını Doğru ya da Yanlış olarak ele alırlar. Eğer operand sıfır dışı (non-zero) herhangi bir değerdeyse Doğru olarak, sıfır değerindeyse
 Yanlış olarak ele alınmaktadır. Örneğin:
 
+```
     -3 && 5.7
+```
 
-    Burada -3 Doğru olarak, 5.7 de Doğru olarak ele alınır. Doğru ve Doğru işlemi Doğru sonucunu verir. Doğru için 1 değeri üretilecektir. Örneğin:
+Burada -3 Doğru olarak, 5.7 de Doğru olarak ele alınır. Doğru ve Doğru işlemi Doğru sonucunu verir. Doğru için 1 değeri üretilecektir. Örneğin:
 
+```
     -1 || 0
+```
 
-    Buradan 1 değeri üretilir. Örneğin:
+Buradan 1 değeri üretilir. Örneğin:
 
+```
     0 && -8
+```
 
-    Buradan 0 değeri üretilir.
+Buradan 0 değeri üretilir.
 
-    ! operatörü Doğruyu Yanlış, Yanlışı Doğru yapan bir operatördür. Öncelik tablosunun ikinci düzeyinde sağdan sola öncelikte bulunur. Örneğin:
+`!` operatörü Doğruyu Yanlış, Yanlışı Doğru yapan bir operatördür. Öncelik tablosunun ikinci düzeyinde sağdan sola öncelikte bulunur. Örneğin:
 
+```
     result = !3.5;
+```
 
-    Burada 3.5 Doğru olarak ele alınır. ! operatörü Yanlış değeri için 0 üretmektedir. Örneğin:
+Burada 3.5 Doğru olarak ele alınır. ! operatörü Yanlış değeri için 0 üretmektedir. Örneğin:
 
+```
     result = !!!-3.2;
 
     İ1: !-3.2    ---> 0
     İ2: !İ1      ---> 1
     İ3: !İ2      ---> 0
     İ4: result = İ3
+```
 
-    Örneğin:
+Örneğin:
 
+```
     result = !0 + 2
 
     İ1: !0	     ---> 1
     İ2: İ1 + 2   ---> 3
     İ3: result = İ2
+```
 
-    && ve || operatörlerinin karşılaştırma operatörlerinden düşük öncelikli olması karşılaştırmanın sonuçlarının mantıksal işlemesokulacağı anlamına gelmektedir. Örneğin:
+`&&` ve `||` operatörlerinin karşılaştırma operatörlerinden düşük öncelikli olması karşılaştırmanın sonuçlarının mantıksal işlemesokulacağı anlamına gelmektedir. Örneğin:
 
+```
     result = a > 10 && a < 20;
+```
 
-    Burada iki koşulk da doğruysa 1 değeri diğer durumlarda 0 değeri elde edilecektir.
+Burada iki koşulk da doğruysa 1 değeri diğer durumlarda 0 değeri elde edilecektir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2714,18 +2735,17 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-&& ve || operatörlerinin "kısa devre (short circuit)" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
+`&&` ve `||` operatörlerinin "kısa devre (short circuit)" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
 sağında ne kadar öncelikli operatör olursa olsun bunların önce sol tarafı yapılır. Eğer && operatöründe sol taraf sıfır ise sağ taraf hiç yapılmaz
 sonuç hemen 0 olarak belirlenir. Eğer && operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı dırım || operatörü için de
 geçerlidir. Bu operatörün sol tarafı eğer sıfır dışı bir değerdeyse sağ tarafı hiç yapılmaz ve sonuç 1 olarak belirlenir. Eğer bu operatörün sol tarafı
 sıfır ise bu durumda sağ tarafı yapılır.
 
-    Aşağıdaki program bu durumun anlaşılması için verilmiştir.
+Aşağıdaki program bu durumun anlaşılması için verilmiştir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2748,11 +2768,11 @@ int result;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Her ne kadar henüz fonksiyonlar konusunu görmediysek de aşağıdaki örnekte bar fonksiyonu çağrılmayacaktır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int foo(void)
@@ -2782,11 +2802,9 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 16. Ders 21/07/2022 - Perşembe
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+[16. Ders 21/07/2022 - Perşembe]()
 
 /\*---------------------------------------------------------------------------------------------------------------------------------------------------
 && ve || operatörleri aynı ifadede kullanıldığında yine en soldaki operatörün sol tarafı önce yapılır. Aslında kısa devre özelliği yalnızca sonucun hızlı bir
