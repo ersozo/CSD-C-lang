@@ -1376,10 +1376,10 @@ Format karakterleri eşleşen argümanın türünü ve yazdırma için kullanıl
 En çok kullanılan format karakterleri şunlardır:
 
 ```
-    %d      --->    signed char, short ve int türlerini 10'luk sistemde yazdırmak için
-    %x      --->    işaretli ve işaretsiz char, short ve int türlerini 16'lık sistemde yazdırmak için
-    %o      --->    işaretli ve işaretsiz char, short ve int türlerini 8'lik sistemde yazdırmak için
-    %ld     --->    long türünü 10'luk sistemde yazdırmak için
+    %d      //    signed char, short ve int türlerini 10'luk sistemde yazdırmak için
+    %x      //    işaretli ve işaretsiz char, short ve int türlerini 16'lık sistemde yazdırmak için
+    %o      //    işaretli ve işaretsiz char, short ve int türlerini 8'lik sistemde yazdırmak için
+    %ld     //    long türünü 10'luk sistemde yazdırmak için
     %lld    --->    long long türünü 10'luk sistemde yazdırmak için
     %lx     --->    long türünü 16'lık sistemde yazdırmak için
     %llx    --->    long long türünü 16'lık sistemde yazdırmak için
@@ -2566,13 +2566,13 @@ C'de toplam 6 tane karşılaştırma operatörü vardır:
 Öncelik tablosunda karşılaştırma operatörleri aritmetik operatörlerden daha düşük öncelikli biçimde bulunmaktadır:
 
 ```
-    ()				Soldan-Sağa
-    + - ++ --		Sağdan-Sola
-    * / %			Soldan-Sağa
-    + -				Soldan-Sağa
-    <  > <= >=		Soldan-Sağa
-    != ==			Soldan-Sağa
-    =				Sağdan-Sola
+    ()              Soldan-Sağa
+    + - ++ --       Sağdan-Sola
+    * / %           Soldan-Sağa
+    + -             Soldan-Sağa
+    <  > <= >=      Soldan-Sağa
+    != ==           Soldan-Sağa
+    =               Sağdan-Sola
 ```
 
 Karşılaştırma operatörlerinin de öncelik tablosunda iki farklı düzeyde bulunduğuna dikkat ediniz.
@@ -2649,15 +2649,15 @@ C'de üç mantıksal operatör vardır:
 diğer tek operand'lı operatörlerin bulunduğu ikinci düzeydedir. Ancak `&&` ve `||` operatörleri karşılaştırma operatörlerinden daha düşük önceliklidir.
 
 ```
-    ()				Soldan-Sağa
-    + - ++ -- !		Sağdan-Sola
-    * / %			Soldan-Sağa
-    + -				Soldan-Sağa
-    <  > <= >=		Soldan-Sağa
-    != ==			Soldan-Sağa
-    &&				Soldan-Sağa
-    ||				Soldan-Sağa
-    =				Sağdan-Sola
+    ()              Soldan-Sağa
+    + - ++ -- !     Sağdan-Sola
+    * / %           Soldan-Sağa
+    + -             Soldan-Sağa
+    <  > <= >=      Soldan-Sağa
+    != ==           Soldan-Sağa
+    &&              Soldan-Sağa
+    ||              Soldan-Sağa
+    =               Sağdan-Sola
 ```
 
 Mantıksal operatörler her zaman int türden değer üretirler. İşlem sonucu Doğru ise 1 değerini, yanlış ise 0 değerini üretmektedirler. Bu operatörler
@@ -2882,15 +2882,15 @@ Atama operatörü iki operand'lı araek özel amaçlı bir operatördür. Bu ope
 Atama operatörü öncelik tablosunda düşük düzeyde sağdan sola grupta bulunmaktadır.
 
 ```
-    ()				Soldan-Sağa
-    + - ++ -- !		Sağdan-Sola
-    * / %			Soldan-Sağa
-    + -				Soldan-Sağa
-    <  > <= >=		Soldan-Sağa
-    != ==			Soldan-Sağa
-    &&				Soldan-Sağa
-    ||				Soldan-Sağa
-    =				Sağdan-Sola
+    ()              Soldan-Sağa
+    + - ++ -- !     Sağdan-Sola
+    * / %           Soldan-Sağa
+    + -             Soldan-Sağa
+    <  > <= >=      Soldan-Sağa
+    != ==           Soldan-Sağa
+    &&              Soldan-Sağa
+    ||              Soldan-Sağa
+    =               Sağdan-Sola
 ```
 
 Bu durumda örneğin:
@@ -2941,13 +2941,13 @@ Bu işlem bildirim işleminin bir parçasıdır. Dolayısıyla buradaki `=` bir 
 üretmesi söz konusu değildir. Örneğin aşağıdaki gibi bir bildirim geçerli değildir:
 
 ```
-    int a = b = 10;			/* geçersiz! Buradaki '=' bir operatör değil */
+    int a = b = 10;         /* geçersiz! Buradaki '=' bir operatör değil */
 ```
 
 Ancak aşağıdaki gibi bir bildirim geçerlidir:
 
 ```
-    int a = 10, b = a;		/* geçerli */
+    int a = 10, b = a;      /* geçerli */
 ```
 
 C'de bir değişken dekleratörden sonra (bu kavram ileride açıklanacaktır) ancak ilkdeğer vermeden önce faaliyet alanına sokulmuş olmaktadır. Dolayısıyla
@@ -3010,15 +3010,15 @@ eşdeğerdir.
 Bileşik atama operatörleri öncelik tablosunda atama operatör ile sağdan sola aynı grupta bulunmaktadır.
 
 ```
-    ()					Soldan-Sağa
-    + - ++ -- !			Sağdan-Sola
-    * / %				Soldan-Sağa
-    + -					Soldan-Sağa
-    <  > <= >=			Soldan-Sağa
-    != ==				Soldan-Sağa
-    &&					Soldan-Sağa
-    ||					Soldan-Sağa
-    =, +=, /=, *=,...	Sağdan-Sola
+    ()                  Soldan-Sağa
+    + - ++ -- !         Sağdan-Sola
+    * / %               Soldan-Sağa
+    + -	                Soldan-Sağa
+    <  > <= >=          Soldan-Sağa
+    != ==               Soldan-Sağa
+    &&                  Soldan-Sağa
+    ||                  Soldan-Sağa
+    =, +=, /=, *=,...   Sağdan-Sola
 ```
 
 Örneğin:
@@ -3027,7 +3027,7 @@ Bileşik atama operatörleri öncelik tablosunda atama operatör ile sağdan sol
     a *= 2 + 3;
 ```
 
-Burada önce 2 ile 3 toplanır. Sonra \*= işlemi yapılır.
+Burada önce 2 ile 3 toplanır. Sonra `*=` işlemi yapılır.
 
 ```
 #include <stdio.h>
@@ -3071,16 +3071,16 @@ int a = 2, b;
 Virgül (`,`) de iki operand'lı araek bir operatördür. Öncelik tablosunun en düşük öncelikli operatörüdür.
 
 ```
-    ()					Soldan-Sağa
-    + - ++ -- !			Sağdan-Sola
-    * / %				Soldan-Sağa
-    + -					Soldan-Sağa
-    <  > <= >=			Soldan-Sağa
-    != ==				Soldan-Sağa
-    &&					Soldan-Sağa
-    ||					Soldan-Sağa
-    =, +=, /=, *=,...	Sağdan-Sola
-    ,					Soldan-Sağa
+    ()                  Soldan-Sağa
+    + - ++ -- !         Sağdan-Sola
+    * / %               Soldan-Sağa
+    + -	                Soldan-Sağa
+    <  > <= >=          Soldan-Sağa
+    != ==               Soldan-Sağa
+    &&                  Soldan-Sağa
+    ||                  Soldan-Sağa
+    =, +=, /=, *=,...   Sağdan-Sola
+    ,                   Soldan-Sağa
 ```
 
 Virgül operatörü aslında iki ifadeyi tek bir ifade biçiminde ifade edebilmek için düşünülmüştür. Tipik kullanım biçimi şöyledir:
@@ -3178,8 +3178,8 @@ int main(void)
 {
 int a, b;
 
-    printf("%d\n", (a = 10, b = 20));		/* tuhaf ama geçerli, b yazdırılıyor */
-    printf("%d\n", a);						/* 10 */
+    printf("%d\n", (a = 10, b = 20));       /* tuhaf ama geçerli, b yazdırılıyor */
+    printf("%d\n", a);                      /* 10 */
 
     return 0;
 
@@ -3250,7 +3250,7 @@ tanımlanması (function definition)" denilmektedir. Fonksiyon tanımlamanın ge
 ```
 
 Burada `int` fonksiyonun geri dönüş değerinin türüdür. `foo` ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
-Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki "int" yazılmış gibi işlem yapılıyordu.
+Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki `int` yazılmış gibi işlem yapılıyordu.
 Ancak C99 ile birlikte fonksiyonun geri dönüş değerinin türünün yazılması zorunlu hale getirilmiştir.
 
 ```
