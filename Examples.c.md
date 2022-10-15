@@ -1376,20 +1376,20 @@ Format karakterleri eşleşen argümanın türünü ve yazdırma için kullanıl
 En çok kullanılan format karakterleri şunlardır:
 
 ```
-    %d      //    signed char, short ve int türlerini 10'luk sistemde yazdırmak için
-    %x      //    işaretli ve işaretsiz char, short ve int türlerini 16'lık sistemde yazdırmak için
-    %o      //    işaretli ve işaretsiz char, short ve int türlerini 8'lik sistemde yazdırmak için
-    %ld     //    long türünü 10'luk sistemde yazdırmak için
-    %lld    --->    long long türünü 10'luk sistemde yazdırmak için
-    %lx     --->    long türünü 16'lık sistemde yazdırmak için
-    %llx    --->    long long türünü 16'lık sistemde yazdırmak için
-    %lo     --->    long türünü 8'lik sistemde yazdırmak için
-    %llo    --->    long long türünü 8'lik sistemde yazdırmak için
-    %u      --->    unsigned char, unsigned short ve unsigned int türlerini 10'luk sistemde yazdırmak için
-    %lu     --->    uunsigned long türünü 10'luk sistemde yazdırmak için
-    %f      --->    float ve double türlerini 10'luk sistemde yazdırmak için (default durumda noktadan sonra 6 basamak yuvarlanarak yazdırılır)
-    %e      --->    float ve double türlerini üstel niçimde yazdırmak için.
-    %c      --->    char, short ve int türlerini karakter görüntüsü olarak yazdırmak için
+    %d                // signed char, short ve int türlerini 10'luk sistemde yazdırmak için
+    %x                // işaretli ve işaretsiz char, short ve int türlerini 16'lık sistemde yazdırmak için
+    %o                // işaretli ve işaretsiz char, short ve int türlerini 8'lik sistemde yazdırmak için
+    %ld               // long türünü 10'luk sistemde yazdırmak için
+    %lld              long long türünü 10'luk sistemde yazdırmak için
+    %lx               long türünü 16'lık sistemde yazdırmak için
+    %llx              long long türünü 16'lık sistemde yazdırmak için
+    %lo               long türünü 8'lik sistemde yazdırmak için
+    %llo              long long türünü 8'lik sistemde yazdırmak için
+    %u                unsigned char, unsigned short ve unsigned int türlerini 10'luk sistemde yazdırmak için
+    %lu               unsigned long türünü 10'luk sistemde yazdırmak için
+    %f                float ve double türlerini 10'luk sistemde yazdırmak için (default durumda noktadan sonra 6 basamak yuvarlanarak yazdırılır)
+    %e                float ve double türlerini üstel niçimde yazdırmak için.
+    %c                char, short ve int türlerini karakter görüntüsü olarak yazdırmak için
 ```
 
 ```
@@ -1526,14 +1526,14 @@ kastedilmektedir. Ancak bu kural C99 ve ötesinde değiştirilmiştir. C99 ve ö
     }
 ```
 
-C'de bir tamsayı 10'luk, 16'lık ve 8'lik sistemde bir sabit biçiminde belirtilebilmektedir. Default sistem 10'luk sistemdir. Ancak bir tamsayı 0x ile
-ya da 0X ile başlanarak yazılırsa, bu durumda sayının 16'lık sistemde yazılmış olduğu kabul edilir. Eğer bir sayı başına 0 getirilerek yazılırsa bu da
-sayının 8'lik sistemde yazılmış olduğu anlamına gelir. Örneğin:
+C'de bir tamsayı `10`'luk, `16`'lık ve `8`'lik sistemde bir sabit biçiminde belirtilebilmektedir. Default sistem `10`'luk sistemdir. Ancak bir tamsayı `0x` ile
+ya da `0X` ile başlanarak yazılırsa, bu durumda sayının `16`'lık sistemde yazılmış olduğu kabul edilir. Eğer bir sayı başına `0` getirilerek yazılırsa bu da
+sayının `8`'lik sistemde yazılmış olduğu anlamına gelir. Örneğin:
 
 ```
-    100         (10'luk sistemde 100)
-    0x64        (16'lık sistemdeki 64 yani 10'luk sistemde 100)
-    012         (8'lik sistemde 12 yani 10'luk sistemde 10)
+    100         // (10'luk sistemde 100)
+    0x64        // (16'lık sistemdeki 64 yani 10'luk sistemde 100)
+    012         // (8'lik sistemde 12 yani 10'luk sistemde 10)
 ```
 
 Tabii biz tamsayı değeri kaçlık sistemde yazarsak yazalım, aslında bu sayı bellekte her zaman 2'lik sistemde tutulmaktadır.
