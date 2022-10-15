@@ -1903,7 +1903,7 @@ int result;
 }
 ```
 
-##### putchar fonksiyonu
+#### putchar fonksiyonu
 
 putchar fonksiyonu bizden int türden bir değer alır. O değere karşı gelen karakter numarasına ilişkin karakterin görüntüsünü ekrana (stdout dosyasına) yazar.
 Yani `putchar(ch)` çağrısıyla `printf("%c", ch)` çağrısı işlevsel olarak tamamen eşdeğerdir.
@@ -1926,7 +1926,7 @@ int a;
 }
 ```
 
-##### getchar fonksiyonu
+### getchar fonksiyonu
 
 getchar fonksiyonu adeta putchar fonksiyonun tersini yapmaktadır. Bu fonksiyonun parametresi yoktur. Fonksiyon çağrıldığında klavyeden (stdin dosyasından)
 bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter tablosundaki sıra numarasına geri döner. getchar bize int türden bir değer vermektedir.
@@ -2112,7 +2112,7 @@ char ch;
 [14. Ders 07/07/2022 - Perşembe]()
 
 Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadeleri ise
-"operan (operand)" denir. Örneğin a + b ifadesinde + bir operatördür. a ve b bu operatörün operand'larıdır.
+"operan (operand)" denir. Örneğin `a + b` ifadesinde `+` bir operatördür. `a` ve `b` bu operatörün operand'larıdır.
 
 Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
 
@@ -2151,7 +2151,7 @@ Operatörler, operatörün operan'larına olan konumuna göre de üçe ayrılmak
   görevindedir. `foo` ise bu operatörün operandıdır. Burada operatör operand'ının sonuna getirilmiştir.
 
 Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
-Örneğin, "`/` operatörü iki operand'lı araek (binart infix) bir artimetik operatördür." Ya da örneğin "`!` operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
+Örneğin, "`/` operatörü iki operand'lı araek (binary infix) bir artimetik operatördür." Ya da örneğin "`!` operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
 Ya da örneğin "`&` operatörü iki operand'lı araek bir bit operatörüdür".
 
 Bir ifadede birden fazla operatör kullanıldığında bunlar birbirlerine göre belli bir sırada yapılırlar. Bu duruma "operatörler arasındaki öncelik
@@ -2220,7 +2220,7 @@ Atama operatörünün sağdan-sola grupta olduğuna dikkat ediniz:
 ```
 
 Öncelik tablosundaki satırlarda bulunan operatörler o satırda değişik sırada yazılabilirler. Çünkü aynı satırdaki operatörlerin o satırdaki sırasının
-bir önemi yoktur. "Soldan-sağa" ya da "sağdan-sola" ifade içerisindkei duruma ilişkindir.
+bir önemi yoktur. "Soldan-sağa" ya da "sağdan-sola" ifade içerisindeki duruma ilişkindir.
 
 `*`, `/`, `+` ve `-` operatörleri "iki operand'lı araek (binary infix)" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
 
@@ -2261,7 +2261,7 @@ int result;
 
 `+` ve `-` sembolleri hem toplama ve çıkartma operatörü hem de `işaret -` ve `işaret +` operatörünü temsil etmektedir. İşaret + ve işaret - operatörleri
 "tek operand'lı öncek (unary prefix)" operatörlerdir. İşaret - operatörü operand'ının negatif değerini üretir. İşaret + operatörü ise operand'ı ile aynı
-değeri üretmektedir. (Yani aslında işaert + operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola gruğta bulunurlar:
+değeri üretmektedir. (Yani aslında işaert + operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
 
 ```
     ()				Soldan-Sağa
@@ -2806,34 +2806,39 @@ int result;
 
 [16. Ders 21/07/2022 - Perşembe]()
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-&& ve || operatörleri aynı ifadede kullanıldığında yine en soldaki operatörün sol tarafı önce yapılır. Aslında kısa devre özelliği yalnızca sonucun hızlı bir
+`&&` ve `||` operatörleri aynı ifadede kullanıldığında yine en soldaki operatörün sol tarafı önce yapılır. Aslında kısa devre özelliği yalnızca sonucun hızlı bir
 biçimde bulunmasına yol açmaktadır. Yoksa kısa devre özelliğinin olmadığı durumla, olduğu durum arasında bir sonuç farklılığı oluşmaz. Örneğin:
 
+```
     ifade1 || ifade2 && ifade3
+```
 
-    Burada önce ifade1 yapılır. Eğer ifade1 sıfır dışı bir değerse başka hiçbir şey yapılmaz. Sonuç 1 olarak elde edilir. Eğer ifade1 sıfır ise bu durumda
-    ifade2 yapılır. İfade2 de sıfır ise ifade3 yapılmaz. Burada tüm ifadelerin yapılması için ifade1'in sıfır, ifade2'nin sıfır dışı bir değer vermesi gerekir.
-    Örneğin:
+Burada önce `ifade1` yapılır. Eğer `ifade1` sıfır dışı bir değerse başka hiçbir şey yapılmaz. Sonuç 1 olarak elde edilir. Eğer `ifade1` sıfır ise bu durumda
+`ifade2` yapılır. `İfade2` de sıfır ise `ifade3` yapılmaz. Burada tüm ifadelerin yapılması için `ifade1`'in sıfır, `ifade2`'nin sıfır dışı bir değer vermesi gerekir.
+Örneğin:
 
+```
     ifade1 && ifade2 || ifade3
+```
 
-    Burada yine ifade1 önce yapılır. İfade1 sıfır ise ifade2 yapılmaz. Ancak ifade3 yapılır. Eğer ifade1 sıfır dışı bir değerde ise bu durumda ifade2 yapılır.
-    Eğer ifade2 de sıfır dışı ise ifade3 yapılmaz. Aşağıdaki ifadede önce ifade3'ün yapılması sonucun daha hızlı elde edilmesine yol açabileceği halde her zaman && ve || operatörlerinin sol tarafı
-    önce yapılmaktadır. Yani aşağıdaki örnekte yine ifade1 önce yapılacaktır.:
+Burada yine `ifade1` önce yapılır. `İfade1` sıfır ise `ifade2` yapılmaz. Ancak `ifade3` yapılır. Eğer `ifade1` sıfır dışı bir değerde ise bu durumda `ifade2` yapılır.
+Eğer `ifade2` de sıfır dışı ise `ifade3` yapılmaz. Aşağıdaki ifadede önce `ifade3`'ün yapılması sonucun daha hızlı elde edilmesine yol açabileceği halde her zaman `&&` ve `||` operatörlerinin sol tarafı önce yapılmaktadır. Yani aşağıdaki örnekte yine `ifade1` önce yapılacaktır.:
 
+```
     ifade1 && ifade2 || ifade3
+```
 
-    Her ne kadar henüz fonksiyonları görmemiş olsak da aşağıdaki örnek kısa devre özelliğini incelemek amacıyla kullanılabilir. Tabii aslında parantezler de
-    işlemlerin yapılma sırası bakımından bir şeyi değiştirmeyecektir. Örneğin:
+Her ne kadar henüz fonksiyonları görmemiş olsak da aşağıdaki örnek kısa devre özelliğini incelemek amacıyla kullanılabilir. Tabii aslında parantezler de
+işlemlerin yapılma sırası bakımından bir şeyi değiştirmeyecektir. Örneğin:
 
+```
     ifade1 && (ifade2 || ifade3)
+```
 
-    Burada her ne kadar || işlemi paranteze alınmışsa da bu parantez içi önce yapılmaz. Çünkü önce yapılsaydı && operatörünün sağ tarafı önce yapılmış olurdu.
-    Burada da yine önce ifade1 yapılır. İfade1 0 ise başka bir şey yapılmaz.
+Burada her ne kadar `||` işlemi paranteze alınmışsa da bu parantez içi önce yapılmaz. Çünkü önce yapılsaydı `&&` operatörünün sağ tarafı önce yapılmış olurdu.
+Burada da yine önce `ifade1` yapılır. `İfade1` 0 ise başka bir şey yapılmaz.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int foo(void)
@@ -2870,12 +2875,13 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Atama operatörü iki operand'lı araek özel amaçlı bir operatördür. Bu operatörün sol tarafındaki operand'ın bir nesne belirtmesi gerekir. Yani sol taraf değeri
 (LValue) olması gerekir. Atama operatörü de bir değer üretmektedir. Atama operatörünün ürettiği değer sol taraftaki nesneye atanmış olan değerdir.
 Atama operatörü öncelik tablosunda düşük düzeyde sağdan sola grupta bulunmaktadır.
 
+```
     ()				Soldan-Sağa
     + - ++ -- !		Sağdan-Sola
     * / %			Soldan-Sağa
@@ -2885,26 +2891,32 @@ Atama operatörü öncelik tablosunda düşük düzeyde sağdan sola grupta bulu
     &&				Soldan-Sağa
     ||				Soldan-Sağa
     =				Sağdan-Sola
+```
 
-    Bu durumda örneğin:
+Bu durumda örneğin:
 
+```
     a = b = 10;
 
     İ1: b = 10 --> 10
     İ2: a = İ1
+```
 
-    Böylece burada 10 hem b'ye hem de a'ya atanmış olur. Örneğin:
+Böylece burada 10 hem b'ye hem de a'ya atanmış olur. Örneğin:
 
+```
     a = b = 10 + 20;
+```
 
-    Burada a ve b'ye 30 atanmaktadır. Ancak örneğin:
+Burada a ve b'ye 30 atanmaktadır. Ancak örneğin:
 
+```
     a = (b = 10) + 20;
+```
 
-    Burada parantez içi önce yapılacağına göre b'ye 10 atanacak ve bu işlemden 10 değeri elde edilecektir. Sonra bu 10 değeri 20 ile toplanıp a'ya atanacaktır.
+Burada parantez içi önce yapılacağına göre b'ye 10 atanacak ve bu işlemden 10 değeri elde edilecektir. Sonra bu 10 değeri 20 ile toplanıp a'ya atanacaktır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -2922,64 +2934,82 @@ int a, b;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Tanımlama sırasında tanımlanan değişkene '=' atomu ile ilkdeğer verilebiliyordu. İlkdeğer vermedeki '=' bir operatör olarak değerlendirilmemektedir.
-Bu işlem bildirim işleminin bir parçasıdır. Dolayısıyla buradaki '=' bir operatör olarak ele alınmaz. Böyle olunca da buradaki '=' atomunun bir değer
+Tanımlama sırasında tanımlanan değişkene `=` atomu ile ilkdeğer verilebiliyordu. İlkdeğer vermedeki `=` bir operatör olarak değerlendirilmemektedir.
+Bu işlem bildirim işleminin bir parçasıdır. Dolayısıyla buradaki `=` bir operatör olarak ele alınmaz. Böyle olunca da buradaki `=` atomunun bir değer
 üretmesi söz konusu değildir. Örneğin aşağıdaki gibi bir bildirim geçerli değildir:
 
+```
     int a = b = 10;			/* geçersiz! Buradaki '=' bir operatör değil */
+```
 
-    Ancak aşağıdaki gibi bir bildirim geçerlidir:
+Ancak aşağıdaki gibi bir bildirim geçerlidir:
 
+```
     int a = 10, b = a;		/* geçerli */
+```
 
-    C'de bir değişken dekleratörden sonra (bu kavram ileride açıklanacaktır) ancak ilkdeğer vermeden önce faaliyet alanına sokulmuş olmaktadır. Dolayısıyla
-    C'de aşağıdaki gibi bir bildirim geçerli ancak anlamsızdır. Örneğin:
+C'de bir değişken dekleratörden sonra (bu kavram ileride açıklanacaktır) ancak ilkdeğer vermeden önce faaliyet alanına sokulmuş olmaktadır. Dolayısıyla
+C'de aşağıdaki gibi bir bildirim geçerli ancak anlamsızdır. Örneğin:
 
+```
     int a = a;
+```
 
-    Burada a yerel bir değişkense a'ya çöp değer, global bir değişkense 0 atanmaktadır.
+Burada `a` yerel bir değişkense `a`'ya çöp değer, global bir değişkense 0 atanmaktadır.
 
-    Bazen programcı bir değeri önce atayıp, atanmış değeri başka bir değerle karşılaştırmak isteyebilir. Bunun için atama operatörüne öncelik vermek gerekir.
-    Örneğin:
+Bazen programcı bir değeri önce atayıp, atanmış değeri başka bir değerle karşılaştırmak isteyebilir. Bunun için atama operatörüne öncelik vermek gerekir.
+Örneğin:
 
+```
     (ch = getchar()) != 'q'
+```
 
-    Burada önce getchar ile klavyeden (stdin dosyasından) okunan değer ch değişkenine atanmıştır. Sonra bu atanan değer karşılaştırma işlemine sokulmuştur.
+Burada önce `getchar` ile klavyeden (`stdin` dosyasından) okunan değer `ch` değişkenine atanmıştır. Sonra bu atanan değer karşılaştırma işlemine sokulmuştur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+C'de bir grup `+=`, `-=`, `_=`, `/=`, `%=`, ... biçiminde "bileşik atama operatörü (compound assignment operator)" vardır. Bu operatörlerin hepsi iki operand'lı
+araek operatörlerdir. "op", `+`, `-`, `\*`, `/` gibi bir operatör belirtmek üzere:
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de bir grup +=, -=, _=, /=, %=, ... biçiminde "bileşik atama operatörü (compound assignment operator)" vardır. Bu operatörlerin hepsi iki operand'lı
-araek operatörlerdir. "op", +, -, \*, / gibi bir operatör belirtmek üzere:
-
+```
     a op= b
+```
 
-    işlemi tamamen,
+işlemi,
 
+```
     a = a op b
+```
 
-    işlemi ile eşdeğerdir. Örneğn:
+işlemi ile tamamen eşdeğerdir. Örneğn:
 
+```
     a += 2;
+```
 
-    ile
+ile
 
+```
     a = a + 2;
+```
 
-    eşdeğerdir. Örneğin:
+eşdeğerdir. Örneğin:
 
+```
     a *= b;
+```
 
-    ile
+ile
 
+```
     a = a * b;
+```
 
-    eşdeğerdir.
+eşdeğerdir.
 
-    Bileşik atama operatörleri öncelik tablosunda atama operatör ile sağdan sola aynı grupta bulunmaktadır.
+Bileşik atama operatörleri öncelik tablosunda atama operatör ile sağdan sola aynı grupta bulunmaktadır.
 
+```
     ()					Soldan-Sağa
     + - ++ -- !			Sağdan-Sola
     * / %				Soldan-Sağa
@@ -2989,15 +3019,17 @@ araek operatörlerdir. "op", +, -, \*, / gibi bir operatör belirtmek üzere:
     &&					Soldan-Sağa
     ||					Soldan-Sağa
     =, +=, /=, *=,...	Sağdan-Sola
+```
 
-    Örneğin:
+Örneğin:
 
+```
     a *= 2 + 3;
+```
 
-    Burada önce 2 ile 3 toplanır. Sonra *= işlemi yapılır.
+Burada önce 2 ile 3 toplanır. Sonra \*= işlemi yapılır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -3011,11 +3043,11 @@ int a = 2;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bileşik atama operatörleri de değer üretmektedir. Bu operatörlerin ürettiği değerler yine sol taraftaki nesneye atanmış olan değerlerdir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -3034,10 +3066,11 @@ int a = 2, b;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Virgül (',') de iki operand'lı araek bir operatördür. Öncelik tablosunun en düşük öncelikli operatörüdür.
+Virgül (`,`) de iki operand'lı araek bir operatördür. Öncelik tablosunun en düşük öncelikli operatörüdür.
 
+```
     ()					Soldan-Sağa
     + - ++ -- !			Sağdan-Sola
     * / %				Soldan-Sağa
@@ -3048,41 +3081,54 @@ Virgül (',') de iki operand'lı araek bir operatördür. Öncelik tablosunun en
     ||					Soldan-Sağa
     =, +=, /=, *=,...	Sağdan-Sola
     ,					Soldan-Sağa
+```
 
-    Virgül operatörü aslında iki ifadeyi tek bir ifade biçiminde ifade edebilmek için düşünülmüştür. Tipik kullanım biçimi şöyledir:
+Virgül operatörü aslında iki ifadeyi tek bir ifade biçiminde ifade edebilmek için düşünülmüştür. Tipik kullanım biçimi şöyledir:
 
+```
     ifade1, ifade2
+```
 
-    Virgül operatörünün sağında ne kadar yüksek öncelikli bir operatör olursa olsun, önce onun sol tarafı tamamen yapılır bitirilir, sonra sağ tarafı
-    tamamen yapılır bitirilir. Virgül operatöründen elde edeilen değer sağ taraftaki ifadenin değeridir. Örneğin:
+Virgül operatörünün sağında ne kadar yüksek öncelikli bir operatör olursa olsun, önce onun sol tarafı tamamen yapılır bitirilir, sonra sağ tarafı
+tamamen yapılır bitirilir. Virgül operatöründen elde edeilen değer sağ taraftaki ifadenin değeridir. Örneğin:
 
+```
     a = 10; b = 20;
+```
 
-    Burada iki ayrı ifade vardır. Ancak örneğin:
+Burada iki ayrı ifade vardır. Ancak örneğin:
 
+```
     a = 10, b = 20;
+```
 
-    Burada tek bir ifade vardır. Bazen sentaks olarak tek bir ifadenin gerektiği yerde birden fazla ifade kullanılabilmesi için bu iki ifadenin virgül operatörü
-    ile birleştirilmesi gerekebilmektedir. Virgül öncelik tablosunun en düşük öncelikli operatörüdür. Dolayısıyla örneğin:
+Burada tek bir ifade vardır. Bazen sentaks olarak tek bir ifadenin gerektiği yerde birden fazla ifade kullanılabilmesi için bu iki ifadenin virgül operatörü
+ile birleştirilmesi gerekebilmektedir. Virgül öncelik tablosunun en düşük öncelikli operatörüdür. Dolayısıyla örneğin:
 
+```
     a = 10, b = 20;
+```
 
-    gibi bir işlem şu sırada yapılır:
+gibi bir işlem şu sırada yapılır:
 
+```
     İ1: a = 10
     İ2: b = 20
     İ3: İ1, İ2
+```
 
-    Virgül operatörünün ürettiği değer sağ taraftaki ifadenin değeridir. Yani virgül operatörünün solundaki ifadenin değer üretmekte bir etkisi yoktur.
-    Örneğin:
+Virgül operatörünün ürettiği değer sağ taraftaki ifadenin değeridir. Yani virgül operatörünün solundaki ifadenin değer üretmekte bir etkisi yoktur.
+Örneğin:
 
+```
     c = (a = 10, b = 20);
+```
 
-    Burada parantezler sayesinde en soldaki atama operatörü virgül operatöründen ayrıştrılmıştır. Burada önce parantez içi yapılacaktır. Parantez içerisinde
-    virgül operatörü vardır. O zaman virgül operatörünün sol tarafı önce yapılacağına göre önce a = 10 işlemi sonra b = 20 işlemi yapılır. Virgül operatöründen
-    elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan 20 elde edilecektir. İşte bu 20 aynı zamanda c'ye atanmıştır.
-    ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+Burada parantezler sayesinde en soldaki atama operatörü virgül operatöründen ayrıştrılmıştır. Burada önce parantez içi yapılacaktır. Parantez içerisinde
+virgül operatörü vardır. O zaman virgül operatörünün sol tarafı önce yapılacağına göre önce `a = 10` işlemi sonra `b = 20` işlemi yapılır. Virgül operatöründen
+elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan 20 elde edilecektir. İşte bu 20 aynı zamanda `c`'ye atanmıştır.
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -3095,30 +3141,37 @@ int a, b, c;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Tabii her virgül, virgül operatörü değildir. Örneğin bildirim yaparken kullandığımız virgüller bu bağlamda bir operatör belirtmezler. Buradaki virgüller
 ayıraç atom görevindedir. Örneğin:
 
+```
     int a, b, c;		/* Buradaki virgüller operatör görevinde değil */
+```
 
-    Örneğin bir fonksiyon çağırırken argümanları ayırmak için kullandığımız virgül de ayıraç atom görevindedir:
+Örneğin bir fonksiyon çağırırken argümanları ayırmak için kullandığımız virgül de ayıraç atom görevindedir:
 
+```
     foo(a, b, c);		/* Buradaki virgüller de operatör görevinde değil */
+```
 
-    Eğer argümandaki ',' atomunun virgül operatör olması isteniyorsa bu durumda parantezler kullanılmalıdır. Örneğin:
+Eğer argümandaki `,` atomunun virgül operatör olması isteniyorsa bu durumda parantezler kullanılmalıdır. Örneğin:
 
+```
     foo(a, b);
+```
 
-    Buradaki ',' operatör görevinde değildir. Dolayısıyla foo fonksiyonunun iki parametresi vardır. Fakat örneğin:
+Buradaki `,` operatör görevinde değildir. Dolayısıyla foo fonksiyonunun iki parametresi vardır. Fakat örneğin:
 
+```
     foo((a, b));
+```
 
-    Buradaki virgül artık paranteze alındığı için operatör görevinddir. Parantez içerisinden b'nin değeir elde edilecektir. Dolayısıyla fonksiyonun aslında
-    tek parametresi vardır.
+Buradaki virgül artık paranteze alındığı için operatör görevinddir. Parantez içerisinden b'nin değeir elde edilecektir. Dolayısıyla fonksiyonun aslında
+tek parametresi vardır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -3131,21 +3184,24 @@ int a, b;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Virgül operatörü de soldan-sağa önceliklidir. Yani bir ifadede birden fazla virgül operatörü bulunabilir. Örneğin:
 
+```
     ifade1, ifade2, ifade3
+```
 
-    Burada işlemler şöyle yütülür:
+Burada işlemler şöyle yütülür:
 
+```
     İ1: ifade1, ifade2
     İ2: İ1, ifade3
+```
 
-    Yani burada sonuçta bu ifadeler soldan sağa sırasıyla yapılacaktır. Buradan elde edilen toplam sonuç en sağdaki ifadenin değeridir.
+Yani burada sonuçta bu ifadeler soldan sağa sırasıyla yapılacaktır. Buradan elde edilen toplam sonuç en sağdaki ifadenin değeridir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -3159,56 +3215,63 @@ int a;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de ';' ifadeleri sonlandırmak için kullanılmaktadır. Bu görevdeki atomlara programlama dillerinde "sonlandırıcı (terminator)" denilmektedir.
-Biz ifadenin sonuna ';' koyduğumuzda artık o ifadeyle sonraki ifadenin ayrı ifadeler olduğunu derleyiciye söylemiş oluruz. Eğer bir ifadenin sonundaki
-';' unutulursa derleyici önceki ifadeyle sonraki ifadeyi tek bir ifade olarak ele alır. Bu da sentaks hatasına yol açar. Örneğin:
+C'de `;` ifadeleri sonlandırmak için kullanılmaktadır. Bu görevdeki atomlara programlama dillerinde "sonlandırıcı (terminator)" denilmektedir.
+Biz ifadenin sonuna `;` koyduğumuzda artık o ifadeyle sonraki ifadenin ayrı ifadeler olduğunu derleyiciye söylemiş oluruz. Eğer bir ifadenin sonundaki
+`;` unutulursa derleyici önceki ifadeyle sonraki ifadeyi tek bir ifade olarak ele alır. Bu da sentaks hatasına yol açar. Örneğin:
 
+```
     a = 10
     b = 20;
+```
 
-    Burada muhtemelen a = 10'dan sonraki ';' atomu unutulmuştur. O halde derleyiciye göre burada tek bir ifade vardır. Ancak bu ifade geçerli değildir.
+Burada muhtemelen `a = 10`'dan sonraki `;` atomu unutulmuştur. O halde derleyiciye göre burada tek bir ifade vardır. Ancak bu ifade geçerli değildir.
 
-    Bazı dillerde sonlandırıcı olarak LF karakteri kullanılmaktadır. Dolayısıyla o dillerde aynı satıra tek bir ifade yazılmak zorundadır.
+Bazı dillerde sonlandırıcı olarak LF karakteri kullanılmaktadır. Dolayısıyla o dillerde aynı satıra tek bir ifade yazılmak zorundadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+```
 Biz şimdiye kadar zaten var olan fonksiyonları çağırdık. Artık biz de fonksiyon yazacağız. Bir fonksiyonun yazılmasına C standartlarında "fonksiyonun
 tanımlanması (function definition)" denilmektedir. Fonksiyon tanımlamanın genel biçimi şöyledir:
+```
 
     <fonksiyonun geri dönüş değerinin türü> <fonksiyon ismi> ([parametre bildirimi])
     {
     	/* ... */
     }
 
-    Örneğin:
+```
+Örneğin:
+```
 
     int foo()
     {
     	/* ... */
     }
 
-    Burada int fonksiyonun geri dönüş değerinin türüdür. foo ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
-    Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki "int" yazılmış gibi işlem yapılıyordu.
-    Ancak C99 ile birlikte fonksiyonun geri dönüş değerinin türünün yazılması zorunlu hale getirilmiştir.
+```
+Burada `int` fonksiyonun geri dönüş değerinin türüdür. `foo` ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
+Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki "int" yazılmış gibi işlem yapılıyordu.
+Ancak C99 ile birlikte fonksiyonun geri dönüş değerinin türünün yazılması zorunlu hale getirilmiştir.
+```
 
     bar()		/* C90'da geçerli C99 ve sonrasında geçerli değil */
     {
     	/* ... */
     }
 
-    Eğer fonksiyonun parametresi yoksa parametre parantezinin içi boş bırakılabilir ya da parametre parantezinin içerisine void yazılabilir. İkisi arasında
-    hiçbir farklılık yoktur. Biz kursumuzda genel olarak parametresiz fonksiyonlarda parametre parantezinin içine void anahtar sözcüğünü yazacağız.
-    Ancak programcıların bir bölümü hiçbir şey yazmamayı tercih etmektedir.
+```
+Eğer fonksiyonun parametresi yoksa parametre parantezinin içi boş bırakılabilir ya da parametre parantezinin içerisine void yazılabilir. İkisi arasında
+hiçbir farklılık yoktur. Biz kursumuzda genel olarak parametresiz fonksiyonlarda parametre parantezinin içine void anahtar sözcüğünü yazacağız.
+Ancak programcıların bir bölümü hiçbir şey yazmamayı tercih etmektedir.
 
-    Biz kurusumuzdaki örneklerde "öylesine uydurulmuş fonksiyon isimleri" olarak foo, bar, tar, zar gibi isimleri kullanacağız. Bu isimlerin hiçbir özel
-    anlamı yoktur. Örneklerde öylesine uydurulmuş isimlerdir.
+Biz kurusumuzdaki örneklerde "öylesine uydurulmuş fonksiyon isimleri" olarak foo, bar, tar, zar gibi isimleri kullanacağız. Bu isimlerin hiçbir özel
+anlamı yoktur. Örneklerde öylesine uydurulmuş isimlerdir.
 
-    Tanımlanan her fonksiyonun bir ana bloğu vardır. Buna "fonksiyonun gövdesi (function body)" de denilmektedir.
+Tanımlanan her fonksiyonun bir ana bloğu vardır. Buna "fonksiyonun gövdesi (function body)" de denilmektedir.
 
-    C'de iç içe (nested) fonksiyon tanımlaması yapılamaz. Her fonksiyon, biribirinin dışında ve global düzeyde tanımlanmak zorundadır. Örneğin:
+C'de iç içe (nested) fonksiyon tanımlaması yapılamaz. Her fonksiyon, biribirinin dışında ve global düzeyde tanımlanmak zorundadır. Örneğin:
+```
 
     int foo()
     {
@@ -3219,10 +3282,8 @@ tanımlanması (function definition)" denilmektedir. Fonksiyon tanımlamanın ge
     	/* ... */
     }
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 17. Ders 26/07/2022 - Salı
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+```
+[17. Ders 26/07/2022 - Salı]()
 
 /\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir fonksiyon çağrıldıktan sonra onu çağıran fonksiyona ilettiği değere "geri dönüş değeri (return value)" denilmektedir. Fonksiyonun geri dönüş değerinin
@@ -11508,6 +11569,12 @@ NULL sözcüğünü kullanabiliriz:
     Biz henüz void adresleri görmediğimiz için (void *)0 ifadesini açıklamayacağız.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+```
+
+```
+
+```
 
 ```
 

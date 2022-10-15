@@ -2044,7 +2044,7 @@ int main(void)
 	görevindedir. foo ise bu operatörün operandıdır. Burada operatör operand'ının sonuna getirilmiştir.
 
 	Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
-	Örneğin, "/ operatörü iki operand'lı araek (binart infix) bir artimetik operatördür." Ya da örneğin "! operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
+	Örneğin, "/ operatörü iki operand'lı araek (binary infix) bir artimetik operatördür." Ya da örneğin "! operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
 	Ya da örneğin "& operatörü iki operand'lı araek bir bit operatörüdür".
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -2100,7 +2100,7 @@ int main(void)
 	İ2: a = İ1
 
 	Öncelik tablosundaki satırlarda bulunan operatörler o satırda değişik sırada yazılabilirler. Çünkü aynı satırdaki operatörlerin o satırdaki sırasının
-	bir önemi yoktur. "Soldan-sağa" ya da "sağdan-sola" ifade içerisindkei duruma ilişkindir.
+	bir önemi yoktur. "Soldan-sağa" ya da "sağdan-sola" ifade içerisindeki duruma ilişkindir.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -2144,7 +2144,7 @@ int main(void)
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
 	+ ve - sembolleri hem toplama ve çıkartma operatörü hem de işaret - ve işaret + operatörünü temsil etmektedir. İşaret + ve işaret - operatörleri
 	"tek operand'lı öncek (unary prefix)" operatörlerdir. İşaret - operatörü operand'ının negatif değerini üretir. İşaret + operatörü ise operand'ı ile aynı
-	değeri üretmektedir. (Yani aslında işaert + operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola gruğta bulunurlar:
+	değeri üretmektedir. (Yani aslında işaert + operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
 
 	()				Soldan-Sağa
 	+ -				Sağdan-Sola
