@@ -2434,7 +2434,7 @@ Tabii `++` ve `--` operatörleri tek başlarına kullanılıyorsa bunların öne
     ++a;
 ```
 
-    ile
+ile
 
 ```
     a++;
@@ -3230,37 +3230,36 @@ Burada muhtemelen `a = 10`'dan sonraki `;` atomu unutulmuştur. O halde derleyic
 
 Bazı dillerde sonlandırıcı olarak LF karakteri kullanılmaktadır. Dolayısıyla o dillerde aynı satıra tek bir ifade yazılmak zorundadır.
 
-```
 Biz şimdiye kadar zaten var olan fonksiyonları çağırdık. Artık biz de fonksiyon yazacağız. Bir fonksiyonun yazılmasına C standartlarında "fonksiyonun
 tanımlanması (function definition)" denilmektedir. Fonksiyon tanımlamanın genel biçimi şöyledir:
-```
 
+```
     <fonksiyonun geri dönüş değerinin türü> <fonksiyon ismi> ([parametre bildirimi])
     {
     	/* ... */
     }
-
 ```
+
 Örneğin:
-```
 
+```
     int foo()
     {
     	/* ... */
     }
-
 ```
+
 Burada `int` fonksiyonun geri dönüş değerinin türüdür. `foo` ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
 Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki "int" yazılmış gibi işlem yapılıyordu.
 Ancak C99 ile birlikte fonksiyonun geri dönüş değerinin türünün yazılması zorunlu hale getirilmiştir.
-```
 
+```
     bar()		/* C90'da geçerli C99 ve sonrasında geçerli değil */
     {
     	/* ... */
     }
-
 ```
+
 Eğer fonksiyonun parametresi yoksa parametre parantezinin içi boş bırakılabilir ya da parametre parantezinin içerisine void yazılabilir. İkisi arasında
 hiçbir farklılık yoktur. Biz kursumuzda genel olarak parametresiz fonksiyonlarda parametre parantezinin içine void anahtar sözcüğünü yazacağız.
 Ancak programcıların bir bölümü hiçbir şey yazmamayı tercih etmektedir.
@@ -3271,8 +3270,8 @@ anlamı yoktur. Örneklerde öylesine uydurulmuş isimlerdir.
 Tanımlanan her fonksiyonun bir ana bloğu vardır. Buna "fonksiyonun gövdesi (function body)" de denilmektedir.
 
 C'de iç içe (nested) fonksiyon tanımlaması yapılamaz. Her fonksiyon, biribirinin dışında ve global düzeyde tanımlanmak zorundadır. Örneğin:
-```
 
+```
     int foo()
     {
     	int bar()			/* geçersiz! */
@@ -3281,8 +3280,8 @@ C'de iç içe (nested) fonksiyon tanımlaması yapılamaz. Her fonksiyon, biribi
     	}
     	/* ... */
     }
-
 ```
+
 [17. Ders 26/07/2022 - Salı]()
 
 /\*---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -11569,6 +11568,8 @@ NULL sözcüğünü kullanabiliriz:
     Biz henüz void adresleri görmediğimiz için (void *)0 ifadesini açıklamayacağız.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+```
 
 ```
 
