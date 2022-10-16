@@ -2149,7 +2149,7 @@ Operatörler, operatörün operandlarına olan konumuna göre de üçe ayrılmak
   görevindedir. `foo` ise bu operatörün operandıdır. Burada operatör operandının sonuna getirilmiştir.
 
 Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
-Örneğin, "_`/` operatörü iki operandlı araek (binary infix) bir artimetik operatördür._" Ya da örneğin "_`!` operatörü tek operandlı öncek (unary prefix) bir mantıksal operatördür_".
+Örneğin, "_`/` operatörü iki operandlı araek (binary infix) bir artimetik operatördür_". Ya da örneğin "_`!` operatörü tek operandlı öncek (unary prefix) bir mantıksal operatördür_".
 Ya da örneğin "_`&` operatörü iki operandlı araek bir bit operatörüdür_".
 
 Bir ifadede birden fazla operatör kullanıldığında bunlar birbirlerine göre belli bir sırada yapılırlar. Bu duruma "_operatörler arasındaki öncelik_
