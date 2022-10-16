@@ -1350,17 +1350,16 @@ Buradaki işlem bir ilkdeğer verme değildir. İlkdeğer verme, bildirim sıras
 
 Aslında C standartlarında "ekran" ve "klavye" lafları hiç geçmemektedir. Örneğin C standartları printf fonksiyonun "ekrana yazdığını" söylememektedir.
 Standartlara göre printf fonksiyonu "stdout" denilen bir dosyaya yazmaktadır. Ancak bu dosya bir aygıta yönlendirilmiş olabilir. Örneğin klasik bilgisayar
-sistemlerimizde stdout, ekranı kontrol eden terminal aygıt sürücüsüne yönlendirilmiş durumdadır. Dolayısıyla printf, stdout dosyasına yazar ancak yazılanlar
-ekranda görülür. Tabii bir sistemde stdout, başka aygıtlara ya da dosyalara yönlendirilmiş olabilir. Örneğin stdout seri porta yönlendirilmişse artık printf
+sistemlerimizde stdout, ekranı kontrol eden terminal aygıt sürücüsüne yönlendirilmiş durumdadır. Dolayısıyla `printf`, stdout dosyasına yazar ancak yazılanlar
+ekranda görülür. Tabii bir sistemde stdout, başka aygıtlara ya da dosyalara yönlendirilmiş olabilir. Örneğin stdout seri porta yönlendirilmişse artık `printf`
 fonksiyonun yazdıkları seri porta aktarılır. Aynı durum klavye için de geçerlidir. Aslında klavyeden okumak diye bir şey yoktur. stdin dosyasından okumak
 diye bir şey vardır. stdin dosyası da klasik bilgisayar sistemlerinde genellikle klavyeye yönlendirilmiştir. Ancak, örneğin stdin seri porta
 yönlendirilmişse artık seri porttan gelen bilgiler okunur. Görüldüğü gibi "stdout" ve "stdin" aslında değişik kaynakları temsil ediyor olabilir.
 Biz kurusumuzda bazen "ekran" ve "klavye" laflarını edeceğiz. Burada tenik olarak "stdout" ve "stdin" dosyaları anlaşılmalıdır.
 
-printf aslında oldukça kapsamlı bir fonksiyondur. printf fonksiyonunda iki tırnak içerisindeki karakterler ekrana (yani stdout dosyasına) basılır.
-Ancak printf, % karakterini gördüğünde % karakterini ve onun yanındaki bir ya da iki karakteri ekrana yazdırmaz. % karakterinin yanındaki bazı özel karakterlere
-format karakterleri denilmektedir. % karakteri ve format karakterleri, birlikte "yer tutucu" belirtir. Bu yer tutucular printf'in iki tırnak argümanından sonraki argümanlarla
-sırasıyla eşleştirilmektedir. Böylece aslında format karakterleri değil de bu argümanların değerleri yer tutucu yerine yazdırılır. Örneğin:
+`printf` aslında oldukça kapsamlı bir fonksiyondur. `printf` fonksiyonunda iki tırnak içerisindeki karakterler ekrana (yani stdout dosyasına) basılır.
+Ancak printf, `%` karakterini gördüğünde `%` karakterini ve onun yanındaki bir ya da iki karakteri ekrana yazdırmaz. `%` karakterinin yanındaki bazı özel karakterlere
+format karakterleri denilmektedir. `%` karakteri ve format karakterleri, birlikte "yer tutucu" belirtir. Bu yer tutucular `printf`'in iki tırnak argümanından sonraki argümanlarla sırasıyla eşleştirilmektedir. Böylece aslında format karakterleri değil de bu argümanların değerleri yer tutucu yerine yazdırılır. Örneğin:
 
 ```
     int a = 10, b = 20;
@@ -1368,7 +1367,7 @@ sırasıyla eşleştirilmektedir. Böylece aslında format karakterleri değil d
     printf("a = %d, b = %d\n", a, b);
 ```
 
-Burada %d yer tutucudur. İlk %d yerine a'nın değeri, ikinci %d yerine b'nin değeri yazdırılır.
+Burada `%d` yer tutucudur. İlk `%d` yerine `a`'nın değeri, ikinci `%d` yerine `b`'nin değeri yazdırılır.
 
 [12. Ders - 30/06/2022 - Perşembe]()
 
@@ -1414,9 +1413,9 @@ En çok kullanılan format karakterleri şunlardır:
     }
 ```
 
-printf fonksiyonunda % karakterinden sonra fakat format karakterinden önce bir sayı belirtilirse ilgili argüman, o sayı ile belirtilen genişlikte
+`printf` fonksiyonunda `%` karakterinden sonra fakat format karakterinden önce bir sayı belirtilirse ilgili argüman, o sayı ile belirtilen genişlikte
 bir alan ayrılarak o alanda yazılır. Default durum sağa dayalı olarak yazdırılmasıdır. Sola dayalı yazdırmak için genişlik belirtilen bu sayının
-önüne ayrıca bir de '-' karakteri eklenir. Özellikle sütunsal hizalamalar için %-nd gibi (buarada n yerine bir sayı getirilmelidir) format karakterleri
+önüne ayrıca bir de `-` karakteri eklenir. Özellikle sütunsal hizalamalar için `%-nd` gibi (buarada n yerine bir sayı getirilmelidir) format karakterleri
 kullanılmaktadır. Eğer genişlik belirten sayı yazdırılacak sayının basamak sayısından az ise, sayının hepsi yazdırılmaktadır.
 
 ```
@@ -1439,9 +1438,9 @@ kullanılmaktadır. Eğer genişlik belirten sayı yazdırılacak sayının basa
     }
 ```
 
-float ve double sayılarda sayının toplam genişliği ve noktadan sonraki kısmın genişliği ayrı ayrı belirtilebilmektedir. Örneğin "%10.2f" toplam 10 alan içerisinde,
+`float` ve `double` sayılarda sayının toplam genişliği ve noktadan sonraki kısmın genişliği ayrı ayrı belirtilebilmektedir. Örneğin `%10.2f` toplam 10 alan içerisinde,
 sayı noktadan sonra iki basamak olacak biçimde yazdırılır. Burada yalnızca noktanın sağ tarafının kaç basamak yazdırılacağı da belirtilebilir. Örneğin
-"%.3f" sayının tam kısmının tam olarak yazılacağı ancak noktadan sonraki kısmın üç basamak biçiminde yuvarlanarak yazdırılacağı anlamına gelir.
+`%.3f` sayının tam kısmının tam olarak yazılacağı ancak noktadan sonraki kısmın üç basamak biçiminde yuvarlanarak yazdırılacağı anlamına gelir.
 
 ```
     #include <stdio.h>
