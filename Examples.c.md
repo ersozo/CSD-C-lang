@@ -1460,9 +1460,9 @@ sayı noktadan sonra iki basamak olacak biçimde yazdırılır. Burada yalnızca
 
 C'de bildirimler üç yerde yapılabilir:
 
-**1.** _Fonksiyonların içerisinde_: Fonskiyonların içerisinde bildirilen değişkenlere "yerel değişkenler (local variables)" denilmektedir.
-**2.** _Fonksiyonların dışında_: Fonksiyonların dışında bildirilen değişkenlere "global değişkenler (global variables)" denilmektedir.
-**3.** _Fonksiyonların parametre parantezleri içerisinde_: Fonksiyonların parametre parantezleri içerisinde bildirilen değişkenlere "parametre değişkenleri
+**1. Fonksiyonların içerisinde:** Fonskiyonların içerisinde bildirilen değişkenlere _yerel değişkenler (local variables)_ denilmektedir.
+**2. Fonksiyonların dışında:** Fonksiyonların dışında bildirilen değişkenlere "global değişkenler (global variables)" denilmektedir.
+**3. Fonksiyonların parametre parantezleri içerisinde:** Fonksiyonların parametre parantezleri içerisinde bildirilen değişkenlere "parametre değişkenleri
 (parameters)" denilmektedir.
 
 ```
