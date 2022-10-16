@@ -2031,7 +2031,7 @@ int main(void)
 	1) İki operandlı Operatörler (Binary Operators): Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '*', '/', '-'
 	operatörleri iki operandlı operatörlerdir.
 	2) Tek operandlı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
-	alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operandlı bir operatördür.
+	alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir, işaret eksi operatörüdür ve tek operandlı bir operatördür.
 	3) Üç operandlı Operatörler (Ternary Operators): Üç operandlı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operandlı tek bir operatör vardır.
 
 	Operatörler, operatörün operandlarına olan konumuna göre de üçe ayrılmaktadır:
@@ -2074,7 +2074,7 @@ int main(void)
 
 	a = b / c * d
 
-	Burada / ve * soldan-sağa eşit önceliklidir. İfade içerisinde (öncleik tablosunda değil) solda / olduğu için önce / sonra * yapılacaktır:
+	Burada / ve * soldan-sağa eşit önceliklidir. İfade içerisinde (öncelik tablosunda değil) solda / olduğu için önce / sonra * yapılacaktır:
 
 	İ1: b / c
 	İ2: İ1 * d
@@ -2105,7 +2105,7 @@ int main(void)
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	*, /, + ve - operatörleri "iki operandlı araek (binary infix)" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
+	*, /, + ve - operatörleri "iki operandlı araek (binary infix) aritmetik operatörlerdir". Bunlar klasik dört işlemi yaparlar.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------

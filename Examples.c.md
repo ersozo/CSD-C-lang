@@ -2134,7 +2134,7 @@ Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
 - **_İki operandlı Operatörler (Binary Operators)_**: Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin `+`, `*`, `/`, `-`
   operatörleri iki operandlı operatörlerdir.
 - **_Tek operandlı Operatörler (Unary Operators)_**: Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
-  alır, iki değerin NOT'ını almaz. Ya da örneğin `-5` ifadesindeki `-` operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operandlı bir operatördür.
+  alır, iki değerin NOT'ını almaz. Ya da örneğin `-5` ifadesindeki `-` operatörü çıkartma operatörü değildir, `işaret eksi` operatörüdür ve tek operandlı bir operatördür.
 - **_Üç operandlı Operatörler (Ternary Operators)_**: Üç operandlı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operandlı tek bir operatör vardır.
 
 **3. Operatörün Konumuna Göre**
@@ -2149,7 +2149,7 @@ Operatörler, operatörün operandlarına olan konumuna göre de üçe ayrılmak
   görevindedir. `foo` ise bu operatörün operandıdır. Burada operatör operandının sonuna getirilmiştir.
 
 Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
-Örneğin, "`/` operatörü iki operandlı araek (binary infix) bir artimetik operatördür." Ya da örneğin "_`!` operatörü tek operandlı öncek (unary prefix) bir mantıksal operatördür_".
+Örneğin, "_`/` operatörü iki operandlı araek (binary infix) bir artimetik operatördür._" Ya da örneğin "_`!` operatörü tek operandlı öncek (unary prefix) bir mantıksal operatördür_".
 Ya da örneğin "_`&` operatörü iki operandlı araek bir bit operatörüdür_".
 
 Bir ifadede birden fazla operatör kullanıldığında bunlar birbirlerine göre belli bir sırada yapılırlar. Bu duruma "_operatörler arasındaki öncelik_
@@ -2182,7 +2182,7 @@ Burada aslında `b`'den `c * d`'nin çıkartıldığına dikkat ediniz. Örneği
     a = b / c * d
 ```
 
-Burada `/` ve `*` soldan-sağa eşit önceliklidir. İfade içerisinde (öncleik tablosunda değil) solda `/` olduğu için önce `/` sonra `*` yapılacaktır:
+Burada `/` ve `*` soldan-sağa eşit önceliklidir. İfade içerisinde (öncelik tablosunda değil) solda `/` olduğu için önce `/` sonra `*` yapılacaktır:
 
 ```
     İ1: b / c
@@ -2220,7 +2220,7 @@ Atama operatörünün sağdan-sola grupta olduğuna dikkat ediniz:
 Öncelik tablosundaki satırlarda bulunan operatörler o satırda değişik sırada yazılabilirler. Çünkü aynı satırdaki operatörlerin o satırdaki sırasının
 bir önemi yoktur. "_Soldan-sağa_" ya da "_sağdan-sola_" ifade içerisindeki duruma ilişkindir.
 
-`*`, `/`, `+` ve `-` operatörleri "_iki operandlı araek (binary infix)_" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
+`*`, `/`, `+` ve `-` operatörleri "_iki operandlı araek (binary infix) aritmetik operatörlerdir_". Bunlar klasik dört işlemi yaparlar.
 
 `%` operatörü iki operandlı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
 üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda `*` ve `/` ile soldan sağa eşit öncelik grupta bulunur.
@@ -2258,7 +2258,7 @@ int result;
 ```
 
 `+` ve `-` sembolleri hem toplama ve çıkartma operatörü hem de `işaret -` ve `işaret +` operatörünü temsil etmektedir. `işaret +` ve `işaret -` operatörleri
-"_tek operandlı öncek (unary prefix)_" operatörlerdir. İşaret - operatörü operandının negatif değerini üretir. `işaret +` operatörü ise operandı ile aynı
+"_tek operandlı öncek (unary prefix)_" operatörlerdir. `işaret -` operatörü operandının negatif değerini üretir. `işaret +` operatörü ise operandı ile aynı
 değeri üretmektedir. (Yani aslında `işaret +` operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
 
 ```
