@@ -22,7 +22,7 @@ Ancak bu standart C11'in bir düzeltmesi biçimindedir. Şu anda C'nin en son st
 **C17** olarak ifade edilmektedir.
 
 C++ Programlama Dili C Programlama Dilinin nesne yönelimli bir biçimi olarak düşünülebilir. İdeal olmasa da C++, C'yi kapsamaktadır ve fazlalıkları vardır.
-C++'a bu fazlalıklar "Nesne Yönelimli Programlama Tekniğini (NYPT)" uygulamak için eklenmiştir. Derneğimizde C++ Programlama Dilinin eğitimi C bilenlere
+C++'a bu fazlalıklar "_Nesne Yönelimli Programlama Tekniğini (NYPT)_" uygulamak için eklenmiştir. Derneğimizde C++ Programlama Dilinin eğitimi C bilenlere
 yönelik olarak verilmektedir.
 
 C++ Programlama Dilinin standart gelişimi de şöyledir:
@@ -34,7 +34,7 @@ C++ Programlama Dilinin standart gelişimi de şöyledir:
 - ISO/IEC 14882 :2017 (C++17)
 - ISO/IEC 14882 :2020 (C++20)
 
-Bilgisayar donanımını yöneten, donanım ile kullanıcı arasında arayüz oluşturan temel sistem programlarına "işletim sistemi (operating system)" denilmektedir.
+Bilgisayar donanımını yöneten, donanım ile kullanıcı arasında arayüz oluşturan temel sistem programlarına "_işletim sistemi (operating system)_" denilmektedir.
 İşletim sistemleri iki katman olarak düşünülebilir. Çekirdek (kernel) işletim sisteminin donanımı yöneten motor kısmıdır. Kabuk (shell) ise kullanıcı ile
 arayüz oluşturan kısmıdır. İşletim sistemleri çeşitli bakımlardan sınıflandırılabilir. Örneğin:
 
@@ -54,9 +54,9 @@ Bazı işletim sistemleri sıfırdan yazılmıştır. Bazı işletim sistemleri 
 büyük ölçüde Linux çekirdeğinin kodlarına sahiptir. Windows, Linux özgün kod temeline sahip olan işletim sistemleridir. Eskiden BSD sistemleri özgün değildi.
 Sonra tamamen sıfırdan yeniden yazıldı. Benzer biçimde Solaris gibi sistemlerde sıfırdan yazılmıştır. Ancak Mac OS sistemleri böyle değildir. Mac sistemleri FreeBSD ve Mach isimli çekirdeklerin birleşimiyle oluşturulmuştur.
 
-Bir bilgisayar sisteminde en önemli üç birim "CPU", "RAM" ve "Disk" birimleridir. Bütün işlemler CPU (Central Processing Unit) tarafından yapılır.
-CPU işlemlerin yapıldığı kavramsal birimdir. Bunun entegre devre biçiminde üretilmiş haline "mikroişlemci (microprocessor)" denilmektedir.
-CPU'nun elektiriksel olarak bağlantılı olduğu belleklere "ana bellek (main memory)", ya da "birincil bellek (primary memory)" denilmektedir. Ana belleklere
+Bir bilgisayar sisteminde en önemli üç birim "_CPU_", "_RAM_" ve "_Disk_" birimleridir. Bütün işlemler CPU (Central Processing Unit) tarafından yapılır.
+CPU işlemlerin yapıldığı kavramsal birimdir. Bunun entegre devre biçiminde üretilmiş haline "_mikroişlemci (microprocessor)_" denilmektedir.
+CPU'nun elektiriksel olarak bağlantılı olduğu belleklere "_ana bellek (main memory)_", ya da "_birincil bellek (primary memory)_" denilmektedir. Ana belleklere
 halk arasında RAM denilmektedir. Programlama dillerindeki değişkenler program çalışırken RAM'de bulunurlar. Ancak işlemler CPU tarafından yapılır. Örneğin:
 
 ```
@@ -74,7 +74,7 @@ C doğal kodlu bir çalışma sistemi için tasarlanmıştır. Biz C'de bir kod 
 bir dosya elde ederiz. Bu dosyanın içerisinde o anda çalışmakta olduğumuz mikroişlemcinin doğrudan çalıştırabileceği makine komutları bulunmaktadır.
 Yani C'de yazdığımız ve derlediğimiz program mikroişlemci tarafından doğrudan çalıştırılmaktadır.
 
-Ancak 1990'lı yılların ortalarında Java ortamıyla (framework) birlikte ve sonra da 2002 yılında .NET ortamıyla birlikte "arakodlu çalışma sistemi" yaygınlaşmaya
+Ancak 1990'lı yılların ortalarında Java ortamıyla (framework) birlikte ve sonra da 2002 yılında .NET ortamıyla birlikte "_arakodlu çalışma sistemi_" yaygınlaşmaya
 başlamıştır. Bu sistemde derleyicilerin ürettiği kodlar gerçek bir mikroişlemcinin makine kodları değildir. Kendi içerisinde belli bir standardı olan ancak
 hiçbir mikroişlemcinin makine kodu olmayan yapay bir ara koddur (intermediate code). Dolayısıyla bu arakod mikroişlemci tarafında çalıştırılamaz. İşte
 bu arakodlar çalıştırılmak istendiğinde bu ortamların (frameworks) bir alt sistemi devreye girmekte ve bu arakodları o anda gerçek makine komutlarına dünüştürüp
@@ -308,7 +308,7 @@ Aslında ikiye tümleyeni bulmanın kolay bir yolu da vardır: Sayıda sağdan s
 Sonra 0'lar 1, 1'ler 0 yapılarak devam edilir. Örneğin:
 
 ```
-0101 0110
+    0101 0110
 ```
 
 sayının ikiye tümleyenini tek hamlede bulalım:
@@ -1460,10 +1460,9 @@ sayı noktadan sonra iki basamak olacak biçimde yazdırılır. Burada yalnızca
 
 C'de bildirimler üç yerde yapılabilir:
 
-**1. Fonksiyonların içerisinde:** Fonskiyonların içerisinde bildirilen değişkenlere _yerel değişkenler (local variables)_ denilmektedir.
-**2. Fonksiyonların dışında:** Fonksiyonların dışında bildirilen değişkenlere "global değişkenler (global variables)" denilmektedir.
-**3. Fonksiyonların parametre parantezleri içerisinde:** Fonksiyonların parametre parantezleri içerisinde bildirilen değişkenlere "parametre değişkenleri
-(parameters)" denilmektedir.
+**1. Fonksiyonların içerisinde:** Fonskiyonların içerisinde bildirilen değişkenlere "_yerel değişkenler (local variables)_" denilmektedir.
+**2. Fonksiyonların dışında:** Fonksiyonların dışında bildirilen değişkenlere "_global değişkenler (global variables)_" denilmektedir.
+**3. Fonksiyonların parametre parantezleri içerisinde:** Fonksiyonların parametre parantezleri içerisinde bildirilen değişkenlere "_parametre değişkenleri (parameters)_" denilmektedir.
 
 ```
     #include <stdio.h>
@@ -1842,7 +1841,7 @@ Ancak iki tırnak içerisinde iki tırnak doğrudan yazılamaz. Örneğin:
 İki tırnak içerisinde iki tırnak karakteri `\"` biçiminde belirtilmelidir. Örneğin:
 
 ```
-    printf("\Ankara\"");                /* geçerli "Ankara" yazısı çıkacak.
+    printf("\"Ankara\"");                /* geçerli "Ankara" yazısı çıkacak.
 ```
 
 Tabii tek tırnak içerisinde iki tırnak karakteri de sorunsuz olarak kullanılabilir. Örneğin:

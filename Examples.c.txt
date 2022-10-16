@@ -1764,7 +1764,7 @@ int main(void)
 
 	İki tırnak içerisinde iki tırnak karakteri \" biçiminde belirtilmelidir. Örneğin:
 
-	printf("\Ankara\"");				/* geçerli "Ankara" yazısı çıkacak.
+	printf("\"Ankara\"");				/* geçerli "Ankara" yazısı çıkacak.
 
 	Tabii tek tırnak içerisinde iki tırnak karakteri de sorunsuz olarak kullanılabilir. Örneğin:
 
