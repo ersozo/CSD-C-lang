@@ -2006,8 +2006,8 @@ int main(void)
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadeleri ise
-	"operan (operand)" denir. Örneğin a + b ifadesinde + bir operatördür. a ve b bu operatörün operand'larıdır.
+	Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadelere ise
+	"operand (operand)" denir. Örneğin a + b ifadesinde + bir operatördür. a ve b bu operatörün operandlarıdır.
 
 	Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
 
@@ -2028,24 +2028,24 @@ int main(void)
 
 	Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
 
-	1) İki operand'lı Operatörler (Binary Operators): Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '*', '/', '-'
-	operatörleri iki operand'lı operatörlerdir.
-	2) Tek operand'lı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
-	alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operand'lı bir operatördür.
-	3) Üç operand'lı Operatörler (Ternary Operators): Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır.
+	1) İki operandlı Operatörler (Binary Operators): Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '*', '/', '-'
+	operatörleri iki operandlı operatörlerdir.
+	2) Tek operandlı Operatörler (Unary Operators): Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
+	alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operandlı bir operatördür.
+	3) Üç operandlı Operatörler (Ternary Operators): Üç operandlı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operandlı tek bir operatör vardır.
 
-	Operatörler, operatörün operan'larına olan konumuna göre de üçe ayrılmaktadır:
+	Operatörler, operatörün operandlarına olan konumuna göre de üçe ayrılmaktadır:
 
 	1) Araek Operatörler (Infix Operators): Bu operatörler iki operand'lıdır ve operand'larının arasına getirilerek kullanılmaktadır. Örneğin a + b işleminde
 	'+' operatörlerinin araek bir operatör olduğuna dikkat ediniz.
 	2) Önek Operatörler (Prefix Operators): Bunlar operand'larının önüne getirilerek kullanılırlar. Örneğin !a gibi bir kullanımda ! operatörü operand'ının önüne
 	getirilmiştir.
-	3) Sonek Operatörler (Postfix Operators): Bunlar da operand'larının sonuna getirilerek kullanılırlar. Örneğin foo() gibi bir ifadede parantezler operatör
-	görevindedir. foo ise bu operatörün operandıdır. Burada operatör operand'ının sonuna getirilmiştir.
+	3) Sonek Operatörler (Postfix Operators): Bunlar da operandlarının sonuna getirilerek kullanılırlar. Örneğin foo() gibi bir ifadede parantezler operatör
+	görevindedir. foo ise bu operatörün operandıdır. Burada operatör operandının sonuna getirilmiştir.
 
 	Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
-	Örneğin, "/ operatörü iki operand'lı araek (binary infix) bir artimetik operatördür." Ya da örneğin "! operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
-	Ya da örneğin "& operatörü iki operand'lı araek bir bit operatörüdür".
+	Örneğin, "/ operatörü iki operandlı araek (binary infix) bir artimetik operatördür." Ya da örneğin "! operatörü tek operandlı öncek (unary prefix) bir mantıksal operatördür".
+	Ya da örneğin "& operatörü iki operandlı araek bir bit operatörüdür".
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -2055,7 +2055,7 @@ int main(void)
 	betimlenmektedir. Bu tablo satırlardan oluşur. Üst satırrdaki operatörler alt satırdaki operatörlerden daha önceliklidir. Aynı satırdaki operatörler
 	eşit öncelikli biçimde bulunurlar. Ancak aynı satırdaki operatörlerin önceliği "soldan sağa (left to right)" ya da "sağdan sola (right to left)" biçimde
 	olabilir. Soldan sağa öncelik demek o satırda bulunanlardan ifade içerisinde hangisi soldaysa o önce yapılır demektir. Sağdan sola öncelik de benzerdir.
-	Aşağıda operatmrlerin öncelik tablosunun iskelet hali verilmiştir:
+	Aşağıda operatörlerin öncelik tablosunun iskelet hali verilmiştir:
 
 	()				Soldan-Sağa
 	* /				Soldan-Sağa
@@ -2105,11 +2105,11 @@ int main(void)
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	*, /, + ve - operatörleri "iki operand'lı araek (binary infix)" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
+	*, /, + ve - operatörleri "iki operandlı araek (binary infix)" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	% operatörü iki operand'lı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
+	% operatörü iki operandlı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
 	üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda * ve / ile soldan sağa eşit öncelik grupta bulunur.
 	Negatif sayının pozitif sayıya bölümünden elde edilen kalan negatiftir. Pozitif sayının negatif sayıya bölümünden elde edilen kalan pozitiftir.
 
@@ -2143,8 +2143,8 @@ int main(void)
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
 	+ ve - sembolleri hem toplama ve çıkartma operatörü hem de işaret - ve işaret + operatörünü temsil etmektedir. İşaret + ve işaret - operatörleri
-	"tek operand'lı öncek (unary prefix)" operatörlerdir. İşaret - operatörü operand'ının negatif değerini üretir. İşaret + operatörü ise operand'ı ile aynı
-	değeri üretmektedir. (Yani aslında işaert + operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
+	"tek operandlı öncek (unary prefix)" operatörlerdir. İşaret - operatörü operandının negatif değerini üretir. İşaret + operatörü ise operandı ile aynı
+	değeri üretmektedir. (Yani aslında işaret + operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
 
 	()				Soldan-Sağa
 	+ -				Sağdan-Sola
@@ -2178,13 +2178,13 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğiniz gibi ++ ve
+	C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğimiz gibi ++ ve
 	-- operatmrleri de vardır. Dolayısıyla ++ ve -- yan yana yazılırsa iki ayrı işaret + ve işaret - operatörü değil ++ ve -- operatörleri anlaşılır
 	Benzer biçimde a>=3 gibi bir ifadede a, >= ve 3 biçiminde üç farklı atom vardır.
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	++ ve -- operatörleri "tek operand'lı, öncek ve sonek olarak kullanılabilen" operatörlerdir. Yani biz bu operatörleri ++a gibi de a++ gibi de kullanabiliriz.
+	++ ve -- operatörleri "tek operandlı, öncek ve sonek olarak kullanılabilen" operatörlerdir. Yani biz bu operatörleri ++a gibi de a++ gibi de kullanabiliriz.
 	Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. ++ operatörüne "artırma (increment)", -- operatörüne "eksiltme (decrement)" operatörleri
 	denilmektedir. ++ operatörü "operandı içerisindeki değeri 1 artır, -- operatörü operandı içerisindeki değeri 1 eksilt anlamına gelir."
 ----------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -2223,16 +2223,16 @@ int main(void)
 	+ -				Soldan-Sağa
 	=				Sağdan-Sola
 
-	Aslında C'nin tek operand'lı (unary) bütün operatörleri zaten öncelik tablosunun ikinci düzeyinde sağdan-sola gruba yerleştirilmiştir.
+	Aslında C'nin tek operandlı (unary) bütün operatörleri zaten öncelik tablosunun ikinci düzeyinde sağdan-sola gruba yerleştirilmiştir.
 
-	++ ve -- operatörleri her zaman tablodaki öncelikte yapılır. Ancak sonraki işleme eğer operatörler önek olarka kullanılmışsa artırılmış ya da eksiltilmiş değer,
+	++ ve -- operatörleri her zaman tablodaki öncelikte yapılır. Ancak sonraki işleme eğer operatörler önek olarak kullanılmışsa artırılmış ya da eksiltilmiş değer,
 	sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokulmaktadır. Örneğin:
 
 	a = 3;
 	b = ++a * 2;
 
-	Burada 3 operatör vardır. En önceliklisi ++ operatördür. O halde a 1 artırılacak ve 4 olacaktır. Sonraki işlem * işlemidir. O halde * işlemine
-	artırma öncek yapıldığı için artırılmış değer olan 4 sokulacaktır. Bu duurmda 4 değişkeni 4 değerine olurken b değişkeni 8 olacaktır. Şimdi aynı işlemi
+	Burada 3 operatör vardır. En önceliklisi ++ operatördür. O halde a 1 artırılacak ve 4 olacaktır. Sonraki işlem * işlemidir. O halde * işlemine,
+	artırma önek yapıldığı için, artırılmış değer olan 4 sokulacaktır. Bu durumda a değişkeni 4 olurken b değişkeni 8 olacaktır. Şimdi aynı işlemi
 	sonek olarak yapalım:
 
 	a = 3;
@@ -2262,7 +2262,7 @@ int main(void)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
-	Önek ve sonek etki aşağıdaki basit örnekle de daha iyi anlaşılabilir:
+	Önek ve sonek etki, aşağıdaki basit örnekle de daha iyi anlaşılabilir:
 
 	a = 3;
 	b = --a;
@@ -2303,7 +2303,7 @@ int main(void)
 
 	a++;
 
-	arasında bir fark yoktur. Fark ifadede başka operatörler varsa ortaya çıkmaktadır. Örneğin:
+	arasında bir fark yoktur. Fark, ifadede başka operatörler varsa ortaya çıkmaktadır. Örneğin:
 
 	a = 3;
 	b = 2;

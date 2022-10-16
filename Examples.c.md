@@ -2109,8 +2109,8 @@ char ch;
 
 [14. Ders 07/07/2022 - Perşembe]()
 
-Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "operatör" denilmektedir. Bir operatörün işleme soktuğu ifadeleri ise
-"operan (operand)" denir. Örneğin `a + b` ifadesinde `+` bir operatördür. `a` ve `b` bu operatörün operand'larıdır.
+Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "_operatör_" denilmektedir. Bir operatörün işleme soktuğu ifadelere ise
+"_operand (operand)_" denir. Örneğin `a + b` ifadesinde `+` bir operatördür. `a` ve `b` bu operatörün operandlarıdır.
 
 Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
 
@@ -2120,10 +2120,10 @@ Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gereki
 
 - **_Artirmetik Operatörler (Arithmetic Operators)_**: Bunlar toplama, çarpma gibi klasik operatörlerdir.
 - **_Karşılaştırma Operatörleri (Comparision Operators)_**: Bunlar `>`, `<`, `>=`, `<=`, `==`, `!=` gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
-  operatörlere "ilişkisel operatörler (relational operators)" da denilmektedir
+  operatörlere "_ilişkisel operatörler (relational operators)_" da denilmektedir
 - **_Mantıksal Operatörler (Logical Operators)_**: Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
 - **_Gösterici Operatörleri (Pointer Operators)_**: Adreslerle işlemler yapan operatörlerdir. Bunlar her programlama dilinde bulunmazlar.
-- **_Bit Operatörleri (Bitwise Operators)_**: Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar sayıların karşılıklı bitlerini işleme sokan
+- **_Bit Operatörleri (Bitwise Operators)_**: Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar, sayıların karşılıklı bitlerini işleme sokan
   operatörlerdir.
 - **_Özel Amaçlı Operatörler (Special Purpose Operators)_**: Değişik konulara ilişkin işlem yapan yukarıdaki gruplar içerisine girmeyen operatörlerdir.
 
@@ -2131,33 +2131,33 @@ Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gereki
 
 Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
 
-- **_İki operand'lı Operatörler (Binary Operators)_**: Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin `+`, `*`, `/`, `-`
-  operatörleri iki operand'lı operatörlerdir.
-- **_Tek operand'lı Operatörler (Unary Operators)_**: Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
-  alır, iki değerin NOT'ını almaz. Ya da örneğin `-5` ifadesindeki `-` operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operand'lı bir operatördür.
-- **_Üç operand'lı Operatörler (Ternary Operators)_**: Üç operand'lı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operand'lı tek bir operatör vardır.
+- **_İki operandlı Operatörler (Binary Operators)_**: Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin `+`, `*`, `/`, `-`
+  operatörleri iki operandlı operatörlerdir.
+- **_Tek operandlı Operatörler (Unary Operators)_**: Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
+  alır, iki değerin NOT'ını almaz. Ya da örneğin `-5` ifadesindeki `-` operatörü çıkartma operatörü değildir. Buradaki işaret, eksi operatörüdür ve tek operandlı bir operatördür.
+- **_Üç operandlı Operatörler (Ternary Operators)_**: Üç operandlı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operandlı tek bir operatör vardır.
 
 **3. Operatörün Konumuna Göre**
 
-Operatörler, operatörün operan'larına olan konumuna göre de üçe ayrılmaktadır:
+Operatörler, operatörün operandlarına olan konumuna göre de üçe ayrılmaktadır:
 
-- **_Araek Operatörler (Infix Operators)_**: Bu operatörler iki operand'lıdır ve operand'larının arasına getirilerek kullanılmaktadır. Örneğin `a + b` işleminde
+- **_Araek Operatörler (Infix Operators)_**: Bu operatörler iki operandlıdır ve operandlarının arasına getirilerek kullanılmaktadır. Örneğin `a + b` işleminde
   `+` operatörlerinin araek bir operatör olduğuna dikkat ediniz.
-- **_Önek Operatörler (Prefix Operators)_**: Bunlar operand'larının önüne getirilerek kullanılırlar. Örneğin `!a` gibi bir kullanımda `!` operatörü operand'ının önüne
+- **_Önek Operatörler (Prefix Operators)_**: Bunlar operandlarının önüne getirilerek kullanılırlar. Örneğin `!a` gibi bir kullanımda `!` operatörü operandının önüne
   getirilmiştir.
-- **_Sonek Operatörler (Postfix Operators)_**: Bunlar da operand'larının sonuna getirilerek kullanılırlar. Örneğin `foo()` gibi bir ifadede parantezler operatör
-  görevindedir. `foo` ise bu operatörün operandıdır. Burada operatör operand'ının sonuna getirilmiştir.
+- **_Sonek Operatörler (Postfix Operators)_**: Bunlar da operandlarının sonuna getirilerek kullanılırlar. Örneğin `foo()` gibi bir ifadede parantezler operatör
+  görevindedir. `foo` ise bu operatörün operandıdır. Burada operatör operandının sonuna getirilmiştir.
 
 Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
-Örneğin, "`/` operatörü iki operand'lı araek (binary infix) bir artimetik operatördür." Ya da örneğin "`!` operatörü tek operand'lı öncek (unary prefix) bir mantıksal operatördür".
-Ya da örneğin "`&` operatörü iki operand'lı araek bir bit operatörüdür".
+Örneğin, "`/` operatörü iki operandlı araek (binary infix) bir artimetik operatördür." Ya da örneğin "_`!` operatörü tek operandlı öncek (unary prefix) bir mantıksal operatördür_".
+Ya da örneğin "_`&` operatörü iki operandlı araek bir bit operatörüdür_".
 
-Bir ifadede birden fazla operatör kullanıldığında bunlar birbirlerine göre belli bir sırada yapılırlar. Bu duruma "operatörler arasındaki öncelik
-ilişkisi (operator precedency)" denilmektedir. Operatörlerin arasındaki öncelik ilişkisi "operatörlerin öncelik tablousu" denilen bir tabloyla
+Bir ifadede birden fazla operatör kullanıldığında bunlar birbirlerine göre belli bir sırada yapılırlar. Bu duruma "_operatörler arasındaki öncelik_
+_ilişkisi (operator precedency)_" denilmektedir. Operatörlerin arasındaki öncelik ilişkisi "_operatörlerin öncelik tablousu_" denilen bir tabloyla
 betimlenmektedir. Bu tablo satırlardan oluşur. Üst satırrdaki operatörler alt satırdaki operatörlerden daha önceliklidir. Aynı satırdaki operatörler
-eşit öncelikli biçimde bulunurlar. Ancak aynı satırdaki operatörlerin önceliği "soldan sağa (left to right)" ya da "sağdan sola (right to left)" biçimde
+eşit öncelikli biçimde bulunurlar. Ancak aynı satırdaki operatörlerin önceliği "_soldan sağa (left to right)_" ya da "_sağdan sola (right to left)_" biçimde
 olabilir. Soldan sağa öncelik demek o satırda bulunanlardan ifade içerisinde hangisi soldaysa o önce yapılır demektir. Sağdan sola öncelik de benzerdir.
-Aşağıda operatmrlerin öncelik tablosunun iskelet hali verilmiştir:
+Aşağıda operatörlerin öncelik tablosunun iskelet hali verilmiştir:
 
 ```
     ()				Soldan-Sağa
@@ -2176,7 +2176,7 @@ Buradaki `()` operatörü öncellik parantezini ve fonksiyon çağırma operatö
     İ3 a = İ2
 ```
 
-Burada aslında b'dn c \* d'nin çıkartıldığına dikkat ediniz. Örneğin:
+Burada aslında `b`'den `c * d`'nin çıkartıldığına dikkat ediniz. Örneğin:
 
 ```
     a = b / c * d
@@ -2196,7 +2196,7 @@ Burada `/` ve `*` soldan-sağa eşit önceliklidir. İfade içerisinde (öncleik
     a = b + c + d;
 ```
 
-Burada solda olan '+' önce yapılacaktır:
+Burada solda olan `+` önce yapılacaktır:
 
 ```
     İ1: b + c
@@ -2218,11 +2218,11 @@ Atama operatörünün sağdan-sola grupta olduğuna dikkat ediniz:
 ```
 
 Öncelik tablosundaki satırlarda bulunan operatörler o satırda değişik sırada yazılabilirler. Çünkü aynı satırdaki operatörlerin o satırdaki sırasının
-bir önemi yoktur. "Soldan-sağa" ya da "sağdan-sola" ifade içerisindeki duruma ilişkindir.
+bir önemi yoktur. "_Soldan-sağa_" ya da "_sağdan-sola_" ifade içerisindeki duruma ilişkindir.
 
-`*`, `/`, `+` ve `-` operatörleri "iki operand'lı araek (binary infix)" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
+`*`, `/`, `+` ve `-` operatörleri "_iki operandlı araek (binary infix)_" aritmetik operatörlerdir. Bunlar klasik dört işlemi yaparlar.
 
-`%` operatörü iki operand'lı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
+`%` operatörü iki operandlı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
 üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda `*` ve `/` ile soldan sağa eşit öncelik grupta bulunur.
 Negatif sayının pozitif sayıya bölümünden elde edilen kalan negatiftir. Pozitif sayının negatif sayıya bölümünden elde edilen kalan pozitiftir.
 
@@ -2257,9 +2257,9 @@ int result;
 }
 ```
 
-`+` ve `-` sembolleri hem toplama ve çıkartma operatörü hem de `işaret -` ve `işaret +` operatörünü temsil etmektedir. İşaret + ve işaret - operatörleri
-"tek operand'lı öncek (unary prefix)" operatörlerdir. İşaret - operatörü operand'ının negatif değerini üretir. İşaret + operatörü ise operand'ı ile aynı
-değeri üretmektedir. (Yani aslında işaert + operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
+`+` ve `-` sembolleri hem toplama ve çıkartma operatörü hem de `işaret -` ve `işaret +` operatörünü temsil etmektedir. `işaret +` ve `işaret -` operatörleri
+"_tek operandlı öncek (unary prefix)_" operatörlerdir. İşaret - operatörü operandının negatif değerini üretir. `işaret +` operatörü ise operandı ile aynı
+değeri üretmektedir. (Yani aslında `işaret +` operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
 
 ```
     ()				Soldan-Sağa
@@ -2280,7 +2280,7 @@ değeri üretmektedir. (Yani aslında işaert + operatörü bir şey yapmamaktad
     İ4: a = İ3
 ```
 
-Burada işl - sembolün "çıkartma" diğerlerinin "işaret -" olduğuna dikkat ediniz.
+Burada işl `-` sembolün "_çıkartma_" diğerlerinin "_işaret -_" olduğuna dikkat ediniz.
 
 ```
 #include <stdio.h>
@@ -2298,13 +2298,13 @@ int a = -4;
 }
 ```
 
-C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğiniz gibi `++` ve
-`--` operatmrleri de vardır. Dolayısıyla `++` ve `--` yan yana yazılırsa iki ayrı işaret `+` ve işaret `-` operatörü değil `++` ve `--` operatörleri anlaşılır
+C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğimiz gibi `++` ve
+`--` operatmrleri de vardır. Dolayısıyla `++` ve `--` yan yana yazılırsa iki ayrı `işaret +` ve `işaret -` operatörü değil `++` ve `--` operatörleri anlaşılır
 Benzer biçimde `a>=3` gibi bir ifadede `a`, `>=` ve `3` biçiminde üç farklı atom vardır.
 
-`++` ve `--` operatörleri "tek operand'lı, öncek ve sonek olarak kullanılabilen" operatörlerdir. Yani biz bu operatörleri `++a` gibi de `a++` gibi de kullanabiliriz.
-Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. `++` operatörüne "artırma (increment)", `--` operatörüne "eksiltme (decrement)" operatörleri
-denilmektedir. `++` operatörü "operandı içerisindeki değeri 1 artır", `--` operatörü "operandı içerisindeki değeri 1 eksilt" anlamına gelir.
+`++` ve `--` operatörleri "_tek operandlı, öncek ve sonek olarak kullanılabilen_" operatörlerdir. Yani biz bu operatörleri `++a` gibi de `a++` gibi de kullanabiliriz.
+Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. `++` operatörüne "_artırma (increment)_", `--` operatörüne "_eksiltme (decrement)_" operatörleri
+denilmektedir. `++` operatörü "_operandı içerisindeki değeri 1 artır_", `--` operatörü "_operandı içerisindeki değeri 1 eksilt_" anlamına gelir.
 
 ```
 #include <stdio.h>
@@ -2344,9 +2344,9 @@ int a;
     =				Sağdan-Sola
 ```
 
-Aslında C'nin tek operand'lı (unary) bütün operatörleri zaten öncelik tablosunun ikinci düzeyinde sağdan-sola gruba yerleştirilmiştir.
+Aslında C'nin tek operandlı (unary) bütün operatörleri zaten öncelik tablosunun ikinci düzeyinde sağdan-sola gruba yerleştirilmiştir.
 
-`++` ve `--` operatörleri her zaman tablodaki öncelikte yapılır. Ancak sonraki işleme eğer operatörler önek olarka kullanılmışsa artırılmış ya da eksiltilmiş değer,
+`++` ve `--` operatörleri her zaman tablodaki öncelikte yapılır. Ancak sonraki işleme eğer operatörler önek olarak kullanılmışsa artırılmış ya da eksiltilmiş değer,
 sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokulmaktadır. Örneğin:
 
 ```
@@ -2354,16 +2354,15 @@ sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokul
     b = ++a * 2;
 ```
 
-Burada 3 operatör vardır. En önceliklisi `++` operatördür. O halde a 1 artırılacak ve 4 olacaktır. Sonraki işlem `*` işlemidir. O halde `*` işlemine
-artırma öncek yapıldığı için artırılmış değer olan 4 sokulacaktır. Bu duurmda 4 değişkeni 4 değerine olurken b değişkeni 8 olacaktır. Şimdi aynı işlemi
-sonek olarak yapalım:
+Burada 3 operatör vardır. En önceliklisi `++` operatördür. O halde `a` değişkeni 1 artırılacak ve 4 olacaktır. Sonraki işlem `*` işlemidir. O halde `*` işlemine,
+artırma önek yapıldığı için, artırılmış değer olan 4 sokulacaktır. Bu durumda `a` değişkeni 4 olurken `b` değişkeni 8 olacaktır. Şimdi aynı işlemisonek olarak yapalım:
 
 ```
     a = 3;
     b = a++ * 2;
 ```
 
-Burada da a önce artırılır 4 olur. Ancak sonraki işlem olan `*` işlemine a'nın artırılmış değeri olan 3 sokulur. Bu durumda a 4 olurken b ise
+Burada da `a` önce artırılır 4 olur. Ancak sonraki işlem olan `*` işlemine `a`'nın artırılmış değeri olan 3 sokulur. Bu durumda `a` 4 olurken `b` ise
 6 olacaktır.
 
 ```
@@ -2388,21 +2387,21 @@ int a, b;
 }
 ```
 
-Önek ve sonek etki aşağıdaki basit örnekle de daha iyi anlaşılabilir:
+Önek ve sonek etki, aşağıdaki basit örnekle de daha iyi anlaşılabilir:
 
 ```
     a = 3;
     b = --a;
 ```
 
-Burada önce a eksiltilir, 2 olur. Sonraki işlem atama işlemidir. O halde b'ye a'nın eksiltilmiş değeri atanır. Yani b de 2 olacaktır. Fakat örneğin:
+Burada önce `a` eksiltilir, 2 olur. Sonraki işlem atama işlemidir. O halde `b`'ye `a`'nın eksiltilmiş değeri atanır. Yani `b` de 2 olacaktır. Fakat örneğin:
 
 ```
     a = 3;
     b = a--;
 ```
 
-Burada yine a bir eksiltilir ve 2 olur. Ancak sonraki işlem olan atama işlemine a'nın eksiltilmemiş değeri olan 3 sokulur. Böylece b 3 olur.
+Burada yine `a` bir eksiltilir ve 2 olur. Ancak sonraki işlem olan atama işlemine `a`'nın eksiltilmemiş değeri olan 3 sokulur. Böylece `b` 3 olur.
 
 ```
 #include <stdio.h>
@@ -2438,7 +2437,7 @@ ile
     a++;
 ```
 
-arasında bir fark yoktur. Fark ifadede başka operatörler varsa ortaya çıkmaktadır. Örneğin:
+arasında bir fark yoktur. Fark, ifadede başka operatörler varsa ortaya çıkmaktadır. Örneğin:
 
 ```
     a = 3;
@@ -2447,8 +2446,8 @@ arasında bir fark yoktur. Fark ifadede başka operatörler varsa ortaya çıkma
     c = ++a * b--;
 ```
 
-Burada önce b eksiltilir 1 olur. Sonra a artırılır 4 olur. Çarpma işlemine a'nın artırılmış değeri ancak b'nin eksiltilmemiş değeri sokulur. Bu durumda
-c'ye 8 atanacaktır.
+Burada önce `b` eksiltilir 1 olur. Sonra `a` artırılır 4 olur. Çarpma işlemine `a`'nın artırılmış değeri ancak `b`'nin eksiltilmemiş değeri sokulur. Bu durumda
+`c`'ye 8 atanacaktır.
 
 ```
 #include <stdio.h>
