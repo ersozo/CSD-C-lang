@@ -315,7 +315,7 @@ Sayının bire tümleyenine bir ekleyeceğiz:
 ```
     1010 1001
     0000 0001
-   --------------
+
     1010 1010
 ```
 
