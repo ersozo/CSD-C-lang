@@ -501,27 +501,27 @@ Yazılar da aslında bilgisayar belleğinde, `2`'lik sistemdeki sayılar biçimi
 bir yazıda her bir karakter `2`'lik sistemde bir sayı ile ifade edilir. Böylece yazı aslında ikilik sistemde bir sayı dizisi gibi tutulmaktadır. İşte
 bir karakter için o karakterin hangi sayıya karşı geldiğini belirten tablolara "_karakter tabloları_" denilmektedir. Karakter tablosundaki karakter şekillerine "_glyph_"
 denilmektedir. Her karaktere tabloda bir sıra numarası verilmiştir. Buna da "_code point_" denilmektedir. Dünyanın ilk standart karakter tablosu "_ASCII (American_
-_Standard Code Information Interchange)_" denilen tablodur. ASCII tablosu aslında `7 bit` bir tablodur. Dolayısıyla tabloda `128` tane glyph için code point
-bulundurulmuştur. ASCII dışında IBM EBCDIC tablosunu geliştirmiştir. Wang firması WISCII tablosunu kullanmıştır. ASCII tablosu Amerikalılar tarafından yalnızca İngilizce
+_Standard Code Information Interchange)_" denilen tablodur. `ASCII` tablosu aslında `7 bit` bir tablodur. Dolayısıyla tabloda `128` tane glyph için code point
+bulundurulmuştur. `ASCII` dışında `IBM EBCDIC` tablosunu geliştirmiştir. Wang firması `WISCII` tablosunu kullanmıştır. `ASCII` tablosu Amerikalılar tarafından yalnızca İngilizce
 karakterleri ifade etmek için oluşturulmuştur. Bilgisayarlar yaygınlaşmaya başladığında farklı karakterlere sahip olan Türkiye gibi, Yunanistan gibi, Almanya gibi
-ülkeler bu ASCII tablosunu 8 bite çıkartıp elde edilen 128 lik yeni alanı kendi karakterlerini ifade etmek için kullanmışlardır. ASCII tablosunun ilk yarısı
+ülkeler bu ASCII tablosunu `8 bi`'te çıkartıp elde edilen `128` lik yeni alanı kendi karakterlerini ifade etmek için kullanmışlardır. `ASCII` tablosunun ilk yarısı
 (yani `[0, 128]` numaraları karakterler) standarttır. Ancak ikinci yarısı "_code page_" adı altında farklı ülkeler tarafından farklı yerleşimler yapılarak kullanılmaktadır.
-DOS zamanlarında Türkçe karakterler için OEM 857 denilen code page kullanılıyordu. Daha sonra Microsoft Windows sistemlerinde Türkçe karakterler için 1254 code page'i
-düzenledi. ISO bu code page'leri standart hale getirmiştir. Bugün Türkçe karakterler ISO tarafından ASCII 8859-9 Code page'i ile düzenlenmiştir.
+DOS zamanlarında Türkçe karakterler için `OEM 857` denilen code page kullanılıyordu. Daha sonra Microsoft Windows sistemlerinde Türkçe karakterler için `1254 code page`'i
+düzenledi. `ISO` bu code page'leri standart hale getirmiştir. Bugün Türkçe karakterler `ISO` tarafından `ASCII 8859-9 Code page`'i ile düzenlenmiştir.
 
-ASCII tablosu ve onların code page'leri uzun süre kullanılmış ve hala kullanılmakta olsa da maalesef karışıklıklara yol açmaktadır. İşte son 20 yıldır
-artık karakterleri `2 byte` içerisinde ifade ederek dünyanın bütün dillerinin ve ortak sembollerinin tek bir tabloya yerleştirilmesi ile ismine UNICODE
-denilen bir tablo oluşturulmuştur (www-unicode.org). UNICODE tablo ISO tarafından 10646 ismiyle de bazı farklılıklarla standardize edilmiştir. UNICODE tablonun
-ilk 128 karakteri standart ASCII karakterleri, ikinci 128 karakteri ISO 8859-9 code page'indeki karakterlerdir.
+`ASCII` tablosu ve onların code page'leri uzun süre kullanılmış ve hala kullanılmakta olsa da maalesef karışıklıklara yol açmaktadır. İşte son 20 yıldır
+artık karakterleri `2 byte` içerisinde ifade ederek dünyanın bütün dillerinin ve ortak sembollerinin tek bir tabloya yerleştirilmesi ile ismine `UNICODE`
+denilen bir tablo oluşturulmuştur (www-unicode.org). `UNICODE` tablo `ISO` tarafından 10646 ismiyle de bazı farklılıklarla standardize edilmiştir. `UNICODE` tablonun
+ilk `128` karakteri standart `ASCII` karakterleri, ikinci 128 karakteri `ISO 8859-9 code page`'indeki karakterlerdir.
 
-Bir karakter tablosundaki code point'lerin ikilik sistemde ifade edilme biçimine "_encoding_" denilmektedir. ASCII code page'lerinde encoding doğrudan
-code point'in `1 byte`'lık sayı karşılığıdır. Ancak UNICODE tablonun değişik encoding'leri kullanılmaktadır. UNICODE tablonun klasik encoding'i UTF-16'dır.
-Burada code point doğrudan `16 bit`'lik bir sayı biçiminde ifade edilir. UTF-32 encoding'inde ise code point `32 bit`'lik bir sayı biçiminde ifade edilmektedir.
-Ancak UNICODE tablonun en yaygın kullanılan encoding'i UTF-8 encoding'idir. UTF-8 kodlamasında standart ASCII karakterler 1 byte ile, diğer karakterler
-`2 byte`, `3 byte`, `4 byte` ve `5 byte` kodlanabilmekedir. Türkçe karakterler UTF-8 encoding'inde `2 byte` yer kaplamaktadr. UTF-8 encoding'i UNICODE bir yazının
+Bir karakter tablosundaki code point'lerin ikilik sistemde ifade edilme biçimine "_encoding_" denilmektedir. `ASCII` code page'lerinde encoding doğrudan
+code point'in `1 byte`'lık sayı karşılığıdır. Ancak `UNICODE` tablonun değişik encoding'leri kullanılmaktadır. `UNICODE` tablonun klasik encoding'i U`TF-16`'dır.
+Burada code point doğrudan `16 bit`'lik bir sayı biçiminde ifade edilir. `UTF-32 encoding`'inde ise code point `32 bit`'lik bir sayı biçiminde ifade edilmektedir.
+Ancak `UNICODE` tablonun en yaygın kullanılan encoding'i` UTF-8 encoding`'idir. `UTF-8` kodlamasında standart `ASCII` karakterler `1 byte` ile, diğer karakterler
+`2 byte`, `3 byte`, `4 byte` ve `5 byte` kodlanabilmekedir. Türkçe karakterler `UTF-8 encoding`'inde `2 byte` yer kaplamaktadr. `UTF-8 encoding`'i `UNICODE` bir yazının
 adeta sıkıştırılmış bir hali gibi düşünülebilir.
 
-Bugün pek çok programlama editörleri default durumda dosyayı UNICODE UTF-8 encoding'ine göre saklamaktadır.
+Bugün pek çok programlama editörleri default durumda dosyayı `UNICODE UTF-8 encoding`'ine göre saklamaktadır.
 
 Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de `16`'lık sistemdir. 16'lık sisteme İngilizce "_hexadecimal system_" denilmektedir. `16`'lık
 sistemde sayıları ifade etmek için `16` sembol bulunmaktadır. İlk `10` sembol `10`'luk sistemdeki sembollerden alınmıştır. Sonraki `6` sembol alfabetik karakterlerden alınmıştır.
@@ -716,8 +716,8 @@ C programını C derleyicisi ile derledikten sonra eğer hiçbir hata yoksa derl
 "_amaç kod dosyası_" da diyeceğiz. Amaç kod dosyası (relocatable object module) daha sonra "_bağlayıcı (linker)_" denilen bir programa sokulur. Bu linker programı
 "_çalıştırılabilir (executable)_" dosyaysı üretir. Biz de nihayetinde bu dosyayı çalıştırırz.
 
->                .c -----> C Derleyicisi -----> Object file -----> Bağlayıcı (Linker) -----> Çalıştırılabilir (executable)
-
+**> .c -----> C Derleyicisi -----> Object file -----> Bağlayıcı (Linker) -----> Çalıştırılabilir (executable)
+**
 Bağlayıcı (linker da diyeceğiz) aslında bir grup amaç dosyayı alıp tek bir çalıştırılabilir dosya oluşturmaktadır. Bir amaç dosyanın içerisinde derlenmiş kodların
 yanı sıra bağlayıcnın birleştirme yapabilmesi için çeşitli bilgiler de vardır.
 
@@ -1517,7 +1517,7 @@ En çok kullanılan format karakterleri şunlardır:
 
 `printf` fonksiyonunda `%` karakterinden sonra fakat format karakterinden önce bir sayı belirtilirse ilgili argüman, o sayı ile belirtilen genişlikte
 bir alan ayrılarak o alanda yazılır. Default durum sağa dayalı olarak yazdırılmasıdır. Sola dayalı yazdırmak için genişlik belirtilen bu sayının
-önüne ayrıca bir de `-` karakteri eklenir. Özellikle sütunsal hizalamalar için `%-nd` gibi (buarada n yerine bir sayı getirilmelidir) format karakterleri
+önüne ayrıca bir de `-` karakteri eklenir. Özellikle sütunsal hizalamalar için `%-nd` gibi (buarada `n` yerine bir sayı getirilmelidir) format karakterleri
 kullanılmaktadır. Eğer genişlik belirten sayı yazdırılacak sayının basamak sayısından az ise, sayının hepsi yazdırılmaktadır.
 
 ```
@@ -1650,9 +1650,9 @@ sayının `8`'lik sistemde yazılmış olduğu anlamına gelir. Örneğin:
 
 ```
 
-Tabii biz tamsayı değeri kaçlık sistemde yazarsak yazalım, aslında bu sayı bellekte her zaman 2'lik sistemde tutulmaktadır.
+Tabii biz tamsayı değeri kaçlık sistemde yazarsak yazalım, aslında bu sayı bellekte her zaman `2`'lik sistemde tutulmaktadır.
 
-C'de bir tamsayıyı 2'lik sistemde yazmanın bir yolu yoktur.
+C'de bir tamsayıyı `2`'lik sistemde yazmanın bir yolu yoktur.
 
 ```
 
@@ -1676,7 +1676,7 @@ C'de bir tamsayıyı 2'lik sistemde yazmanın bir yolu yoktur.
 
 ```
 
-C'de bir noktalı sayı, üstel biçimde de yazılabilir. Bunun için sayıdan sonra `e` ya da `E` karakteri ve üs sayısı belirtilir. Buradaki üs 10'un
+C'de bir noktalı sayı, üstel biçimde de yazılabilir. Bunun için sayıdan sonra `e` ya da `E` karakteri ve üs sayısı belirtilir. Buradaki üs `10`'un
 kaçıncı kuvveti olduğunu belirtmektedir. Örneğin:
 
 ```
@@ -1727,9 +1727,9 @@ içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
 
-**2.** Sayı nokta içermiyorsa, sonunda ek yoksa ve 16'lık sistemde ya da 8'lik sistemde yazılmışsa; sayı sırasıyla `int`, `unsigned int`, `long`, `unisgned long`,
-`long long` ve `unsigned long long` sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir. Çalıştığımız sistemde `int` ve `long` türünün 4 byte
-ancak `long long` türünün 8 byte olduğunu varsayalım.
+**2.** Sayı nokta içermiyorsa, sonunda ek yoksa ve `16`'lık sistemde ya da `8`'lik sistemde yazılmışsa; sayı sırasıyla `int`, `unsigned int`, `long`, `unisgned long`,
+`long long` ve `unsigned long long` sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir. Çalıştığımız sistemde `int` ve `long` türünün `4 byte`
+ancak `long long` türünün `8 byte `olduğunu varsayalım.
 
 ```
 
@@ -1739,7 +1739,7 @@ ancak `long long` türünün 8 byte olduğunu varsayalım.
 
 ```
 
-**3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde `u` ya da `U` varsa; sayı 10'luk, 16'lık, 8'lik sistemde yazıldığında
+**3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde `u` ya da `U` varsa; sayı `10`'luk, `16`'lık, `8`'lik sistemde yazıldığında
 sırasıyla `unsigned int`, `unsigned long int` ve `unsigned long long` türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir.
 Örneğin:
 
@@ -1773,8 +1773,8 @@ sayı `long` ve `unsigned long`, `long long` ve `unsigned long long` türlerinin
 
 ```
 
-**6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık `ul` ya da `lu` varsa (`u` ya da `l` ler büyük ya da küçük olabilir) ve sayı 10'luk sistemde,
-16'lık sistemde ya da 8'lik sistemde yazıldığında sırasıyla `unsigned long` ve `unsigned long long` sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir.
+**6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık `ul` ya da `lu` varsa (`u` ya da `l` ler büyük ya da küçük olabilir) ve sayı `10`'luk sistemde,
+`16`'lık sistemde ya da `8`'lik sistemde yazıldığında sırasıyla `unsigned long` ve `unsigned long long` sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir.
 Örneğin:
 
 ```
@@ -1784,7 +1784,7 @@ sayı `long` ve `unsigned long`, `long long` ve `unsigned long long` türlerinin
 
 ```
 
-**7.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı 10'luk sistemde yazılmışsa; `long long` türden sabit belirtir. Örneğin:
+**7.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı `10`'luk sistemde yazılmışsa; `long long` türden sabit belirtir. Örneğin:
 
 ```
 
@@ -1793,7 +1793,7 @@ sayı `long` ve `unsigned long`, `long long` ve `unsigned long long` türlerinin
 
 ```
 
-**8.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa; `long long` ve `unsigned long long`
+**8.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı `16`'lık ya da `8`'lik sistemde yazılmışsa; `long long` ve `unsigned long long`
 türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir. Örneğin:
 
 ```
@@ -1821,7 +1821,7 @@ türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türden
 ```
 
 Not:
-Noktanın solunda ve sağında bir şey yoksa orada 0 olduğu kabul edilmektedir. Bu Fortran zamanından beri kullanılan bir gelenektir. Örneğin.
+Noktanın solunda ve sağında bir şey yoksa orada `0` olduğu kabul edilmektedir. Bu Fortran zamanından beri kullanılan bir gelenektir. Örneğin.
 
 ```
 
@@ -1894,7 +1894,7 @@ C'de bir karakter tek tırnak içerisine alınırsa bu ifade `int` türden sabit
 
 Ancak karakter tablolarındaki bazı karakterlerin görüntü karşılığı yoktur. Yani bu karakterleri ekrana yazdırmak istediğimizde bir şey görmeyiz. Ancak
 bazı eylemler gerçekleşir. Bu tür karakterlere "_görüntülenemeyen karakterler (non-printable characters)_" denilmektedir. İşte bu görüntülenemeyen bazı karakterlere
-ilişkin karakter sabitleri özel bir biçimde ifade edilmektedir. ASCII karakter tablosunun (dolayısıyla UNICODE karakter tablosunun da) ilk 32 karakteri
+ilişkin karakter sabitleri özel bir biçimde ifade edilmektedir. `ASCII` karakter tablosunun (dolayısıyla `UNICODE` karakter tablosunun da) ilk 32 karakteri
 görüntülenemeyen özek kontrol karakterinden oluşmaktadır. İşte çok kullanılan bazı görüntülenemeyen karakter tek tırnak içerisinde önce bir ters bölü sonra
 özel bazı karakterler ile temsil edilmektedir. Bu karakter sabitlerine "_ters bölü karakter sabitleri (escape sequnces)_" denilmektedir. Bunlar listesi şöyledir:
 
@@ -1911,7 +1911,7 @@ görüntülenemeyen özek kontrol karakterinden oluşmaktadır. İşte çok kull
 ```
 
 Burada önemli olan nokta `\n` gibi bir karakter sabitin her ne kadar tırnak içerisinde iki karakter varsa da aslında tek bir karaktere ilişkin karakter sabiti
-belirttiğidir. Yani `\n` ne ters bölü karakterinin ne de `n` karakterinin sabitidir. Tamamen başka bir karakter olan LF (line feed) denilen karakterin karakter
+belirttiğidir. Yani `\n` ne ters bölü karakterinin ne de `n` karakterinin sabitidir. Tamamen başka bir karakter olan `LF (line feed)` denilen karakterin karakter
 sabitidir.
 
 Ters bölü karakter sabitleri iki tırnak içerisinde tek bir karakter olarak ele alınmaktadır. Örneğin:
@@ -2032,12 +2032,12 @@ Tabii sorun yaratmıyor olsa da biz istersek tek tırnak içerisinde iki tırnak
 
 ```
 
-Aslında C'de tek tırnak içerisine tek bir karakter yerleştirilmek zorunluluğu yoktur. Tek tırnak içerisine int türünün byte uzunluğu kadar karakter
-yerleştirilebilir (örneğin int türü 4 byte ise 4 karakter, 8 byte ise 8 karakter yerleştirilebilir). Tek tırnak içerisine birden fazla karakter yerleştirildiğinde
+Aslında C'de tek tırnak içerisine tek bir karakter yerleştirilmek zorunluluğu yoktur. Tek tırnak içerisine `int` türünün byte uzunluğu kadar karakter
+yerleştirilebilir (örneğin `int` türü `4 byte` ise `4` karakter, `8 byte` ise `8` karakter yerleştirilebilir). Tek tırnak içerisine birden fazla karakter yerleştirildiğinde
 bunlara "_multibyte karakterler_" denilmektedir. Multibyte karakterlerin ne belirttiği derleyicileri yazanların isteğine bırakılmıştır. Biz bu multibyte
 karakter kavramını ileride yeniden ele alacağız.
 
-Bir karakter sabitinin başına onunla yapışık bir L harfi (L harfi büyük harf olmak zorundadır) getirilebilir. Bu tür karakter sabitlerine "_geniş_
+Bir karakter sabitinin başına onunla yapışık bir `L` harfi (`L` harfi büyük harf olmak zorundadır) getirilebilir. Bu tür karakter sabitlerine "_geniş_
 _karakter sabitleri (wide character constants)_" denilmektedir. Örneğin:
 
 ```
@@ -2057,7 +2057,7 @@ C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık `u` ve `U`
 
 ```
 
-`u` öneki getirilmiş karakter sabitleri UNICODE UTF-16 encoding'ini, `U` öneki getirilmiş karakter sabitleri de UNICODE UTF-32 encoding'ini belirtir.
+`u` öneki getirilmiş karakter sabitleri `UNICODE UTF-16 encoding`'ini, `U` öneki getirilmiş karakter sabitleri de `UNICODE UTF-32 encoding`'ini belirtir.
 Bunlar sırasıyla `char16_t` ve `char32_t` türündendir. Bu konu da ileride ele alınacaktır.
 
 **14.** C'de `int` türden küçük türlerin sabitleri yoktur. Yani C'de `char`, `signed char`, `unsigned char`, `short` ve `unsigned short` türünden sabitler yoktur.
@@ -7566,7 +7566,7 @@ geri dönerler. Bunların listesi şöyledir:
     Biz bu fonksiyonlarla öğrneğin Türkçe karakterleri test edemeyiz.
 
     Karakter test fonksiyonlarının parametreleri, unsigned char ürüyle temsil edilebilmelidir. Yani, örneğin biz bu fonksiyonlara [0, 255] aralığının dışında herhangi bir değer
-    girersek bu fonksiyonlar tanımsız davranışa yol açarlar. Bu fonksiyonlar, UTF-8 gibi multibyte karakterler için kullanılamazlar. Ancak bir byte'lık encodinglerde lokal spsifik
+    girersek bu fonksiyonlar tanımsız davranışa yol açarlar. Bu fonksiyonlar, `UTF-8` gibi multibyte karakterler için kullanılamazlar. Ancak bir byte'lık encodinglerde lokal spsifik
     davranılş gösterebilirler.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------\*/
@@ -7660,7 +7660,7 @@ int ch;
 
 /_---------------------------------------------------------------------------------------------------------------------------------------------------
 toupper fonksiyonunu, basit bir biçimde aşağıdaki yazabiliriz. Tabii, bu yazımda küçük harf ve büyük harflerin karakter tablosunda peşi sıra gittiği
-varsayılmaktadır. ASCII tablosunda bunlar, gerçekten peşi sıra girmektedir.
+varsayılmaktadır. `ASCII` tablosunda bunlar, gerçekten peşi sıra girmektedir.
 ----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
 #include <stdio.h>
@@ -10316,7 +10316,7 @@ char s[] = {1, 2, 3, 4, 5};
 
 /_---------------------------------------------------------------------------------------------------------------------------------------------------
 Null karakter ile '0' karakterinin ilgisi olmadığına dikkat ediniz. Null karakter gerçekten 0 değerine ilişkin karakterdir. Yani null karakterin sayısal değeri
-0'dır. Ancak '0' karakterinin sayısal değeri ASCII tablosundan 48'dir. Daha önceden de belirttiğimiz gibi '\0' gösterimi ile 0 gösterimi arasında teknik
+0'dır. Ancak '0' karakterinin sayısal değeri `ASCII` tablosundan 48'dir. Daha önceden de belirttiğimiz gibi '\0' gösterimi ile 0 gösterimi arasında teknik
 bir farklılık yoktur. Ancak karakter vurgusu yapmak için null karakteri '\0' biçiminde göstermek iyi bir tekniktir.
 ----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
@@ -10343,7 +10343,7 @@ char c;
 
 /_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bellekte karakter diye bir bilginin olmadığına dikkat ediniz. Karakterler bellekte aslında birer sayı olarak bulunurlar. Biz C'de bir karakteri tek tırnak
-içerisine aldığımızda o karakterin ilgili karakter tablosundaki sıra numarısını belirtmiş oluruz. Yani örneğin ASCII tablosunun kullanıldığı bir C derleyicisinde
+içerisine aldığımızda o karakterin ilgili karakter tablosundaki sıra numarısını belirtmiş oluruz. Yani örneğin `ASCII` tablosunun kullanıldığı bir C derleyicisinde
 'a' ile 97 arasında bir farklılık yoktur. Bellekte her şeyin aslında ikilik sistemde sayılar biçiminde bulunduğuna, onun nasıl yorumlanacağına programcının karar verdiğine
 dikkat ediniz.
 ----------------------------------------------------------------------------------------------------------------------------------------------------_/
