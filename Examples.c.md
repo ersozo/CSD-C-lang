@@ -65,8 +65,8 @@ halk arasında RAM denilmektedir. Programlama dillerindeki değişkenler program
 
 gibi bir işlemde aslında a, b, ve c RAM'de bulunmaktadır. Bu işlem yapılırken b ve c CPU'ya çekilir. CPU içerisindeki elektrik devreleri toplama işlemini yapar.
 Sonuç RAM'deki a'ya aktarılır. Bilgisayarın güç kaynağı kapatıldığında RAM'deki bilgiler silinmektedir. Bunun için bu bilgilerin daha kalıcı bir bellekte saklanması gerekir.
-Bu tür beleklere "ikinci bllekler (secondart memory)" denilmektedir. Eskiden ikincil bellek olarak floppy disketler, CD/DVD ROM'lar ve Hard diskler kullanılıyordu.
-Ancak günümüzde artık SSD (Solid State Disk) denilen "flash bellekler" kullanılmaktadır. Genellikle bilgisayar sistemlerinde ikincil belleklerle birincil bellekler arasında bir aktarım yolu bulunmaktadır.
+Bu tür beleklere "_ikinci bllekler (secondart memory)_" denilmektedir. Eskiden ikincil bellek olarak floppy disketler, CD/DVD ROM'lar ve Hard diskler kullanılıyordu.
+Ancak günümüzde artık SSD (Solid State Disk) denilen "_flash bellekler_" kullanılmaktadır. Genellikle bilgisayar sistemlerinde ikincil belleklerle birincil bellekler arasında bir aktarım yolu bulunmaktadır.
 
 [3. Ders - 31/05/22 - Salı]()
 
@@ -78,30 +78,30 @@ Ancak 1990'lı yılların ortalarında Java ortamıyla (framework) birlikte ve s
 başlamıştır. Bu sistemde derleyicilerin ürettiği kodlar gerçek bir mikroişlemcinin makine kodları değildir. Kendi içerisinde belli bir standardı olan ancak
 hiçbir mikroişlemcinin makine kodu olmayan yapay bir ara koddur (intermediate code). Dolayısıyla bu arakod mikroişlemci tarafında çalıştırılamaz. İşte
 bu arakodlar çalıştırılmak istendiğinde bu ortamların (frameworks) bir alt sistemi devreye girmekte ve bu arakodları o anda gerçek makine komutlarına dünüştürüp
-çalıştırmaktadır. Bu sürece "tam zamanında derleme (Just In Time Compilation)" denilmektedir.
+çalıştırmaktadır. Bu sürece "_tam zamanında derleme (Just In Time Compilation)_" denilmektedir.
 
 Java ismi hem bir ortam (framework) belirtmekte hem de bir programlama dilini belirtmektedir. Oysa .NET platformun ismi, C# ise programlama dilinin ismidir.
-Java Programlama Dilinde yazılmış olan kodun derlenmesiyle elde edilen ara koda "Java Byte Code" denilmektedir. Benzer biçimde C# ile yazılmış kodun derlenmesiyle
-elde edilen arakoda ise "Common Intermediate Language (CIL)" denilmektedir. Her iki oramda da bu kodlar doğrudan değil bunların alt sistemleri tarafından
+Java Programlama Dilinde yazılmış olan kodun derlenmesiyle elde edilen ara koda "_Java Byte Code_" denilmektedir. Benzer biçimde C# ile yazılmış kodun derlenmesiyle
+elde edilen arakoda ise "_Common Intermediate Language (CIL)_" denilmektedir. Her iki oramda da bu kodlar doğrudan değil bunların alt sistemleri tarafından
 çalıştırılmak istedniğinde, belli bir düzen içerisinde o anda gerçek makine komutlarına dönüştürülmektedir. Tabii böyle bir arakod sistemi JIT derlemesi nedeniyle
 doğal kodlu sistemlere göre daha yavaş bir çalışma sunmaktadır. Microsoft kendi .NET sistemi için buradaki zaman kaybının %18 civarında olduğunu belirtmektedir.
 
 C'de yazılmış ve derlenmiş olan bir program hem işletim sistemine hem de işlemciye bağımlıdır. Yani biz Windows sistemlerinde X86 serisi Intel işlemcilerinin
 bulunduğu bir bilgisayareda yazdığımız ve derlediğimiz kodu Linux'ta çalıştıramayız. İşte Java gibi .NET gibi ortamlarda yazılmış ve derlenmiş olan kodlar
 işletim sisteminden ve işlemciden bağımsız arakoda dönüştürülmektedir. Böylece bu ortamlar çeşitli işletim sistemi ve mikroişlemci mimarileri için yazılmış
-olduğundan Java ve .NET ortamları için yazılan programlar "platform bağımsız" bir biçimde her yerde çalışabilmektedir.
+olduğundan Java ve .NET ortamları için yazılan programlar "_platform bağımsız_" bir biçimde her yerde çalışabilmektedir.
 
-Java ve .NET gibi ortamlara İngilizce "framework" denilmekltedir. Platform sözcüğü İngilizce daha çok "işletim sistemi ve işlemcinin" oluşturduğu
+Java ve .NET gibi ortamlara İngilizce "_framework_" denilmekltedir. Platform sözcüğü İngilizce daha çok "işletim sistemi ve işlemcinin" oluşturduğu
 küme için söylenmektedir.
 
 Taşınabilirlik (portability) eski bir terimdir ve hale kullanılmaktadır. Taşınabilirlik default durumda kaynak kodun taşınabilirliğini belirtmektedir.
 Örneğin C'nin taşınabilir bir dil olması demek C programlarının standart bir dilde yazıldığından her C derleyicisinin bunu kabul etmesi demektir.
-Ancak son 30 yıldır, derlenmiş olan programların taşınabilirliği biçiminde "binary portability" terimi gündeme gelmiştir. Derlenmiş programın taşınabilirliği
+Ancak son 30 yıldır, derlenmiş olan programların taşınabilirliği biçiminde "_binary portability_" terimi gündeme gelmiştir. Derlenmiş programın taşınabilirliği
 onun başka platformlara götürüldüğünde sorunsuz çalışabilmesi anlamına gelmektedir. Java, .NET gibi ortamlar bunu hedeflemektedir.
 
-Bir programlama dilinde yazılmış olan bir programı eşdeğer olarak başka bir dile dönüştüren araçlara "çevirici programlar (translators)" denilmektedir.
-Çevirici programlarda çevrilecek dile "kaynak dil (source language)" çevirme işleminin sonunda elde edilen programın diline ise "hedef dil (target language)"
-denilmektedir. Hedef dili alçak seviyeli olan çevirici programlara ise "derleyici (compiler)" denilmekltedir. Saf makine dilleri, sembolik makine dilleri
+Bir programlama dilinde yazılmış olan bir programı eşdeğer olarak başka bir dile dönüştüren araçlara "_çevirici programlar (translators)_" denilmektedir.
+Çevirici programlarda çevrilecek dile "_kaynak dil (source language)_" çevirme işleminin sonunda elde edilen programın diline ise "_hedef dil (target language)_"
+denilmektedir. Hedef dili alçak seviyeli olan çevirici programlara ise "_derleyici (compiler)_" denilmekltedir. Saf makine dilleri, sembolik makine dilleri
 ve ara kodlar alçak seviyeli dillerdir.
 
 Yorumlayıcılar (interpreters) kaynak kodu okuyup, hiç hedef kod üretmeden doğrudan çalıştıran programlardır. Dolayısıyla yorumlayıcılar aslında çevirici programlar
@@ -111,18 +111,18 @@ Bazı dillerde ise hem derleyiciler hem de yorumlayıcılarla programlar çalı�
 Derleyici yazmak yorumlayıcı yazmaktan daha zordur. Derleyiciler ile yazılan kod genel olarak daha hızlı çalıştırılmaktadır. Yorumlayıcılarla çalışırken
 biz kaynak kodu gizleyemeyiz. Ancak derleyicilerle çalışırken üretilen makine kodlarını karşı tarafa verebiliriz.
 
-Eğer bir derleyici kendisinin çalıştığı işlemciden farklı bir işlemci için kod üretiyorsa o tür derleyicilere "çapraz derleyiciler (cross compilers)"
+Eğer bir derleyici kendisinin çalıştığı işlemciden farklı bir işlemci için kod üretiyorsa o tür derleyicilere "_çapraz derleyiciler (cross compilers)_"
 denilmektedir. Örneğin X86 işlemcilerinin bulunduğu Windows sistemlerinde çalışan bir C derleyicisi eğer örneğin PIC işlemcileri için kod üretiyorsa bu bir
 çapraz derleyicidir.
 
-Kendisi bir bilgisayar olmayıp asıl amacı başka işlemleri yapmak olan aygıtlardaki bilgisayar devrelerine "gömülü sistemler (embedded systems)"
+Kendisi bir bilgisayar olmayıp asıl amacı başka işlemleri yapmak olan aygıtlardaki bilgisayar devrelerine "_gömülü sistemler (embedded systems)_"
 denilmektedir. Örneğin ölçü aletleri, kapı güvenlik sistemleri, turnike geçiş sistemleri, çamaşır makineleri, buzdolapları, fırınlar, kahve makineleri
 gömülü sistemlere örnek olarak verilebilir. Gömülü sistemlerdeki bilgisayar devreleri genel olarak düşük güçlü, düşük kapasiteli, ancak ucuz ve düşük güç
 harcayan biçimlerdedir. Mikrodenetleyiciler bu tür gömülü sistemlerde yoğun olarak kullanılmaktadır. Dolayısıyla gömülü sistemler dünyasında aşağı seviyeli bir
 çalışma söz konusu olduğu için C Programlama Dili de yoğun olarak kullanılmaktadır.
 
 Dil (language) iletişimde kullanılan semboller kümesidir. Dil karmaşık bir olgudur. Bir olgunun dil olarak değerlendirilmesi için iki kural topluluğunun
-o olguda bulunuyor olması gerekir: Sentaks ve semantik. Bir dilin en yalın öğelerine "atom (token)" denilmektedir. Örneğin doğal dillerde atomlar
+o olguda bulunuyor olması gerekir: Sentaks ve semantik. Bir dilin en yalın öğelerine "_atom (token)_" denilmektedir. Örneğin doğal dillerde atomlar
 sözcüklerdir. İşte sentaks atomların doğru yazılmasına ve doğru dizilmesine ilişkin kurallardır. Örneğin:
 
 ```
@@ -136,14 +136,14 @@ hataya tamamen benzemektedir:
     if a > ( 10 ) printf("Ok");
 ```
 
-Sentaks bakımından doğru olan atom dizilimlerinin ne anlam ifade ettiğine ilişkin kurallara "semantik" denilmektedir. Sentaks ve semantik kurallara
+Sentaks bakımından doğru olan atom dizilimlerinin ne anlam ifade ettiğine ilişkin kurallara "_semantik_" denilmektedir. Sentaks ve semantik kurallara
 sahip her olguya dil denilmektedir. Örneğin HTML'de bir senataks vardır. Oluşturulan tag'ların bir anlamı da vardır. O zaman HTML bir dildir.
 
 Diller doğal diller ve kurgusal diller olmak üzere iki ayrılır. Doğal diller Türkçe gibi İngilizce gibi doğal yaşam sonucunda oluşmuş dillerdir.
 Doğal dillerde sentaksın matematiksel düzeyde kesin olarak ifade edilmesi mümkün değildir. Çünkü doğal dillerde çok istisnalar vardır. Kurgusal diller insanların
 belli bir mantık çerçevesinde belli bir amaç doğrultusunda tasarladığı dillerdir. Bunların sentaksları kesindir. İki anlamlılık ve istisna çok yoktur
-ya da çok azdır. Bilgisayar alanında kullanılan kurgusal dillere "bilgisayar dilleri (computer languages)" denilmektedir. Bir bilgisayar dilinde
-bir akış varsa ona aynı zamanda "programlama dili (programming language)" denilmektedir. Örneğin HTML bir bilgisayar dilidir. Ancak bir programlama
+ya da çok azdır. Bilgisayar alanında kullanılan kurgusal dillere "_bilgisayar dilleri (computer languages)_" denilmektedir. Bir bilgisayar dilinde
+bir akış varsa ona aynı zamanda "_programlama dili (programming language)_" denilmektedir. Örneğin HTML bir bilgisayar dilidir. Ancak bir programlama
 dili değildir.
 
 [4. Ders - 02/06/22 - Perşembe]()
@@ -155,26 +155,36 @@ Seviye (level) bir programalama dilinin insan algısına yakınlığının bir �
 dillerdir. Seviyelerine göre diller yüksekten alçağa kategorik olarak genellikle şöyle sınıflandırılmaktadır:
 
 - _Çok Yüksek Seviyeli Diller_
+
 - _Yüksek Seviyeli Diller_
+
 - _Orta Seviyeli Diller_
+
 - _Sembolik Makine Dilleri_
+
 - _Saf Makine Dilleri ve Arakodlar_
 
 C orta seviyeli (middle level) bir programlama dilidir. Ancak Java, C#, Python gibi diller yüksek seviyeli diller olarak gruplanmaktadır. Çok yüksek seviyeli dillerde
-artık algoritma da ortadan kalkmaktadır. Genellikle bu tür diller "belli bir alana yönelik (domain specific)" biçimdedirler. Saf makike dilleri
-ve arakodlar 1'lerden ve 0'lardan oluşmaktadır. Bunların sembolik biçimlerine "sembolik makine dilleri (assembly languages)" denilmektedir. Sembolik
-makine dilleri, saf makine dilleri ve arakodlara da "alçak seviyeli diller" denir.
+artık algoritma da ortadan kalkmaktadır. Genellikle bu tür diller "_belli bir alana yönelik (domain specific)_" biçimdedirler. Saf makike dilleri
+ve arakodlar 1'lerden ve 0'lardan oluşmaktadır. Bunların sembolik biçimlerine "_sembolik makine dilleri (assembly languages)_" denilmektedir. Sembolik
+makine dilleri, saf makine dilleri ve arakodlara da "_alçak seviyeli diller_" denir.
 
 **2. Uygulama alanlarına göre sınıflandırma**
-Programlama dillerinin uygulama alanlarına göre sınıflandırılması "hangi tür uygulamalar için hangi dilin daha uygun olacağı" ile ilgilidir.
+Programlama dillerinin uygulama alanlarına göre sınıflandırılması "_hangi tür uygulamalar için hangi dilin daha uygun olacağı_" ile ilgilidir.
 Bu bakımdan pek çok alt sınıflandırma yapılabilmektedir. Aşağıda birkaç önemli alt sınıf verilmiştir:
 
 - _Bilimsel ve Mühendislik Diller (Scientific and Enginnering Languages)_: Fortran, C, C++, Pascal, Java, C#, ...
+
 - _Veritabanı Dilleri (Database Languages)_: SQL, Clipper, ...
+
 - _Web Dilleri (Web Languages)_: Java Script, PHP, Ruby, Java, C#, Python, ...
+
 - _Yapay Zeka Dilleri (Artificial Intelligence Langauges)_: Lisp, Prolog, Python, C, C++,...
+
 - _Görsel ve Animasyon Dilleri (Visual and Animation Languages)_: Action Script, ...
+
 - _Sistem Proramlama Dilleri (System Programming Languages)_: C, C++, Sembolik Makine Dilleri, Rust, Go
+
 - _Genel Amaçlı Diller (General Purpose Languages)_: C, C++, Java, C#, Pascal, ...
 
 C Programlama Dili bilimsel ve mühendislik alanlarda kullanılan, genel amaçlı, uzmanlığı sistem programlama olan bir dildir.
@@ -211,19 +221,24 @@ belli programlama modellerini uygulayabilmek için özel tasarlanmıştır. Bu b
 _**C Programalama Dili orta seviyeli, prosedürel, imperative, genel amaçlı, bilimsel ve mühendislik çalışmalarda kullanılan ancak uzmanlık alanı sistem programlama olan bir dildir.**_
 
 Uygulama geliştirmeyi kolaylaştıran, kendi içerisinde editörü olan, menüleri olan, genellikle debugger'ları olan, başka birtakım araçları bulunan
-yazılımlara "IDE (Integrated Developmen Environment)" denilmektedir. IDE derleyici değildir. IDE derleyiciyi barındırmaz. IDE'de derleme işlemi yapılırken
+yazılımlara "_IDE (Integrated Developmen Environment)_" denilmektedir. IDE derleyici değildir. IDE derleyiciyi barındırmaz. IDE'de derleme işlemi yapılırken
 IDE derleyiciyi dışarıdan kullanır. Derleyiciler genel olarak komut satırında çalışan GUI arayüzü olmayan programlardır.
 
 C için önemli IDE'ler şunlardır:
 
-- Windows sistemleri için Microsoft'un "Visual Studio" IDE'si. Kursumuzda bunun "Community-2022" parasız versiyonunu kullanacağız.
+- Windows sistemleri için Microsoft'un "_Visual Studio_" IDE'si. Kursumuzda bunun "_Community-2022_" parasız versiyonunu kullanacağız.
+
 - QtCreator IDE'si. Cross platform bir IDE'dir. Aslında Qt denilen framework için yazılmıştır. Ancak genel amaçlı C/C++ IDE'si olarak
   kullanılabilmektedir. Mac OS ve Linux sistemlerine iyi bir alternatiftir.
-- Eclipse IDE'si. Bu IDE bir Java IDE'si olarak çıkmıştı. Ondan sonra pek çok programlama dili için "plugin" yöntemiyle kullanılabilmeye başlandı.
+
+- Eclipse IDE'si. Bu IDE bir Java IDE'si olarak çıkmıştı. Ondan sonra pek çok programlama dili için "_plugin_" yöntemiyle kullanılabilmeye başlandı.
   Bu IDE'nin C/C++ versiyonu doğrudan indirilebilir.
+
 - CLion IDE'si. Bu JetBrains firmasının C/C++ IDE'sidir. Ancak paralıdır ve community versiyonu yoktur.
+
 - Visual Studio Code IDE'si Aslında bu yazılım IDE ile editör arasında bir yerdedir. Ancak cross platform bir IDE'dir. Kullanımı biraz daha zahmetli olsa da
   çok az yer kaplamaktadır (light weight IDE).
+
 - XCode IDE'si. Bu IDE Apple firmasının temel IDE'sidir. Dolayısıyla adeta Visual Studio IDE'sinin Apple versiyonu gibi düşünülebilir. Her ne kadar
   Apple'ın temel dili Swift ve Objective-C olsa da XCode C/C++ çalışmasını desteklemektedir.
 
@@ -257,7 +272,7 @@ Halbuki bilgisayarlar 2'lik sistemi (binary system) kullanmaktadır. 2'lik siste
     1
 ```
 
-2'lik sistemde sayının her bir basamağına "bit (binary digit)" denilmektedir. 2'lik sistemde sayının her basamağı 2'nin kuvvetiyle çarpılarak sayı elde edilir.
+2'lik sistemde sayının her bir basamağına "_bit (binary digit)_" denilmektedir. 2'lik sistemde sayının her basamağı 2'nin kuvvetiyle çarpılarak sayı elde edilir.
 Bit en küçük bellek birimidir. 8 bite 1 byte denilmektedir. Genellikle bitler 4'erli gruplanarak yazılırlar. Örneğin:
 
 ```
@@ -266,7 +281,7 @@ Bit en küçük bellek birimidir. 8 bite 1 byte denilmektedir. Genellikle bitler
 
 Burada 1 byte'lık bir bilgi vardır. Byte temel bellek birimidir.
 
-Byte da küçük bir birimdir. Kilo diğer bilimlerde "1000 katı" anlamına gelmektedir. Ancak bilgisayarlar 2'lik sistemi kullandığj için 1000 katı iyi bir
+Byte da küçük bir birimdir. Kilo diğer bilimlerde "_1000 katı_" anlamına gelmektedir. Ancak bilgisayarlar 2'lik sistemi kullandığj için 1000 katı iyi bir
 kat değildir. Bu nedenle genel olarak Kilo byte için 2'nin 10'uncu kuvveti olan 1024 kat kullanılır. Yani 1KB (kısaca 1K) 1024 byte'tır. Mega diğer bilimlerde
 kilonun 1000 katıdır. Dolayısıyla milyon kat anlamına gelmektedir. Ancak bilgisayar bilimlerinde genel olarak mega kilonun 1024 katı olarak alınır.
 Bu durumda 1 MB = 1024 _ 1024 (2^20) byte'tır. Giga ise meganın 1024 katıdır. Bu durumda 1 GB = 1024 _ 1024 \* 1024 byte'tır ( 2^30). Giga'dan sonra tera, tera'dan sonra
@@ -287,7 +302,7 @@ peta, ondan sonra da exa gelmektedir.
 
 Biz burada ikilik sistemde, tamsayıları ifade ettik. Ama bütün sayıları pozitif kabul ettik. Peki negatif tamsayılar nasıl ifade edilmektedir?
 
-Bugün negatif sayıların ifade edilmesi için "ikiye tümleyen (two's complement)" sistemi denilen bir sistem kullanılmaktadır. Bu sistemde pozitif ve
+Bugün negatif sayıların ifade edilmesi için "_ikiye tümleyen (two's complement)_" sistemi denilen bir sistem kullanılmaktadır. Bu sistemde pozitif ve
 negatif sayılar birbirlerinin ikiye tümleyenidirler. ikiye tümleyen, bire tümleyene bir (1) eklenerek bulunmaktadır. Bir sayının bire tümleyeni sayıdaki
 0'ların 1, 1'lerin 0 yapılmasıyla bulunur. Bu durumda ikiye tümleyen şöyle hesaplanır. Örneğin aşağıdaki sayının ikiye tümleyenini bulmaya çalışalım:
 
@@ -413,7 +428,7 @@ Bu sistemde örneğin 1 byte içerisinde yazılabilecek en büyük pozitif sayı
 
 Demek ki bu sistemde bir sayıyı üst limitten taşırırsak yüksek bir negatif sayıyla karşılaşırız.
 
-Tamsayılar ikilik sistemde "işaretsiz (unsigned)" ya da "işaretli (signed)" sistemde yorumlanabilirler. İşaretsiz sistemde sayının en solundaki bit işaret biti
+Tamsayılar ikilik sistemde "_işaretsiz (unsigned)_" ya da "_işaretli (signed)_" sistemde yorumlanabilirler. İşaretsiz sistemde sayının en solundaki bit işaret biti
 olarak yorumlanmaz. Sayı herzaman sıfır ya da pozitiftir. İşaretli sistemde ise sayının en solundaki bit işaret bitidir. Sayı ikiye tümleyen aritmetiğine
 göre yorumlanır.
 
@@ -422,14 +437,14 @@ türü olarak belirleyebilir. İşlemciler aslında genellikle işaretli ve işa
 sokulmaktadır. Sonucun yorumu değişmektedir.
 
 Peki noktalı sayılar ikilik sistemde nasıl ifade edilmektedir? İşte insanlar noktalı sayıları ifade etmek için iki format geliştirmişlerdir. Bunlardan birine
-"sabit noktalı formatlar (fixed point formats)" diğerine "kayan noktalı formatlar (floating point formats)" denilmektedir. Sabit noktalı formatlar eski
+"_sabit noktalı formatlar (fixed point formats)_" diğerine "_kayan noktalı formatlar (floating point formats)_" denilmektedir. Sabit noktalı formatlar eski
 devirlerde basit bir mantıkla tasarlanmıştır. Bu formatlar bugün hala kullanılıyor olsa da artık bunların çağı büyük ölçüde kapanmıştır. Bugün kayan noktalı
 format denilen formatlar kullanılmaktadır.
 
 Sabit noktalı formatlarda noktalı sayı için n byte yer ayrılır. Noktanın yeri önceden bellidir. Örneğin sayı 4 byte ile ifade edilsin.
 Noktanın yeri de tam ortada olsun. Bu durumda sayının tam kısmı 2 byte ile noktalı kısmı 2 byte ile ifade edilir. Ancak sayının noktalı kısmı 2'nin
 negatif kuvvetleriyle kodlanmaktadır. Böylece iki sabit noktalı sayıyı paralel toplayıcılarla kolay bir biçimde toplayabiliriz: Örneğin bu sistemde
-5.25 ile 6.25 sayılarını ifade edip toplayalım:
+`5.25` ile `6.25` sayılarını ifade edip toplayalım:
 
 ```
     0000 0000 0000 0101 . 0100 0000 0000 0000 ---> 5.25
@@ -443,9 +458,9 @@ Peki bu yöntemin ne dezavantajı vardır? Yöntemin en önemli dezavantajı din
 [6. Ders - 09/06/2022 - Perşembe]()
 
 Sabit noktalı formatların dinamik olmaması nedeniyle kayan noktalı formatlar geliştirilmiştir. Bu formatlarda noktanın yeri sabit değildir.
-Noktanın yeri format içerisinde ayrıca tutulmaktadır. Noktalı sayının noktası yokmuş gibi ifade edilmesi durumunda sayının bu haline "mantis (mantissa)"
-denilmektedir. İşte kayan formatlarda sayı için ayrılan alanın bir bölümünde mantis bir bölümünde de "noktanın yeri" tutulmaktadır. Noktanın yerini belirleyen
-kısma "üstel kısım (exponential part)" denilmektedir. Tabii bir de sayının başında işaret biti bulunur. Bu durumda kayan noktalı bir sayının formatı aşağıdakine benzerdir:
+Noktanın yeri format içerisinde ayrıca tutulmaktadır. Noktalı sayının noktası yokmuş gibi ifade edilmesi durumunda sayının bu haline "_mantis (mantissa)_"
+denilmektedir. İşte kayan formatlarda sayı için ayrılan alanın bir bölümünde mantis bir bölümünde de "_noktanın yeri_" tutulmaktadır. Noktanın yerini belirleyen
+kısma "_üstel kısım (exponential part)_" denilmektedir. Tabii bir de sayının başında işaret biti bulunur. Bu durumda kayan noktalı bir sayının formatı aşağıdakine benzerdir:
 
 ```
     [işaret biti] [mantis] [noktanın yeri (exponential)]
@@ -460,7 +475,7 @@ Bugün ağırlıklı kullanılan kayan noktalı format IEEE 754 denilen formatt�
 Bugün Intel, ARM, MIPS, Alpha, Power PC gibi yaygın işlemciler donanımsal olarak bu formatı desteklemektedir. Aynı zamanda bu format yaygın olarak Reel Sayı Ünitesi
 olmayan mikrodenetleyicilerdeki derleyiciler tarafından da kullanılmaktadır.
 
-Kayan noktalı formatların (örneğin IEEE 754 formatının) en ilginç ve problemli tarafı "yuvarlama hatası (rounding error)" denilen durumdur. Yuvarlama hatası
+Kayan noktalı formatların (örneğin IEEE 754 formatının) en ilginç ve problemli tarafı "_yuvarlama hatası (rounding error)_" denilen durumdur. Yuvarlama hatası
 noktalı sayının tam olarak ifade edilemeyip onun yerine ona yakın bir sayının ifade edilmesiyle oluşan hatadır. Yuvarlama hatası, sayıyı ilk kez depolarken de
 oluşabilir, aritmetik işlemlerin sonucunda da oluşabilir. Tabii noktalı sayıların bir bölümü bu formatta hiçbir yuvarlama hatasına maruz kalmadan ifade edilebilmektedir.
 Ancak bazı sayılarda bu hata oluşabilmektedir. Bu hatayı ortadan kaldırmanın yolu yoktur. Tabii sayı için daha fazla bit ayrılırsa yuvarlama hatasının etkisi de azalacaktır.
@@ -477,15 +492,15 @@ ne yapak gerekir? İşte bunun tek yolu noktalı sayıları kayan noktalı forma
 kayan noktalı formatta tutmayan böylece yuvarlama hatalarına maruz bırakmayan özel türler (örneğin C#'taki decimal) vardır. Ancak bu türler işlemciler tarafından
 desteklenmediği için yapay türlerdir.
 
-Yazılar da aslında bilgisayar belleğinde, 2'lik sistemdeki sayılar biçiminde tutulmaktadır. Bir yazıyı oluşturan elemanlara "karakter" denilmektedir. İşte
+Yazılar da aslında bilgisayar belleğinde, 2'lik sistemdeki sayılar biçiminde tutulmaktadır. Bir yazıyı oluşturan elemanlara "_karakter_" denilmektedir. İşte
 bir yazıda her bir karakter 2'lik sistemde bir sayı ile ifade edilir. Böylece yazı aslında ikilik sistemde bir sayı dizisi gibi tutulmaktadır. İşte
-bir karakter için o karakterin hangi sayıya karşı geldiğini belirten tablolara "karakter tabloları" denilmektedir. Karakter tablosundaki karakter şekillerine "glyph"
-denilmektedir. Her karaktere tabloda bir sıra numarası verilmiştir. Buna da "code point" denilmektedir. Dünyanın ilk standart karakter tablosu "ASCII (American
-Standard Code Information Interchange)" denilen tablodur. ASCII tablosu aslında 7 bit bir tablodur. Dolayısıyla tabloda 128 tane glyph için code point
+bir karakter için o karakterin hangi sayıya karşı geldiğini belirten tablolara "_karakter tabloları_" denilmektedir. Karakter tablosundaki karakter şekillerine "_glyph_"
+denilmektedir. Her karaktere tabloda bir sıra numarası verilmiştir. Buna da "_code point_" denilmektedir. Dünyanın ilk standart karakter tablosu "_ASCII (American_
+_Standard Code Information Interchange)_" denilen tablodur. ASCII tablosu aslında 7 bit bir tablodur. Dolayısıyla tabloda 128 tane glyph için code point
 bulundurulmuştur. ASCII dışında IBM EBCDIC tablosunu geliştirmiştir. Wang firması WISCII tablosunu kullanmıştır. ASCII tablosu Amerikalılar tarafından yalnızca İngilizce
 karakterleri ifade etmek için oluşturulmuştur. Bilgisayarlar yaygınlaşmaya başladığında farklı karakterlere sahip olan Türkiye gibi, Yunanistan gibi, Almanya gibi
-ülkeler bu ASCII tablosunu 8 bite çıkartıp elde edilen 128'lik yeni alanı kendi karakterlerini ifade etmek için kullanmışlardır. ASCII tablosunun ilk yarısı
-(yani [0, 128] numaraları karakterler) standarttır. Ancak ikinci yarısı "code page" adı altında farklı ülkeler tarafından farklı yerleşimler yapılarak kullanılmaktadır.
+ülkeler bu ASCII tablosunu 8 bite çıkartıp elde edilen 128 lik yeni alanı kendi karakterlerini ifade etmek için kullanmışlardır. ASCII tablosunun ilk yarısı
+(yani `[0, 128]` numaraları karakterler) standarttır. Ancak ikinci yarısı "_code page_" adı altında farklı ülkeler tarafından farklı yerleşimler yapılarak kullanılmaktadır.
 DOS zamanlarında Türkçe karakterler için OEM 857 denilen code page kullanılıyordu. Daha sonra Microsoft Windows sistemlerinde Türkçe karakterler için 1254 code page'i
 düzenledi. ISO bu code page'leri standart hale getirmiştir. Bugün Türkçe karakterler ISO tarafından ASCII 8859-9 Code page'i ile düzenlenmiştir.
 
@@ -494,7 +509,7 @@ artık karakterleri 2 byte içerisinde ifade ederek dünyanın bütün dillerini
 denilen bir tablo oluşturulmuştur (www-unicode.org). UNICODE tablo ISO tarafından 10646 ismiyle de bazı farklılıklarla standardize edilmiştir. UNICODE tablonun
 ilk 128 karakteri standart ASCII karakterleri, ikinci 128 karakteri ISO 8859-9 code page'indeki karakterlerdir.
 
-Bir karakter tablosundaki code point'lerin ikilik sistemde ifade edilme biçimine "encoding" denilmektedir. ASCII code page'lerinde encoding doğrudan
+Bir karakter tablosundaki code point'lerin ikilik sistemde ifade edilme biçimine "_encoding_" denilmektedir. ASCII code page'lerinde encoding doğrudan
 code point'in 1 byte'lık sayı karşılığıdır. Ancak UNICODE tablonun değişik encoding'leri kullanılmaktadır. UNICODE tablonun klasik encoding'i UTF-16'dır.
 Burada code point doğrudan 16 bitlik bir sayı biçiminde ifade edilir. UTF-32 encoding'inde ise code point 32 bitlik bir sayı biçiminde ifade edilmektedir.
 Ancak UNICODE tablonun en yaygın kullanılan encoding'i UTF-8 encoding'idir. UTF-8 kodlamasında standart ASCII karakterler 1 byte ile, diğer karakterler
@@ -503,7 +518,7 @@ adeta sıkıştırılmış bir hali gibi düşünülebilir.
 
 Bugün pek çok programlama editörleri default durumda dosyayı UNICODE UTF-8 encoding'ine göre saklamaktadır.
 
-Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de 16'lık sistemdir. 16'lık sisteme İngilizce "hexadecimal system" denilmektedir. 16'lık
+Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de 16'lık sistemdir. 16'lık sisteme İngilizce "_hexadecimal system_" denilmektedir. 16'lık
 sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 10'luk sistemdeki sembollerden alınmıştır. Sonraki 6 sembol alfabetik karakterlerden alınmıştır.
 
 ```
@@ -525,7 +540,7 @@ sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 1
     F
 ```
 
-16'lık sistemdeki her bir basamağa "hex digit" denilmektedir. Örneğin:
+16'lık sistemdeki her bir basamağa "_hex digit_" denilmektedir. Örneğin:
 
 ```
     1FC8
@@ -580,7 +595,7 @@ bir byte'lık işaretli sistemde yazılabilecek en büyük pozitif sayı 7F biç
 biçimindedir.
 
 Eskiden daha fazla kullanılıyor olsa da toplamda oldukça seyrek kullanılan dğer bir sayı sistemi de 8'lik sayı sistemidir. Bu sisteme İngilizce
-"octal system" denilmektedir. 8'lik sayı sistemindeki her bir basamağa "octal digit" denir. Octal digit sembolleri olarak 10'luk sistemin ilk 8 sembolü
+"_octal system_" denilmektedir. 8'lik sayı sistemindeki her bir basamağa "_octal digit_" denir. Octal digit sembolleri olarak 10'luk sistemin ilk 8 sembolü
 kullanılmaktadır:
 
 ```
@@ -674,47 +689,48 @@ Ekrana Merhaba Dünya yazısını çıkartan örnek C programı aşağıdaki gib
     }
 ```
 
-Bir C programı en yalın olarak önce bir text editör ile yazılır ve diske uzantısı ".c" biçiminde kaydedilir. Sonra komut satırından C derleyicisi ile
+Bir C programı en yalın olarak önce bir text editör ile yazılır ve diske uzantısı `.c` biçiminde kaydedilir. Sonra komut satırından C derleyicisi ile
 derlenir. Derleyiciler genel olarak komut satırından çalıştırılacak biçimde yazılırlar. En çok kullanılan C derleyicileri şunlardır:
 
 - Microsoft C Derleyicisi
+
 - gcc Derleyicisi
+
 - clang Derleyicisi
+
 - Intel derleyicisi
 
 Bu derleyicilerin dışında daha pek çok C derleyicisi vardır ve çeşitli kesimler tarafından kullanılmaktadır. Windows'ta ağırlıklı olarak Microsoft C
-Derleyicisi kullanılmaktadır. UNIX/Linux ve Mac OS sistemlerinde ise çoğu kez "gcc" ya da "clang" derleyicileri tercih edilmektedir. "gcc" derleyicisinin ve clang
-derleyicisinin Windows versiyonu da vardır. "gcc" derleyicisinin Windows port'una "mingw (minimalist gnu for windows)" denilmektedir.
+Derleyicisi kullanılmaktadır. UNIX/Linux ve Mac OS sistemlerinde ise çoğu kez "_gcc_" ya da "_clang_" derleyicileri tercih edilmektedir. gcc derleyicisinin ve clang
+derleyicisinin Windows versiyonu da vardır. gcc derleyicisinin Windows port'una "_mingw (minimalist gnu for windows)_" denilmektedir.
 
-C programını C derleyicisi ile derledikten sonra eğer hiçbir hata yoksa derleyici bize "relocatable object module" dosyasını üretir. Bu dosyaya biz Türkçe
-"amaç kod dosyası" da diyeceğiz. Amaç kod dosyası (relocatable object module) daha sonra "bağlayıcı (linker)" denilen bir programa sokulur. Bu linker programı
-"çalıştırılabilir (executable)" dosyaysı üretir. Biz de nihayetinde bu dosyayı çalıştırırz.
+C programını C derleyicisi ile derledikten sonra eğer hiçbir hata yoksa derleyici bize "_relocatable object module_" dosyasını üretir. Bu dosyaya biz Türkçe
+"_amaç kod dosyası_" da diyeceğiz. Amaç kod dosyası (relocatable object module) daha sonra "_bağlayıcı (linker)_" denilen bir programa sokulur. Bu linker programı
+"_çalıştırılabilir (executable)_" dosyaysı üretir. Biz de nihayetinde bu dosyayı çalıştırırz.
 
-```
-                .c -----> C Derleyicisi -----> Object file -----> Bağlayıcı (Linker) -----> Çalıştırılabilir (executable)
-```
+>                .c -----> C Derleyicisi -----> Object file -----> Bağlayıcı (Linker) -----> Çalıştırılabilir (executable)
 
 Bağlayıcı (linker da diyeceğiz) aslında bir grup amaç dosyayı alıp tek bir çalıştırılabilir dosya oluşturmaktadır. Bir amaç dosyanın içerisinde derlenmiş kodların
 yanı sıra bağlayıcnın birleştirme yapabilmesi için çeşitli bilgiler de vardır.
 
-Windows'ta bağlayıcı olarak genellikle Microsoft'un "link.exe" isimli programı kullanılmaktadır. UNIX/Linux sistemlerinde ağırklıklı olarak "GNU ld" isimli
-bağlayıcı ya da "clang ldd bağlayıcısı" kullanılır.
+Windows'ta bağlayıcı olarak genellikle Microsoft'un `link.exe` isimli programı kullanılmaktadır. UNIX/Linux sistemlerinde ağırklıklı olarak "_GNU ld_" isimli
+bağlayıcı ya da "_clang ldd bağlayıcısı_" kullanılır.
 
-Derleyicinin ürettiği amaç dosyanın uzantısı Windows sistemlerinde ".obj" biçimindedir. UNIX/Linux ve Mac OS sistemlerinde derleyicinin ürettiği amaç dosya
-".o" uzantılı olur.
+Derleyicinin ürettiği amaç dosyanın uzantısı Windows sistemlerinde `.obj` biçimindedir. UNIX/Linux ve Mac OS sistemlerinde derleyicinin ürettiği amaç dosya
+`.o` uzantılı olur.
 
-Bağlayıcnın ürettiği "çalıştırılabilir" dosya ise Windows sistemlerinde ".exe" uzantılıdır. UNIX/Linux ve Mac OS sistemlerinde dosyanın çalıştırılabilir olup
+Bağlayıcnın ürettiği "_çalıştırılabilir_" dosya ise Windows sistemlerinde `.exe` uzantılıdır. UNIX/Linux ve Mac OS sistemlerinde dosyanın çalıştırılabilir olup
 olmadığı uzantı ile değil dosya özellikleri (attributes) ile belirlenmektedir.
 
 Windows sistemlerinde Merhaba Dünya programının komut satırından derlenip çalıştırışması şöyle yapılır:
 
-**1.** Program bir editörde yazılır ve .c uzantılı biçimde saklanır. Biz bunun "sample.c" olduğunu varsayalım.
+**1.** Program bir editörde yazılır ve `.c` uzantılı biçimde saklanır. Biz bunun `sample.c` olduğunu varsayalım.
 
-**2.** Daha sonra komut satırı programı çalıştırılır ve dosayanın saklandığı dizine gidilir. Komut satırı programı olarak "cmd.exe" programını doğrudan kullanmayınız.
-Çünkü bu program gerekli "path ayarlarına" sahip değildir. Bunun yerine komut satırına geçmek için "Developer Command Prompt for VS 2022" programını kullanınız.
+**2.** Daha sonra komut satırı programı çalıştırılır ve dosayanın saklandığı dizine gidilir. Komut satırı programı olarak `cmd.exe` programını doğrudan kullanmayınız.
+Çünkü bu program gerekli "_path ayarlarına_" sahip değildir. Bunun yerine komut satırına geçmek için "_Developer Command Prompt for VS 2022_" programını kullanınız.
 Bu kısa yolu masaüstüne taşırsanız rahat edersiniz.
 
-**3.** Microsoft'un C derleyicisi "cl.exe" isimli programdır. Bu program en basit olarak şöyle çalıştırılır:
+**3.** Microsoft'un C derleyicisi `cl.exe` isimli programdır. Bu program en basit olarak şöyle çalıştırılır:
 
 ```
     cl <kaynak dosya ismi>
@@ -726,36 +742,36 @@ Bu kısa yolu masaüstüne taşırsanız rahat edersiniz.
     cl sample.c
 ```
 
-cl.exe programı derlemeyi yaptıktan sonra zaten "linker" programını kendisi çalıştırmaktadır.
+cl.exe programı derlemeyi yaptıktan sonra zaten "_linker_" programını kendisi çalıştırmaktadır.
 
-**4.** Artık cl.exe derleme işlemini yapıp bağlayıcı programı da (link.exe) çalıştırdığı için çalıştırılabilir dosya oluşturulmuş olur. Tek yapacağmız şey
+**4.** Artık cl.exe derleme işlemini yapıp bağlayıcı programı da (`link.exe`) çalıştırdığı için çalıştırılabilir dosya oluşturulmuş olur. Tek yapacağmız şey
 çalıştırılabilir programın ismini yazarak ENTER tuşuna basmaktır.
 
-cl.exe derleyicisinin yalnızca derleme yapmasını ancak bağlayıcıyı çalıştırmamasını istiyorsak /c seçeneğini (switch) kullanmamız gerekir. Örneğin:
+`cl.exe` derleyicisinin yalnızca derleme yapmasını ancak bağlayıcıyı çalıştırmamasını istiyorsak `/c` seçeneğini (switch) kullanmamız gerekir. Örneğin:
 
 ```
     cl /c sample.c
 ```
 
-Şimdi artık derleyici linker programını çalıştırmayacaktır. Yalnızca .obj dosyayı oluşturacaktır. Biz istersek bağlayıcı programı da bağımsız olarak çalıştırabiliriz.
-Microsoft'un bağlayıcı programı "link.exe" isimli programdır.
+Şimdi artık derleyici linker programını çalıştırmayacaktır. Yalnızca `.obj` dosyayı oluşturacaktır. Biz istersek bağlayıcı programı da bağımsız olarak çalıştırabiliriz.
+Microsoft'un bağlayıcı programı `link.exe` isimli programdır.
 
 ```
     link sample.obj
 ```
 
-Baradan "sample.exe" programı elde edilecektir. cl.exe derleyicisinde çalıştırılabilir dosyanın ismini değiştirebilmek için /Fe:<dosya ismi> seçeneği
+Baradan `sample.exe` programı elde edilecektir. cl.exe derleyicisinde çalıştırılabilir dosyanın ismini değiştirebilmek için `/Fe:<dosya ismi>` seçeneği
 kullanılmaktadır. Örneğin:
 
 ```
     cl /Fe:test.exe sample.c
 ```
 
-Artık çalıştırılabilir dosyanın ismi "sample.exe" değil "test.exe" olacaktır.
+Artık çalıştırılabilir dosyanın ismi `sample.exe` değil `test.exe` olacaktır.
 
 Linux sistemlerinde Merhaba Dünya programının derlenerek çalıştırılması da şöyle yapılmaktadr:
 
-**1.** Yine önce bir editörde program yazılır ve .c dosyası olarak kaydedilir. Biz kaynak dosyamıza "sample.c" ismini vermiş olalım.
+**1.** Yine önce bir editörde program yazılır ve `.c` dosyası olarak kaydedilir. Biz kaynak dosyamıza `sample.c` ismini vermiş olalım.
 
 **2.** Komut satırından kaynak dosyanın bulunduğu dizine geçilir. gcc derleyicisi ile clang derleyicilerinin komut satırı seçenkleri tamamen aynıdır.
 Derleme işlemi için şu komut uygulanır:
@@ -772,7 +788,7 @@ Derleme işlemi için şu komut uygulanır:
 ```
 
 gcc de tıpkı cl.exe programında olduğu gibi önce derleme işlemini yapar. Sonra bağlayıcı programı çalıştırıp çalıştırılabilen dosyayı oluşturur.
-gcc derleyicisi derlemeyi bitirip bağlayıcıyı çalıştırdıktan sonra "object dosyayı" silmektedir. Bu biçimde oluşturulan çalıştırılabilen dosya "a.out"
+gcc derleyicisi derlemeyi bitirip bağlayıcıyı çalıştırdıktan sonra "_object dosyayı_" silmektedir. Bu biçimde oluşturulan çalıştırılabilen dosya `a.out`
 ismindedir. Bu dosyanın çalıştırılması şöyle yapılmalıdır:
 
 ```
@@ -780,65 +796,67 @@ ismindedir. Bu dosyanın çalıştırılması şöyle yapılmalıdır:
 ```
 
 Windows sistemlerinde çalıştırılabilir dosyanın yalnızca isminin yazılması yeterlidir. Ancak UNIX/Linux ve Mac OS sistemlerinde ./isim biçiminde çalıştırma
-yapılır. gcc derleyicisinde çalıştırılabilir dosyaya isim vermek için "-o isim" seçeneği kullanılır. Örneğin:
+yapılır. gcc derleyicisinde çalıştırılabilir dosyaya isim vermek için `-o isim` seçeneği kullanılır. Örneğin:
 
 ```
     gcc -o sample sample.c
 ```
 
-Burada sample.c dosyası derlenir ve sample isimli çalıştırılabilir dosya oluşturulur. Tabii istersek gcc derleyicilerinde de yalnızca derleme yapıp
-bağlayıcıyı çalıştırmayabiliriz. Bunun için "-c" seçeneği kullanılmaktadır. Örneğin:
+Burada `sample.c` dosyası derlenir ve `sample` isimli çalıştırılabilir dosya oluşturulur. Tabii istersek gcc derleyicilerinde de yalnızca derleme yapıp
+bağlayıcıyı çalıştırmayabiliriz. Bunun için `-c` seçeneği kullanılmaktadır. Örneğin:
 
 ```
     gcc -c sample.c
 ```
 
-Burada derleme işlemi yapılır, "sample.o" object dosyası oluşturulur ancak başlayıcı çalıştırılmaz.
+Burada derleme işlemi yapılır, `sample.o` object dosyası oluşturulur ancak başlayıcı çalıştırılmaz.
 
 Micrsoft Visual Studio IDE'sinde bir C programının derlenip çalıştırılabilmesi için tipik olarak şunlar yapılmalıdır:
 
 **1.** Önce Visual Studio IDE'si çalıştırılır (Kurs yapıldığı sırada kullanılan IDE Visual Studio 2022 Community Edition biçimidedir.) IDE açlıştırıldıktan
-sonra bir giriş sayfası gözükür. Oradan "Continue without code" seçilerek ana ekrana geçilir.
+sonra bir giriş sayfası gözükür. Oradan **Continue without code** seçilerek ana ekrana geçilir.
 
-**2.** Visual Studio IDE'sinde bir çalışma yapmak için bir proje yaratılmalıdır. Ancal projeler de "solution" denilen kapların içerisindedir. O halde aslında bir
-proje yaratmak için bir solution da yaratılmaktadır. Bir solution aslında birdne fazla projeyi tutan bir kap gibidir. Proje yaratmak için File/New/Project
-seçilir. Proje türü olarak "C++ Empty Project" seçilir.
+**2.** Visual Studio IDE'sinde bir çalışma yapmak için bir proje yaratılmalıdır. Ancal projeler de "_solution_" denilen kapların içerisindedir. O halde aslında bir
+proje yaratmak için bir solution da yaratılmaktadır. Bir solution aslında birdne fazla projeyi tutan bir kap gibidir. Proje yaratmak için **File/New/Project**"_
+seçilir. Proje türü olarak **C++ Empty Project**"_ seçilir.
 
-**3.** Bundan sonra Projeye bir isim verilir. Visual Studio proje bilgilerini burada ismi verilen bir dizin yaratarak onun içerisine yerleştirmektedir. "Location"
-proje dizininin hangi dizinin altında yaratılacağını belirtir. "Place solution and project in the same directory" checkbox'ı çarpılanmalıdır. Sonra proje
-yaratılır. Artık elimizde içi boş bir proje vardır. Bir proje yaratıldığında aynı zamanda bir "solution" da yaratılmış olur. Solution'ı idare etmek için
-"Solution Explorer" denilen pencereden faydalanılır.
+**3.** Bundan sonra Projeye bir isim verilir. Visual Studio proje bilgilerini burada ismi verilen bir dizin yaratarak onun içerisine yerleştirmektedir. **Location**
+proje dizininin hangi dizinin altında yaratılacağını belirtir. **Place solution and project in the same directory** checkbox'ı çarpılanmalıdır. Sonra proje
+yaratılır. Artık elimizde içi boş bir proje vardır. Bir proje yaratıldığında aynı zamanda bir "_solution_" da yaratılmış olur. Solution'ı idare etmek için
+**Solution Explorer** denilen pencereden faydalanılır.
 
-**4.** Artık sıra projeye bir kaynak dosya eklemeye gelmiştir. Bu işlem Project/Add New Item menüsü ile ya da "Solution Explorer"da proje üzerinde bağlam menüsünü
-açıp Add/New Item seçilerek de yapılabilir. Artık karşımıza başka bir diyalog penceresi çıkacaktır. Burada "C++ File" seçilip dosya ismi "uzantısı .c olacak biçimde"
-seçilmelidir. Microsoft C++ demekle aynı zamanda C'yi kastetmektedir. Aslında cl.exe derleyicisi hem C hem de C++ derleyicisidir. Bu derleyici hangi dile göre derleme yapacağına
-kaynak kodun uzantısına bakarak karar verir. Dolayısıyla bizim dosya uzantısını kesinlikle .c" biçiminde girmemiz gerekir.
+**4.** Artık sıra projeye bir kaynak dosya eklemeye gelmiştir. Bu işlem **Project/Add New Item** menüsü ile ya da **Solution Explorer**'da proje üzerinde bağlam menüsünü
+açıp **Add/New Item** seçilerek de yapılabilir. Artık karşımıza başka bir diyalog penceresi çıkacaktır. Burada **C++ File** seçilip dosya ismi "uzantısı `.c` olacak biçimde
+seçilmelidir. Microsoft C++ demekle aynı zamanda C'yi kastetmektedir. Aslında `cl.exe` derleyicisi hem C hem de C++ derleyicisidir. Bu derleyici hangi dile göre derleme yapacağına
+kaynak kodun uzantısına bakarak karar verir. Dolayısıyla bizim dosya uzantısını kesinlikle `.c` biçiminde girmemiz gerekir.
 
 **5.** Kaynak dosya projeye eklendikten sonra kod yazılır.
 
-**6.** Build/Compile seçilirse dosya yalnızca derlenir. "Build" kavramı C/C++ dünyasında "derleme ve link işlemini" anlatmaktadır. Build/Build Solution seçilirse
-solution içerisindeki tüm projeler derlenip link edilir. Build/Build XXX seçilirse (burada XXX aktif projenin ismidir) bu durumda yalnızca aktif proje derlenerek link edilir.
+**6.** **Build/Compile** seçilirse dosya yalnızca derlenir. "_Build_" kavramı C/C++ dünyasında "_derleme ve link işlemini_" anlatmaktadır. **Build/Build Solution** seçilirse
+solution içerisindeki tüm projeler derlenip link edilir. **Build/Build XXX** seçilirse (burada XXX aktif projenin ismidir) bu durumda yalnızca aktif proje derlenerek link edilir.
 
-**7.** Programı çalıştırmak için Debug/Start Withoout Debugging seçilir. Bunun kısa yol tuşu "Ctrl + F5"tir. Zaten Ctrl+F5'e bastığımızda dosyada bir
-değişiklik varsa build işlemi yapılmaktadır. O halde aslında bizim tek yapacağımız şey Ctrl+F5 tuşlarına basmaktır.
+**7.** Programı çalıştırmak için Debug/Start Withoout Debugging seçilir. Bunun kısa yol tuşu **Ctrl + F5**'tir. Zaten **Ctrl+F5**'e bastığımızda dosyada bir
+değişiklik varsa build işlemi yapılmaktadır. O halde aslında bizim tek yapacağımız şey **Ctrl+F5** tuşlarına basmaktır.
 
-Projeyi (solution'u) kapatma işlemi File/Close Solution menüsü ile yapılabilir. Bir projeyi açmanın en kolay yolu giriş ekranındaki "Open recent"
-listesinden son projelerden birini seçmektir. Dğer yolu File/Open-Project menüsünü seçip buradan solution dizininne gelip uzantısı ".sln" olan dosyayı seçmektir.
+Projeyi (solution'u) kapatma işlemi **File/Close Solution** menüsü ile yapılabilir. Bir projeyi açmanın en kolay yolu giriş ekranındaki **Open recent**
+listesinden son projelerden birini seçmektir. Diğer yolu **File/Open-Project** menüsünü seçip buradan solution dizininne gelip uzantısı `.sln` olan dosyayı seçmektir.
 
 [8. Ders - 16/06/2022 - Perşembe]()
 
-C/C++ için çok tercih edilen diğer bir IDE de "Qt Creator" denieln IDE'dir. Buradaki çalışma biçimi ana hatlarıyla Visual Studio'ya benzemektedir.
-Önce yine bir proje yaratılmalıdır. Bunun için File/New File or Project menüsü seçilir. Template olarak "None Qt Project" seçilir. Buradan da "Plain C Application"
+C/C++ için çok tercih edilen diğer bir IDE de "_Qt Creator_" denieln IDE'dir. Buradaki çalışma biçimi ana hatlarıyla Visual Studio'ya benzemektedir.
+Önce yine bir proje yaratılmalıdır. Bunun için "_File/New File or Project_" menüsü seçilir. Template olarak "_None Qt Project_" seçilir. Buradan da "_Plain C Application_"
 seçilir. Projeye isim verilir ve projenin yaratılacağı dizin belirtilir. Qt Creator IDE'si bu seçenekle bir C dosyasını projeye ekleyip onun içerisine birkaç satırlık
-"Merhaba Dünya" programını yazmaktadır. Derleme ve link işlemi ve çalıştırma işlemi tek tuşla (Ctrl+R) yapılabilir. Yine bu işlem GUI ekranındaki çalıştır düğmesine
+"_Merhaba Dünya_" programını yazmaktadır. Derleme ve link işlemi ve çalıştırma işlemi tek tuşla (`Ctrl+R`) yapılabilir. Yine bu işlem GUI ekranındaki çalıştır düğmesine
 tıklanarak da yapılabilmektedir.
 
-Kod derleyici tarafından derlenirken derleyiciler bazı sorunlar karşısında "hata mesajları" ile bu sorunları programcıya iletirler. Derleyicilerin verdiği
+Kod derleyici tarafından derlenirken derleyiciler bazı sorunlar karşısında "_hata mesajları_" ile bu sorunları programcıya iletirler. Derleyicilerin verdiği
 hata mesajları üçe ayrılmaktadır:
 
-**1.** Uyarılar (Warnings)
-**2.** Gerçek Hatalar (Errors)
-**3.** Ölümcül Hatalar (Fatal Errors)
+**1. Uyarılar (Warnings)**
+
+**2. Gerçek Hatalar (Errors)**
+
+**3. Ölümcül Hatalar (Fatal Errors)**
 
 Uyarılar, amaç kod oluşumunu engellemeyecek derecede mantıksal hatalar için verilmektedir. Yani derleyici kodu anlamlandırmakla birlike programcının yapmış
 olabileceği olası hatalara dikkat çekmek için uyarı vermektedir. Gerçek hatalar, object dosyanın oluşunu engelleyecek derecede olan ciddi hatalardır. Genellikle
@@ -904,29 +922,29 @@ Bir programlama dilinde kendi başına anlamlı olan en küçük birime "atom (t
 
 ```
 
-Gerçekten de derleyiciler derlemenin ilk aşamasında kaynak kodu bu biçimde parçalara ayırmaktadır. Derleyicilerin bu işi yapan modüllerine "scanner" ya da
-"lexical analyzer" ya da "tokenizer" denilmektedir.
+Gerçekten de derleyiciler derlemenin ilk aşamasında kaynak kodu bu biçimde parçalara ayırmaktadır. Derleyicilerin bu işi yapan modüllerine "_scanner_" ya da
+"_lexical analyzer_" ya da "_tokenizer_" denilmektedir.
 
 Atomlar tipik olarak 6 gruba ayrılmaktadır:
 
 **1. Anahtar Sözcükler (Keywords/Reserved Words):** Dil için özel anlamı olan, değişken olarak kullanılması yasaklanmış sözcüklerden oluşan atomlardır.
-Örneğin "if" gibi, "return" gibi, "int" gibi.
+Örneğin `if` gibi, `return` gibi, `int` gibi.
 
-**2. Değişkenler (Identifers):** İsmini programcının istediği gibi verebildiği atomlardır. Örneğin bir programdaki i, count, a, b gibi atomlar tipik olarak değişken
-atomlardır. Merhaba Dümya programındaki printf ve main anahtar sözcük değildir. Değişken atom statüsündedir. Bir atomun anahtar sözcük olması için derleyicinin
-onu gördüğünde değişkenden farklı bir işlem uygulaması gerekir (Halbuki derleyici printf, main için farklı bir işlem uygulamaz, o halde printf ve main anahtar
+**2. Değişkenler (Identifers):** İsmini programcının istediği gibi verebildiği atomlardır. Örneğin bir programdaki `i`, `count`, `a`, `b` gibi atomlar tipik olarak değişken
+atomlardır. Merhaba Dümya programındaki `printf` ve `main` anahtar sözcük değildir. Değişken atom statüsündedir. Bir atomun anahtar sözcük olması için derleyicinin
+onu gördüğünde değişkenden farklı bir işlem uygulaması gerekir (Halbuki derleyici `printf`, `main` için farklı bir işlem uygulamaz, o halde `printf` ve `main` anahtar
 sözcük degillerdir.)
 
 **3. Sabitler (Literals/Constants):** Bir sayı ya bir değişkenin içerisindedir ya da program içerisinde doğrudan yazılmıştır. İşte programda doğrudan
-yazılmış olan sayılara "sabit" denilmektedir. Örneğin:
+yazılmış olan sayılara "_sabit_" denilmektedir. Örneğin:
 
 ```
     a = b + 10;
 ```
 
-Burada a ve b değişken atomdur, ancak 10 sabit atomdur.
+Burada `a` ve `b` değişken atomdur, ancak `10` sabit atomdur.
 
-**4. Operatörler (Operators):** Bir işleme yol açan ve işlem sonucunda bir değer üretilmesini sağlayan + gibi - gibi, \* gibi atomlara operatör denilmektedir.
+**4. Operatörler (Operators):** Bir işleme yol açan ve işlem sonucunda bir değer üretilmesini sağlayan `+` gibi, `-` gibi, `*` gibi atomlara operatör denilmektedir.
 Örneğin:
 
 ```
@@ -945,13 +963,13 @@ Bu ifadedeki atomlar ve türleri şöyledir:
     3	sabit
 ```
 
-**5. Stringler (String literals):** İki tırnak içerisindeki yazılar iki tırnaklarıyla birlikte tek bir atom belirtir. Bunlara "string" denilmektedir.
+**5. Stringler (String literals):** İki tırnak içerisindeki yazılar iki tırnaklarıyla birlikte tek bir atom belirtir. Bunlara "_string_" denilmektedir.
 
-**6. Ayıraçlar (Delimiters/Punctuators):** Yukarıdaki grupların dışında kalan ifadeleri birbirine ayırmak için kullanılan tüm atomlar ayıraç grubundadır.
+**6. Ayıraçlar (Delimiters/Punctuators):** Yukarıdaki grupların dışında kalan ifadeleri birbirine ayırmak için kullanılan tüm atomlar "_ayıraç_" grubundadır.
 
-##### İfade (Expression)
+#### İfade (Expression)
 
-Değişkenlerin, operatörlerin ve sabitlerin her bir kombinasyonuna "ifade (expression)" denilmektedir. Örneğin:
+Değişkenlerin, operatörlerin ve sabitlerin her bir kombinasyonuna "_ifade (expression)_" denilmektedir. Örneğin:
 
 ```
     a + b
@@ -965,20 +983,20 @@ Değişkenlerin, operatörlerin ve sabitlerin her bir kombinasyonuna "ifade (exp
 
 birer ifadedir. Tek başına bir değişken ve tek başına bir sabit, bir ifade belirtir. Ancak tek başına bir operatör ifade belirtmez.
 
-##### Nesne (Object)
+#### Nesne (Object)
 
-Bellekte yer kaplayan ve erişilebilen bölgelere "nesne (object)" denilmektedir (_not: burada sözü geçen nesne kavramının nesne yönelimli programlamadaki nesne kavramıyla
-bir ilişkisi yoktur._) Programlama dillerindeki değişkenler genellikle nesne durumundadır. Örneğin:
+Bellekte yer kaplayan ve erişilebilen bölgelere "_nesne (object)_" denilmektedir (_not: burada sözü geçen nesne kavramının nesne yönelimli programlamadaki nesne kavramıyla_
+_bir ilişkisi yoktur._) Programlama dillerindeki değişkenler genellikle nesne durumundadır. Örneğin:
 
 ```
     a = 10
 ```
 
-gibi bir ifadede a bir nesne durumundadır. biz bu a ismiyle a'nın bellek bölgesine erişebilmekteyiz. Bir olgunun nesne belirtmesi için yalnızca bellekte yer kaplaması
-yetmez. Aynı zamanada "erişilebilir" olması gerekir. Örneğin sabitler de bellekte yer kaplarlar. Ancak erişilebilir olmadıkları için nesne değillerdir.
+gibi bir ifadede `a` bir nesne durumundadır. biz bu `a` ismiyle `a`'nın bellek bölgesine erişebilmekteyiz. Bir olgunun nesne belirtmesi için yalnızca bellekte yer kaplaması
+yetmez. Aynı zamanada "_erişilebilir_" olması gerekir. Örneğin sabitler de bellekte yer kaplarlar. Ancak erişilebilir olmadıkları için nesne değillerdir.
 
-C'de bir ifade ya nesne belirtir ya da nesne belirtmez. Nesne belirten ifadelere "sol taraf değeri (lvalue)", nesne belirtmeyen ifadelere
-"sağ taraf değeri (rvalue)" denilmektedir. Örneğin:
+C'de bir ifade ya nesne belirtir ya da nesne belirtmez. Nesne belirten ifadelere "_sol taraf değeri (lvalue)_", nesne belirtmeyen ifadelere
+"_sağ taraf değeri (rvalue)_" denilmektedir. Örneğin:
 
 ```
     a                       ifadesi nesne belirtir. Sol taraf değeridir.
@@ -992,11 +1010,11 @@ Sol taraf değeri (left value) ismi tipik olarak bu tür iafadelerin atama opera
 (right value) atama operatörünün soluna getirilemeyen ifadelere denilmektedir. Tabii bunlar tipik olarak atama operatörünün sağına getirilirler.
 Ancak atama operatörünün sağına getirilen her şey sağ taraf değeri değildir. Soluna getirilemeyenler sağ taraf değeridir.
 
-Sentaks açıklamak için çeşitli "meta diller (meta languages)" oluşturulmuştur. Bunların en çok kullanılanı "BNF (Backus Naur Form)" denilen notasyondur.
-BNF notasyonu "EBNF (Extended BNF)" biçiminde ISO tarafından standardize de edillmiştir. Gerçekten de programlama dillerinin standartları genellikle
-BNF notasyonu ile ya da onun bir türevi ile açıklanmaktadır. Ancak biz kursumuzda "açısal parantez-köşeli parantez" tekniğini kullanacağız. Bu teknikte
-açısal parantezler içerisinde öğeler zorunlu öğeleri, köşeli parantezler içerisindeki öğeler "isteğe bağlı (optional)" öğeleri belirtmektedir. Bunların dışındaki
-tüm atomların aynı pozisyonda bulundurulması gerekir. Örneğin if deyimi şöyle ifade edilebilir:
+Sentaks açıklamak için çeşitli "_meta diller (meta languages)_" oluşturulmuştur. Bunların en çok kullanılanı "_BNF (Backus Naur Form)_" denilen notasyondur.
+BNF notasyonu "_EBNF (Extended BNF)_" biçiminde ISO tarafından standardize de edillmiştir. Gerçekten de programlama dillerinin standartları genellikle
+BNF notasyonu ile ya da onun bir türevi ile açıklanmaktadır. Ancak biz kursumuzda "_açısal parantez-köşeli parantez_" tekniğini kullanacağız. Bu teknikte
+açısal parantezler içerisinde öğeler zorunlu öğeleri, köşeli parantezler içerisindeki öğeler "_isteğe bağlı (optional)_" öğeleri belirtmektedir. Bunların dışındaki
+tüm atomların aynı pozisyonda bulundurulması gerekir. Örneğin `if` deyimi şöyle ifade edilebilir:
 
 ```
     if (<ifade>)
@@ -1009,7 +1027,7 @@ tüm atomların aynı pozisyonda bulundurulması gerekir. Örneğin if deyimi ş
 
 [9. Ders - 21/06/2022 - Salı]()
 
-Boşluk duygusu oluşturmak için kullanılan karakterlere "boşluk karakterleri (white space)" denilmektedir. Boşuk karakterli şunlardır:
+Boşluk duygusu oluşturmak için kullanılan karakterlere "_boşluk karakterleri (white space)_" denilmektedir. Boşuk karakterleri şunlardır:
 
 ```
     SPACE                   (32)
@@ -1058,12 +1076,12 @@ Merhaba Dünya programını aşağıdaki gibi kompakt bir biçimde de yazabilird
 ```
 
 Tabii programcının kodunu güzel gözükecek ve iyi okunabilecek biçimde yazması gerekir. C'de çeşitli yazım stilleri vardır. En yaygın kullanılan yazım stili
-Dennis Ritchie ve Brian Kernighan'ın "The C Programming Language" kitabında uyguladığı yazım biçimidir. Buna "Ritchie Kernighan Tarzı" denilmektedir.
+Dennis Ritchie ve Brian Kernighan'ın "_The C Programming Language_" kitabında uyguladığı yazım biçimidir. Buna "_Ritchie Kernighan Tarzı_" denilmektedir.
 
 Aşağıdaki Merhaba Dünya programının açıklaması şöyledir:
 
 Burada `#include <stdio.h>` satırı `stdio.h` isimli bir dosyanın kaynak koda dahil edildiğini belirtmektedir. Yani bu satır `stdio.h` dosyasının içeriğinin
-oraya "paste edileceği" anlamına gelmektedir. Başka bir deyişle biz `stdio.h` dosyasını bu komutun bulunduğu yere yerleştirip bu komuttu silsek tamamen aynı
+oraya "_paste edileceği_" anlamına gelmektedir. Başka bir deyişle biz `stdio.h` dosyasını bu komutun bulunduğu yere yerleştirip bu komuttu silsek tamamen aynı
 durum oluşacaktır. Programda main isimli bir fonksiyon tanımlanmıştır. Bir fonksiyonun tanımlanması onun bizim tarafımızdan yazılması anlamına gelir.
 Yani bu programda biz main isimli bir fonksiyon yazmış durumdayız. Bir fonksiyonu tanımlamanın (yani yazmanın) genel biçimi şöyledir:
 
@@ -1074,20 +1092,20 @@ Yani bu programda biz main isimli bir fonksiyon yazmış durumdayız. Bir fonksi
     }
 ```
 
-Fonksiyonun geri dönüş değerinin türü C90'da yazılmayabiliyordu. Bu durumda C90 bunun "int" olarak yazılmış olduğunu varsayıyordu. Ancak C99 ile birlikte
-geri dönüş değerinin türünün yazılması zorunlu tutulmuştur. main fonksiyonun geri dönüş değerinin türü, standartlara göre "int" olmak zorundadır.
-C'de "main" özel bir fonksiyondur. C programları her zaman "main" isimli fonksiyondan çalışmaya başlar. Programlama dillerinde programın çalışmaya
-başladığı fonksiyonlara "entry point" denilmektedir. Bir fonksiyonun parametreleri olabilir ya da olmayabilir. Eğer fonksiyonun parametresi yoksa parametre parantezi
-boş bırakılabilir ya da oraya "void" yazılabilir. Tanımlama sırasında boş bırakmakla "void" yazmak arasında bir fark yoktur. Her fonksiyonun bir ana bloğu
-olmak zorundadır. C'de iki küme parantezi arasındaki bölgeye "blok (block)" denilmektedir. Bir fonksiyon çalıştırıldığında fonksiyonun ana bloğundaki deyimler
+Fonksiyonun geri dönüş değerinin türü C90'da yazılmayabiliyordu. Bu durumda C90 bunun `int` olarak yazılmış olduğunu varsayıyordu. Ancak C99 ile birlikte
+geri dönüş değerinin türünün yazılması zorunlu tutulmuştur. main fonksiyonun geri dönüş değerinin türü, standartlara göre `int` olmak zorundadır.
+C'de `main` özel bir fonksiyondur. C programları her zaman `main` isimli fonksiyondan çalışmaya başlar. Programlama dillerinde programın çalışmaya
+başladığı fonksiyonlara "_entry point_" denilmektedir. Bir fonksiyonun parametreleri olabilir ya da olmayabilir. Eğer fonksiyonun parametresi yoksa parametre parantezi
+boş bırakılabilir ya da oraya `void` yazılabilir. Tanımlama sırasında boş bırakmakla `void` yazmak arasında bir fark yoktur. Her fonksiyonun bir ana bloğu
+olmak zorundadır. C'de iki küme parantezi arasındaki bölgeye "_blok (block)_" denilmektedir. Bir fonksiyon çalıştırıldığında fonksiyonun ana bloğundaki deyimler
 sırasıyla çalıştırılır. Ana blok bittiğinde fonksiyon sonlanmış olur. Dolayısıyla main programı bittiğinde tüm program sonlanmış olacaktır. Merhaba Dünya
-programında main fonksiyonun ana bloğunun içerisinde "printf" isimli bir fonksiyon çağrılmıştır. Bir fonksiyonun çağrılması (call) demek onun çalıştırılması demektir.
+programında main fonksiyonun ana bloğunun içerisinde `printf` isimli bir fonksiyon çağrılmıştır. Bir fonksiyonun çağrılması (call) demek onun çalıştırılması demektir.
 Bir fonksiyon çağrıldığında akış, fonksiyona gider, fonksiyonun içerisindeki deyimler tek tek çalıştırılır. Fonksiyon bitince akış çağırma noktasından devam eder.
-printf fonksiyonu çağrıldığında iki tırnak içerisindeki yazıları ekrana basmaktadır. Ekranda bir imleç (cursor) vardır. Yazı bu imlecin bulunduğu yerden itibaren
-ekrana yazdırılır. Sonra imleç yazının sonunda bırakılır. İmleç program çalışmaya başladığında sol üst köşededir. printf fonksiyonunda iki tırnak içerisindeki "\n"
-"imleci aşağı satırın başına geçir" biçiminde özel bir anlama gelmektedir. Yani bundan sonra biz bir daha printf fonksiyonunu çağıracak olsak artık o yazı aşağı
+`printf` fonksiyonu çağrıldığında iki tırnak içerisindeki yazıları ekrana basmaktadır. Ekranda bir imleç (cursor) vardır. Yazı bu imlecin bulunduğu yerden itibaren
+ekrana yazdırılır. Sonra imleç yazının sonunda bırakılır. İmleç program çalışmaya başladığında sol üst köşededir. printf fonksiyonunda iki tırnak içerisindeki `\n`
+"_imleci aşağı satırın başına geçir_" biçiminde özel bir anlama gelmektedir. Yani bundan sonra biz bir daha printf fonksiyonunu çağıracak olsak artık o yazı aşağı
 satırın başından itibaren yazılacaktır. printf bir standart C fonksiyonudur. Standart C fonksiyonları derleyicileri yazanlar tarafından yazılmış (tanımlanmış)
-biçimde bulunan fonksiyonlardır. main fonksiyonun sonundaki return deyimi bulunmak zorunda değildir. Bu deyim ileride açıklanacaktır.
+biçimde bulunan fonksiyonlardır. `main` fonksiyonun sonundaki `return` deyimi bulunmak zorunda değildir. Bu deyim ileride açıklanacaktır.
 
 ```
     #include <stdio.h>
@@ -1101,23 +1119,23 @@ biçimde bulunan fonksiyonlardır. main fonksiyonun sonundaki return deyimi bulu
 ```
 
 C'nin C90, C99, C11 ve C17 standartlarının olduğunu belirtmiştik. Derleyiciler genel olarak bu standartlara uygun olacak biçimde derleme yapabilmektedir.
-Visual Studio IDE'sinde derleyicinin uygulayacağı standardı ayarlamak için proje seçeneklerine gelinir. C-C++/Language/C Language Standart sekmesinden
-standart belirlenir. Biz kursumuzda burada "ISO C17" standardını aktif hale getireceğiz. Aynı şey Qt_Creator IDE'sinde PRO dosyasının içerisine aşağıdaki
+Visual Studio IDE'sinde derleyicinin uygulayacağı standardı ayarlamak için proje seçeneklerine gelinir. **C-C++/Language/C Language Standart** sekmesinden
+standart belirlenir. Biz kursumuzda burada **ISO C17** standardını aktif hale getireceğiz. Aynı şey Qt_Creator IDE'sinde PRO dosyasının içerisine aşağıdaki
 satırın eklenmesiyle yapılabilmektedir:
 
 ```
     CONFIG += c17
 ```
 
-gcc ve clang derleyicilerinde komut satırında derleme yaparken -std=c90, -std=c99, -std=c11, -std=c17 seçenekleriyle derleme standardı ayarlanabilir. Örneğin:
+gcc ve clang derleyicilerinde komut satırında derleme yaparken `-std=c90`, `-std=c99`, `-std=c11`, `-std=c17` seçenekleriyle derleme standardı ayarlanabilir. Örneğin:
 
 ```
     gcc -std=c17 -o sample sample.c
 ```
 
-Ayrıca Microsoft derleyicilerinde proje seçeneklerinden C-C++ sekmesinde "SDL Checks" seçeneği "No" yapılarak kapatılmalıdır.
+Ayrıca Microsoft derleyicilerinde proje seçeneklerinden **C-C++** sekmesinde **SDL Checks** seçeneği **No** yapılarak kapatılmalıdır.
 
-Programlama dillerinde "tür (type)" bir nesnenin bellekte kapladığı alanı, onun içerisindeki 1'lerin ve 0'ların nasıl yorumlanacağını, o nesnenin hangi
+Programlama dillerinde "_tür (type)_" bir nesnenin bellekte kapladığı alanı, onun içerisindeki 1'lerin ve 0'ların nasıl yorumlanacağını, o nesnenin hangi
 operatörlerle işleme sokulabileceğini belirten önemli bir bilgidir. C'de her nesnenin ve her ifadenin bir türü vardır. Türler çeşitli anahtar sözcüklerle
 ifade edilirler. Aşağıda temel türler açıklanmaktadır:
 
@@ -1125,94 +1143,94 @@ ifade edilirler. Aşağıda temel türler açıklanmaktadır:
   Ancak standartlara göre int türü minimum 2 byte olmalıdır. Bugün 32 bit ve 64 bit Windows ile UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde int türü 4 bye (32 bit)
   uzunluktadır. Dolayısıyla int türden bir nesne bu sistemlerde [-2147483648, 2147483647] aralığında tamsayı değerler tutabilir. Bazı mikrodenetleyici
   derleyicilerinde ise int 2 byte (16 bit) uzunluğunda olabilmektedir. Derleyicileri yazanlar genellikle int türünü o sistemdeki CPU yazmaçlarının uzunluğu kadar
-  ya da o uzunlukla ifade edilebilecek kadar almaktadır. Bu tür belirtilirken "int" demekle "signed int" demek arasında ya da "int signed" demek arasında
+  ya da o uzunlukla ifade edilebilecek kadar almaktadır. Bu tür belirtilirken `int` demekle `signed int` demek arasında ya da `int signed` demek arasında
   bir fark yoktur.
 
-- **`[unsigned] int`**: Her işaretli tamsayı türünün bir de işaretsiz biçimi vardır. "signed int" türünün işaretsiz biçimi "unsigned int" türüdür. Tamsayı türlerinin
+- **`[unsigned] int`**: Her işaretli tamsayı türünün bir de işaretsiz biçimi vardır. `signed int` türünün işaretsiz biçimi `unsigned int` türüdür. Tamsayı türlerinin
   işaretli biçimleri ile işaretsiz biçimleri aynı miktarda yer kaplarlar. Aralarındaki tek fark işaret bitinin yorumudur. Dolayısıyla bu tür de 32 bit ve
   64 bit Windows ile UNIX/Linux ve Mac OS sistemlerinde 4 byte yer kaplamaktadır. unsigned int türünden bir nesne içerisine bu sistemlerde yerleştirilebilecek sayı
-  sınırı [0, +4294967295] biçimindedir. Bu türü biz "unsigned" biçiminde ya da "unsigned int" biçiminde ya da "int unsigned" biçiminde ifade edebiliriz.
+  sınırı `[0, +4294967295]` biçimindedir. Bu türü biz `unsigned` biçiminde ya da `unsigned int` biçiminde ya da `int unsigned` biçiminde ifade edebiliriz.
 
 - **`[signed] long [int]`**: long türü, int türünden uzun olabilir ya da int türüyle aynı uzunlukta olabilir. Ancak int türünden daha kısa olamaz. Standratlara
-  göre long türü en az 4 byte (32 bit) uzunlukta olmak zorundadır. long türü de "işaretli" bir tamsayı türüdür. Buradaki "long" ismi "int türünden uzun olabilen"
-  anlamına gelmektedir. 32 bit ve 64 bit Windows sistemlerindeki derleyicilerde long türü int türüyle aynı uzunluktadır (yani 4 byte). Ancak 32 bit UNIX/Linux ve
+  göre long türü en az 4 byte (32 bit) uzunlukta olmak zorundadır. long türü de `işaretli` bir tamsayı türüdür. Buradaki `long` ismi "_`int` türünden uzun olabilen_"
+  anlamına gelmektedir. 32 bit ve 64 bit Windows sistemlerindeki derleyicilerde long türü `int` türüyle aynı uzunluktadır (yani 4 byte). Ancak 32 bit UNIX/Linux ve
   Mac OS sistemlerindeki derleyicilerde long türü 4 byte iken, 64 bit UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde long türü 8 byte (64 bit) uzunluğundadır.
-  long türünü biz en kısa biçimde "long" olarak ifade edebiliriz. Ancak "signed long int", "long int", "signed int long" gibi anahtar sözcleri yer değiştirerek de ifade
+  long türünü biz en kısa biçimde `long` olarak ifade edebiliriz. Ancak `signed long int`, `long int`, `signed int long` gibi anahtar sözcleri yer değiştirerek de ifade
   edebiliriz.
 
 [10. Ders - 23/06/2022 - Perşembe]()
 
 - **`unsigned long [int]`**: Bu tür, long türünün işaretsiz biçimidir. Dolayısıyla sistemlerde long türüyle aynı uzunlukta yer kaplar ancak sayının başındaki bit
   işaret biti olarak ele alınmaz. 32 ve 64 bit Windows Sistemleri ile 32 bit UNIX/Linux ve Mac OS sistemlerinde bu tür, long türünde olduğu gibi
-  4 byte (yani 32 bit) yer kaplamaktadır. Dolayısıyla bu sistemlerdeki sınıfı [0, +4294967295] biçimindedir.
+  4 byte (yani 32 bit) yer kaplamaktadır. Dolayısıyla bu sistemlerdeki sınıfı `[0, +4294967295]` biçimindedir.
 
 - **`[signed] short [int]`**: Bu tür, int türünden küçük olabilen ya da int türü ile aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlara göre short türü
-  en az 2 byte (yan 16 bit) olmak zorundadır. 32 bit ve 64 bit Windows Sistemleri ile UNIX/Linux ve Mac OS sistemlerinde short türü 2 byte (yani 16 bit) uzunluktadır.
-  Dolayısıyla bu sistemlerde bu türden bir nesnesinin içerisine biz [-32768, +32767] sınırları içerisinde bir tamsayı yerleştirebiliriz.
+  en az 2 byte (yani 16 bit) olmak zorundadır. 32 bit ve 64 bit Windows Sistemleri ile UNIX/Linux ve Mac OS sistemlerinde short türü 2 byte (yani 16 bit) uzunluktadır.
+  Dolayısıyla bu sistemlerde bu türden bir nesnesinin içerisine biz `[-32768, +32767]` sınırları içerisinde bir tamsayı yerleştirebiliriz.
 
 - **`unsigned short [int]`**: Bu tür, signed short türünün işaretsiz biçimidir. Dolayısıyla short türü kadar yer kaplar. short türünün 2 byte olduğu sistemlerde
   bu türden bir nesnenin içerisine biz [0, +65535] arasında tamsayı değerler yerleştirebiliriz.
 
-- **`signed char`**: C standartlarında "byte" lafı pek az yerde kullanılmıştır. Çünkü "byte" genellikle 8 bit için kullanılan bir terimdir. Oysa bazı
+- **`signed char`**: C standartlarında "byte" lafı pek az yerde kullanılmıştır. Çünkü `byte` genellikle `8 bit` için kullanılan bir terimdir. Oysa bazı
   bilgisayar sistemlerinde RAM'deki adreslenebilen birimler 8 bit değil 10, 11 bit değerler de olabilmektedir. Tabii bu sistemler son derece seyrektir.
-  Ancak standartlar bu uç durumu da dikkate almaktadır. C standartlarında "char" terimi "RAM'de adreslenebilen en küçük birimin büyüklüğünü" temsil etmektedir.
+  Ancak standartlar bu uç durumu da dikkate almaktadır. C standartlarında `char` terimi "_RAM'de adreslenebilen en küçük birimin büyüklüğünü_" temsil etmektedir.
   Örneğin tipik olarak eğer adreslenebilen en küçük birim 8 bit ise char 8 bittir. Ancak 10 bit ise char 10 bittir. Görüldüğü gibi eğer C standartlarında
   char yerine byte terimi kullanılsaydı byte 8 bit olduğu için bu uç durum temsil edilemeyebilirdi. Tabii bugünkü sistemlerin %99.9'unda adreslenebilen en küçük
   birim 8 bittir. Dolayısıyla yaygın sistemlerin hepsinde gerçekten char türü 8 bit yani bir byte uzunluğundadır. Zaten C standartlarında "byte" terimi tamamen
-  bit uzunluğu farklı olabilen yani "adreslenebilen en küçük birim" anlamında kullanılmaktadır. Başka bir deyişle bu tanımla "char" ile "byte" aynı anlamdadır.
+  bit uzunluğu farklı olabilen yani "_adreslenebilen en küçük birim_" anlamında kullanılmaktadır. Başka bir deyişle bu tanımla `char` ile `byte` aynı anlamdadır.
   Ayrıca standartlar, derleyicinin ilgili sistemdeki adreslenebilen en küçük birimdeki bit sayısının kaç bit olduğunu (yani char türünün kaç bitten oluştuğunu)
   `<limits.h>` dosyası içerisinde `CHAR_BITS` sembolik sabitiyle belirtmesini zorunlu tutmaktadır.
 
-  Mademki char türü yaygın sistemlerin hepsinde 8 bitten oluşmaktadır. O halde signed char türünün de bu sistemlerdeki sınırları [-128, +127]
+  Mademki char türü yaygın sistemlerin hepsinde 8 bitten oluşmaktadır. O halde signed char türünün de bu sistemlerdeki sınırları `[-128, +127]`
   arasındadır. Özetle signed char, bir byte'lık işaretli tamsayı türünü belirtmektedir.
 
-- **`unsigned char`**: Bu tür, char türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
-  bit uzunluğu kadardır. 8 bitlik yaygın sistemlerde unsigned char türünden bir nesneye [0, +255] arasında değerler yerleştirilebilir.
+- **`unsigned char`**: Bu tür, `char` türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
+  bit uzunluğu kadardır. 8 bitlik yaygın sistemlerde unsigned char türünden bir nesneye `[0, +255]` arasında değerler yerleştirilebilir.
 
-- **`char`**: Yalnızca char denildiğinde bunun "signed char" mı yoksa "unsigned char" mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
-  Microsoft C derleyicileri, gcc ve clang derleyicileri char türünü default olarak "signed char" kabul etmektedir. Fakat başka derleyiciler "unsigned char"
+- **`char`**: Yalnızca `char` denildiğinde bunun `signed char` mı yoksa `unsigned char` mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
+  Microsoft C derleyicileri, gcc ve clang derleyicileri char türünü default olarak `signed char` kabul etmektedir. Fakat başka derleyiciler `unsigned char`
   kabul edebilirler. Aslında Microsoft derleyicilerinde, gcc ve clang derleyicilerinde char denildiğinde default durum derleyici ayarlarından da değiştirilebilmektedir.
-  Her ne kadar char türü, ilgili sistemde "signed char" ya da "unsigned char" anlamına geliyorsa da "char", "signed char" ve "unsigned char" ne olursa olsun
+  Her ne kadar char türü, ilgili sistemde `signed char` ya da `unsigned char` anlamına geliyorsa da `char`, `signed char` ve `unsigned char` ne olursa olsun
   farklı türler gibi değerlendirilmektedir. Bunun önemi başka konularda ortaya çıkacaktır.
 
 - **`[signed] long long [int]`**: Bu tür, C99 ile birlikte standartlara dahil edilmiştir. Dolısıyla C90 uyumlu eski C derleyicilerinde bu türü kullanamayabilrsiniz.
   long long türü, long türünden uzun ya da long türüyle aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlarda minimum 8 byte (yani 64 bit) olabileceği
   belirtilmiştir. Şu andaki yaygın derleyicilerin hepsinde long long türü, 8 byte uzunluktadır. 8 byte uzuluk için long long türünden bir nesneye yerleştirilebilecek
-  sayı sınırı [-9223372036854775808, +9223372036854775807] (katrilyar mertebesinde, 8 exabyte) biçimindedir.
+  sayı sınırı `[-9223372036854775808, +9223372036854775807]` (katrilyar mertebesinde, 8 exabyte) biçimindedir.
 
 - **`unsigned long long [int]`**: Bu tür de long long türünün işaretsiz biçimidir. Dolayısıyla yaygın sistemlerin hepsinde 8 byte (yani 64 bit) uzunluktadır.
-  unsigned long long türünden bir nesneye yerleştirilecek sayı sınırı da [0, +18446744073709551615] (16 exabyte) biçimindedir.
+  unsigned long long türünden bir nesneye yerleştirilecek sayı sınırı da `[0, +18446744073709551615] (16 exabyte)` biçimindedir.
 
-Yukarıdaki tüm türlere C'nin tamsayı türleri denilmektedir. C'de ayrıca üç tane de gerçek sayı (noktalı sayı) türü vardır: float, double ve long double.
+Yukarıdaki tüm türlere C'nin tamsayı türleri denilmektedir. C'de ayrıca üç tane de gerçek sayı (noktalı sayı) türü vardır: `float`, `double` ve `long double`.
 Gerçek syaı türlerinin işaretli ve işaretsiz biçimleri yoktur. Bunlar zaten doğuştan işaretlidir.
 
 - **`float`**: Bu tür, 4 byte uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
-  "Implementation Limits" kısmında gerçek sayı türleri için belirtilen limitler "IEE 754" standardını ima etmektedir. Bu durumda float türü hemen her sistemde
-  4 byte uzunluktadır. float türünün yuvarlama hatalarına direnci zayıftır. Bu nedenle float türü aslında C programcıları tarafından az tercih edilen bir gerçek
+  "_Implementation Limits_" kısmında gerçek sayı türleri için belirtilen limitler **IEE 754** standardını ima etmektedir. Bu durumda float türü hemen her sistemde
+  4 byte uzunluktadır. `float` türünün yuvarlama hatalarına direnci zayıftır. Bu nedenle `float` türü aslında C programcıları tarafından az tercih edilen bir gerçek
   sayı türüdür.
 
-- **`double`**: Standartlara göre double türü, float türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
-  double türü 8 byte uzunluktadır ve "IEEE 754 Long Real Format" biçiminde temsil edilmektedir. Ancak bazı mikrodenetleyici derleyicilerinde
-  double türü float ile tamamen aynı uzunlukta olabilmektedir. C prograöcılarının en fazla tercih ettiği gerçek sayı türü, double türüdür. Çünkü bu türün
-  yuvarlama hatalarına direnci float türünden çok daha iyidir.
+- **`double`**: Standartlara göre `double` türü, `float` türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
+  double türü 8 byte uzunluktadır ve **IEEE 754 Long Real Format** biçiminde temsil edilmektedir. Ancak bazı mikrodenetleyici derleyicilerinde
+  `double` türü `float` ile tamamen aynı uzunlukta olabilmektedir. C prograöcılarının en fazla tercih ettiği gerçek sayı türü, `double` türüdür. Çünkü bu türün
+  yuvarlama hatalarına direnci `float` türünden çok daha iyidir.
 
-- **`long double`**: long double türü, standartala göre double ile aynı duyarlılıkta ya da double türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
-  gcc ve clang derleyicilerinde long double türü tamamen double türüyle aynı özelliktedir. Yani bu tür de bu derleyicilerde "IEEE 754 Long Real Format" biçiminde
-  ifade edilmektedir. Fakat bazı derleyicilerde (Örneğin eski Borland firmasının C derleyicilerinde) long double türü 10 byte'lık "IEEE 754 Extended Real Format"
+- **`long double`**: `long double` türü, standartlara göre `double` ile aynı duyarlılıkta ya da `double` türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
+  gcc ve clang derleyicilerinde `long double` türü, `double` türüyle tamamen aynı özelliktedir. Yani bu tür de bu derleyicilerde IEEE 754 Long Real Format biçiminde
+  ifade edilmektedir. Fakat bazı derleyicilerde (Örneğin eski Borland firmasının C derleyicilerinde) long double türü 10 byte'lık **IEEE 754 Extended Real Format**
   biçiminde de alınabilmektedir.
 
-Bir C derleyicisinde aslında "float", "double" ve "long double" türlerinin hepsi 4 byte uzunlukta olabilir.
+Bir C derleyicisinde aslında `float`, `double` ve `long double` türlerinin hepsi 4 byte uzunlukta olabilir.
 
 C99 ile birlikte C'ye ikili değerler turmak için `_Bool` isminde yeni bir tür daha eklenmiştir. (Bu tür isminin bu biçimde size tuhaf gelecek şekilde isimlendirilmesinin
-amacı geçmişe doğru uyumu koruyabilmektir. C99 çıktğında, "bool" gibi bir ismi programcılar kendi programlarında kullanmış olabileceklerinden dolayı,
-bu türü temsil etmek için "reserved" isimlerden biri tercih edilmiştir. C'de başı '\_' ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
+amacı geçmişe doğru uyumu koruyabilmektir. C99 çıktğında, `bool` gibi bir ismi programcılar kendi programlarında kullanmış olabileceklerinden dolayı,
+bu türü temsil etmek için "_reserved_" isimlerden biri tercih edilmiştir. C'de başı `_` ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
 yasaklanmış durumdaydı.) `_Bool` türü için standatlar, 0 ve 1 değerlerini tutabilen bir yapıda olması gerektiğini belirtmişlerdir. Dolayısıyla `_Bool` türü aslında
 herhangi bir tamsayı türünün uzunluğu kadar olabilir. Tabii derleyiciler bu türden nesneler için genel olarak 1 byte yer ayırmaktadır.
 
-`_Bool` türü `<stdbool.h>` dosyası içerisinde "bool" ismiyle de typedef edilmiştir. Dolaysıyla, programcı isterse `<stdbool.h>` başlık dosyasını include edip `_Bool` yerine
+`_Bool` türü `<stdbool.h>` dosyası içerisinde `bool` ismiyle de typedef edilmiştir. Dolaysıyla, programcı isterse `<stdbool.h>` başlık dosyasını include edip `_Bool` yerine
 `bool` ismini de kullanabilir. Genellikle bool türünün olduğu diğer programlama dillerinde, "true" ve "false" biçiminde anahtar sözcükler de bulundurulmaktadır.
-Ancak C99'da bu biçimde anahtar sözcükler yoktur. Ancak `<stdbool.h>` içerisinde "true" 1 olarak, "false" 0 olarak define edilmiştir. Dolayısıyla eğer
-`<stdbool.h>` dosyası include edilirse, "true" ve "false" sözcükleri 1 ve 0 yerine kullanılabilir.
+Ancak C99'da bu biçimde anahtar sözcükler yoktur. Ancak `<stdbool.h>` içerisinde `true` 1 olarak, `false` 0 olarak define edilmiştir. Dolayısıyla eğer
+`<stdbool.h>` dosyası `include` edilirse, `true` ve `false` sözcükleri 1 ve 0 yerine kullanılabilir.
 
 Son olarak C99 ile birlikte C'ye karmaşık sayı (complex number) türü de eklenmiştir. Karmaşık sayı belirtmek için `_Complex` tür ismi, anahtar sözcük olarak
 dile eklenmiştir. Ancak `_Complex` tek başına kullanılamaz. float, double ve long double tür isimleriyle birlikte kullanılabilir. Yani C99 ile birlikte üç
@@ -1224,7 +1242,7 @@ karmaşık sayı türü dile eklenmiş durumdadır:
     long double _Complex
 ```
 
-Karmaşık sayılar, gerçek ve sanal kısımları float, double ve long double olan iki bileşenli sayılardır. Karmaşık sayı için 'i' sembolü C99'da
+Karmaşık sayılar, gerçek ve sanal kısımları float, double ve long double olan iki bileşenli sayılardır. Karmaşık sayı için `i` sembolü C99'da
 `_COMPLEX_I` anahtar sözcüğü ile temsil edilmiştir. Dolaysyıyla örneğin double `_Complex` türünden bir `z` değişkenine biz `3.2 + 2.4i` değerini şöyle atarız:
 
 ```
@@ -1244,15 +1262,15 @@ define edilmiştir. Yani biz `<complex.h>` dosyasını include etmiş isek, `i` 
 
 [11. Ders - 28/06/2022 - Salı]()
 
-C/C++, Java, C# gibi statik tür sistemine sahip programlama dillerinde bir değişkeni kullanmadan önce onun derleyiciyte tanıtılması gerekir. İşte
-değişkenlerin kullanılmadan önce derleyiciye tanıtılması işlemine "bildirim (declaration)" denilmektedir. Bildirim işleminin basit genel biçimi
+C/C++, Java, C# gibi statik tür sistemine sahip programlama dillerinde bir değişkeni kullanmadan önce onun derleyiciye tanıtılması gerekir. İşte
+değişkenlerin kullanılmadan önce derleyiciye tanıtılması işlemine "_bildirim (declaration)_" denilmektedir. Bildirim işleminin basit genel biçimi
 şöyledir:
 
 ```
     <tür> <değişken_listesi>;
 ```
 
-Buradaki değişken listesi aralarına ',' atomu getirilmiş bir ya da birden fazla değişkenden oluşabilir. Örneğin:
+Buradaki değişken listesi aralarına `,` atomu getirilmiş bir ya da birden fazla değişkenden oluşabilir. Örneğin:
 
 ```
     int a;
@@ -1262,7 +1280,7 @@ Buradaki değişken listesi aralarına ',' atomu getirilmiş bir ya da birden fa
 
 Aslında bildirim işleminin genel biçimi biraz daha ayrıntılıdır. Burada biz basit bir genel biçim verdik.
 
-C "büyük harf - küçük harf duyarlılığı olan (case sensitive)" bir programlama dilidir. Yani C'de değişken isimlendirmesinde büyük harflerle küçük harfler
+C "_büyük harf - küçük harf duyarlılığı olan (case sensitive)_" bir programlama dilidir. Yani C'de değişken isimlendirmesinde büyük harflerle küçük harfler
 farklı karakterler olarak ele alınırlar. Değişken isimlendirmesinde pek çok programlama dilindeki benzer kurallar geçerlidir:
 
 - Değişken isimleri nümerik karakterlerle başlatılamaz. Ancak alfabetik karakterlerle başlatılıp nümerik karakterlerle devam ettirilebilir.
@@ -1275,15 +1293,15 @@ farklı karakterler olarak ele alınırlar. Değişken isimlendirmesinde pek ço
 - Değişkenlerdeki karakter sayısı istenildiği kadar uzun olabilir. Ancak derleyiciler uzun değişken isimlerinin ilk n karakterini dikkate alırlar.
   Bu n değeri derleyiciden derleyiciye değişebilmektedir. Bugün kullanılan yaygın derleyiciler en az 256 karakteri desteklemektedir. Bu da zaten oldukça uzundur.
 
-C'de başı iki alt tire ile başlayan ve başı bir alt tire ve büyük harfle başlayan tüm isimler "reserved" yapılmıştır. Programcıların bu biçimde isimlendirme
-yapmaması gerekir. Eğer programcılar böyle isimlendirme yaparsa kodları derlenir ancak çalışma sırasında olumsuzluk gözükebilir. (Bu duruma "tanımsız davranış (undefined behavior)"
-denilmektedir. Bu kavram ileride açıklanacaktır.) Başı tek alt tire ile başlayan tüm isimler global faaliyet alanında "reserved" yapılmıştır. (Yani örneğin biz
+C'de başı iki alt tire ile başlayan ve başı bir alt tire ve büyük harfle başlayan tüm isimler "_reserved_" yapılmıştır. Programcıların bu biçimde isimlendirme
+yapmaması gerekir. Eğer programcılar böyle isimlendirme yaparsa kodları derlenir ancak çalışma sırasında olumsuzluk gözükebilir. (Bu duruma "_tanımsız davranış (undefined behavior)_"
+denilmektedir. Bu kavram ileride açıklanacaktır.) Başı tek alt tire ile başlayan tüm isimler global faaliyet alanında "_reserved_" yapılmıştır. (Yani örneğin biz
 `_count` gibi bir ismi global değişken olarak kullanamayız. Ancak yerek değişken olarak kullanabiliriz. Global ve yerel faaliyet alanları konusu ileride ele alınacaktır.)
 
 C'de ağırlıklı bir biçimde küçük harfli isimlendirmeler tercih edilmektedir. Değişken isimlerinin anlamlı ve telaffuz edilebilir olması tavsiye edilir.
 Birden çok sözcükten oluşan değişken isimlerinde sözcüklerin ayrımsanması için üç çeşit harflendirme biçimi kullanılmaktadır:
 
-**1. Klasik C Tarzı Harflendirme:** Buna "yılan notasyonu (Snake Casting)" de denilmektedir. Burada sözcüklerin arasında alt tire bulundurulur. Örneğin:
+**1. Klasik C Tarzı Harflendirme:** Buna "_yılan notasyonu (Snake Casting)_" de denilmektedir. Burada sözcüklerin arasında alt tire bulundurulur. Örneğin:
 
 ```
     number_of_students
@@ -1311,7 +1329,7 @@ Birden çok sözcükten oluşan değişken isimlerinde sözcüklerin ayrımsanma
 
 Biz kursumuzda ağırlıklı olarak **klasik C tarzı yazımı (yılan notasyonu)** kullanacağız.
 
-Bir bildirim işlemiyle eğer derleyici, bildirilen değişken için bellekte yer ayırıyorsa o bildirime aynı zamanda "tanımlama (definition)" da denilmektedir.
+Bir bildirim işlemiyle eğer derleyici, bildirilen değişken için bellekte yer ayırıyorsa o bildirime aynı zamanda "_tanımlama (definition)_" da denilmektedir.
 Örneğin:
 
 ```
@@ -1319,7 +1337,7 @@ Bir bildirim işlemiyle eğer derleyici, bildirilen değişken için bellekte ye
 ```
 
 Bu bir bildirimdir. Ama aynı zamanda tanımlamadır. Çünkü derleyici bu bildirimde bildirilen a değişkeni için aynı zamanda bellekte yer ayırmaktadır.
-Her tanımalam bir bildirimdir ancak her bildirim bir tanımlama değildir. Tabii bildirim olup da tanımlama olmayan durumlar da vardır ancak seyrektir. Biz, aksi söylenmediği sürece "bildirim" dediğimizde, bildirilen değişken için yer de ayrıldığını varsayacağız. Bildirim olup da tanımlama olmayan durumları özel olarak konular içerisinde
+Her tanımalam bir bildirimdir ancak her bildirim bir tanımlama değildir. Tabii bildirim olup da tanımlama olmayan durumlar da vardır ancak seyrektir. Biz, aksi söylenmediği sürece "_bildirim_" dediğimizde, bildirilen değişken için yer de ayrıldığını varsayacağız. Bildirim olup da tanımlama olmayan durumları özel olarak konular içerisinde
 vurgulayacağız. Örneğin:
 
 ```
@@ -1327,13 +1345,13 @@ vurgulayacağız. Örneğin:
     extern int b;       /* bu bir bildirimdir ama tanımlama değildir, tabii extern gibi bir konu henüz görülmedi */
 ```
 
-Bir değişkene bildirim sırasında değer atayabiliriz. Bu işleme "ilkdeğer verme (initializtion)" denilmektedir. Örneğin:
+Bir değişkene bildirim sırasında değer atayabiliriz. Bu işleme "_ilkdeğer verme (initializtion)_" denilmektedir. Örneğin:
 
 ```
     int a = 10, b, c = 20;
 ```
 
-Burada a ve c değişkenlerine ilkdeğer verilmiştir. Ancak b değişkenine ilkdeğer verilmemiştir. İlkdeğer verme ile değişkene ilk kez değer atama aynı şey değildir.
+Burada `a` ve `c` değişkenlerine ilkdeğer verilmiştir. Ancak `b` değişkenine ilkdeğer verilmemiştir. İlkdeğer verme ile değişkene ilk kez değer atama aynı şey değildir.
 Örneğin:
 
 ```
@@ -1344,18 +1362,19 @@ Burada a ve c değişkenlerine ilkdeğer verilmiştir. Ancak b değişkenine ilk
 
 Buradaki işlem bir ilkdeğer verme değildir. İlkdeğer verme, bildirim sırasında değer atama anlamına gelmeketedir.
 
-Aslında C standartlarında "ekran" ve "klavye" lafları hiç geçmemektedir. Örneğin C standartları printf fonksiyonun "ekrana yazdığını" söylememektedir.
-Standartlara göre printf fonksiyonu "stdout" denilen bir dosyaya yazmaktadır. Ancak bu dosya bir aygıta yönlendirilmiş olabilir. Örneğin klasik bilgisayar
-sistemlerimizde stdout, ekranı kontrol eden terminal aygıt sürücüsüne yönlendirilmiş durumdadır. Dolayısıyla `printf`, stdout dosyasına yazar ancak yazılanlar
-ekranda görülür. Tabii bir sistemde stdout, başka aygıtlara ya da dosyalara yönlendirilmiş olabilir. Örneğin stdout seri porta yönlendirilmişse artık `printf`
-fonksiyonun yazdıkları seri porta aktarılır. Aynı durum klavye için de geçerlidir. Aslında klavyeden okumak diye bir şey yoktur. stdin dosyasından okumak
-diye bir şey vardır. stdin dosyası da klasik bilgisayar sistemlerinde genellikle klavyeye yönlendirilmiştir. Ancak, örneğin stdin seri porta
-yönlendirilmişse artık seri porttan gelen bilgiler okunur. Görüldüğü gibi "stdout" ve "stdin" aslında değişik kaynakları temsil ediyor olabilir.
-Biz kurusumuzda bazen "ekran" ve "klavye" laflarını edeceğiz. Burada tenik olarak "stdout" ve "stdin" dosyaları anlaşılmalıdır.
+Aslında C standartlarında "_ekran_" ve "_klavye_" lafları hiç geçmemektedir. Örneğin C standartları printf fonksiyonun "_ekrana yazdığını_" söylememektedir.
+Standartlara göre `printf` fonksiyonu `stdout` denilen bir dosyaya yazmaktadır. Ancak bu dosya bir aygıta yönlendirilmiş olabilir. Örneğin klasik bilgisayar
+sistemlerimizde stdout, ekranı kontrol eden terminal aygıt sürücüsüne yönlendirilmiş durumdadır. Dolayısıyla `printf`, `stdout` dosyasına yazar ancak yazılanlar
+ekranda görülür. Tabii bir sistemde stdout, başka aygıtlara ya da dosyalara yönlendirilmiş olabilir. Örneğin `stdout` seri porta yönlendirilmişse artık `printf`
+fonksiyonun yazdıkları seri porta aktarılır. Aynı durum klavye için de geçerlidir. Aslında klavyeden okumak diye bir şey yoktur. `stdin` dosyasından okumak
+diye bir şey vardır. `stdin` dosyası da klasik bilgisayar sistemlerinde genellikle klavyeye yönlendirilmiştir. Ancak, örneğin `stdin` seri porta
+yönlendirilmişse artık seri porttan gelen bilgiler okunur. Görüldüğü gibi `stdout` ve `stdin` aslında değişik kaynakları temsil ediyor olabilir.
+Biz kurusumuzda bazen "_ekran_" ve "_klavye_" laflarını edeceğiz. Burada tenik olarak `stdout` ve `stdin` dosyaları anlaşılmalıdır.
 
-`printf` aslında oldukça kapsamlı bir fonksiyondur. `printf` fonksiyonunda iki tırnak içerisindeki karakterler ekrana (yani stdout dosyasına) basılır.
+`printf` aslında oldukça kapsamlı bir fonksiyondur. `printf` fonksiyonunda iki tırnak içerisindeki karakterler ekrana (yani `stdout` dosyasına) basılır.
 Ancak printf, `%` karakterini gördüğünde `%` karakterini ve onun yanındaki bir ya da iki karakteri ekrana yazdırmaz. `%` karakterinin yanındaki bazı özel karakterlere
-format karakterleri denilmektedir. `%` karakteri ve format karakterleri, birlikte "yer tutucu" belirtir. Bu yer tutucular `printf`'in iki tırnak argümanından sonraki argümanlarla sırasıyla eşleştirilmektedir. Böylece aslında format karakterleri değil de bu argümanların değerleri yer tutucu yerine yazdırılır. Örneğin:
+format karakterleri denilmektedir. `%` karakteri ve format karakterleri, birlikte "_yer tutucu_" belirtir. Bu yer tutucular `printf`'in iki tırnak argümanından sonraki
+argümanlarla sırasıyla eşleştirilmektedir. Böylece aslında format karakterleri değil de bu argümanların değerleri yer tutucu yerine yazdırılır. Örneğin:
 
 ```
     int a = 10, b = 20;
@@ -1457,7 +1476,9 @@ sayı noktadan sonra iki basamak olacak biçimde yazdırılır. Burada yalnızca
 C'de bildirimler üç yerde yapılabilir:
 
 **1. Fonksiyonların içerisinde:** Fonskiyonların içerisinde bildirilen değişkenlere "_yerel değişkenler (local variables)_" denilmektedir.
+
 **2. Fonksiyonların dışında:** Fonksiyonların dışında bildirilen değişkenlere "_global değişkenler (global variables)_" denilmektedir.
+
 **3. Fonksiyonların parametre parantezleri içerisinde:** Fonksiyonların parametre parantezleri içerisinde bildirilen değişkenlere "_parametre değişkenleri (parameters)_" denilmektedir.
 
 ```
@@ -1482,7 +1503,7 @@ C'de bildirimler üç yerde yapılabilir:
     }
 ```
 
-C'de küme parantezleri arasındaki bölgeye "blok (block)" denilmektedir. Bir fonksionun ana bir bloğu olmak zorundadır. Ancak o ana bloğun içerisinde
+C'de küme parantezleri arasındaki bölgeye "_blok (block)_" denilmektedir. Bir fonksionun ana bir bloğu olmak zorundadır. Ancak o ana bloğun içerisinde
 istenildiği kadar çok iç içe ya da ayrık blok bulundurulabilir. Örneğin:
 
 ```
@@ -1554,7 +1575,7 @@ C'de bir tamsayıyı 2'lik sistemde yazmanın bir yolu yoktur.
     }
 ```
 
-C'de bir noktalı sayı, üstel biçimde de yazılabilir. Bunun için sayıdan sonra 'e' ya da 'E' karakteri ve üs sayısı belirtilir. Buradaki üs 10'un
+C'de bir noktalı sayı, üstel biçimde de yazılabilir. Bunun için sayıdan sonra `e` ya da `E` karakteri ve üs sayısı belirtilir. Buradaki üs 10'un
 kaçıncı kuvveti olduğunu belirtmektedir. Örneğin:
 
 ```
@@ -1580,10 +1601,10 @@ kaçıncı kuvveti olduğunu belirtmektedir. Örneğin:
     }
 ```
 
-Doğrudan yazılan sayılara "sabit (literal)" denilmektedir. C'de yalnızca değişkenlerin değil, sabitlerin de türleri vardır. Bir sabitin türü onun
+Doğrudan yazılan sayılara "_sabit (literal)_" denilmektedir. C'de yalnızca değişkenlerin değil, sabitlerin de türleri vardır. Bir sabitin türü onun
 nasıl yazıldığına ve niceliğine bakılarak belirlenmektedir. Bir C programcısının da, bir sabiti gördüğünde onun türünü tespit edebilmesi gerekir.
 
-**1.** Sayı nokta içermiyorsa, sonuda bir ek yoksa ve 10'luk sistemde yazılmışsa; sayı sırasıyla "int", "long" ve ""long long" türlerinin hangisinin
+**1.** Sayı nokta içermiyorsa, sonuda bir ek yoksa ve 10'luk sistemde yazılmışsa; sayı sırasıyla `int`, `long` ve `long long` türlerinin hangisinin
 içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
@@ -1592,16 +1613,16 @@ içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
     -123                    bu bir sabit değildir. Burada sabit olan 123'tür. Sayının başındaki '-' bir operatördür.
 ```
 
-Şimdi çalıştığımız sistemde int ve long türünün 4 byte ancak long long türünün 8 byte olduğunu varsayalım. Bu durumda:
+Şimdi çalıştığımız sistemde `int` ve `long` türünün 4 byte ancak `long long` türünün 8 byte olduğunu varsayalım. Bu durumda:
 
 ```
     3000000000              long long türden sabit
     10000000000000          long long türden sabit
 ```
 
-**2.** Sayı nokta içermiyorsa, sonunda ek yoksa ve 16'lık sistemde ya da 8'lik sistemde yazılmışsa; sayı sırasıyla "int", "unsigned int", "long", "unisgned long",
-"long long" ve "unsigned long long" sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir. Çalıştığımız sistemde int ve long türünün 4 byte
-ancak long long türünün 8 byte olduğunu varsayalım.
+**2.** Sayı nokta içermiyorsa, sonunda ek yoksa ve 16'lık sistemde ya da 8'lik sistemde yazılmışsa; sayı sırasıyla `int`, `unsigned int`, `long`, `unisgned long`,
+`long long` ve `unsigned long long` sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir. Çalıştığımız sistemde `int` ve `long` türünün 4 byte
+ancak `long long` türünün 8 byte olduğunu varsayalım.
 
 ```
     0x10                    int türden sabit
@@ -1609,8 +1630,8 @@ ancak long long türünün 8 byte olduğunu varsayalım.
     1231231321223123123     long long türdne sabit
 ```
 
-**3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde 'u' ya da 'U' varsa; sayı 10'luk, 16'lık, 8'lik sistemde yazıldığında
-sırasıyla "unsigned int", "unsigned long int" ve "unsigned long long" türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir.
+**3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde `u` ya da `U` varsa; sayı 10'luk, 16'lık, 8'lik sistemde yazıldığında
+sırasıyla `unsigned int`, `unsigned long int` ve `unsigned long long` türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir.
 Örneğin:
 
 ```
@@ -1621,24 +1642,24 @@ sırasıyla "unsigned int", "unsigned long int" ve "unsigned long long" türleri
     01234U                  unsigned int türünden sabit
 ```
 
-**4.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde 'l' ya da 'L' harfi varsa ve sayı 10'luk sistemde yazılmışsa; sayı "long" ve
-"long long" türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
+**4.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde `l` ya da `L` harfi varsa ve sayı 10'luk sistemde yazılmışsa; sayı `long` ve
+`long long` türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
     1L                      long türden bir sabit
     1234567890123L          long long türden sabit
 ```
 
-**5.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde 'l' ya da 'L' harfi varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa;
-sayı "long" ve "unsigned long" "long long" ve "unsigned long long" türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
+**5.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde `l` ya da `L` harfi varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa;
+sayı `long` ve `unsigned long`, `long long` ve `unsigned long long` türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
     0x12L                   long ütrden sabit
     0123L                   long türden sabit
 ```
 
-**6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık "ul ya da lu" varsa ('u' ya da 'l' ler büyük ya da küçük olabilir) ve sayı 10'luk sistemde,
-16'lık sistemde ya da 8'lik sistemde yazıldığında sırasıyla "unsigned long" ve "unsigned long long" sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir.
+**6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık `ul` ya da `lu` varsa (`u` ya da `l` ler büyük ya da küçük olabilir) ve sayı 10'luk sistemde,
+16'lık sistemde ya da 8'lik sistemde yazıldığında sırasıyla `unsigned long` ve `unsigned long long` sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir.
 Örneğin:
 
 ```
@@ -1646,28 +1667,28 @@ sayı "long" ve "unsigned long" "long long" ve "unsigned long long" türlerinin 
     1234567890123ul         unsigned long long türden sabit
 ```
 
-**7.** Sayı nokta içermiyorsa, sayının sonunda "ll" ya da "LL" soneki varsa ve sayı 10'luk sistemde yazılmışsa; "long long" türden sabit belirtir. Örneğin:
+**7.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı 10'luk sistemde yazılmışsa; `long long` türden sabit belirtir. Örneğin:
 
 ```
     1LL                     long long türden sabit
     100ll                   long long türden sabit
 ```
 
-**8.** Sayı nokta içermiyorsa, sayının sonunda "ll" ya da "LL" soneki varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa; "long long" ve "unsigned long long"
+**8.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa; `long long` ve `unsigned long long`
 türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir. Örneğin:
 
 ```
     0x12LL                  long long türden sabit
 ```
 
-**9.** Sayı nokta içermiyorsa ve sayının sonunda "ull" ya da "llu" soneki varsa (burada 'u' ve "ll" büyük harf ya da küçük harf olabilir); bu durumda sabit unsigned long long türündendir.
+**9.** Sayı nokta içermiyorsa ve sayının sonunda `ull` ya da `llu` soneki varsa (burada `u` ve `ll` büyük harf ya da küçük harf olabilir); bu durumda sabit `unsigned long long` türündendir.
 Örneğin:
 
 ```
     1uLL                    unsigned long long türdne sabit
 ```
 
-**10.** Sayı nokta içeriyorsa ve sayının sonunda bir ek yoksa; sabit double türdendir. Örneğin:
+**10.** Sayı nokta içeriyorsa ve sayının sonunda bir ek yoksa; sabit `double` türdendir. Örneğin:
 
 ```
     1.2                     double türden sabit
@@ -1679,16 +1700,16 @@ Noktanın solunda ve sağında bir şey yoksa orada 0 olduğu kabul edilmektedir
 
 ```
     .12                     double türden sabit, 0.12 ile aynı anlamda
-    12.                     double türden sabit, 12.0 ile aynı anlamda
+    1.                      double türden sabit, 12.0 ile aynı anlamda
 ```
 
-Sayı üstel biçimde yazılmışsa sayı nokta içermese bile double türden olur. Örneğin:
+Sayı üstel biçimde yazılmışsa sayı nokta içermese bile `double` türden olur. Örneğin:
 
 ```
-    1e3                     bu sayı 1000 anlamına geliyor olsa da üstel biçimde yazıldığı için double türden sabit belirtmektedir.
+    1e3                     bu sayı 1000 anlamına geliyor olsa da üstel biçimde yazıldığı için `double` türden sabit belirtmektedir.
 ```
 
-**11.** Sayı nokta içeriyorsa ve sayının sonunda 'f' ya da 'F' varsa; sabit float türdendir. Örneğin:
+**11.** Sayı nokta içeriyorsa ve sayının sonunda `f` ya da `F` varsa; sabit `float` türdendir. Örneğin:
 
 ```
     12.3f                   float türden sabit
@@ -1696,14 +1717,14 @@ Sayı üstel biçimde yazılmışsa sayı nokta içermese bile double türden ol
     12.F                    float türden sabit
 ```
 
-Sayı nokta içermiyorsa sayının sonuna 'f' ya da 'F' soneki getirilemez. Örneğin:
+Sayı nokta içermiyorsa sayının sonuna `f` ya da `F` soneki getirilemez. Örneğin:
 
 ```
     12F                     geçersiz sabit!
     1e3F                    geçerli, burada noktaya gerek yok, çünkü sayı üstel biçimde yazılmış
 ```
 
-**12.** Sayı nokta içeriyorsa ancak sayının sonunda 'l' ya da 'L' varsa; sabit long double türden olur. Örneğin:
+**12.** Sayı nokta içeriyorsa ancak sayının sonunda `l` ya da `L` varsa; sabit `long double` türden olur. Örneğin:
 
 ```
     12L                     long türden sabit
@@ -1714,10 +1735,10 @@ Sayı nokta içermiyorsa sayının sonuna 'f' ya da 'F' soneki getirilemez. Örn
 [13. Ders 05/07/2022 - Salı]()
 
 **13.** C'de tek tırnakla iki tırnak arasında çok fark vardır. (Halbuki bazı dillerde tek tırnak ile iki tırnak arasında farklılık yoktur.) C'de bir karakter
-tek tırnak içerisine alınırsa bu ilgili karakterin karakter tablosundaki sıra numarasını belirten bir sayı anlamına gelir. Örneğin C'de 'a' ifadesi
+tek tırnak içerisine alınırsa bu ilgili karakterin karakter tablosundaki sıra numarasını belirten bir sayı anlamına gelir. Örneğin C'de `'a'` ifadesi
 aslında eğer ACII karakter tablosu kullanılıyorsa 97 sayısı ile aynı anlamdadır.
 
-C'de bir karakter tek tırnak içerisine alınırsa bu ifade int türden sabit kabul edilir. Bu biçimdeki ifadeleri "int türden karakter sabitleri denilmektedir". Örneğin:
+C'de bir karakter tek tırnak içerisine alınırsa bu ifade `int` türden sabit kabul edilir. Bu biçimdeki ifadeleri "_`int` türden karakter sabitleri_" denilmektedir. Örneğin:
 
 ```
     #include <stdio.h>
@@ -1735,10 +1756,10 @@ C'de bir karakter tek tırnak içerisine alınırsa bu ifade int türden sabit k
 ```
 
 Ancak karakter tablolarındaki bazı karakterlerin görüntü karşılığı yoktur. Yani bu karakterleri ekrana yazdırmak istediğimizde bir şey görmeyiz. Ancak
-bazı eylemler gerçekleşir. Bu tür karakterlere "görüntülenemeyen karakterler (non-printable characters)" denilmektedir. İşte bu görüntülenemeyen bazı karakterlere
+bazı eylemler gerçekleşir. Bu tür karakterlere "_görüntülenemeyen karakterler (non-printable characters)_" denilmektedir. İşte bu görüntülenemeyen bazı karakterlere
 ilişkin karakter sabitleri özel bir biçimde ifade edilmektedir. ASCII karakter tablosunun (dolayısıyla UNICODE karakter tablosunun da) ilk 32 karakteri
 görüntülenemeyen özek kontrol karakterinden oluşmaktadır. İşte çok kullanılan bazı görüntülenemeyen karakter tek tırnak içerisinde önce bir ters bölü sonra
-özel bazı karakterler ile temsil edilmektedir. Bu karakter sabitlerine "ters bölü karakter sabitleri (escape sequnces)" denilmektedir. Bunlar listesi şöyledir:
+özel bazı karakterler ile temsil edilmektedir. Bu karakter sabitlerine "_ters bölü karakter sabitleri (escape sequnces)_" denilmektedir. Bunlar listesi şöyledir:
 
 ```
     '\a'		alert (7 numaralı ASCII karakteri), beep sesi çıkar
@@ -1750,8 +1771,8 @@ görüntülenemeyen özek kontrol karakterinden oluşmaktadır. İşte çok kull
     '\v'		vertical tab (11 numaralı ASCII karakteri), imleç düşey olarak kaydırılır.
 ```
 
-Burada önemli olan nokta '\n' gibi bir karakter sabitin her na kadar tırnak içerisinde iki karakter varsa da aslında tek bir karaktere ilişkin karakter sabiti
-belirttiğidir. Yani '\n' ne ters bölü karakterinin ne de n karakterinin sabitidir. Tamamen başka bir karakte rolan LF (line feed) denilen karakterin karakter
+Burada önemli olan nokta `\n` gibi bir karakter sabitin her ne kadar tırnak içerisinde iki karakter varsa da aslında tek bir karaktere ilişkin karakter sabiti
+belirttiğidir. Yani `\n` ne ters bölü karakterinin ne de `n` karakterinin sabitidir. Tamamen başka bir karakter olan LF (line feed) denilen karakterin karakter
 sabitidir.
 
 Ters bölü karakter sabitleri iki tırnak içerisinde tek bir karakter olarak ele alınmaktadır. Örneğin:
@@ -1854,11 +1875,11 @@ Tabii sorun yaratmıyor olsa da biz istersek tek tırnak içerisinde iki tırnak
 
 Aslında C'de tek tırnak içerisine tek bir karakter yerleştirilmek zorunluluğu yoktur. Tek tırnak içerisine int türünün byte uzunluğu kadar karakter
 yerleştirilebilir (örneğin int türü 4 byte ise 4 karakter, 8 byte ise 8 karakter yerleştirilebilir). Tek tırnak içerisine birden fazla karakter yerleştirildiğinde
-bunlara "multibyte karakterler" denilmektedir. Multibyte karakterlerin ne belirttiği derleyicileri yazanların isteğine bırakılmıştır. Biz bu multibyte
+bunlara "_multibyte karakterler_" denilmektedir. Multibyte karakterlerin ne belirttiği derleyicileri yazanların isteğine bırakılmıştır. Biz bu multibyte
 karakter kavramını ileride yeniden ele alacağız.
 
-Bir karakter sabitinin başına onunla yapışık bir L harfi (L harfi büyük harf olmak zorundadır) getirilebilir. Bu tür karakter sabitlerine "geniş
-karakter sabitleri (wide character constants)" denilmektedir. Örneğin:
+Bir karakter sabitinin başına onunla yapışık bir L harfi (L harfi büyük harf olmak zorundadır) getirilebilir. Bu tür karakter sabitlerine "_geniş_
+_karakter sabitleri (wide character constants)_" denilmektedir. Örneğin:
 
 ```
     L'a'
@@ -1866,18 +1887,18 @@ karakter sabitleri (wide character constants)" denilmektedir. Örneğin:
 
 Geniş sabitleri `wchar_t` türündendir. Bu konu ileride ele alınacaktır.
 
-C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık 'u' ve 'U' getirilebilmektedir. Örneğin:
+C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık `u` ve `U` getirilebilmektedir. Örneğin:
 
 ```
     u'a'
     U'b'
 ```
 
-'u' öneki getirilmiş karakter sabitleri UNICODE UTF-16 encoding'ini, 'U' öneki getirilmiş karakter sabitleri de UNICODE UTF-32 encoding'ini belirtir.
-Bunlar sırasıyla char16_t ve char32_t türündendir. Bu konu da ileride ele alınacaktır.
+`u` öneki getirilmiş karakter sabitleri UNICODE UTF-16 encoding'ini, `U` öneki getirilmiş karakter sabitleri de UNICODE UTF-32 encoding'ini belirtir.
+Bunlar sırasıyla `char16_t` ve `char32_t` türündendir. Bu konu da ileride ele alınacaktır.
 
-**14.** C'de int türden küçük türlerin sabitleri yoktur. Yani C'de char, signed char, unsigned char, short ve unsigned short türünden sabitler yoktur.
-En küçük sabit int türündendir. Tek tırnak içerisine yazılmış karakter sabitlerinin de aslında int türden olduğunu anımsayınız.
+**14.** C'de `int` türden küçük türlerin sabitleri yoktur. Yani C'de `char`, `signed char`, `unsigned char`, `short` ve `unsigned short` türünden sabitler yoktur.
+En küçük sabit `int` türündendir. Tek tırnak içerisine yazılmış karakter sabitlerinin de aslında `int` türden olduğunu anımsayınız.
 
 C'de karakter sabitleri sayısal işlemlere sokulabilir. Çünkü zaten onlar birer sayı belirtmektedir.
 
@@ -1899,7 +1920,7 @@ int result;
 
 #### putchar fonksiyonu
 
-putchar fonksiyonu bizden int türden bir değer alır. O değere karşı gelen karakter numarasına ilişkin karakterin görüntüsünü ekrana (stdout dosyasına) yazar.
+`putchar` fonksiyonu bizden `int` türden bir değer alır. O değere karşı gelen karakter numarasına ilişkin karakterin görüntüsünü ekrana (`stdout` dosyasına) yazar.
 Yani `putchar(ch)` çağrısıyla `printf("%c", ch)` çağrısı işlevsel olarak tamamen eşdeğerdir.
 
 ```
@@ -1922,8 +1943,8 @@ int a;
 
 ### getchar fonksiyonu
 
-getchar fonksiyonu adeta putchar fonksiyonun tersini yapmaktadır. Bu fonksiyonun parametresi yoktur. Fonksiyon çağrıldığında klavyeden (stdin dosyasından)
-bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter tablosundaki sıra numarasına geri döner. getchar bize int türden bir değer vermektedir.
+`getchar` fonksiyonu adeta `putchar` fonksiyonun tersini yapmaktadır. Bu fonksiyonun parametresi yoktur. Fonksiyon çağrıldığında klavyeden (`stdin` dosyasından)
+bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter tablosundaki sıra numarasına geri döner. getchar bize `int` türden bir değer vermektedir.
 Örneğin:
 
 ```
@@ -1961,10 +1982,10 @@ int ch;
 }
 ```
 
-Aslında klavyeden (stdin dosyasından) okumalar bir tampon eşliğinde yapılmaktadır. Biz getchar fonksiyonunda birden fazla karakter girebiliriz. Bu durumda
-girilen tüm karakterler önce bir "tampona (buffer)" yerleştirilir sonra o tampondan alınarak verilir. getchar için basılan ENTER tuşu da tampona `\n`
-karakteri olarak eklenmektedir. getchar (ve stdin dosyasından okuma yapan diğer fonksiyonlar) eğer tamponda zaten karakter varsa bizden karakter istemezler.
-stdin tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
+Aslında klavyeden (`stdin` dosyasından) okumalar bir tampon eşliğinde yapılmaktadır. Biz `getchar` fonksiyonunda birden fazla karakter girebiliriz. Bu durumda
+girilen tüm karakterler önce bir "_tampona (buffer)_" yerleştirilir sonra o tampondan alınarak verilir. getchar için basılan ENTER tuşu da tampona `\n`
+karakteri olarak eklenmektedir. `getchar` (ve stdin dosyasından okuma yapan diğer fonksiyonlar) eğer tamponda zaten karakter varsa bizden karakter istemezler.
+`stdin` tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
 
 ```
     int ch;
@@ -1976,20 +1997,20 @@ stdin tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
     putchar(ch);
 ```
 
-Biz burada ilk getchar için `a` karakterine basıp ENTER tuşuna basmış olalım. Bu durumda taponun içeriği şöyle olacaktır:
+Biz burada ilk `getchar` için `a` karakterine basıp ENTER tuşuna basmış olalım. Bu durumda taponun içeriği şöyle olacaktır:
 
 ```
     Tampon => a\n
 ```
 
-İlk getchar tampondaki sıradaki karakter olan `a` okuyacaktır. Ancak ikinci getchar tampon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
-Tampondaki `\n` karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o getchar tampon boş olduğu için klavyeden okuma
+İlk `getchar` tampondaki sıradaki karakter olan `a` okuyacaktır. Ancak ikinci `getchar` tampon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
+Tampondaki `\n` karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o `getchar` tampon boş olduğu için klavyeden okuma
 isteyecektir.
 
-printf fonksiyonunun klavyeden (stdin dosyasından) okuma yapan scanf isimli kardeşi vardır. scanf temel olarak printf gibi kullanılmaktadır. Ancak
-scanf fonksiyonundaki format karakterleri çıktı ile ilgili değil yapılan giriş ile ilgili bilgi verir. Örneğin printf fonksiyonunda `%d` "int bir değeri 10'luk
-sistemde ekrana yaz" anlamına gelirken scanf fonksiyonunda %d "int bir nesne için "10'luk sistemde giriş yap" anlamına gelmektedir. scanf fonksiyonunda
-iki tırnaktan sonraki değişkenlerin önümne & operatörü getirilir. (Bu operatör ileride ele alınacaktır). Örneğin:
+`printf` fonksiyonunun klavyeden (`stdin` dosyasından) okuma yapan `scanf` isimli kardeşi vardır. `scanf` temel olarak `printf` gibi kullanılmaktadır. Ancak
+`scanf` fonksiyonundaki format karakterleri çıktı ile ilgili değil yapılan giriş ile ilgili bilgi verir. Örneğin `printf` fonksiyonunda `%d` "_`int` bir değeri 10'luk_
+_sistemde ekrana yaz_" anlamına gelirken `scanf` fonksiyonunda `%d`, "_`int` bir nesne için "10'luk sistemde giriş yap_" anlamına gelmektedir. `scanf` fonksiyonunda
+iki tırnaktan sonraki değişkenlerin önümne `&` operatörü getirilir. (Bu operatör ileride ele alınacaktır). Örneğin:
 
 ```
     int a;
@@ -1997,9 +2018,9 @@ iki tırnaktan sonraki değişkenlerin önümne & operatörü getirilir. (Bu ope
     scanf("%d", &a);
 ```
 
-Burada klavyeden girilen sayı a nesnesinin içerisine yerleştirilir. scanf fonksiyonundaki iki tırnak içerisine format karakterlerindne başka bir şey
-yazmayınız. Buraya yazdığınız başka karakterler başka anlamlara gelmektedir. scanf buradaki karakterleri ekrana yazdırmaz. Ekrana bir şey yazdırmak istiyorsanız
-printf fonksiyonunu kullanmalısınız. Örneğin:
+Burada klavyeden girilen sayı `a` nesnesinin içerisine yerleştirilir. `scanf` fonksiyonundaki iki tırnak içerisine format karakterlerindne başka bir şey
+yazmayınız. Buraya yazdığınız başka karakterler başka anlamlara gelmektedir. `scanf` buradaki karakterleri ekrana yazdırmaz. Ekrana bir şey yazdırmak istiyorsanız
+`printf` fonksiyonunu kullanmalısınız. Örneğin:
 
 ```
     int a;
@@ -2008,7 +2029,7 @@ printf fonksiyonunu kullanmalısınız. Örneğin:
 ```
 
 Burada `%x` klavyeden girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak `a` nesnesine yerleştirecektir. `printf` fonksiyonuyla `scanf` fonksiyonu arasındaki
-format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. ,`pintf` fonksiyonunda hem float hem de double `%f` ile yazdırılır. Ancak `scanf` fonksiyonunda
+format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. ,`pintf` fonksiyonunda hem `float` hem de `double` `%f` ile yazdırılır. Ancak `scanf` fonksiyonunda
 float `%f` ile double `%lf` ile okunmaktadır.
 
 ```
@@ -2028,7 +2049,7 @@ return 0;
 }
 ```
 
-Tek bir scanf ile birden fazla nesne için okuma yapılabilir. Burada format karakterlerinin dışında şimdilik başka bir karakter bulundurmayınız.
+Tek bir `scanf` ile birden fazla nesne için okuma yapılabilir. Burada format karakterlerinin dışında şimdilik başka bir karakter bulundurmayınız.
 Girişler sırasında istenildiği kadar boşluk karakteri (SPACE, TAB, ENTER) bulundurulabilir.
 
 ```
@@ -2048,7 +2069,7 @@ int a, b;
 }
 ```
 
-Aşağıdaki programda klavyeden (stdin dosyasından) iki int değer okunmuş, bunların çarpımı ekrana (stdout dosyasına) yazdırılmıştır.
+Aşağıdaki programda klavyeden (`stdin` dosyasından) iki `int` değer okunmuş, bunların çarpımı ekrana (`stdout` dosyasına) yazdırılmıştır.
 
 ```
 #include <stdio.h>
@@ -2067,7 +2088,7 @@ int a, b;
 }
 ```
 
-Yeni öğrenenler tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna `\n` konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
+Yeni öğrenenler tarafından yanlışlıkla `scanf`'teki format karakterlerinin sonuna `\n` konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
 
 ```
 #include <stdio.h>
