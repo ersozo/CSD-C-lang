@@ -393,7 +393,7 @@ Bu sisteme ilişkin tipik sorular ve yanıtları şöyledir:
 
 **SORU**: Bu sistemde `+n` sayısını nasıl yazarsınız?
 
-**CEVAP** : En soldaki bit 0 yapılıp `n` sayısı 2'lik sistemde yazılır.
+**CEVAP** : En soldaki bit `0` yapılıp `n` sayısı `2`'lik sistemde yazılır.
 
 **SORU** : Bu sistemde `-n` nasıl yazarsınız?
 
@@ -412,8 +412,8 @@ yazalım. Önce `+1` yazalım:
 
 **SORU** : Bu sistemde bir sayının kaç olduğu bize sorulsa bunu nasıl yanıtlarız?
 
-**CEVAP** : Eğer en soldaki bit 0 ise sayının değeri doğrudan hesplanır. Eğer en soldaki bit 1 ise bu sayının negatif olduğunu gösterir. Bu durumda
-sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Örneğin 1110 1110 sayısı kaçtır? Burada işaret biti 1 olduğuna göre sayı negatiftir.
+**CEVAP** : Eğer en soldaki bit 0 ise sayının değeri doğrudan hesplanır. Eğer en soldaki bit `1` ise bu sayının negatif olduğunu gösterir. Bu durumda
+sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Örneğin `1110 1110` sayısı kaçtır? Burada işaret biti `1` olduğuna göre sayı negatiftir.
 Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidirler. O zaman bu sayının ikiye tümleyenini alıp pozitifinden faydalanarak sayıyı bulalım:
 
 ```
