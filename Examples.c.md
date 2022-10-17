@@ -281,11 +281,11 @@ Bit en küçük bellek birimidir. 8 bite 1 byte denilmektedir. Genellikle bitler
 
 Burada 1 byte'lık bir bilgi vardır. Byte temel bellek birimidir.
 
-Byte da küçük bir birimdir. Kilo diğer bilimlerde "_1000 katı_" anlamına gelmektedir. Ancak bilgisayarlar 2'lik sistemi kullandığj için 1000 katı iyi bir
-kat değildir. Bu nedenle genel olarak Kilo byte için 2'nin 10'uncu kuvveti olan 1024 kat kullanılır. Yani 1KB (kısaca 1K) 1024 byte'tır. Mega diğer bilimlerde
+`Byte` da küçük bir birimdir. `Kilo` diğer bilimlerde "_1000 katı_" anlamına gelmektedir. Ancak bilgisayarlar 2'lik sistemi kullandığj için 1000 katı iyi bir
+kat değildir. Bu nedenle genel olarak `Kilo byte` için 2'nin 10'uncu kuvveti olan 1024 kat kullanılır. Yani `1KB (kısaca 1K) 1024 byte`'tır. `Mega` diğer bilimlerde
 kilonun 1000 katıdır. Dolayısıyla milyon kat anlamına gelmektedir. Ancak bilgisayar bilimlerinde genel olarak mega kilonun 1024 katı olarak alınır.
-Bu durumda 1 MB = 1024 _ 1024 (2^20) byte'tır. Giga ise meganın 1024 katıdır. Bu durumda 1 GB = 1024 _ 1024 \* 1024 byte'tır ( 2^30). Giga'dan sonra tera, tera'dan sonra
-peta, ondan sonra da exa gelmektedir.
+Bu durumda `1 MB = 1024 * 1024 byte (2^20)`'tır. `Giga` ise Meganın 1024 katıdır. Bu durumda `1 GB = 1024 * 1024 * 1024 byte ( 2^30)`'tır. Giga'dan sonra `Tera`, tera'dan sonra
+`Peta`, ondan sonra da `Exa` gelmektedir.
 
 1 byte içerisinde yazılabilecek en küçük ve en büyük sayılar şöyledir:
 
@@ -392,9 +392,11 @@ En küçük negatif sayı ise şöyledir:
 Bu sisteme ilişkin tipik sorular ve yanıtları şöyledir:
 
 **SORU** : Bu sistemde +n sayısını nasıl yazarsınız?
+
 **CEVAP** : En soldaki bit 0 yapılıp n sayısı 2'lik sistemde yazılır.
 
 **SORU** : Bu sistemde -n nasıl yazarsınız?
+
 **CEVAP** : Yazabiliyorsanız doğrudan yazın. Ancak doğrudan yazamıyorsanız önce +n değerini yazın ve ikiye tümleyenini alın. Örneğin bu sistemde -1
 yazalım. Önce +1 yazalım:
 
@@ -409,6 +411,7 @@ yazalım. Önce +1 yazalım:
 ```
 
 **SORU** : Bu sistemde bir sayının kaç olduğu bize sorulsa bunu nasıl yanıtlarız?
+
 **CEVAP** : Eğer en soldaki bit 0 ise sayının değeri doğrudan hesplanır. Eğer en soldaki bit 1 ise bu sayının negatif olduğunu gösterir. Bu durumda
 sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Örneğin 1110 1110 sayısı kaçtır? Burada işaret biti 1 olduğuna göre sayı negatiftir.
 Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidirler. O zaman bu sayının ikiye tümleyenini alıp pozitifinden faydalanarak sayıyı bulalım:
@@ -489,7 +492,7 @@ yuvarlama hatasından dolayı sayılar sanki eşit değişmiş gibi ele alınaca
 
 Peki, yuvarlama hatasının önemli olduğu ve bunun istenmediği tarzda uygulamalarda (örneğin finansal uygulamalarda, bilimsel birtakım uygulamalarda)
 ne yapak gerekir? İşte bunun tek yolu noktalı sayıları kayan noktalı formatta tutmamak olabilir. Bazı programlama dillerinde noktalı sayıyı
-kayan noktalı formatta tutmayan böylece yuvarlama hatalarına maruz bırakmayan özel türler (örneğin C#'taki decimal) vardır. Ancak bu türler işlemciler tarafından
+kayan noktalı formatta tutmayan böylece yuvarlama hatalarına maruz bırakmayan özel türler (örneğin C#'taki `decimal`) vardır. Ancak bu türler işlemciler tarafından
 desteklenmediği için yapay türlerdir.
 
 Yazılar da aslında bilgisayar belleğinde, 2'lik sistemdeki sayılar biçiminde tutulmaktadır. Bir yazıyı oluşturan elemanlara "_karakter_" denilmektedir. İşte
@@ -846,7 +849,7 @@ listesinden son projelerden birini seçmektir. Diğer yolu **File/Open-Project**
 C/C++ için çok tercih edilen diğer bir IDE de "_Qt Creator_" denieln IDE'dir. Buradaki çalışma biçimi ana hatlarıyla Visual Studio'ya benzemektedir.
 Önce yine bir proje yaratılmalıdır. Bunun için "_File/New File or Project_" menüsü seçilir. Template olarak "_None Qt Project_" seçilir. Buradan da "_Plain C Application_"
 seçilir. Projeye isim verilir ve projenin yaratılacağı dizin belirtilir. Qt Creator IDE'si bu seçenekle bir C dosyasını projeye ekleyip onun içerisine birkaç satırlık
-"_Merhaba Dünya_" programını yazmaktadır. Derleme ve link işlemi ve çalıştırma işlemi tek tuşla (`Ctrl+R`) yapılabilir. Yine bu işlem GUI ekranındaki çalıştır düğmesine
+"_Merhaba Dünya_" programını yazmaktadır. Derleme ve link işlemi ve çalıştırma işlemi tek tuşla (**Ctrl+R**) yapılabilir. Yine bu işlem GUI ekranındaki çalıştır düğmesine
 tıklanarak da yapılabilmektedir.
 
 Kod derleyici tarafından derlenirken derleyiciler bazı sorunlar karşısında "_hata mesajları_" ile bu sorunları programcıya iletirler. Derleyicilerin verdiği
@@ -870,7 +873,7 @@ Derleyiciler genellikle hata mesajlarında hatanın kaynak kodun neresinde eoldu
 vermektedir. Bu numara yoluyla hata mesajı hakkında daha fazla bilgi elde edilebilmektedir. Hata mesajları standart mesajlar değildir, derleyiciden derleyiciye
 değişebilmektedir.
 
-Bir programlama dilinde kendi başına anlamlı olan en küçük birime "atom (token)" denilmektedir. Örneğin aşağıdaki gibi bir C kodu olsun:
+Bir programlama dilinde kendi başına anlamlı olan en küçük birime "_atom (token)_" denilmektedir. Örneğin aşağıdaki gibi bir C kodu olsun:
 
 ```
 
@@ -1284,12 +1287,17 @@ C "_büyük harf - küçük harf duyarlılığı olan (case sensitive)_" bir pro
 farklı karakterler olarak ele alınırlar. Değişken isimlendirmesinde pek çok programlama dilindeki benzer kurallar geçerlidir:
 
 - Değişken isimleri nümerik karakterlerle başlatılamaz. Ancak alfabetik karakterlerle başlatılıp nümerik karakterlerle devam ettirilebilir.
+
 - Değişken isimleri boşluk içeremez, operatör içeremez.
+
 - Değişkenler anahtar sözcüklerden oluşturulamazlar.
+
 - Alt tire karakteri alfabetik karakter gibi kullanılabilmektedir.
+
 - Değişken isimlerindeki karakterler İnglizce küçük harfler, İngilizce büyük harfler, alt tire karakterleri ve sayısal karakterler olabilir.
   Türkçe gibi diğer dillerin karakterlerinin kullanılıp kullanılmayacağı derleyicileri yazanların isteğine bırakılmıştır. Yani bazı derleyiciler örneğin
   Türkçe karakterlerden oluşan isimleri kabul ederken bazı derleyiciler hiç etmeyebilirler.
+
 - Değişkenlerdeki karakter sayısı istenildiği kadar uzun olabilir. Ancak derleyiciler uzun değişken isimlerinin ilk n karakterini dikkate alırlar.
   Bu n değeri derleyiciden derleyiciye değişebilmektedir. Bugün kullanılan yaygın derleyiciler en az 256 karakteri desteklemektedir. Bu da zaten oldukça uzundur.
 
