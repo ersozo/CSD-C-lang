@@ -339,13 +339,13 @@ Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidir. Örneğin bu sist
     0 000 1010 ---> +10
 ```
 
-Şimdi -10 yazmak isteyelim. Bunun için +10'un ikiye tümleyenini alalım:
+Şimdi `-10` yazmak isteyelim. Bunun için `+10`'un ikiye tümleyenini alalım:
 
 ```
     1 111 0110 ---> -10
 ```
 
-Bu sistemde +n ile -n toplandığında 0 elde edilir:
+Bu sistemde `+n` ile `-n` toplandığında 0 elde edilir:
 
 ```
     0 000 1010 ---> +10
@@ -376,24 +376,22 @@ bir tane daha fazla olmak zorundadır. Bu sistemde ikiye tümleyeni olmayan iki 
 
 Birincisi 0'dır. İkinci sayı -127'den bir eksik olan sayıdır. O halde bu sayının -128 kabul edilmesi daha uygundur.
 
-Demek ki bu sistemde n byte içerisinde yazılabilecek en büyük pozitif sayı ilk biti 0 olan diğer tüm bitleri 1 olan sayıdır. En küçük
+Demek ki bu sistemde `n` byte içerisinde yazılabilecek en büyük pozitif sayı ilk biti 0 olan diğer tüm bitleri 1 olan sayıdır. En küçük
 negatif sayı ise ilk biti 1 olan diğer tüm bitleri 0 olan sayıdır. Örneğin bu sistemde iki byte ile yazabileceğimiz en büyük pozitif sayı şöyledir:
 
-````
+```
     0111 1111 1111 1111 ---> +32767
-```soru
+```
 
 En küçük negatif sayı ise şöyledir:
 
-````
-
+```
     1000 0000 0000 000 ---> -32768
-
 ```
 
 Bu sisteme ilişkin tipik sorular ve yanıtları şöyledir:
 
-**SORU** : Bu sistemde `+n` sayısını nasıl yazarsınız?
+**SORU**: Bu sistemde `+n` sayısını nasıl yazarsınız?
 
 **CEVAP** : En soldaki bit 0 yapılıp `n` sayısı 2'lik sistemde yazılır.
 
@@ -403,17 +401,13 @@ Bu sisteme ilişkin tipik sorular ve yanıtları şöyledir:
 yazalım. Önce `+1` yazalım:
 
 ```
-
     0000 0001 --> +1
-
 ```
 
 Şimdi bunun ikiye tümleyenini alalım:
 
 ```
-
     1111 1111 ---> -1
-
 ```
 
 **SORU** : Bu sistemde bir sayının kaç olduğu bize sorulsa bunu nasıl yanıtlarız?
@@ -423,9 +417,7 @@ sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Ö
 Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidirler. O zaman bu sayının ikiye tümleyenini alıp pozitifinden faydalanarak sayıyı bulalım:
 
 ```
-
     0001 0010 ---> +18
-
 ```
 
 o zaman bize sorulan sayı -18'dir.
@@ -433,10 +425,8 @@ o zaman bize sorulan sayı -18'dir.
 Bu sistemde örneğin 1 byte içerisinde yazılabilecek en büyük pozitif sayıya 1 ekleyelim:
 
 ```
-
     0111 1111 ---> +127
     1000 0000 ---> -128
-
 ```
 
 Demek ki bu sistemde bir sayıyı üst limitten taşırırsak yüksek bir negatif sayıyla karşılaşırız.
@@ -460,14 +450,10 @@ negatif kuvvetleriyle kodlanmaktadır. Böylece iki sabit noktalı sayıyı para
 `5.25` ile `6.25` sayılarını ifade edip toplayalım:
 
 ```
-
     0000 0000 0000 0101 . 0100 0000 0000 0000 ---> 5.25
     0000 0000 0000 0110 . 0100 0000 0000 0000 ---> 6.25
 
----
-
     0000 0000 0000 1011 . 1000 0000 0000 0000 ---> 11.5
-
 ```
 
 Peki bu yöntemin ne dezavantajı vardır? Yöntemin en önemli dezavantajı dinamik olmamasıdır.
@@ -480,15 +466,15 @@ denilmektedir. İşte kayan formatlarda sayı için ayrılan alanın bir bölüm
 kısma "_üstel kısım (exponential part)_" denilmektedir. Tabii bir de sayının başında işaret biti bulunur. Bu durumda kayan noktalı bir sayının formatı aşağıdakine benzerdir:
 
 ```
-
     [işaret biti] [mantis] [noktanın yeri (exponential)]
-
 ```
 
 Bugün ağırlıklı kullanılan kayan noktalı format IEEE 754 denilen formattır. Bu formatın üç farklı genişlikte biçimi vardır:
 
 - IEEE 754 - Short Real Format (4 byte)
+
 - IEEE 754 - Long Real Format (8 byte)
+
 - IEEE 754 - Extended Real Format (10 byte)
 
 Bugün Intel, ARM, MIPS, Alpha, Power PC gibi yaygın işlemciler donanımsal olarak bu formatı desteklemektedir. Aynı zamanda bu format yaygın olarak Reel Sayı Ünitesi
@@ -503,9 +489,7 @@ Yuvarlama hatalarından dolayı programlama dillerinde iki noktalı sayının ta
 yuvarlama hatasından dolayı sayılar sanki eşit değişmiş gibi ele alınacaktır.
 
 ```
-
     0.3 - 0.1 == 0.2 (false)
-
 ```
 
 Peki, yuvarlama hatasının önemli olduğu ve bunun istenmediği tarzda uygulamalarda (örneğin finansal uygulamalarda, bilimsel birtakım uygulamalarda)
@@ -543,7 +527,6 @@ Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de 16'lık sis
 sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 10'luk sistemdeki sembollerden alınmıştır. Sonraki 6 sembol alfabetik karakterlerden alınmıştır.
 
 ```
-
     0
     1
     2
@@ -560,22 +543,18 @@ sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 1
     D
     E
     F
-
 ```
 
 16'lık sistemdeki her bir basamağa "_hex digit_" denilmektedir. Örneğin:
 
 ```
-
     1FC8
-
 ```
 
 Burada 4 hex digit'lik bir sayı vardır. 16'lık sistemdeki bir sayıyı 10'luk sisteme dönüştürmek için her hex digit 16'lık kuvvetleriyle çarpılıp toplanır.
 Ancak 16'lık sistemdeki bir sayı, kullanım gereği bakımından aslında 10'lu sisteme pek dönüştürülmez. 16'lık sistemdeki her bir hex digit 4 bit ile ifade edilebilmektedir:
 
 ```
-
     0       0000
     1       0001
     2       0010
@@ -592,24 +571,19 @@ Ancak 16'lık sistemdeki bir sayı, kullanım gereği bakımından aslında 10'l
     D       1101
     E       1110
     F       1111
-
 ```
 
 16'lık sistemden 2'lik sisteme dönüştürme yapmak çok kolaydır. Tek yapılacak şey, her bir hex digit'e karşılık yandaki tablodaki 4 biti getirmektir. Örneğin:
 
 ```
-
     1FC9  =  0001 1111 1100 1001
     FA3D  =  1111 1010 0011 1101
-
 ```
 
 2'lik sistemdeki bir sayı da 16'lık sisteme çok kolay dönüştürülür. Tek yapılacak şey, sayıyı dörderli gruplayıp ona karşı gelen hex digit'i yazmaktır. Örneğin:
 
 ```
-
     1010 0001 1110 1000 0011 0101 = A1E835
-
 ```
 
 Bilgisayar dünyasında 16'lık sistem aslında 2'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Yani 2'lik sistem çok yer kapladığı için kişiler
@@ -618,9 +592,7 @@ Bilgisayar dünyasında 16'lık sistem aslında 2'lik sistemin yoğun bir göste
 1 byte 2 hex digit ile ifade edilmektedir. Örneğin:
 
 ```
-
     1A 23 5C 78
-
 ```
 
 Burada 4 byte'lık bir bilgi vardır. Örneğin 2 byte içerisinde yazılabilecek en küçük negatif işaretli sayının hex karşılığı 8000 biçimindedir. Örneğin
@@ -632,7 +604,6 @@ Eskiden daha fazla kullanılıyor olsa da toplamda oldukça seyrek kullanılan d
 kullanılmaktadır:
 
 ```
-
     0
     1
     2
@@ -641,13 +612,11 @@ kullanılmaktadır:
     5
     6
     7
-
 ```
 
 Her octal digit 3 bit ile ifade edilebilir:
 
 ```
-
     0       000
     1       001
     2       010
@@ -656,25 +625,20 @@ Her octal digit 3 bit ile ifade edilebilir:
     5       101
     6       110
     7       111
-
 ```
 
 Bu durumda bir octal sayı 2'lik sisteme kolay bir biçimde dönüştürülebilir:
 
 ```
-
     476	            --->    100 111 110
     741	            --->    111 100 001
-
 ```
 
 Benzer biçimde 2'lik sistemdeki bir sayı da sağdan sola üçer bit gruplandırılarak 8'lik sisteme dönüştürülebilmektedir. Örneğin:
 
 ```
-
     1011 1011       --->    273
     0111 1110	    --->    176
-
 ```
 
 8'lik sistem de 2'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Ancak 8'i tam ortalayamadığı için kullanımı seyrektir.
@@ -1341,9 +1305,7 @@ Karmaşık sayılar, gerçek ve sanal kısımları float, double ve long double 
 `_COMPLEX_I` anahtar sözcüğü ile temsil edilmiştir. Dolaysyıyla örneğin double `_Complex` türünden bir `z` değişkenine biz `3.2 + 2.4i` değerini şöyle atarız:
 
 ```
-
     z = 3.2 + 2.4 * _COMPLEX_I
-
 ```
 
 Ayrıca yazım kolaylığı için `<complex.h>` dosyası içerisinde `_COMPLEX` anahtar sözcüğü `complex` ismiyle typedef edilmiştir. Yani biz eğer `<complex.h>` dosyasını
@@ -2367,45 +2329,44 @@ Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gereki
 
 İşlevlerine göre sınıflandırmada operatörün hangi amaçla kullanıldığına göre sınıflandırma yapılır. Tipik sınıflandırma şöyle yapılmaktadır:
 
-- *_Artirmetik Operatörler (Arithmetic Operators)_*: Bunlar toplama, çarpma gibi klasik operatörlerdir.
+- _*Artirmetik Operatörler (Arithmetic Operators)*_: Bunlar toplama, çarpma gibi klasik operatörlerdir.
 
-- *_Karşılaştırma Operatörleri (Comparision Operators)_*: Bunlar `>`, `<`, `>=`, `<=`, `==`, `!=` gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
+- _*Karşılaştırma Operatörleri (Comparision Operators)*_: Bunlar `>`, `<`, `>=`, `<=`, `==`, `!=` gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
   operatörlere "_ilişkisel operatörler (relational operators)_" da denilmektedir.
 
-- *_Mantıksal Operatörler (Logical Operators)_*: Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
+- _*Mantıksal Operatörler (Logical Operators)*_: Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
 
-- *_Gösterici Operatörleri (Pointer Operators)_*: Adreslerle işlemler yapan operatörlerdir. Bunlar her programlama dilinde bulunmazlar.
+- _*Gösterici Operatörleri (Pointer Operators)*_: Adreslerle işlemler yapan operatörlerdir. Bunlar her programlama dilinde bulunmazlar.
 
-- *_Bit Operatörleri (Bitwise Operators)_*: Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar, sayıların karşılıklı bitlerini işleme sokan
+- _*Bit Operatörleri (Bitwise Operators)*_: Bit operatörleri de pek çok dilde bulunmaktadır. Bunlar, sayıların karşılıklı bitlerini işleme sokan
   operatörlerdir.
 
-- *_Özel Amaçlı Operatörler (Special Purpose Operators)_*: Değişik konulara ilişkin işlem yapan yukarıdaki gruplar içerisine girmeyen operatörlerdir.
+- _*Özel Amaçlı Operatörler (Special Purpose Operators)*_: Değişik konulara ilişkin işlem yapan yukarıdaki gruplar içerisine girmeyen operatörlerdir.
 
 **2. Operand Sayılarına Göre**
 
 Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
 
-- *_İki operandlı Operatörler (Binary Operators)_*: Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin `+`, `*`, `/`, `-`
+- _*İki operandlı Operatörler (Binary Operators)*_: Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin `+`, `*`, `/`, `-`
   operatörleri iki operandlı operatörlerdir.
 
-- *_Tek operandlı Operatörler (Unary Operators)_*: Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
+- _*Tek operandlı Operatörler (Unary Operators)*_: Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
   alır, iki değerin NOT'ını almaz. Ya da örneğin `-5` ifadesindeki `-` operatörü çıkartma operatörü değildir, `işaret eksi` operatörüdür ve tek operandlı bir operatördür.
 
-- *_Üç operandlı Operatörler (Ternary Operators)_*: Üç operandlı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operandlı tek bir operatör vardır.
+- _*Üç operandlı Operatörler (Ternary Operators)*_: Üç operandlı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operandlı tek bir operatör vardır.
 
 **3. Operatörün Konumuna Göre**
 
 Operatörler, operatörün operandlarına olan konumuna göre de üçe ayrılmaktadır:
 
-- *_Araek Operatörler (Infix Operators)_*: Bu operatörler iki operandlıdır ve operandlarının arasına getirilerek kullanılmaktadır. Örneğin `a + b` işleminde
+- _*Araek Operatörler (Infix Operators)*_: Bu operatörler iki operandlıdır ve operandlarının arasına getirilerek kullanılmaktadır. Örneğin `a + b` işleminde
   `+` operatörlerinin araek bir operatör olduğuna dikkat ediniz.
 
-- *_Önek Operatörler (Prefix Operators)_*: Bunlar operandlarının önüne getirilerek kullanılırlar. Örneğin `!a` gibi bir kullanımda `!` operatörü operandının önüne
+- _*Önek Operatörler (Prefix Operators)*_: Bunlar operandlarının önüne getirilerek kullanılırlar. Örneğin `!a` gibi bir kullanımda `!` operatörü operandının önüne
   getirilmiştir.
 
-- *_Sonek Operatörler (Postfix Operators)_*: Bunlar da operandlarının sonuna getirilerek kullanılırlar. Örneğin `foo()` gibi bir ifadede parantezler operatör
+- _*Sonek Operatörler (Postfix Operators)*_: Bunlar da operandlarının sonuna getirilerek kullanılırlar. Örneğin `foo()` gibi bir ifadede parantezler operatör
   görevindedir. `foo` ise bu operatörün operandıdır. Burada operatör operandının sonuna getirilmiştir.
-
 
 Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
 Örneğin, "_`/` operatörü iki operandlı araek (binary infix) bir artimetik operatördür_". Ya da örneğin "_`!` operatörü tek operandlı öncek (unary prefix) bir mantıksal operatördür_".
@@ -12012,6 +11973,8 @@ NULL sözcüğünü kullanabiliriz:
     Biz henüz void adresleri görmediğimiz için (void *)0 ifadesini açıklamayacağız.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+```
 
 ```
 
