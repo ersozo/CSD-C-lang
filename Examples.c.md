@@ -2788,22 +2788,22 @@ int a;
 
 ```
 
-C (ve C++) standartlarında "tanımsız davranış (undefined behavior)" denilen bir kavram vardır. Tanımsız davranış terimi standartlarda semantik bir tanımın
+C (ve C++) standartlarında **tanımsız davranış (undefined behavior)** denilen bir kavram vardır. Tanımsız davranış terimi standartlarda semantik bir tanımın
 yapılmadığı kodlar için kullanılmaktadır. Tanımsız davranışa yol açan kodlar sentaks bakımdan geçerlidir. Dolayısıyla başarılı bir biçimde derlenirler.
-Ancak programın çalışma zamanı sırasında sorunlar ortaya çıkabilmektedir. Bu sorunlar "programın çökmesi", "programın umulmadık biçimde çalışması",
-"hatalı birtakım değerlerin ortaya çıkması" biçiminde olabilir. Bazen tanımsız davranışa yol açam kodlar görünüşte bir soruna yol açmayabilir. Ancak
-programın değişik zamanlarda çalıştırılması sırasında tutarsızlıklar oluşturabilmektedir. Sonuç olarak bir kod eğer "tanımsız davranışa" yol açıyorsa
-programcının o kodu kullanmaması gerekir. Kullanırsa artık programın sağlıklı çalışması garanti olmaz. Tanımsız davranışların "derleme aşamasına ilişkin değil",
-"programın çalışma zamanına ilişkin" olumsuzluklar doğurabildiğine dikkat ediniz.
+Ancak programın çalışma zamanı sırasında sorunlar ortaya çıkabilmektedir. Bu sorunlar "_programın çökmesi_", "_programın umulmadık biçimde çalışması_",
+"_hatalı birtakım değerlerin ortaya çıkması_" biçiminde olabilir. Bazen tanımsız davranışa yol açam kodlar görünüşte bir soruna yol açmayabilir. Ancak
+programın değişik zamanlarda çalıştırılması sırasında tutarsızlıklar oluşturabilmektedir. Sonuç olarak bir kod eğer "_tanımsız davranışa_" yol açıyorsa
+programcının o kodu kullanmaması gerekir. Kullanırsa artık programın sağlıklı çalışması garanti olmaz. Tanımsız davranışların "_derleme aşamasına ilişkin değil_",
+"_programın çalışma zamanına ilişkin_" olumsuzluklar doğurabildiğine dikkat ediniz.
 
-C (ve C++) standartlarında karşılaşılan diğer bir kavram da "derleyiciye bağlı davranış (implementation depnedent (defined) behavior)" kavramıdır.
+C (ve C++) standartlarında karşılaşılan diğer bir kavram da **derleyiciye bağlı davranış (implementation depnedent (defined) behavior)** kavramıdır.
 Standratlarda bazı durumlarda ilgili özelliğin derleyiciden derleyiciye değişebileceği belirtilmiştir. Yani ilgili özellik için açık bir belirleme yapmak yerine
-standartlar bu belirlemenin derleyicileri yazanlar tarafından yapılacağını belirtmektedir. Örneğin int türünün (ve char dışındaki diğer türlerin)
-uzunlukları derleyiden derleyiciye değişebilmektedir. Bu uzunluklar "derleyiciye bağlı bir davranışa" yol açmaktadır. Ancak derleyiciye bağlı davranışların
+standartlar bu belirlemenin derleyicileri yazanlar tarafından yapılacağını belirtmektedir. Örneğin `int` türünün (ve `char` dışındaki diğer türlerin)
+uzunlukları derleyiden derleyiciye değişebilmektedir. Bu uzunluklar "_derleyiciye bağlı bir davranışa_" yol açmaktadır. Ancak derleyiciye bağlı davranışların
 ilgili derleyicinin dokümantasyonunda dokümante edilmiş olması gerekmektedir. Yani derleyicilerin bir referans gibi kitapları olmalıdır. Orada standartlarda
-belirtilen "derleyiciye bağlı davranışların" o derleyicide nasıl ele alındığının belirtilmesi gerekmektedir.
+belirtilen "_derleyiciye bağlı davranışların_" o derleyicide nasıl ele alındığının belirtilmesi gerekmektedir.
 
-C (ve C++) standartlarında geçen diğer önemli bir kavram da "belirsiz davranış (unspecified behavior)" kavramıdır. Belirsiz davranışta sınırlı sayıda seçenek
+C (ve C++) standartlarında geçen diğer önemli bir kavram da **belirsiz davranış (unspecified behavior)** kavramıdır. Belirsiz davranışta sınırlı sayıda seçenek
 söz konusudur. Ancak bu seçeneklerin hangisinin uygulnadığı derleyiciden derleyiciye değişebilir. Bu seçeneklerin hiçbiri normal koşullarda programın
 çökmesine ya da hatalı sonuçların oluşmasına yol açmamaktadır. Derleyiciler belirsiz davranışlarda hangi seçeneği seçtiklerini dokümante etmek zorunda değillerdir.
 Belirsiz davranışın tanımsız davranıştan en önemli farkı, tanımsız davranışın tamamen patolojik bir durum olması ancak belirsiz davranışın patolojik bir durum olmamasıdır.
@@ -2830,7 +2830,7 @@ tanımsız davranışa yol açmaktadır. Bu durumda aşağıdaki gibi kodların 
 
 ```
 
-Bu kodlarda nasıl bir sonuç elde edileceğinin bir garantisi yoktur. Ancak yukarıdaki kodlar örneğin Java ve C# gibi dillerde "tanımlı (well defined)" kodlardır.
+Bu kodlarda nasıl bir sonuç elde edileceğinin bir garantisi yoktur. Ancak yukarıdaki kodlar örneğin Java ve C# gibi dillerde "_tanımlı (well defined)_" kodlardır.
 
 C'de toplam 6 tane karşılaştırma operatörü vardır:
 
@@ -2857,7 +2857,7 @@ C'de toplam 6 tane karşılaştırma operatörü vardır:
 
 Karşılaştırma operatörlerinin de öncelik tablosunda iki farklı düzeyde bulunduğuna dikkat ediniz.
 
-C'de karşılaştırma operatörlerinin ürettiği değerler int türdendir. Eğer önerme doğruysa bu operatörler 1 değerini, yanlışsa 0 değerini üretirler.
+C'de karşılaştırma operatörlerinin ürettiği değerler `int` türdendir. Eğer önerme doğruysa bu operatörler `1` değerini, yanlışsa `0` değerini üretirler.
 
 ```
 
@@ -2887,7 +2887,7 @@ Aşağıdaki ifadeye dikkat ediniz:
 
 ```
 
-Bu ifade matematikte a'nın 10 ile 20 arasında olduğuna ilişkin bir anlama gelse de C'de böyle bir anlama gelmemektedir. C'de bu ifade şöyle ele alınmaktadır:
+Bu ifade matematikte `a`'nın `10` ile `20` arasında olduğuna ilişkin bir anlama gelse de C'de böyle bir anlama gelmemektedir. C'de bu ifade şöyle ele alınmaktadır:
 
 ```
 
@@ -2954,7 +2954,7 @@ diğer tek operand'lı operatörlerin bulunduğu ikinci düzeydedir. Ancak `&&` 
 
 ```
 
-Mantıksal operatörler her zaman int türden değer üretirler. İşlem sonucu Doğru ise 1 değerini, yanlış ise 0 değerini üretmektedirler. Bu operatörler
+Mantıksal operatörler her zaman `int` türden değer üretirler. İşlem sonucu Doğru ise `1` değerini, yanlış ise `0` değerini üretmektedirler. Bu operatörler
 önce operand'larını Doğru ya da Yanlış olarak ele alırlar. Eğer operand sıfır dışı (non-zero) herhangi bir değerdeyse Doğru olarak, sıfır değerindeyse
 Yanlış olarak ele alınmaktadır. Örneğin:
 
@@ -2964,7 +2964,7 @@ Yanlış olarak ele alınmaktadır. Örneğin:
 
 ```
 
-Burada -3 Doğru olarak, 5.7 de Doğru olarak ele alınır. Doğru ve Doğru işlemi Doğru sonucunu verir. Doğru için 1 değeri üretilecektir. Örneğin:
+Burada `-3` Doğru olarak, `5.7` de Doğru olarak ele alınır. Doğru ve Doğru işlemi Doğru sonucunu verir. Doğru için `1` değeri üretilecektir. Örneğin:
 
 ```
 
@@ -2972,7 +2972,7 @@ Burada -3 Doğru olarak, 5.7 de Doğru olarak ele alınır. Doğru ve Doğru iş
 
 ```
 
-Buradan 1 değeri üretilir. Örneğin:
+Buradan `1` değeri üretilir. Örneğin:
 
 ```
 
@@ -2980,7 +2980,7 @@ Buradan 1 değeri üretilir. Örneğin:
 
 ```
 
-Buradan 0 değeri üretilir.
+Buradan `0` değeri üretilir.
 
 `!` operatörü Doğruyu Yanlış, Yanlışı Doğru yapan bir operatördür. Öncelik tablosunun ikinci düzeyinde sağdan sola öncelikte bulunur. Örneğin:
 
@@ -2990,7 +2990,7 @@ Buradan 0 değeri üretilir.
 
 ```
 
-Burada 3.5 Doğru olarak ele alınır. ! operatörü Yanlış değeri için 0 üretmektedir. Örneğin:
+Burada `3.5` Doğru olarak ele alınır. `!` operatörü Yanlış değeri için `0` üretmektedir. Örneğin:
 
 ```
 
@@ -3015,7 +3015,7 @@ Burada 3.5 Doğru olarak ele alınır. ! operatörü Yanlış değeri için 0 ü
 
 ```
 
-`&&` ve `||` operatörlerinin karşılaştırma operatörlerinden düşük öncelikli olması karşılaştırmanın sonuçlarının mantıksal işlemesokulacağı anlamına gelmektedir. Örneğin:
+`&&` ve `||` operatörlerinin karşılaştırma operatörlerinden düşük öncelikli olması karşılaştırmanın sonuçlarının mantıksal işleme sokulacağı anlamına gelmektedir. Örneğin:
 
 ```
 
@@ -3023,7 +3023,7 @@ Burada 3.5 Doğru olarak ele alınır. ! operatörü Yanlış değeri için 0 ü
 
 ```
 
-Burada iki koşul da doğruysa 1 değeri diğer durumlarda 0 değeri elde edilecektir.
+Burada iki koşul da doğruysa `1` değeri diğer durumlarda `0` değeri elde edilecektir.
 
 ```
 
@@ -3047,10 +3047,10 @@ int result;
 
 ```
 
-`&&` ve `||` operatörlerinin "kısa devre (short circuit)" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
+`&&` ve `||` operatörlerinin "_kısa devre (short circuit)_" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
 sağında ne kadar öncelikli operatör olursa olsun bunların önce sol tarafı yapılır. Eğer `&&` operatöründe sol taraf sıfır ise sağ taraf hiç yapılmaz
 sonuç hemen 0 olarak belirlenir. Eğer `&&` operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı dırım `||` operatörü için de
-geçerlidir. Bu operatörün sol tarafı eğer sıfır dışı bir değerdeyse sağ tarafı hiç yapılmaz ve sonuç 1 olarak belirlenir. Eğer bu operatörün sol tarafı
+geçerlidir. Bu operatörün sol tarafı eğer sıfır dışı bir değerdeyse sağ tarafı hiç yapılmaz ve sonuç `1` olarak belirlenir. Eğer bu operatörün sol tarafı
 sıfır ise bu durumda sağ tarafı yapılır.
 
 Aşağıdaki program bu durumun anlaşılması için verilmiştir.
@@ -3082,7 +3082,7 @@ int result;
 
 ```
 
-Her ne kadar henüz fonksiyonlar konusunu görmediysek de aşağıdaki örnekte bar fonksiyonu çağrılmayacaktır.
+Her ne kadar henüz fonksiyonlar konusunu görmediysek de aşağıdaki örnekte `bar` fonksiyonu çağrılmayacaktır.
 
 ```
 
@@ -3129,7 +3129,7 @@ biçimde bulunmasına yol açmaktadır. Yoksa kısa devre özelliğinin olmadı�
 
 ```
 
-Burada önce `ifade1` yapılır. Eğer `ifade1` sıfır dışı bir değerse başka hiçbir şey yapılmaz. Sonuç 1 olarak elde edilir. Eğer `ifade1` sıfır ise bu durumda
+Burada önce `ifade1` yapılır. Eğer `ifade1` sıfır dışı bir değerse başka hiçbir şey yapılmaz. Sonuç `1` olarak elde edilir. Eğer `ifade1` sıfır ise bu durumda
 `ifade2` yapılır. `İfade2` de sıfır ise `ifade3` yapılmaz. Burada tüm ifadelerin yapılması için `ifade1`'in sıfır, `ifade2`'nin sıfır dışı bir değer vermesi gerekir.
 Örneğin:
 
@@ -3158,7 +3158,7 @@ işlemlerin yapılma sırası bakımından bir şeyi değiştirmeyecektir. Örne
 ```
 
 Burada her ne kadar `||` işlemi paranteze alınmışsa da bu parantez içi önce yapılmaz. Çünkü önce yapılsaydı `&&` operatörünün sağ tarafı önce yapılmış olurdu.
-Burada da yine önce `ifade1` yapılır. `İfade1` 0 ise başka bir şey yapılmaz.
+Burada da yine önce `ifade1` yapılır. `İfade1` `0` ise başka bir şey yapılmaz.
 
 ```
 
@@ -3202,7 +3202,7 @@ int result;
 ```
 
 Atama operatörü iki operand'lı araek özel amaçlı bir operatördür. Bu operatörün sol tarafındaki operand'ın bir nesne belirtmesi gerekir. Yani sol taraf değeri
-(LValue) olması gerekir. Atama operatörü de bir değer üretmektedir. Atama operatörünün ürettiği değer sol taraftaki nesneye atanmış olan değerdir.
+(`LValue`) olması gerekir. Atama operatörü de bir değer üretmektedir. Atama operatörünün ürettiği değer sol taraftaki nesneye atanmış olan değerdir.
 Atama operatörü öncelik tablosunda düşük düzeyde sağdan sola grupta bulunmaktadır.
 
 ```
@@ -3230,7 +3230,7 @@ Bu durumda örneğin:
 
 ```
 
-Böylece burada 10 hem b'ye hem de a'ya atanmış olur. Örneğin:
+Böylece burada `10` hem `b`'ye hem de `a`'ya atanmış olur. Örneğin:
 
 ```
 
@@ -3238,7 +3238,7 @@ Böylece burada 10 hem b'ye hem de a'ya atanmış olur. Örneğin:
 
 ```
 
-Burada a ve b'ye 30 atanmaktadır. Ancak örneğin:
+Burada `a` ve `b`'ye `30` atanmaktadır. Ancak örneğin:
 
 ```
 
@@ -3246,7 +3246,7 @@ Burada a ve b'ye 30 atanmaktadır. Ancak örneğin:
 
 ```
 
-Burada parantez içi önce yapılacağına göre b'ye 10 atanacak ve bu işlemden 10 değeri elde edilecektir. Sonra bu 10 değeri 20 ile toplanıp a'ya atanacaktır.
+Burada parantez içi önce yapılacağına göre `b`'ye `10` atanacak ve bu işlemden `10` değeri elde edilecektir. Sonra bu `10` değeri `20` ile toplanıp `a`'ya atanacaktır.
 
 ```
 
@@ -3297,7 +3297,7 @@ C'de aşağıdaki gibi bir bildirim geçerli ancak anlamsızdır. Örneğin:
 
 ```
 
-Burada `a` yerel bir değişkense `a`'ya çöp değer, global bir değişkense 0 atanmaktadır.
+Burada `a` yerel bir değişkense `a`'ya çöp değer, global bir değişkense `0` atanmaktadır.
 
 Bazen programcı bir değeri önce atayıp, atanmış değeri başka bir değerle karşılaştırmak isteyebilir. Bunun için atama operatörüne öncelik vermek gerekir.
 Örneğin:
@@ -3385,7 +3385,7 @@ Bileşik atama operatörleri öncelik tablosunda atama operatör ile sağdan sol
 
 ```
 
-Burada önce 2 ile 3 toplanır. Sonra `*=` işlemi yapılır.
+Burada önce `2` ile `3` toplanır. Sonra `*=` işlemi yapılır.
 
 ```
 
@@ -3502,7 +3502,7 @@ Virgül operatörünün ürettiği değer sağ taraftaki ifadenin değeridir. Ya
 
 Burada parantezler sayesinde en soldaki atama operatörü virgül operatöründen ayrıştrılmıştır. Burada önce parantez içi yapılacaktır. Parantez içerisinde
 virgül operatörü vardır. O zaman virgül operatörünün sol tarafı önce yapılacağına göre önce `a = 10` işlemi sonra `b = 20` işlemi yapılır. Virgül operatöründen
-elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan 20 elde edilecektir. İşte bu 20 aynı zamanda `c`'ye atanmıştır.
+elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan `20` elde edilecektir. İşte bu `20` aynı zamanda `c`'ye atanmıştır.
 
 ```
 
@@ -3546,7 +3546,7 @@ Eğer argümandaki `,` atomunun virgül operatör olması isteniyorsa bu durumda
 
 ```
 
-Buradaki `,` operatör görevinde değildir. Dolayısıyla foo fonksiyonunun iki parametresi vardır. Fakat örneğin:
+Buradaki `,` operatör görevinde değildir. Dolayısıyla `foo` fonksiyonunun iki parametresi vardır. Fakat örneğin:
 
 ```
 
@@ -3554,7 +3554,7 @@ Buradaki `,` operatör görevinde değildir. Dolayısıyla foo fonksiyonunun iki
 
 ```
 
-Buradaki virgül artık paranteze alındığı için operatör görevinddir. Parantez içerisinden b'nin değeir elde edilecektir. Dolayısıyla fonksiyonun aslında
+Buradaki virgül artık paranteze alındığı için operatör görevinddir. Parantez içerisinden `b`'nin değeir elde edilecektir. Dolayısıyla fonksiyonun aslında
 tek parametresi vardır.
 
 ```
@@ -3611,7 +3611,7 @@ int a;
 
 ```
 
-C'de `;` ifadeleri sonlandırmak için kullanılmaktadır. Bu görevdeki atomlara programlama dillerinde "sonlandırıcı (terminator)" denilmektedir.
+C'de `;` ifadeleri sonlandırmak için kullanılmaktadır. Bu görevdeki atomlara programlama dillerinde "_sonlandırıcı (terminator)_" denilmektedir.
 Biz ifadenin sonuna `;` koyduğumuzda artık o ifadeyle sonraki ifadenin ayrı ifadeler olduğunu derleyiciye söylemiş oluruz. Eğer bir ifadenin sonundaki
 `;` unutulursa derleyici önceki ifadeyle sonraki ifadeyi tek bir ifade olarak ele alır. Bu da sentaks hatasına yol açar. Örneğin:
 
@@ -3624,10 +3624,10 @@ Biz ifadenin sonuna `;` koyduğumuzda artık o ifadeyle sonraki ifadenin ayrı i
 
 Burada muhtemelen `a = 10`'dan sonraki `;` atomu unutulmuştur. O halde derleyiciye göre burada tek bir ifade vardır. Ancak bu ifade geçerli değildir.
 
-Bazı dillerde sonlandırıcı olarak LF karakteri kullanılmaktadır. Dolayısıyla o dillerde aynı satıra tek bir ifade yazılmak zorundadır.
+Bazı dillerde sonlandırıcı olarak `LF` karakteri kullanılmaktadır. Dolayısıyla o dillerde aynı satıra tek bir ifade yazılmak zorundadır.
 
-Biz şimdiye kadar zaten var olan fonksiyonları çağırdık. Artık biz de fonksiyon yazacağız. Bir fonksiyonun yazılmasına C standartlarında "fonksiyonun
-tanımlanması (function definition)" denilmektedir. Fonksiyon tanımlamanın genel biçimi şöyledir:
+Biz şimdiye kadar zaten var olan fonksiyonları çağırdık. Artık biz de fonksiyon yazacağız. Bir fonksiyonun yazılmasına C standartlarında "_fonksiyonun_
+_tanımlanması (function definition)_" denilmektedir. Fonksiyon tanımlamanın genel biçimi şöyledir:
 
 ```
 
@@ -3666,10 +3666,10 @@ Eğer fonksiyonun parametresi yoksa parametre parantezinin içi boş bırakılab
 hiçbir farklılık yoktur. Biz kursumuzda genel olarak parametresiz fonksiyonlarda parametre parantezinin içine void anahtar sözcüğünü yazacağız.
 Ancak programcıların bir bölümü hiçbir şey yazmamayı tercih etmektedir.
 
-Biz kurusumuzdaki örneklerde "öylesine uydurulmuş fonksiyon isimleri" olarak foo, bar, tar, zar gibi isimleri kullanacağız. Bu isimlerin hiçbir özel
+Biz kursumuzdaki örneklerde "_öylesine uydurulmuş fonksiyon isimleri_" olarak `foo`, `bar`, `tar`, `zar` gibi isimleri kullanacağız. Bu isimlerin hiçbir özel
 anlamı yoktur. Örneklerde öylesine uydurulmuş isimlerdir.
 
-Tanımlanan her fonksiyonun bir ana bloğu vardır. Buna "fonksiyonun gövdesi (function body)" de denilmektedir.
+Tanımlanan her fonksiyonun bir ana bloğu vardır. Buna "f*onksiyonun gövdesi (function body)*" de denilmektedir.
 
 C'de iç içe (nested) fonksiyon tanımlaması yapılamaz. Her fonksiyon, biribirinin dışında ve global düzeyde tanımlanmak zorundadır. Örneğin:
 
@@ -3688,16 +3688,16 @@ C'de iç içe (nested) fonksiyon tanımlaması yapılamaz. Her fonksiyon, biribi
 
 [17. Ders 26/07/2022 - Salı]()
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Bir fonksiyon çağrıldıktan sonra onu çağıran fonksiyona ilettiği değere "geri dönüş değeri (return value)" denilmektedir. Fonksiyonun geri dönüş değerinin
-bir türü vardır. Bu tür fonksiyon isminin soluna yazılır. Geri dönüş değerini oluşturmak için return deyimi kullanılır. return deyiminin genel biçimi şöyledir:
+Bir fonksiyon çağrıldıktan sonra onu çağıran fonksiyona ilettiği değere "_geri dönüş değeri (return value)_" denilmektedir. Fonksiyonun geri dönüş değerinin
+bir türü vardır. Bu tür fonksiyon isminin soluna yazılır. Geri dönüş değerini oluşturmak için `return` deyimi kullanılır. `return` deyiminin genel biçimi şöyledir:
 
+```
     return [ifade]
+```
 
-    return deyimi hem fonksiyonu sonlandırır hem de geri dönüş değerini oluşturur.
+`return` deyimi hem fonksiyonu sonlandırır hem de geri dönüş değerini oluşturur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int foo(void)
@@ -3718,12 +3718,12 @@ int result;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir fonksiuonun geri dönüş değerinin olması onu kullanmayı zorunlu hale getirmez. Yani, fonksiyonların geri dönüş değerlerini fonksiyonu çağıran
 hiç kullanmayabilir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int foo(void)
@@ -3741,11 +3741,12 @@ foo(); /_ foo çağrıldı ancak geri dönüş değeri kullanılmadı, tamamen g
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Fonksiyon tanımlarken geri dönüş değerinin türü yerine "void" anahtar sözcüğü yazılırsa bu durum "fonksiyonun bir değer geri döndürmediği" anlamına gelmektedir.
+Fonksiyon tanımlarken geri dönüş değerinin türü yerine `void` anahtar sözcüğü yazılırsa bu durum "_fonksiyonun bir değer geri döndürmediği_" anlamına gelmektedir.
 Böyle fonksiyonlar geri dönüş değerinin kullanıldığı bir ifadede kullanılamazlar. Örneğin:
 
+```
     void foo(void)
     {
     	printf("foo\n");
@@ -3754,9 +3755,9 @@ Böyle fonksiyonlar geri dönüş değerinin kullanıldığı bir ifadede kullan
     x = foo();			/* geçersiz! foo'nun geri dönüş değer yok */
     x = foo() * 2;		/* geçersiz! foo'nun geri dönüş değeri yok */
     foo();				/* geçerli */
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 void foo(void)
@@ -3771,11 +3772,12 @@ foo();
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Geri dönüş değeri void olan fonksiyonlara "void fonksiyonlar" da denilmektedir. void fonksiyonlarda return deyimi kullanılabilir ancak return deyiminin yanına bir ifade
+Geri dönüş değeri `void` olan fonksiyonlara "_void fonksiyonlar_" da denilmektedir. void fonksiyonlarda `return` deyimi kullanılabilir ancak `return` deyiminin yanına bir ifade
 yazılamaz. Örneğin:
 
+```
     void foo(void)
     {
     	printf("foo\n");
@@ -3789,12 +3791,12 @@ yazılamaz. Örneğin:
 
     	return 10;			/* geçersiz! void fonksiyon bir değerle geri döndürülemez */
     }
+```
 
-    Peki o zaman void fonksiyonlardaki return deyimi ne işe yaramaktadır? İşte void fonksiyonlardaki return deyimleri fonksiyonu bir koşul altında
-    erken sonlandırmak için kullanılabilir. void fonksiyonlarda return kullanılmazsa, akış fonksiyonun ana bloğunu bitirdiğinde, fonksiyon zaten sonlanmaktadır.
+Peki o zaman void fonksiyonlardaki `return` deyimi ne işe yaramaktadır? İşte void fonksiyonlardaki `return` deyimleri fonksiyonu bir koşul altında
+erken sonlandırmak için kullanılabilir. void fonksiyonlarda `return` kullanılmazsa, akış fonksiyonun ana bloğunu bitirdiğinde, fonksiyon zaten sonlanmaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 void foo(void)
@@ -3812,12 +3814,13 @@ foo();
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Geri dönüş değeri void olmayan fonksiyonlarda ana blok, eğer akış return deyimini görmeden sonlanırsa, bu durum C'de geçerlidir (halbuki C#, Java gibi dillerde
+Geri dönüş değeri `void` olmayan fonksiyonlarda ana blok, eğer akış `return` deyimini görmeden sonlanırsa, bu durum C'de geçerlidir (halbuki C#, Java gibi dillerde
 geçersizdir). Bu durumda geri dönüş değeri olarak çöp bir değer elde edilmektedir. Genellikle derleyiciler böylesi durumlarda bir uyarı mesajı ile programcıyı
-uyarmaktadır. Ancak geri dönüş değeri void olmayan fonksiyonlarda return deyiminde return ifadesinin mutlaka bulundurulması gerekir. Örneğin:
+uyarmaktadır. Ancak geri dönüş değeri `void` olmayan fonksiyonlarda `return` deyiminde `return` ifadesinin mutlaka bulundurulması gerekir. Örneğin:
 
+```
     int foo(void)
     {
     	printf("foo\n");
@@ -3829,9 +3832,9 @@ uyarmaktadır. Ancak geri dönüş değeri void olmayan fonksiyonlarda return de
 
     	return;			/* geçersiz! return anahtar sözcüğünün yanında bir ifade olması gerekirdi */
     }
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int foo(void)
@@ -3849,11 +3852,12 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Mademki akış return deyimini göründe fonksiyon sonlanmaktadır. O halde return deyiminin altına deyim yazmanın bir anlamı yoktur. Bu durum anlamsız olsa da
+Mademki akış `return` deyimini göründe fonksiyon sonlanmaktadır. O halde `return` deyiminin altına deyim yazmanın bir anlamı yoktur. Bu durum anlamsız olsa da
 C'de geçerlidir. Örneğin:
 
+```
     int foo(void)
     {
     	printf("foo\n");
@@ -3863,28 +3867,26 @@ C'de geçerlidir. Örneğin:
     	printf("foo ends...\n");		/* unreachable code */
     }
 
-    Akışın asla ulaşamayacağı erişilemeyen bölgelere İngilizce "unreachable code" denilmektedir. Derleyiciler erişilemeyen kodları tespit edip bir uyarı
-    mesajı ile programcıya bildirebilmektedir. Pek çok derleyici erişilemeyen kodları tamaman koddan çıkartarak bir optimizasyon yapmaktadır. Bu optimizasyon
-    temasına "dead code elimination" denilmektedir.
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+Akışın asla ulaşamayacağı erişilemeyen bölgelere İngilizce "_unreachable code_" denilmektedir. Derleyiciler erişilemeyen kodları tespit edip bir uyarı
+mesajı ile programcıya bildirebilmektedir. Pek çok derleyici erişilemeyen kodları tamaman koddan çıkartarak bir optimizasyon yapmaktadır. Bu optimizasyon
+temasına "_dead code elimination_" denilmektedir.
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de main fonksiyonun geri dönüş değeri int türden olmak zorundadır. Ancak derleyiciler eğer isterlerse main fonksiyonunun başka türlerden geri
-dönüş değerine sahip olmasına izin verebilirler. main fonksiyonundaki return deyimi aynı zamanda programı da sonlandırmaktadır. İşletim sistemleri dünyasında
-çalışmakta olan programlara "process" denilmektedir. main fonksiyonu sonlandığında return deyimindeki ifade işletim sistemine "exit code" olarak iletilmektedir.
+C'de main fonksiyonun geri dönüş değeri `int` türden olmak zorundadır. Ancak derleyiciler eğer isterlerse main fonksiyonunun başka türlerden geri
+dönüş değerine sahip olmasına izin verebilirler. `main` fonksiyonundaki `return` deyimi aynı zamanda programı da sonlandırmaktadır. İşletim sistemleri dünyasında
+çalışmakta olan programlara "_process_" denilmektedir. `main` fonksiyonu sonlandığında `return` deyimindeki ifade işletim sistemine "_exit code_" olarak iletilmektedir.
 İşletim sistemleri bu exit kodu alır, eğer başka prosesler isterse belli koşullarda onlara verebilir. Ancak exit kodunun kaç olduğuyla ilgilenmez.
-Fakat geleneksel olarak C'de başarılı ve mutlu sonlanmalar için exit kodu olarak 0, başarısız sonlanmalar için sıfır dışı değerler kullanılmaktadır.
-Biz örneklerimizde main fonksaiyonunu her zaman 0 ile geri döndüreceğiz. Aslında C standartlarında main fonksiyonuna özgü olarak, eğer main fonksiyonunda hiç
-return kullanılmazsa sanki ana bloğun sonuna return 0 yazılmış gibi işlem uygulanmaktadır. Yani main fonksiyonunda biz hiç return yazmasak da zaten return 0
-yazmış gibi bir durum oluşmaktadır. Tabii bu durum yalnızca main fonksiyonuna özgüdür.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+Fakat geleneksel olarak C'de başarılı ve mutlu sonlanmalar için exit kodu olarak `0`, başarısız sonlanmalar için sıfır dışı değerler kullanılmaktadır.
+Biz örneklerimizde `main` fonksaiyonunu her zaman `0` ile geri döndüreceğiz. Aslında C standartlarında main fonksiyonuna özgü olarak, eğer `main` fonksiyonunda hiç
+`return` kullanılmazsa sanki ana bloğun sonuna `return 0` yazılmış gibi işlem uygulanmaktadır. Yani `main` fonksiyonunda biz hiç `return` yazmasak da zaten `return 0`
+yazmış gibi bir durum oluşmaktadır. Tabii bu durum yalnızca `main` fonksiyonuna özgüdür.
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Fonksiyonların geri dönüş değerleri geçici nesne yoluyla onu çağıran fonksiyona iletilmektedir. Programın akışı return deyimini gördüğünde önce derleyici,
-geri dönüş değeri türünden geçici bir nesne yaratır. Sonra, return ifadesini bu geçici nesneye atar. Biz geri dönüş değerini kullandığımızda aslında o geçici
+Fonksiyonların geri dönüş değerleri geçici nesne yoluyla onu çağıran fonksiyona iletilmektedir. Programın akışı `return` deyimini gördüğünde önce derleyici,
+geri dönüş değeri türünden geçici bir nesne yaratır. Sonra, `return` ifadesini bu geçici nesneye atar. Biz geri dönüş değerini kullandığımızda aslında o geçici
 nesneyi kullanmış oluruz. Fonksiyonun çağrısı bittiğinde bu geçici nesne de derleyici tarafındna otomatik olarak yok edilmektedir. Örneğin:
 
+```
     int foo(void)
     {
     	/* ... */
@@ -3900,20 +3902,18 @@ nesneyi kullanmış oluruz. Fonksiyonun çağrısı bittiğinde bu geçici nesne
     ...
     x = temp * 2;
     /* temp yok ediliyor */
+```
 
-    O halde fonksiyonun geri dönüş değerinin türü, aslında return işlemiyle yaratılacak olan geçici nesnenin türünü belirtir. return işlemi de aslında
-    bu geçici nesneye yapılan atama işlemi gibidir. O halde return işlemi aslında gizli bir atama işlemidir. Bizim ileride atama işlemi hakkında söyleceğimiz
-    her şey return işlemi için de geçerlidir. Derleyiciler genel olarak mümkün olduğunca return işlemi sırasındaki geçici nesneleri CPU yazmaçlarında
-    yaratmaktadır.
+O halde fonksiyonun geri dönüş değerinin türü, aslında `return` işlemiyle yaratılacak olan geçici nesnenin türünü belirtir. `return` işlemi de aslında
+bu geçici nesneye yapılan atama işlemi gibidir. O halde `return` işlemi aslında gizli bir atama işlemidir. Bizim ileride atama işlemi hakkında söyleceğimiz
+her şey `return` işlemi için de geçerlidir. Derleyiciler genel olarak mümkün olduğunca `return` işlemi sırasındaki geçici nesneleri CPU yazmaçlarında yaratmaktadır.
 
-    void fonksiyonlarda böyle bir geçici nesnenin hiç yaratılmayacağına da dikkat ediniz.
+void fonksiyonlarda böyle bir geçici nesnenin hiç yaratılmayacağına da dikkat ediniz.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+Fonksiyonların dış dünyadan aldıkları değerlere "_parametre (parameter)_" denilmektedir. C'de fonksiyon parametreleri, parametre parantezinin içerisinde
+tür ve değişken ismi belirtilerek ve `,` atomu ile parametreler ayrılarak bildirilmektedir. Örneğin:
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Fonksiyonların dış dünyadan aldıkları değerlere "parametre (parameter)" denilmektedir. C'de fonksiyon parametreleri, parametre parantezinin içerisinde
-tür ve değişken ismi belirtilerek ve ',' atomu ile parametreler ayrılarak bildirilmektedir. Örneğin:
-
+```
     void foo(int a, long b, double c)
     {
     	/* ... */
@@ -3923,35 +3923,43 @@ tür ve değişken ismi belirtilerek ve ',' atomu ile parametreler ayrılarak bi
     {
     	/* ... */
     }
+```
 
-    Parametreler aynı türden olsa bile tür belirten sözcüğün yeniden yazılması gerekmektedir. Örneğin:
+Parametreler aynı türden olsa bile tür belirten sözcüğün yeniden yazılması gerekmektedir. Örneğin:
 
+```
     void foo(int a, b)		/* geçersiz! */
     {
     	/* ... */
     }
+```
 
-    Yuklarıdaki tanımlama geçersizdir. Şöyle yapılması gerekirdi:
+Yuklarıdaki tanımlama geçersizdir. Şöyle yapılması gerekirdi:
 
+```
     void foo(int a, int b)
     {
     	/* ... */
     }
+```
 
-    Parametreli bir fonksiyon parametre sayısı kadar "argümanla" çağrılmalıdır. Argümanlar herhangi birer ifade olabilir. Örneğin:
+Parametreli bir fonksiyon parametre sayısı kadar "_argümanla_" çağrılmalıdır. Argümanlar herhangi birer ifade olabilir. Örneğin:
 
+```
     void foo(int a, int b)
     {
     	/* ... */
     }
     ...
     foo(10 + 20, 30 + 40);		/* geçerli */
+```
 
-    Argüman olan ifadeler yine ',' atomu ile ayrılmaktadır. Fonksiyonu çağırırken yazılan ifadelere "argüman (argument)" denilmektedir.
+Argüman olan ifadeler yine `,` atomu ile ayrılmaktadır. Fonksiyonu çağırırken yazılan ifadelere "_argüman (argument)_" denilmektedir.
 
-    Parametreli bir fonksiyon çağrıldığında önce, argümanların değerleri hesaplanır. Sonra, argümanlardan parametre değişkenlerine karşılık bir atama
-    yapılır. Sonra da akış fonksiyona geçirilir. Yani C'de parametre aktarımı, atama (ya da kopyalama) biçiminde yapılmaktadır. Örneğin:
+Parametreli bir fonksiyon çağrıldığında önce, argümanların değerleri hesaplanır. Sonra, argümanlardan parametre değişkenlerine karşılık bir atama
+yapılır. Sonra da akış fonksiyona geçirilir. Yani C'de parametre aktarımı, atama (ya da kopyalama) biçiminde yapılmaktadır. Örneğin:
 
+```
     void foo(int a, int b)
     {
     	/* ... */
@@ -3960,19 +3968,21 @@ tür ve değişken ismi belirtilerek ve ',' atomu ile parametreler ayrılarak bi
     int x = 10, y = 20;
 
     foo(x + 1, y + 2)
+```
 
-    Burada foo fonksiyonu çağrıldığında önce x + 1 ve y + 2 ifadelerinin değerleri hesaplanacak sonra x + 1 değeri a'ya, y + 2 değeri ise b'ye atanacaktır.
-    Sonra da akış, fonksiyona geçirilecektir. Parametre değişkenlerinin bağımsız ayrı nesneler olduğuna dikkat ediniz. Fonksiyon çağırma işlemi argümanlardan
-    parametre değişkenlerine yapılan gizli bir atama işlemini gerektirmektedir. O halde C'de atama anlamına gelen üç durum vardır:
+Burada foo fonksiyonu çağrıldığında önce `x + 1` ve `y + 2` ifadelerinin değerleri hesaplanacak sonra `x + 1` değeri `a`'ya, y` + 2` değeri ise `b`'ye atanacaktır.
+Sonra da akış, fonksiyona geçirilecektir. Parametre değişkenlerinin bağımsız ayrı nesneler olduğuna dikkat ediniz. Fonksiyon çağırma işlemi argümanlardan
+parametre değişkenlerine yapılan gizli bir atama işlemini gerektirmektedir. O halde C'de atama anlamına gelen üç durum vardır:
 
-    1) Açıkça '=' operatörü ile yapılan atamalar,
-    2) return işlemi sırasında geçici nesneye yapılan atamalar,
-    3) Fonksiyon çağırma sırasında argümanlardan parametre değişkenlerine yapılan atamalar.
+1. Açıkça `=` operatörü ile yapılan atamalar,
 
-    Bizim ileride atama işlemi için söyleyeceğimiz her şey, bu üç durum için de geçerli olacaktır.
+2. `return` işlemi sırasında geçici nesneye yapılan atamalar,
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+3. Fonksiyon çağırma sırasında argümanlardan parametre değişkenlerine yapılan atamalar.
 
+Bizim ileride atama işlemi için söyleyeceğimiz her şey, bu üç durum için de geçerli olacaktır.
+
+```
 #include <stdio.h>
 
 void foo(int a, int b)
@@ -3991,11 +4001,11 @@ int x = 100, y = 200;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bazen fonksiyonlar parametreleriyle aldıkları değeri birtakım işlemlere sokup onu geri dönüş değeri olarak verebilirler.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int add(int a, int b)
@@ -4013,15 +4023,18 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de bir atama işleminde, kaynak tür ile hedef tür farklı olabilir. Örneğin:
 
+```
     a = b;
+```
 
-    Burada a ve b'nin türleri farklı olabilir. Ancak bu konu ileride özel olarak ele alınacaktır. Siz şimdilik bu konu ele alınana kadar atama işleminde
-    kaynak türle hedef türü aynı türden yapmaya özen gösteriniz. Örneğin:
+Burada `a` ve `b`'nin türleri farklı olabilir. Ancak bu konu ileride özel olarak ele alınacaktır. Siz şimdilik bu konu ele alınana kadar atama işleminde
+kaynak türle hedef türü aynı türden yapmaya özen gösteriniz. Örneğin:
 
+```
     #include <stdio.h>
 
     double add(int a, int b)
@@ -4043,19 +4056,18 @@ C'de bir atama işleminde, kaynak tür ile hedef tür farklı olabilir. Örneği
 
     	return 0;
     }
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de parametreleriyle aldığı değerler üzerinde işlemler yaparak sonucu geri dönüş değeri olarak veren standart matematiksel fonksiyonlar vardır.
-Bu fonksiyonları kullanmadan önce <math.h> dosyası include edilmelidir. Örneğin sqrt fonksiyonun parametrik yapısı şöyledir:
+Bu fonksiyonları kullanmadan önce `<math.h>` dosyası `include` edilmelidir. Örneğin `sqrt` fonksiyonun parametrik yapısı şöyledir:
 
+```
     double sqrt(double x);
+```
 
-    Fonksiyon, parametresiyle aldığı double sayının kareköküne geri dönmektedir.
+Fonksiyon, parametresiyle aldığı `double` sayının kareköküne geri dönmektedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 #include <math.h>
 
@@ -4072,16 +4084,17 @@ double val, result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-pow fonksiyonu, bir sayının belli bir kuvvetine geri dönmektedir. Fonksiyonun parametrik yapısı şöyledir:
+`pow` fonksiyonu, bir sayının belli bir kuvvetine geri dönmektedir. Fonksiyonun parametrik yapısı şöyledir:
 
+```
     double pow(double a, double b);
+```
 
-    Fonksiyon, a üzeri b işlemine geri dönmektedir.
+Fonksiyon, `a` üzeri `b` işlemine geri dönmektedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 #include <math.h>
 
@@ -4101,12 +4114,12 @@ double a, b, result;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-sin, cos, tan, asin, acos, atan fonksiyonları trigonometrik işlemler yapmaktadır. Bu fonksiyonların parametreleri ve geri dönüş değerleri double
+`sin`, `cos`, `tan`, `asin`, `acos`, `atan` fonksiyonları trigonometrik işlemler yapmaktadır. Bu fonksiyonların parametreleri ve geri dönüş değerleri `double`
 türdendir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 #include <math.h>
 
@@ -4123,15 +4136,16 @@ double result, radian;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-round fonksiyonu, double bir değeri parametre olarak alıp ona en yakın tamsayıyı yine double bir değer olarak vermektedir.
+`round` fonksiyonu, `double` bir değeri parametre olarak alıp ona en yakın tamsayıyı yine `double` bir değer olarak vermektedir.
 Fonksiyonun parametrik yapısı şöyledir:
 
+```
     double round(double x);
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 #include <math.h>
 
@@ -4148,24 +4162,27 @@ double result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-C99 ile birlikte, roundf ve roundl fonksiyonları da standartlara eklenmiştir. Bunların parametrik yapıları şöyledir:
+C99 ile birlikte, `roundf` ve `roundl` fonksiyonları da standartlara eklenmiştir. Bunların parametrik yapıları şöyledir:
 
+```
     float roundf(float x);
     long double roundl(float x);
+```
 
-    Yine C99 ile birlikte, tamsayı değerlere geri dönen aşağıdaki fonksiyonlar da eklenmiştir.
+Yine C99 ile birlikte, tamsayı değerlere geri dönen aşağıdaki fonksiyonlar da eklenmiştir.
 
+```
     long int lround(double x);
     long int lroundf(float x);
     long int lroundl(long double x);
     long long int llround(double x);
     long long int llroundf(float x);
     long long int llroundl(long double x);
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 #include <math.h>
 
@@ -4179,12 +4196,12 @@ long result;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-floor isimli fonksiyon, double bir sayıya en yakın ondan küçük ya da ona eşit tamsayıyı, bize double türden vermektedir. ceil ise tam tersi işlem yapar. Yani
-bir double sayıdan büyük ya da ona eşit en yakın tamsayıyı, double türden vermektedir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+`floor` isimli fonksiyon, `double` bir sayıya en yakın ondan küçük ya da ona eşit tamsayıyı, bize `double` türden vermektedir. `ceil` ise tam tersi işlem yapar. Yani
+bir `double` sayıdan büyük ya da ona eşit en yakın tamsayıyı, `double` türden vermektedir.
 
+```
 #include <stdio.h>
 #include <math.h>
 
@@ -4207,19 +4224,18 @@ double result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-C99 ile birlikte, float ve long double için aşağıdaki fonksiyonlar da standartlara eklenmiştir:
+C99 ile birlikte, `float` ve long `double` için aşağıdaki fonksiyonlar da standartlara eklenmiştir:
 
+```
     float floorf(float x);
     long double floorl(long double x);
     float ceilf(float x);
     long double ceill(long double x);
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 18. Ders 28/07/2022 - Perşembe
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+[18. Ders 28/07/2022 - Perşembe]()
 
 /\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bildirilen bir değişkenin kullanılabildiği program aralığına "faaliyet alanı (scope)" denilmektedir. C'de üç faaliyet alanı vardır:
