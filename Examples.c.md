@@ -754,9 +754,9 @@ Bu kısa yolu masaüstüne taşırsanız rahat edersiniz.
 
 ```
 
-cl.exe programı derlemeyi yaptıktan sonra zaten "_linker_" programını kendisi çalıştırmaktadır.
+`cl.exe` programı derlemeyi yaptıktan sonra zaten "_linker_" programını kendisi çalıştırmaktadır.
 
-**4.** Artık cl.exe derleme işlemini yapıp bağlayıcı programı da (`link.exe`) çalıştırdığı için çalıştırılabilir dosya oluşturulmuş olur. Tek yapacağmız şey
+**4.** Artık `cl.exe` derleme işlemini yapıp bağlayıcı programı da (`link.exe`) çalıştırdığı için çalıştırılabilir dosya oluşturulmuş olur. Tek yapacağmız şey
 çalıştırılabilir programın ismini yazarak ENTER tuşuna basmaktır.
 
 `cl.exe` derleyicisinin yalnızca derleme yapmasını ancak bağlayıcıyı çalıştırmamasını istiyorsak `/c` seçeneğini (switch) kullanmamız gerekir. Örneğin:
@@ -809,7 +809,7 @@ Derleme işlemi için şu komut uygulanır:
 
 ```
 
-gcc de tıpkı cl.exe programında olduğu gibi önce derleme işlemini yapar. Sonra bağlayıcı programı çalıştırıp çalıştırılabilen dosyayı oluşturur.
+gcc de tıpkı `cl.exe` programında olduğu gibi önce derleme işlemini yapar. Sonra bağlayıcı programı çalıştırıp çalıştırılabilen dosyayı oluşturur.
 gcc derleyicisi derlemeyi bitirip bağlayıcıyı çalıştırdıktan sonra "_object dosyayı_" silmektedir. Bu biçimde oluşturulan çalıştırılabilen dosya `a.out`
 ismindedir. Bu dosyanın çalıştırılması şöyle yapılmalıdır:
 
@@ -1087,7 +1087,7 @@ ayarlanmış bir editörde açıldığında aynı biçimde gözükmesini sağlam
 
 **C'nin yazım kuralı iki madde ile özetlenebilir:**
 
-**1.** #'li satırlar hariç atomlar arasında istenildiği kadar boşluk karakterleri bırakılabilir. Örneğin aşağıdaki program geçerlidir:
+**1.** `#'`li satırlar hariç atomlar arasında istenildiği kadar boşluk karakterleri bırakılabilir. Örneğin aşağıdaki program geçerlidir:
 
 ```
 
@@ -1112,7 +1112,7 @@ ayarlanmış bir editörde açıldığında aynı biçimde gözükmesini sağlam
 
 ```
 
-**2.** #'li satırlar hariç atomlar istenildiği kadar bitişik yazılabilirler. Ancak anahtar sözcüklerle değişkenler ve sabitler bitişik yazılamazlar.
+**2.** `#`'li satırlar hariç atomlar istenildiği kadar bitişik yazılabilirler. Ancak anahtar sözcüklerle değişkenler ve sabitler bitişik yazılamazlar.
 Merhaba Dünya programını aşağıdaki gibi kompakt bir biçimde de yazabilirdik:
 
 ```
@@ -1130,8 +1130,8 @@ Aşağıdaki Merhaba Dünya programının açıklaması şöyledir:
 
 Burada `#include <stdio.h>` satırı `stdio.h` isimli bir dosyanın kaynak koda dahil edildiğini belirtmektedir. Yani bu satır `stdio.h` dosyasının içeriğinin
 oraya "_paste edileceği_" anlamına gelmektedir. Başka bir deyişle biz `stdio.h` dosyasını bu komutun bulunduğu yere yerleştirip bu komuttu silsek tamamen aynı
-durum oluşacaktır. Programda main isimli bir fonksiyon tanımlanmıştır. Bir fonksiyonun tanımlanması onun bizim tarafımızdan yazılması anlamına gelir.
-Yani bu programda biz main isimli bir fonksiyon yazmış durumdayız. Bir fonksiyonu tanımlamanın (yani yazmanın) genel biçimi şöyledir:
+durum oluşacaktır. Programda `main` isimli bir fonksiyon tanımlanmıştır. Bir fonksiyonun tanımlanması onun bizim tarafımızdan yazılması anlamına gelir.
+Yani bu programda biz `main` isimli bir fonksiyon yazmış durumdayız. Bir fonksiyonu tanımlamanın (yani yazmanın) genel biçimi şöyledir:
 
 ```
 
@@ -1143,13 +1143,13 @@ Yani bu programda biz main isimli bir fonksiyon yazmış durumdayız. Bir fonksi
 ```
 
 Fonksiyonun geri dönüş değerinin türü C90'da yazılmayabiliyordu. Bu durumda C90 bunun `int` olarak yazılmış olduğunu varsayıyordu. Ancak C99 ile birlikte
-geri dönüş değerinin türünün yazılması zorunlu tutulmuştur. main fonksiyonun geri dönüş değerinin türü, standartlara göre `int` olmak zorundadır.
+geri dönüş değerinin türünün yazılması zorunlu tutulmuştur. `main` fonksiyonun geri dönüş değerinin türü, standartlara göre `int` olmak zorundadır.
 C'de `main` özel bir fonksiyondur. C programları her zaman `main` isimli fonksiyondan çalışmaya başlar. Programlama dillerinde programın çalışmaya
 başladığı fonksiyonlara "_entry point_" denilmektedir. Bir fonksiyonun parametreleri olabilir ya da olmayabilir. Eğer fonksiyonun parametresi yoksa parametre parantezi
 boş bırakılabilir ya da oraya `void` yazılabilir. Tanımlama sırasında boş bırakmakla `void` yazmak arasında bir fark yoktur. Her fonksiyonun bir ana bloğu
 olmak zorundadır. C'de iki küme parantezi arasındaki bölgeye "_blok (block)_" denilmektedir. Bir fonksiyon çalıştırıldığında fonksiyonun ana bloğundaki deyimler
-sırasıyla çalıştırılır. Ana blok bittiğinde fonksiyon sonlanmış olur. Dolayısıyla main programı bittiğinde tüm program sonlanmış olacaktır. Merhaba Dünya
-programında main fonksiyonun ana bloğunun içerisinde `printf` isimli bir fonksiyon çağrılmıştır. Bir fonksiyonun çağrılması (call) demek onun çalıştırılması demektir.
+sırasıyla çalıştırılır. Ana blok bittiğinde fonksiyon sonlanmış olur. Dolayısıyla `main` programı bittiğinde tüm program sonlanmış olacaktır. Merhaba Dünya
+programında `main` fonksiyonun ana bloğunun içerisinde `printf` isimli bir fonksiyon çağrılmıştır. Bir fonksiyonun çağrılması (call) demek onun çalıştırılması demektir.
 Bir fonksiyon çağrıldığında akış, fonksiyona gider, fonksiyonun içerisindeki deyimler tek tek çalıştırılır. Fonksiyon bitince akış çağırma noktasından devam eder.
 `printf` fonksiyonu çağrıldığında iki tırnak içerisindeki yazıları ekrana basmaktadır. Ekranda bir imleç (cursor) vardır. Yazı bu imlecin bulunduğu yerden itibaren
 ekrana yazdırılır. Sonra imleç yazının sonunda bırakılır. İmleç program çalışmaya başladığında sol üst köşededir. printf fonksiyonunda iki tırnak içerisindeki `\n`
@@ -1191,88 +1191,88 @@ gcc ve clang derleyicilerinde komut satırında derleme yaparken `-std=c90`, `-s
 
 Ayrıca Microsoft derleyicilerinde proje seçeneklerinden **C-C++** sekmesinde **SDL Checks** seçeneği **No** yapılarak kapatılmalıdır.
 
-Programlama dillerinde "_tür (type)_" bir nesnenin bellekte kapladığı alanı, onun içerisindeki 1'lerin ve 0'ların nasıl yorumlanacağını, o nesnenin hangi
+Programlama dillerinde "_tür (type)_" bir nesnenin bellekte kapladığı alanı, onun içerisindeki `1`'lerin ve `0`'ların nasıl yorumlanacağını, o nesnenin hangi
 operatörlerle işleme sokulabileceğini belirten önemli bir bilgidir. C'de her nesnenin ve her ifadenin bir türü vardır. Türler çeşitli anahtar sözcüklerle
 ifade edilirler. Aşağıda temel türler açıklanmaktadır:
 
-- **`[signed] int`**: Bu tür, işaretli bir tamsayı türüdür. int türünün kaç byte yer kaplayacağı standartlarda derleyicileri yazanların isteğine bırakılmıştır.
-  Ancak standartlara göre int türü minimum 2 byte olmalıdır. Bugün 32 bit ve 64 bit Windows ile UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde int türü 4 bye (32 bit)
-  uzunluktadır. Dolayısıyla int türden bir nesne bu sistemlerde `[-2147483648, 2147483647]` aralığında tamsayı değerler tutabilir. Bazı mikrodenetleyici
-  derleyicilerinde ise int 2 byte (16 bit) uzunluğunda olabilmektedir. Derleyicileri yazanlar genellikle int türünü o sistemdeki CPU yazmaçlarının uzunluğu kadar
+- **`[signed] int`**: Bu tür, işaretli bir tamsayı türüdür. `int` türünün kaç byte yer kaplayacağı standartlarda derleyicileri yazanların isteğine bırakılmıştır.
+  Ancak standartlara göre `int` türü minimum `2 byte` olmalıdır. Bugün 32 bit ve 64 bit Windows ile UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde `int` türü `4 byte (32 bit)`
+  uzunluktadır. Dolayısıyla `int` türden bir nesne bu sistemlerde `[-2147483648, 2147483647]` aralığında tamsayı değerler tutabilir. Bazı mikrodenetleyici
+  derleyicilerinde ise `int`, `2 byte (16 bit)` uzunluğunda olabilmektedir. Derleyicileri yazanlar genellikle `int` türünü o sistemdeki CPU yazmaçlarının uzunluğu kadar
   ya da o uzunlukla ifade edilebilecek kadar almaktadır. Bu tür belirtilirken `int` demekle `signed int` demek arasında ya da `int signed` demek arasında
   bir fark yoktur.
 
 - **`[unsigned] int`**: Her işaretli tamsayı türünün bir de işaretsiz biçimi vardır. `signed int` türünün işaretsiz biçimi `unsigned int` türüdür. Tamsayı türlerinin
-  işaretli biçimleri ile işaretsiz biçimleri aynı miktarda yer kaplarlar. Aralarındaki tek fark işaret bitinin yorumudur. Dolayısıyla bu tür de 32 bit ve
-  64 bit Windows ile UNIX/Linux ve Mac OS sistemlerinde 4 byte yer kaplamaktadır. unsigned int türünden bir nesne içerisine bu sistemlerde yerleştirilebilecek sayı
+  işaretli biçimleri ile işaretsiz biçimleri aynı miktarda yer kaplarlar. Aralarındaki tek fark işaret bitinin yorumudur. Dolayısıyla bu tür de `32 bit` ve
+  `64 bit` Windows ile UNIX/Linux ve Mac OS sistemlerinde `4 byte` yer kaplamaktadır. `unsigned int` türünden bir nesne içerisine bu sistemlerde yerleştirilebilecek sayı
   sınırı `[0, +4294967295]` biçimindedir. Bu türü biz `unsigned` biçiminde ya da `unsigned int` biçiminde ya da `int unsigned` biçiminde ifade edebiliriz.
 
-- **`[signed] long [int]`**: long türü, int türünden uzun olabilir ya da int türüyle aynı uzunlukta olabilir. Ancak int türünden daha kısa olamaz. Standratlara
-  göre long türü en az 4 byte (32 bit) uzunlukta olmak zorundadır. long türü de `işaretli` bir tamsayı türüdür. Buradaki `long` ismi "_`int` türünden uzun olabilen_"
-  anlamına gelmektedir. 32 bit ve 64 bit Windows sistemlerindeki derleyicilerde long türü `int` türüyle aynı uzunluktadır (yani 4 byte). Ancak 32 bit UNIX/Linux ve
-  Mac OS sistemlerindeki derleyicilerde long türü 4 byte iken, 64 bit UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde long türü 8 byte (64 bit) uzunluğundadır.
-  long türünü biz en kısa biçimde `long` olarak ifade edebiliriz. Ancak `signed long int`, `long int`, `signed int long` gibi anahtar sözcleri yer değiştirerek de ifade
+- **`[signed] long [int]`**: `long` türü, `int` türünden uzun olabilir ya da `int` türüyle aynı uzunlukta olabilir. Ancak `int` türünden daha kısa olamaz. Standratlara
+  göre `long` türü en az `4 byte (32 bit)` uzunlukta olmak zorundadır. `long` türü de `işaretli` bir tamsayı türüdür. Buradaki `long` ismi "_`int` türünden uzun olabilen_"
+  anlamına gelmektedir. `32 bit` ve `64 bit` Windows sistemlerindeki derleyicilerde `long` türü `int` türüyle aynı uzunluktadır (yani `4 byte`). Ancak `32 bit` UNIX/Linux ve
+  Mac OS sistemlerindeki derleyicilerde `long` türü `4 byte` iken, `64 bit` UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde `long` türü `8 byte` (`64 bit`) uzunluğundadır.
+  `long` türünü biz en kısa biçimde `long` olarak ifade edebiliriz. Ancak `signed long int`, `long int`, `signed int long` gibi anahtar sözcleri yer değiştirerek de ifade
   edebiliriz.
 
 [10. Ders - 23/06/2022 - Perşembe]()
 
-- **`unsigned long [int]`**: Bu tür, long türünün işaretsiz biçimidir. Dolayısıyla sistemlerde long türüyle aynı uzunlukta yer kaplar ancak sayının başındaki bit
-  işaret biti olarak ele alınmaz. 32 ve 64 bit Windows Sistemleri ile 32 bit UNIX/Linux ve Mac OS sistemlerinde bu tür, long türünde olduğu gibi
-  4 byte (yani 32 bit) yer kaplamaktadır. Dolayısıyla bu sistemlerdeki sınıfı `[0, +4294967295]` biçimindedir.
+- **`unsigned long [int]`**: Bu tür, `long` türünün işaretsiz biçimidir. Dolayısıyla sistemlerde `long` türüyle aynı uzunlukta yer kaplar ancak sayının başındaki bit
+  işaret biti olarak ele alınmaz. `32` ve `64 bit` Windows Sistemleri ile `32 bit` UNIX/Linux ve Mac OS sistemlerinde bu tür, `long` türünde olduğu gibi
+  `4 byte` (yani `32 bit`) yer kaplamaktadır. Dolayısıyla bu sistemlerdeki sınıfı `[0, +4294967295]` biçimindedir.
 
-- **`[signed] short [int]`**: Bu tür, int türünden küçük olabilen ya da int türü ile aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlara göre short türü
-  en az 2 byte (yani 16 bit) olmak zorundadır. 32 bit ve 64 bit Windows Sistemleri ile UNIX/Linux ve Mac OS sistemlerinde short türü 2 byte (yani 16 bit) uzunluktadır.
+- **`[signed] short [int]`**: Bu tür, `int` türünden küçük olabilen ya da `int` türü ile aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlara göre `short` türü
+  en az `2 byte` (yani `16 bit`) olmak zorundadır. `32 bit` ve `64 bit` Windows Sistemleri ile UNIX/Linux ve Mac OS sistemlerinde short türü `2 byte` (yani `16 bit`) uzunluktadır.
   Dolayısıyla bu sistemlerde bu türden bir nesnesinin içerisine biz `[-32768, +32767]` sınırları içerisinde bir tamsayı yerleştirebiliriz.
 
-- **`unsigned short [int]`**: Bu tür, signed short türünün işaretsiz biçimidir. Dolayısıyla short türü kadar yer kaplar. short türünün 2 byte olduğu sistemlerde
-  bu türden bir nesnenin içerisine biz [0, +65535] arasında tamsayı değerler yerleştirebiliriz.
+- **`unsigned short [int]`**: Bu tür, `signed short` türünün işaretsiz biçimidir. Dolayısıyla `short` türü kadar yer kaplar. `short` türünün `2 byte` olduğu sistemlerde
+  bu türden bir nesnenin içerisine biz `[0, +65535]` arasında tamsayı değerler yerleştirebiliriz.
 
-- **`signed char`**: C standartlarında "byte" lafı pek az yerde kullanılmıştır. Çünkü `byte` genellikle `8 bit` için kullanılan bir terimdir. Oysa bazı
-  bilgisayar sistemlerinde RAM'deki adreslenebilen birimler 8 bit değil 10, 11 bit değerler de olabilmektedir. Tabii bu sistemler son derece seyrektir.
+- **`signed char`**: C standartlarında `byte` lafı pek az yerde kullanılmıştır. Çünkü `byte` genellikle `8 bit` için kullanılan bir terimdir. Oysa bazı
+  bilgisayar sistemlerinde RAM'deki adreslenebilen birimler `8 bit` değil `10`, `11 bit` değerler de olabilmektedir. Tabii bu sistemler son derece seyrektir.
   Ancak standartlar bu uç durumu da dikkate almaktadır. C standartlarında `char` terimi "_RAM'de adreslenebilen en küçük birimin büyüklüğünü_" temsil etmektedir.
-  Örneğin tipik olarak eğer adreslenebilen en küçük birim 8 bit ise char 8 bittir. Ancak 10 bit ise char 10 bittir. Görüldüğü gibi eğer C standartlarında
-  char yerine byte terimi kullanılsaydı byte 8 bit olduğu için bu uç durum temsil edilemeyebilirdi. Tabii bugünkü sistemlerin %99.9'unda adreslenebilen en küçük
-  birim 8 bittir. Dolayısıyla yaygın sistemlerin hepsinde gerçekten char türü 8 bit yani bir byte uzunluğundadır. Zaten C standartlarında "byte" terimi tamamen
-  bit uzunluğu farklı olabilen yani "_adreslenebilen en küçük birim_" anlamında kullanılmaktadır. Başka bir deyişle bu tanımla `char` ile `byte` aynı anlamdadır.
-  Ayrıca standartlar, derleyicinin ilgili sistemdeki adreslenebilen en küçük birimdeki bit sayısının kaç bit olduğunu (yani char türünün kaç bitten oluştuğunu)
+  Örneğin tipik olarak eğer adreslenebilen en küçük birim `8 bit` ise `char` `8 bit`'tir. Ancak `10 bit` ise `char 10 bit`'tir. Görüldüğü gibi eğer C standartlarında
+  `char` yerine `byte` terimi kullanılsaydı `byte` `8 bit` olduğu için bu uç durum temsil edilemeyebilirdi. Tabii bugünkü sistemlerin %99.9'unda adreslenebilen en küçük
+  birim `8 bit`'tir. Dolayısıyla yaygın sistemlerin hepsinde gerçekten `char` türü `8 bit` yani `1 byte` uzunluğundadır. Zaten C standartlarında `byte` terimi tamamen
+  `bit` uzunluğu farklı olabilen yani "_adreslenebilen en küçük birim_" anlamında kullanılmaktadır. Başka bir deyişle bu tanımla `char` ile `byte` aynı anlamdadır.
+  Ayrıca standartlar, derleyicinin ilgili sistemdeki adreslenebilen en küçük birimdeki `bit` sayısının kaç `bit` olduğunu (yani `char` türünün kaç `bit`'ten oluştuğunu)
   `<limits.h>` dosyası içerisinde `CHAR_BITS` sembolik sabitiyle belirtmesini zorunlu tutmaktadır.
 
-  Mademki char türü yaygın sistemlerin hepsinde 8 bitten oluşmaktadır. O halde signed char türünün de bu sistemlerdeki sınırları `[-128, +127]`
-  arasındadır. Özetle signed char, bir byte'lık işaretli tamsayı türünü belirtmektedir.
+  Mademki `char` türü yaygın sistemlerin hepsinde `8 bit`'ten oluşmaktadır. O halde `signed char` türünün de bu sistemlerdeki sınırları `[-128, +127]`
+  arasındadır. Özetle signed `char`, `1 byte`'lık işaretli tamsayı türünü belirtmektedir.
 
 - **`unsigned char`**: Bu tür, `char` türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
-  bit uzunluğu kadardır. 8 bitlik yaygın sistemlerde unsigned char türünden bir nesneye `[0, +255]` arasında değerler yerleştirilebilir.
+  `bit` uzunluğu kadardır. `8 bit`'lik yaygın sistemlerde `unsigned char` türünden bir nesneye `[0, +255]` arasında değerler yerleştirilebilir.
 
 - **`char`**: Yalnızca `char` denildiğinde bunun `signed char` mı yoksa `unsigned char` mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
   Microsoft C derleyicileri, gcc ve clang derleyicileri char türünü default olarak `signed char` kabul etmektedir. Fakat başka derleyiciler `unsigned char`
-  kabul edebilirler. Aslında Microsoft derleyicilerinde, gcc ve clang derleyicilerinde char denildiğinde default durum derleyici ayarlarından da değiştirilebilmektedir.
-  Her ne kadar char türü, ilgili sistemde `signed char` ya da `unsigned char` anlamına geliyorsa da `char`, `signed char` ve `unsigned char` ne olursa olsun
+  kabul edebilirler. Aslında Microsoft derleyicilerinde, gcc ve clang derleyicilerinde `char` denildiğinde default durum derleyici ayarlarından da değiştirilebilmektedir.
+  Her ne kadar `char` türü, ilgili sistemde `signed char` ya da `unsigned char` anlamına geliyorsa da `char`, `signed char` ve `unsigned char` ne olursa olsun
   farklı türler gibi değerlendirilmektedir. Bunun önemi başka konularda ortaya çıkacaktır.
 
 - **`[signed] long long [int]`**: Bu tür, C99 ile birlikte standartlara dahil edilmiştir. Dolısıyla C90 uyumlu eski C derleyicilerinde bu türü kullanamayabilrsiniz.
-  long long türü, long türünden uzun ya da long türüyle aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlarda minimum 8 byte (yani 64 bit) olabileceği
-  belirtilmiştir. Şu andaki yaygın derleyicilerin hepsinde long long türü, 8 byte uzunluktadır. 8 byte uzuluk için long long türünden bir nesneye yerleştirilebilecek
-  sayı sınırı `[-9223372036854775808, +9223372036854775807]` (katrilyar mertebesinde, 8 exabyte) biçimindedir.
+  `long long` türü, `long` türünden uzun ya da `long` türüyle aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlarda minimum `8 byte` (yani `64 bit`) olabileceği
+  belirtilmiştir. Şu andaki yaygın derleyicilerin hepsinde `long long` türü, `8 byte` uzunluktadır. `8 byte` uzunluk için `long long` türünden bir nesneye yerleştirilebilecek
+  sayı sınırı `[-9223372036854775808, +9223372036854775807]` (katrilyar mertebesinde, `8 exabyte`) biçimindedir.
 
-- **`unsigned long long [int]`**: Bu tür de long long türünün işaretsiz biçimidir. Dolayısıyla yaygın sistemlerin hepsinde 8 byte (yani 64 bit) uzunluktadır.
-  unsigned long long türünden bir nesneye yerleştirilecek sayı sınırı da `[0, +18446744073709551615] (16 exabyte)` biçimindedir.
+- **`unsigned long long [int]`**: Bu tür de `long long` türünün işaretsiz biçimidir. Dolayısıyla yaygın sistemlerin hepsinde `8 byte` (yani `64 bit`) uzunluktadır.
+  `unsigned long long` türünden bir nesneye yerleştirilecek sayı sınırı da `[0, +18446744073709551615] (16 exabyte)` biçimindedir.
 
 Yukarıdaki tüm türlere C'nin tamsayı türleri denilmektedir. C'de ayrıca üç tane de gerçek sayı (noktalı sayı) türü vardır: `float`, `double` ve `long double`.
 Gerçek syaı türlerinin işaretli ve işaretsiz biçimleri yoktur. Bunlar zaten doğuştan işaretlidir.
 
-- **`float`**: Bu tür, 4 byte uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
+- **`float`**: Bu tür, `4 byte` uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
   "_Implementation Limits_" kısmında gerçek sayı türleri için belirtilen limitler **IEE 754** standardını ima etmektedir. Bu durumda float türü hemen her sistemde
-  4 byte uzunluktadır. `float` türünün yuvarlama hatalarına direnci zayıftır. Bu nedenle `float` türü aslında C programcıları tarafından az tercih edilen bir gerçek
+  `4 byte` uzunluktadır. `float` türünün yuvarlama hatalarına direnci zayıftır. Bu nedenle `float` türü aslında C programcıları tarafından az tercih edilen bir gerçek
   sayı türüdür.
 
 - **`double`**: Standartlara göre `double` türü, `float` türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
-  double türü 8 byte uzunluktadır ve **IEEE 754 Long Real Format** biçiminde temsil edilmektedir. Ancak bazı mikrodenetleyici derleyicilerinde
+  `double` türü `8 byte` uzunluktadır ve **IEEE 754 Long Real Format** biçiminde temsil edilmektedir. Ancak bazı mikrodenetleyici derleyicilerinde
   `double` türü `float` ile tamamen aynı uzunlukta olabilmektedir. C prograöcılarının en fazla tercih ettiği gerçek sayı türü, `double` türüdür. Çünkü bu türün
   yuvarlama hatalarına direnci `float` türünden çok daha iyidir.
 
 - **`long double`**: `long double` türü, standartlara göre `double` ile aynı duyarlılıkta ya da `double` türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
   gcc ve clang derleyicilerinde `long double` türü, `double` türüyle tamamen aynı özelliktedir. Yani bu tür de bu derleyicilerde IEEE 754 Long Real Format biçiminde
-  ifade edilmektedir. Fakat bazı derleyicilerde (Örneğin eski Borland firmasının C derleyicilerinde) long double türü 10 byte'lık **IEEE 754 Extended Real Format**
+  ifade edilmektedir. Fakat bazı derleyicilerde (Örneğin eski Borland firmasının C derleyicilerinde) long double türü `10 byte`'lık **IEEE 754 Extended Real Format**
   biçiminde de alınabilmektedir.
 
 Bir C derleyicisinde aslında `float`, `double` ve `long double` türlerinin hepsi 4 byte uzunlukta olabilir.
@@ -1280,13 +1280,13 @@ Bir C derleyicisinde aslında `float`, `double` ve `long double` türlerinin hep
 C99 ile birlikte C'ye ikili değerler turmak için `_Bool` isminde yeni bir tür daha eklenmiştir. (Bu tür isminin bu biçimde size tuhaf gelecek şekilde isimlendirilmesinin
 amacı geçmişe doğru uyumu koruyabilmektir. C99 çıktğında, `bool` gibi bir ismi programcılar kendi programlarında kullanmış olabileceklerinden dolayı,
 bu türü temsil etmek için "_reserved_" isimlerden biri tercih edilmiştir. C'de başı `_` ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
-yasaklanmış durumdaydı.) `_Bool` türü için standatlar, 0 ve 1 değerlerini tutabilen bir yapıda olması gerektiğini belirtmişlerdir. Dolayısıyla `_Bool` türü aslında
-herhangi bir tamsayı türünün uzunluğu kadar olabilir. Tabii derleyiciler bu türden nesneler için genel olarak 1 byte yer ayırmaktadır.
+yasaklanmış durumdaydı.) `_Bool` türü için standatlar, `0` ve `1` değerlerini tutabilen bir yapıda olması gerektiğini belirtmişlerdir. Dolayısıyla `_Bool` türü aslında
+herhangi bir tamsayı türünün uzunluğu kadar olabilir. Tabii derleyiciler bu türden nesneler için genel olarak `1 byte` yer ayırmaktadır.
 
 `_Bool` türü `<stdbool.h>` dosyası içerisinde `bool` ismiyle de typedef edilmiştir. Dolaysıyla, programcı isterse `<stdbool.h>` başlık dosyasını include edip `_Bool` yerine
-`bool` ismini de kullanabilir. Genellikle bool türünün olduğu diğer programlama dillerinde, "true" ve "false" biçiminde anahtar sözcükler de bulundurulmaktadır.
-Ancak C99'da bu biçimde anahtar sözcükler yoktur. Ancak `<stdbool.h>` içerisinde `true` 1 olarak, `false` 0 olarak define edilmiştir. Dolayısıyla eğer
-`<stdbool.h>` dosyası `include` edilirse, `true` ve `false` sözcükleri 1 ve 0 yerine kullanılabilir.
+`bool` ismini de kullanabilir. Genellikle `bool` türünün olduğu diğer programlama dillerinde, `true` ve `false` biçiminde anahtar sözcükler de bulundurulmaktadır.
+Ancak C99'da bu biçimde anahtar sözcükler yoktur. Ancak `<stdbool.h>` içerisinde `true` `1` olarak, `false` `0` olarak define edilmiştir. Dolayısıyla eğer
+`<stdbool.h>` dosyası `include` edilirse, `true` ve `false` sözcükleri `1` ve `0` yerine kullanılabilir.
 
 Son olarak C99 ile birlikte C'ye karmaşık sayı (complex number) türü de eklenmiştir. Karmaşık sayı belirtmek için `_Complex` tür ismi, anahtar sözcük olarak
 dile eklenmiştir. Ancak `_Complex` tek başına kullanılamaz. float, double ve long double tür isimleriyle birlikte kullanılabilir. Yani C99 ile birlikte üç
@@ -1300,23 +1300,23 @@ karmaşık sayı türü dile eklenmiş durumdadır:
 
 ```
 
-Karmaşık sayılar, gerçek ve sanal kısımları float, double ve long double olan iki bileşenli sayılardır. Karmaşık sayı için `i` sembolü C99'da
-`_COMPLEX_I` anahtar sözcüğü ile temsil edilmiştir. Dolaysyıyla örneğin double `_Complex` türünden bir `z` değişkenine biz `3.2 + 2.4i` değerini şöyle atarız:
+Karmaşık sayılar, gerçek ve sanal kısımları `float`, `double` ve `long double` olan iki bileşenli sayılardır. Karmaşık sayı için `i` sembolü C99'da
+`_COMPLEX_I` anahtar sözcüğü ile temsil edilmiştir. Dolaysyıyla örneğin `double` `_Complex` türünden bir `z` değişkenine biz `3.2 + 2.4i` değerini şöyle atarız:
 
 ```
     z = 3.2 + 2.4 * _COMPLEX_I
 ```
 
 Ayrıca yazım kolaylığı için `<complex.h>` dosyası içerisinde `_COMPLEX` anahtar sözcüğü `complex` ismiyle typedef edilmiştir. Yani biz eğer `<complex.h>` dosyasını
-include edersek `_COMPLEX` yerine `complex` sözcüğünü de kullanabiliriz. Benzer biçimde `<complex.h>` içerisinde `I` isimli sembolik sabit de `_COMPLEX_I` olacak biçimde
+`include` edersek `_COMPLEX` yerine `complex` sözcüğünü de kullanabiliriz. Benzer biçimde `<complex.h>` içerisinde `I` isimli sembolik sabit de `_COMPLEX_I` olacak biçimde
 define edilmiştir. Yani biz `<complex.h>` dosyasını include etmiş isek, `i` sayısı için `_COMPLEX_I` yerine `I` harfini de kullanabiliriz.
 
-> _C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep `int` türünü, gerçek sayı türü olarak da `double`
+> _*C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep `int` türünü, gerçek sayı türü olarak da `double`
 > türünü tercih ederler. C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni `char`, `short` olarak değil
 > yine `int` olarak tanımlar. Fakat, örneğin bir nicelik `int` türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. `int` türünden küçük
 > türler programcılar tarafından tekil nesneler için değil, büyük diziler için tercih edilmektedir. Örneğin bir kişinin yaşını bir değişkende tutacak olalım.
 > Biz yine bu değişkeni `int` türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi `int` türünden değil de `char` türünden
-> oluşturabiliriz. Aynı durum `double` türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa `float` türünü tercih etmelidir._
+> oluşturabiliriz. Aynı durum `double` türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa `float` türünü tercih etmelidir.*_
 
 [11. Ders - 28/06/2022 - Salı]()
 
