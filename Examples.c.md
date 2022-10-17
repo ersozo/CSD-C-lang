@@ -1,6 +1,6 @@
 [1. Ders - 24/05/22 - Salı]()
 
-##### Giriş ve Tarihçe
+#### Giriş ve Tarihçe
 
 C Programlama Dili 1970 yılında Dennis Ritchie tarafından AT&T Bell Lab'ta UNIX işletim sisteminin bir yan ürünü olarak geliştirilmişir. AT&T Bell Lab.
 Ken Thompson, Brian Kernighan gibi önemli kişilerle UNIX isimli işletim sistemini geliştiriyordu. UNIX işletim sistemi o zamanın DEC PDP-8 makineleri
@@ -63,14 +63,14 @@ halk arasında RAM denilmektedir. Programlama dillerindeki değişkenler program
     a = b + c;
 ```
 
-gibi bir işlemde aslında a, b, ve c RAM'de bulunmaktadır. Bu işlem yapılırken b ve c CPU'ya çekilir. CPU içerisindeki elektrik devreleri toplama işlemini yapar.
-Sonuç RAM'deki a'ya aktarılır. Bilgisayarın güç kaynağı kapatıldığında RAM'deki bilgiler silinmektedir. Bunun için bu bilgilerin daha kalıcı bir bellekte saklanması gerekir.
+gibi bir işlemde aslında `a`, `b`, ve `c` RAM'de bulunmaktadır. Bu işlem yapılırken `b` ve `c` CPU'ya çekilir. CPU içerisindeki elektrik devreleri toplama işlemini yapar.
+Sonuç RAM'deki `a`'ya aktarılır. Bilgisayarın güç kaynağı kapatıldığında RAM'deki bilgiler silinmektedir. Bunun için bu bilgilerin daha kalıcı bir bellekte saklanması gerekir.
 Bu tür beleklere "_ikinci bllekler (secondart memory)_" denilmektedir. Eskiden ikincil bellek olarak floppy disketler, CD/DVD ROM'lar ve Hard diskler kullanılıyordu.
 Ancak günümüzde artık SSD (Solid State Disk) denilen "_flash bellekler_" kullanılmaktadır. Genellikle bilgisayar sistemlerinde ikincil belleklerle birincil bellekler arasında bir aktarım yolu bulunmaktadır.
 
 [3. Ders - 31/05/22 - Salı]()
 
-C doğal kodlu bir çalışma sistemi için tasarlanmıştır. Biz C'de bir kod yazıp bunu derlediğimizde ve bağladığımızda çalıştırılabilir (executable)
+C doğal kodlu bir çalışma sistemi için tasarlanmıştır. Biz C'de bir kod yazıp bunu derlediğimizde ve bağladığımızda "_çalıştırılabilir (executable)_"
 bir dosya elde ederiz. Bu dosyanın içerisinde o anda çalışmakta olduğumuz mikroişlemcinin doğrudan çalıştırabileceği makine komutları bulunmaktadır.
 Yani C'de yazdığımız ve derlediğimiz program mikroişlemci tarafından doğrudan çalıştırılmaktadır.
 
@@ -91,20 +91,20 @@ bulunduğu bir bilgisayareda yazdığımız ve derlediğimiz kodu Linux'ta çal�
 işletim sisteminden ve işlemciden bağımsız arakoda dönüştürülmektedir. Böylece bu ortamlar çeşitli işletim sistemi ve mikroişlemci mimarileri için yazılmış
 olduğundan Java ve .NET ortamları için yazılan programlar "_platform bağımsız_" bir biçimde her yerde çalışabilmektedir.
 
-Java ve .NET gibi ortamlara İngilizce "_framework_" denilmekltedir. Platform sözcüğü İngilizce daha çok "işletim sistemi ve işlemcinin" oluşturduğu
+Java ve .NET gibi ortamlara İngilizce "_framework_" denilmekltedir. Platform sözcüğü İngilizce daha çok "_işletim sistemi ve işlemcinin_" oluşturduğu
 küme için söylenmektedir.
 
-Taşınabilirlik (portability) eski bir terimdir ve hale kullanılmaktadır. Taşınabilirlik default durumda kaynak kodun taşınabilirliğini belirtmektedir.
+"_Taşınabilirlik (portability)_" eski bir terimdir ve hale kullanılmaktadır. Taşınabilirlik default durumda kaynak kodun taşınabilirliğini belirtmektedir.
 Örneğin C'nin taşınabilir bir dil olması demek C programlarının standart bir dilde yazıldığından her C derleyicisinin bunu kabul etmesi demektir.
 Ancak son 30 yıldır, derlenmiş olan programların taşınabilirliği biçiminde "_binary portability_" terimi gündeme gelmiştir. Derlenmiş programın taşınabilirliği
 onun başka platformlara götürüldüğünde sorunsuz çalışabilmesi anlamına gelmektedir. Java, .NET gibi ortamlar bunu hedeflemektedir.
 
 Bir programlama dilinde yazılmış olan bir programı eşdeğer olarak başka bir dile dönüştüren araçlara "_çevirici programlar (translators)_" denilmektedir.
-Çevirici programlarda çevrilecek dile "_kaynak dil (source language)_" çevirme işleminin sonunda elde edilen programın diline ise "_hedef dil (target language)_"
+Çevirici programlarda çevrilecek dile "_kaynak dil (source language)_", çevirme işleminin sonunda elde edilen programın diline ise "_hedef dil (target language)_"
 denilmektedir. Hedef dili alçak seviyeli olan çevirici programlara ise "_derleyici (compiler)_" denilmekltedir. Saf makine dilleri, sembolik makine dilleri
 ve ara kodlar alçak seviyeli dillerdir.
 
-Yorumlayıcılar (interpreters) kaynak kodu okuyup, hiç hedef kod üretmeden doğrudan çalıştıran programlardır. Dolayısıyla yorumlayıcılar aslında çevirici programlar
+"_Yorumlayıcılar (interpreters)_" kaynak kodu okuyup, hiç hedef kod üretmeden doğrudan çalıştıran programlardır. Dolayısıyla yorumlayıcılar aslında çevirici programlar
 değildir. Bazı dillerde yalnızca derleyicilerle çalışılır (örneğin C, C++). Bazı dillerde ise yalnızca yorumlayıcılar bulunmaktadır. (Örneğin Ruby, R gibi).
 Bazı dillerde ise hem derleyiciler hem de yorumlayıcılarla programlar çalıştırılabilir (örneğin Basic).
 
@@ -140,7 +140,7 @@ Sentaks bakımından doğru olan atom dizilimlerinin ne anlam ifade ettiğine il
 sahip her olguya dil denilmektedir. Örneğin HTML'de bir senataks vardır. Oluşturulan tag'ların bir anlamı da vardır. O zaman HTML bir dildir.
 
 Diller doğal diller ve kurgusal diller olmak üzere iki ayrılır. Doğal diller Türkçe gibi İngilizce gibi doğal yaşam sonucunda oluşmuş dillerdir.
-Doğal dillerde sentaksın matematiksel düzeyde kesin olarak ifade edilmesi mümkün değildir. Çünkü doğal dillerde çok istisnalar vardır. Kurgusal diller insanların
+Doğal dillerde sentaksın matematiksel düzeyde kesin olarak ifade edilmesi mümkün değildir. Çünkü doğal dillerde bir çok istisna vardır. Kurgusal diller insanların
 belli bir mantık çerçevesinde belli bir amaç doğrultusunda tasarladığı dillerdir. Bunların sentaksları kesindir. İki anlamlılık ve istisna çok yoktur
 ya da çok azdır. Bilgisayar alanında kullanılan kurgusal dillere "_bilgisayar dilleri (computer languages)_" denilmektedir. Bir bilgisayar dilinde
 bir akış varsa ona aynı zamanda "_programlama dili (programming language)_" denilmektedir. Örneğin HTML bir bilgisayar dilidir. Ancak bir programlama
@@ -151,7 +151,7 @@ dili değildir.
 Programlama dilleri çeşitli biçimlerde sınıflandırılabilmektedir. En çok kullanılan sınıflandırma biçimleri şunlardır:
 
 **1. Seviyelerine göre sınıflandırma**
-Seviye (level) bir programalama dilinin insan algısına yakınlığının bir ölçüsüdür. Yüksek seviyeli diller insana yakın alçak seviyeli diller makineye yakın
+"_Seviye (level)_" bir programalama dilinin insan algısına yakınlığının bir ölçüsüdür. Yüksek seviyeli diller insana yakın alçak seviyeli diller makineye yakın
 dillerdir. Seviyelerine göre diller yüksekten alçağa kategorik olarak genellikle şöyle sınıflandırılmaktadır:
 
 - _Çok Yüksek Seviyeli Diller_
@@ -166,7 +166,7 @@ dillerdir. Seviyelerine göre diller yüksekten alçağa kategorik olarak genell
 
 C orta seviyeli (middle level) bir programlama dilidir. Ancak Java, C#, Python gibi diller yüksek seviyeli diller olarak gruplanmaktadır. Çok yüksek seviyeli dillerde
 artık algoritma da ortadan kalkmaktadır. Genellikle bu tür diller "_belli bir alana yönelik (domain specific)_" biçimdedirler. Saf makike dilleri
-ve arakodlar 1'lerden ve 0'lardan oluşmaktadır. Bunların sembolik biçimlerine "_sembolik makine dilleri (assembly languages)_" denilmektedir. Sembolik
+ve arakodlar `1`'lerden ve `0`'lardan oluşmaktadır. Bunların sembolik biçimlerine "_sembolik makine dilleri (assembly languages)_" denilmektedir. Sembolik
 makine dilleri, saf makine dilleri ve arakodlara da "_alçak seviyeli diller_" denir.
 
 **2. Uygulama alanlarına göre sınıflandırma**
@@ -189,11 +189,11 @@ Bu bakımdan pek çok alt sınıflandırma yapılabilmektedir. Aşağıda birka�
 
 C Programlama Dili bilimsel ve mühendislik alanlarda kullanılan, genel amaçlı, uzmanlığı sistem programlama olan bir dildir.
 
-Sistem programlama bilgisayar donanımı ile arayüz oluşturan, uygulama programlarına çeşitli bakımlardan hizmet veren, aşağı seviyeli temel yazılımların
+Sistem programlama, bilgisayar donanımı ile arayüz oluşturan, uygulama programlarına çeşitli bakımlardan hizmet veren, aşağı seviyeli temel yazılımların
 oluşturulması için yapılan programlama faaliyetlerine denilmektedir.
 
 **3. Programlama modeline göre sınıflandırma**
-Programlama modeli (programming paradigm) programlama yaparken kullandığımız genel yöntemleri ve biçimleri anlatan bir kavramdır. Programlama dilleri
+"_Programlama modeli (programming paradigm)_" programlama yaparken kullandığımız genel yöntemleri ve biçimleri anlatan bir kavramdır. Programlama dilleri
 belli programlama modellerini uygulayabilmek için özel tasarlanmıştır. Bu bakından dilleri tipik olarak aşağıdaki gibi sınıflara ayırabiliriz:
 
 - _Prosedürel Diller (Procedural Languages)_: Bunlar altprogramların birbirlerini çağırması ile program yazma tekniğini desteklerler. Fortran, C, Basic,
@@ -218,7 +218,7 @@ belli programlama modellerini uygulayabilmek için özel tasarlanmıştır. Bu b
   bir programlama dilidir. Yeni tasarlanan diller zaten genel olarak çok modelli olma eğilimindedir. Örneğin bu yeni diller hem nesne yönelimli hem de
   fonksiyonel özellikleri bünyesinde barındırmaktadır.
 
-_**C Programalama Dili orta seviyeli, prosedürel, imperative, genel amaçlı, bilimsel ve mühendislik çalışmalarda kullanılan ancak uzmanlık alanı sistem programlama olan bir dildir.**_
+> _**C Programalama Dili orta seviyeli, prosedürel, imperative, genel amaçlı, bilimsel ve mühendislik çalışmalarda kullanılan ancak uzmanlık alanı sistem programlama olan bir dildir.**_
 
 Uygulama geliştirmeyi kolaylaştıran, kendi içerisinde editörü olan, menüleri olan, genellikle debugger'ları olan, başka birtakım araçları bulunan
 yazılımlara "_IDE (Integrated Developmen Environment)_" denilmektedir. IDE derleyici değildir. IDE derleyiciyi barındırmaz. IDE'de derleme işlemi yapılırken
@@ -244,7 +244,7 @@ C için önemli IDE'ler şunlardır:
 
 [5. Ders - 07/06/2022 - Salı]()
 
-Biz 10'luk sistemi (decimal system) kullanmaktayız. 10'luk sistemde sayıları ifade etmek için 10 sembol vardır:
+Biz `10`'luk sistemi (decimal system) kullanmaktayız. `10`'luk sistemde sayıları ifade etmek için `10` sembol vardır:
 
 ```
     0
@@ -259,52 +259,52 @@ Biz 10'luk sistemi (decimal system) kullanmaktayız. 10'luk sistemde sayıları 
     9
 ```
 
-10'luk sistemde sayının her bir basamağı 10'un kuvvetleriyle çarpılıp toplanmaktadır. Örneğin:
+`10`'luk sistemde sayının her bir basamağı `10`'un kuvvetleriyle çarpılıp toplanmaktadır. Örneğin:
 
 ```
     123.25 = 3 * 10^0 + 2 * 10^1 + 1 * 10^2 + 2 * 10^-1 + 5 * 10^-2
 ```
 
-Halbuki bilgisayarlar 2'lik sistemi (binary system) kullanmaktadır. 2'lik sistemde sayıları ifade etmek için 2 sembol kullanılmaktadır:
+Halbuki bilgisayarlar `2`'lik sistemi (binary system) kullanmaktadır. `2`'lik sistemde sayıları ifade etmek için `2` sembol kullanılmaktadır:
 
 ```
     0
     1
 ```
 
-2'lik sistemde sayının her bir basamağına "_bit (binary digit)_" denilmektedir. 2'lik sistemde sayının her basamağı 2'nin kuvvetiyle çarpılarak sayı elde edilir.
-Bit en küçük bellek birimidir. 8 bite 1 byte denilmektedir. Genellikle bitler 4'erli gruplanarak yazılırlar. Örneğin:
+`2`'lik sistemde sayının her bir basamağına "_bit (binary digit)_" denilmektedir. `2`'lik sistemde sayının her basamağı `2`'nin kuvvetiyle çarpılarak sayı elde edilir.
+`Bit` en küçük bellek birimidir. `8 bit`'e `1 byte` denilmektedir. Bitler genellikle `4`'erli gruplanarak yazılırlar. Örneğin:
 
 ```
     1010 0010
 ```
 
-Burada 1 byte'lık bir bilgi vardır. Byte temel bellek birimidir.
+Burada `1 byte`'lık bir bilgi vardır. `Byte` temel bellek birimidir.
 
-`Byte` da küçük bir birimdir. `Kilo` diğer bilimlerde "_1000 katı_" anlamına gelmektedir. Ancak bilgisayarlar 2'lik sistemi kullandığj için 1000 katı iyi bir
-kat değildir. Bu nedenle genel olarak `Kilo byte` için 2'nin 10'uncu kuvveti olan 1024 kat kullanılır. Yani `1KB (kısaca 1K) 1024 byte`'tır. `Mega` diğer bilimlerde
-kilonun 1000 katıdır. Dolayısıyla milyon kat anlamına gelmektedir. Ancak bilgisayar bilimlerinde genel olarak mega kilonun 1024 katı olarak alınır.
-Bu durumda `1 MB = 1024 * 1024 byte (2^20)`'tır. `Giga` ise Meganın 1024 katıdır. Bu durumda `1 GB = 1024 * 1024 * 1024 byte ( 2^30)`'tır. Giga'dan sonra `Tera`, tera'dan sonra
+`Byte` da küçük bir birimdir. `Kilo` diğer bilimlerde "_1000 katı_" anlamına gelmektedir. Ancak bilgisayarlar `2`'lik sistemi kullandığj için `1000` katı iyi bir
+kat değildir. Bu nedenle genel olarak `Kilo byte` için `2`'nin `10`'uncu kuvveti olan `1024` kat kullanılır. Yani `1KB (kısaca 1K) 1024 byte`'tır. `Mega` diğer bilimlerde
+kilonun `1000` katıdır. Dolayısıyla milyon kat anlamına gelmektedir. Ancak bilgisayar bilimlerinde genel olarak mega kilonun `1024` katı olarak alınır.
+Bu durumda `1 MB = 1024 * 1024 byte (2^20)`'tır. `Giga` ise Meganın `1024` katıdır. Bu durumda `1 GB = 1024 * 1024 * 1024 byte ( 2^30)`'tır. Giga'dan sonra `Tera`, tera'dan sonra
 `Peta`, ondan sonra da `Exa` gelmektedir.
 
-1 byte içerisinde yazılabilecek en küçük ve en büyük sayılar şöyledir:
+`1 byte` içerisinde yazılabilecek en küçük ve en büyük sayılar şöyledir:
 
 ```
-    0000 0000               ---> 0
-    1111 1111               ---> 255
+    0000 0000               =>   0
+    1111 1111               =>   255
 ```
 
-1 byte içerisinde 1 ve 0'ların bütün permütasyonları 256 tanedir. 2 byte içerisinde en büyük sayıyı yazacak olsak şöyle olurdu:
+`1 byte` içerisinde `1` ve `0`'ların bütün permütasyonları `256` tanedir. `2 byte` içerisinde en büyük sayıyı yazacak olsak şöyle olurdu:
 
 ```
-    1111 1111 1111 1111     ---> 65535
+    1111 1111 1111 1111     =>   65535
 ```
 
 Biz burada ikilik sistemde, tamsayıları ifade ettik. Ama bütün sayıları pozitif kabul ettik. Peki negatif tamsayılar nasıl ifade edilmektedir?
 
 Bugün negatif sayıların ifade edilmesi için "_ikiye tümleyen (two's complement)_" sistemi denilen bir sistem kullanılmaktadır. Bu sistemde pozitif ve
 negatif sayılar birbirlerinin ikiye tümleyenidirler. ikiye tümleyen, bire tümleyene bir (1) eklenerek bulunmaktadır. Bir sayının bire tümleyeni sayıdaki
-0'ların 1, 1'lerin 0 yapılmasıyla bulunur. Bu durumda ikiye tümleyen şöyle hesaplanır. Örneğin aşağıdaki sayının ikiye tümleyenini bulmaya çalışalım:
+`0`'ların `1`, `1`'lerin `0` yapılmasıyla bulunur. Bu durumda ikiye tümleyen şöyle hesaplanır. Örneğin aşağıdaki sayının ikiye tümleyenini bulmaya çalışalım:
 
 ```
     0101 0110
@@ -319,8 +319,8 @@ Sayının bire tümleyenine bir ekleyeceğiz:
     1010 1010
 ```
 
-Aslında ikiye tümleyeni bulmanın kolay bir yolu da vardır: Sayıda sağdan sola ilk 1 görene dek ilk 1 dahil olmak üzere aynısı yazılarak ilerlenir.
-Sonra 0'lar 1, 1'ler 0 yapılarak devam edilir. Örneğin:
+Aslında ikiye tümleyeni bulmanın kolay bir yolu da vardır: Sayıda sağdan sola ilk `1` görene dek ilk `1` dahil olmak üzere aynısı yazılarak ilerlenir.
+Sonra `0`'lar `1`, `1`'ler `0` yapılarak devam edilir. Örneğin:
 
 ```
     0101 0110
@@ -332,41 +332,41 @@ sayının ikiye tümleyenini tek hamlede bulalım:
     10101010
 ```
 
-Negatif sayıları ifade edebilmek için kullanılan ikiye tümleme sisteminde en soldaki bir işaret bitidir. Bu bit 0 ise sayı pozitif, 1 ise negatiftir.
-Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidir. Örneğin bu sistemde +10 yazmak isteyelim. Bunu, işareti 0 yaparak yazabiliriz:
+Negatif sayıları ifade edebilmek için kullanılan ikiye tümleme sisteminde en soldaki bir işaret bitidir. Bu bit `0` ise sayı pozitif, `1` ise negatiftir.
+Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidir. Örneğin bu sistemde `+10` yazmak isteyelim. Bunu, işareti `0` yaparak yazabiliriz:
 
 ```
-    0 000 1010 ---> +10
+    0 000 1010              =>  +10
 ```
 
 Şimdi `-10` yazmak isteyelim. Bunun için `+10`'un ikiye tümleyenini alalım:
 
 ```
-    1 111 0110 ---> -10
+    1 111 0110              =>  -10
 ```
 
 Bu sistemde `+n` ile `-n` toplandığında 0 elde edilir:
 
 ```
-    0 000 1010 ---> +10
-    1 111 0110 ---> -10
-  -----------------------
-    1 0 000 0000 ---> 0
+    0 000 1010              =>  +10
+    1 111 0110              =>  -10
+
+    1 0 000 0000            =>  0
 ```
 
-Bu sistemde tek bir sıfır vardır. O da tüm bitleri 0 olan sıfırdır. Bu sistemde 1 byte içerisinde yazılabilecek en büyük pozitif sayı şöyledir:
+Bu sistemde tek bir sıfır vardır. O da tüm bitleri `0` olan sıfırdır. Bu sistemde `1 byte` içerisinde yazılabilecek en büyük pozitif sayı şöyledir:
 
 ```
-    0 111 1111 ---> +127
+    0 111 111               =>  +127
 ```
 
 Şimdi bunun ikiye tümleyenini alalım:
 
 ```
-    1 000 0001 ---> -127
+    1 000 0001              =>  -127
 ```
 
-Peki en küçük negatif sayı nedir? Bu sistemde bir tane sıfır olduğuna göre 255 tane permütasyon eşit bölünemez. Demek ki ya pozitif sayılar ya negatif sayılar
+Peki en küçük negatif sayı nedir? Bu sistemde bir tane sıfır olduğuna göre `255` tane permütasyon eşit bölünemez. Demek ki ya pozitif sayılar ya negatif sayılar
 bir tane daha fazla olmak zorundadır. Bu sistemde ikiye tümleyeni olmayan iki sayı vardır:
 
 ```
@@ -374,19 +374,19 @@ bir tane daha fazla olmak zorundadır. Bu sistemde ikiye tümleyeni olmayan iki 
     1000 0000
 ```
 
-Birincisi 0'dır. İkinci sayı -127'den bir eksik olan sayıdır. O halde bu sayının -128 kabul edilmesi daha uygundur.
+Birincisi `0`'dır. İkinci sayı `-127`'den bir eksik olan sayıdır. O halde bu sayının `-128` kabul edilmesi daha uygundur.
 
-Demek ki bu sistemde `n` byte içerisinde yazılabilecek en büyük pozitif sayı ilk biti 0 olan diğer tüm bitleri 1 olan sayıdır. En küçük
-negatif sayı ise ilk biti 1 olan diğer tüm bitleri 0 olan sayıdır. Örneğin bu sistemde iki byte ile yazabileceğimiz en büyük pozitif sayı şöyledir:
+Demek ki bu sistemde `n` byte içerisinde yazılabilecek en büyük pozitif sayı ilk biti `0` olan diğer tüm bitleri `1` olan sayıdır. En küçük
+negatif sayı ise ilk biti `1` olan diğer tüm bitleri `0` olan sayıdır. Örneğin bu sistemde iki byte ile yazabileceğimiz en büyük pozitif sayı şöyledir:
 
 ```
-    0111 1111 1111 1111 ---> +32767
+    0111 1111 1111 1111     =>  +32767
 ```
 
 En küçük negatif sayı ise şöyledir:
 
 ```
-    1000 0000 0000 000 ---> -32768
+    1000 0000 0000 000      =>  -32768
 ```
 
 Bu sisteme ilişkin tipik sorular ve yanıtları şöyledir:
@@ -401,13 +401,13 @@ Bu sisteme ilişkin tipik sorular ve yanıtları şöyledir:
 yazalım. Önce `+1` yazalım:
 
 ```
-    0000 0001 --> +1
+    0000 0001               =>  +1
 ```
 
 Şimdi bunun ikiye tümleyenini alalım:
 
 ```
-    1111 1111 ---> -1
+    1111 1111               =>  -1
 ```
 
 **SORU** : Bu sistemde bir sayının kaç olduğu bize sorulsa bunu nasıl yanıtlarız?
@@ -417,16 +417,16 @@ sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Ö
 Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidirler. O zaman bu sayının ikiye tümleyenini alıp pozitifinden faydalanarak sayıyı bulalım:
 
 ```
-    0001 0010 ---> +18
+    0001 0010               =>  +18
 ```
 
-o zaman bize sorulan sayı -18'dir.
+o zaman bize sorulan sayı `-18`'dir.
 
-Bu sistemde örneğin 1 byte içerisinde yazılabilecek en büyük pozitif sayıya 1 ekleyelim:
+Bu sistemde örneğin `1 byte` içerisinde yazılabilecek en büyük pozitif sayıya `1` ekleyelim:
 
 ```
-    0111 1111 ---> +127
-    1000 0000 ---> -128
+    0111 1111               =>  +127
+    1000 0000               =>  -128
 ```
 
 Demek ki bu sistemde bir sayıyı üst limitten taşırırsak yüksek bir negatif sayıyla karşılaşırız.
@@ -444,16 +444,16 @@ Peki noktalı sayılar ikilik sistemde nasıl ifade edilmektedir? İşte insanla
 devirlerde basit bir mantıkla tasarlanmıştır. Bu formatlar bugün hala kullanılıyor olsa da artık bunların çağı büyük ölçüde kapanmıştır. Bugün kayan noktalı
 format denilen formatlar kullanılmaktadır.
 
-Sabit noktalı formatlarda noktalı sayı için n byte yer ayrılır. Noktanın yeri önceden bellidir. Örneğin sayı 4 byte ile ifade edilsin.
-Noktanın yeri de tam ortada olsun. Bu durumda sayının tam kısmı 2 byte ile noktalı kısmı 2 byte ile ifade edilir. Ancak sayının noktalı kısmı 2'nin
+Sabit noktalı formatlarda noktalı sayı için `n byte` yer ayrılır. Noktanın yeri önceden bellidir. Örneğin sayı `4 byte` ile ifade edilsin.
+Noktanın yeri de tam ortada olsun. Bu durumda sayının tam kısmı `2 byte` ile, noktalı kısmı `2 byte` ile ifade edilir. Ancak sayının noktalı kısmı `2`'nin
 negatif kuvvetleriyle kodlanmaktadır. Böylece iki sabit noktalı sayıyı paralel toplayıcılarla kolay bir biçimde toplayabiliriz: Örneğin bu sistemde
 `5.25` ile `6.25` sayılarını ifade edip toplayalım:
 
 ```
-    0000 0000 0000 0101 . 0100 0000 0000 0000 ---> 5.25
-    0000 0000 0000 0110 . 0100 0000 0000 0000 ---> 6.25
+    0000 0000 0000 0101 . 0100 0000 0000 0000   =>  5.25
+    0000 0000 0000 0110 . 0100 0000 0000 0000   =>  6.25
 
-    0000 0000 0000 1011 . 1000 0000 0000 0000 ---> 11.5
+    0000 0000 0000 1011 . 1000 0000 0000 0000   =>  11.5
 ```
 
 Peki bu yöntemin ne dezavantajı vardır? Yöntemin en önemli dezavantajı dinamik olmamasıdır.
@@ -469,13 +469,13 @@ kısma "_üstel kısım (exponential part)_" denilmektedir. Tabii bir de sayın�
     [işaret biti] [mantis] [noktanın yeri (exponential)]
 ```
 
-Bugün ağırlıklı kullanılan kayan noktalı format IEEE 754 denilen formattır. Bu formatın üç farklı genişlikte biçimi vardır:
+Bugün ağırlıklı kullanılan kayan noktalı format **IEEE 754** denilen formattır. Bu formatın üç farklı genişlikte biçimi vardır:
 
-- IEEE 754 - Short Real Format (4 byte)
+- IEEE 754 - Short Real Format (`4 byte`)
 
-- IEEE 754 - Long Real Format (8 byte)
+- IEEE 754 - Long Real Format (`8 byte`)
 
-- IEEE 754 - Extended Real Format (10 byte)
+- IEEE 754 - Extended Real Format (`10 byte`)
 
 Bugün Intel, ARM, MIPS, Alpha, Power PC gibi yaygın işlemciler donanımsal olarak bu formatı desteklemektedir. Aynı zamanda bu format yaygın olarak Reel Sayı Ünitesi
 olmayan mikrodenetleyicilerdeki derleyiciler tarafından da kullanılmaktadır.
@@ -497,11 +497,11 @@ ne yapak gerekir? İşte bunun tek yolu noktalı sayıları kayan noktalı forma
 kayan noktalı formatta tutmayan böylece yuvarlama hatalarına maruz bırakmayan özel türler (örneğin C#'taki `decimal`) vardır. Ancak bu türler işlemciler tarafından
 desteklenmediği için yapay türlerdir.
 
-Yazılar da aslında bilgisayar belleğinde, 2'lik sistemdeki sayılar biçiminde tutulmaktadır. Bir yazıyı oluşturan elemanlara "_karakter_" denilmektedir. İşte
-bir yazıda her bir karakter 2'lik sistemde bir sayı ile ifade edilir. Böylece yazı aslında ikilik sistemde bir sayı dizisi gibi tutulmaktadır. İşte
+Yazılar da aslında bilgisayar belleğinde, `2`'lik sistemdeki sayılar biçiminde tutulmaktadır. Bir yazıyı oluşturan elemanlara "_karakter_" denilmektedir. İşte
+bir yazıda her bir karakter `2`'lik sistemde bir sayı ile ifade edilir. Böylece yazı aslında ikilik sistemde bir sayı dizisi gibi tutulmaktadır. İşte
 bir karakter için o karakterin hangi sayıya karşı geldiğini belirten tablolara "_karakter tabloları_" denilmektedir. Karakter tablosundaki karakter şekillerine "_glyph_"
 denilmektedir. Her karaktere tabloda bir sıra numarası verilmiştir. Buna da "_code point_" denilmektedir. Dünyanın ilk standart karakter tablosu "_ASCII (American_
-_Standard Code Information Interchange)_" denilen tablodur. ASCII tablosu aslında 7 bit bir tablodur. Dolayısıyla tabloda 128 tane glyph için code point
+_Standard Code Information Interchange)_" denilen tablodur. ASCII tablosu aslında `7 bit` bir tablodur. Dolayısıyla tabloda `128` tane glyph için code point
 bulundurulmuştur. ASCII dışında IBM EBCDIC tablosunu geliştirmiştir. Wang firması WISCII tablosunu kullanmıştır. ASCII tablosu Amerikalılar tarafından yalnızca İngilizce
 karakterleri ifade etmek için oluşturulmuştur. Bilgisayarlar yaygınlaşmaya başladığında farklı karakterlere sahip olan Türkiye gibi, Yunanistan gibi, Almanya gibi
 ülkeler bu ASCII tablosunu 8 bite çıkartıp elde edilen 128 lik yeni alanı kendi karakterlerini ifade etmek için kullanmışlardır. ASCII tablosunun ilk yarısı
@@ -510,21 +510,21 @@ DOS zamanlarında Türkçe karakterler için OEM 857 denilen code page kullanıl
 düzenledi. ISO bu code page'leri standart hale getirmiştir. Bugün Türkçe karakterler ISO tarafından ASCII 8859-9 Code page'i ile düzenlenmiştir.
 
 ASCII tablosu ve onların code page'leri uzun süre kullanılmış ve hala kullanılmakta olsa da maalesef karışıklıklara yol açmaktadır. İşte son 20 yıldır
-artık karakterleri 2 byte içerisinde ifade ederek dünyanın bütün dillerinin ve ortak sembollerinin tek bir tabloya yerleştirilmesi ile ismine UNICODE
+artık karakterleri `2 byte` içerisinde ifade ederek dünyanın bütün dillerinin ve ortak sembollerinin tek bir tabloya yerleştirilmesi ile ismine UNICODE
 denilen bir tablo oluşturulmuştur (www-unicode.org). UNICODE tablo ISO tarafından 10646 ismiyle de bazı farklılıklarla standardize edilmiştir. UNICODE tablonun
 ilk 128 karakteri standart ASCII karakterleri, ikinci 128 karakteri ISO 8859-9 code page'indeki karakterlerdir.
 
 Bir karakter tablosundaki code point'lerin ikilik sistemde ifade edilme biçimine "_encoding_" denilmektedir. ASCII code page'lerinde encoding doğrudan
-code point'in 1 byte'lık sayı karşılığıdır. Ancak UNICODE tablonun değişik encoding'leri kullanılmaktadır. UNICODE tablonun klasik encoding'i UTF-16'dır.
-Burada code point doğrudan 16 bitlik bir sayı biçiminde ifade edilir. UTF-32 encoding'inde ise code point 32 bitlik bir sayı biçiminde ifade edilmektedir.
+code point'in `1 byte`'lık sayı karşılığıdır. Ancak UNICODE tablonun değişik encoding'leri kullanılmaktadır. UNICODE tablonun klasik encoding'i UTF-16'dır.
+Burada code point doğrudan `16 bit`'lik bir sayı biçiminde ifade edilir. UTF-32 encoding'inde ise code point `32 bit`'lik bir sayı biçiminde ifade edilmektedir.
 Ancak UNICODE tablonun en yaygın kullanılan encoding'i UTF-8 encoding'idir. UTF-8 kodlamasında standart ASCII karakterler 1 byte ile, diğer karakterler
-2 byte, 3 byte, 4 byte ve 5 byte kodlanabilmekedir. Türkçe karakterler UTF-8 encoding'inde 2 byte yer kaplamaktadr. UTF-8 encoding'i UNICODE bir yazının
+`2 byte`, `3 byte`, `4 byte` ve `5 byte` kodlanabilmekedir. Türkçe karakterler UTF-8 encoding'inde `2 byte` yer kaplamaktadr. UTF-8 encoding'i UNICODE bir yazının
 adeta sıkıştırılmış bir hali gibi düşünülebilir.
 
 Bugün pek çok programlama editörleri default durumda dosyayı UNICODE UTF-8 encoding'ine göre saklamaktadır.
 
-Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de 16'lık sistemdir. 16'lık sisteme İngilizce "_hexadecimal system_" denilmektedir. 16'lık
-sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 10'luk sistemdeki sembollerden alınmıştır. Sonraki 6 sembol alfabetik karakterlerden alınmıştır.
+Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de `16`'lık sistemdir. 16'lık sisteme İngilizce "_hexadecimal system_" denilmektedir. `16`'lık
+sistemde sayıları ifade etmek için `16` sembol bulunmaktadır. İlk `10` sembol `10`'luk sistemdeki sembollerden alınmıştır. Sonraki `6` sembol alfabetik karakterlerden alınmıştır.
 
 ```
     0
@@ -545,14 +545,14 @@ sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 1
     F
 ```
 
-16'lık sistemdeki her bir basamağa "_hex digit_" denilmektedir. Örneğin:
+`16`'lık sistemdeki her bir basamağa "_hex digit_" denilmektedir. Örneğin:
 
 ```
     1FC8
 ```
 
-Burada 4 hex digit'lik bir sayı vardır. 16'lık sistemdeki bir sayıyı 10'luk sisteme dönüştürmek için her hex digit 16'lık kuvvetleriyle çarpılıp toplanır.
-Ancak 16'lık sistemdeki bir sayı, kullanım gereği bakımından aslında 10'lu sisteme pek dönüştürülmez. 16'lık sistemdeki her bir hex digit 4 bit ile ifade edilebilmektedir:
+Burada `4 hex digit`'lik bir sayı vardır. `16`'lık sistemdeki bir sayıyı `10`'luk sisteme dönüştürmek için her `hex digit` `16`'lık kuvvetleriyle çarpılıp toplanır.
+Ancak `16`'lık sistemdeki bir sayı, kullanım gereği bakımından aslında `10`'lu sisteme pek dönüştürülmez. `16`'lık sistemdeki her bir `hex digit` `4 bit` ile ifade edilebilmektedir:
 
 ```
     0       0000
@@ -573,34 +573,33 @@ Ancak 16'lık sistemdeki bir sayı, kullanım gereği bakımından aslında 10'l
     F       1111
 ```
 
-16'lık sistemden 2'lik sisteme dönüştürme yapmak çok kolaydır. Tek yapılacak şey, her bir hex digit'e karşılık yandaki tablodaki 4 biti getirmektir. Örneğin:
+`16`'lık sistemden `2`'lik sisteme dönüştürme yapmak çok kolaydır. Tek yapılacak şey, her bir `hex digit`'e karşılık yandaki tablodaki `4 bit`'i getirmektir. Örneğin:
 
 ```
     1FC9  =  0001 1111 1100 1001
     FA3D  =  1111 1010 0011 1101
 ```
 
-2'lik sistemdeki bir sayı da 16'lık sisteme çok kolay dönüştürülür. Tek yapılacak şey, sayıyı dörderli gruplayıp ona karşı gelen hex digit'i yazmaktır. Örneğin:
+`2`'lik sistemdeki bir sayı da `16`'lık sisteme çok kolay dönüştürülür. Tek yapılacak şey, sayıyı dörderli gruplayıp ona karşı gelen `hex digit`'i yazmaktır. Örneğin:
 
 ```
     1010 0001 1110 1000 0011 0101 = A1E835
 ```
 
-Bilgisayar dünyasında 16'lık sistem aslında 2'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Yani 2'lik sistem çok yer kapladığı için kişiler
-2'lik sistem yerine 16'lık sistemi kullanırlar. Bu nedenle belleği, dosyayı gösteren programlar bunları 2'lik sistem yerine 16'lık sistemde gösterirler.
+Bilgisayar dünyasında `16`'lık sistem aslında `2`'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Yani `2'lik sistem çok yer kapladığı için kişiler `2`'lik sistem yerine `16`'lık sistemi kullanırlar. Bu nedenle belleği, dosyayı gösteren programlar bunları `2`'lik sistem yerine `16`'lık sistemde gösterirler.
 
-1 byte 2 hex digit ile ifade edilmektedir. Örneğin:
+`1 byte`, `2 hex digit` ile ifade edilmektedir. Örneğin:
 
 ```
     1A 23 5C 78
 ```
 
-Burada 4 byte'lık bir bilgi vardır. Örneğin 2 byte içerisinde yazılabilecek en küçük negatif işaretli sayının hex karşılığı 8000 biçimindedir. Örneğin
-bir byte'lık işaretli sistemde yazılabilecek en büyük pozitif sayı 7F biçimindedir. İşareti tamsayı sisteminde 4 byte içerisinde -1 sayısı FFFFFFFF
+Burada `4 byte`'lık bir bilgi vardır. Örneğin `2 byte` içerisinde yazılabilecek en küçük negatif işaretli sayının `hex` karşılığı `8000` biçimindedir. Örneğin
+`1 byte`'lık işaretli sistemde yazılabilecek en büyük pozitif sayı `7F` biçimindedir. İşareti tamsayı sisteminde `4 byte` içerisinde `-1` sayısı `FFFFFFFF`
 biçimindedir.
 
-Eskiden daha fazla kullanılıyor olsa da toplamda oldukça seyrek kullanılan dğer bir sayı sistemi de 8'lik sayı sistemidir. Bu sisteme İngilizce
-"_octal system_" denilmektedir. 8'lik sayı sistemindeki her bir basamağa "_octal digit_" denir. Octal digit sembolleri olarak 10'luk sistemin ilk 8 sembolü
+Eskiden daha fazla kullanılıyor olsa da toplamda oldukça seyrek kullanılan dğer bir sayı sistemi de `8`'lik sayı sistemidir. Bu sisteme İngilizce
+"_octal system_" denilmektedir. `8`'lik sayı sistemindeki her bir basamağa "_octal digit_" denir. `Octal digit` sembolleri olarak `10`'luk sistemin ilk `8` sembolü
 kullanılmaktadır:
 
 ```
@@ -614,7 +613,7 @@ kullanılmaktadır:
     7
 ```
 
-Her octal digit 3 bit ile ifade edilebilir:
+Her `octal digit`, `3 bit` ile ifade edilebilir:
 
 ```
     0       000
@@ -627,21 +626,21 @@ Her octal digit 3 bit ile ifade edilebilir:
     7       111
 ```
 
-Bu durumda bir octal sayı 2'lik sisteme kolay bir biçimde dönüştürülebilir:
+Bu durumda bir octal sayı `2`'lik sisteme kolay bir biçimde dönüştürülebilir:
 
 ```
     476	            --->    100 111 110
     741	            --->    111 100 001
 ```
 
-Benzer biçimde 2'lik sistemdeki bir sayı da sağdan sola üçer bit gruplandırılarak 8'lik sisteme dönüştürülebilmektedir. Örneğin:
+Benzer biçimde `2`'lik sistemdeki bir sayı da sağdan sola üçer bit gruplandırılarak `8`'lik sisteme dönüştürülebilmektedir. Örneğin:
 
 ```
     1011 1011       --->    273
     0111 1110	    --->    176
 ```
 
-8'lik sistem de 2'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Ancak 8'i tam ortalayamadığı için kullanımı seyrektir.
+`8`'lik sistem de `2`'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Ancak `8`'i tam ortalayamadığı için kullanımı seyrektir.
 
 [7. Ders - 14/06/2022 - Salı]()
 
@@ -1715,7 +1714,7 @@ içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
     0                       int türden sabit
     123                     int türden sabit
-    -123                    bu bir sabit değildir. Burada sabit olan 123'tür. Sayının başındaki '-' bir operatördür.
+    -123                    bu bir sabit değildir. Burada sabit olan 123 tür. Sayının başındaki '-' bir operatördür.
 
 ```
 
@@ -2084,7 +2083,7 @@ int result;
 
 ```
 
-#### putchar fonksiyonu
+### putchar fonksiyonu
 
 `putchar` fonksiyonu bizden `int` türden bir değer alır. O değere karşı gelen karakter numarasına ilişkin karakterin görüntüsünü ekrana (`stdout` dosyasına) yazar.
 Yani `putchar(ch)` çağrısıyla `printf("%c", ch)` çağrısı işlevsel olarak tamamen eşdeğerdir.
@@ -2112,7 +2111,7 @@ int a;
 ### getchar fonksiyonu
 
 `getchar` fonksiyonu adeta `putchar` fonksiyonun tersini yapmaktadır. Bu fonksiyonun parametresi yoktur. Fonksiyon çağrıldığında klavyeden (`stdin` dosyasından)
-bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter tablosundaki sıra numarasına geri döner. getchar bize `int` türden bir değer vermektedir.
+bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter tablosundaki sıra numarasına geri döner. `getchar` bize `int` türden bir değer vermektedir.
 Örneğin:
 
 ```
@@ -2123,7 +2122,7 @@ bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter 
 
 ```
 
-getchar fonksiyonunu yanlışlıkla aşağıdaki gibi kullanmaya çalışmayınız:
+`getchar` fonksiyonunu yanlışlıkla aşağıdaki gibi kullanmaya çalışmayınız:
 
 ```
 
@@ -2131,7 +2130,7 @@ getchar fonksiyonunu yanlışlıkla aşağıdaki gibi kullanmaya çalışmayın�
 
 ```
 
-getchar fonksiyonun parametresi yoktur. Bunun verdiği değeri bir değişkene yerleştirmelisiniz:
+`getchar` fonksiyonun parametresi yoktur. Bunun verdiği değeri bir değişkene yerleştirmelisiniz:
 
 ```
 
@@ -2179,7 +2178,7 @@ Biz burada ilk `getchar` için `a` karakterine basıp ENTER tuşuna basmış ola
 
 ```
 
-    Tampon => a\n
+    Tampon  =>  a\n
 
 ```
 
