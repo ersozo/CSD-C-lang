@@ -1311,12 +1311,12 @@ Ayrıca yazım kolaylığı için `<complex.h>` dosyası içerisinde `_COMPLEX` 
 `include` edersek `_COMPLEX` yerine `complex` sözcüğünü de kullanabiliriz. Benzer biçimde `<complex.h>` içerisinde `I` isimli sembolik sabit de `_COMPLEX_I` olacak biçimde
 define edilmiştir. Yani biz `<complex.h>` dosyasını include etmiş isek, `i` sayısı için `_COMPLEX_I` yerine `I` harfini de kullanabiliriz.
 
-> _C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep `int` türünü, gerçek sayı türü olarak da `double`
+> **C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep `int` türünü, gerçek sayı türü olarak da `double`
 > türünü tercih ederler. C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni `char`, `short` olarak değil
 > yine `int` olarak tanımlar. Fakat, örneğin bir nicelik `int` türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. `int` türünden küçük
 > türler programcılar tarafından tekil nesneler için değil, büyük diziler için tercih edilmektedir. Örneğin bir kişinin yaşını bir değişkende tutacak olalım.
 > Biz yine bu değişkeni `int` türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi `int` türünden değil de `char` türünden
-> oluşturabiliriz. Aynı durum `double` türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa `float` türünü tercih etmelidir._
+> oluşturabiliriz. Aynı durum `double` türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa `float` türünü tercih etmelidir.**
 
 [11. Ders - 28/06/2022 - Salı]()
 
