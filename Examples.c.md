@@ -1,6 +1,6 @@
 [1. Ders - 24/05/22 - Salı]()
 
-#### Giriş ve Tarihçe
+### Giriş ve Tarihçe
 
 C Programlama Dili 1970 yılında Dennis Ritchie tarafından AT&T Bell Lab'ta UNIX işletim sisteminin bir yan ürünü olarak geliştirilmişir. AT&T Bell Lab.
 Ken Thompson, Brian Kernighan gibi önemli kişilerle UNIX isimli işletim sistemini geliştiriyordu. UNIX işletim sistemi o zamanın DEC PDP-8 makineleri
@@ -716,8 +716,8 @@ C programını C derleyicisi ile derledikten sonra eğer hiçbir hata yoksa derl
 "_amaç kod dosyası_" da diyeceğiz. Amaç kod dosyası (relocatable object module) daha sonra "_bağlayıcı (linker)_" denilen bir programa sokulur. Bu linker programı
 "_çalıştırılabilir (executable)_" dosyaysı üretir. Biz de nihayetinde bu dosyayı çalıştırırz.
 
-**> .c -----> C Derleyicisi -----> Object file -----> Bağlayıcı (Linker) -----> Çalıştırılabilir (executable)
-**
+>                   .c -----> C Derleyicisi -----> Object file -----> Bağlayıcı (Linker) -----> Çalıştırılabilir (executable)
+
 Bağlayıcı (linker da diyeceğiz) aslında bir grup amaç dosyayı alıp tek bir çalıştırılabilir dosya oluşturmaktadır. Bir amaç dosyanın içerisinde derlenmiş kodların
 yanı sıra bağlayıcnın birleştirme yapabilmesi için çeşitli bilgiler de vardır.
 
