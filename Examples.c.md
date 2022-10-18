@@ -9153,11 +9153,11 @@ en az 4095 karakterlik satırları desteklemesi gerekmektedir.
 #include <stdlib.h>
 
 #define error_check(result) \
-{ \
- if (!result) { \
- printf("Error!\n"); \
- exit(1); \
- } \
+{                           \
+    if (!result) {          \
+    printf("Error!\n");     \
+    exit(1);                \
+    }                       \
 }
 
 int main(void)
@@ -9180,10 +9180,10 @@ olanak sağlamaz. Örneğin:
 
     #define error_check(result)         \
     {                                   \
-    	if (!result) {                  \
-    		printf("Error!\n");         \
-    		exit(1);                    \
-    	}                               \
+        if (!result) {                  \
+        printf("Error!\n");             \
+        exit(1);                        \
+        }                               \
     }
 
     int main(void)
@@ -9219,9 +9219,9 @@ makromuzun da tam bir fonksiyon taklidi yapamadığı açıktır. İşte bu tür
 ```
     #define error_check(result)         \
     do  {                               \
-    	if (!result) {                  \
-    		printf("Error!\n");         \
-    		exit(1);                    \
+        if (!result) {                  \
+        	printf("Error!\n");         \
+    	    exit(1);                    \
     	}                               \
     } while (0)
 ```
@@ -9731,10 +9731,10 @@ Koşul operatörü öncelik tablosunda atama operatörünün hemen yukarısında
 
 ```
     ()					Soldan-Sağa
-    + - ++ -- !			Sağdan-Sola
+    + - ++ -- !         Sağdan-Sola
     * / %				Soldan-Sağa
     + -					Soldan-Sağa
-    <  > <= >=			Soldan-Sağa
+    <  > <= >=          Soldan-Sağa
     != ==				Soldan-Sağa
     &&					Soldan-Sağa
     ||					Soldan-Sağa
