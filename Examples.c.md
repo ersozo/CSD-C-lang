@@ -45,14 +45,16 @@ arayüz oluşturan kısmıdır. İşletim sistemleri çeşitli bakımlardan sın
 - Server işletim sistemleri
 
 Bugün masaüstü işletim sistemlerinin en yaygın kullanılanı Windows sistemleridir (%75 civarı). Bunu Mac OS X izlemektedir (%22 civarı) bunu da Linux izlemektedir.
-(%2.5 civarı). Mobil işletim sistemlerinin en yaygın olanı ise %70 civarında kullanıma sahip olan Android sistemleridir. Bunu %25 civarlarında kullanıma sahip olan iOS sistemleri izlemektedir. Diğer mobil işletim sistemleri %1'in oldukça altındadır.
+(%2.5 civarı). Mobil işletim sistemlerinin en yaygın olanı ise %70 civarında kullanıma sahip olan Android sistemleridir. Bunu %25 civarlarında kullanıma sahip olan iOS sistemleri
+izlemektedir. Diğer mobil işletim sistemleri %1'in oldukça altındadır.
 
 Linux sistemleri Server dünyasında en yaygın kullanılan işletim sistemleridir. Server sistemlerinin %70 civarı Linux makinelerden oluşmaktadır. Artık pek çok gömülü sistem
 projelerinde de Linux işletim sistemi kullanılmaktadır.
 
 Bazı işletim sistemleri sıfırdan yazılmıştır. Bazı işletim sistemleri ise mevcut işletim sistemlerinin kodlarından faydalanılarak oluşturulmuştur. Örneğin Android
 büyük ölçüde Linux çekirdeğinin kodlarına sahiptir. Windows, Linux özgün kod temeline sahip olan işletim sistemleridir. Eskiden BSD sistemleri özgün değildi.
-Sonra tamamen sıfırdan yeniden yazıldı. Benzer biçimde Solaris gibi sistemlerde sıfırdan yazılmıştır. Ancak Mac OS sistemleri böyle değildir. Mac sistemleri FreeBSD ve Mach isimli çekirdeklerin birleşimiyle oluşturulmuştur.
+Sonra tamamen sıfırdan yeniden yazıldı. Benzer biçimde Solaris gibi sistemlerde sıfırdan yazılmıştır. Ancak Mac OS sistemleri böyle değildir. Mac sistemleri FreeBSD ve Mach isimli
+çekirdeklerin birleşimiyle oluşturulmuştur.
 
 Bir bilgisayar sisteminde en önemli üç birim "_CPU_", "_RAM_" ve "_Disk_" birimleridir. Bütün işlemler CPU (Central Processing Unit) tarafından yapılır.
 CPU işlemlerin yapıldığı kavramsal birimdir. Bunun entegre devre biçiminde üretilmiş haline "_mikroişlemci (microprocessor)_" denilmektedir.
@@ -66,7 +68,8 @@ halk arasında RAM denilmektedir. Programlama dillerindeki değişkenler program
 gibi bir işlemde aslında a, b, ve c RAM'de bulunmaktadır. Bu işlem yapılırken b ve c CPU'ya çekilir. CPU içerisindeki elektrik devreleri toplama işlemini yapar.
 Sonuç RAM'deki a'ya aktarılır. Bilgisayarın güç kaynağı kapatıldığında RAM'deki bilgiler silinmektedir. Bunun için bu bilgilerin daha kalıcı bir bellekte saklanması gerekir.
 Bu tür beleklere "_ikinci bllekler (secondart memory)_" denilmektedir. Eskiden ikincil bellek olarak floppy disketler, CD/DVD ROM'lar ve Hard diskler kullanılıyordu.
-Ancak günümüzde artık SSD (Solid State Disk) denilen "_flash bellekler_" kullanılmaktadır. Genellikle bilgisayar sistemlerinde ikincil belleklerle birincil bellekler arasında bir aktarım yolu bulunmaktadır.
+Ancak günümüzde artık SSD (Solid State Disk) denilen "_flash bellekler_" kullanılmaktadır. Genellikle bilgisayar sistemlerinde ikincil belleklerle birincil bellekler arasında
+bir aktarım yolu bulunmaktadır.
 
 [3. Ders - 31/05/22 - Salı]()
 
@@ -284,8 +287,8 @@ Burada 1 byte'lık bir bilgi vardır. Byte temel bellek birimidir.
 Byte da küçük bir birimdir. Kilo diğer bilimlerde "_1000 katı_" anlamına gelmektedir. Ancak bilgisayarlar 2'lik sistemi kullandığj için 1000 katı iyi bir
 kat değildir. Bu nedenle genel olarak Kilo byte için 2'nin 10'uncu kuvveti olan 1024 kat kullanılır. Yani 1KB (kısaca 1K) 1024 byte'tır. Mega diğer bilimlerde
 kilonun 1000 katıdır. Dolayısıyla milyon kat anlamına gelmektedir. Ancak bilgisayar bilimlerinde genel olarak mega kilonun 1024 katı olarak alınır.
-Bu durumda 1 MB = 1024 x 1024 byte (2^20)'tır. Giga ise Mega'nın 1024 katıdır. Bu durumda 1 GB = 1024 \_ 1024 x 1024 byte ( 2^30)'tır. Giga'dan sonra Tera, Tera'dan sonra
-Peta, ondan sonra da Exa gelmektedir.
+Bu durumda 1 MB = 1024 \* 1024 byte (2^20)'tır. Giga ise Mega'nın 1024 katıdır. Bu durumda 1 GB = 1024 \* 1024 x 1024 byte ( 2^30)'tır. Giga'dan sonra Tera,
+Tera'dan sonra Peta, ondan sonra da Exa gelmektedir.
 
 1 byte içerisinde yazılabilecek en küçük ve en büyük sayılar şöyledir:
 
@@ -413,7 +416,7 @@ yazalım. Önce +1 yazalım:
 **SORU** : Bu sistemde bir sayının kaç olduğu bize sorulsa bunu nasıl yanıtlarız?
 
 **CEVAP** : Eğer en soldaki bit 0 ise sayının değeri doğrudan hesplanır. Eğer en soldaki bit 1 ise bu sayının negatif olduğunu gösterir. Bu durumda
-sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Örneğin `1110 1110` sayısı kaçtır? Burada işaret biti 1 olduğuna göre sayı negatiftir.
+sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Örneğin 1110 1110 sayısı kaçtır? Burada işaret biti 1 olduğuna göre sayı negatiftir.
 Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidirler. O zaman bu sayının ikiye tümleyenini alıp pozitifinden faydalanarak sayıyı bulalım:
 
 ```
@@ -494,7 +497,7 @@ yuvarlama hatasından dolayı sayılar sanki eşit değişmiş gibi ele alınaca
 
 Peki, yuvarlama hatasının önemli olduğu ve bunun istenmediği tarzda uygulamalarda (örneğin finansal uygulamalarda, bilimsel birtakım uygulamalarda)
 ne yapak gerekir? İşte bunun tek yolu noktalı sayıları kayan noktalı formatta tutmamak olabilir. Bazı programlama dillerinde noktalı sayıyı
-kayan noktalı formatta tutmayan böylece yuvarlama hatalarına maruz bırakmayan özel türler (örneğin C#'taki `decimal`) vardır. Ancak bu türler işlemciler tarafından
+kayan noktalı formatta tutmayan böylece yuvarlama hatalarına maruz bırakmayan özel türler (örneğin C#'taki decimal) vardır. Ancak bu türler işlemciler tarafından
 desteklenmediği için yapay türlerdir.
 
 Yazılar da aslında bilgisayar belleğinde, 2'lik sistemdeki sayılar biçiminde tutulmaktadır. Bir yazıyı oluşturan elemanlara "_karakter_" denilmektedir. İşte
@@ -1911,7 +1914,7 @@ görüntülenemeyen özek kontrol karakterinden oluşmaktadır. İşte çok kull
 ```
 
 Burada önemli olan nokta '\n' gibi bir karakter sabitin her ne kadar tırnak içerisinde iki karakter varsa da aslında tek bir karaktere ilişkin karakter sabiti
-belirttiğidir. Yani '\n' ne ters bölü karakterinin ne de 'n' karakterinin sabitidir. Tamamen başka bir karakter olan LF (line feed) denilen karakterin karakter
+belirttiğidir. Yani \n ne ters bölü ('\') karakterinin ne de 'n' karakterinin sabitidir. Tamamen başka bir karakter olan LF (line feed) denilen karakterin karakter
 sabitidir.
 
 Ters bölü karakter sabitleri iki tırnak içerisinde tek bir karakter olarak ele alınmaktadır. Örneğin:
@@ -2277,7 +2280,7 @@ int a, b;
 
 ```
 
-Yeni öğrenenler tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna '\n' konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
+Yeni öğrenenler tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna \n konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
 
 ```
 
@@ -3621,9 +3624,9 @@ Biz ifadenin sonuna ';' koyduğumuzda artık o ifadeyle sonraki ifadenin ayrı i
 
 ```
 
-Burada muhtemelen `a = 10`'dan sonraki ';' atomu unutulmuştur. O halde derleyiciye göre burada tek bir ifade vardır. Ancak bu ifade geçerli değildir.
+Burada muhtemelen a = 10'dan sonraki ';' atomu unutulmuştur. O halde derleyiciye göre burada tek bir ifade vardır. Ancak bu ifade geçerli değildir.
 
-Bazı dillerde sonlandırıcı olarak `LF` karakteri kullanılmaktadır. Dolayısıyla o dillerde aynı satıra tek bir ifade yazılmak zorundadır.
+Bazı dillerde sonlandırıcı olarak LF karakteri kullanılmaktadır. Dolayısıyla o dillerde aynı satıra tek bir ifade yazılmak zorundadır.
 
 Biz şimdiye kadar zaten var olan fonksiyonları çağırdık. Artık biz de fonksiyon yazacağız. Bir fonksiyonun yazılmasına C standartlarında "_fonksiyonun_
 _tanımlanması (function definition)_" denilmektedir. Fonksiyon tanımlamanın genel biçimi şöyledir:
@@ -3878,7 +3881,7 @@ dönüş değerine sahip olmasına izin verebilirler. main fonksiyonundaki retur
 İşletim sistemleri bu exit kodu alır, eğer başka prosesler isterse belli koşullarda onlara verebilir. Ancak exit kodunun kaç olduğuyla ilgilenmez.
 Fakat geleneksel olarak C'de başarılı ve mutlu sonlanmalar için exit kodu olarak 0, başarısız sonlanmalar için sıfır dışı değerler kullanılmaktadır.
 Biz örneklerimizde main fonksaiyonunu her zaman 0 ile geri döndüreceğiz. Aslında C standartlarında main fonksiyonuna özgü olarak, eğer main fonksiyonunda hiç
-return kullanılmazsa sanki ana bloğun sonuna `return 0` yazılmış gibi işlem uygulanmaktadır. Yani main fonksiyonunda biz hiç return yazmasak da zaten `return 0`
+return kullanılmazsa sanki ana bloğun sonuna return 0 yazılmış gibi işlem uygulanmaktadır. Yani main fonksiyonunda biz hiç return yazmasak da zaten return 0
 yazmış gibi bir durum oluşmaktadır. Tabii bu durum yalnızca main fonksiyonuna özgüdür.
 
 Fonksiyonların geri dönüş değerleri geçici nesne yoluyla onu çağıran fonksiyona iletilmektedir. Programın akışı return deyimini gördüğünde önce derleyici,
@@ -4678,7 +4681,7 @@ Burada bu bloğun tamamı dışarıdan bakıldığında tek bir deyimdir.
     	x = 10;;
 ```
 
-Burada iki deyim vardır. Birincisi `x = 10;` deyimidir. Bu bir basit deyimdir. İkincisi bundan sonraki noktalı virgüldür (';'). Boş deyimler için bir şey yapılmıyor
+Burada iki deyim vardır. Birincisi x = 10; deyimidir. Bu bir basit deyimdir. İkincisi bundan sonraki noktalı virgüldür (';'). Boş deyimler için bir şey yapılmıyor
 olsa da bunlar yine bir deyim statüsündedir.
 
 Yukarıda da belirtildiği gibi bir program, deyimlerin çalıştırılmasıyla çalıştırılmaktadır. Her deyim çalıştığında bir şeyler yapılır. Şimdi bu deyimler
@@ -4736,7 +4739,7 @@ main fonksiyonun çağrılması demektir. Örneğin:
 ```
 
 Burada main fonksiyonu çağrıldığında onun ana bloğunun belirttiği bileşik deyim çalıştırılır. Bu bileşik deyim içerisinde bir bildirim deyimi, 2 tane basit deyim ve bir
-tane kontrol deyimi vardır. `a = add(10, 20)` basit deyimi çalıştırılırken de add fonksiyonun ana bloğunun belrttiği bileşik deyim çalıştırılmış olur.
+tane kontrol deyimi vardır. a = add(10, 20) basit deyimi çalıştırılırken de add fonksiyonun ana bloğunun belrttiği bileşik deyim çalıştırılmış olur.
 Yani görüldüğü gibi aslında program deyimlerin çalıştırılmasıyla çalıştırılmaktadır.
 
 En yaygın kullanılan kontrol deyimi if deyimidir. if deyiminin genel biçimi şöyledir:
@@ -5176,7 +5179,7 @@ int i;
 }
 ```
 
-Aşağıdaki örnekte klavyeden (stdin dosyasından) `q` karakteri girilene kadar döngü devam etmektedir. Burada atama operatörüne öncelik vermek için
+Aşağıdaki örnekte klavyeden (stdin dosyasından) q karakteri girilene kadar döngü devam etmektedir. Burada atama operatörüne öncelik vermek için
 parantez kullanıldığına dikkat ediniz. Ayrıca getchar fonksiyonunun ve stdin dosyasından okuma yapan diğer fonksiyonların tamponlu (buffered) çalıştırklarını
 anımsayınız. Eğer tampon doluysa getchar yeni bir giriş istememektedir. Ancak tampon boşsa yeni bir giriş istemektedir.
 
@@ -5977,7 +5980,7 @@ int i;
 ```
 
 Aşağıdaki örnekte ilk getchar(), klavyeden okunanları tampona yerleştirir ve ilk karakterin sıra numarasıyla geri döner. Sonraki getchar(), çağrıları
-tamponda bulunan sıradaki karakterleri alır. Tamponun sonunda ENTER tuşu nedeniyle `\n` karakteri bulunacaktır. O halde aşağıdaki kodda, klavyeden girilen
+tamponda bulunan sıradaki karakterleri alır. Tamponun sonunda ENTER tuşu nedeniyle \n karakteri bulunacaktır. O halde aşağıdaki kodda, klavyeden girilen
 karakterlerin sayısı hesaplanmaktadır.
 
 ```
