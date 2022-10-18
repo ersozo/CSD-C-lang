@@ -3312,8 +3312,8 @@ Bazen programcı bir değeri önce atayıp, atanmış değeri başka bir değerl
 
 Burada önce getchar ile klavyeden (stdin dosyasından) okunan değer ch değişkenine atanmıştır. Sonra bu atanan değer karşılaştırma işlemine sokulmuştur.
 
-C'de bir grup `+=`, `-=`, `_=`, `/=`, `%=`, ... biçiminde "bileşik atama operatörü (compound assignment operator)" vardır. Bu operatörlerin hepsi iki operand'lı
-araek operatörlerdir. "op", `+`, `-`, `\*`, `/` gibi bir operatör belirtmek üzere:
+C'de bir grup +=, -=, \*=, /=, %=, ... biçiminde "_bileşik atama operatörü (compound assignment operator)_" vardır. Bu operatörlerin hepsi iki operandlı
+araek operatörlerdir. "op", +, -, \*, / gibi bir operatör belirtmek üzere:
 
 ```
 
@@ -3503,7 +3503,7 @@ Virgül operatörünün ürettiği değer sağ taraftaki ifadenin değeridir. Ya
 ```
 
 Burada parantezler sayesinde en soldaki atama operatörü virgül operatöründen ayrıştrılmıştır. Burada önce parantez içi yapılacaktır. Parantez içerisinde
-virgül operatörü vardır. O zaman virgül operatörünün sol tarafı önce yapılacağına göre önce `a = 10` işlemi sonra `b = 20` işlemi yapılır. Virgül operatöründen
+virgül operatörü vardır. O zaman virgül operatörünün sol tarafı önce yapılacağına göre önce a = 10 işlemi sonra b = 20 işlemi yapılır. Virgül operatöründen
 elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan 20 elde edilecektir. İşte bu 20 aynı zamanda c'ye atanmıştır.
 
 ```
@@ -4469,15 +4469,15 @@ değişken faaliyet gösteriyorsa o blokta dar faaliyet alanına sahip olan değ
     {
     	double x;
 
-    	x = 20;					/* yerel x kullanılıyor */
+    	x = 20;                     /* yerel x kullanılıyor */
     }
 
     int main(void)
     {
-    	x = 10;					/* global x */
+    	x = 10;                     /* global x */
 
     	foo();
-    	printf("%d\n", x);		/* global x, 10 çıkacak */
+    	printf("%d\n", x);          /* global x, 10 çıkacak */
 
     	return 0;
     }
@@ -4512,15 +4512,15 @@ Tentative tanımlama olması için global değişkene ilkdeğer verilmemiş olma
 Ancak birden fazla kez ilkdeğer verilemez. Örneğin:
 
 ```
-    int a = 10;					/* geçerli, tentative değil */
-    int a;						/* geçerli, tentative, aslında burada bir a yaratılmıyor */
+    int a = 10;                 /* geçerli, tentative değil */
+    int a;                      /* geçerli, tentative, aslında burada bir a yaratılmıyor */
 ```
 
 Ancak örneğin:
 
 ```
     int a = 10;
-    int a = 20;					/* geçersiz! tentative değil */
+    int a = 20;                 /* geçersiz! tentative değil */
 ```
 
 Bu kural ileride yeniden başka bir konunun içerisinde ele alınacaktır.
