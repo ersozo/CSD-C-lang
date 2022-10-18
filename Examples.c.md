@@ -501,7 +501,7 @@ Yazılar da aslında bilgisayar belleğinde, 2'lik sistemdeki sayılar biçimind
 bir yazıda her bir karakter 2'lik sistemde bir sayı ile ifade edilir. Böylece yazı aslında ikilik sistemde bir sayı dizisi gibi tutulmaktadır. İşte
 bir karakter için o karakterin hangi sayıya karşı geldiğini belirten tablolara "_karakter tabloları_" denilmektedir. Karakter tablosundaki karakter şekillerine "_glyph_"
 denilmektedir. Her karaktere tabloda bir sıra numarası verilmiştir. Buna da "_code point_" denilmektedir. Dünyanın ilk standart karakter tablosu "_ASCII (American_
-_Standard Code Information Interchange)_" denilen tablodur. ASCII tablosu aslında `7 bit` bir tablodur. Dolayısıyla tabloda 128 tane glyph için code point
+_Standard Code Information Interchange)_" denilen tablodur. ASCII tablosu aslında 7 bit bir tablodur. Dolayısıyla tabloda 128 tane glyph için code point
 bulundurulmuştur. ASCII dışında IBM EBCDIC tablosunu geliştirmiştir. Wang firması WISCII tablosunu kullanmıştır. ASCII tablosu Amerikalılar tarafından yalnızca İngilizce
 karakterleri ifade etmek için oluşturulmuştur. Bilgisayarlar yaygınlaşmaya başladığında farklı karakterlere sahip olan Türkiye gibi, Yunanistan gibi, Almanya gibi
 ülkeler bu ASCII tablosunu 8 bit'te çıkartıp elde edilen 128 bit lik yeni alanı kendi karakterlerini ifade etmek için kullanmışlardır. ASCII tablosunun ilk yarısı
@@ -524,7 +524,7 @@ adeta sıkıştırılmış bir hali gibi düşünülebilir.
 Bugün pek çok programlama editörleri default durumda dosyayı UNICODE UTF-8 encoding'ine göre saklamaktadır.
 
 Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de 16'lık sistemdir. 16'lık sisteme İngilizce "_hexadecimal system_" denilmektedir. 16'lık
-sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 10'luk sistemdeki sembollerden alınmıştır. Sonraki `6` sembol alfabetik karakterlerden alınmıştır.
+sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 10'luk sistemdeki sembollerden alınmıştır. Sonraki 6 sembol alfabetik karakterlerden alınmıştır.
 
 ```
     0
@@ -1227,7 +1227,7 @@ ifade edilirler. Aşağıda temel türler açıklanmaktadır:
 - **`unsigned short [int]`**: Bu tür, signed short türünün işaretsiz biçimidir. Dolayısıyla short türü kadar yer kaplar. short türünün 2 byte olduğu sistemlerde
   bu türden bir nesnenin içerisine biz [0, +65535] arasında tamsayı değerler yerleştirebiliriz.
 
-- **signed char**: C standartlarında Byte lafı pek az yerde kullanılmıştır. Çünkü Byte genellikle 8 bit için kullanılan bir terimdir. Oysa bazı
+- **`signed char`**: C standartlarında Byte lafı pek az yerde kullanılmıştır. Çünkü Byte genellikle 8 bit için kullanılan bir terimdir. Oysa bazı
   bilgisayar sistemlerinde RAM'deki adreslenebilen birimler 8 bit değil 10, 11 bit değerler de olabilmektedir. Tabii bu sistemler son derece seyrektir.
   Ancak standartlar bu uç durumu da dikkate almaktadır. C standartlarında char terimi "_RAM'de adreslenebilen en küçük birimin büyüklüğünü_" temsil etmektedir.
   Örneğin tipik olarak eğer adreslenebilen en küçük birim 8 bit ise char 8 bit'tir. Ancak 10 bit ise char 10 bit'tir. Görüldüğü gibi eğer C standartlarında
@@ -1240,10 +1240,10 @@ ifade edilirler. Aşağıda temel türler açıklanmaktadır:
   Mademki char türü yaygın sistemlerin hepsinde 8 bit'ten oluşmaktadır. O halde signed char türünün de bu sistemlerdeki sınırları [-128, +127]
   arasındadır. Özetle signed char, 1 byte'lık işaretli tamsayı türünü belirtmektedir.
 
-- **unsigned char**: Bu tür, char türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
+- **`unsigned char`**: Bu tür, char türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
   bit uzunluğu kadardır. 8 bit'lik yaygın sistemlerde unsigned char türünden bir nesneye [0, +255] arasında değerler yerleştirilebilir.
 
-- **char**: Yalnızca char denildiğinde bunun signed char mı yoksa unsigned char mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
+- **`char`**: Yalnızca char denildiğinde bunun signed char mı yoksa unsigned char mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
   Microsoft C derleyicileri, gcc ve clang derleyicileri char türünü default olarak signed char kabul etmektedir. Fakat başka derleyiciler unsigned char
   kabul edebilirler. Aslında Microsoft derleyicilerinde, gcc ve clang derleyicilerinde char denildiğinde default durum derleyici ayarlarından da değiştirilebilmektedir.
   Her ne kadar char türü, ilgili sistemde signed char ya da unsigned char anlamına geliyorsa da char, signed char ve unsigned char ne olursa olsun
@@ -1260,17 +1260,17 @@ ifade edilirler. Aşağıda temel türler açıklanmaktadır:
 Yukarıdaki tüm türlere C'nin tamsayı türleri denilmektedir. C'de ayrıca üç tane de gerçek sayı (noktalı sayı) türü vardır: float, double ve long double.
 Gerçek syaı türlerinin işaretli ve işaretsiz biçimleri yoktur. Bunlar zaten doğuştan işaretlidir.
 
-- **float**: Bu tür, 4 byte uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
+- **`float`**: Bu tür, 4 byte uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
   "_Implementation Limits_" kısmında gerçek sayı türleri için belirtilen limitler **IEE 754** standardını ima etmektedir. Bu durumda float türü hemen her sistemde
   4 byte uzunluktadır. float türünün yuvarlama hatalarına direnci zayıftır. Bu nedenle float türü aslında C programcıları tarafından az tercih edilen bir gerçek
   sayı türüdür.
 
-- **double**: Standartlara göre double türü, float türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
+- **`double`**: Standartlara göre double türü, float türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
   double türü 8 byte uzunluktadır ve **IEEE 754 Long Real Format** biçiminde temsil edilmektedir. Ancak bazı mikrodenetleyici derleyicilerinde
   double türü float ile tamamen aynı uzunlukta olabilmektedir. C prograöcılarının en fazla tercih ettiği gerçek sayı türü, double türüdür. Çünkü bu türün
   yuvarlama hatalarına direnci float türünden çok daha iyidir.
 
-- **long double**: long double türü, standartlara göre double ile aynı duyarlılıkta ya da double türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
+- **`long double`**: long double türü, standartlara göre double ile aynı duyarlılıkta ya da double türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
   gcc ve clang derleyicilerinde long double türü, double türüyle tamamen aynı özelliktedir. Yani bu tür de bu derleyicilerde IEEE 754 Long Real Format biçiminde
   ifade edilmektedir. Fakat bazı derleyicilerde (Örneğin eski Borland firmasının C derleyicilerinde) long double türü 10 byte'lık **IEEE 754 Extended Real Format**
   biçiminde de alınabilmektedir.
