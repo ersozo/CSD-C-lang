@@ -7854,7 +7854,7 @@ geri dönerler. Bunların listesi şöyledir:
     isalpha			Alfabetik karakter mi?
     isalnum			Alfabetik ya da nümerik bir karakter mi?
     isdigit			Sayısal bir karakter mi?
-    isxdigit		HEx digit bir karakter mi?
+    isxdigit        HEx digit bir karakter mi?
     isspace			Boşluk karakterlerinden biri mi?
     ispunct			Noktalama karakterlerinden biri mi?
     isascii			İlk 128 karakterden biri mi?
@@ -8633,9 +8633,9 @@ Bu nedenle C programcıları birtakım sayıları programda böyle yazısal biç
 durumunda yazıya "_sembolik sabit (symbolic constant)_" denilmektedir. Örneğin:
 
 ```
-    #define MAX_SIZE			100
-    #define LINE_LENGTH			1024
-    #define NITEMS              12
+    #define MAX_SIZE    100
+    #define LINE_LENGTH 1024
+    #define NITEMS      12
 ```
 
 Önişlemciler tipik olarak geçici bir dosya açarak #'li satırlar üzerindeki düzenlemeyi bu geçici dosyada yaparlar. Sonra, derleme modülüne önişlemden
@@ -8649,8 +8649,8 @@ Sembolik sabitlerin, derleme modülü için bir sabit statüsünde olduğuna dik
 ```
     #include <stdio.h>
 
-    #define CMD_DEL		1
-    #define CMD_DIR		2
+    #define CMD_DEL     1
+    #define CMD_DIR     2
     #define CMD_COPY    3
     ...
 
@@ -9232,12 +9232,12 @@ do-while tek deyim olarak ele alınır:
 
 ```
     if (val > 0)
-    	error_check(status);			/* Burada ';' artık boş deyim olmayacak, do-while deyimini tamamlayan ';' haline gelecek
+    	error_check(status);			/* Burada ';' artık boş deyim olmayacak, do-while deyimini tamamlayan ';' haline gelecek */
     else
     	printf("Everything is ok\n");
 ```
 
-Önişmeci makroyu açtığında şu durum oluşacaktır:
+Önişlemci makroyu açtığında şu durum oluşacaktır:
 
 ```
     if (val > 0)
@@ -9956,9 +9956,9 @@ ifade edilmektedir. Örneğin int bir nesne bellekte aslında 4 byte oturmuş du
 ifade ederken onun en düşük adres değerini kullanırız. Örneğin int türden a nesnesi bellekte aşağıdaki gibi bulunuyor olsun:
 
 ```...
-    1FC14 --|
-    1FC15	|
-    1FC16	|	a
+    1FC14---|
+    1FC15   |
+    1FC16   |   a
     1FC17---|
     ...
 ```
@@ -10871,7 +10871,7 @@ Aşağıdaki örnekte uzun bir yazı girerek sonucu gözleyiniz.
 
 int main(void)
 {
-char s[5]; /_ dikkat dizi çok küçük, taşabilir! _/
+    char s[5];                      /* dikkat dizi çok küçük, taşabilir! */
 
     printf("Bir yazi giriniz:");
     gets(s);
@@ -11081,7 +11081,7 @@ C'de adres bilgileri sembolik olarak "tür \*" biçiminde gösterilir. Örneğin
     int *pi;
 ```
 
-Burada a'nın türü int, pi'nin türü int _ biçimindedir. Buradaki '_' adres anlamına gelmektedir.
+Burada a'nın türü int, pi'nin türü int \* biçimindedir. Buradaki '\*' adres anlamına gelmektedir.
 
 [35. Ders - 06/10/2022 - Perşembe]()
 
@@ -11158,8 +11158,8 @@ Aslında bu işlemde derleyici aşağıdaki gibi bir kod üretmektedir:
     char *p2;
 ```
 
-C'de önemli bir adres operatörü de "_ (indirection)" operatördür. Bu operatörün çarpma işlemini yapan _ operatörü ile bir ilgisi yoktur. Tamamen
-farklı bir operatördür. _ operatörü tek operandlı önek bir adres operatörüdür. _ operatörünün operandı bir adres bilgisi olmak zorundadır. \_ operatörü
+C'de önemli bir adres operatörü de "\* (indirection)" operatördür. Bu operatörün çarpma işlemini yapan _ operatörü ile bir ilgisi yoktur. Tamamen
+farklı bir operatördür. _ operatörü tek operandlı önek bir adres operatörüdür. \* operatörünün operandı bir adres bilgisi olmak zorundadır. \* operatörü
 operandı olan adresteki nesneye erişimi sağlar. \* operatörü ile erişilen nesnenin türü, operand olarak kullanılan nesnenin türü ile aynı türdendir.
 Örneğin:
 
@@ -11171,8 +11171,8 @@ operandı olan adresteki nesneye erişimi sağlar. \* operatörü ile erişilen 
 ```
 
 Burada pi'nin içerisinde a nesnesinin adresi vardır. Şimdi biz *pi dediğimizde pi adresindeki int nesneye erişmiş oluruz. Yani *pi ile a tamamen
-aynı nesneyi belirtmektedir. _pi ifadesi burada int türdendir. Çünkü pi adresi int türden bir adres bilgisidir. Böylece biz bir nesnenin adresini
-alıp onu bir göstericiye yerleştirdikten sonra o göstericiyi _ operatörü ile kullandığımızda adresini aldığımız nesneye erişmiş oluruz. Örneğin:
+aynı nesneyi belirtmektedir. \*pi ifadesi burada int türdendir. Çünkü pi adresi int türden bir adres bilgisidir. Böylece biz bir nesnenin adresini
+alıp onu bir göstericiye yerleştirdikten sonra o göstericiyi \* operatörü ile kullandığımızda adresini aldığımız nesneye erişmiş oluruz. Örneğin:
 
 ```
     int a;
@@ -11417,7 +11417,7 @@ elde edilen nesne, p adresi hangi türdense o türden olacaktır. \* operatörü
 
 Burada \*a bu dizinin ilk elemanını belirtir.
 
-a bir nesne belirtmek üzere _&a işleminde öce & operatörü sonra _ operatörü yapılacaktır. Çünkü bu iki operatör sağdan sola aynı öncelik grubundadır.
+a bir nesne belirtmek üzere \*&a işleminde öce & operatörü sonra \* operatörü yapılacaktır. Çünkü bu iki operatör sağdan sola aynı öncelik grubundadır.
 O halde \*&a ile a arasında hiçbir farklılık yoktur. Yani, biz bir nesnenin adresini alıp ona erişirsek aynı nesneyi elde ederiz. Örneğin:
 
 ```
@@ -11426,9 +11426,9 @@ O halde \*&a ile a arasında hiçbir farklılık yoktur. Yani, biz bir nesnenin 
     printf("%d\n", *a);		/* geçersiz! * operatörünün operandı adres bilgisi değil adi bir int */
 ```
 
-Tabii, adres sabitleri de adres belirttiğine göre onlara da _ operatörü uygulanabilir. Örneğin _(int \*)0x1FCD0 burada bellekte 1FCD0 adresinden başlayan
+Tabii, adres sabitleri de adres belirttiğine göre onlara da \* operatörü uygulanabilir. Örneğin \*(int \*)0x1FCD0 burada bellekte 1FCD0 adresinden başlayan
 4 byte (int türünün 4 byte olduğunu varsayıyoruz) int olarak değerlendirilip oraya erişilecektir. Tabii aslında bizim bellekte rastegele bölgelere bu yolla
-erişmememiz gerekir. Bu konu ileride "gösteri hataları" başlığı ile ele alınacaktır.
+erişmememiz gerekir. Bu konu ileride "_gösterici hataları_" başlığı ile ele alınacaktır.
 
 ```
 #include <stdio.h>
@@ -11454,7 +11454,7 @@ int b[] = {10, 20, 30};
 ```
 
 Dizi elemanlarına erişmekte kullandığımız [] aslında bir adres operatörüdür. Köşeli parantez operatörü, tek operandlı sonek (unary postfix) bir operatördür.
-p[n] ifadesi tamamen \_(p + n) ile eşdeğerdir. Yani p[n] "p adresinden n ilerinin içeriği" anlamına gelmektedir. Tabii burada p adresinden n ileri demekle
+p[n] ifadesi tamamen \*(p + n) ile eşdeğerdir. Yani p[n] "p adresinden n ilerinin içeriği" anlamına gelmektedir. Tabii burada p adresinden n ileri demekle
 p adresinden n byte ileriyi kastetmiyoruz. p adresinden n \* p'nin türünün uzunluğu kadar byte ilerinin içeriğini kastediyoruz. [] operatöründe köşeli parantez
 içerisindeki ifadenin tamsayı türlerine ilişkin olması gerekir. [] opeatörü öncelik tablosunun en yukarısında soldan öncelikli grupta bulunmaktadır:
 
@@ -11492,7 +11492,7 @@ Aslında bu operatörün operandı herhangi bir adres bilgisi olabilir. Örneği
 int main(void)
 {
 int a[] = {10, 20, 30, 40, 50};
-int \*pi;
+int *pi;
 
     for (int i = 0; i < 5; ++i)
     	printf("%d %d\n", a[i], *(a + i));
@@ -11506,7 +11506,7 @@ int \*pi;
 }
 ```
 
-Tabii aslında [] operatöründe köşeli parantezler içerisindeki ifade negatif olabilir. Örneğin pi[-2] gibi bir ifade tamamen normaldir. Bu işlem \_(pi - 2)
+Tabii aslında [ ] operatöründe köşeli parantezler içerisindeki ifade negatif olabilir. Örneğin pi[-2] gibi bir ifade tamamen normaldir. Bu işlem \*(pi - 2)
 anlamına gelmektedir. Yani biz burada pi'nin belirttiği adresten iki önceki elemana erişmiş oluruz.
 
 ```
@@ -11515,7 +11515,7 @@ anlamına gelmektedir. Yani biz burada pi'nin belirttiği adresten iki önceki e
 int main(void)
 {
 int a[] = {10, 20, 30, 40, 50};
-int \*pi;
+int *pi;
 
     pi = a + 3;
     printf("%d\n", *pi);		/* 40 */
@@ -11527,11 +11527,11 @@ int \*pi;
 }
 ```
 
-p bir adres belirtmek üzere p[0] ile \_(p + 0) ve *p tamamen aynı anlamdadır. Yani örneğin biz, a isimli bir dizinin ilk elemanına a[0] ifadesi ile de *a
+p bir adres belirtmek üzere p[0] ile \*(p + 0) ve *p tamamen aynı anlamdadır. Yani örneğin biz, a isimli bir dizinin ilk elemanına a[0] ifadesi ile de *a
 ifadesi ile de erişebiliriz.
 
-p bir adres belirtmek üzere *(p + n) ile *p + n tamaen farklı anlamlara gelmektedir. _(p + n) ifadesinde önce parantez içi yapılacak ve p adresinden n ilerideki
-adres elde edilecektir. Sonra _ operatörü ile bu adresin içeriği elde edilecektir. Halbuki *p + n ifadesinde önce *p ile p adresindeki nesneye erişilecek
+p bir adres belirtmek üzere *(p + n) ile *p + n tamaen farklı anlamlara gelmektedir. \*(p + n) ifadesinde önce parantez içi yapılacak ve p adresinden n ilerideki
+adres elde edilecektir. Sonra \_ operatörü ile bu adresin içeriği elde edilecektir. Halbuki *p + n ifadesinde önce *p ile p adresindeki nesneye erişilecek
 o nesnenin değeri n ile toplanacaktı.
 
 C'de aslında [] operatörünün operand'ları yer değiştirebilmektedir. Yani p[n] ifadesi aslında n[p] biçiminde de yazılabilmektedir. Bu çok az bilinen
@@ -11583,11 +11583,11 @@ Aşağıdaki gibi bir gösterici bildirimi olsun:
     int *pi;
 ```
 
-Bu bildirimden iki şey anlaşılmaktadır. Birincisi, pi nesnesi int _ türündendir. Burada "int _" int türden adres bilgisi anlamına gelir. (pi'yi
+Bu bildirimden iki şey anlaşılmaktadır. Birincisi, pi nesnesi int \* türündendir. Burada "int \*" int türden adres bilgisi anlamına gelir. (pi'yi
 parmağınızla kapatıp sola bakın). İkincisi, \*pi yani pi'nin gösterdiği yer int türdendir. (\*pi'yi parmağınızla kapatıp sola bakın).
 
-T türünden adres türü C'de T _ biçiminde temsil edilmektedir. T1 türünden T2 türüne otomatik dönüştürme olması T1 _ türünden T2 _ türüne otomatik dönüştürme olacağı
-anlamına gelmez. Örneğin int türünden double türüne otomatik dönüştürme vardır. Ancak int _ türünden double \* türüne otomatik dönüştürme yoktur.
+T türünden adres türü C'de T \* biçiminde temsil edilmektedir. T1 türünden T2 türüne otomatik dönüştürme olması T1 \* türünden T2 \* türüne otomatik dönüştürme olacağı
+anlamına gelmez. Örneğin int türünden double türüne otomatik dönüştürme vardır. Ancak int \* türünden double \* türüne otomatik dönüştürme yoktur.
 Bir adres bilgisini ancak aynı türden bir göstericiye atayabiliriz.
 
 Bir göstericiye ilkdeğer verebiliriz. Tabii verilen ilkdeğerin gösterici ile aynı türden bir adres bilgisi olması gerekir. Örneğin:
@@ -11597,7 +11597,7 @@ Bir göstericiye ilkdeğer verebiliriz. Tabii verilen ilkdeğerin gösterici ile
     int *pi = &a;		/* geçerli */
 ```
 
-Tabii burada verilen ilkdeğer pi'nin içerisine yerleştirilmektedir. _pi'ye yerleştirilmemektedir. Zaten buradaki _ bir operatör görevinde değildir.
+Tabii burada verilen ilkdeğer pi'nin içerisine yerleştirilmektedir. \*pi'ye yerleştirilmemektedir. Zaten buradaki \* bir operatör görevinde değildir.
 Bildirimdeki dekleratörde bulunmaktadır. Örneğin:
 
 ```
@@ -11614,8 +11614,8 @@ Bir fonksiyonun parametre değişkeni bir gösterici olabilir. Bu durumda fonksi
     }
     ...
     int a;
-    foo(&a);			/* geçerli */
-    foo(a);				/* geçersiz */
+    foo(&a);            /* geçerli */
+    foo(a);             /* geçersiz */
 ```
 
 Bir fonksiyonun parametre değişkeni bir gösterici ise, biz de o fonksiyonu aynı türden bir nesnenin adresi ile çağırmışsak, fonksiyonun içerisinde
@@ -11773,12 +11773,12 @@ int b[5] = {100, 200, 300, 400, 500};
 }
 ```
 
-Yukarıdaki örnekte dizi elemanlarına [] operatörü ile de erişebiliriz. Aslında bu tür fonksiyonlarda \_ yerine daha çok [] operatörü tercih edilmektedir.
+Yukarıdaki örnekte dizi elemanlarına [ ] operatörü ile de erişebiliriz. Aslında bu tür fonksiyonlarda \* yerine daha çok [ ] operatörü tercih edilmektedir.
 
 ```
 #include <stdio.h>
 
-void disp(int \*pi, int size)
+void disp(int *pi, int size)
 {
 for (int i = 0; i < size; ++i)
 printf("%d ", pi[i]);
@@ -11814,7 +11814,7 @@ işlemlerini görmemiş olsak da bu size_t türünü kullanacağız.
 ```
 #include <stdio.h>
 
-void disp(int \*pi, size_t size)
+void disp(int *pi, size_t size)
 {
 for (size_t i = 0; i < size; ++i)
 printf("%d ", pi[i]);
@@ -11839,7 +11839,7 @@ Aşağıda int bir dizinin en büyük elemanını bulan bir fonksiyon örneği v
 ```
 #include <stdio.h>
 
-int getmax(int \*pi, size_t size)
+int getmax(int *pi, size_t size)
 {
 int max = pi[0];
 
@@ -11869,7 +11869,7 @@ Aşağıdkai double bir dizinin ortalamasına geri dönen mean isimli bir fonksi
 ```
 #include <stdio.h>
 
-double mean(double \*pd, size_t size)
+double mean(double *pd, size_t size)
 {
 double total;
 
@@ -11909,7 +11909,7 @@ Aşağıdaki int türden bir diziyi bubble sort algoritmasıyla sıraya dizen bi
 ```
 #include <stdio.h>
 
-void bsort(int \*pi, size_t size);
+void bsort(int *pi, size_t size);
 
 int main(void)
 {
@@ -11925,7 +11925,7 @@ int a[10] = {2, 56, 11, 1, 58, 23, 32, 43, 67, 15};
 
 }
 
-void bsort(int \*pi, size_t size)
+void bsort(int *pi, size_t size)
 {
 int temp;
 int flag;
@@ -11953,7 +11953,7 @@ Aşağıda int bir diziyi ters çeviren bir fonksiyon örneği verilmiştir.
 ```
 #include <stdio.h>
 
-void reverse(int \*pi, size_t size);
+void reverse(int *pi, size_t size);
 
 int main(void)
 {
@@ -11973,7 +11973,7 @@ int a[10] = {2, 56, 11, 1, 58, 23, 32, 43, 67, 15};
 
 }
 
-void reverse(int \*pi, size_t size)
+void reverse(int *pi, size_t size)
 {
 for (size_t i = 0; i < size / 2; ++i) {
 int temp = pi[i];
@@ -11988,7 +11988,7 @@ Yukarıdaki örneği yazarken iki int değeri yer değiştiren swap fonksiyonund
 ```
 #include <stdio.h>
 
-void reverse(int \*pi, size_t size);
+void reverse(int *pi, size_t size);
 
 int main(void)
 {
@@ -12015,7 +12015,7 @@ int temp = *pi1;
 *pi2 = temp;
 }
 
-void reverse(int \*pi, size_t size)
+void reverse(int *pi, size_t size)
 {
 for (size_t i = 0; i < size / 2; ++i)
 swap(&pi[i], &pi[size - 1 - i]);
@@ -12114,7 +12114,7 @@ Aşağıdaki örneği int yerine size_t kullanarak deneyiniz ve problemi belirle
 ```
 #include <stdio.h>
 
-void putsrev(char \*str);
+void putsrev(char *str);
 
 int main(void)
 {
@@ -12126,7 +12126,7 @@ char s[] = "ankara";
 
 }
 
-void putsrev(char \*str)
+void putsrev(char *str)
 {
 int i;
 
@@ -12145,7 +12145,7 @@ Yukarıdaki örnekte i değişkeni int değil de size_t türünden yapılırsa o
 ```
 #include <stdio.h>
 
-void putsrev(char \*str);
+void putsrev(char *str);
 
 int main(void)
 {
@@ -12180,7 +12180,7 @@ dönüştürmenin işaretsiz türe doğru yapılacağını belirtmiştik. O hald
 ```
 #include <stdio.h>
 
-void putsrev(char \*str);
+void putsrev(char *str);
 
 int main(void)
 {
@@ -12285,7 +12285,7 @@ int *getmax_addr(int *pi, size_t size);
 int main(void)
 {
 int a[10] = {34, 23, 12, 67, 25, 12, 89, 11, 26, 67};
-int \*pi;
+int *pi;
 
     pi = getmax_addr(a, 10);
     printf("%d\n", *pi);
@@ -12297,7 +12297,7 @@ int \*pi;
 int *getmax_addr(int *pi, size_t size)
 {
 int max = pi[0];
-int \*pmax = pi;
+int *pmax = pi;
 
     for (size_t i = 1; i < size; ++i)
     	if (pi[i] > max) {
@@ -12321,7 +12321,7 @@ int *getmax_addr(int *pi, size_t size);
 int main(void)
 {
 int a[10] = {34, 23, 12, 67, 25, 12, 89, 11, 26, 67};
-int \*pi;
+int *pi;
 
     pi = getmax_addr(a, 10);
     printf("%d\n", *pi);
@@ -12332,7 +12332,7 @@ int \*pi;
 
 int *getmax_addr(int *pi, size_t size)
 {
-int \*pmax = &pi[0];
+int *pmax = &pi[0];
 
     for (size_t i = 1; i < size; ++i)
     	if (pi[i] > *pmax)
@@ -12444,8 +12444,8 @@ adres NULL adres değilse 1 değeri NULL adres ise 0 değeri \_Bool türünden d
 
 int main(void)
 {
-\_Bool b;
-int \*pi;
+_Bool b;
+int *pi;
 
     pi = NULL;
 
