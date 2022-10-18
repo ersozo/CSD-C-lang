@@ -10301,8 +10301,8 @@ Dizilerin sıraya dizilmesine İngilizce "_sorting_" denilmektedir. Dizileri sı
 yapıldığında dizi sıraya dizilmiş olmaz. Ancak en büyük eleman (ya da en küçük eleman) sona gider. O halde bu işlemi diziyi daraltarak tekrar tekrar yapmak
 gerekir. Algoritmanın döngü yapısı şöyledir: Dizinin uzunluğu n olmak üzere iç içe iki döngü vardır. Dıştaki döngü n - 1 kez, içteki döngü n - 1 - i kez
 döndürülür.
-----------------------------------------------------------------------------------------------------------------------------------------------------\_/
 
+```
 #include <stdio.h>
 
 #define SIZE 10
@@ -10327,15 +10327,14 @@ int temp;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Kabarcık sıralamasının değişik gerçekleştirimleri yapılabilir. Örneğin eğer yan yana elemanlar karşılaştırılıp hiç yer değiştirme yapılmıyorsa
 dizi zaten sıraya dizilmiş demektir. Döngünün devam ettirilmesine gerek yoktur.
 
-    Aşağıdaki gerçekleştirimde eğer dizi zaten sıraya dizilmişse dış döngü devam ettirilmemektedir.
+Aşağıdaki gerçekleştirimde eğer dizi zaten sıraya dizilmişse dış döngü devam ettirilmemektedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 #define SIZE 10
@@ -10369,11 +10368,11 @@ int replace_flag;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Yukarıdaki biçim do-while döngüsüyle de ifade edilebilir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 #define SIZE 10
@@ -10407,23 +10406,24 @@ int n = SIZE - 1;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Diğer çok bilinen bir sıralama yöntemine "seçerek sıralama (selection sort)" denilmektedir. Bu yöntemde dizinin en küçük elemanı bulunur. İlk elemanla
 yer değiştirilir. Sonra dizi daraltılır. Aynısı daraltılmış dizi için yapılır. İşlemler böyle böyle devam ettirilir. Örneğin:
 
+```
     | 8 3 6 1 5
 
     1 | 3 6 8 5
     1 3 | 6 8 5
     1 3 5 | 8 6
     1 3 5 6 | 8
+```
 
-    Bu algoritmada iç içe iki döngü kullanılır. Dıştaki döngü diziyi daraltmakta kullanılır. İçteki döngü ise daraltılmış dizinin en küçük elemanını
-    bulup daraltılmış dizinin ilk elemanı ile yer değiştirir.
+Bu algoritmada iç içe iki döngü kullanılır. Dıştaki döngü diziyi daraltmakta kullanılır. İçteki döngü ise daraltılmış dizinin en küçük elemanını
+bulup daraltılmış dizinin ilk elemanı ile yer değiştirir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 #define SIZE 10
@@ -10452,125 +10452,154 @@ int min, min_index;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Bir dizinin olmayan bir elemanına erişmeye çalışmak "tanımsız davranışa" yol açar. Örneğin:
+Bir dizinin olmayan bir elemanına erişmeye çalışmak "_tanımsız davranışa_" yol açar. Örneğin:
 
+```
     int a[10];
 
     for (int i = 0; i <= 10; ++i)       /* tanımsız davranış! */
     	a[i] = 0;
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Daha önceden de belirttiğimiz gibi, bir yazı aslında karakterlerden oluşan bir dizi belirtmektedir. Karakterler ise aslında o karakterlerin karakter tablosundaki
 sıra numarasını belirtir. O halde aslında bir yazı, bir sayı dizisi gibi ele alınabilir. Peki mademki bir yazı bir sayı dizisi gibidir. O halde yazının karakterlerine
 karşı gelen sayıları hangi türden dizide tutmalıyız? Tabii bunun için en uygun tür char türüdür. Çünkü zaten C'de char bir kadarkterin sıra numarasını tutabilecek
 büyüklüğü temsil etmektedir. C'de karakterler 1 byte içerisinde tutulmaktadır. Karakterlerin sıra numaralarını tutmak için en uygun tür char türüdür.
 O halde bir yazı char türden bir dizide tutulmalıdır. Yazının her bir karakteri char türden dizinin bir elemanında tutulursa dizi yazıyı tutar hale gelir.
 
-    Genel olarak yazıyı tutan bir char dizi, yazınının uzunluğundan büyük olur. Yani bir char dizinin içerisindeki yazı, onun başından itibaren belli bir kısmındadır.
-    Bu char diziyi alan programcı yazının bu dizinin başından başladığını bilir ancak nerede bittiğini de anlaması gerekir. İşte C'de char bir dizi
-    içerisindekiş yazının bitiş yeri özel bir karakterle belirtilmektedir. Bu karaktere "null kartakter" denir. Programcılar ve C'nin bazı semantik kuralları
-    bir yazının sonunda null karakter olması gerektiği konusunda anlaşmış durumdadırlar. Null karakter karakter tablosunun ilk karakteridir ve sayısal değeri
-    0'dır. (Bunu '0' karakteri ile karıştırmayınız.) Null karakter '\0' ile temsil edilir. Aslında '\0' teknik olarak 0 sabiti ile aynı anlamdadır.
-    Ancak programcılar null karakter için '\0' gösterimini tercih ederler. Çünkü '\0' gösterimi bir karakter görüntüsünde olduğu için okunabilirliği daha fazladır.
+Genel olarak yazıyı tutan bir char dizi, yazınının uzunluğundan büyük olur. Yani bir char dizinin içerisindeki yazı, onun başından itibaren belli bir kısmındadır.
+Bu char diziyi alan programcı yazının bu dizinin başından başladığını bilir ancak nerede bittiğini de anlaması gerekir. İşte C'de char bir dizi
+içerisindekiş yazının bitiş yeri özel bir karakterle belirtilmektedir. Bu karaktere "null kartakter" denir. Programcılar ve C'nin bazı semantik kuralları
+bir yazının sonunda null karakter olması gerektiği konusunda anlaşmış durumdadırlar. Null karakter karakter tablosunun ilk karakteridir ve sayısal değeri
+0'dır. (Bunu '0' karakteri ile karıştırmayınız.) Null karakter '\0' ile temsil edilir. Aslında '\0' teknik olarak 0 sabiti ile aynı anlamdadır.
+Ancak programcılar null karakter için '\0' gösterimini tercih ederler. Çünkü '\0' gösterimi bir karakter görüntüsünde olduğu için okunabilirliği daha fazladır.
 
-    Programcı char türden bir dizinin içerisine bir yazı yerleştirecekse null karakteri yazının sonuna yerleştirmek onun sorumluluğundadır. Örneğin:
+Programcı char türden bir dizinin içerisine bir yazı yerleştirecekse null karakteri yazının sonuna yerleştirmek onun sorumluluğundadır. Örneğin:
 
+```
     char s[10];
 
     s[0] = 'a';
     s[1] = 'l';
     a[2] = 'i';
     a[3] = '\0';
+```
 
-    Null karakter, dizinin içerisinde bir yer kaplar. Bu durumda n eleman uzunluğundaki bir char diziye biz en fazla n - 1 karakterli bir yazı yerleştirebiliriz.
-    Örneğin elimizde 10 elemanlı bir char dizi varsa biz onun içerisine en fazla 9 karakterli bir yazı yerleştirebiliriz. Çünkü son elemanda null karakter olmak zorundadır.
-    Null karakterin dizinin sonunda değil, dizinin içerisindeki yazının sonunda olması gerektiğine dikkat ediniz.
+Null karakter, dizinin içerisinde bir yer kaplar. Bu durumda n eleman uzunluğundaki bir char diziye biz en fazla n - 1 karakterli bir yazı yerleştirebiliriz.
+Örneğin elimizde 10 elemanlı bir char dizi varsa biz onun içerisine en fazla 9 karakterli bir yazı yerleştirebiliriz. Çünkü son elemanda null karakter olmak zorundadır.
+Null karakterin dizinin sonunda değil, dizinin içerisindeki yazının sonunda olması gerektiğine dikkat ediniz.
 
-    Biz bir char diziye ilkdeğer verme sentaksıyla da bir yazı yerleştirebiliriz. Örneğin:
+Biz bir char diziye ilkdeğer verme sentaksıyla da bir yazı yerleştirebiliriz. Örneğin:
 
+```
     char s[100] = {'a', 'n', 'k', 'a', 'r', 'a', '\0'};
+```
 
-    Tabii burada aslında null karakteri hiç belirtmeseydik de dizinin geri kalan elemanları sıfırlanacağından dolayı, null karakter de 0 olduğu için
-    sanki null karakter yazının sonuna eklenmiş gibi olacaktı. Örneğin:
+Tabii burada aslında null karakteri hiç belirtmeseydik de dizinin geri kalan elemanları sıfırlanacağından dolayı, null karakter de 0 olduğu için
+sanki null karakter yazının sonuna eklenmiş gibi olacaktı. Örneğin:
 
+```
     char s[100] = {'a', 'n', 'k', 'a', 'r', 'a'};		/* geçerli zaten 0 ile null karakter aynı */
+```
 
-    Tabii null karakterin açıkça belirtilmesi daha anlaşılabilir bir görüntü sunmaktadır. Örneğin:
+Tabii null karakterin açıkça belirtilmesi daha anlaşılabilir bir görüntü sunmaktadır. Örneğin:
 
+```
     char s[] = {'a', 'l', 'i'};		/* geçerli ancak null karakter yazının sonuna eklenmemiş */
+```
 
-    Burada dizi uzunluğu belirtilmediği için verilen ilkdeğerler kadar dizi açılır. Ancak null karakter yazının sonuna eklenmemiştir. Programcının
-    yazının sonuna null karakter eklenmesini sağlaması gerekir:
+Burada dizi uzunluğu belirtilmediği için verilen ilkdeğerler kadar dizi açılır. Ancak null karakter yazının sonuna eklenmemiştir. Programcının
+yazının sonuna null karakter eklenmesini sağlaması gerekir:
 
+```
     char s[] = {'a', 'l', 'i', '\0'};
+```
 
-    C'de char, unsigned char ya da signed char türünden bir diziye iki tırnak ile bir yazı pratik bir biçimde de yerleştirilebilmektedr. Örneğin:
+C'de char, unsigned char ya da signed char türünden bir diziye iki tırnak ile bir yazı pratik bir biçimde de yerleştirilebilmektedr. Örneğin:
 
+```
     char s[100] = "ankara";
+```
 
-    C'de char, unsigned char ve signed char türünden bir diziye iki tırnak ile ilkdeğer verilmişse bu durumda derleyici bu iki tırnak içerisindeki
-    karakterleri tek tek diziye yerleştirir. Yazının sonuna null karakteri kendisi ekler. Örneğin:
+C'de char, unsigned char ve signed char türünden bir diziye iki tırnak ile ilkdeğer verilmişse bu durumda derleyici bu iki tırnak içerisindeki
+karakterleri tek tek diziye yerleştirir. Yazının sonuna null karakteri kendisi ekler. Örneğin:
 
+```
     char s[] = "ankara";
+```
 
-    Burada derleyici null karakteri kendisi ekleyeceği için dizinin 7 eleman uzunluğunda açıldığını kabul eder. İki tırnak ile yalnızca char, signed char ve
-    unsigned char türünden dizilere ilkdeğer verilebilmektedir. Örneğin:
+Burada derleyici null karakteri kendisi ekleyeceği için dizinin 7 eleman uzunluğunda açıldığını kabul eder. İki tırnak ile yalnızca char, signed char ve
+unsigned char türünden dizilere ilkdeğer verilebilmektedir. Örneğin:
 
+```
     int s[] = "ankara"; 	/* geçersiz! iki tırnak ile int bir diziye ilkdeğer verilemez! */
+```
 
-    Daha sonra bir diziye iki tırnak ile atama yapamayız. İki tıornak sentaksının ilkdeğer verme sırasında geçerli olduğuna dikkat ediniz. Örneğin:
+Daha sonra bir diziye iki tırnak ile atama yapamayız. İki tıornak sentaksının ilkdeğer verme sırasında geçerli olduğuna dikkat ediniz. Örneğin:
 
+```
     char s[100];
 
     s = "ankara";		/* geçersiz! */
+```
 
-    Bir diziye fazla sayıda elemanla ilkdeğer veremediğimizi belirtmiştik. Örneğin:
+Bir diziye fazla sayıda elemanla ilkdeğer veremediğimizi belirtmiştik. Örneğin:
 
+```
     char s[3] = "ankara";		/* geçersiz! */
+```
 
-    Özel bir durum olarak, eğer iki tırnak içerisindeki karakter sayısı dizi unluğu kadar ise bu durum C'de geçerli kabul edilmektedir. Ancak derleyici bu durumda
-    null karakteri yazının sonuna eklememektedir. Örneğin:
+Özel bir durum olarak, eğer iki tırnak içerisindeki karakter sayısı dizi unluğu kadar ise bu durum C'de geçerli kabul edilmektedir. Ancak derleyici bu durumda
+null karakteri yazının sonuna eklememektedir. Örneğin:
 
+```
     char s[3] = "ali";		/* geçerli ama dikkat null karakter yazının sonuna eklenmeyecek */
+```
 
-    Bu durum, hata kaynağı oluşturabileceği gerekçesiyle C++'ta geçersiz kabul edilmektedir.
+Bu durum, hata kaynağı oluşturabileceği gerekçesiyle C++'ta geçersiz kabul edilmektedir.
 
-    char, signed char ve unsigned char türünden dizilere iki tırnak ile ilkdeğer veridliğinde dizinin geri kalan elemanlarının hepsi yine sıfırlanmaktadır. Örneğin:
+char, signed char ve unsigned char türünden dizilere iki tırnak ile ilkdeğer veridliğinde dizinin geri kalan elemanlarının hepsi yine sıfırlanmaktadır. Örneğin:
 
+```
     char s[100] = "ali"; 	/* null karakter eklendikten sonra geri kalan elemanların hepsi sıfırlanır */
+```
 
-    İlkdeğer verilirken iki tırnağın içi boş olabilir. Örneğin:
+İlkdeğer verilirken iki tırnağın içi boş olabilir. Örneğin:
 
+```
     char s[100] = "";
+```
 
-    Burada diziye null karakter yerleştirilir. Sonra geri kalan tüm elemanlar sıfırlanır. Tabii null karakterin numarası 0 olduğuna göre aslıunda tüm dizi sıfırlanmaktadır.
-    Örneğin:
+Burada diziye null karakter yerleştirilir. Sonra geri kalan tüm elemanlar sıfırlanır. Tabii null karakterin numarası 0 olduğuna göre aslıunda tüm dizi sıfırlanmaktadır.
+Örneğin:
 
+```
     char s[] = "";
+```
 
-    Burada dizi 1 eleman olarak açılır ve o bir elemana da null karakter yerleştirilir.
+Burada dizi 1 eleman olarak açılır ve o bir elemana da null karakter yerleştirilir.
 
+char türündeki bir dizinin içerisinde sonu null karakterle biten bir yazı bulunuyor olsun. Bu yazıyı ekrana (stdout dosyasına) nasıl yazdırabiliriz?
 
-    char türündeki bir dizinin içerisinde sonu null karakterle biten bir yazı bulunuyor olsun. Bu yazıyı ekrana (stdout dosyasına) nasıl yazdırabiliriz?
-
+```
     char s[100] = "ankara";
 
     for (int i = 0; s[i] != '\0'; ++i)
     	putchar(s[i]);
+```
 
-    Tabii madem ki null karakterin sayısal değeri 0'dır. o zaman dönü şöyle de ifade edilebilirdi:
+Tabii madem ki null karakterin sayısal değeri 0'dır. o zaman dönü şöyle de ifade edilebilirdi:
 
+```
     for (int i = 0; s[i]; ++i)
     	putchar(s[i]);
+```
 
-    Ancak okunabilirlik bakımından önceki biçim tercih edilebilir.
+Ancak okunabilirlik bakımından önceki biçim tercih edilebilir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -10584,11 +10613,11 @@ char s[100] = "ankara";
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir char dizisinin başındaki yazının karakter uzunluğu aşağıdaki gibi bulunabilir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -10604,12 +10633,12 @@ int i;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 char türden bir dizinin içerisindeki yazıyı tersten yazdırmaya çalışalım. Bunun tek yolu önce yazının sonuna gitmek, sonra oradan başa doğru giderek
 karakterleri yazdırmak olabilir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -10627,11 +10656,11 @@ int i;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 char bir dizinin içerisindeki yazıyı ters çevirmek isteyelim. Biz daha önce int bir diziyi ters çevirmiştik. Aynı algoritmayı uygulayabiliriz.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -10656,27 +10685,25 @@ char temp;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+[34. Ders - 04/10/2022 - Salı]()
 
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 34. Ders - 04/10/2022 - Salı
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-C'nin, prototipi <stdio.h> içerisinde bulunan standart "puts" isimli fonksiyonu bir yazıyı ekrana (stdout dosyasına) yazdırmak için kullanılmaktadır.
+C'nin, prototipi <stdio.h> içerisinde bulunan standart "_puts_" isimli fonksiyonu bir yazıyı ekrana (stdout dosyasına) yazdırmak için kullanılmaktadır.
 Fonksiyonun genel kullanımı şöyledir:
 
+```
     puts(<dizi_ismi>);
+```
 
-    Aslında ileride görüleceği gibi puts fonksiyonu char türden bir adres almaktadır. Ancak biz şimdilik bu fonksiyonun parametre olarak, yazının içinde bulunduğu
-    char türden dizinin ismini alacağını belirtelim. C'de programcı dışında, başkaları tarafından yazılmış olan (standart fonksiyonlar da dahil) hiçbir fonksiyon
-    bir dizinin uzunluğunu bilemez. Dizinin uzunluğunu yalnızca onu açan programcı biliyor durumdadır.
+Aslında ileride görüleceği gibi puts fonksiyonu char türden bir adres almaktadır. Ancak biz şimdilik bu fonksiyonun parametre olarak, yazının içinde bulunduğu
+char türden dizinin ismini alacağını belirtelim. C'de programcı dışında, başkaları tarafından yazılmış olan (standart fonksiyonlar da dahil) hiçbir fonksiyon
+bir dizinin uzunluğunu bilemez. Dizinin uzunluğunu yalnızca onu açan programcı biliyor durumdadır.
 
-    puts fonksiyonu dizinin başından başlayarak null karakter görene kadar tüm karakterleri yan yana yazdırır. En sonunda imleci aşağı satırın başına geçirerek
-    orada bırakır.
+puts fonksiyonu dizinin başından başlayarak null karakter görene kadar tüm karakterleri yan yana yazdırır. En sonunda imleci aşağı satırın başına geçirerek
+orada bırakır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -10688,12 +10715,12 @@ char s[100] = "ankara";
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 puts fonksiyonu dizinin başından null karakter görene kadar karakterleri yazdırmaktadır. Eğer null karakter bir biçimde ezilmişse puts durmaz,
 dizinin elemanlarını ilk null karakter görene kadar, karakter olarak yazdırır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -10713,19 +10740,20 @@ char s[100];
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Yazılar tipik olarak char türden dizilerin içerisine yerleştirilirler (char türü 1 byte gibi görece küçük boyutta olduğu için tercih edilmekte).
 Ama bunun tersi doğru değildir. Yani char türden dizilere yazı yerleştirmek zorunda değiliz. Pekala biz char türden bir diziyi az yer kaplayan
 bir tamsayı dizisi olarak kullanabiliriz. Bu durumda dizinin sonuna null karakter yerleştirmenin bir anlamı yoktur. Örneğin:
 
+```
     char s[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+```
 
-    Burada s dizisi 1 byte yer kaplayan bir tamsayı dizisi gibi kullanılmak üzere oluşturulmuştur. Bu kullanımda null karakter ile bir işimiz yok.
-    Biz char türden dizilere bir yazı yerleştireceksek, yazının sonuna null karakteri yerleştirmeliyiz.
+Burada s dizisi 1 byte yer kaplayan bir tamsayı dizisi gibi kullanılmak üzere oluşturulmuştur. Bu kullanımda null karakter ile bir işimiz yok.
+Biz char türden dizilere bir yazı yerleştireceksek, yazının sonuna null karakteri yerleştirmeliyiz.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -10739,13 +10767,13 @@ char s[] = {1, 2, 3, 4, 5};
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Null karakter ile '0' karakterinin ilgisi olmadığına dikkat ediniz. Null karakter gerçekten 0 değerine ilişkin karakterdir. Yani null karakterin sayısal değeri
 0'dır. Ancak '0' karakterinin sayısal değeri ASCII tablosundan 48'dir. Daha önceden de belirttiğimiz gibi '\0' gösterimi ile 0 gösterimi arasında teknik
 bir farklılık yoktur. Ancak karakter vurgusu yapmak için null karakteri '\0' biçiminde göstermek iyi bir tekniktir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -10766,14 +10794,14 @@ char c;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bellekte karakter diye bir bilginin olmadığına dikkat ediniz. Karakterler bellekte aslında birer sayı olarak bulunurlar. Biz C'de bir karakteri tek tırnak
 içerisine aldığımızda o karakterin ilgili karakter tablosundaki sıra numarısını belirtmiş oluruz. Yani örneğin ASCII tablosunun kullanıldığı bir C derleyicisinde
 'a' ile 97 arasında bir farklılık yoktur. Bellekte her şeyin aslında ikilik sistemde sayılar biçiminde bulunduğuna, onun nasıl yorumlanacağına programcının karar verdiğine
 dikkat ediniz.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -10785,38 +10813,37 @@ char s[10] = {97, 98, 99, 0};
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C standartlarında bir özelliğin "deprecated" olması "ileride kaldırabileceği, ancak şimdilik muhafaza edildiği" anlamına gelmektedir. Mademki deprecated
+C standartlarında bir özelliğin "_deprecated_" olması "_ileride kaldırabileceği, ancak şimdilik muhafaza edildiği_" anlamına gelmektedir. Mademki deprecated
 özellikler ileride kaldırılabilecek özelliklerdir, o halde programcıların deprecated özellikleri kullanmaması gerekir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 gets isimli standart C fonksiyonu C'nin ilk günlerinden beri vardı. Ancak bir tasarım bozukluğundan dolayı C99'da deprecated yapıldı ve C11'de
 standart fonksiyon listesinden çıkartıldı. Bugünkü derleyiclerde gets halen desteklenmektedir. Ancak bu fonksiyon kullanılırken derleme ya da link aşamasında
 uyarı oluşabilmektedir. Her ne kadar gets fonksiyonu C11 ile C'den çıkartılmışsa da kursumuzda eğitim amaçlı nedenlerle bu fonksiyonu kullanacağız.
 C11, gets yerine gets_s isimli yeni bir fonksiyonu kütüphaneye eklemiştir. Ancak maalesef bu fonksiyon da standartlarda "optional" yapılmıştır. Optional
 özellik demek ilgili derleyicinin barındırp barındırmayacağı derleyiciyi yazanlara bağlı demektir. Gerçekten de gets_s fonksiyonu gcc derleyicilerinde henüz
 bulunmamaktadır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 gets fonksiyonu, klavyeden (stdin dosyasından) bir yazı okumak için kullanılmaktadır. tipik kullanımı şöyledir:
 
+```
     gets(dizi_ismi);
+```
 
-    gets aslında char türden bir adres almaktadır. Ancak ileride bu konu ele alınacaktır. gets fonksiyonu ENTER tuşuna basılana kadar girilen karakterleri
-    (yani onların sayısal karşılıklarını) diziye tek tek yerleştirir. Yazının sonuna null karakteri ekler ve işlemini sonlandırır. Örneğin:
+gets aslında char türden bir adres almaktadır. Ancak ileride bu konu ele alınacaktır. gets fonksiyonu ENTER tuşuna basılana kadar girilen karakterleri
+(yani onların sayısal karşılıklarını) diziye tek tek yerleştirir. Yazının sonuna null karakteri ekler ve işlemini sonlandırır. Örneğin:
 
+```
     char s[100];
 
     gets(s);
+```
 
-    gets fonksiyonunun kusuru, kullanıcı uzun yazı girerse diziyi taşırabilmesidir. Biz gets ile n eleman uzunluğundaki bir char diziye en fazla n - 1 karakterli bir
-    yazı girmeliyiz. Çünkü gets, null karakteri de yazının sonuna eklemektedir. Null karakter de dizinin içerisinde kalmak zorundadır.
+gets fonksiyonunun kusuru, kullanıcı uzun yazı girerse diziyi taşırabilmesidir. Biz gets ile n eleman uzunluğundaki bir char diziye en fazla n - 1 karakterli bir
+yazı girmeliyiz. Çünkü gets, null karakteri de yazının sonuna eklemektedir. Null karakter de dizinin içerisinde kalmak zorundadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -10831,13 +10858,13 @@ char s[1024];
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de bir dizinin taşırılması "tanımsız davranış (undefined behavior)" oluşturmaktadır. Eğer biz gets fonksiyonu için küçük bir dizi açarsak ve klavyeden
+C'de bir dizinin taşırılması "_tanımsız davranış (undefined behavior)_" oluşturmaktadır. Eğer biz gets fonksiyonu için küçük bir dizi açarsak ve klavyeden
 çok karakter girersek dizi taşar ve programımız çökebilir. n elemanlı bir char diziye gets ile en fazla n - 1 karakterli bir yazı girebiliriz.
 Aşağıdaki örnekte uzun bir yazı girerek sonucu gözleyiniz.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -10852,22 +10879,25 @@ char s[5]; /_ dikkat dizi çok küçük, taşabilir! _/
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir char dizi içerisindeki karakterleri null karakter görene kadar yazdırmak için puts fonksiyonun yanı sıra printf fonksiyonu da kullanılabilir.
 printf fonksiyonunda %s format karakterine char türden bir dizi ismi (aslında bir adres) karşı getirilirse printf dizinin içerisindeki karakterleri
 null karakter görene kadar yan yana ekrana (stdout dosyasına) yazar. Tabii printf imleci aşağı satıra otomatik geçirmemektedir. O halde:
 
+```
     puts(char_dizi_ismi);
+```
 
-    işleminin eşdeğeri:
+işleminin eşdeğeri:
 
+```
     printf("%s\n", char_dizi_ismi);
+```
 
-    biçimindedir.
+biçimindedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -10882,11 +10912,12 @@ char s[1024];
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir dizi içerisindeki yazıyı başka bir diziye nasıl kopyalayabiliriz? İlk akla gelen yöntem null karakter görene kadar kopyalama yapmaktır. Tabii
 null karakterin de hedef diziye kopyalanması gerekir.
 
+```
     char s[100] = "this is a test";
     char d[100];
     int i;
@@ -10894,14 +10925,14 @@ null karakterin de hedef diziye kopyalanması gerekir.
     for (i = 0; s[i] != '\0'; ++i)
     	d[i] = s[i];
     d[i] = '\0';
+```
 
-    Aslında bu işlem daha kısa şöyle yapılabilir:
+Aslında bu işlem daha kısa şöyle yapılabilir:
 
     for (int i = 0; (d[i] = s[i]) != '\0'; ++i)
     	;
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -10921,205 +10952,236 @@ char d[100];
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Adres bilgilerinin yerleştirildiği nesnelere "gösterici (pointer)" denilmektedir. Bir adres bilgisi int bir nesneye, double bir nesneye yerleştirilemez.
+Adres bilgilerinin yerleştirildiği nesnelere "_gösterici (pointer)_" denilmektedir. Bir adres bilgisi int bir nesneye, double bir nesneye yerleştirilemez.
 Adresler iki bileşenli özel türlerdir. Elimizde bir adres bilgisi varsa biz onu ancak bir göstericiye atayabiliriz. Yani, adres tutan nesnelere
 gösterici denilmektedir. C'de bir gösterici bildiriminin genel biçimi şöyledir:
 
+```
     <tür> *<gösterici_ismi>;
+```
 
-    Örneğin:
+Örneğin:
 
+```
     int *pi;
     long *pl;
+```
 
-    Burada '*' atomunun çarpmayla bir ilgisi yoktur. Buradaki '*' göstericiyi belirtmektedir. Atomlar arasında istenildiği kadar boşluk karakteri bırakılabileceğine
-    göre bu bildirimler örneğin aşağıdaki gibi de yazılabilir:
+Burada '\*' atomunun çarpmayla bir ilgisi yoktur. Buradaki '\*' göstericiyi belirtmektedir. Atomlar arasında istenildiği kadar boşluk karakteri bırakılabileceğine
+göre bu bildirimler örneğin aşağıdaki gibi de yazılabilir:
 
+```
     int
     	*
     pi;
 
     long* pl;
+```
 
-    Ritchie/Kernighan yazım biçiminde * atomu gösterici ismine bitiştirilmektedir. Biz de bu yazım biçimini kullanacağız.
+Ritchie/Kernighan yazım biçiminde \* atomu gösterici ismine bitiştirilmektedir. Biz de bu yazım biçimini kullanacağız.
 
-    Bir göstericiye, herhangi bir adres bilgisi atanamaz. Ancak tür bileşeni uygun olan bir adres bilgisi atanabilir. Örneğin:
+Bir göstericiye, herhangi bir adres bilgisi atanamaz. Ancak tür bileşeni uygun olan bir adres bilgisi atanabilir. Örneğin:
 
+```
     int *pi;
+```
 
-    Burada pi göstericisine biz ancak tür bileşeni int olan bir adres bilgisi atayabiliriz. Örneğin:
+Burada pi göstericisine biz ancak tür bileşeni int olan bir adres bilgisi atayabiliriz. Örneğin:
 
+```
     pi = (int *)0x1FC14;		/* geçerli. pi int türdne gösterici, ona int türden bir adres bilgisi atanmış */
+```
 
-    Örneğin:
+Örneğin:
 
+```
     int *pi;
 
     pi = (double *) 0x1B12C0;		/* geçersiz! pi'ye int türden bir adres bilgisinin atanması gerekirdi. Halbuki double türden bir adres bilgisi atanmıştır */
+```
 
-    Bir adres bilgisi gösterici olmayan bir nesneye de atanamaz. Örneğin:
+Bir adres bilgisi gösterici olmayan bir nesneye de atanamaz. Örneğin:
 
+```
     int a;
 
     a = (int *) 0x1FC90;	/* geçersiz! adres bilgileri temel türlere atanamaz, göstericilere atanabilir */
+```
 
-    Bir göstericiye bir tamsayı da atayamayız. Ancak aynı türden bir adres bilgisi atayabiliriz. Örneğin:
+Bir göstericiye bir tamsayı da atayamayız. Ancak aynı türden bir adres bilgisi atayabiliriz. Örneğin:
 
+```
     int *pi;
 
     pi = 0x1FC10;	/* geçersiz! int türden göstericiye adi bir int atanamaz, int türden adres bilgisinin atanması gerekir */
+```
 
-    Yani özetle bir göstericiye aynı türden bir adres bilgisi atanabilir. Bir adres bilgisi de yalnızca aynı türden bir göstericiye atanabilir.
+Yani özetle bir göstericiye aynı türden bir adres bilgisi atanabilir. Bir adres bilgisi de yalnızca aynı türden bir göstericiye atanabilir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir adres bilgisi aynı türden bir göstericiye atandığında göstericiye adresin yalnızca sayısal bileşeni yerleştirilir. Çünkü tür bileşeni
 zaten bildirimde derleyici tarafından bilinmektedir. Örneğin:
 
+```
     int *pi;
 
     pi = (int *) 0x1FC14;
+```
 
-    Burada pi'nin içerisinde 1FC14 değeri bulunur.
+Burada pi'nin içerisinde 1FC14 değeri bulunur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Tek operandlı önek & operatörüne C'de "address of" operatör denilmektedir. Bu operatörün operandı bir nesne olmak zorundadır. Bu operatör, ilgili nesnenin
+Tek operandlı önek & operatörüne C'de "_address of_" operatör denilmektedir. Bu operatörün operandı bir nesne olmak zorundadır. Bu operatör, ilgili nesnenin
 bellek adresini elde eder. & operatörü ile elde edilen adresin tür bileşeni, operandı olan nesnenin türüyle aynı olan türdendir. Sayısal bileşeni ise
 nesnenin bellekteki doğrual adresidir. Tabii nesne bellekte bir byte'tan daha uzun yer kaplıyorsa, onun en düşük anlamlı adresi doğrusal adresi olur.
 
-    Bir nesnenin adresini aldığımızda biz onu aynı türden bir göstericiye yerleştirebiliriz. Örneğin:
+Bir nesnenin adresini aldığımızda biz onu aynı türden bir göstericiye yerleştirebiliriz. Örneğin:
 
+```
     int a;
     int *pi;
 
     pi = &a;	/* geçerli */
+```
 
-    Burada &a ile elde edilen adres bilgisinin tür bileşeni int biçimdedir. O zaman bizim bu adresi int türden bir göstericiye atamamız gerekir. Tabii bu
-    atamadan sonra pi göstericisi aslında adresin sayısal bileşenini tutar durumda olur. Örneğin:
+Burada &a ile elde edilen adres bilgisinin tür bileşeni int biçimdedir. O zaman bizim bu adresi int türden bir göstericiye atamamız gerekir. Tabii bu
+atamadan sonra pi göstericisi aslında adresin sayısal bileşenini tutar durumda olur. Örneğin:
 
+```
     char a;
     int *pi;
 
     pi = &a;		/* geçersiz! char türden bir adres bilgisi int türden göstericiye atanmış */
+```
 
-    Örneğin:
+Örneğin:
 
+```
     int a;
     int b;
 
     a = &b;			/* geçersiz! bir adres bilgisi int bir nesneye atanamaz! */
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Bir göstericinin içerisinde bir adresin bulunması o göstericinin o adresi gösterdiği anlamına gelmektedir. Yani biz "falanca gösterici şu adresi gösteriyor"
+Bir göstericinin içerisinde bir adresin bulunması o göstericinin o adresi gösterdiği anlamına gelmektedir. Yani biz "_falanca gösterici şu adresi gösteriyor_"
 dediğimizde anlaşılması gereken şey, o göstericinin içerisinde o adresin bulunduğudur.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de adres bilgileri sembolik olarak "tür _" biçiminde gösterilir. Örneğin:
+C'de adres bilgileri sembolik olarak "tür \*" biçiminde gösterilir. Örneğin:
 
+```
     int a;
+```
 
-    &a ifadesinin türü "int *" biçiminde ifade edilir. "int *" demek int türden bir adres bilgisi demektir. Örneğin:
+&a ifadesinin türü "int \*" biçiminde ifade edilir. "int \*" demek int türden bir adres bilgisi demektir. Örneğin:
 
+```
     int a;
     int *pi;
+```
 
-    Burada a'nın türü int, pi'nin türü int * biçimindedir. Buradaki '*' adres anlamına gelmektedir.
+Burada a'nın türü int, pi'nin türü int _ biçimindedir. Buradaki '_' adres anlamına gelmektedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 35. Ders - 06/10/2022 - Perşembe
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+[35. Ders - 06/10/2022 - Perşembe]()
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de diziler onların bütün elemanlarından oluşan bileşik bir nesne gibi ele alınmaktadır. Örneğin:
 
+```
     char s[10];
+```
 
-    Burada s dizisi 10 elemanlı ve char türdendir. C'de bir dizinin ismi bir ifade içeerisinde kullanıldığında otomatik olarak derleyici tarafından
-    o dizinin başlangıç adresine dönüştürülür. Yani dizi isimleri C'de dizilerin başlangıç adreslerini belirtmektedir. Dizi isimleri ile belirtilen
-    adreslerin tür bileşeni dizi türü ile aynı olan türdendir. Sayısal bileşeni ise dizinin bellekteki başlangıç adresidir. Diziler elemanları ardışıl bulunduğuna
-    göre ve dizinin elemanları ilk eleman düşük adreste olacak biçimde yerleştirildiğine göre aslında bir dizinin ismi yani dizinin adresi aynı zamanda
-    dizinin ilk elemanının adresidir. Örneğin:
+Burada s dizisi 10 elemanlı ve char türdendir. C'de bir dizinin ismi bir ifade içeerisinde kullanıldığında otomatik olarak derleyici tarafından
+o dizinin başlangıç adresine dönüştürülür. Yani dizi isimleri C'de dizilerin başlangıç adreslerini belirtmektedir. Dizi isimleri ile belirtilen
+adreslerin tür bileşeni dizi türü ile aynı olan türdendir. Sayısal bileşeni ise dizinin bellekteki başlangıç adresidir. Diziler elemanları ardışıl bulunduğuna
+göre ve dizinin elemanları ilk eleman düşük adreste olacak biçimde yerleştirildiğine göre aslında bir dizinin ismi yani dizinin adresi aynı zamanda
+dizinin ilk elemanının adresidir. Örneğin:
 
+```
     int a[10];
+```
 
-    Burada a ifadesi ile &a[0] ifadesi tamamen aynı anlamdadır. a adresi int türden bir adres belirtir. O halde C'de dizi isimleri aynı türden göstericilere atanabilir.
-    Örneğin:
+Burada a ifadesi ile &a[0] ifadesi tamamen aynı anlamdadır. a adresi int türden bir adres belirtir. O halde C'de dizi isimleri aynı türden göstericilere atanabilir.
+Örneğin:
 
+```
     int a[10];
     int *pi;
 
     pi = a;		/* geçerli */
+```
 
-    Örneğin:
+Örneğin:
 
+```
     char s[10];
     int *pi;
 
     pi = s;		/* geçersiz! */
+```
 
-    Burada göstericiye farklı türden bir adres bilgisi atanmıştır. Normal nesnelerin adreslerini & operatörüyle almaktayız. Ancak dizi isimleri zaten
-    adres belirtmektedir. Dolayısıyla dizi isimlerine & operatörünü uygulamamalıyız. (Aslında bu başka bir anlama gelmektedir.)
+Burada göstericiye farklı türden bir adres bilgisi atanmıştır. Normal nesnelerin adreslerini & operatörüyle almaktayız. Ancak dizi isimleri zaten
+adres belirtmektedir. Dolayısıyla dizi isimlerine & operatörünü uygulamamalıyız. (Aslında bu başka bir anlama gelmektedir.)
 
-    C'de dizi isimleri nesne belirtmemektedir. Biz bir dizi ismini kullandığımızda adeta derleyici o dizi ismini bir adres sabitine dönüştürmektedir.
-    Örneğin:
+C'de dizi isimleri nesne belirtmemektedir. Biz bir dizi ismini kullandığımızda adeta derleyici o dizi ismini bir adres sabitine dönüştürmektedir.
+Örneğin:
 
+```
     int a[3];
+```
 
-    Burada a[0], a[1], a[2] birer nesne belirtir. Ancak a bir nesne belirtmez. Yani a için bir yer ayrılmamaktadır. a ifadesi tüm diziyi temsil etmektedir.
+Burada a[0], a[1], a[2] birer nesne belirtir. Ancak a bir nesne belirtmez. Yani a için bir yer ayrılmamaktadır. a ifadesi tüm diziyi temsil etmektedir.
 
+```
     a = 10;		/* geçersiz! a bir nesne belirtmiyor */
+```
 
-    Örneğin:
+Örneğin:
 
+```
     char s[3];
     char *pc;
+```
 
-    Burada s dizisinin bellekte 1B12C0 adresinden itibaren yerleştirildiğini varsayalım:
+Burada s dizisinin bellekte 1B12C0 adresinden itibaren yerleştirildiğini varsayalım:
 
+```
     pc = s;
+```
 
-    Aslında bu işlemde derleyici aşağıdaki gibi bir kod üretmektedir:
+Aslında bu işlemde derleyici aşağıdaki gibi bir kod üretmektedir:
 
+```
     pc = (char *) 0x1B12C0;
-
 
     char *pc;
     char *p2;
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de önemli bir adres operatörü de "_ (indirection)" operatördür. Bu operatörün çarpma işlemini yapan _ operatörü ile bir ilgisi yoktur. Tamamen
-farklı bir operatördür. _ operatörü tek operandlı önek bir adres operatörüdür. _ operatörünün operandı bir adres bilgisi olmak zorundadır. _ operatörü
+farklı bir operatördür. _ operatörü tek operandlı önek bir adres operatörüdür. _ operatörünün operandı bir adres bilgisi olmak zorundadır. \_ operatörü
 operandı olan adresteki nesneye erişimi sağlar. \* operatörü ile erişilen nesnenin türü, operand olarak kullanılan nesnenin türü ile aynı türdendir.
 Örneğin:
 
+```
     int a = 10;
     int *pi;
 
     pi = &a;
+```
 
-    Burada pi'nin içerisinde a nesnesinin adresi vardır. Şimdi biz *pi dediğimizde pi adresindeki int nesneye erişmiş oluruz. Yani *pi ile a tamamen
-    aynı nesneyi belirtmektedir. *pi ifadesi burada int türdendir. Çünkü pi adresi int türden bir adres bilgisidir. Böylece biz bir nesnenin adresini
-    alıp onu bir göstericiye yerleştirdikten sonra o göstericiyi * operatörü ile kullandığımızda adresini aldığımız nesneye erişmiş oluruz. Örneğin:
+Burada pi'nin içerisinde a nesnesinin adresi vardır. Şimdi biz *pi dediğimizde pi adresindeki int nesneye erişmiş oluruz. Yani *pi ile a tamamen
+aynı nesneyi belirtmektedir. _pi ifadesi burada int türdendir. Çünkü pi adresi int türden bir adres bilgisidir. Böylece biz bir nesnenin adresini
+alıp onu bir göstericiye yerleştirdikten sonra o göstericiyi _ operatörü ile kullandığımızda adresini aldığımız nesneye erişmiş oluruz. Örneğin:
 
+```
     int a;
     int *pi;
 
     pi = &a;
+```
 
-    Burada artık *pi ile a aynı nesnelerdir. Bu nesneye a ifadesi ile erişmekle *pi ifadesi ile erişmek arasında hiçbir farklılık yoktur.
+Burada artık *pi ile a aynı nesnelerdir. Bu nesneye a ifadesi ile erişmekle *pi ifadesi ile erişmek arasında hiçbir farklılık yoktur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -11136,20 +11198,21 @@ int \*pi;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir dizinin ismi o dizinin bellekteki adresini (yani ilk elemanının adresini) belirtiyordu. O halde biz dizinin ismini aynı türden bir gösteriye atayıp
-o göstericiyi _ operatörü ile kullanırsak dizinin ilk elemanına erişmiş oluruz. Örneğin:
+o göstericiyi \* operatörü ile kullanırsak dizinin ilk elemanına erişmiş oluruz. Örneğin:
 
+```
     int a[] = {10, 20, 30};
     int *pi;
 
     pi = a;
+```
 
-    Burada *pi aslında a[0] nesnesidir.
+Burada \*pi aslında a[0] nesnesidir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -11168,18 +11231,17 @@ int \*pi;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-_ adres operatörüne İngilizce "indirection" operatörü denilmektedir. Biz bu operatöre Türkçe "içerik operatörü" de diyeceğiz". İçerik operatörünün
+\* adres operatörüne İngilizce "_indirection_" operatörü denilmektedir. Biz bu operatöre Türkçe "_içerik operatörü_" de diyeceğiz". İçerik operatörünün
 operandının bir adres bilgisi olması gerekir. Örneğin:
 
+```
     int a = 0x1FC12D;
 
     *a = 10;		/* geçersiz! * operatörünün operandı adi bir int, bir adres bilgisi değil */
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de bir adres bilgisi ile tamsayı türlerine ilişkin bir bilgi toplanabilir. Bir adres bilgisinden tamsayı türlerine ilişkin bir bilgi çıkartılabilir.
 Yani p bir adres bilgisi, i de bir tamsayı belirtmek üzere p + i ya da i + p işlemi geçerlidir. p - i işlemi geçerlidir, ancak i - p işlemi geçerli değildir.
 Adres bilgileriyle tamsayı türlerine ilişkin bilgiler çarpılıp bölünemezler. Bir adres bilgisi bir tamsayı ile toplandığında ya da çıkartıldığında elde edilen ürün
@@ -11190,28 +11252,33 @@ bir adres belirtiyor olsun. pc + 1 işleminden elde edilen adresin sayısal bile
 Benzer biçimde pi bir gösterici ise ++pi işlemi sonucunda pi'nin içerisinde adresin sayısal bileşeni 4 artacaktır. Yani pi bir sonraki int nesneyi gösterir duruma
 gelecektir. Örneğin:
 
+```
     int a[] = {10, 20, 30};
     int *pi;
 
     pi = a;
+```
 
-    Burada pi dizinin ilk elemanını göstermektedir. Biz *pi'yi yazdırırsak 10 görürüz. pi'yi 1 artıralım:
+Burada pi dizinin ilk elemanını göstermektedir. Biz \*pi'yi yazdırırsak 10 görürüz. pi'yi 1 artıralım:
 
+```
     ++pi;
+```
 
-    Şimdi pi'nin içerisindeki adresin sayısal bileşeni 4 artmış olacaktır. Şimdi *pi'yi yazdırırsak 20'yi göreceğiz. Çünkü dizi elemanları ardışıl olmak zorundadır.
-    Yani bizim pi'yi 1 artırdığımızda dizinin sonraki elemanına erişebilmemiz için dizi elemanları arasında hiç boşluk olmayacağını garanti etmiş olmamız gerekir. Örneğin:
+Şimdi pi'nin içerisindeki adresin sayısal bileşeni 4 artmış olacaktır. Şimdi \*pi'yi yazdırırsak 20'yi göreceğiz. Çünkü dizi elemanları ardışıl olmak zorundadır.
+Yani bizim pi'yi 1 artırdığımızda dizinin sonraki elemanına erişebilmemiz için dizi elemanları arasında hiç boşluk olmayacağını garanti etmiş olmamız gerekir. Örneğin:
 
+```
     int a = 10, b = 20, c = 30;
     int *pi;
 
     pi = &a;
+```
 
-    Burada a, b ve c nesnelerinin bellekte peşi sıra dizilmelerinin hiçbir garantisi yoktur. Dolayısıyla burada biz pi'yi artırarak b ve c'ye erişemeyiz.
-    Ancak dizilerde bu ardışıllık garanti edilmiştir.
+Burada a, b ve c nesnelerinin bellekte peşi sıra dizilmelerinin hiçbir garantisi yoktur. Dolayısıyla burada biz pi'yi artırarak b ve c'ye erişemeyiz.
+Ancak dizilerde bu ardışıllık garanti edilmiştir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -11230,12 +11297,12 @@ int \*pi;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir yazıyı char türden bir dizinin içerisine yerleştirip dizinin başlangıç adresini de char türden bir göstericiya atayabiliriz. Bu durumda göstericiyi
 artıra artıra yazının karakterlerine erişebiliriz.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -11260,11 +11327,11 @@ char \*pc;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Tabii yukarıdaki örneği bir döngü içerisinde de yapabilirdik.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -11281,26 +11348,27 @@ char \*pc;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de adres ile ilgili işlem yapan 4 operatör vardır: &, _, [] ve -> operatörleri. Biz burada bu operatörleri biraz daha ayrıntılı olarak inceleyeceğiz.
-Ancak -> operatörü "yapılar (structures)" konusu ile ilgili olduğu için onu yapılar konusunda göreceğiz.
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+C'de adres ile ilgili işlem yapan 4 operatör vardır: &, \*, [] ve -> operatörleri. Biz burada bu operatörleri biraz daha ayrıntılı olarak inceleyeceğiz.
+Ancak -> operatörü "_yapılar (structures)_" konusu ile ilgili olduğu için onu yapılar konusunda göreceğiz.
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 & operatörü, tek operandlı önek (unary prefix) bir adres operatörüdür. Bu operatör operandı olan nesnenin bellek adresini verir. Daha önceden de belirtildiği gibi
 & operatörü ile elde edilen adresin tür bileşeni, operand olan nesnenin türü ile aynı olan türden, sayısal bileşeni ise operand olan nesnenin bellekteki doğrusal adresinden
 oluşmaktadır. Biz bir nesnenin adresini aldığımızda onu aynı türden bir göstericiye yerleştirebiliriz. Örneğin:
 
+```
     int a;
     int *pi;
     char *pc;
 
     pi = &a;
     pc = &a;		/* geçersiz! */
+```
 
-    & operatörü öncelik tablosunda tablonun ikinci düzeyinde sağdan sola grupta bulunmaktadır:
+& operatörü öncelik tablosunda tablonun ikinci düzeyinde sağdan sola grupta bulunmaktadır:
 
+```
 
     ()					Soldan-Sağa
     + - ++ -- !	&		Sağdan-Sola
@@ -11313,20 +11381,19 @@ oluşmaktadır. Biz bir nesnenin adresini aldığımızda onu aynı türden bir 
     ?:					Sağdan-Sola
     =, +=, /=, *=,...	Sağdan-Sola
     ,					Soldan-Sağa
+```
 
-    Örneğin a bir nesne belirtmek üzere &a + 1 gibi bir ifadede önce a'nın adresi alınır, sonra bu adrese 1 toplanır. & operatörünün operandının bir nesne
-    belirtmesi gerekir. Çünkü yalnızca nesnelerin adresleri vardır. Örneğin &10 ifadesi geçersizdir. Çünkü operand olan 10, bir nesne belirtmez. Örneğin &(a + 1),
-    burada a + 1 ifadesi bir nesne belirtmez yani sol taraf değeri (lvalue) değildir. Bu nedenle biz a'nın adresini alabiliriz ancak a + 1'in adresini alamayız.
-    Dizi isimleri zaten adres belirtmektedir. Dizi isimlerine yeniden & operatörü uygulanmaz. (Ancak C'de aslında dizi isimlerinin adresleri alınabilir. Ancak bu durum
-    tamamen farklı bir anlam ifade etmektedir. İleride ele alınacaktır.)
+Örneğin a bir nesne belirtmek üzere &a + 1 gibi bir ifadede önce a'nın adresi alınır, sonra bu adrese 1 toplanır. & operatörünün operandının bir nesne
+belirtmesi gerekir. Çünkü yalnızca nesnelerin adresleri vardır. Örneğin &10 ifadesi geçersizdir. Çünkü operand olan 10, bir nesne belirtmez. Örneğin &(a + 1),
+burada a + 1 ifadesi bir nesne belirtmez yani sol taraf değeri (lvalue) değildir. Bu nedenle biz a'nın adresini alabiliriz ancak a + 1'in adresini alamayız.
+Dizi isimleri zaten adres belirtmektedir. Dizi isimlerine yeniden & operatörü uygulanmaz. (Ancak C'de aslında dizi isimlerinin adresleri alınabilir. Ancak bu durum
+tamamen farklı bir anlam ifade etmektedir. İleride ele alınacaktır.)
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-_ (indirection) operatörü, tek operandlı önek bir adres operatörüdür. Bu operatörün operandı bir adres bilgisi olmak zorundadır. Operatör, operandı olan
+\* (indirection) operatörü, tek operandlı önek bir adres operatörüdür. Bu operatörün operandı bir adres bilgisi olmak zorundadır. Operatör, operandı olan
 adresteki nesneye erişmekte kullanılır. * operatörü ile erişilen nesnenin türü, operandı olan adresin türüyle aynı türdendir. Yani örneğin *p işleminde
 elde edilen nesne, p adresi hangi türdense o türden olacaktır. \* operatörü de öncelik tablosunun ikinci düzeyinde sağdan sola grupta bulunmaktadır.
 
+```
     ()					Soldan-Sağa
     + - ++ -- !	& *		Sağdan-Sola
     * / %				Soldan-Sağa
@@ -11338,26 +11405,30 @@ elde edilen nesne, p adresi hangi türdense o türden olacaktır. \* operatörü
     ?:					Sağdan-Sola
     =, +=, /=, *=,...	Sağdan-Sola
     ,					Soldan-Sağa
+```
 
-    * operatörünün operandı bir adres bilgisi olmak zorunadır. Örneğin göstericiler, dizi isimleri birer adres belirtmektedir:
+\* operatörünün operandı bir adres bilgisi olmak zorunadır. Örneğin göstericiler, dizi isimleri birer adres belirtmektedir:
 
+```
     int a[] = {10, 20, 30}
+```
 
-    Bırada *a bu dizinin ilk elemanını belirtir.
+Burada \*a bu dizinin ilk elemanını belirtir.
 
-    a bir nesne belirtmek üzere *&a işleminde öce & operatörü sonra * operatörü yapılacaktır. Çünkü bu iki operatör sağdan sola aynı öncelik grubundadır.
-    O halde *&a ile a arasında hiçbir farklılık yoktur. Yani, biz bir nesnenin adresini alıp ona erişirsek aynı nesneyi elde ederiz. Örneğin:
+a bir nesne belirtmek üzere _&a işleminde öce & operatörü sonra _ operatörü yapılacaktır. Çünkü bu iki operatör sağdan sola aynı öncelik grubundadır.
+O halde \*&a ile a arasında hiçbir farklılık yoktur. Yani, biz bir nesnenin adresini alıp ona erişirsek aynı nesneyi elde ederiz. Örneğin:
 
+```
     int a = 0x1FC20D;
 
     printf("%d\n", *a);		/* geçersiz! * operatörünün operandı adres bilgisi değil adi bir int */
+```
 
-    Tabii, adres sabitleri de adres belirttiğine göre onlara da * operatörü uygulanabilir. Örneğin *(int *)0x1FCD0 burada bellekte 1FCD0 adresinden başlayan
-    4 byte (int türünün 4 byte olduğunu varsayıyoruz) int olarak değerlendirilip oraya erişilecektir. Tabii aslında bizim bellekte rastegele bölgelere bu yolla
-    erişmememiz gerekir. Bu konu ileride "gösteri hataları" başlığı ile ele alınacaktır.
+Tabii, adres sabitleri de adres belirttiğine göre onlara da _ operatörü uygulanabilir. Örneğin _(int \*)0x1FCD0 burada bellekte 1FCD0 adresinden başlayan
+4 byte (int türünün 4 byte olduğunu varsayıyoruz) int olarak değerlendirilip oraya erişilecektir. Tabii aslında bizim bellekte rastegele bölgelere bu yolla
+erişmememiz gerekir. Bu konu ileride "gösteri hataları" başlığı ile ele alınacaktır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -11378,13 +11449,14 @@ int b[] = {10, 20, 30};
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Dizi elemanlarına erişmekte kullandığımız [] aslında bir adres operatörüdür. Köşeli parantez operatörü, tek operandlı sonek (unary postfix) bir operatördür.
-p[n] ifadesi tamamen _(p + n) ile eşdeğerdir. Yani p[n] "p adresinden n ilerinin içeriği" anlamına gelmektedir. Tabii burada p adresinden n ileri demekle
+p[n] ifadesi tamamen \_(p + n) ile eşdeğerdir. Yani p[n] "p adresinden n ilerinin içeriği" anlamına gelmektedir. Tabii burada p adresinden n ileri demekle
 p adresinden n byte ileriyi kastetmiyoruz. p adresinden n \* p'nin türünün uzunluğu kadar byte ilerinin içeriğini kastediyoruz. [] operatöründe köşeli parantez
 içerisindeki ifadenin tamsayı türlerine ilişkin olması gerekir. [] opeatörü öncelik tablosunun en yukarısında soldan öncelikli grupta bulunmaktadır:
 
+```
     () []				Soldan-Sağa
     + - ++ -- !	& *		Sağdan-Sola
     * / %				Soldan-Sağa
@@ -11396,21 +11468,23 @@ içerisindeki ifadenin tamsayı türlerine ilişkin olması gerekir. [] opeatör
     ?:					Sağdan-Sola
     =, +=, /=, *=,...	Sağdan-Sola
     ,					Soldan-Sağa
+```
 
-    [] operatörünün operandı bir adres bilgisi olmak zorundadır. Yani operand örneğin, bir gösterici olabilir, bir dizi ismi olabilir. Biz daha önce []
-    operatörünü dizi elemanlarına erişmekte kullanmıştık. Örneğin a[i] ifadesini a dizisinin i'inci indisli elemanına erişmek için kullanmıştık. a dizi ismi
-    dizinin başlangıç adresi anlamına geldiğine göre a[i] ifadesi tamamen *(a + i) ile eşdeğerdir. Tabii [] operatörünü biz daha önce hep dizi ismiyle kullanmıştık.
-    Aslında bu operatörün operandı herhangi bir adres bilgisi olabilir. Örneğin [] operatörünü bir gösterici ile kullanabiliriz:
+[] operatörünün operandı bir adres bilgisi olmak zorundadır. Yani operand örneğin, bir gösterici olabilir, bir dizi ismi olabilir. Biz daha önce []
+operatörünü dizi elemanlarına erişmekte kullanmıştık. Örneğin a[i] ifadesini a dizisinin i'inci indisli elemanına erişmek için kullanmıştık. a dizi ismi
+dizinin başlangıç adresi anlamına geldiğine göre a[i] ifadesi tamamen \*(a + i) ile eşdeğerdir. Tabii [] operatörünü biz daha önce hep dizi ismiyle kullanmıştık.
+Aslında bu operatörün operandı herhangi bir adres bilgisi olabilir. Örneğin [] operatörünü bir gösterici ile kullanabiliriz:
 
+```
     int a[] = {10, 20, 30, 40, 50};
     int *pi;
 
     pi = a;
+```
 
-    Örneğin burada a[3] ile pi[3] arasında hiçbir farklılık yoktur.
+Örneğin burada a[3] ile pi[3] arasında hiçbir farklılık yoktur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -11428,12 +11502,12 @@ int \*pi;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Tabii aslında [] operatöründe köşeli parantezler içerisindeki ifade negatif olabilir. Örneğin pi[-2] gibi bir ifade tamamen normaldir. Bu işlem _(pi - 2)
+Tabii aslında [] operatöründe köşeli parantezler içerisindeki ifade negatif olabilir. Örneğin pi[-2] gibi bir ifade tamamen normaldir. Bu işlem \_(pi - 2)
 anlamına gelmektedir. Yani biz burada pi'nin belirttiği adresten iki önceki elemana erişmiş oluruz.
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -11449,22 +11523,19 @@ int \*pi;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-p bir adres belirtmek üzere p[0] ile _(p + 0) ve *p tamamen aynı anlamdadır. Yani örneğin biz, a isimli bir dizinin ilk elemanına a[0] ifadesi ile de *a
+p bir adres belirtmek üzere p[0] ile \_(p + 0) ve *p tamamen aynı anlamdadır. Yani örneğin biz, a isimli bir dizinin ilk elemanına a[0] ifadesi ile de *a
 ifadesi ile de erişebiliriz.
 
-    p bir adres belirtmek üzere *(p + n) ile *p + n tamaen farklı anlamlara gelmektedir. *(p + n) ifadesinde önce parantez içi yapılacak ve p adresinden n ilerideki
-    adres elde edilecektir. Sonra * operatörü ile bu adresin içeriği elde edilecektir. Halbuki *p + n ifadesinde önce *p ile p adresindeki nesneye erişilecek
-    o nesnenin değeri n ile toplanacaktı.
+p bir adres belirtmek üzere *(p + n) ile *p + n tamaen farklı anlamlara gelmektedir. _(p + n) ifadesinde önce parantez içi yapılacak ve p adresinden n ilerideki
+adres elde edilecektir. Sonra _ operatörü ile bu adresin içeriği elde edilecektir. Halbuki *p + n ifadesinde önce *p ile p adresindeki nesneye erişilecek
+o nesnenin değeri n ile toplanacaktı.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de aslında [] operatörünün operand'ları yer değiştirebilmektedir. Yani p[n] ifadesi aslında n[p] biçiminde de yazılabilmektedir. Bu çok az bilinen
 bir özelliktir. Zaten programcılar tarafından hiç kullanılmaz.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -11477,62 +11548,64 @@ int a[] = {10, 20, 30, 40, 50};
     return 0;
 
 }
+```
 
-/*---------------------------------------------------------------------------------------------------------------------------------------------------
-p bir adres belirtmek üzere örneğin ++*p gibi bir ifadede biz asılında *p'yi bir artırmış oluruz. Yani bu ifade *p = _p + 1 ile aynı anlamdadır.
-Ancak _++p ifadesinde biz önce p göstericisinin içerisinde adresi bir artırıp (bir byte değil), sonra artırılmış adresteki nesneye erişiriz. p bir adres
-belirtmek üzere &_p ifadesinde önce p adresindeki nesneye erişilip, sonra onun adresi alınmıştır. Bu da tabii p adresiyle aynıdır. a bir nesne belirtmek üzere
-_&a ifadesi de daha önce belirttiğimiz gibi a ile aynı anlamdadır.
+p bir adres belirtmek üzere örneğin ++*p gibi bir ifadede biz asılında *p'yi bir artırmış oluruz. Yani bu ifade \*p = \*p + 1 ile aynı anlamdadır.
+Ancak \*++p ifadesinde biz önce p göstericisinin içerisinde adresi bir artırıp (bir byte değil), sonra artırılmış adresteki nesneye erişiriz. p bir adres
+belirtmek üzere &\*p ifadesinde önce p adresindeki nesneye erişilip, sonra onun adresi alınmıştır. Bu da tabii p adresiyle aynıdır. a bir nesne belirtmek üzere
+\*&a ifadesi de daha önce belirttiğimiz gibi a ile aynı anlamdadır.
 
-    [] operatörünün & operatöründen daha öncelikli olduğuna dikkat ediniz. Örneğin &a[n] ifadesi a adresinden n ilerinin içeriğinin adresi anlamına gelmektedir. Bu ifade
-    &*(a + n) ifadesi ile eşdeğer olduğuna göre aslında a + n ile de eşdeğerdir. Yani a adresinden n ilerinin içeriğinin adresi, aslında a adresinden n ilerinin adresi aynı anlamdadır.
-    Örneğin:
+[] operatörünün & operatöründen daha öncelikli olduğuna dikkat ediniz. Örneğin &a[n] ifadesi a adresinden n ilerinin içeriğinin adresi anlamına gelmektedir. Bu ifade
+&\*(a + n) ifadesi ile eşdeğer olduğuna göre aslında a + n ile de eşdeğerdir. Yani a adresinden n ilerinin içeriğinin adresi, aslında a adresinden n ilerinin adresi aynı anlamdadır.
+Örneğin:
 
+```
     int a = 10;
 
     &a[0] = 20;		/* geçersiz */
+```
 
-    Buarad [] operatörü önceliklidir. Dolayısıyla [] operatörünün operandı adres bilgisi olmadığı için ifade geçersizdir. İfadeyi şöyle düzeltelim:
+Buarad [] operatörü önceliklidir. Dolayısıyla [] operatörünün operandı adres bilgisi olmadığı için ifade geçersizdir. İfadeyi şöyle düzeltelim:
 
+```
     (&a)[0] = 20;		/* geçerli */
+```
 
-    Bu ifade geçerlidir. Burada a'ya 20 atanmaktadır.
+Bu ifade geçerlidir. Burada a'ya 20 atanmaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 36. Ders - 11/10/2022 - Salı
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+[36. Ders - 11/10/2022 - Salı]()
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki gibi bir gösterici bildirimi olsun:
 
+```
     int *pi;
+```
 
-    Bu bildirimden iki şey anlaşılmaktadır. Birincisi, pi nesnesi int * türündendir. Burada "int *" int türden adres bilgisi anlamına gelir. (pi'yi
-    parmağınızla kapatıp sola bakın). İkincisi, *pi yani pi'nin gösterdiği yer int türdendir. (*pi'yi parmağınızla kapatıp sola bakın).
+Bu bildirimden iki şey anlaşılmaktadır. Birincisi, pi nesnesi int _ türündendir. Burada "int _" int türden adres bilgisi anlamına gelir. (pi'yi
+parmağınızla kapatıp sola bakın). İkincisi, \*pi yani pi'nin gösterdiği yer int türdendir. (\*pi'yi parmağınızla kapatıp sola bakın).
 
-    T türünden adres türü C'de T * biçiminde temsil edilmektedir. T1 türünden T2 türüne otomatik dönüştürme olması T1 * türünden T2 * türüne otomatik dönüştürme olacağı
-    anlamına gelmez. Örneğin int türünden double türüne otomatik dönüştürme vardır. Ancak int * türünden double * türüne otomatik dönüştürme yoktur.
-    Bir adres bilgisini ancak aynı türden bir göstericiye atayabiliriz.
+T türünden adres türü C'de T _ biçiminde temsil edilmektedir. T1 türünden T2 türüne otomatik dönüştürme olması T1 _ türünden T2 _ türüne otomatik dönüştürme olacağı
+anlamına gelmez. Örneğin int türünden double türüne otomatik dönüştürme vardır. Ancak int _ türünden double \* türüne otomatik dönüştürme yoktur.
+Bir adres bilgisini ancak aynı türden bir göstericiye atayabiliriz.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir göstericiye ilkdeğer verebiliriz. Tabii verilen ilkdeğerin gösterici ile aynı türden bir adres bilgisi olması gerekir. Örneğin:
 
+```
     int a;
     int *pi = &a;		/* geçerli */
+```
 
-    Tabii burada verilen ilkdeğer pi'nin içerisine yerleştirilmektedir. *pi'ye yerleştirilmemektedir. Zaten buradaki * bir operatör görevinde değildir.
-    Bildirimdeki dekleratörde bulunmaktadır. Örneğin:
+Tabii burada verilen ilkdeğer pi'nin içerisine yerleştirilmektedir. _pi'ye yerleştirilmemektedir. Zaten buradaki _ bir operatör görevinde değildir.
+Bildirimdeki dekleratörde bulunmaktadır. Örneğin:
 
+```
     int a[] = {10, 20, 30, 40, 50};
     int *pi = a;		/* geçerli */
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir fonksiyonun parametre değişkeni bir gösterici olabilir. Bu durumda fonksiyon, aynı türden bir adres bilgisi ile çağrılmalıdır. Örneğin:
 
+```
     void foo(int *pi)
     {
     	/* ... */
@@ -11541,15 +11614,16 @@ Bir fonksiyonun parametre değişkeni bir gösterici olabilir. Bu durumda fonksi
     int a;
     foo(&a);			/* geçerli */
     foo(a);				/* geçersiz */
+```
 
-    Bir fonksiyonun parametre değişkeni bir gösterici ise, biz de o fonksiyonu aynı türden bir nesnenin adresi ile çağırmışsak, fonksiyonun içerisinde
-    * operatörü kullanıldığında biz aslında adresini aldığımız nesneye erişiriz. İşte bir fonksiyonun başka bir fonksiyonun yerel değişkenini değiştirebilmesi
-    için onun adresini alması gerekir.
+Bir fonksiyonun parametre değişkeni bir gösterici ise, biz de o fonksiyonu aynı türden bir nesnenin adresi ile çağırmışsak, fonksiyonun içerisinde
 
-    Bir fonksiyonu bir değerle çağırmaya İngilizce "call by value", bir adresle çağırmaya "call by reference" denilmektedir.
+- operatörü kullanıldığında biz aslında adresini aldığımız nesneye erişiriz. İşte bir fonksiyonun başka bir fonksiyonun yerel değişkenini değiştirebilmesi
+  için onun adresini alması gerekir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+Bir fonksiyonu bir değerle çağırmaya İngilizce "_call by value_", bir adresle çağırmaya "_call by reference_" denilmektedir.
 
+```
 #include <stdio.h>
 
 void foo(int *pi)
@@ -11570,19 +11644,20 @@ int a = 10;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 İki değişken içerisindeki değeri yer değiştiren swap isimli bir fonksiyon yazmak isteyelim. Bu fonksiyonu aşağıdaki gibi yazamayız:
 
+```
     void swap(int x, int y)
     {
     	int temp = x;
     	x = y;
     	y = temp;
     }
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 void swap(int x, int y)
@@ -11605,19 +11680,20 @@ int a = 10, b = 20;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bu fonksiyonu yazabilmek için nesnelerin adreslerini parametre olarak almak gerekir. Örneğin:
 
+```
     void swap(int *x, int *y)
     {
     	int temp = *x;
     	*x = *y;
     	*y = temp;
     }
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 void swap(int *x, int *y)
@@ -11640,12 +11716,12 @@ int a = 10, b = 20;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Şimdi artık scanf fonksiyonunun neden nesnenin adresini aldığını anlayabiliriz. Eğer scanf nesnenin adresini almasaydı o nesnenin içerisine
 bir şey yerleştiremezdi. Bir fonksiyonun bizim yerel değişkenimize bir şey yerleştirebilmesi için bizim değişkenimizin adresini alması gerekir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -11660,18 +11736,17 @@ int a;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de bir dizinin fonksiyona parametre yoluyla aktarılması tipik olarak iki parametre ile yapılmaktadır. Fonksiyonun parametrelerinden biri, bir gösterici
 olur. Bu gösterici dizinin başlangıç adresini alır. Diğer parametre de int, unsigned int gibi tamsayı türlerine ilişkin bir türden olur. Bu parametre de
 dizinin uzunlupunu alır. Böylece fonksiyon, dizinin başlangıç adresini ve uzunluğunu aldığında o göstericiyi artırarak dizinin elemanlarının hepsine
 erişebilir. Tabii bu biçiminde aktarımın mümkün olmasının asıl nedeni dizi elemanlarının ardışıllığıdır. Fonksiyona dizinin uzunluğunun da geçirilmesinin
 nedeni fonksiyonun dizinin sonunu tespit edebilmesi içindir.
 
-    Aşağıdaki int bir dizinin elemanlarını yazdıran disp isimli fonksiyon örnek olarak verilmiştir.
+Aşağıdaki int bir dizinin elemanlarını yazdıran disp isimli fonksiyon örnek olarak verilmiştir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 void disp(int *pi, int size)
@@ -11694,11 +11769,11 @@ int b[5] = {100, 200, 300, 400, 500};
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Yukarıdaki örnekte dizi elemanlarına [] operatörü ile de erişebiliriz. Aslında bu tür fonksiyonlarda _ yerine daha çok [] operatörü tercih edilmektedir.
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+Yukarıdaki örnekte dizi elemanlarına [] operatörü ile de erişebiliriz. Aslında bu tür fonksiyonlarda \_ yerine daha çok [] operatörü tercih edilmektedir.
 
+```
 #include <stdio.h>
 
 void disp(int \*pi, int size)
@@ -11719,8 +11794,8 @@ int b[5] = {100, 200, 300, 400, 500};
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir dizinin uzunluğunun int bir tür ile ifade edilmesi bazı sistemlerde yetersiz kalabilir. Örneğin bir sistemin bellek büyüklüğü int sınırlarını
 aşıyor olabilir. Bu durumda çok büyük dizilerin uzunluklarını int türü ile ifade edemeyiz. Bu tür durumlarda unsigned int, long, unsigned long gibi türler
 denenebilir. Tabii bir bir sistemde açılabilecek maksimum dizi uzunluğu o sistemin bellek büyüklüğü ile ilgilidir. Bunu da ancak derleyicileri yazanlar
@@ -11731,11 +11806,10 @@ dosyalarda yapılmış durumdadır. Yani bu tür ismini kullanabilmemeiz için b
 Bir değişken olan sembolik bir isimdir. C standartlarına göre size_t işaretsiz bir tamsayı türü olmak üzere derleyicileri yazanlar tarafından
 typedef edilmiş bir tür olmak zorundadır. Aslında programcının size_t türünün hangi tür olarak belirlendiğini bilmesine gerek yoktur.
 
-    İşte C'de dizi uzunlukları da genellikle programcılar tarafından size_t türü ile temsil edilmektedir. Biz de kursumuzda her ne kadar henüz typedef
-    işlemlerini görmemiş olsak da bu size_t türünü kullanacağız.
+İşte C'de dizi uzunlukları da genellikle programcılar tarafından size_t türü ile temsil edilmektedir. Biz de kursumuzda her ne kadar henüz typedef
+işlemlerini görmemiş olsak da bu size_t türünü kullanacağız.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 void disp(int \*pi, size_t size)
@@ -11756,11 +11830,11 @@ int b[5] = {100, 200, 300, 400, 500};
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıda int bir dizinin en büyük elemanını bulan bir fonksiyon örneği verilmiştir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int getmax(int \*pi, size_t size)
@@ -11786,11 +11860,11 @@ int max;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdkai double bir dizinin ortalamasına geri dönen mean isimli bir fonksiyon örneği verilmiştir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 double mean(double \*pd, size_t size)
@@ -11816,22 +11890,21 @@ double result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir göstericiye aynı türden bir adres bilgisinin atanabildiğini anımsayınız. Bu durumda int bir dizinin en büyük elemanına geri dönen aşağıdaki
 gibi bir fonksiyon olsun:
 
+```
     int getmax(int *pi, size_t size);
+```
 
-    Burada bu fonksiyon, int bir dizinin en büyük elemanını bulabilir, long, double gibi türlere ilişkin dizilerin en büyük elemanlarını bulamaz.
-    Çünkü örneğin double bir türden dizinin adresi double türden adres belirtir. Halbuki fonksiyonun parametresi int türden bir göstericidir.
+Burada bu fonksiyon, int bir dizinin en büyük elemanını bulabilir, long, double gibi türlere ilişkin dizilerin en büyük elemanlarını bulamaz.
+Çünkü örneğin double bir türden dizinin adresi double türden adres belirtir. Halbuki fonksiyonun parametresi int türden bir göstericidir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki int türden bir diziyi bubble sort algoritmasıyla sıraya dizen bir fonksiyon örneği verilmiştir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 void bsort(int \*pi, size_t size);
@@ -11871,11 +11944,11 @@ size_t i;
     }  while (flag == 1);
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıda int bir diziyi ters çeviren bir fonksiyon örneği verilmiştir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 void reverse(int \*pi, size_t size);
@@ -11906,11 +11979,11 @@ pi[i] = pi[size - 1 - i];
 pi[size - 1 - i] = temp;
 }
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Yukarıdaki örneği yazarken iki int değeri yer değiştiren swap fonksiyonundan da faydalanabilirdik.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 void reverse(int \*pi, size_t size);
@@ -11945,25 +12018,24 @@ void reverse(int \*pi, size_t size)
 for (size_t i = 0; i < size / 2; ++i)
 swap(&pi[i], &pi[size - 1 - i]);
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-[] operatörünün _ ve & operatörlerinden daha öncelikli olduğunu anımsayınız. Bu durumda p bir adres belirtmek üzere &p[n] ile p + n aynı anlamdadır.
+[] operatörünün \* ve & operatörlerinden daha öncelikli olduğunu anımsayınız. Bu durumda p bir adres belirtmek üzere &p[n] ile p + n aynı anlamdadır.
 Yani, p adresinden n ilerinin içeriğinin adresi aslında p adresindne n ilerinin adresidir.
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Yazıların fonksiyonlara parametre yoluyla aktarılması için tipik olarak fonksiyonun parametre değişkeni char tüdrden bir gösterici olur. Fonksiyon da
 yazının başlangıç adresiyle çağrılır. Yazının uzunluğunun fonksiyona geçirilmesine gerek yoktur. Çünkü yazının sonunda zaten null karakter vardır.
 Fonksiyon da null karakter görene kadar yazının tüm karakterlerini elde edebilir.
 
-    Örneğin aslında puts fonksiyonun prototipi şöyledir:
+Örneğin aslında puts fonksiyonun prototipi şöyledir:
 
+```
     void puts(char *str);
+```
 
-    Fonksiyon yazının başlangıç adresini alır, null karakter görene kadar tüm karakterleri yan yana yazdırır.
+Fonksiyon yazının başlangıç adresini alır, null karakter görene kadar tüm karakterleri yan yana yazdırır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 void myputs(char *str)
@@ -11983,30 +12055,30 @@ char s[] = "ankara";
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+[37. Ders - 13/10/2022 - Perşembe]()
 
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 37. Ders - 13/10/2022 - Perşembe
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 str bir yazıyı gösteren bir gösterici olmak üzere null karakter görene kadar ilerleyen döngü iki biçimde oluşturulabilir:
 
-    1) Göstericiyi artırarak
+1. Göstericiyi artırarak
 
+```
     while (*str != '\0') {
     	/* ... */
     	++str;
     }
+```
 
-    2) [] operatör ile
+2. [] operatör ile
 
+```
     for (size_t i = 0; str[i] != '\0'; ++i) {
     	/* ... */
     }
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 void myputs(char \*str);
@@ -12028,17 +12100,16 @@ for (size_t i = 0; str[i] != '\0'; ++i)
 putchar(str[i]);
 putchar('\n');
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Şimdi bir yazıyı tersten yazdıran putsrev isimli bir fonksiyon yazalım. Biz yazıda önce null karakter görene kadar ilerleriz. Sonra geri geri giderek
 karakterleri yazdırırız. Ancak kullanacağımız indisin türü konusunda dikkat ediniz. size_t türü her ne kadar dizi uzunlukları, indeksleri için
 uygun bir türse de C standartlarına göre size_t işaretsiz bir tamsayı türü olarak typedef edilmektedir. İşaretsiz bir tamsayı türünden bir nesnenin içerisinde
 0 varsa ve biz bu değerden 1 çıkartırsak o türün en büyük pozitif tamsayı değerini elde ederiz.
 
-    Aşağıdaki örneği int yerine size_t kullanarak deneyiniz ve problemi belirlemeye çalışınız.
+Aşağıdaki örneği int yerine size_t kullanarak deneyiniz ve problemi belirlemeye çalışınız.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 void putsrev(char \*str);
@@ -12065,11 +12136,11 @@ int i;
     putchar('\n');
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Yukarıdaki örnekte i değişkeni int değil de size_t türünden yapılırsa oluşacak sorun aşağıdaki gibi giderilebilir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 void putsrev(char \*str);
@@ -12099,12 +12170,12 @@ size_t i;
     putchar('\n');
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 İşaretsiz bir tamsayı türü ile işaretli bir tamsayı türünü iki operandlı bir operatörler (karşılaştırma operatörleri dahil) işleme soktuğumuzda
 dönüştürmenin işaretsiz türe doğru yapılacağını belirtmiştik. O halde yukarıdaki problem aşağıdaki gibi de çözülebilir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 void putsrev(char \*str);
@@ -12132,10 +12203,11 @@ size_t i;
     putchar('\n');
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Yukarıdaki problem sonek eksiltim ile de çözülebilir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+
+```
 #include <stdio.h>
 
 void putsrev(char \*str);
@@ -12163,43 +12235,47 @@ size_t i;
     putchar('\n');
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Bir fonksiyonun geri dönüş değerinin türü yerine T bir tür belirtmek üzere T _ kullanılırsa bu durum, fonksiyonun bir adresle geri döndüğü anlamına
+Bir fonksiyonun geri dönüş değerinin türü yerine T bir tür belirtmek üzere T \* kullanılırsa bu durum, fonksiyonun bir adresle geri döndüğü anlamına
 gelmektedir. Örneğin:
 
+```
     int *foo(void)
     {
     	/* ... */
     }
+```
 
-    Burada foo fonksiyonu int türden bir adres bilgisi ile geri dönmektedir. Ritchie/Kernighan yazım stilinde * atomu fonksiyon ismine bitiştirilmektedir.
-    Ancak bazı programcılar bu tür durumlarda * atomunu tür ile bitiştirirler.
+Burada foo fonksiyonu int türden bir adres bilgisi ile geri dönmektedir. Ritchie/Kernighan yazım stilinde _ atomu fonksiyon ismine bitiştirilmektedir.
+Ancak bazı programcılar bu tür durumlarda _ atomunu tür ile bitiştirirler.
 
-    Örneğin:
+Örneğin:
 
+```
     char *bar(void)
     {
     	/* ... */
     }
+```
 
-    Burada bar fonksiyonun geri dönüş değeri char değildir. char türden bir adres bilgisidir. Tabii böyle fonksiyonları çağırdıktan sonra onların geri
-    dönüş değerlerini aynı türden bir göstericiye atayabiliriz. Örneğin:
+Burada bar fonksiyonun geri dönüş değeri char değildir. char türden bir adres bilgisidir. Tabii böyle fonksiyonları çağırdıktan sonra onların geri
+dönüş değerlerini aynı türden bir göstericiye atayabiliriz. Örneğin:
 
+```
     int *pi;
     char *pc;
 
     pi = foo();
     pc = bar();
+```
 
-    Bir fonksiyonun geri dönüş değerinin bir adres olması demek aslında return ifadesinin atanacağı geçici değişkenin bir gösterici olması demektir.
-    O halde geri dönüş değeri adres olan fonksiyonlara aynı türden bir adres değeri ile return uygulamak gerekir.
+Bir fonksiyonun geri dönüş değerinin bir adres olması demek aslında return ifadesinin atanacağı geçici değişkenin bir gösterici olması demektir.
+O halde geri dönüş değeri adres olan fonksiyonlara aynı türden bir adres değeri ile return uygulamak gerekir.
 
-    Aşağıdaki bir dizinin en büyük elemanının dizi içerisindeki adresine geri dönen bir fonksiyon örneği verilmiştir. Bu örnekte önce dizinin ilk elemanı en büyük
-    varsayılmıştır. Onun adresi pmax isimli göstericide tutulmuştur. Sonra daha büyük elemanla karşılaşıldığında pmax adresi bu elemanı gösterecek biçimde değiştirilmiştir.
+Aşağıdaki bir dizinin en büyük elemanının dizi içerisindeki adresine geri dönen bir fonksiyon örneği verilmiştir. Bu örnekte önce dizinin ilk elemanı en büyük varsayılmıştır. Onun adresi pmax isimli göstericide tutulmuştur. Sonra daha büyük elemanla karşılaşıldığında pmax adresi bu elemanı gösterecek biçimde değiştirilmiştir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int *getmax_addr(int *pi, size_t size);
@@ -12230,12 +12306,12 @@ int \*pmax = pi;
     return pmax;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Tabii aslında yukarıdaki örnekteki getmaxx_addr fonksiyonu daha kolay yazılabilir. Şöyle ki, biz zaten en büyük elemanın adresini tutuyorsak
 en büyük elemanı ayrıca tutmamıza gerek yoktur.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int *getmax_addr(int *pi, size_t size);
@@ -12263,8 +12339,8 @@ int \*pmax = &pi[0];
     return pmax;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de hiçbir nesnenin ve fonksiyonun adresi olamayacak, kullanılmayan boş bir byte'ın adresi NULL adres olarak belirlenmiştir. Ancak C standartlarına göre
 NULL adresin sayısal bileşeninin ne olacağı derleyicileri yazanların isteğine bırakılmıştır. Yani değişik sistemlerde NULL adresin sayısal bileşeni
 farklı olabilir. Derleyicileri yazanlar işletim sistemi tarafından boş bırakılmış olan bir alandaki adresi NULL adres olarak belirleyebilirler.
@@ -12272,60 +12348,68 @@ Her ne kadar standartlar NULL adresin sayısal bileşeninin ne olacağını derl
 NULL adres belleğin tepesindeki 0 numaralı adrestir. Windows, UNIX/Linux, ve Mac OS sistemlerindeki tüm C derleyicileri NULL adresi 0 numaralı adres olarak
 kullanmnaktadır.
 
-    C'de NULL adres düz bir 0 sabiti ile ya da 0 değerini veren tamsayı türlerine ilişkin bir sabit ifadesi ile temsil edilmektedir.  (Aynı zamanda 0 değerini veren
-    (void *) türüne dönüştürülmüş tamsayı türlerine ilişkin sabit ifadeleri de NULL adres anlamına gelmektedir.) Biz C'de 0 sabitini bir adresle ilişkilendirdiğimizde
-    artık bu 0 sabiti, int olan 0 sabiti değil o sistemde derleyicinin belirlediği NULL adres anlamına gelmektedir. NULL adres herhangi türden bir göstericiye
-    atanabilir. Biz C'de bir göstericiye 0 atadığımızda o göstericiye int olan 0'ı atamış olmamaktayız. O sistemde NULL adres neyse onu atamış olmaktayız. Örneğin:
+C'de NULL adres düz bir 0 sabiti ile ya da 0 değerini veren tamsayı türlerine ilişkin bir sabit ifadesi ile temsil edilmektedir. (Aynı zamanda 0 değerini veren (void \*) türüne dönüştürülmüş tamsayı türlerine ilişkin sabit ifadeleri de NULL adres anlamına gelmektedir.) Biz C'de 0 sabitini bir adresle ilişkilendirdiğimizde artık bu 0 sabiti, int olan 0 sabiti değil o sistemde derleyicinin belirlediği NULL adres anlamına gelmektedir. NULL adres herhangi türden bir göstericiye atanabilir. Biz C'de bir göstericiye 0 atadığımızda o göstericiye int olan 0'ı atamış olmamaktayız. O sistemde NULL adres neyse onu atamış olmaktayız. Örneğin:
 
+```
     int *pi;
 
     pi = 0;		/* geçerli */
+```
 
-    Burada pi'ye 0 sayısı atanmamıştır. 0 adresi de atanmamıştır. Çalışılan sistemde NULL adres olarak hangi adres temsil edildiyse o adres atanmıştır.
-    Yukarıda da belirtitğimiz gibi yaygın sistemlerin hepsinde NULL adres gerçekten 0 adresi olarak seçilmiştir. Tabii aslında standartlara göre NULL adres
-    yalnızca 0 sabiti ile değil, 0 değerini veren tamsayı türlerine ilişkin sabit ifadeleriyle de oluşturulabilir. Örneğin:
+Burada pi'ye 0 sayısı atanmamıştır. 0 adresi de atanmamıştır. Çalışılan sistemde NULL adres olarak hangi adres temsil edildiyse o adres atanmıştır.
+Yukarıda da belirtitğimiz gibi yaygın sistemlerin hepsinde NULL adres gerçekten 0 adresi olarak seçilmiştir. Tabii aslında standartlara göre NULL adres
+yalnızca 0 sabiti ile değil, 0 değerini veren tamsayı türlerine ilişkin sabit ifadeleriyle de oluşturulabilir. Örneğin:
 
+```
     int *pi = 3 - 3;		/* geçerli, pi'ye o sistemdeki NULL adres atanıyor */
+```
 
-    Tabii programcılar tipik olarak NULL adresi düz 0 sabiti olarak kullanırlar. Örneğin:
+Tabii programcılar tipik olarak NULL adresi düz 0 sabiti olarak kullanırlar. Örneğin:
 
+```
     int a = 0;
     int *pi = a;		/* geçersiz! göstericiye int bir değer atanmış */
+```
 
-    Burada göstericiye NULL adres atanmamıştır. Çünkü standartlara göre 0 değerini veren sabit ifadesi NULL adresi temsil etmektedir. Oysa bu örnekte
-    göstericiye bir sabit ifadesi atanmamıştır.
+Burada göstericiye NULL adres atanmamıştır. Çünkü standartlara göre 0 değerini veren sabit ifadesi NULL adresi temsil etmektedir. Oysa bu örnekte
+göstericiye bir sabit ifadesi atanmamıştır.
 
-    Benzer biçimde bir gösterici 0 ile (ya da 0 değerini veren tamsayı türlerine ilişkin bir sabit ifadesi ile) karşılaştırıldığında aslında
-    karşılaştırma, göstericinin içerisinde o sistemdeki NULL adresin olup olmadığını anlamaya yönelik yapılmaktadır. Örneğin:
+Benzer biçimde bir gösterici 0 ile (ya da 0 değerini veren tamsayı türlerine ilişkin bir sabit ifadesi ile) karşılaştırıldığında aslında
+karşılaştırma, göstericinin içerisinde o sistemdeki NULL adresin olup olmadığını anlamaya yönelik yapılmaktadır. Örneğin:
 
+```
     if (pi == 0) {
     	/* ... */
     }
+```
 
-    Burada pi göstericisinin içerisinde 0 adresi olup olmadığına bakılmamaktadır. pi agöstericisinin içerisinde o sistemdeki NULL adresin olup olmadığına bakılmaktadır.
-    Örneğin falanca sistemde NULL adres FFFFFFFF adresi olsun. Ve pi göstericisinin içerisinde bu adresin olduğunu düğünelim bu durumda pi == 0 karşılaştırması
-    doğru yani 1 değerini verecektir. Benzer biçimde bir gösterici != operatörü kullanılarak 0 ile karşılaştırılabilir:
+Burada pi göstericisinin içerisinde 0 adresi olup olmadığına bakılmamaktadır. pi agöstericisinin içerisinde o sistemdeki NULL adresin olup olmadığına bakılmaktadır. Örneğin falanca sistemde NULL adres FFFFFFFF adresi olsun. Ve pi göstericisinin içerisinde bu adresin olduğunu düğünelim bu durumda pi == 0 karşılaştırması doğru yani 1 değerini verecektir. Benzer biçimde bir gösterici != operatörü kullanılarak 0 ile karşılaştırılabilir:
 
+```
     if (pi != 0) {
     	/* ... */
     }
+```
 
-    Burada pi'nin içerisinde o sistemdeki NULL adres yoksa if deyimi doğrudan sapacaktır.
+Burada pi'nin içerisinde o sistemdeki NULL adres yoksa if deyimi doğrudan sapacaktır.
 
-    if deyiminde (while deyiminde de) parantez içerisindeki ifade yalnızca bir adres bilgisinden oluşabilir. Bu durumda karşılaştırma o adres bilgisinin
-    o sistemdeki NULL adres olup olmadığına göre yapılır. Örneğin p bir gösterici olsun:
+if deyiminde (while deyiminde de) parantez içerisindeki ifade yalnızca bir adres bilgisinden oluşabilir. Bu durumda karşılaştırma o adres bilgisinin
+o sistemdeki NULL adres olup olmadığına göre yapılır. Örneğin p bir gösterici olsun:
 
+```
     if (p) {
     	/* p NULL adres değilse bu kısım yapılacak */
     }
     else {
     	/* p NULL adres ise bu kısım yapılacak  */
     }
+```
 
-    Burada p'nin içerisinde o sistemdeki NULL adres varsa if deyimi yanlıştan, yoksa doğrudan sapar. Örneğin falanca sistemde NULL adres FFFFFFFF olsun.
-    p'nin içerisinde de FFFFFFFF değerinin olduğunu varsayalım. Bu durumda if deyimi yanlıştan sapacaktır. Görüldüğü gibi if parantezi içerisinde bir adres
-    bilgisi varsa burada o adresin 0 adresi olup olmadığına değil o sistemdeki NULL adres olup olmadığına bakılmaktadır. Başka bir deyişle:
+Burada p'nin içerisinde o sistemdeki NULL adres varsa if deyimi yanlıştan, yoksa doğrudan sapar. Örneğin falanca sistemde NULL adres FFFFFFFF olsun.
+p'nin içerisinde de FFFFFFFF değerinin olduğunu varsayalım. Bu durumda if deyimi yanlıştan sapacaktır. Görüldüğü gibi if parantezi içerisinde bir adres
+bilgisi varsa burada o adresin 0 adresi olup olmadığına değil o sistemdeki NULL adres olup olmadığına bakılmaktadır. Başka bir deyişle:
 
+```
     if (p) {
     	/* ... */
     }
@@ -12335,23 +12419,25 @@ kullanmnaktadır.
     if (p != 0) {
     	/* ... */
     }
+```
 
-    aynı anlamdadır.
+aynı anlamdadır.
 
-    Bir gösterici (genel olarak adres bilgisi) ! operatörü ile kullanılabilir. Örneğin p bir gösterici olsun !p ifadesi geçerlidir. Bu durumda eğer
-    göstericisinin içerisinde NULL adres varsa bu ifade 1 değerini, yoksa 0 değerini üretir. Örneğin:
+Bir gösterici (genel olarak adres bilgisi) ! operatörü ile kullanılabilir. Örneğin p bir gösterici olsun !p ifadesi geçerlidir. Bu durumda eğer
+göstericisinin içerisinde NULL adres varsa bu ifade 1 değerini, yoksa 0 değerini üretir. Örneğin:
 
+```
     if (!p) {
     	/* p NULL ise bu kısım yapılacak */
     }
+```
 
-    Burada p'nin içerisinde NULL adres varsa birtakım şeyler yapılmak istenmiştir.
+Burada p'nin içerisinde NULL adres varsa birtakım şeyler yapılmak istenmiştir.
 
-    C99 ile birlikte C'ye _Bool isimli bir bool türünün eklendiğini belirtmiştik. İşte bir adres türü doğrudan bool türüne atanabilmektedir. Bu durumda
-    adres NULL adres değilse 1 değeri NULL adres ise 0 değeri _Bool türünden değişkene atanmış olur.
+C99 ile birlikte C'ye \_Bool isimli bir bool türünün eklendiğini belirtmiştik. İşte bir adres türü doğrudan bool türüne atanabilmektedir. Bu durumda
+adres NULL adres değilse 1 değeri NULL adres ise 0 değeri \_Bool türünden değişkene atanmış olur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -12367,62 +12453,42 @@ int \*pi;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 NULL adres sabiti okunabilirliği artırmak için bazı başlık dosyalarında da define edilmiştir. Böylece biz NULL adres için 0 kullanmak yerine
 NULL sözcüğünü kullanabiliriz:
 
+```
     #define NULL	0
+```
 
-    <stdio.h>, <stdlib.h>, <stddef.h>, <string.h> dosyalarında NULL sembolik sabiti NULL adresin okunabilir kullanımı için define edilmiş durumdadır. Bu sayede
-    örneğin biz:
+<stdio.h>, <stdlib.h>, <stddef.h>, <string.h> dosyalarında NULL sembolik sabiti NULL adresin okunabilir kullanımı için define edilmiş durumdadır. Bu sayede
+örneğin biz:
 
+```
     p = 0;
+```
 
-    yerine:
+yerine:
 
+```
     p = NULL;
+```
 
-    gibi bir ifade yazabiliriz. Ya da örneğin:
+gibi bir ifade yazabiliriz. Ya da örneğin:
 
+```
     if (p == NULL) {
     	/* ... */
     }
+```
 
-    Burada yine p'nin NULL adres içerip içermediğine bakılmaktadır. NULL sembolik sabiti int 0 olarak kullanılmamalıdır. NULL sembolik sabitinden amaçlanan
-    NULL adresin okunabilir bir biçimde ifade edilmesidir. Aslında standartlara göre, yukarıda da belirttiğimiz gibi, NULL sembolik sabiti aşağıdaki gibi
-    define edilmiş de olabilir:
+Burada yine p'nin NULL adres içerip içermediğine bakılmaktadır. NULL sembolik sabiti int 0 olarak kullanılmamalıdır. NULL sembolik sabitinden amaçlanan
+NULL adresin okunabilir bir biçimde ifade edilmesidir. Aslında standartlara göre, yukarıda da belirttiğimiz gibi, NULL sembolik sabiti aşağıdaki gibi
+define edilmiş de olabilir:
 
+```
     #define NULL	((void *)0)
-
-    Biz henüz void adresleri görmediğimiz için (void *)0 ifadesini açıklamayacağız.
-
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
 ```
 
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
-
-```
+Biz henüz void adresleri görmediğimiz için (void \*)0 ifadesini açıklamayacağız.
