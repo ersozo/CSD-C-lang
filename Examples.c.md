@@ -10468,18 +10468,18 @@ Bir dizinin olmayan bir elemanına erişmeye çalışmak "_tanımsız davranış
 
 Daha önceden de belirttiğimiz gibi, bir yazı aslında karakterlerden oluşan bir dizi belirtmektedir. Karakterler ise aslında o karakterlerin karakter tablosundaki
 sıra numarasını belirtir. O halde aslında bir yazı, bir sayı dizisi gibi ele alınabilir. Peki mademki bir yazı bir sayı dizisi gibidir. O halde yazının karakterlerine
-karşı gelen sayıları hangi türden dizide tutmalıyız? Tabii bunun için en uygun tür char türüdür. Çünkü zaten C'de char bir kadarkterin sıra numarasını tutabilecek
+karşı gelen sayıları hangi türden dizide tutmalıyız? Tabii bunun için en uygun tür char türüdür. Çünkü zaten C'de char bir karakterin sıra numarasını tutabilecek
 büyüklüğü temsil etmektedir. C'de karakterler 1 byte içerisinde tutulmaktadır. Karakterlerin sıra numaralarını tutmak için en uygun tür char türüdür.
 O halde bir yazı char türden bir dizide tutulmalıdır. Yazının her bir karakteri char türden dizinin bir elemanında tutulursa dizi yazıyı tutar hale gelir.
 
 Genel olarak yazıyı tutan bir char dizi, yazınının uzunluğundan büyük olur. Yani bir char dizinin içerisindeki yazı, onun başından itibaren belli bir kısmındadır.
 Bu char diziyi alan programcı yazının bu dizinin başından başladığını bilir ancak nerede bittiğini de anlaması gerekir. İşte C'de char bir dizi
-içerisindekiş yazının bitiş yeri özel bir karakterle belirtilmektedir. Bu karaktere "null kartakter" denir. Programcılar ve C'nin bazı semantik kuralları
-bir yazının sonunda null karakter olması gerektiği konusunda anlaşmış durumdadırlar. Null karakter karakter tablosunun ilk karakteridir ve sayısal değeri
+içerisindeki yazının bitiş yeri özel bir karakterle belirtilmektedir. Bu karaktere "_null karakter_" denir. Programcılar ve C'nin bazı semantik kuralları
+bir yazının sonunda null karakter olması gerektiği konusunda anlaşmış durumdadırlar. Null karakter, karakter tablosunun ilk karakteridir ve sayısal değeri
 0'dır. (Bunu '0' karakteri ile karıştırmayınız.) Null karakter '\0' ile temsil edilir. Aslında '\0' teknik olarak 0 sabiti ile aynı anlamdadır.
 Ancak programcılar null karakter için '\0' gösterimini tercih ederler. Çünkü '\0' gösterimi bir karakter görüntüsünde olduğu için okunabilirliği daha fazladır.
 
-Programcı char türden bir dizinin içerisine bir yazı yerleştirecekse null karakteri yazının sonuna yerleştirmek onun sorumluluğundadır. Örneğin:
+Programcı char türden bir dizinin içerisine bir yazı yerleştirecekse, null karakteri yazının sonuna yerleştirmek onun sorumluluğundadır. Örneğin:
 
 ```
     char s[10];
@@ -10537,7 +10537,7 @@ Burada derleyici null karakteri kendisi ekleyeceği için dizinin 7 eleman uzunl
 unsigned char türünden dizilere ilkdeğer verilebilmektedir. Örneğin:
 
 ```
-    int s[] = "ankara"; 	/* geçersiz! iki tırnak ile int bir diziye ilkdeğer verilemez! */
+    int s[] = "ankara";         /* geçersiz! iki tırnak ile int bir diziye ilkdeğer verilemez! */
 ```
 
 Daha sonra bir diziye iki tırnak ile atama yapamayız. İki tıornak sentaksının ilkdeğer verme sırasında geçerli olduğuna dikkat ediniz. Örneğin:
@@ -10545,20 +10545,20 @@ Daha sonra bir diziye iki tırnak ile atama yapamayız. İki tıornak sentaksın
 ```
     char s[100];
 
-    s = "ankara";		/* geçersiz! */
+    s = "ankara";               /* geçersiz! */
 ```
 
 Bir diziye fazla sayıda elemanla ilkdeğer veremediğimizi belirtmiştik. Örneğin:
 
 ```
-    char s[3] = "ankara";		/* geçersiz! */
+    char s[3] = "ankara";       /* geçersiz! */
 ```
 
 Özel bir durum olarak, eğer iki tırnak içerisindeki karakter sayısı dizi unluğu kadar ise bu durum C'de geçerli kabul edilmektedir. Ancak derleyici bu durumda
 null karakteri yazının sonuna eklememektedir. Örneğin:
 
 ```
-    char s[3] = "ali";		/* geçerli ama dikkat null karakter yazının sonuna eklenmeyecek */
+    char s[3] = "ali";          /* geçerli ama dikkat null karakter yazının sonuna eklenmeyecek */
 ```
 
 Bu durum, hata kaynağı oluşturabileceği gerekçesiyle C++'ta geçersiz kabul edilmektedir.
@@ -10994,7 +10994,7 @@ Bir göstericiye, herhangi bir adres bilgisi atanamaz. Ancak tür bileşeni uygu
 Burada pi göstericisine biz ancak tür bileşeni int olan bir adres bilgisi atayabiliriz. Örneğin:
 
 ```
-    pi = (int *)0x1FC14;		/* geçerli. pi int türdne gösterici, ona int türden bir adres bilgisi atanmış */
+    pi = (int *)0x1FC14;        /* geçerli. pi int türdne gösterici, ona int türden bir adres bilgisi atanmış */
 ```
 
 Örneğin:
@@ -11002,7 +11002,7 @@ Burada pi göstericisine biz ancak tür bileşeni int olan bir adres bilgisi ata
 ```
     int *pi;
 
-    pi = (double *) 0x1B12C0;		/* geçersiz! pi'ye int türden bir adres bilgisinin atanması gerekirdi. Halbuki double türden bir adres bilgisi atanmıştır */
+    pi = (double *) 0x1B12C0;   /* geçersiz! pi'ye int türden bir adres bilgisinin atanması gerekirdi. Halbuki double türden bir adres bilgisi atanmıştır */
 ```
 
 Bir adres bilgisi gösterici olmayan bir nesneye de atanamaz. Örneğin:
@@ -11010,7 +11010,7 @@ Bir adres bilgisi gösterici olmayan bir nesneye de atanamaz. Örneğin:
 ```
     int a;
 
-    a = (int *) 0x1FC90;	/* geçersiz! adres bilgileri temel türlere atanamaz, göstericilere atanabilir */
+    a = (int *) 0x1FC90;        /* geçersiz! adres bilgileri temel türlere atanamaz, göstericilere atanabilir */
 ```
 
 Bir göstericiye bir tamsayı da atayamayız. Ancak aynı türden bir adres bilgisi atayabiliriz. Örneğin:
@@ -11018,7 +11018,7 @@ Bir göstericiye bir tamsayı da atayamayız. Ancak aynı türden bir adres bilg
 ```
     int *pi;
 
-    pi = 0x1FC10;	/* geçersiz! int türden göstericiye adi bir int atanamaz, int türden adres bilgisinin atanması gerekir */
+    pi = 0x1FC10;               /* geçersiz! int türden göstericiye adi bir int atanamaz, int türden adres bilgisinin atanması gerekir */
 ```
 
 Yani özetle bir göstericiye aynı türden bir adres bilgisi atanabilir. Bir adres bilgisi de yalnızca aynı türden bir göstericiye atanabilir.
@@ -11044,7 +11044,7 @@ Bir nesnenin adresini aldığımızda biz onu aynı türden bir göstericiye yer
     int a;
     int *pi;
 
-    pi = &a;	/* geçerli */
+    pi = &a;        /* geçerli */
 ```
 
 Burada &a ile elde edilen adres bilgisinin tür bileşeni int biçimdedir. O zaman bizim bu adresi int türden bir göstericiye atamamız gerekir. Tabii bu
@@ -11054,7 +11054,7 @@ atamadan sonra pi göstericisi aslında adresin sayısal bileşenini tutar durum
     char a;
     int *pi;
 
-    pi = &a;		/* geçersiz! char türden bir adres bilgisi int türden göstericiye atanmış */
+    pi = &a;        /* geçersiz! char türden bir adres bilgisi int türden göstericiye atanmış */
 ```
 
 Örneğin:
@@ -11063,7 +11063,7 @@ atamadan sonra pi göstericisi aslında adresin sayısal bileşenini tutar durum
     int a;
     int b;
 
-    a = &b;			/* geçersiz! bir adres bilgisi int bir nesneye atanamaz! */
+    a = &b;         /* geçersiz! bir adres bilgisi int bir nesneye atanamaz! */
 ```
 
 Bir göstericinin içerisinde bir adresin bulunması o göstericinin o adresi gösterdiği anlamına gelmektedir. Yani biz "_falanca gösterici şu adresi gösteriyor_"
@@ -11159,8 +11159,8 @@ Aslında bu işlemde derleyici aşağıdaki gibi bir kod üretmektedir:
     char *p2;
 ```
 
-C'de önemli bir adres operatörü de "\* (indirection)" operatördür. Bu operatörün çarpma işlemini yapan _ operatörü ile bir ilgisi yoktur. Tamamen
-farklı bir operatördür. _ operatörü tek operandlı önek bir adres operatörüdür. \* operatörünün operandı bir adres bilgisi olmak zorundadır. \* operatörü
+C'de önemli bir adres operatörü de "\* (indirection)" operatördür. Bu operatörün çarpma işlemini yapan \* operatörü ile bir ilgisi yoktur. Tamamen
+farklı bir operatördür. \* operatörü tek operandlı önek bir adres operatörüdür. \* operatörünün operandı bir adres bilgisi olmak zorundadır. \* operatörü
 operandı olan adresteki nesneye erişimi sağlar. \* operatörü ile erişilen nesnenin türü, operand olarak kullanılan nesnenin türü ile aynı türdendir.
 Örneğin:
 
@@ -11366,23 +11366,23 @@ oluşmaktadır. Biz bir nesnenin adresini aldığımızda onu aynı türden bir 
     char *pc;
 
     pi = &a;
-    pc = &a;		/* geçersiz! */
+    pc = &a;            /* geçersiz! */
 ```
 
 & operatörü öncelik tablosunda tablonun ikinci düzeyinde sağdan sola grupta bulunmaktadır:
 
 ```
 
-    ()					Soldan-Sağa
-    + - ++ -- !	&		Sağdan-Sola
+    ()                  Soldan-Sağa
+    + - ++ -- !	&       Sağdan-Sola
     * / %				Soldan-Sağa
     + -					Soldan-Sağa
-    <  > <= >=			Soldan-Sağa
+    <  > <= >=          Soldan-Sağa
     != ==				Soldan-Sağa
     &&					Soldan-Sağa
     ||					Soldan-Sağa
     ?:					Sağdan-Sola
-    =, +=, /=, *=,...	Sağdan-Sola
+    =, +=, /=, *=,...   Sağdan-Sola
     ,					Soldan-Sağa
 ```
 
@@ -11398,15 +11398,15 @@ elde edilen nesne, p adresi hangi türdense o türden olacaktır. \* operatörü
 
 ```
     ()					Soldan-Sağa
-    + - ++ -- !	& *		Sağdan-Sola
+    + - ++ -- !	& *     Sağdan-Sola
     * / %				Soldan-Sağa
     + -					Soldan-Sağa
-    <  > <= >=			Soldan-Sağa
+    <  > <= >=          Soldan-Sağa
     != ==				Soldan-Sağa
     &&					Soldan-Sağa
     ||					Soldan-Sağa
     ?:					Sağdan-Sola
-    =, +=, /=, *=,...	Sağdan-Sola
+    =, +=, /=, *=,...   Sağdan-Sola
     ,					Soldan-Sağa
 ```
 
@@ -11532,7 +11532,7 @@ p bir adres belirtmek üzere p[0] ile \*(p + 0) ve *p tamamen aynı anlamdadır.
 ifadesi ile de erişebiliriz.
 
 p bir adres belirtmek üzere *(p + n) ile *p + n tamaen farklı anlamlara gelmektedir. \*(p + n) ifadesinde önce parantez içi yapılacak ve p adresinden n ilerideki
-adres elde edilecektir. Sonra \_ operatörü ile bu adresin içeriği elde edilecektir. Halbuki *p + n ifadesinde önce *p ile p adresindeki nesneye erişilecek
+adres elde edilecektir. Sonra \* operatörü ile bu adresin içeriği elde edilecektir. Halbuki *p + n ifadesinde önce *p ile p adresindeki nesneye erişilecek
 o nesnenin değeri n ile toplanacaktı.
 
 C'de aslında [] operatörünün operand'ları yer değiştirebilmektedir. Yani p[n] ifadesi aslında n[p] biçiminde de yazılabilmektedir. Bu çok az bilinen
@@ -11568,7 +11568,7 @@ belirtmek üzere &\*p ifadesinde önce p adresindeki nesneye erişilip, sonra on
     &a[0] = 20;		/* geçersiz */
 ```
 
-Buarad [] operatörü önceliklidir. Dolayısıyla [] operatörünün operandı adres bilgisi olmadığı için ifade geçersizdir. İfadeyi şöyle düzeltelim:
+Burada [ ] operatörü önceliklidir. Dolayısıyla [ ] operatörünün operandı adres bilgisi olmadığı için ifade geçersizdir. İfadeyi şöyle düzeltelim:
 
 ```
     (&a)[0] = 20;		/* geçerli */
@@ -12250,8 +12250,8 @@ gelmektedir. Örneğin:
     }
 ```
 
-Burada foo fonksiyonu int türden bir adres bilgisi ile geri dönmektedir. Ritchie/Kernighan yazım stilinde _ atomu fonksiyon ismine bitiştirilmektedir.
-Ancak bazı programcılar bu tür durumlarda _ atomunu tür ile bitiştirirler.
+Burada foo fonksiyonu int türden bir adres bilgisi ile geri dönmektedir. Ritchie/Kernighan yazım stilinde \* atomu fonksiyon ismine bitiştirilmektedir.
+Ancak bazı programcılar bu tür durumlarda \* atomunu tür ile bitiştirirler.
 
 Örneğin:
 
@@ -12356,7 +12356,7 @@ C'de NULL adres düz bir 0 sabiti ile ya da 0 değerini veren tamsayı türlerin
 ```
     int *pi;
 
-    pi = 0;		/* geçerli */
+    pi = 0;                 /* geçerli */
 ```
 
 Burada pi'ye 0 sayısı atanmamıştır. 0 adresi de atanmamıştır. Çalışılan sistemde NULL adres olarak hangi adres temsil edildiyse o adres atanmıştır.
@@ -12364,14 +12364,14 @@ Yukarıda da belirtitğimiz gibi yaygın sistemlerin hepsinde NULL adres gerçek
 yalnızca 0 sabiti ile değil, 0 değerini veren tamsayı türlerine ilişkin sabit ifadeleriyle de oluşturulabilir. Örneğin:
 
 ```
-    int *pi = 3 - 3;		/* geçerli, pi'ye o sistemdeki NULL adres atanıyor */
+    int *pi = 3 - 3;        /* geçerli, pi'ye o sistemdeki NULL adres atanıyor */
 ```
 
 Tabii programcılar tipik olarak NULL adresi düz 0 sabiti olarak kullanırlar. Örneğin:
 
 ```
     int a = 0;
-    int *pi = a;		/* geçersiz! göstericiye int bir değer atanmış */
+    int *pi = a;            /* geçersiz! göstericiye int bir değer atanmış */
 ```
 
 Burada göstericiye NULL adres atanmamıştır. Çünkü standartlara göre 0 değerini veren sabit ifadesi NULL adresi temsil etmektedir. Oysa bu örnekte
