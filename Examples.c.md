@@ -8390,19 +8390,19 @@ bildirirler. Örneğin:
     {
     	void bar(void);
 
-    	foo();        							/* geçerli, prototip bildirimi görülmüş durumda */
-    	bar();		  							/* geçerli, prototip bildirimi görülmüş durumda */
+    	foo();              /* geçerli, prototip bildirimi görülmüş durumda */
+    	bar();              /* geçerli, prototip bildirimi görülmüş durumda */
 
     	return 0;
     }
 
     void tar()
     {
-    	foo();									/* geçerli prototip bildirimi görülmüş durumda */
-    	bar();									/* geçersiz! prototip bildirimi derleyici tarafından görülmüyor */
+    	foo();              /* geçerli prototip bildirimi görülmüş durumda */
+    	bar();              /* geçersiz! prototip bildirimi derleyici tarafından görülmüyor */
     }
 
-    void foo(void)      						/* tanımlamada parametre parantezinin içinin boş bırakılmasıyla void yazılması arasında farklılık yok */
+    void foo(void)          /* tanımlamada parametre parantezinin içinin boş bırakılmasıyla void yazılması arasında farklılık yok */
     {
     	printf("foo\n");
     }
@@ -8427,7 +8427,7 @@ C90'da onun geri dönüş değeri int kabul edilecek ve "tanımsız davranış" 
     {
     	double result;
 
-    	result = sqrt(10);						/* C90'da tanımsız davranış! C99 ve ötesinde geçersiz' */
+    	result = sqrt(10);			/* C90'da tanımsız davranış! C99 ve ötesinde geçersiz' */
     	printf("%f\n", result);
 
     	return 0;
@@ -8446,7 +8446,7 @@ Standart C fonksiyonları için prototipleri biz kendimiz yazabiliriz. Ama bu ta
     {
     	double result;
 
-    	result = sqrt(10);						/* geçerli, prototip yazılmış ve doğru */
+    	result = sqrt(10);			/* geçerli, prototip yazılmış ve doğru */
     	printf("%f\n", result);
 
     	return 0;
