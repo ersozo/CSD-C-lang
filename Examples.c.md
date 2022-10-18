@@ -728,14 +728,14 @@ Windows'ta bağlayıcı olarak genellikle Microsoft'un link.exe isimli programı
 bağlayıcı ya da "_clang ldd bağlayıcısı_" kullanılır.
 
 Derleyicinin ürettiği amaç dosyanın uzantısı Windows sistemlerinde .obj biçimindedir. UNIX/Linux ve Mac OS sistemlerinde derleyicinin ürettiği amaç dosya
-`.o` uzantılı olur.
+.o uzantılı olur.
 
 Bağlayıcnın ürettiği "_çalıştırılabilir_" dosya ise Windows sistemlerinde .exe uzantılıdır. UNIX/Linux ve Mac OS sistemlerinde dosyanın çalıştırılabilir olup
 olmadığı uzantı ile değil dosya özellikleri (attributes) ile belirlenmektedir.
 
 Windows sistemlerinde Merhaba Dünya programının komut satırından derlenip çalıştırışması şöyle yapılır:
 
-**1.** Program bir editörde yazılır ve `.c` uzantılı biçimde saklanır. Biz bunun sample.c olduğunu varsayalım.
+**1.** Program bir editörde yazılır ve .c uzantılı biçimde saklanır. Biz bunun sample.c olduğunu varsayalım.
 
 **2.** Daha sonra komut satırı programı çalıştırılır ve dosayanın saklandığı dizine gidilir. Komut satırı programı olarak cmd.exe programını doğrudan kullanmayınız.
 Çünkü bu program gerekli "_path ayarlarına_" sahip değildir. Bunun yerine komut satırına geçmek için "_Developer Command Prompt for VS 2022_" programını kullanınız.
@@ -779,7 +779,7 @@ Microsoft'un bağlayıcı programı link.exe isimli programdır.
 
 ```
 
-Baradan sample.exe programı elde edilecektir. cl.exe derleyicisinde çalıştırılabilir dosyanın ismini değiştirebilmek için `/Fe:<dosya ismi>` seçeneği
+Baradan sample.exe programı elde edilecektir. cl.exe derleyicisinde çalıştırılabilir dosyanın ismini değiştirebilmek için /Fe:<dosya ismi> seçeneği
 kullanılmaktadır. Örneğin:
 
 ```
@@ -792,7 +792,7 @@ Artık çalıştırılabilir dosyanın ismi sample.exe değil test.exe olacaktı
 
 Linux sistemlerinde Merhaba Dünya programının derlenerek çalıştırılması da şöyle yapılmaktadr:
 
-**1.** Yine önce bir editörde program yazılır ve `.c` dosyası olarak kaydedilir. Biz kaynak dosyamıza sample.c ismini vermiş olalım.
+**1.** Yine önce bir editörde program yazılır ve .c dosyası olarak kaydedilir. Biz kaynak dosyamıza sample.c ismini vermiş olalım.
 
 **2.** Komut satırından kaynak dosyanın bulunduğu dizine geçilir. gcc derleyicisi ile clang derleyicilerinin komut satırı seçenkleri tamamen aynıdır.
 Derleme işlemi için şu komut uygulanır:
@@ -848,8 +848,8 @@ Micrsoft Visual Studio IDE'sinde bir C programının derlenip çalıştırılabi
 sonra bir giriş sayfası gözükür. Oradan **Continue without code** seçilerek ana ekrana geçilir.
 
 **2.** Visual Studio IDE'sinde bir çalışma yapmak için bir proje yaratılmalıdır. Ancal projeler de "_solution_" denilen kapların içerisindedir. O halde aslında bir
-proje yaratmak için bir solution da yaratılmaktadır. Bir solution aslında birdne fazla projeyi tutan bir kap gibidir. Proje yaratmak için **File/New/Project**"_
-seçilir. Proje türü olarak **C++ Empty Project**"_ seçilir.
+proje yaratmak için bir solution da yaratılmaktadır. Bir solution aslında birdne fazla projeyi tutan bir kap gibidir. Proje yaratmak için **File/New/Project**
+seçilir. Proje türü olarak **C++ Empty Project** seçilir.
 
 **3.** Bundan sonra Projeye bir isim verilir. Visual Studio proje bilgilerini burada ismi verilen bir dizin yaratarak onun içerisine yerleştirmektedir. **Location**
 proje dizininin hangi dizinin altında yaratılacağını belirtir. **Place solution and project in the same directory** checkbox'ı çarpılanmalıdır. Sonra proje
@@ -857,9 +857,9 @@ yaratılır. Artık elimizde içi boş bir proje vardır. Bir proje yaratıldı�
 **Solution Explorer** denilen pencereden faydalanılır.
 
 **4.** Artık sıra projeye bir kaynak dosya eklemeye gelmiştir. Bu işlem **Project/Add New Item** menüsü ile ya da **Solution Explorer**'da proje üzerinde bağlam menüsünü
-açıp **Add/New Item** seçilerek de yapılabilir. Artık karşımıza başka bir diyalog penceresi çıkacaktır. Burada **C++ File** seçilip dosya ismi "uzantısı `.c` olacak biçimde
+açıp **Add/New Item** seçilerek de yapılabilir. Artık karşımıza başka bir diyalog penceresi çıkacaktır. Burada **C++ File** seçilip dosya ismi "uzantısı .c olacak biçimde
 seçilmelidir. Microsoft C++ demekle aynı zamanda C'yi kastetmektedir. Aslında cl.exe derleyicisi hem C hem de C++ derleyicisidir. Bu derleyici hangi dile göre derleme yapacağına
-kaynak kodun uzantısına bakarak karar verir. Dolayısıyla bizim dosya uzantısını kesinlikle `.c` biçiminde girmemiz gerekir.
+kaynak kodun uzantısına bakarak karar verir. Dolayısıyla bizim dosya uzantısını kesinlikle .c biçiminde girmemiz gerekir.
 
 **5.** Kaynak dosya projeye eklendikten sonra kod yazılır.
 
@@ -977,7 +977,7 @@ yazılmış olan sayılara "_sabit_" denilmektedir. Örneğin:
 
 Burada a ve b değişken atomdur, ancak 10 sabit atomdur.
 
-**4. Operatörler (Operators):** Bir işleme yol açan ve işlem sonucunda bir değer üretilmesini sağlayan `+` gibi, `-` gibi, `*` gibi atomlara operatör denilmektedir.
+**4. Operatörler (Operators):** Bir işleme yol açan ve işlem sonucunda bir değer üretilmesini sağlayan + gibi, - gibi, \* gibi atomlara operatör denilmektedir.
 Örneğin:
 
 ```
@@ -2499,9 +2499,9 @@ int result;
 
 ```
 
-- ve - sembolleri hem toplama ve çıkartma operatörü hem de 'işaret -' ve 'işaret +' operatörünü temsil etmektedir. 'işaret +' ve 'işaret -' operatörleri
-  "_tek operandlı öncek (unary prefix)_" operatörlerdir. 'işaret -' operatörü operandının negatif değerini üretir. 'işaret +' operatörü ise operandı ile aynı
-  değeri üretmektedir. (Yani aslında 'işaret +' operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
+'+' ve '-' sembolleri hem toplama ve çıkartma operatörü hem de 'işaret -' ve 'işaret +' operatörünü temsil etmektedir. 'işaret +' ve 'işaret -' operatörleri
+"_tek operandlı öncek (unary prefix)_" operatörlerdir. 'işaret -' operatörü operandının negatif değerini üretir. 'işaret +' operatörü ise operandı ile aynı
+değeri üretmektedir. (Yani aslında 'işaret +' operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
 
 ```
 
@@ -2588,11 +2588,11 @@ int a;
 
 ```
 
-    ()				Soldan-Sağa
+    ()              Soldan-Sağa
     + - ++ --       Sağdan-Sola
-    * / %			Soldan-Sağa
-    + -				Soldan-Sağa
-    =				Sağdan-Sola
+    * / %           Soldan-Sağa
+    + -             Soldan-Sağa
+    =               Sağdan-Sola
 
 ```
 
@@ -4295,8 +4295,8 @@ Yerel değişkenler bildirildikleri yerden itibaren bildirildikleri bloğun sonu
     		a = 10;				/* geçerli, a faaliyet gösteriyor */
     		b = 20;				/* geçerli, b faaliyet gösteriyor */
     	}
-    	printf("%d\n", a);		/* geçerli, a faaliyet gösteriyor */
-    	printf("%d\n", b);		/* geçersiz! b burada faaliyet göstermiyor */
+    	printf("%d\n", a);      /* geçerli, a faaliyet gösteriyor */
+    	printf("%d\n", b);      /* geçersiz! b burada faaliyet göstermiyor */
     }
 
     void bar(void)
@@ -4879,7 +4879,7 @@ int a;
 
     if (a > 0)
     	printf("pozitif\n");
-    printf("son\n");			/* if deyiminin dışında */
+    printf("son\n");                            /* if deyiminin dışında */
 
     return 0;
 
@@ -7105,11 +7105,11 @@ Bu tür durumlarda boş deyimden faydalanılabilir. Örneğin:
 
 goto deyimi üç durumda anlamlı ve güzel bir biçimde kullanılabilir:
 
-1. İç içe döngülerden ya da döngü içerisindeki switch deyiminden tek hamlede çıkmak için,
+**1.** İç içe döngülerden ya da döngü içerisindeki switch deyiminden tek hamlede çıkmak için,
 
-2. Ters sırada kaynak boşaltımı yapmak için,
+**2.** Ters sırada kaynak boşaltımı yapmak için,
 
-3. Bazı özel algoritmalarda çözümü kolaylaştırmak için.
+**3.** Bazı özel algoritmalarda çözümü kolaylaştırmak için.
 
 Aşağıdaki örnekte goto ile, bir iç döngüden tek hamlede çıkılmıştır.
 
@@ -7567,17 +7567,17 @@ atar. Sonra, iki long değeri toplar. Sonra, geçici nesneyi yok eder ve sonucu 
 
 Uygulamada derleyiciler bu tür dönüştürmesini CPU yazmaçları içerisinde çok hızlı bir biçimde yaparlar. İşlem öncesi otomatik tür dönüştürmesinin ayrıntıları şöyledir:
 
-1. Tamsayı türü ile gerçek sayı türü işleme sokulduğunda, dönüştürme her zaman gerçek sayı türüne doğru yapılır. Örneğin, long long ile float işleme
-   sokulacak olsa, long long türü float türüne dönüştürülür ve sonuç float türünden çıkar.
+**1.** Tamsayı türü ile gerçek sayı türü işleme sokulduğunda, dönüştürme her zaman gerçek sayı türüne doğru yapılır. Örneğin, long long ile float işleme
+sokulacak olsa, long long türü float türüne dönüştürülür ve sonuç float türünden çıkar.
 
-2. Küçük sayı türü ile büyük tamsayı türü işleme sokulduğunda, küçük tamsyı türü büyük tamsayı türüne dönüştürülür. Örneğin, int ile long işleme sokulduğunda,
-   int türü long türüne dönüştürülür ve sonuç long türünden çıkar. Ancak, küçük işaretsiz tamsayı türü ile büyük işaretli tamsayı türü işleme sokulurken eğer
-   küçük tamsayı türü ile büyük tamsayı türü aynı uzunluktaysa, dönüştürme büyük türün işaretsiz biçimine doğru yapılır. Örneğin, int ile long türlerinin aynı
-   uzunlukta olduğunu varsayalım. Biz unsigned int ile long türünü işleme sokarsak unsigned int türü ve long türü, unsigned long türüne dönüştürülür ve sonuç
-   unsigned long türünden çıkar.
+**2.** Küçük sayı türü ile büyük tamsayı türü işleme sokulduğunda, küçük tamsyı türü büyük tamsayı türüne dönüştürülür. Örneğin, int ile long işleme sokulduğunda,
+int türü long türüne dönüştürülür ve sonuç long türünden çıkar. Ancak, küçük işaretsiz tamsayı türü ile büyük işaretli tamsayı türü işleme sokulurken eğer
+küçük tamsayı türü ile büyük tamsayı türü aynı uzunluktaysa, dönüştürme büyük türün işaretsiz biçimine doğru yapılır. Örneğin, int ile long türlerinin aynı
+uzunlukta olduğunu varsayalım. Biz unsigned int ile long türünü işleme sokarsak unsigned int türü ve long türü, unsigned long türüne dönüştürülür ve sonuç
+unsigned long türünden çıkar.
 
-3. Aynı tamsayı türünün işaretli ve işaretsiz biçimleri işleme sokulursa, işaretli tamsayı türü işaretsize dönüştürülür, sonuç işaretsiz türden çıkar.
-   Örneğin, int ile unsigned int işleme sokulursa int türü unsigned int türüne dönüştürülür ve sonuç unsigned int türünden çıkar. Örneğin:
+**3.** Aynı tamsayı türünün işaretli ve işaretsiz biçimleri işleme sokulursa, işaretli tamsayı türü işaretsize dönüştürülür, sonuç işaretsiz türden çıkar.
+Örneğin, int ile unsigned int işleme sokulursa int türü unsigned int türüne dönüştürülür ve sonuç unsigned int türünden çıkar. Örneğin:
 
 ```
     #include <stdio.h>
@@ -7596,19 +7596,19 @@ Uygulamada derleyiciler bu tür dönüştürmesini CPU yazmaçları içerisinde 
 
 ```
 
-4. İki gerçek sayı türü kendi aralarında işleme sokulursa, küçük gerçek sayı türü büyük gerçek sayı türüne dönüştürülür, sonuç büyük gerçek sayı türünden çıkar.
-   Örneğin, float ile double işleme sokulursa sonuç double türünden çıkar.
+**4.** İki gerçek sayı türü kendi aralarında işleme sokulursa, küçük gerçek sayı türü büyük gerçek sayı türüne dönüştürülür, sonuç büyük gerçek sayı türünden çıkar.
+Örneğin, float ile double işleme sokulursa sonuç double türünden çıkar.
 
-5. C'de tamsayı işlemleri en az int duyarlılığında yapılmaktadır. int türünden küçük olan türler kendi aralarında işleme sokulursa, önce her iki tür de
-   int türüne dönüştürülür ve sonuç int türünden çıkar. Bu işleme "int türüne yükseltme (integer promotion)" denilmektedir. Örneğin, short ile short işleme sokulursa
-   sonuç short çıkmaz. Önce, her iki operand da bağımısz olarak int türüne dönüştürülür ve sonuç int türünden çıkar. Benzer biçimde örneğin, short türü ile
-   char türü işleme sokulursa önce, her iki tür de bağımsız olarak int türüne dönüştürülür ve sonuç int türünden çıkar. int türüne yükseltme kuralının şöyle bir ayrıntısı
-   vardır: Eğer ilgili sistemde short türü ile int türü aynı uzunluktaysa, bu durumda operandlardan biri unsigned short ve diğeri int ya da int türünden küçük ise, dönüştürme
-   unsigned int türüne yapılmaktadır. Örneğin, short tütü ile int türünün aynı olduğu DOS sisteminde çalışıyor olalım. Burada biz short ile unsigned short türünü
-   işleme soksak sonuç unsigned int türünden çıkar. Benzer biçimde unsigned short ile int türünü işleme soksak sonuç yine unsigned int türünden çıkar.
+**5.** C'de tamsayı işlemleri en az int duyarlılığında yapılmaktadır. int türünden küçük olan türler kendi aralarında işleme sokulursa, önce her iki tür de
+int türüne dönüştürülür ve sonuç int türünden çıkar. Bu işleme "int türüne yükseltme (integer promotion)" denilmektedir. Örneğin, short ile short işleme sokulursa
+sonuç short çıkmaz. Önce, her iki operand da bağımısz olarak int türüne dönüştürülür ve sonuç int türünden çıkar. Benzer biçimde örneğin, short türü ile
+char türü işleme sokulursa önce, her iki tür de bağımsız olarak int türüne dönüştürülür ve sonuç int türünden çıkar. int türüne yükseltme kuralının şöyle bir ayrıntısı
+vardır: Eğer ilgili sistemde short türü ile int türü aynı uzunluktaysa, bu durumda operandlardan biri unsigned short ve diğeri int ya da int türünden küçük ise, dönüştürme
+unsigned int türüne yapılmaktadır. Örneğin, short tütü ile int türünün aynı olduğu DOS sisteminde çalışıyor olalım. Burada biz short ile unsigned short türünü
+işleme soksak sonuç unsigned int türünden çıkar. Benzer biçimde unsigned short ile int türünü işleme soksak sonuç yine unsigned int türünden çıkar.
 
-6. Bölme işleminde her iki operand da tamsayı türlerine ilişkinse, sonuç tamsayı türüne ilişkin çıkar. Bölüm noktalı olsa bile noktadan sonraki kısım atılmaktadır.
-   Örneğin:
+**6.** Bölme işleminde her iki operand da tamsayı türlerine ilişkinse, sonuç tamsayı türüne ilişkin çıkar. Bölüm noktalı olsa bile noktadan sonraki kısım atılmaktadır.
+Örneğin:
 
 ```
     a = 10 / 4;
@@ -7739,12 +7739,12 @@ ve geri dönüş değerlerinde char gibi short türler, geleneksel olarak kullan
 Pekiyi neden fonksiyonların parametrelerinde ve geri dönüş değerlerinde int türünden küçük türler programcılar tarafından tercih edilmemektedir?
 Yani, bu geleneğin anlamı nedir? İşte bunun iki nedeni vardır:
 
-1. C'de tamsayı işlemler zaten her zaman "_int türüne yükseltme kuralı_" gereği en az int duyarlılığında yapılmaktadır. Bu durumda bir değişkenin int türünden
-   küçük olmasının çoğu kez bir anlamı yoktur. Aynı zamanda parametre aktarımı ve geri dönüş değerinin oluşturulması da zaten işlemciler tarafından en az
-   int duyarlılıkta yapılmaktadır. Yani, parametrelerin ve geri dönüş değerlerinin int türden olması daha doğal bir gösterim sunmaktadır.
+**1.** C'de tamsayı işlemler zaten her zaman "_int türüne yükseltme kuralı_" gereği en az int duyarlılığında yapılmaktadır. Bu durumda bir değişkenin int türünden
+küçük olmasının çoğu kez bir anlamı yoktur. Aynı zamanda parametre aktarımı ve geri dönüş değerinin oluşturulması da zaten işlemciler tarafından en az
+int duyarlılıkta yapılmaktadır. Yani, parametrelerin ve geri dönüş değerlerinin int türden olması daha doğal bir gösterim sunmaktadır.
 
-2. Eskiden fonksiyon prototiplerinin olmadığı zamanlarda zaten "default argument conversion" kuralı gereğince, int türünden küçük olan türler, int türüne
-   yükseltilerek fonksiyona aktarılıyordu. Dolayısıyla bu gelenek, zaten eski zamanlardan beri bu gerekçeyle uygulanıyordu.
+**2.** Eskiden fonksiyon prototiplerinin olmadığı zamanlarda zaten "default argument conversion" kuralı gereğince, int türünden küçük olan türler, int türüne
+yükseltilerek fonksiyona aktarılıyordu. Dolayısıyla bu gelenek, zaten eski zamanlardan beri bu gerekçeyle uygulanıyordu.
 
 C standartlarına göre derleyiciler, bir kodu, kodun etkisi aynı kalacak biçimde ancak daha hızlı çalışacak ya da daha az yer kaplayacak biçimde optimize edebilir.
 Burada önemli olan programcının varsaydığı ya da oluşturmak istediği, her şeyin, optimize edilmiş kodda oluşturulmuş olmasıdır. Örneğin:
@@ -8082,8 +8082,8 @@ fonksiyonun en azından geri dönüş değerinin türü hakkında bir bilgiyi ed
 
 İşte derleyicinin, çağrılan fonksiyonun çağrılma noktasına kadar en azından geri dönüş değerinin türü hakkında bir bilgi edinebilmesinin iki yoldu vardır:
 
-1. Çağrılan fonksiyonu, çağıran fonksiyonun daha yukarısında tanımlamak,
-2. Çağrılan fonksiyonun, "_prototip_" denilenm bir bildirimini çağrılma noktasından yukarıda bir yere yerleştirmek. Örneğin:
+**1.** Çağrılan fonksiyonu, çağıran fonksiyonun daha yukarısında tanımlamak,
+**2.** Çağrılan fonksiyonun, "_prototip_" denilenm bir bildirimini çağrılma noktasından yukarıda bir yere yerleştirmek. Örneğin:
 
 ```
     double foo(void)
@@ -8555,14 +8555,14 @@ En azından bu garanti edilmiştir.
 
 Aslında C derleyicisi kendi içerisinde iki modülden oluşmaktadır: Önişlemci (Preprocessor) ve Derleme (Compile) Modülleri:
 
-> .c ----> Önişlemci Modülü -----> Derleme Modülü -----> Object Dosya
+>                           .c ----> Önişlemci Modülü -----> Derleme Modülü -----> Object Dosya
 
 Kaynak kod önişlemci modülü tarafından alınır. Önişlemci, kaynak kod üzerinde çeşitli düzenlemeleri yapar ve kodu derleme modülüne verir. Derleme işleminin
 bütün faaliyetleri derleme modülü tarafından yapılmaktadır. Yani C derleyicisi dediğimiz şey aslında bu derleme modülüdür. Ancak, önişlemci de derleyicinin bir parçasıdır.
 
-C'de # ile başlayan satırlar önişlemciye ilişkindir. Yani önişlemci #'li satırlarla uğraşmaktadır.
+C'de \# ile başlayan satırlar önişlemciye ilişkindir. Yani önişlemci #'li satırlarla uğraşmaktadır.
 
-#'den sonra ismine "önişlemci komutu" denilen bir anahtar sözcük gelir. Önişlemci komutu önişlemciye ne yapması gerektiğini belirtmektedir. Pek çok
+\#'den sonra ismine "önişlemci komutu" denilen bir anahtar sözcük gelir. Önişlemci komutu önişlemciye ne yapması gerektiğini belirtmektedir. Pek çok
 önişlemci komutu vardır. Ancak bunların arasında "_include_" ve "_define_" önişlemci komutları, en çok kullanılanlardır. Biz de kursumuzun bu bölümünde
 bu iki komutu inceleyeceğiz. Diğer önişlemci komutlarını kursumuzun son bölümlerinde ele alacağız.
 
@@ -8669,9 +8669,9 @@ Sembolik sabitlerin, derleme modülü için bir sabit statüsünde olduğuna dik
 bir yerinde yazılabilir. Bir fonksiyonun içinde yazılması ile dışında yazılması arasında farklılık yoktur. Nerede yazılmışsa oradan kaynak kodun sonuna kadarki
 bölgede etki göstermektedir.
 
-#define önişlemci komutları için en iyi yer, programın tepesi ya da bir başlık dosyasının içidir.
+\#define önişlemci komutları için en iyi yer, programın tepesi ya da bir başlık dosyasının içidir.
 
-#define komutunda komutun STR1 kısmı değişken ya da anahtar sözcük olabilir. Sabit, ayıraç ya da operatör olamaz. Örneğin aşağıdaki komutlar geçersizdir:
+\#define komutunda komutun STR1 kısmı değişken ya da anahtar sözcük olabilir. Sabit, ayıraç ya da operatör olamaz. Örneğin aşağıdaki komutlar geçersizdir:
 
 ```
     #define +		-
@@ -8683,7 +8683,7 @@ bölgede etki göstermektedir.
 Ancak komutun STR2 kısmı herhangi bir yazı olabilir. Aşağıdaki komutlar geçerlidir:
 
 ```
-    #define TERMINATOR		;
+    #define TERMINATOR      ;
     #define ADD             +
 
 ```
@@ -8717,7 +8717,7 @@ tam i = 0;
 
 ```
 
-#define komutunda genel olarak STR1 yazısına "makro (macro)" da denilmektedir. Örneğin:
+\#define komutunda genel olarak STR1 yazısına "_makro (macro)_" da denilmektedir. Örneğin:
 
 ```
     #define MAX		10
@@ -8836,7 +8836,7 @@ int a;
 
 ```
 
-#define komutunda komutun STR2 kısmı hiç olmayabilir. Örneğin:
+\#define komutunda komutun STR2 kısmı hiç olmayabilir. Örneğin:
 
 ```
     #define TEST
@@ -9082,10 +9082,10 @@ daha hızlı bir çalışmayı sağlar.
 
 Uzun fonksiyonların makro olarak yazılması ise kötü bir tekniktir. Çünkü:
 
-1. Uzun bir fonksiyonda birkaç makine komutunun elimine edilmesinin pratik bir faydası olmayabilir.
-2. Uzun makroların yazılması zordur ve okunabilirliği azaltmaktadır.
-3. Uzun makrolar her çağrılan yere enjekte edileceği için kodu büyütürler. Elde edilen hıza kodda yaşanan büyüme, kar-zarar ilişkisi dikkate alındığında
-   toplamda zarar oluşturmaktadır.
+**1.** Uzun bir fonksiyonda birkaç makine komutunun elimine edilmesinin pratik bir faydası olmayabilir.
+**2.** Uzun makroların yazılması zordur ve okunabilirliği azaltmaktadır.
+**3.** Uzun makrolar her çağrılan yere enjekte edileceği için kodu büyütürler. Elde edilen hıza kodda yaşanan büyüme, kar-zarar ilişkisi dikkate alındığında
+toplamda zarar oluşturmaktadır.
 
 Makroları çağırırken dikkat etmek gerekir. Makro argümanlarında ++ ve -- gibi operatörler "_tanımsız davranış (undefined behavior)_" oluşturabilirler. Örneğin:
 
@@ -9152,12 +9152,12 @@ en az 4095 karakterlik satırları desteklemesi gerekmektedir.
 #include <stdio.h>
 #include <stdlib.h>
 
-#define error_check(result) \
-{                           \
-    if (!result) {          \
-    printf("Error!\n");     \
-    exit(1);                \
-    }                       \
+#define error_check(result)         \
+{                                   \
+    if (!result) {                  \
+    printf("Error!\n");             \
+    exit(1);                        \
+    }                               \
 }
 
 int main(void)
@@ -9220,7 +9220,7 @@ makromuzun da tam bir fonksiyon taklidi yapamadığı açıktır. İşte bu tür
     #define error_check(result)         \
     do  {                               \
         if (!result) {                  \
-        	printf("Error!\n");         \
+            printf("Error!\n");         \
     	    exit(1);                    \
     	}                               \
     } while (0)
@@ -9348,7 +9348,7 @@ printf("foo\n");
 }
 ```
 
-#include komutu kaynak kodun herhangi bir yerine yerleştirilebilir. Tabii yerleştirme yerine göre yerleştirilen dosya içeriğinin anlamlı olması
+\#include komutu kaynak kodun herhangi bir yerine yerleştirilebilir. Tabii yerleştirme yerine göre yerleştirilen dosya içeriğinin anlamlı olması
 gerekir. #include komutu da tek bir satıra yazılmak zorundadır.
 
 Aşağıdaki örnekte #include komutu yerel bir blokta bulundurulmuştur. İçerik itibari ile bulundurulanyer geçerli bir kod oluşturur.
@@ -9375,7 +9375,7 @@ int a =
 10
 ```
 
-#include komutunda önişlemci, include edilen dosyayı komutun bulunduğu yere yapıştırdıktan sonra önişlem işlemlerini yeniden açtığı dosya üzerinde de yapar.
+\#include komutunda önişlemci, include edilen dosyayı komutun bulunduğu yere yapıştırdıktan sonra önişlem işlemlerini yeniden açtığı dosya üzerinde de yapar.
 Böylece biz include dosyalarına önişlemci komutlarını yerleştirebiliriz. Örneğin include ettiğimiz dosyaların içerisinde #define önişlemci komutları da
 olabilir. Bu durumda bu komutlar da etki gösterecektir.
 
@@ -9578,7 +9578,7 @@ kötü bir teknik uygulanmış olur. Örneğin:
 
 Koşul operatörünün kullanılması gereken üç durum vardır.
 
-1. Bir karşılaştırmanın sonucuna göre elde edilen değerin bir nesneye atanması gerektiği durumlar. Örneğin:
+**1.** Bir karşılaştırmanın sonucuna göre elde edilen değerin bir nesneye atanması gerektiği durumlar. Örneğin:
 
 ```
     result = val % 2 == 0 ? 100 : 200;
@@ -9591,12 +9591,14 @@ Koşul operatörünün kullanılması gereken üç durum vardır.
     	result = 200;
 ```
 
-2. Fonksiyon çağırırken argüman ifadelerinde koşul operatörü kullanılabilir. Örneğin:
+**2.** Fonksiyon çağırırken argüman ifadelerinde koşul operatörü kullanılabilir. Örneğin:
 
 ```
     foo(val % 2 == 0 ? 100 : 200);
+```
 
 Bu işlemin eşdeğer if karşılığı şöyledir:
+
 ```
 
     if (val % 2 == 0)
@@ -9605,8 +9607,10 @@ Bu işlemin eşdeğer if karşılığı şöyledir:
     	foo(200);
 
 ```
-3. return ifadelerinde de koşul operatörü kullanılabilir. Örneğin:
 
+**3.** return ifadelerinde de koşul operatörü kullanılabilir. Örneğin:
+
+```
     return val % 2 == 0 ? 100 : 200;
 ```
 
@@ -10033,9 +10037,9 @@ bile halen bu özelliği desteklememektedir.
 
 Bir diziyi dizi yapan iki özellik vardır:
 
-1. Dizinin tüm elemanları aynı türdendir.
+**1.** Dizinin tüm elemanları aynı türdendir.
 
-2. Elemanlar arasında hiç boşluk yoktur. Yani elemanlar bellekte ardışıl bir biçimde tutulur.
+**2.** Elemanlar arasında hiç boşluk yoktur. Yani elemanlar bellekte ardışıl bir biçimde tutulur.
 
 Biz bir grup nesneyi tanımladığımızda bunların ardışıllığı konusunda C'de hiçbir garanti verilmemektedir. Örneğin:
 
@@ -11353,7 +11357,7 @@ char \*pc;
 }
 ```
 
-C'de adres ile ilgili işlem yapan 4 operatör vardır: &, \*, [] ve -> operatörleri. Biz burada bu operatörleri biraz daha ayrıntılı olarak inceleyeceğiz.
+C'de adres ile ilgili işlem yapan 4 operatör vardır: &, \*, [ ] ve -> operatörleri. Biz burada bu operatörleri biraz daha ayrıntılı olarak inceleyeceğiz.
 Ancak -> operatörü "_yapılar (structures)_" konusu ile ilgili olduğu için onu yapılar konusunda göreceğiz.
 
 & operatörü, tek operandlı önek (unary prefix) bir adres operatörüdür. Bu operatör operandı olan nesnenin bellek adresini verir. Daha önceden de belirtildiği gibi
@@ -11373,17 +11377,17 @@ oluşmaktadır. Biz bir nesnenin adresini aldığımızda onu aynı türden bir 
 
 ```
 
-    ()                  Soldan-Sağa
-    + - ++ -- !	&       Sağdan-Sola
-    * / %				Soldan-Sağa
-    + -					Soldan-Sağa
-    <  > <= >=          Soldan-Sağa
-    != ==				Soldan-Sağa
-    &&					Soldan-Sağa
-    ||					Soldan-Sağa
-    ?:					Sağdan-Sola
-    =, +=, /=, *=,...   Sağdan-Sola
-    ,					Soldan-Sağa
+    ()                      Soldan-Sağa
+    + - ++ -- ! &           Sağdan-Sola
+    * / %                   Soldan-Sağa
+    + -                     Soldan-Sağa
+    <  > <= >=              Soldan-Sağa
+    != ==                   Soldan-Sağa
+    &&                      Soldan-Sağa
+    ||                      Soldan-Sağa
+    ?:                      Sağdan-Sola
+    =, +=, /=, *=,...       Sağdan-Sola
+    ,                       Soldan-Sağa
 ```
 
 Örneğin a bir nesne belirtmek üzere &a + 1 gibi bir ifadede önce a'nın adresi alınır, sonra bu adrese 1 toplanır. & operatörünün operandının bir nesne
@@ -11397,17 +11401,17 @@ adresteki nesneye erişmekte kullanılır. * operatörü ile erişilen nesnenin 
 elde edilen nesne, p adresi hangi türdense o türden olacaktır. \* operatörü de öncelik tablosunun ikinci düzeyinde sağdan sola grupta bulunmaktadır.
 
 ```
-    ()					Soldan-Sağa
-    + - ++ -- !	& *     Sağdan-Sola
-    * / %				Soldan-Sağa
-    + -					Soldan-Sağa
-    <  > <= >=          Soldan-Sağa
-    != ==				Soldan-Sağa
-    &&					Soldan-Sağa
-    ||					Soldan-Sağa
-    ?:					Sağdan-Sola
-    =, +=, /=, *=,...   Sağdan-Sola
-    ,					Soldan-Sağa
+    ()                      Soldan-Sağa
+    + - ++ -- ! & *         Sağdan-Sola
+    * / %                   Soldan-Sağa
+    + -                     Soldan-Sağa
+    <  > <= >=              Soldan-Sağa
+    != ==                   Soldan-Sağa
+    &&                      Soldan-Sağa
+    ||                      Soldan-Sağa
+    ?:                      Sağdan-Sola
+    =, +=, /=, *=,...       Sağdan-Sola
+    ,                       Soldan-Sağa
 ```
 
 \* operatörünün operandı bir adres bilgisi olmak zorunadır. Örneğin göstericiler, dizi isimleri birer adres belirtmektedir:
@@ -11454,29 +11458,29 @@ int b[] = {10, 20, 30};
 }
 ```
 
-Dizi elemanlarına erişmekte kullandığımız [] aslında bir adres operatörüdür. Köşeli parantez operatörü, tek operandlı sonek (unary postfix) bir operatördür.
+Dizi elemanlarına erişmekte kullandığımız [ ] aslında bir adres operatörüdür. Köşeli parantez operatörü, tek operandlı sonek (unary postfix) bir operatördür.
 p[n] ifadesi tamamen \*(p + n) ile eşdeğerdir. Yani p[n] "p adresinden n ilerinin içeriği" anlamına gelmektedir. Tabii burada p adresinden n ileri demekle
-p adresinden n byte ileriyi kastetmiyoruz. p adresinden n \* p'nin türünün uzunluğu kadar byte ilerinin içeriğini kastediyoruz. [] operatöründe köşeli parantez
-içerisindeki ifadenin tamsayı türlerine ilişkin olması gerekir. [] opeatörü öncelik tablosunun en yukarısında soldan öncelikli grupta bulunmaktadır:
+p adresinden n byte ileriyi kastetmiyoruz. p adresinden n \* p'nin türünün uzunluğu kadar byte ilerinin içeriğini kastediyoruz. [ ] operatöründe köşeli parantez
+içerisindeki ifadenin tamsayı türlerine ilişkin olması gerekir. [ ] opeatörü öncelik tablosunun en yukarısında soldan öncelikli grupta bulunmaktadır:
 
 ```
-    () []				Soldan-Sağa
-    + - ++ -- !	& *		Sağdan-Sola
-    * / %				Soldan-Sağa
-    + -					Soldan-Sağa
-    <  > <= >=			Soldan-Sağa
-    != ==				Soldan-Sağa
-    &&					Soldan-Sağa
-    ||					Soldan-Sağa
-    ?:					Sağdan-Sola
-    =, +=, /=, *=,...	Sağdan-Sola
-    ,					Soldan-Sağa
+    () []                   Soldan-Sağa
+    + - ++ -- ! & *         Sağdan-Sola
+    * / %                   Soldan-Sağa
+    + -                     Soldan-Sağa
+    <  > <= >=              Soldan-Sağa
+    != ==                   Soldan-Sağa
+    &&                      Soldan-Sağa
+    ||                      Soldan-Sağa
+    ?:                      Sağdan-Sola
+    =, +=, /=, *=,...       Sağdan-Sola
+    ,                       Soldan-Sağa
 ```
 
-[] operatörünün operandı bir adres bilgisi olmak zorundadır. Yani operand örneğin, bir gösterici olabilir, bir dizi ismi olabilir. Biz daha önce []
+[ ] operatörünün operandı bir adres bilgisi olmak zorundadır. Yani operand örneğin, bir gösterici olabilir, bir dizi ismi olabilir. Biz daha önce [ ]
 operatörünü dizi elemanlarına erişmekte kullanmıştık. Örneğin a[i] ifadesini a dizisinin i'inci indisli elemanına erişmek için kullanmıştık. a dizi ismi
-dizinin başlangıç adresi anlamına geldiğine göre a[i] ifadesi tamamen \*(a + i) ile eşdeğerdir. Tabii [] operatörünü biz daha önce hep dizi ismiyle kullanmıştık.
-Aslında bu operatörün operandı herhangi bir adres bilgisi olabilir. Örneğin [] operatörünü bir gösterici ile kullanabiliriz:
+dizinin başlangıç adresi anlamına geldiğine göre a[i] ifadesi tamamen \*(a + i) ile eşdeğerdir. Tabii [ ] operatörünü biz daha önce hep dizi ismiyle kullanmıştık.
+Aslında bu operatörün operandı herhangi bir adres bilgisi olabilir. Örneğin [ ] operatörünü bir gösterici ile kullanabiliriz:
 
 ```
     int a[] = {10, 20, 30, 40, 50};
@@ -11558,7 +11562,7 @@ Ancak \*++p ifadesinde biz önce p göstericisinin içerisinde adresi bir artır
 belirtmek üzere &\*p ifadesinde önce p adresindeki nesneye erişilip, sonra onun adresi alınmıştır. Bu da tabii p adresiyle aynıdır. a bir nesne belirtmek üzere
 \*&a ifadesi de daha önce belirttiğimiz gibi a ile aynı anlamdadır.
 
-[] operatörünün & operatöründen daha öncelikli olduğuna dikkat ediniz. Örneğin &a[n] ifadesi a adresinden n ilerinin içeriğinin adresi anlamına gelmektedir. Bu ifade
+[ ] operatörünün & operatöründen daha öncelikli olduğuna dikkat ediniz. Örneğin &a[n] ifadesi a adresinden n ilerinin içeriğinin adresi anlamına gelmektedir. Bu ifade
 &\*(a + n) ifadesi ile eşdeğer olduğuna göre aslında a + n ile de eşdeğerdir. Yani a adresinden n ilerinin içeriğinin adresi, aslında a adresinden n ilerinin adresi aynı anlamdadır.
 Örneğin:
 
@@ -12023,7 +12027,7 @@ swap(&pi[i], &pi[size - 1 - i]);
 }
 ```
 
-[] operatörünün \* ve & operatörlerinden daha öncelikli olduğunu anımsayınız. Bu durumda p bir adres belirtmek üzere &p[n] ile p + n aynı anlamdadır.
+[ ] operatörünün \* ve & operatörlerinden daha öncelikli olduğunu anımsayınız. Bu durumda p bir adres belirtmek üzere &p[n] ile p + n aynı anlamdadır.
 Yani, p adresinden n ilerinin içeriğinin adresi aslında p adresindne n ilerinin adresidir.
 
 Yazıların fonksiyonlara parametre yoluyla aktarılması için tipik olarak fonksiyonun parametre değişkeni char tüdrden bir gösterici olur. Fonksiyon da
@@ -12073,7 +12077,7 @@ str bir yazıyı gösteren bir gösterici olmak üzere null karakter görene kad
     }
 ```
 
-2. [] operatör ile
+2. [ ] operatör ile
 
 ```
     for (size_t i = 0; str[i] != '\0'; ++i) {
