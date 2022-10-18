@@ -762,7 +762,7 @@ cl.exe programı derlemeyi yaptıktan sonra zaten "_linker_" programını kendis
 **4.** Artık cl.exe derleme işlemini yapıp bağlayıcı programı da (link.exe) çalıştırdığı için çalıştırılabilir dosya oluşturulmuş olur. Tek yapacağmız şey
 çalıştırılabilir programın ismini yazarak ENTER tuşuna basmaktır.
 
-cl.exe derleyicisinin yalnızca derleme yapmasını ancak bağlayıcıyı çalıştırmamasını istiyorsak `/c` seçeneğini (switch) kullanmamız gerekir. Örneğin:
+cl.exe derleyicisinin yalnızca derleme yapmasını ancak bağlayıcıyı çalıştırmamasını istiyorsak /c seçeneğini (switch) kullanmamız gerekir. Örneğin:
 
 ```
 
@@ -813,7 +813,7 @@ Derleme işlemi için şu komut uygulanır:
 ```
 
 gcc de tıpkı cl.exe programında olduğu gibi önce derleme işlemini yapar. Sonra bağlayıcı programı çalıştırıp çalıştırılabilen dosyayı oluşturur.
-gcc derleyicisi derlemeyi bitirip bağlayıcıyı çalıştırdıktan sonra "_object dosyayı_" silmektedir. Bu biçimde oluşturulan çalıştırılabilen dosya `a.out`
+gcc derleyicisi derlemeyi bitirip bağlayıcıyı çalıştırdıktan sonra "_object dosyayı_" silmektedir. Bu biçimde oluşturulan çalıştırılabilen dosya a.out
 ismindedir. Bu dosyanın çalıştırılması şöyle yapılmalıdır:
 
 ```
@@ -1090,7 +1090,7 @@ ayarlanmış bir editörde açıldığında aynı biçimde gözükmesini sağlam
 
 **C'nin yazım kuralı iki madde ile özetlenebilir:**
 
-**1.** `#'`li satırlar hariç atomlar arasında istenildiği kadar boşluk karakterleri bırakılabilir. Örneğin aşağıdaki program geçerlidir:
+**1.** \#'li satırlar hariç atomlar arasında istenildiği kadar boşluk karakterleri bırakılabilir. Örneğin aşağıdaki program geçerlidir:
 
 ```
 
@@ -1115,7 +1115,7 @@ ayarlanmış bir editörde açıldığında aynı biçimde gözükmesini sağlam
 
 ```
 
-**2.** `#`'li satırlar hariç atomlar istenildiği kadar bitişik yazılabilirler. Ancak anahtar sözcüklerle değişkenler ve sabitler bitişik yazılamazlar.
+**2.** \#'li satırlar hariç atomlar istenildiği kadar bitişik yazılabilirler. Ancak anahtar sözcüklerle değişkenler ve sabitler bitişik yazılamazlar.
 Merhaba Dünya programını aşağıdaki gibi kompakt bir biçimde de yazabilirdik:
 
 ```
@@ -1282,7 +1282,7 @@ Bir C derleyicisinde aslında float, double ve long double türlerinin hepsi 4 b
 
 C99 ile birlikte C'ye ikili değerler turmak için _Bool isminde yeni bir tür daha eklenmiştir. (Bu tür isminin bu biçimde size tuhaf gelecek şekilde isimlendirilmesinin
 amacı geçmişe doğru uyumu koruyabilmektir. C99 çıktğında, bool gibi bir ismi programcılar kendi programlarında kullanmış olabileceklerinden dolayı,
-bu türü temsil etmek için "\_reserved_" isimlerden biri tercih edilmiştir. C'de başı `_` ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
+bu türü temsil etmek için "\_reserved_" isimlerden biri tercih edilmiştir. C'de başı '\_' ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
 yasaklanmış durumdaydı.) \_Bool türü için standatlar, 0 ve 1 değerlerini tutabilen bir yapıda olması gerektiğini belirtmişlerdir. Dolayısıyla \_Bool türü aslında
 herhangi bir tamsayı türünün uzunluğu kadar olabilir. Tabii derleyiciler bu türden nesneler için genel olarak 1 byte yer ayırmaktadır.
 
@@ -1520,7 +1520,7 @@ En çok kullanılan format karakterleri şunlardır:
 
 printf fonksiyonunda % karakterinden sonra fakat format karakterinden önce bir sayı belirtilirse ilgili argüman, o sayı ile belirtilen genişlikte
 bir alan ayrılarak o alanda yazılır. Default durum sağa dayalı olarak yazdırılmasıdır. Sola dayalı yazdırmak için genişlik belirtilen bu sayının
-önüne ayrıca bir de `-` karakteri eklenir. Özellikle sütunsal hizalamalar için `%-nd` gibi (buarada n yerine bir sayı getirilmelidir) format karakterleri
+önüne ayrıca bir de '-' karakteri eklenir. Özellikle sütunsal hizalamalar için %-nd gibi (buarada n yerine bir sayı getirilmelidir) format karakterleri
 kullanılmaktadır. Eğer genişlik belirten sayı yazdırılacak sayının basamak sayısından az ise, sayının hepsi yazdırılmaktadır.
 
 ```
@@ -1545,9 +1545,9 @@ kullanılmaktadır. Eğer genişlik belirten sayı yazdırılacak sayının basa
 
 ```
 
-float ve double sayılarda sayının toplam genişliği ve noktadan sonraki kısmın genişliği ayrı ayrı belirtilebilmektedir. Örneğin `%10.2f` toplam 10 alan içerisinde,
+float ve double sayılarda sayının toplam genişliği ve noktadan sonraki kısmın genişliği ayrı ayrı belirtilebilmektedir. Örneğin %10.2f toplam 10 alan içerisinde,
 sayı noktadan sonra iki basamak olacak biçimde yazdırılır. Burada yalnızca noktanın sağ tarafının kaç basamak yazdırılacağı da belirtilebilir. Örneğin
-`%.3f` sayının tam kısmının tam olarak yazılacağı ancak noktadan sonraki kısmın üç basamak biçiminde yuvarlanarak yazdırılacağı anlamına gelir.
+%.3f sayının tam kısmının tam olarak yazılacağı ancak noktadan sonraki kısmın üç basamak biçiminde yuvarlanarak yazdırılacağı anlamına gelir.
 
 ```
 
@@ -1641,8 +1641,8 @@ kastedilmektedir. Ancak bu kural C99 ve ötesinde değiştirilmiştir. C99 ve ö
 
 ```
 
-C'de bir tamsayı 10'luk, 16'lık ve 8'lik sistemde bir sabit biçiminde belirtilebilmektedir. Default sistem 10'luk sistemdir. Ancak bir tamsayı `0x` ile
-ya da `0X` ile başlanarak yazılırsa, bu durumda sayının 16'lık sistemde yazılmış olduğu kabul edilir. Eğer bir sayı başına 0 getirilerek yazılırsa bu da
+C'de bir tamsayı 10'luk, 16'lık ve 8'lik sistemde bir sabit biçiminde belirtilebilmektedir. Default sistem 10'luk sistemdir. Ancak bir tamsayı 0x ile
+ya da 0X ile başlanarak yazılırsa, bu durumda sayının 16'lık sistemde yazılmış olduğu kabul edilir. Eğer bir sayı başına 0 getirilerek yazılırsa bu da
 sayının 8'lik sistemde yazılmış olduğu anlamına gelir. Örneğin:
 
 ```
@@ -1732,7 +1732,7 @@ içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 **2.** Sayı nokta içermiyorsa, sonunda ek yoksa ve 16'lık sistemde ya da 8'lik sistemde yazılmışsa; sayı sırasıyla int, unsigned int, long, unisgned long,
 long long ve unsigned long long sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir. Çalıştığımız sistemde int ve long türünün 4 byte
-ancak long long türünün `8 byte `olduğunu varsayalım.
+ancak long long türünün 8 byte olduğunu varsayalım.
 
 ```
 
