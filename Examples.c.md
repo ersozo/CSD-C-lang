@@ -2323,7 +2323,7 @@ char ch;
 [14. Ders 07/07/2022 - Perşembe]()
 
 Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "_operatör_" denilmektedir. Bir operatörün işleme soktuğu ifadelere ise
-"_operand (operand)_" denir. Örneğin `a + b` ifadesinde `+` bir operatördür. a ve b bu operatörün operandlarıdır.
+"_operand (operand)_" denir. Örneğin a + b ifadesinde + bir operatördür. a ve b bu operatörün operandlarıdır.
 
 Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
 
@@ -2819,7 +2819,7 @@ Ancak bu durum kodun geçerli olduğu anlamına gelmemektedir. (Dolayısıyla C'
 derlemediğine bakarak karar vermememiz gerekir. Çünkü derleyiciler geçersiz kodları da başarılı bir biçimde derleyebilmektedir.)Tabii bizim dilin kurallarına tamamen
 uymamız gerekir. Çünkü bir derleyici geçersiz programı derliyor olsa da diğer bir derleyici onu derlemeyebilir. Ancak kodumuz geçerliyse her derleyici kodumuzu derlemek zorundadır.
 
-C'de bir nesne bir ifadede `++` ya da `--` operatörleriyle kullanılmışsa artık o ifadede bir daha o nesne kullanılmamalıdır. Eğer kullanılırsa bu durum
+C'de bir nesne bir ifadede ++ ya da -- operatörleriyle kullanılmışsa artık o ifadede bir daha o nesne kullanılmamalıdır. Eğer kullanılırsa bu durum
 tanımsız davranışa yol açmaktadır. Bu durumda aşağıdaki gibi kodların hepsi geçerli ancak tanımsız davranışa yol açan kodlardır:
 
 ```
@@ -2939,7 +2939,7 @@ C'de üç mantıksal operatör vardır:
 
 ```
 
-&& ve || operatörleri iki operand'lı arek operatörlerdir. Ancak ! operatörü tek operand'lı önek bir operatördür. Öncelik tablosunda `!` operatörü
+&& ve || operatörleri iki operand'lı arek operatörlerdir. Ancak ! operatörü tek operand'lı önek bir operatördür. Öncelik tablosunda ! operatörü
 diğer tek operand'lı operatörlerin bulunduğu ikinci düzeydedir. Ancak && ve || operatörleri karşılaştırma operatörlerinden daha düşük önceliklidir.
 
 ```
@@ -3051,7 +3051,7 @@ int result;
 
 && ve || operatörlerinin "_kısa devre (short circuit)_" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
 sağında ne kadar öncelikli operatör olursa olsun bunların önce sol tarafı yapılır. Eğer && operatöründe sol taraf sıfır ise sağ taraf hiç yapılmaz
-sonuç hemen 0 olarak belirlenir. Eğer && operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı dırım || operatörü için de
+sonuç hemen 0 olarak belirlenir. Eğer && operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı durum || operatörü için de
 geçerlidir. Bu operatörün sol tarafı eğer sıfır dışı bir değerdeyse sağ tarafı hiç yapılmaz ve sonuç 1 olarak belirlenir. Eğer bu operatörün sol tarafı
 sıfır ise bu durumda sağ tarafı yapılır.
 
