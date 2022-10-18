@@ -63,8 +63,8 @@ halk arasında RAM denilmektedir. Programlama dillerindeki değişkenler program
     a = b + c;
 ```
 
-gibi bir işlemde aslında `a`, `b`, ve `c` RAM'de bulunmaktadır. Bu işlem yapılırken `b` ve `c` CPU'ya çekilir. CPU içerisindeki elektrik devreleri toplama işlemini yapar.
-Sonuç RAM'deki `a`'ya aktarılır. Bilgisayarın güç kaynağı kapatıldığında RAM'deki bilgiler silinmektedir. Bunun için bu bilgilerin daha kalıcı bir bellekte saklanması gerekir.
+gibi bir işlemde aslında a, b, ve c RAM'de bulunmaktadır. Bu işlem yapılırken b ve c CPU'ya çekilir. CPU içerisindeki elektrik devreleri toplama işlemini yapar.
+Sonuç RAM'deki a'ya aktarılır. Bilgisayarın güç kaynağı kapatıldığında RAM'deki bilgiler silinmektedir. Bunun için bu bilgilerin daha kalıcı bir bellekte saklanması gerekir.
 Bu tür beleklere "_ikinci bllekler (secondart memory)_" denilmektedir. Eskiden ikincil bellek olarak floppy disketler, CD/DVD ROM'lar ve Hard diskler kullanılıyordu.
 Ancak günümüzde artık SSD (Solid State Disk) denilen "_flash bellekler_" kullanılmaktadır. Genellikle bilgisayar sistemlerinde ikincil belleklerle birincil bellekler arasında bir aktarım yolu bulunmaktadır.
 
@@ -166,7 +166,7 @@ dillerdir. Seviyelerine göre diller yüksekten alçağa kategorik olarak genell
 
 C orta seviyeli (middle level) bir programlama dilidir. Ancak Java, C#, Python gibi diller yüksek seviyeli diller olarak gruplanmaktadır. Çok yüksek seviyeli dillerde
 artık algoritma da ortadan kalkmaktadır. Genellikle bu tür diller "_belli bir alana yönelik (domain specific)_" biçimdedirler. Saf makike dilleri
-ve arakodlar `1`'lerden ve `0`'lardan oluşmaktadır. Bunların sembolik biçimlerine "_sembolik makine dilleri (assembly languages)_" denilmektedir. Sembolik
+ve arakodlar 1'lerden ve 0'lardan oluşmaktadır. Bunların sembolik biçimlerine "_sembolik makine dilleri (assembly languages)_" denilmektedir. Sembolik
 makine dilleri, saf makine dilleri ve arakodlara da "_alçak seviyeli diller_" denir.
 
 **2. Uygulama alanlarına göre sınıflandırma**
@@ -244,7 +244,7 @@ C için önemli IDE'ler şunlardır:
 
 [5. Ders - 07/06/2022 - Salı]()
 
-Biz `10`'luk sistemi (decimal system) kullanmaktayız. `10`'luk sistemde sayıları ifade etmek için `10` sembol vardır:
+Biz 10'luk sistemi (decimal system) kullanmaktayız. 10'luk sistemde sayıları ifade etmek için 10 sembol vardır:
 
 ```
     0
@@ -259,42 +259,42 @@ Biz `10`'luk sistemi (decimal system) kullanmaktayız. `10`'luk sistemde sayıla
     9
 ```
 
-`10`'luk sistemde sayının her bir basamağı `10`'un kuvvetleriyle çarpılıp toplanmaktadır. Örneğin:
+10'luk sistemde sayının her bir basamağı 10'un kuvvetleriyle çarpılıp toplanmaktadır. Örneğin:
 
 ```
     123.25 = 3 * 10^0 + 2 * 10^1 + 1 * 10^2 + 2 * 10^-1 + 5 * 10^-2
 ```
 
-Halbuki bilgisayarlar `2`'lik sistemi (binary system) kullanmaktadır. `2`'lik sistemde sayıları ifade etmek için `2` sembol kullanılmaktadır:
+Halbuki bilgisayarlar 2'lik sistemi (binary system) kullanmaktadır. 2'lik sistemde sayıları ifade etmek için 2 sembol kullanılmaktadır:
 
 ```
     0
     1
 ```
 
-`2`'lik sistemde sayının her bir basamağına "_bit (binary digit)_" denilmektedir. `2`'lik sistemde sayının her basamağı `2`'nin kuvvetiyle çarpılarak sayı elde edilir.
-`Bit` en küçük bellek birimidir. `8 bit`'e `1 byte` denilmektedir. Bitler genellikle `4`'erli gruplanarak yazılırlar. Örneğin:
+2'lik sistemde sayının her bir basamağına "_bit (binary digit)_" denilmektedir. 2'lik sistemde sayının her basamağı 2'nin kuvvetiyle çarpılarak sayı elde edilir.
+bit en küçük bellek birimidir. 8 bit'e 1 byte denilmektedir. Bitler genellikle 4'erli gruplanarak yazılırlar. Örneğin:
 
 ```
     1010 0010
 ```
 
-Burada `1 byte`'lık bir bilgi vardır. `Byte` temel bellek birimidir.
+Burada 1 byte'lık bir bilgi vardır. Byte temel bellek birimidir.
 
-`Byte` da küçük bir birimdir. `Kilo` diğer bilimlerde "_1000 katı_" anlamına gelmektedir. Ancak bilgisayarlar `2`'lik sistemi kullandığj için `1000` katı iyi bir
-kat değildir. Bu nedenle genel olarak `Kilo byte` için `2`'nin `10`'uncu kuvveti olan `1024` kat kullanılır. Yani `1KB (kısaca 1K) 1024 byte`'tır. `Mega` diğer bilimlerde
-kilonun `1000` katıdır. Dolayısıyla milyon kat anlamına gelmektedir. Ancak bilgisayar bilimlerinde genel olarak mega kilonun `1024` katı olarak alınır.
-Bu durumda `1 MB = 1024 * 1024 byte (2^20)`'tır. `Giga` ise Meganın `1024` katıdır. Bu durumda `1 GB = 1024 * 1024 * 1024 byte ( 2^30)`'tır. Giga'dan sonra `Tera`, tera'dan sonra
-`Peta`, ondan sonra da `Exa` gelmektedir.
+Byte da küçük bir birimdir. Kilo diğer bilimlerde "_1000 katı_" anlamına gelmektedir. Ancak bilgisayarlar 2'lik sistemi kullandığj için 1000 katı iyi bir
+kat değildir. Bu nedenle genel olarak Kilo byte için 2'nin 10'uncu kuvveti olan 1024 kat kullanılır. Yani 1KB (kısaca 1K) 1024 byte'tır. Mega diğer bilimlerde
+kilonun 1000 katıdır. Dolayısıyla milyon kat anlamına gelmektedir. Ancak bilgisayar bilimlerinde genel olarak mega kilonun 1024 katı olarak alınır.
+Bu durumda 1 MB = 1024 x 1024 byte (2^20)'tır. Giga ise Mega'nın 1024 katıdır. Bu durumda 1 GB = 1024 \_ 1024 x 1024 byte ( 2^30)'tır. Giga'dan sonra Tera, Tera'dan sonra
+Peta, ondan sonra da Exa gelmektedir.
 
-`1 byte` içerisinde yazılabilecek en küçük ve en büyük sayılar şöyledir:
+1 byte içerisinde yazılabilecek en küçük ve en büyük sayılar şöyledir:
 
 ```
     0000 0000               =>   0
     1111 1111               =>   255
 ```
 
-`1 byte` içerisinde `1` ve `0`'ların bütün permütasyonları `256` tanedir. `2 byte` içerisinde en büyük sayıyı yazacak olsak şöyle olurdu:
+1 byte içerisinde 1 ve 0'ların bütün permütasyonları 256 tanedir. 2 byte içerisinde en büyük sayıyı yazacak olsak şöyle olurdu:
 
 ```
     1111 1111 1111 1111     =>   65535
@@ -304,7 +304,7 @@ Biz burada ikilik sistemde, tamsayıları ifade ettik. Ama bütün sayıları po
 
 Bugün negatif sayıların ifade edilmesi için "_ikiye tümleyen (two's complement)_" sistemi denilen bir sistem kullanılmaktadır. Bu sistemde pozitif ve
 negatif sayılar birbirlerinin ikiye tümleyenidirler. ikiye tümleyen, bire tümleyene bir (1) eklenerek bulunmaktadır. Bir sayının bire tümleyeni sayıdaki
-`0`'ların `1`, `1`'lerin `0` yapılmasıyla bulunur. Bu durumda ikiye tümleyen şöyle hesaplanır. Örneğin aşağıdaki sayının ikiye tümleyenini bulmaya çalışalım:
+0'ların 1, 1'lerin 0 yapılmasıyla bulunur. Bu durumda ikiye tümleyen şöyle hesaplanır. Örneğin aşağıdaki sayının ikiye tümleyenini bulmaya çalışalım:
 
 ```
     0101 0110
@@ -319,8 +319,8 @@ Sayının bire tümleyenine bir ekleyeceğiz:
     1010 1010
 ```
 
-Aslında ikiye tümleyeni bulmanın kolay bir yolu da vardır: Sayıda sağdan sola ilk `1` görene dek ilk `1` dahil olmak üzere aynısı yazılarak ilerlenir.
-Sonra `0`'lar `1`, `1`'ler `0` yapılarak devam edilir. Örneğin:
+Aslında ikiye tümleyeni bulmanın kolay bir yolu da vardır: Sayıda sağdan sola ilk 1 görene dek ilk 1 dahil olmak üzere aynısı yazılarak ilerlenir.
+Sonra 0'lar 1, 1'ler 0 yapılarak devam edilir. Örneğin:
 
 ```
     0101 0110
@@ -332,20 +332,20 @@ sayının ikiye tümleyenini tek hamlede bulalım:
     10101010
 ```
 
-Negatif sayıları ifade edebilmek için kullanılan ikiye tümleme sisteminde en soldaki bir işaret bitidir. Bu bit `0` ise sayı pozitif, `1` ise negatiftir.
-Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidir. Örneğin bu sistemde `+10` yazmak isteyelim. Bunu, işareti `0` yaparak yazabiliriz:
+Negatif sayıları ifade edebilmek için kullanılan ikiye tümleme sisteminde en soldaki bir işaret bitidir. Bu bit 0 ise sayı pozitif, 1 ise negatiftir.
+Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidir. Örneğin bu sistemde +10 yazmak isteyelim. Bunu, işareti 0 yaparak yazabiliriz:
 
 ```
     0 000 1010              =>  +10
 ```
 
-Şimdi `-10` yazmak isteyelim. Bunun için `+10`'un ikiye tümleyenini alalım:
+Şimdi -10 yazmak isteyelim. Bunun için +10'un ikiye tümleyenini alalım:
 
 ```
     1 111 0110              =>  -10
 ```
 
-Bu sistemde `+n` ile `-n` toplandığında 0 elde edilir:
+Bu sistemde +n ile -n toplandığında 0 elde edilir:
 
 ```
     0 000 1010              =>  +10
@@ -354,7 +354,7 @@ Bu sistemde `+n` ile `-n` toplandığında 0 elde edilir:
     1 0 000 0000            =>  0
 ```
 
-Bu sistemde tek bir sıfır vardır. O da tüm bitleri `0` olan sıfırdır. Bu sistemde `1 byte` içerisinde yazılabilecek en büyük pozitif sayı şöyledir:
+Bu sistemde tek bir sıfır vardır. O da tüm bitleri 0 olan sıfırdır. Bu sistemde 1 byte içerisinde yazılabilecek en büyük pozitif sayı şöyledir:
 
 ```
     0 111 111               =>  +127
@@ -366,7 +366,7 @@ Bu sistemde tek bir sıfır vardır. O da tüm bitleri `0` olan sıfırdır. Bu 
     1 000 0001              =>  -127
 ```
 
-Peki en küçük negatif sayı nedir? Bu sistemde bir tane sıfır olduğuna göre `255` tane permütasyon eşit bölünemez. Demek ki ya pozitif sayılar ya negatif sayılar
+Peki en küçük negatif sayı nedir? Bu sistemde bir tane sıfır olduğuna göre 255 tane permütasyon eşit bölünemez. Demek ki ya pozitif sayılar ya negatif sayılar
 bir tane daha fazla olmak zorundadır. Bu sistemde ikiye tümleyeni olmayan iki sayı vardır:
 
 ```
@@ -374,10 +374,10 @@ bir tane daha fazla olmak zorundadır. Bu sistemde ikiye tümleyeni olmayan iki 
     1000 0000
 ```
 
-Birincisi `0`'dır. İkinci sayı `-127`'den bir eksik olan sayıdır. O halde bu sayının `-128` kabul edilmesi daha uygundur.
+Birincisi 0'dır. İkinci sayı -127'den bir eksik olan sayıdır. O halde bu sayının -128 kabul edilmesi daha uygundur.
 
-Demek ki bu sistemde `n` byte içerisinde yazılabilecek en büyük pozitif sayı ilk biti `0` olan diğer tüm bitleri `1` olan sayıdır. En küçük
-negatif sayı ise ilk biti `1` olan diğer tüm bitleri `0` olan sayıdır. Örneğin bu sistemde iki byte ile yazabileceğimiz en büyük pozitif sayı şöyledir:
+Demek ki bu sistemde n byte içerisinde yazılabilecek en büyük pozitif sayı ilk biti 0 olan diğer tüm bitleri 1 olan sayıdır. En küçük
+negatif sayı ise ilk biti 1 olan diğer tüm bitleri 0 olan sayıdır. Örneğin bu sistemde iki byte ile yazabileceğimiz en büyük pozitif sayı şöyledir:
 
 ```
     0111 1111 1111 1111     =>  +32767
@@ -391,14 +391,14 @@ En küçük negatif sayı ise şöyledir:
 
 Bu sisteme ilişkin tipik sorular ve yanıtları şöyledir:
 
-**SORU**: Bu sistemde `+n` sayısını nasıl yazarsınız?
+**SORU**: Bu sistemde +n sayısını nasıl yazarsınız?
 
-**CEVAP** : En soldaki bit `0` yapılıp `n` sayısı `2`'lik sistemde yazılır.
+**CEVAP** : En soldaki bit 0 yapılıp n sayısı 2'lik sistemde yazılır.
 
-**SORU** : Bu sistemde `-n` nasıl yazarsınız?
+**SORU** : Bu sistemde -n nasıl yazarsınız?
 
-**CEVAP** : Yazabiliyorsanız doğrudan yazın. Ancak doğrudan yazamıyorsanız önce `+n`değerini yazın ve ikiye tümleyenini alın. Örneğin bu sistemde `-1`
-yazalım. Önce `+1` yazalım:
+**CEVAP** : Yazabiliyorsanız doğrudan yazın. Ancak doğrudan yazamıyorsanız önce +n değerini yazın ve ikiye tümleyenini alın. Örneğin bu sistemde -1
+yazalım. Önce +1 yazalım:
 
 ```
     0000 0001               =>  +1
@@ -412,17 +412,17 @@ yazalım. Önce `+1` yazalım:
 
 **SORU** : Bu sistemde bir sayının kaç olduğu bize sorulsa bunu nasıl yanıtlarız?
 
-**CEVAP** : Eğer en soldaki bit 0 ise sayının değeri doğrudan hesplanır. Eğer en soldaki bit `1` ise bu sayının negatif olduğunu gösterir. Bu durumda
-sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Örneğin `1110 1110` sayısı kaçtır? Burada işaret biti `1` olduğuna göre sayı negatiftir.
+**CEVAP** : Eğer en soldaki bit 0 ise sayının değeri doğrudan hesplanır. Eğer en soldaki bit 1 ise bu sayının negatif olduğunu gösterir. Bu durumda
+sayının ikiye tümleyeni alınır. Pozitifinden hareketle negatifi bulunur. Örneğin `1110 1110` sayısı kaçtır? Burada işaret biti 1 olduğuna göre sayı negatiftir.
 Negatif ve pozitif sayılar birbirlerinin ikiye tümleyenidirler. O zaman bu sayının ikiye tümleyenini alıp pozitifinden faydalanarak sayıyı bulalım:
 
 ```
     0001 0010               =>  +18
 ```
 
-o zaman bize sorulan sayı `-18`'dir.
+o zaman bize sorulan sayı -18'dir.
 
-Bu sistemde örneğin `1 byte` içerisinde yazılabilecek en büyük pozitif sayıya `1` ekleyelim:
+Bu sistemde örneğin 1 byte içerisinde yazılabilecek en büyük pozitif sayıya 1 ekleyelim:
 
 ```
     0111 1111               =>  +127
@@ -444,10 +444,10 @@ Peki noktalı sayılar ikilik sistemde nasıl ifade edilmektedir? İşte insanla
 devirlerde basit bir mantıkla tasarlanmıştır. Bu formatlar bugün hala kullanılıyor olsa da artık bunların çağı büyük ölçüde kapanmıştır. Bugün kayan noktalı
 format denilen formatlar kullanılmaktadır.
 
-Sabit noktalı formatlarda noktalı sayı için `n byte` yer ayrılır. Noktanın yeri önceden bellidir. Örneğin sayı `4 byte` ile ifade edilsin.
-Noktanın yeri de tam ortada olsun. Bu durumda sayının tam kısmı `2 byte` ile, noktalı kısmı `2 byte` ile ifade edilir. Ancak sayının noktalı kısmı `2`'nin
+Sabit noktalı formatlarda noktalı sayı için n byte yer ayrılır. Noktanın yeri önceden bellidir. Örneğin sayı 4 byte ile ifade edilsin.
+Noktanın yeri de tam ortada olsun. Bu durumda sayının tam kısmı 2 byte ile, noktalı kısmı 2 byte ile ifade edilir. Ancak sayının noktalı kısmı 2'nin
 negatif kuvvetleriyle kodlanmaktadır. Böylece iki sabit noktalı sayıyı paralel toplayıcılarla kolay bir biçimde toplayabiliriz: Örneğin bu sistemde
-`5.25` ile `6.25` sayılarını ifade edip toplayalım:
+5.25 ile 6.25 sayılarını ifade edip toplayalım:
 
 ```
     0000 0000 0000 0101 . 0100 0000 0000 0000   =>  5.25
@@ -471,11 +471,11 @@ kısma "_üstel kısım (exponential part)_" denilmektedir. Tabii bir de sayın�
 
 Bugün ağırlıklı kullanılan kayan noktalı format **IEEE 754** denilen formattır. Bu formatın üç farklı genişlikte biçimi vardır:
 
-- IEEE 754 - Short Real Format (`4 byte`)
+- IEEE 754 - Short Real Format (4 byte)
 
-- IEEE 754 - Long Real Format (`8 byte`)
+- IEEE 754 - Long Real Format (8 byte)
 
-- IEEE 754 - Extended Real Format (`10 byte`)
+- IEEE 754 - Extended Real Format (10 byte)
 
 Bugün Intel, ARM, MIPS, Alpha, Power PC gibi yaygın işlemciler donanımsal olarak bu formatı desteklemektedir. Aynı zamanda bu format yaygın olarak Reel Sayı Ünitesi
 olmayan mikrodenetleyicilerdeki derleyiciler tarafından da kullanılmaktadır.
@@ -497,34 +497,34 @@ ne yapak gerekir? İşte bunun tek yolu noktalı sayıları kayan noktalı forma
 kayan noktalı formatta tutmayan böylece yuvarlama hatalarına maruz bırakmayan özel türler (örneğin C#'taki `decimal`) vardır. Ancak bu türler işlemciler tarafından
 desteklenmediği için yapay türlerdir.
 
-Yazılar da aslında bilgisayar belleğinde, `2`'lik sistemdeki sayılar biçiminde tutulmaktadır. Bir yazıyı oluşturan elemanlara "_karakter_" denilmektedir. İşte
-bir yazıda her bir karakter `2`'lik sistemde bir sayı ile ifade edilir. Böylece yazı aslında ikilik sistemde bir sayı dizisi gibi tutulmaktadır. İşte
+Yazılar da aslında bilgisayar belleğinde, 2'lik sistemdeki sayılar biçiminde tutulmaktadır. Bir yazıyı oluşturan elemanlara "_karakter_" denilmektedir. İşte
+bir yazıda her bir karakter 2'lik sistemde bir sayı ile ifade edilir. Böylece yazı aslında ikilik sistemde bir sayı dizisi gibi tutulmaktadır. İşte
 bir karakter için o karakterin hangi sayıya karşı geldiğini belirten tablolara "_karakter tabloları_" denilmektedir. Karakter tablosundaki karakter şekillerine "_glyph_"
 denilmektedir. Her karaktere tabloda bir sıra numarası verilmiştir. Buna da "_code point_" denilmektedir. Dünyanın ilk standart karakter tablosu "_ASCII (American_
-_Standard Code Information Interchange)_" denilen tablodur. ASCII tablosu aslında `7 bit` bir tablodur. Dolayısıyla tabloda `128` tane glyph için code point
+_Standard Code Information Interchange)_" denilen tablodur. ASCII tablosu aslında `7 bit` bir tablodur. Dolayısıyla tabloda 128 tane glyph için code point
 bulundurulmuştur. ASCII dışında IBM EBCDIC tablosunu geliştirmiştir. Wang firması WISCII tablosunu kullanmıştır. ASCII tablosu Amerikalılar tarafından yalnızca İngilizce
 karakterleri ifade etmek için oluşturulmuştur. Bilgisayarlar yaygınlaşmaya başladığında farklı karakterlere sahip olan Türkiye gibi, Yunanistan gibi, Almanya gibi
-ülkeler bu ASCII tablosunu `8 bit`'te çıkartıp elde edilen `128 bit` lik yeni alanı kendi karakterlerini ifade etmek için kullanmışlardır. ASCII tablosunun ilk yarısı
-(yani `[0, 128]` numaraları karakterler) standarttır. Ancak ikinci yarısı "_code page_" adı altında farklı ülkeler tarafından farklı yerleşimler yapılarak kullanılmaktadır.
+ülkeler bu ASCII tablosunu 8 bit'te çıkartıp elde edilen 128 bit lik yeni alanı kendi karakterlerini ifade etmek için kullanmışlardır. ASCII tablosunun ilk yarısı
+(yani [0, 128] numaraları karakterler) standarttır. Ancak ikinci yarısı "_code page_" adı altında farklı ülkeler tarafından farklı yerleşimler yapılarak kullanılmaktadır.
 DOS zamanlarında Türkçe karakterler için OEM 857 denilen code page kullanılıyordu. Daha sonra Microsoft Windows sistemlerinde Türkçe karakterler için 1254 code page'i
 düzenledi. ISO bu code page'leri standart hale getirmiştir. Bugün Türkçe karakterler ISO tarafından ASCII 8859-9 Code page'i ile düzenlenmiştir.
 
 ASCII tablosu ve onların code page'leri uzun süre kullanılmış ve hala kullanılmakta olsa da maalesef karışıklıklara yol açmaktadır. İşte son 20 yıldır
-artık karakterleri `2 byte` içerisinde ifade ederek dünyanın bütün dillerinin ve ortak sembollerinin tek bir tabloya yerleştirilmesi ile ismine UNICODE
+artık karakterleri 2 byte içerisinde ifade ederek dünyanın bütün dillerinin ve ortak sembollerinin tek bir tabloya yerleştirilmesi ile ismine UNICODE
 denilen bir tablo oluşturulmuştur (www-unicode.org). UNICODE tablo ISO tarafından 10646 ismiyle de bazı farklılıklarla standardize edilmiştir. UNICODE tablonun
-ilk `128` karakteri standart ASCII karakterleri, ikinci 128 karakteri ISO 8859-9 code page'indeki karakterlerdir.
+ilk 128 karakteri standart ASCII karakterleri, ikinci 128 karakteri ISO 8859-9 code page'indeki karakterlerdir.
 
 Bir karakter tablosundaki code point'lerin ikilik sistemde ifade edilme biçimine "_encoding_" denilmektedir. ASCII code page'lerinde encoding doğrudan
-code point'in `1 byte`'lık sayı karşılığıdır. Ancak UNICODE tablonun değişik encoding'leri kullanılmaktadır. UNICODE tablonun klasik encoding'i UTF-16'dır.
-Burada code point doğrudan `16 bit`'lik bir sayı biçiminde ifade edilir. UTF-32 encoding'inde ise code point `32 bit`'lik bir sayı biçiminde ifade edilmektedir.
-Ancak UNICODE tablonun en yaygın kullanılan encoding'i UTF-8 encoding'idir. UTF-8 kodlamasında standart ASCII karakterler `1 byte` ile, diğer karakterler
-`2 byte`, `3 byte`, `4 byte` ve `5 byte` kodlanabilmekedir. Türkçe karakterler UTF-8 encoding'inde `2 byte` yer kaplamaktadr. UTF-8 encoding'i UNICODE bir yazının
+code point'in 1 byte'lık sayı karşılığıdır. Ancak UNICODE tablonun değişik encoding'leri kullanılmaktadır. UNICODE tablonun klasik encoding'i UTF-16'dır.
+Burada code point doğrudan 16 bit'lik bir sayı biçiminde ifade edilir. UTF-32 encoding'inde ise code point 32 bit'lik bir sayı biçiminde ifade edilmektedir.
+Ancak UNICODE tablonun en yaygın kullanılan encoding'i UTF-8 encoding'idir. UTF-8 kodlamasında standart ASCII karakterler 1 byte ile, diğer karakterler
+2 byte, 3 byte, 4 byte ve 5 byte kodlanabilmekedir. Türkçe karakterler UTF-8 encoding'inde 2 byte yer kaplamaktadr. UTF-8 encoding'i UNICODE bir yazının
 adeta sıkıştırılmış bir hali gibi düşünülebilir.
 
 Bugün pek çok programlama editörleri default durumda dosyayı UNICODE UTF-8 encoding'ine göre saklamaktadır.
 
-Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de `16`'lık sistemdir. 16'lık sisteme İngilizce "_hexadecimal system_" denilmektedir. `16`'lık
-sistemde sayıları ifade etmek için `16` sembol bulunmaktadır. İlk `10` sembol `10`'luk sistemdeki sembollerden alınmıştır. Sonraki `6` sembol alfabetik karakterlerden alınmıştır.
+Bilgisayar dünyasında çok kullanılan diğer bir sayı sistemi de 16'lık sistemdir. 16'lık sisteme İngilizce "_hexadecimal system_" denilmektedir. 16'lık
+sistemde sayıları ifade etmek için 16 sembol bulunmaktadır. İlk 10 sembol 10'luk sistemdeki sembollerden alınmıştır. Sonraki `6` sembol alfabetik karakterlerden alınmıştır.
 
 ```
     0
@@ -545,14 +545,14 @@ sistemde sayıları ifade etmek için `16` sembol bulunmaktadır. İlk `10` semb
     F
 ```
 
-`16`'lık sistemdeki her bir basamağa "_hex digit_" denilmektedir. Örneğin:
+16'lık sistemdeki her bir basamağa "_hex digit_" denilmektedir. Örneğin:
 
 ```
     1FC8
 ```
 
-Burada `4 hex digit`'lik bir sayı vardır. `16`'lık sistemdeki bir sayıyı `10`'luk sisteme dönüştürmek için her `hex digit` `16`'lık kuvvetleriyle çarpılıp toplanır.
-Ancak `16`'lık sistemdeki bir sayı, kullanım gereği bakımından aslında `10`'lu sisteme pek dönüştürülmez. `16`'lık sistemdeki her bir `hex digit` `4 bit` ile ifade edilebilmektedir:
+Burada 4 hex digit'lik bir sayı vardır. 16'lık sistemdeki bir sayıyı 10'luk sisteme dönüştürmek için her hex digit 16'lık kuvvetleriyle çarpılıp toplanır.
+Ancak 16'lık sistemdeki bir sayı, kullanım gereği bakımından aslında 10'lu sisteme pek dönüştürülmez. 16'lık sistemdeki her bir hex digit 4 bit ile ifade edilebilmektedir:
 
 ```
     0       0000
@@ -573,33 +573,33 @@ Ancak `16`'lık sistemdeki bir sayı, kullanım gereği bakımından aslında `1
     F       1111
 ```
 
-`16`'lık sistemden `2`'lik sisteme dönüştürme yapmak çok kolaydır. Tek yapılacak şey, her bir `hex digit`'e karşılık yandaki tablodaki `4 bit`'i getirmektir. Örneğin:
+16'lık sistemden 2'lik sisteme dönüştürme yapmak çok kolaydır. Tek yapılacak şey, her bir hex digit'e karşılık yandaki tablodaki 4 bit'i getirmektir. Örneğin:
 
 ```
     1FC9  =  0001 1111 1100 1001
     FA3D  =  1111 1010 0011 1101
 ```
 
-`2`'lik sistemdeki bir sayı da `16`'lık sisteme çok kolay dönüştürülür. Tek yapılacak şey, sayıyı dörderli gruplayıp ona karşı gelen `hex digit`'i yazmaktır. Örneğin:
+2'lik sistemdeki bir sayı da 16'lık sisteme çok kolay dönüştürülür. Tek yapılacak şey, sayıyı dörderli gruplayıp ona karşı gelen hex digit'i yazmaktır. Örneğin:
 
 ```
     1010 0001 1110 1000 0011 0101 = A1E835
 ```
 
-Bilgisayar dünyasında `16`'lık sistem aslında `2`'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Yani `2'lik sistem çok yer kapladığı için kişiler `2`'lik sistem yerine `16`'lık sistemi kullanırlar. Bu nedenle belleği, dosyayı gösteren programlar bunları `2`'lik sistem yerine `16`'lık sistemde gösterirler.
+Bilgisayar dünyasında 16'lık sistem aslında 2'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Yani `2'lik sistem çok yer kapladığı için kişiler 2'lik sistem yerine 16'lık sistemi kullanırlar. Bu nedenle belleği, dosyayı gösteren programlar bunları 2'lik sistem yerine 16'lık sistemde gösterirler.
 
-`1 byte`, `2 hex digit` ile ifade edilmektedir. Örneğin:
+1 byte, 2 hex digit ile ifade edilmektedir. Örneğin:
 
 ```
     1A 23 5C 78
 ```
 
-Burada `4 byte`'lık bir bilgi vardır. Örneğin `2 byte` içerisinde yazılabilecek en küçük negatif işaretli sayının `hex` karşılığı `8000` biçimindedir. Örneğin
-`1 byte`'lık işaretli sistemde yazılabilecek en büyük pozitif sayı `7F` biçimindedir. İşareti tamsayı sisteminde `4 byte` içerisinde `-1` sayısı `FFFFFFFF`
+Burada 4 byte'lık bir bilgi vardır. Örneğin 2 byte içerisinde yazılabilecek en küçük negatif işaretli sayının hex karşılığı `8000` biçimindedir. Örneğin
+1 byte'lık işaretli sistemde yazılabilecek en büyük pozitif sayı `7F` biçimindedir. İşareti tamsayı sisteminde 4 byte içerisinde `-1` sayısı `FFFFFFFF`
 biçimindedir.
 
-Eskiden daha fazla kullanılıyor olsa da toplamda oldukça seyrek kullanılan dğer bir sayı sistemi de `8`'lik sayı sistemidir. Bu sisteme İngilizce
-"_octal system_" denilmektedir. `8`'lik sayı sistemindeki her bir basamağa "_octal digit_" denir. `Octal digit` sembolleri olarak `10`'luk sistemin ilk `8` sembolü
+Eskiden daha fazla kullanılıyor olsa da toplamda oldukça seyrek kullanılan dğer bir sayı sistemi de 8'lik sayı sistemidir. Bu sisteme İngilizce
+"_octal system_" denilmektedir. 8'lik sayı sistemindeki her bir basamağa "_octal digit_" denir. Octal digit sembolleri olarak 10'luk sistemin ilk 8 sembolü
 kullanılmaktadır:
 
 ```
@@ -613,7 +613,7 @@ kullanılmaktadır:
     7
 ```
 
-Her `octal digit`, `3 bit` ile ifade edilebilir:
+Her Octal digit, 3 bit ile ifade edilebilir:
 
 ```
     0       000
@@ -626,21 +626,21 @@ Her `octal digit`, `3 bit` ile ifade edilebilir:
     7       111
 ```
 
-Bu durumda bir octal sayı `2`'lik sisteme kolay bir biçimde dönüştürülebilir:
+Bu durumda bir octal sayı 2'lik sisteme kolay bir biçimde dönüştürülebilir:
 
 ```
     476	            --->    100 111 110
     741	            --->    111 100 001
 ```
 
-Benzer biçimde `2`'lik sistemdeki bir sayı da sağdan sola üçer bit gruplandırılarak `8`'lik sisteme dönüştürülebilmektedir. Örneğin:
+Benzer biçimde 2'lik sistemdeki bir sayı da sağdan sola üçer bit gruplandırılarak 8'lik sisteme dönüştürülebilmektedir. Örneğin:
 
 ```
     1011 1011       --->    273
     0111 1110	    --->    176
 ```
 
-`8`'lik sistem de `2`'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Ancak `8`'i tam ortalayamadığı için kullanımı seyrektir.
+8'lik sistem de 2'lik sistemin yoğun bir gösterimi olarak kullanılmaktadır. Ancak 8'i tam ortalayamadığı için kullanımı seyrektir.
 
 [7. Ders - 14/06/2022 - Salı]()
 
@@ -721,24 +721,24 @@ C programını C derleyicisi ile derledikten sonra eğer hiçbir hata yoksa derl
 Bağlayıcı (linker da diyeceğiz) aslında bir grup amaç dosyayı alıp tek bir çalıştırılabilir dosya oluşturmaktadır. Bir amaç dosyanın içerisinde derlenmiş kodların
 yanı sıra bağlayıcnın birleştirme yapabilmesi için çeşitli bilgiler de vardır.
 
-Windows'ta bağlayıcı olarak genellikle Microsoft'un `link.exe` isimli programı kullanılmaktadır. UNIX/Linux sistemlerinde ağırklıklı olarak "_GNU ld_" isimli
+Windows'ta bağlayıcı olarak genellikle Microsoft'un link.exe isimli programı kullanılmaktadır. UNIX/Linux sistemlerinde ağırklıklı olarak "_GNU ld_" isimli
 bağlayıcı ya da "_clang ldd bağlayıcısı_" kullanılır.
 
-Derleyicinin ürettiği amaç dosyanın uzantısı Windows sistemlerinde `.obj` biçimindedir. UNIX/Linux ve Mac OS sistemlerinde derleyicinin ürettiği amaç dosya
+Derleyicinin ürettiği amaç dosyanın uzantısı Windows sistemlerinde .obj biçimindedir. UNIX/Linux ve Mac OS sistemlerinde derleyicinin ürettiği amaç dosya
 `.o` uzantılı olur.
 
-Bağlayıcnın ürettiği "_çalıştırılabilir_" dosya ise Windows sistemlerinde `.exe` uzantılıdır. UNIX/Linux ve Mac OS sistemlerinde dosyanın çalıştırılabilir olup
+Bağlayıcnın ürettiği "_çalıştırılabilir_" dosya ise Windows sistemlerinde .exe uzantılıdır. UNIX/Linux ve Mac OS sistemlerinde dosyanın çalıştırılabilir olup
 olmadığı uzantı ile değil dosya özellikleri (attributes) ile belirlenmektedir.
 
 Windows sistemlerinde Merhaba Dünya programının komut satırından derlenip çalıştırışması şöyle yapılır:
 
-**1.** Program bir editörde yazılır ve `.c` uzantılı biçimde saklanır. Biz bunun `sample.c` olduğunu varsayalım.
+**1.** Program bir editörde yazılır ve `.c` uzantılı biçimde saklanır. Biz bunun sample.c olduğunu varsayalım.
 
-**2.** Daha sonra komut satırı programı çalıştırılır ve dosayanın saklandığı dizine gidilir. Komut satırı programı olarak `cmd.exe` programını doğrudan kullanmayınız.
+**2.** Daha sonra komut satırı programı çalıştırılır ve dosayanın saklandığı dizine gidilir. Komut satırı programı olarak cmd.exe programını doğrudan kullanmayınız.
 Çünkü bu program gerekli "_path ayarlarına_" sahip değildir. Bunun yerine komut satırına geçmek için "_Developer Command Prompt for VS 2022_" programını kullanınız.
 Bu kısa yolu masaüstüne taşırsanız rahat edersiniz.
 
-**3.** Microsoft'un C derleyicisi `cl.exe` isimli programdır. Bu program en basit olarak şöyle çalıştırılır:
+**3.** Microsoft'un C derleyicisi cl.exe isimli programdır. Bu program en basit olarak şöyle çalıştırılır:
 
 ```
 
@@ -754,12 +754,12 @@ Bu kısa yolu masaüstüne taşırsanız rahat edersiniz.
 
 ```
 
-`cl.exe` programı derlemeyi yaptıktan sonra zaten "_linker_" programını kendisi çalıştırmaktadır.
+cl.exe programı derlemeyi yaptıktan sonra zaten "_linker_" programını kendisi çalıştırmaktadır.
 
-**4.** Artık `cl.exe` derleme işlemini yapıp bağlayıcı programı da (`link.exe`) çalıştırdığı için çalıştırılabilir dosya oluşturulmuş olur. Tek yapacağmız şey
+**4.** Artık cl.exe derleme işlemini yapıp bağlayıcı programı da (link.exe) çalıştırdığı için çalıştırılabilir dosya oluşturulmuş olur. Tek yapacağmız şey
 çalıştırılabilir programın ismini yazarak ENTER tuşuna basmaktır.
 
-`cl.exe` derleyicisinin yalnızca derleme yapmasını ancak bağlayıcıyı çalıştırmamasını istiyorsak `/c` seçeneğini (switch) kullanmamız gerekir. Örneğin:
+cl.exe derleyicisinin yalnızca derleme yapmasını ancak bağlayıcıyı çalıştırmamasını istiyorsak `/c` seçeneğini (switch) kullanmamız gerekir. Örneğin:
 
 ```
 
@@ -767,8 +767,8 @@ Bu kısa yolu masaüstüne taşırsanız rahat edersiniz.
 
 ```
 
-Şimdi artık derleyici linker programını çalıştırmayacaktır. Yalnızca `.obj` dosyayı oluşturacaktır. Biz istersek bağlayıcı programı da bağımsız olarak çalıştırabiliriz.
-Microsoft'un bağlayıcı programı `link.exe` isimli programdır.
+Şimdi artık derleyici linker programını çalıştırmayacaktır. Yalnızca .obj dosyayı oluşturacaktır. Biz istersek bağlayıcı programı da bağımsız olarak çalıştırabiliriz.
+Microsoft'un bağlayıcı programı link.exe isimli programdır.
 
 ```
 
@@ -776,7 +776,7 @@ Microsoft'un bağlayıcı programı `link.exe` isimli programdır.
 
 ```
 
-Baradan `sample.exe` programı elde edilecektir. cl.exe derleyicisinde çalıştırılabilir dosyanın ismini değiştirebilmek için `/Fe:<dosya ismi>` seçeneği
+Baradan sample.exe programı elde edilecektir. cl.exe derleyicisinde çalıştırılabilir dosyanın ismini değiştirebilmek için `/Fe:<dosya ismi>` seçeneği
 kullanılmaktadır. Örneğin:
 
 ```
@@ -785,11 +785,11 @@ kullanılmaktadır. Örneğin:
 
 ```
 
-Artık çalıştırılabilir dosyanın ismi `sample.exe` değil `test.exe` olacaktır.
+Artık çalıştırılabilir dosyanın ismi sample.exe değil test.exe olacaktır.
 
 Linux sistemlerinde Merhaba Dünya programının derlenerek çalıştırılması da şöyle yapılmaktadr:
 
-**1.** Yine önce bir editörde program yazılır ve `.c` dosyası olarak kaydedilir. Biz kaynak dosyamıza `sample.c` ismini vermiş olalım.
+**1.** Yine önce bir editörde program yazılır ve `.c` dosyası olarak kaydedilir. Biz kaynak dosyamıza sample.c ismini vermiş olalım.
 
 **2.** Komut satırından kaynak dosyanın bulunduğu dizine geçilir. gcc derleyicisi ile clang derleyicilerinin komut satırı seçenkleri tamamen aynıdır.
 Derleme işlemi için şu komut uygulanır:
@@ -809,7 +809,7 @@ Derleme işlemi için şu komut uygulanır:
 
 ```
 
-gcc de tıpkı `cl.exe` programında olduğu gibi önce derleme işlemini yapar. Sonra bağlayıcı programı çalıştırıp çalıştırılabilen dosyayı oluşturur.
+gcc de tıpkı cl.exe programında olduğu gibi önce derleme işlemini yapar. Sonra bağlayıcı programı çalıştırıp çalıştırılabilen dosyayı oluşturur.
 gcc derleyicisi derlemeyi bitirip bağlayıcıyı çalıştırdıktan sonra "_object dosyayı_" silmektedir. Bu biçimde oluşturulan çalıştırılabilen dosya `a.out`
 ismindedir. Bu dosyanın çalıştırılması şöyle yapılmalıdır:
 
@@ -828,7 +828,7 @@ yapılır. gcc derleyicisinde çalıştırılabilir dosyaya isim vermek için `-
 
 ```
 
-Burada `sample.c` dosyası derlenir ve `sample` isimli çalıştırılabilir dosya oluşturulur. Tabii istersek gcc derleyicilerinde de yalnızca derleme yapıp
+Burada sample.c dosyası derlenir ve sample isimli çalıştırılabilir dosya oluşturulur. Tabii istersek gcc derleyicilerinde de yalnızca derleme yapıp
 bağlayıcıyı çalıştırmayabiliriz. Bunun için `-c` seçeneği kullanılmaktadır. Örneğin:
 
 ```
@@ -837,7 +837,7 @@ bağlayıcıyı çalıştırmayabiliriz. Bunun için `-c` seçeneği kullanılma
 
 ```
 
-Burada derleme işlemi yapılır, `sample.o` object dosyası oluşturulur ancak başlayıcı çalıştırılmaz.
+Burada derleme işlemi yapılır, sample.o object dosyası oluşturulur ancak başlayıcı çalıştırılmaz.
 
 Micrsoft Visual Studio IDE'sinde bir C programının derlenip çalıştırılabilmesi için tipik olarak şunlar yapılmalıdır:
 
@@ -855,7 +855,7 @@ yaratılır. Artık elimizde içi boş bir proje vardır. Bir proje yaratıldı�
 
 **4.** Artık sıra projeye bir kaynak dosya eklemeye gelmiştir. Bu işlem **Project/Add New Item** menüsü ile ya da **Solution Explorer**'da proje üzerinde bağlam menüsünü
 açıp **Add/New Item** seçilerek de yapılabilir. Artık karşımıza başka bir diyalog penceresi çıkacaktır. Burada **C++ File** seçilip dosya ismi "uzantısı `.c` olacak biçimde
-seçilmelidir. Microsoft C++ demekle aynı zamanda C'yi kastetmektedir. Aslında `cl.exe` derleyicisi hem C hem de C++ derleyicisidir. Bu derleyici hangi dile göre derleme yapacağına
+seçilmelidir. Microsoft C++ demekle aynı zamanda C'yi kastetmektedir. Aslında cl.exe derleyicisi hem C hem de C++ derleyicisidir. Bu derleyici hangi dile göre derleme yapacağına
 kaynak kodun uzantısına bakarak karar verir. Dolayısıyla bizim dosya uzantısını kesinlikle `.c` biçiminde girmemiz gerekir.
 
 **5.** Kaynak dosya projeye eklendikten sonra kod yazılır.
@@ -956,11 +956,11 @@ Gerçekten de derleyiciler derlemenin ilk aşamasında kaynak kodu bu biçimde p
 Atomlar tipik olarak 6 gruba ayrılmaktadır:
 
 **1. Anahtar Sözcükler (Keywords/Reserved Words):** Dil için özel anlamı olan, değişken olarak kullanılması yasaklanmış sözcüklerden oluşan atomlardır.
-Örneğin `if` gibi, `return` gibi, `int` gibi.
+Örneğin if gibi, return gibi, int gibi.
 
-**2. Değişkenler (Identifers):** İsmini programcının istediği gibi verebildiği atomlardır. Örneğin bir programdaki `i`, `count`, `a`, `b` gibi atomlar tipik olarak değişken
-atomlardır. Merhaba Dümya programındaki `printf` ve `main` anahtar sözcük değildir. Değişken atom statüsündedir. Bir atomun anahtar sözcük olması için derleyicinin
-onu gördüğünde değişkenden farklı bir işlem uygulaması gerekir (Halbuki derleyici `printf`, `main` için farklı bir işlem uygulamaz, o halde `printf` ve `main` anahtar
+**2. Değişkenler (Identifers):** İsmini programcının istediği gibi verebildiği atomlardır. Örneğin bir programdaki i, count, a, b gibi atomlar tipik olarak değişken
+atomlardır. Merhaba Dümya programındaki printf ve main anahtar sözcük değildir. Değişken atom statüsündedir. Bir atomun anahtar sözcük olması için derleyicinin
+onu gördüğünde değişkenden farklı bir işlem uygulaması gerekir (Halbuki derleyici printf, main için farklı bir işlem uygulamaz, o halde printf ve main anahtar
 sözcük degillerdir.)
 
 **3. Sabitler (Literals/Constants):** Bir sayı ya bir değişkenin içerisindedir ya da program içerisinde doğrudan yazılmıştır. İşte programda doğrudan
@@ -972,7 +972,7 @@ yazılmış olan sayılara "_sabit_" denilmektedir. Örneğin:
 
 ```
 
-Burada `a` ve `b` değişken atomdur, ancak `10` sabit atomdur.
+Burada a ve b değişken atomdur, ancak 10 sabit atomdur.
 
 **4. Operatörler (Operators):** Bir işleme yol açan ve işlem sonucunda bir değer üretilmesini sağlayan `+` gibi, `-` gibi, `*` gibi atomlara operatör denilmektedir.
 Örneğin:
@@ -1030,7 +1030,7 @@ _bir ilişkisi yoktur._) Programlama dillerindeki değişkenler genellikle nesne
 
 ```
 
-gibi bir ifadede `a` bir nesne durumundadır. biz bu `a` ismiyle `a`'nın bellek bölgesine erişebilmekteyiz. Bir olgunun nesne belirtmesi için yalnızca bellekte yer kaplaması
+gibi bir ifadede a bir nesne durumundadır. biz bu a ismiyle a'nın bellek bölgesine erişebilmekteyiz. Bir olgunun nesne belirtmesi için yalnızca bellekte yer kaplaması
 yetmez. Aynı zamanada "_erişilebilir_" olması gerekir. Örneğin sabitler de bellekte yer kaplarlar. Ancak erişilebilir olmadıkları için nesne değillerdir.
 
 C'de bir ifade ya nesne belirtir ya da nesne belirtmez. Nesne belirten ifadelere "_sol taraf değeri (lvalue)_", nesne belirtmeyen ifadelere
@@ -1054,7 +1054,7 @@ Sentaks açıklamak için çeşitli "_meta diller (meta languages)_" oluşturulm
 BNF notasyonu "_EBNF (Extended BNF)_" biçiminde ISO tarafından standardize de edillmiştir. Gerçekten de programlama dillerinin standartları genellikle
 BNF notasyonu ile ya da onun bir türevi ile açıklanmaktadır. Ancak biz kursumuzda "_açısal parantez-köşeli parantez_" tekniğini kullanacağız. Bu teknikte
 açısal parantezler içerisinde öğeler zorunlu öğeleri, köşeli parantezler içerisindeki öğeler "_isteğe bağlı (optional)_" öğeleri belirtmektedir. Bunların dışındaki
-tüm atomların aynı pozisyonda bulundurulması gerekir. Örneğin `if` deyimi şöyle ifade edilebilir:
+tüm atomların aynı pozisyonda bulundurulması gerekir. Örneğin if deyimi şöyle ifade edilebilir:
 
 ```
 
@@ -1130,8 +1130,8 @@ Aşağıdaki Merhaba Dünya programının açıklaması şöyledir:
 
 Burada `#include <stdio.h>` satırı `stdio.h` isimli bir dosyanın kaynak koda dahil edildiğini belirtmektedir. Yani bu satır `stdio.h` dosyasının içeriğinin
 oraya "_paste edileceği_" anlamına gelmektedir. Başka bir deyişle biz `stdio.h` dosyasını bu komutun bulunduğu yere yerleştirip bu komuttu silsek tamamen aynı
-durum oluşacaktır. Programda `main` isimli bir fonksiyon tanımlanmıştır. Bir fonksiyonun tanımlanması onun bizim tarafımızdan yazılması anlamına gelir.
-Yani bu programda biz `main` isimli bir fonksiyon yazmış durumdayız. Bir fonksiyonu tanımlamanın (yani yazmanın) genel biçimi şöyledir:
+durum oluşacaktır. Programda main isimli bir fonksiyon tanımlanmıştır. Bir fonksiyonun tanımlanması onun bizim tarafımızdan yazılması anlamına gelir.
+Yani bu programda biz main isimli bir fonksiyon yazmış durumdayız. Bir fonksiyonu tanımlamanın (yani yazmanın) genel biçimi şöyledir:
 
 ```
 
@@ -1142,20 +1142,20 @@ Yani bu programda biz `main` isimli bir fonksiyon yazmış durumdayız. Bir fonk
 
 ```
 
-Fonksiyonun geri dönüş değerinin türü C90'da yazılmayabiliyordu. Bu durumda C90 bunun `int` olarak yazılmış olduğunu varsayıyordu. Ancak C99 ile birlikte
-geri dönüş değerinin türünün yazılması zorunlu tutulmuştur. `main` fonksiyonun geri dönüş değerinin türü, standartlara göre `int` olmak zorundadır.
-C'de `main` özel bir fonksiyondur. C programları her zaman `main` isimli fonksiyondan çalışmaya başlar. Programlama dillerinde programın çalışmaya
+Fonksiyonun geri dönüş değerinin türü C90'da yazılmayabiliyordu. Bu durumda C90 bunun int olarak yazılmış olduğunu varsayıyordu. Ancak C99 ile birlikte
+geri dönüş değerinin türünün yazılması zorunlu tutulmuştur. main fonksiyonun geri dönüş değerinin türü, standartlara göre int olmak zorundadır.
+C'de main özel bir fonksiyondur. C programları her zaman main isimli fonksiyondan çalışmaya başlar. Programlama dillerinde programın çalışmaya
 başladığı fonksiyonlara "_entry point_" denilmektedir. Bir fonksiyonun parametreleri olabilir ya da olmayabilir. Eğer fonksiyonun parametresi yoksa parametre parantezi
-boş bırakılabilir ya da oraya `void` yazılabilir. Tanımlama sırasında boş bırakmakla `void` yazmak arasında bir fark yoktur. Her fonksiyonun bir ana bloğu
+boş bırakılabilir ya da oraya void yazılabilir. Tanımlama sırasında boş bırakmakla void yazmak arasında bir fark yoktur. Her fonksiyonun bir ana bloğu
 olmak zorundadır. C'de iki küme parantezi arasındaki bölgeye "_blok (block)_" denilmektedir. Bir fonksiyon çalıştırıldığında fonksiyonun ana bloğundaki deyimler
-sırasıyla çalıştırılır. Ana blok bittiğinde fonksiyon sonlanmış olur. Dolayısıyla `main` programı bittiğinde tüm program sonlanmış olacaktır. Merhaba Dünya
-programında `main` fonksiyonun ana bloğunun içerisinde `printf` isimli bir fonksiyon çağrılmıştır. Bir fonksiyonun çağrılması (call) demek onun çalıştırılması demektir.
+sırasıyla çalıştırılır. Ana blok bittiğinde fonksiyon sonlanmış olur. Dolayısıyla main programı bittiğinde tüm program sonlanmış olacaktır. Merhaba Dünya
+programında main fonksiyonun ana bloğunun içerisinde printf isimli bir fonksiyon çağrılmıştır. Bir fonksiyonun çağrılması (call) demek onun çalıştırılması demektir.
 Bir fonksiyon çağrıldığında akış, fonksiyona gider, fonksiyonun içerisindeki deyimler tek tek çalıştırılır. Fonksiyon bitince akış çağırma noktasından devam eder.
-`printf` fonksiyonu çağrıldığında iki tırnak içerisindeki yazıları ekrana basmaktadır. Ekranda bir imleç (cursor) vardır. Yazı bu imlecin bulunduğu yerden itibaren
+printf fonksiyonu çağrıldığında iki tırnak içerisindeki yazıları ekrana basmaktadır. Ekranda bir imleç (cursor) vardır. Yazı bu imlecin bulunduğu yerden itibaren
 ekrana yazdırılır. Sonra imleç yazının sonunda bırakılır. İmleç program çalışmaya başladığında sol üst köşededir. printf fonksiyonunda iki tırnak içerisindeki `\n`
 "_imleci aşağı satırın başına geçir_" biçiminde özel bir anlama gelmektedir. Yani bundan sonra biz bir daha printf fonksiyonunu çağıracak olsak artık o yazı aşağı
 satırın başından itibaren yazılacaktır. printf bir standart C fonksiyonudur. Standart C fonksiyonları derleyicileri yazanlar tarafından yazılmış (tanımlanmış)
-biçimde bulunan fonksiyonlardır. `main` fonksiyonun sonundaki `return` deyimi bulunmak zorunda değildir. Bu deyim ileride açıklanacaktır.
+biçimde bulunan fonksiyonlardır. main fonksiyonun sonundaki return deyimi bulunmak zorunda değildir. Bu deyim ileride açıklanacaktır.
 
 ```
 
@@ -1191,105 +1191,105 @@ gcc ve clang derleyicilerinde komut satırında derleme yaparken `-std=c90`, `-s
 
 Ayrıca Microsoft derleyicilerinde proje seçeneklerinden **C-C++** sekmesinde **SDL Checks** seçeneği **No** yapılarak kapatılmalıdır.
 
-Programlama dillerinde "_tür (type)_" bir nesnenin bellekte kapladığı alanı, onun içerisindeki `1`'lerin ve `0`'ların nasıl yorumlanacağını, o nesnenin hangi
+Programlama dillerinde "_tür (type)_" bir nesnenin bellekte kapladığı alanı, onun içerisindeki 1'lerin ve 0'ların nasıl yorumlanacağını, o nesnenin hangi
 operatörlerle işleme sokulabileceğini belirten önemli bir bilgidir. C'de her nesnenin ve her ifadenin bir türü vardır. Türler çeşitli anahtar sözcüklerle
 ifade edilirler. Aşağıda temel türler açıklanmaktadır:
 
-- **`[signed] int`**: Bu tür, işaretli bir tamsayı türüdür. `int` türünün kaç byte yer kaplayacağı standartlarda derleyicileri yazanların isteğine bırakılmıştır.
-  Ancak standartlara göre `int` türü minimum `2 byte` olmalıdır. Bugün 32 bit ve 64 bit Windows ile UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde `int` türü `4 byte (32 bit)`
-  uzunluktadır. Dolayısıyla `int` türden bir nesne bu sistemlerde `[-2147483648, 2147483647]` aralığında tamsayı değerler tutabilir. Bazı mikrodenetleyici
-  derleyicilerinde ise `int`, `2 byte (16 bit)` uzunluğunda olabilmektedir. Derleyicileri yazanlar genellikle `int` türünü o sistemdeki CPU yazmaçlarının uzunluğu kadar
-  ya da o uzunlukla ifade edilebilecek kadar almaktadır. Bu tür belirtilirken `int` demekle `signed int` demek arasında ya da `int signed` demek arasında
+- **`[signed] int`**: Bu tür, işaretli bir tamsayı türüdür. int türünün kaç byte yer kaplayacağı standartlarda derleyicileri yazanların isteğine bırakılmıştır.
+  Ancak standartlara göre int türü minimum 2 byte olmalıdır. Bugün 32 bit ve 64 bit Windows ile UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde int türü 4 byte (32 bit)
+  uzunluktadır. Dolayısıyla int türden bir nesne bu sistemlerde [-2147483648, 2147483647] aralığında tamsayı değerler tutabilir. Bazı mikrodenetleyici
+  derleyicilerinde ise int, 2 byte (16 bit) uzunluğunda olabilmektedir. Derleyicileri yazanlar genellikle int türünü o sistemdeki CPU yazmaçlarının uzunluğu kadar
+  ya da o uzunlukla ifade edilebilecek kadar almaktadır. Bu tür belirtilirken int demekle signed int demek arasında ya da int signed demek arasında
   bir fark yoktur.
 
-- **`[unsigned] int`**: Her işaretli tamsayı türünün bir de işaretsiz biçimi vardır. `signed int` türünün işaretsiz biçimi `unsigned int` türüdür. Tamsayı türlerinin
-  işaretli biçimleri ile işaretsiz biçimleri aynı miktarda yer kaplarlar. Aralarındaki tek fark işaret bitinin yorumudur. Dolayısıyla bu tür de `32 bit` ve
-  `64 bit` Windows ile UNIX/Linux ve Mac OS sistemlerinde `4 byte` yer kaplamaktadır. `unsigned int` türünden bir nesne içerisine bu sistemlerde yerleştirilebilecek sayı
-  sınırı `[0, +4294967295]` biçimindedir. Bu türü biz `unsigned` biçiminde ya da `unsigned int` biçiminde ya da `int unsigned` biçiminde ifade edebiliriz.
+- **`[unsigned] int`**: Her işaretli tamsayı türünün bir de işaretsiz biçimi vardır. signed int türünün işaretsiz biçimi unsigned int türüdür. Tamsayı türlerinin
+  işaretli biçimleri ile işaretsiz biçimleri aynı miktarda yer kaplarlar. Aralarındaki tek fark işaret bitinin yorumudur. Dolayısıyla bu tür de 32 bit ve
+  64 bit Windows ile UNIX/Linux ve Mac OS sistemlerinde 4 byte yer kaplamaktadır. unsigned int türünden bir nesne içerisine bu sistemlerde yerleştirilebilecek sayı
+  sınırı [0, +4294967295] biçimindedir. Bu türü biz unsigned biçiminde ya da unsigned int biçiminde ya da int unsigned biçiminde ifade edebiliriz.
 
-- **`[signed] long [int]`**: `long` türü, `int` türünden uzun olabilir ya da `int` türüyle aynı uzunlukta olabilir. Ancak `int` türünden daha kısa olamaz. Standratlara
-  göre `long` türü en az `4 byte (32 bit)` uzunlukta olmak zorundadır. `long` türü de `işaretli` bir tamsayı türüdür. Buradaki `long` ismi "_`int` türünden uzun olabilen_"
-  anlamına gelmektedir. `32 bit` ve `64 bit` Windows sistemlerindeki derleyicilerde `long` türü `int` türüyle aynı uzunluktadır (yani `4 byte`). Ancak `32 bit` UNIX/Linux ve
-  Mac OS sistemlerindeki derleyicilerde `long` türü `4 byte` iken, `64 bit` UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde `long` türü `8 byte` (`64 bit`) uzunluğundadır.
-  `long` türünü biz en kısa biçimde `long` olarak ifade edebiliriz. Ancak `signed long int`, `long int`, `signed int long` gibi anahtar sözcleri yer değiştirerek de ifade
+- **`[signed] long [int]`**: long türü, int türünden uzun olabilir ya da int türüyle aynı uzunlukta olabilir. Ancak int türünden daha kısa olamaz. Standratlara
+  göre long türü en az 4 byte (32 bit) uzunlukta olmak zorundadır. long türü de işaretli bir tamsayı türüdür. Buradaki long ismi "_int türünden uzun olabilen_"
+  anlamına gelmektedir. 32 bit ve 64 bit Windows sistemlerindeki derleyicilerde long türü int türüyle aynı uzunluktadır (yani 4 byte). Ancak 32 bit UNIX/Linux ve
+  Mac OS sistemlerindeki derleyicilerde long türü 4 byte iken, 64 bit UNIX/Linux ve Mac OS sistemlerindeki derleyicilerde long türü 8 byte (64 bit) uzunluğundadır.
+  long türünü biz en kısa biçimde long olarak ifade edebiliriz. Ancak signed long int, long int, signed int long gibi anahtar sözcleri yer değiştirerek de ifade
   edebiliriz.
 
 [10. Ders - 23/06/2022 - Perşembe]()
 
-- **`unsigned long [int]`**: Bu tür, `long` türünün işaretsiz biçimidir. Dolayısıyla sistemlerde `long` türüyle aynı uzunlukta yer kaplar ancak sayının başındaki bit
-  işaret biti olarak ele alınmaz. `32` ve `64 bit` Windows Sistemleri ile `32 bit` UNIX/Linux ve Mac OS sistemlerinde bu tür, `long` türünde olduğu gibi
-  `4 byte` (yani `32 bit`) yer kaplamaktadır. Dolayısıyla bu sistemlerdeki sınıfı `[0, +4294967295]` biçimindedir.
+- **`unsigned long [int]`**: Bu tür, long türünün işaretsiz biçimidir. Dolayısıyla sistemlerde long türüyle aynı uzunlukta yer kaplar ancak sayının başındaki bit
+  işaret biti olarak ele alınmaz. 32 ve 64 bit Windows Sistemleri ile 32 bit UNIX/Linux ve Mac OS sistemlerinde bu tür, long türünde olduğu gibi
+  4 byte (yani 32 bit) yer kaplamaktadır. Dolayısıyla bu sistemlerdeki sınıfı [0, +4294967295] biçimindedir.
 
-- **`[signed] short [int]`**: Bu tür, `int` türünden küçük olabilen ya da `int` türü ile aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlara göre `short` türü
-  en az `2 byte` (yani `16 bit`) olmak zorundadır. `32 bit` ve `64 bit` Windows Sistemleri ile UNIX/Linux ve Mac OS sistemlerinde short türü `2 byte` (yani `16 bit`) uzunluktadır.
-  Dolayısıyla bu sistemlerde bu türden bir nesnesinin içerisine biz `[-32768, +32767]` sınırları içerisinde bir tamsayı yerleştirebiliriz.
+- **`[signed] short [int]`**: Bu tür, int türünden küçük olabilen ya da int türü ile aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlara göre short türü
+  en az 2 byte (yani 16 bit) olmak zorundadır. 32 bit ve 64 bit Windows Sistemleri ile UNIX/Linux ve Mac OS sistemlerinde short türü 2 byte (yani 16 bit) uzunluktadır.
+  Dolayısıyla bu sistemlerde bu türden bir nesnesinin içerisine biz [-32768, +32767] sınırları içerisinde bir tamsayı yerleştirebiliriz.
 
-- **`unsigned short [int]`**: Bu tür, `signed short` türünün işaretsiz biçimidir. Dolayısıyla `short` türü kadar yer kaplar. `short` türünün `2 byte` olduğu sistemlerde
-  bu türden bir nesnenin içerisine biz `[0, +65535]` arasında tamsayı değerler yerleştirebiliriz.
+- **`unsigned short [int]`**: Bu tür, signed short türünün işaretsiz biçimidir. Dolayısıyla short türü kadar yer kaplar. short türünün 2 byte olduğu sistemlerde
+  bu türden bir nesnenin içerisine biz [0, +65535] arasında tamsayı değerler yerleştirebiliriz.
 
-- **`signed char`**: C standartlarında `byte` lafı pek az yerde kullanılmıştır. Çünkü `byte` genellikle `8 bit` için kullanılan bir terimdir. Oysa bazı
-  bilgisayar sistemlerinde RAM'deki adreslenebilen birimler `8 bit` değil `10`, `11 bit` değerler de olabilmektedir. Tabii bu sistemler son derece seyrektir.
-  Ancak standartlar bu uç durumu da dikkate almaktadır. C standartlarında `char` terimi "_RAM'de adreslenebilen en küçük birimin büyüklüğünü_" temsil etmektedir.
-  Örneğin tipik olarak eğer adreslenebilen en küçük birim `8 bit` ise `char` `8 bit`'tir. Ancak `10 bit` ise `char 10 bit`'tir. Görüldüğü gibi eğer C standartlarında
-  `char` yerine `byte` terimi kullanılsaydı `byte` `8 bit` olduğu için bu uç durum temsil edilemeyebilirdi. Tabii bugünkü sistemlerin %99.9'unda adreslenebilen en küçük
-  birim `8 bit`'tir. Dolayısıyla yaygın sistemlerin hepsinde gerçekten `char` türü `8 bit` yani `1 byte` uzunluğundadır. Zaten C standartlarında `byte` terimi tamamen
-  `bit` uzunluğu farklı olabilen yani "_adreslenebilen en küçük birim_" anlamında kullanılmaktadır. Başka bir deyişle bu tanımla `char` ile `byte` aynı anlamdadır.
-  Ayrıca standartlar, derleyicinin ilgili sistemdeki adreslenebilen en küçük birimdeki `bit` sayısının kaç `bit` olduğunu (yani `char` türünün kaç `bit`'ten oluştuğunu)
-  `<limits.h>` dosyası içerisinde `CHAR_BITS` sembolik sabitiyle belirtmesini zorunlu tutmaktadır.
+- **signed char**: C standartlarında Byte lafı pek az yerde kullanılmıştır. Çünkü Byte genellikle 8 bit için kullanılan bir terimdir. Oysa bazı
+  bilgisayar sistemlerinde RAM'deki adreslenebilen birimler 8 bit değil 10, 11 bit değerler de olabilmektedir. Tabii bu sistemler son derece seyrektir.
+  Ancak standartlar bu uç durumu da dikkate almaktadır. C standartlarında char terimi "_RAM'de adreslenebilen en küçük birimin büyüklüğünü_" temsil etmektedir.
+  Örneğin tipik olarak eğer adreslenebilen en küçük birim 8 bit ise char 8 bit'tir. Ancak 10 bit ise char 10 bit'tir. Görüldüğü gibi eğer C standartlarında
+  char yerine Byte terimi kullanılsaydı Byte 8 bit olduğu için bu uç durum temsil edilemeyebilirdi. Tabii bugünkü sistemlerin %99.9'unda adreslenebilen en küçük
+  birim 8 bit'tir. Dolayısıyla yaygın sistemlerin hepsinde gerçekten char türü 8 bit yani 1 byte uzunluğundadır. Zaten C standartlarında Byte terimi tamamen
+  bit uzunluğu farklı olabilen yani "_adreslenebilen en küçük birim_" anlamında kullanılmaktadır. Başka bir deyişle bu tanımla char ile Byte aynı anlamdadır.
+  Ayrıca standartlar, derleyicinin ilgili sistemdeki adreslenebilen en küçük birimdeki bit sayısının kaç bit olduğunu (yani char türünün kaç bit'ten oluştuğunu)
+  <limits.h> dosyası içerisinde CHAR_BITS sembolik sabitiyle belirtmesini zorunlu tutmaktadır.
 
-  Mademki `char` türü yaygın sistemlerin hepsinde `8 bit`'ten oluşmaktadır. O halde `signed char` türünün de bu sistemlerdeki sınırları `[-128, +127]`
-  arasındadır. Özetle signed `char`, `1 byte`'lık işaretli tamsayı türünü belirtmektedir.
+  Mademki char türü yaygın sistemlerin hepsinde 8 bit'ten oluşmaktadır. O halde signed char türünün de bu sistemlerdeki sınırları [-128, +127]
+  arasındadır. Özetle signed char, 1 byte'lık işaretli tamsayı türünü belirtmektedir.
 
-- **`unsigned char`**: Bu tür, `char` türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
-  `bit` uzunluğu kadardır. `8 bit`'lik yaygın sistemlerde `unsigned char` türünden bir nesneye `[0, +255]` arasında değerler yerleştirilebilir.
+- **unsigned char**: Bu tür, char türünün işaretsiz biçimidir. Dolayısıyla bu türün de bellekte kapladığı alan, ilgili sistemdeki adreslenebilen en küçük birimin
+  bit uzunluğu kadardır. 8 bit'lik yaygın sistemlerde unsigned char türünden bir nesneye [0, +255] arasında değerler yerleştirilebilir.
 
-- **`char`**: Yalnızca `char` denildiğinde bunun `signed char` mı yoksa `unsigned char` mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
-  Microsoft C derleyicileri, gcc ve clang derleyicileri char türünü default olarak `signed char` kabul etmektedir. Fakat başka derleyiciler `unsigned char`
-  kabul edebilirler. Aslında Microsoft derleyicilerinde, gcc ve clang derleyicilerinde `char` denildiğinde default durum derleyici ayarlarından da değiştirilebilmektedir.
-  Her ne kadar `char` türü, ilgili sistemde `signed char` ya da `unsigned char` anlamına geliyorsa da `char`, `signed char` ve `unsigned char` ne olursa olsun
+- **char**: Yalnızca char denildiğinde bunun signed char mı yoksa unsigned char mı anlamına geleceği, C standartlarında derleyicileri yazanların isteğine bırakılmıştır.
+  Microsoft C derleyicileri, gcc ve clang derleyicileri char türünü default olarak signed char kabul etmektedir. Fakat başka derleyiciler unsigned char
+  kabul edebilirler. Aslında Microsoft derleyicilerinde, gcc ve clang derleyicilerinde char denildiğinde default durum derleyici ayarlarından da değiştirilebilmektedir.
+  Her ne kadar char türü, ilgili sistemde signed char ya da unsigned char anlamına geliyorsa da char, signed char ve unsigned char ne olursa olsun
   farklı türler gibi değerlendirilmektedir. Bunun önemi başka konularda ortaya çıkacaktır.
 
 - **`[signed] long long [int]`**: Bu tür, C99 ile birlikte standartlara dahil edilmiştir. Dolısıyla C90 uyumlu eski C derleyicilerinde bu türü kullanamayabilrsiniz.
-  `long long` türü, `long` türünden uzun ya da `long` türüyle aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlarda minimum `8 byte` (yani `64 bit`) olabileceği
-  belirtilmiştir. Şu andaki yaygın derleyicilerin hepsinde `long long` türü, `8 byte` uzunluktadır. `8 byte` uzunluk için `long long` türünden bir nesneye yerleştirilebilecek
-  sayı sınırı `[-9223372036854775808, +9223372036854775807]` (katrilyar mertebesinde, `8 exabyte`) biçimindedir.
+  long long türü, long türünden uzun ya da long türüyle aynı uzunlukta olabilen işaretli bir tamsayı türüdür. Standartlarda minimum 8 byte (yani 64 bit) olabileceği
+  belirtilmiştir. Şu andaki yaygın derleyicilerin hepsinde long long türü, 8 byte uzunluktadır. 8 byte uzunluk için long long türünden bir nesneye yerleştirilebilecek
+  sayı sınırı [-9223372036854775808, +9223372036854775807] (katrilyar mertebesinde, 8 exabyte) biçimindedir.
 
-- **`unsigned long long [int]`**: Bu tür de `long long` türünün işaretsiz biçimidir. Dolayısıyla yaygın sistemlerin hepsinde `8 byte` (yani `64 bit`) uzunluktadır.
-  `unsigned long long` türünden bir nesneye yerleştirilecek sayı sınırı da `[0, +18446744073709551615] (16 exabyte)` biçimindedir.
+- **`unsigned long long [int]`**: Bu tür de long long türünün işaretsiz biçimidir. Dolayısıyla yaygın sistemlerin hepsinde 8 byte (yani 64 bit) uzunluktadır.
+  unsigned long long türünden bir nesneye yerleştirilecek sayı sınırı da [0, +18446744073709551615] (16 exabyte) biçimindedir.
 
-Yukarıdaki tüm türlere C'nin tamsayı türleri denilmektedir. C'de ayrıca üç tane de gerçek sayı (noktalı sayı) türü vardır: `float`, `double` ve `long double`.
+Yukarıdaki tüm türlere C'nin tamsayı türleri denilmektedir. C'de ayrıca üç tane de gerçek sayı (noktalı sayı) türü vardır: float, double ve long double.
 Gerçek syaı türlerinin işaretli ve işaretsiz biçimleri yoktur. Bunlar zaten doğuştan işaretlidir.
 
-- **`float`**: Bu tür, `4 byte` uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
+- **float**: Bu tür, 4 byte uzunluğunda gerçek sayı türüdür. Her ne kadar standartlar kullanılacak gerçek sayı formatını açıkça belirtmiş olmasa da
   "_Implementation Limits_" kısmında gerçek sayı türleri için belirtilen limitler **IEE 754** standardını ima etmektedir. Bu durumda float türü hemen her sistemde
-  `4 byte` uzunluktadır. `float` türünün yuvarlama hatalarına direnci zayıftır. Bu nedenle `float` türü aslında C programcıları tarafından az tercih edilen bir gerçek
+  4 byte uzunluktadır. float türünün yuvarlama hatalarına direnci zayıftır. Bu nedenle float türü aslında C programcıları tarafından az tercih edilen bir gerçek
   sayı türüdür.
 
-- **`double`**: Standartlara göre `double` türü, `float` türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
-  `double` türü `8 byte` uzunluktadır ve **IEEE 754 Long Real Format** biçiminde temsil edilmektedir. Ancak bazı mikrodenetleyici derleyicilerinde
-  `double` türü `float` ile tamamen aynı uzunlukta olabilmektedir. C prograöcılarının en fazla tercih ettiği gerçek sayı türü, `double` türüdür. Çünkü bu türün
-  yuvarlama hatalarına direnci `float` türünden çok daha iyidir.
+- **double**: Standartlara göre double türü, float türü ile aynı ya da ondan daha duyarlıklı olabilir. Yaygın sistemlerin büyük çoğunluğunda
+  double türü 8 byte uzunluktadır ve **IEEE 754 Long Real Format** biçiminde temsil edilmektedir. Ancak bazı mikrodenetleyici derleyicilerinde
+  double türü float ile tamamen aynı uzunlukta olabilmektedir. C prograöcılarının en fazla tercih ettiği gerçek sayı türü, double türüdür. Çünkü bu türün
+  yuvarlama hatalarına direnci float türünden çok daha iyidir.
 
-- **`long double`**: `long double` türü, standartlara göre `double` ile aynı duyarlılıkta ya da `double` türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
-  gcc ve clang derleyicilerinde `long double` türü, `double` türüyle tamamen aynı özelliktedir. Yani bu tür de bu derleyicilerde IEEE 754 Long Real Format biçiminde
-  ifade edilmektedir. Fakat bazı derleyicilerde (Örneğin eski Borland firmasının C derleyicilerinde) long double türü `10 byte`'lık **IEEE 754 Extended Real Format**
+- **long double**: long double türü, standartlara göre double ile aynı duyarlılıkta ya da double türünden daha duyarlıklı olabilen bir türdür. Bugün Microsoft C derleyicilerinde,
+  gcc ve clang derleyicilerinde long double türü, double türüyle tamamen aynı özelliktedir. Yani bu tür de bu derleyicilerde IEEE 754 Long Real Format biçiminde
+  ifade edilmektedir. Fakat bazı derleyicilerde (Örneğin eski Borland firmasının C derleyicilerinde) long double türü 10 byte'lık **IEEE 754 Extended Real Format**
   biçiminde de alınabilmektedir.
 
-Bir C derleyicisinde aslında `float`, `double` ve `long double` türlerinin hepsi 4 byte uzunlukta olabilir.
+Bir C derleyicisinde aslında float, double ve long double türlerinin hepsi 4 byte uzunlukta olabilir.
 
-C99 ile birlikte C'ye ikili değerler turmak için `_Bool` isminde yeni bir tür daha eklenmiştir. (Bu tür isminin bu biçimde size tuhaf gelecek şekilde isimlendirilmesinin
-amacı geçmişe doğru uyumu koruyabilmektir. C99 çıktğında, `bool` gibi bir ismi programcılar kendi programlarında kullanmış olabileceklerinden dolayı,
-bu türü temsil etmek için "_reserved_" isimlerden biri tercih edilmiştir. C'de başı `_` ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
-yasaklanmış durumdaydı.) `_Bool` türü için standatlar, `0` ve `1` değerlerini tutabilen bir yapıda olması gerektiğini belirtmişlerdir. Dolayısıyla `_Bool` türü aslında
-herhangi bir tamsayı türünün uzunluğu kadar olabilir. Tabii derleyiciler bu türden nesneler için genel olarak `1 byte` yer ayırmaktadır.
+C99 ile birlikte C'ye ikili değerler turmak için _Bool isminde yeni bir tür daha eklenmiştir. (Bu tür isminin bu biçimde size tuhaf gelecek şekilde isimlendirilmesinin
+amacı geçmişe doğru uyumu koruyabilmektir. C99 çıktğında, bool gibi bir ismi programcılar kendi programlarında kullanmış olabileceklerinden dolayı,
+bu türü temsil etmek için "\_reserved_" isimlerden biri tercih edilmiştir. C'de başı `_` ile başlayan ve ilk harfi büyük harf olan isimlerin kullanılması zaten
+yasaklanmış durumdaydı.) \_Bool türü için standatlar, 0 ve 1 değerlerini tutabilen bir yapıda olması gerektiğini belirtmişlerdir. Dolayısıyla \_Bool türü aslında
+herhangi bir tamsayı türünün uzunluğu kadar olabilir. Tabii derleyiciler bu türden nesneler için genel olarak 1 byte yer ayırmaktadır.
 
-`_Bool` türü `<stdbool.h>` dosyası içerisinde `bool` ismiyle de typedef edilmiştir. Dolaysıyla, programcı isterse `<stdbool.h>` başlık dosyasını include edip `_Bool` yerine
-`bool` ismini de kullanabilir. Genellikle `bool` türünün olduğu diğer programlama dillerinde, `true` ve `false` biçiminde anahtar sözcükler de bulundurulmaktadır.
-Ancak C99'da bu biçimde anahtar sözcükler yoktur. Ancak `<stdbool.h>` içerisinde `true` `1` olarak, `false` `0` olarak define edilmiştir. Dolayısıyla eğer
-`<stdbool.h>` dosyası `include` edilirse, `true` ve `false` sözcükleri `1` ve `0` yerine kullanılabilir.
+\_Bool türü <stdbool.h> dosyası içerisinde bool ismiyle de typedef edilmiştir. Dolaysıyla, programcı isterse <stdbool.h> başlık dosyasını include edip \_Bool yerine
+bool ismini de kullanabilir. Genellikle bool türünün olduğu diğer programlama dillerinde, true ve false biçiminde anahtar sözcükler de bulundurulmaktadır.
+Ancak C99'da bu biçimde anahtar sözcükler yoktur. Ancak <stdbool.h> içerisinde true 1 olarak, false 0 olarak define edilmiştir. Dolayısıyla eğer
+`<stdbool.h>` dosyası include edilirse, true ve false sözcükleri 1 ve 0 yerine kullanılabilir.
 
-Son olarak C99 ile birlikte C'ye karmaşık sayı (complex number) türü de eklenmiştir. Karmaşık sayı belirtmek için `_Complex` tür ismi, anahtar sözcük olarak
-dile eklenmiştir. Ancak `_Complex` tek başına kullanılamaz. float, double ve long double tür isimleriyle birlikte kullanılabilir. Yani C99 ile birlikte üç
+Son olarak C99 ile birlikte C'ye karmaşık sayı (complex number) türü de eklenmiştir. Karmaşık sayı belirtmek için \_Complex tür ismi, anahtar sözcük olarak
+dile eklenmiştir. Ancak \_Complex tek başına kullanılamaz. float, double ve long double tür isimleriyle birlikte kullanılabilir. Yani C99 ile birlikte üç
 karmaşık sayı türü dile eklenmiş durumdadır:
 
 ```
@@ -1300,23 +1300,23 @@ karmaşık sayı türü dile eklenmiş durumdadır:
 
 ```
 
-Karmaşık sayılar, gerçek ve sanal kısımları `float`, `double` ve `long double` olan iki bileşenli sayılardır. Karmaşık sayı için `i` sembolü C99'da
-`_COMPLEX_I` anahtar sözcüğü ile temsil edilmiştir. Dolaysyıyla örneğin `double` `_Complex` türünden bir `z` değişkenine biz `3.2 + 2.4i` değerini şöyle atarız:
+Karmaşık sayılar, gerçek ve sanal kısımları float, double ve long double olan iki bileşenli sayılardır. Karmaşık sayı için i sembolü C99'da
+\_COMPLEX_I anahtar sözcüğü ile temsil edilmiştir. Dolaysyıyla örneğin double \_Complex türünden bir z değişkenine biz 3.2 + 2.4i değerini şöyle atarız:
 
 ```
     z = 3.2 + 2.4 * _COMPLEX_I
 ```
 
-Ayrıca yazım kolaylığı için `<complex.h>` dosyası içerisinde `_COMPLEX` anahtar sözcüğü `complex` ismiyle typedef edilmiştir. Yani biz eğer `<complex.h>` dosyasını
-`include` edersek `_COMPLEX` yerine `complex` sözcüğünü de kullanabiliriz. Benzer biçimde `<complex.h>` içerisinde `I` isimli sembolik sabit de `_COMPLEX_I` olacak biçimde
-define edilmiştir. Yani biz `<complex.h>` dosyasını include etmiş isek, `i` sayısı için `_COMPLEX_I` yerine `I` harfini de kullanabiliriz.
+Ayrıca yazım kolaylığı için <complex.h> dosyası içerisinde \_COMPLEX anahtar sözcüğü complex ismiyle typedef edilmiştir. Yani biz eğer <complex.h> dosyasını
+include edersek \_COMPLEX yerine complex sözcüğünü de kullanabiliriz. Benzer biçimde <complex.h> içerisinde i isimli sembolik sabit de \_COMPLEX_I olacak biçimde
+define edilmiştir. Yani biz <complex.h> dosyasını include etmiş isek, i sayısı için \_COMPLEX_I yerine i harfini de kullanabiliriz.
 
-> C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep `int` türünü, gerçek sayı türü olarak da `double`
-> türünü tercih ederler. C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni `char`, `short` olarak değil
-> yine `int` olarak tanımlar. Fakat, örneğin bir nicelik `int` türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. `int` türünden küçük
+> C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep int türünü, gerçek sayı türü olarak da double
+> türünü tercih ederler. C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni char, short olarak değil
+> yine int olarak tanımlar. Fakat, örneğin bir nicelik int türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. int türünden küçük
 > türler programcılar tarafından tekil nesneler için değil, büyük diziler için tercih edilmektedir. Örneğin bir kişinin yaşını bir değişkende tutacak olalım.
-> Biz yine bu değişkeni `int` türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi `int` türünden değil de `char` türünden
-> oluşturabiliriz. Aynı durum `double` türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa `float` türünü tercih etmelidir.
+> Biz yine bu değişkeni int türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi int türünden değil de char türünden
+> oluşturabiliriz. Aynı durum double türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa float türünü tercih etmelidir.
 
 [11. Ders - 28/06/2022 - Salı]()
 
@@ -1363,7 +1363,7 @@ farklı karakterler olarak ele alınırlar. Değişken isimlendirmesinde pek ço
 C'de başı iki alt tire ile başlayan ve başı bir alt tire ve büyük harfle başlayan tüm isimler "_reserved_" yapılmıştır. Programcıların bu biçimde isimlendirme
 yapmaması gerekir. Eğer programcılar böyle isimlendirme yaparsa kodları derlenir ancak çalışma sırasında olumsuzluk gözükebilir. (Bu duruma "_tanımsız davranış (undefined behavior)_"
 denilmektedir. Bu kavram ileride açıklanacaktır.) Başı tek alt tire ile başlayan tüm isimler global faaliyet alanında "_reserved_" yapılmıştır. (Yani örneğin biz
-`_count` gibi bir ismi global değişken olarak kullanamayız. Ancak yerek değişken olarak kullanabiliriz. Global ve yerel faaliyet alanları konusu ileride ele alınacaktır.)
+\_count gibi bir ismi global değişken olarak kullanamayız. Ancak yerek değişken olarak kullanabiliriz. Global ve yerel faaliyet alanları konusu ileride ele alınacaktır.)
 
 C'de ağırlıklı bir biçimde küçük harfli isimlendirmeler tercih edilmektedir. Değişken isimlerinin anlamlı ve telaffuz edilebilir olması tavsiye edilir.
 Birden çok sözcükten oluşan değişken isimlerinde sözcüklerin ayrımsanması için üç çeşit harflendirme biçimi kullanılmaktadır:
@@ -1430,7 +1430,7 @@ Bir değişkene bildirim sırasında değer atayabiliriz. Bu işleme "_ilkdeğer
 
 ```
 
-Burada `a` ve `c` değişkenlerine ilkdeğer verilmiştir. Ancak `b` değişkenine ilkdeğer verilmemiştir. İlkdeğer verme ile değişkene ilk kez değer atama aynı şey değildir.
+Burada a ve c değişkenlerine ilkdeğer verilmiştir. Ancak b değişkenine ilkdeğer verilmemiştir. İlkdeğer verme ile değişkene ilk kez değer atama aynı şey değildir.
 Örneğin:
 
 ```
@@ -1444,17 +1444,17 @@ Burada `a` ve `c` değişkenlerine ilkdeğer verilmiştir. Ancak `b` değişkeni
 Buradaki işlem bir ilkdeğer verme değildir. İlkdeğer verme, bildirim sırasında değer atama anlamına gelmeketedir.
 
 Aslında C standartlarında "_ekran_" ve "_klavye_" lafları hiç geçmemektedir. Örneğin C standartları printf fonksiyonun "_ekrana yazdığını_" söylememektedir.
-Standartlara göre `printf` fonksiyonu `stdout` denilen bir dosyaya yazmaktadır. Ancak bu dosya bir aygıta yönlendirilmiş olabilir. Örneğin klasik bilgisayar
-sistemlerimizde stdout, ekranı kontrol eden terminal aygıt sürücüsüne yönlendirilmiş durumdadır. Dolayısıyla `printf`, `stdout` dosyasına yazar ancak yazılanlar
-ekranda görülür. Tabii bir sistemde stdout, başka aygıtlara ya da dosyalara yönlendirilmiş olabilir. Örneğin `stdout` seri porta yönlendirilmişse artık `printf`
-fonksiyonun yazdıkları seri porta aktarılır. Aynı durum klavye için de geçerlidir. Aslında klavyeden okumak diye bir şey yoktur. `stdin` dosyasından okumak
-diye bir şey vardır. `stdin` dosyası da klasik bilgisayar sistemlerinde genellikle klavyeye yönlendirilmiştir. Ancak, örneğin `stdin` seri porta
-yönlendirilmişse artık seri porttan gelen bilgiler okunur. Görüldüğü gibi `stdout` ve `stdin` aslında değişik kaynakları temsil ediyor olabilir.
-Biz kurusumuzda bazen "_ekran_" ve "_klavye_" laflarını edeceğiz. Burada tenik olarak `stdout` ve `stdin` dosyaları anlaşılmalıdır.
+Standartlara göre printf fonksiyonu stdout denilen bir dosyaya yazmaktadır. Ancak bu dosya bir aygıta yönlendirilmiş olabilir. Örneğin klasik bilgisayar
+sistemlerimizde stdout, ekranı kontrol eden terminal aygıt sürücüsüne yönlendirilmiş durumdadır. Dolayısıyla printf, stdout dosyasına yazar ancak yazılanlar
+ekranda görülür. Tabii bir sistemde stdout, başka aygıtlara ya da dosyalara yönlendirilmiş olabilir. Örneğin stdout seri porta yönlendirilmişse artık printf
+fonksiyonun yazdıkları seri porta aktarılır. Aynı durum klavye için de geçerlidir. Aslında klavyeden okumak diye bir şey yoktur. stdin dosyasından okumak
+diye bir şey vardır. stdin dosyası da klasik bilgisayar sistemlerinde genellikle klavyeye yönlendirilmiştir. Ancak, örneğin stdin seri porta
+yönlendirilmişse artık seri porttan gelen bilgiler okunur. Görüldüğü gibi stdout ve stdin aslında değişik kaynakları temsil ediyor olabilir.
+Biz kurusumuzda bazen "_ekran_" ve "_klavye_" laflarını edeceğiz. Burada tenik olarak stdout ve stdin dosyaları anlaşılmalıdır.
 
-`printf` aslında oldukça kapsamlı bir fonksiyondur. `printf` fonksiyonunda iki tırnak içerisindeki karakterler ekrana (yani `stdout` dosyasına) basılır.
-Ancak printf, `%` karakterini gördüğünde `%` karakterini ve onun yanındaki bir ya da iki karakteri ekrana yazdırmaz. `%` karakterinin yanındaki bazı özel karakterlere
-format karakterleri denilmektedir. `%` karakteri ve format karakterleri, birlikte "_yer tutucu_" belirtir. Bu yer tutucular `printf`'in iki tırnak argümanından sonraki
+printf aslında oldukça kapsamlı bir fonksiyondur. printf fonksiyonunda iki tırnak içerisindeki karakterler ekrana (yani stdout dosyasına) basılır.
+Ancak printf, % karakterini gördüğünde % karakterini ve onun yanındaki bir ya da iki karakteri ekrana yazdırmaz. % karakterinin yanındaki bazı özel karakterlere
+format karakterleri denilmektedir. % karakteri ve format karakterleri, birlikte "_yer tutucu_" belirtir. Bu yer tutucular printf'in iki tırnak argümanından sonraki
 argümanlarla sırasıyla eşleştirilmektedir. Böylece aslında format karakterleri değil de bu argümanların değerleri yer tutucu yerine yazdırılır. Örneğin:
 
 ```
@@ -1465,7 +1465,7 @@ argümanlarla sırasıyla eşleştirilmektedir. Böylece aslında format karakte
 
 ```
 
-Burada `%d` yer tutucudur. İlk `%d` yerine `a`'nın değeri, ikinci `%d` yerine `b`'nin değeri yazdırılır.
+Burada %d yer tutucudur. İlk %d yerine a'nın değeri, ikinci %d yerine b'nin değeri yazdırılır.
 
 [12. Ders - 30/06/2022 - Perşembe]()
 
@@ -1515,9 +1515,9 @@ En çok kullanılan format karakterleri şunlardır:
 
 ```
 
-`printf` fonksiyonunda `%` karakterinden sonra fakat format karakterinden önce bir sayı belirtilirse ilgili argüman, o sayı ile belirtilen genişlikte
+printf fonksiyonunda % karakterinden sonra fakat format karakterinden önce bir sayı belirtilirse ilgili argüman, o sayı ile belirtilen genişlikte
 bir alan ayrılarak o alanda yazılır. Default durum sağa dayalı olarak yazdırılmasıdır. Sola dayalı yazdırmak için genişlik belirtilen bu sayının
-önüne ayrıca bir de `-` karakteri eklenir. Özellikle sütunsal hizalamalar için `%-nd` gibi (buarada `n` yerine bir sayı getirilmelidir) format karakterleri
+önüne ayrıca bir de `-` karakteri eklenir. Özellikle sütunsal hizalamalar için `%-nd` gibi (buarada n yerine bir sayı getirilmelidir) format karakterleri
 kullanılmaktadır. Eğer genişlik belirten sayı yazdırılacak sayının basamak sayısından az ise, sayının hepsi yazdırılmaktadır.
 
 ```
@@ -1542,7 +1542,7 @@ kullanılmaktadır. Eğer genişlik belirten sayı yazdırılacak sayının basa
 
 ```
 
-`float` ve `double` sayılarda sayının toplam genişliği ve noktadan sonraki kısmın genişliği ayrı ayrı belirtilebilmektedir. Örneğin `%10.2f` toplam 10 alan içerisinde,
+float ve double sayılarda sayının toplam genişliği ve noktadan sonraki kısmın genişliği ayrı ayrı belirtilebilmektedir. Örneğin `%10.2f` toplam 10 alan içerisinde,
 sayı noktadan sonra iki basamak olacak biçimde yazdırılır. Burada yalnızca noktanın sağ tarafının kaç basamak yazdırılacağı da belirtilebilir. Örneğin
 `%.3f` sayının tam kısmının tam olarak yazılacağı ancak noktadan sonraki kısmın üç basamak biçiminde yuvarlanarak yazdırılacağı anlamına gelir.
 
@@ -1638,9 +1638,9 @@ kastedilmektedir. Ancak bu kural C99 ve ötesinde değiştirilmiştir. C99 ve ö
 
 ```
 
-C'de bir tamsayı `10`'luk, `16`'lık ve `8`'lik sistemde bir sabit biçiminde belirtilebilmektedir. Default sistem `10`'luk sistemdir. Ancak bir tamsayı `0x` ile
-ya da `0X` ile başlanarak yazılırsa, bu durumda sayının `16`'lık sistemde yazılmış olduğu kabul edilir. Eğer bir sayı başına `0` getirilerek yazılırsa bu da
-sayının `8`'lik sistemde yazılmış olduğu anlamına gelir. Örneğin:
+C'de bir tamsayı 10'luk, 16'lık ve 8'lik sistemde bir sabit biçiminde belirtilebilmektedir. Default sistem 10'luk sistemdir. Ancak bir tamsayı `0x` ile
+ya da `0X` ile başlanarak yazılırsa, bu durumda sayının 16'lık sistemde yazılmış olduğu kabul edilir. Eğer bir sayı başına 0 getirilerek yazılırsa bu da
+sayının 8'lik sistemde yazılmış olduğu anlamına gelir. Örneğin:
 
 ```
 
@@ -1650,9 +1650,9 @@ sayının `8`'lik sistemde yazılmış olduğu anlamına gelir. Örneğin:
 
 ```
 
-Tabii biz tamsayı değeri kaçlık sistemde yazarsak yazalım, aslında bu sayı bellekte her zaman `2`'lik sistemde tutulmaktadır.
+Tabii biz tamsayı değeri kaçlık sistemde yazarsak yazalım, aslında bu sayı bellekte her zaman 2'lik sistemde tutulmaktadır.
 
-C'de bir tamsayıyı `2`'lik sistemde yazmanın bir yolu yoktur.
+C'de bir tamsayıyı 2'lik sistemde yazmanın bir yolu yoktur.
 
 ```
 
@@ -1676,7 +1676,7 @@ C'de bir tamsayıyı `2`'lik sistemde yazmanın bir yolu yoktur.
 
 ```
 
-C'de bir noktalı sayı, üstel biçimde de yazılabilir. Bunun için sayıdan sonra `e` ya da `E` karakteri ve üs sayısı belirtilir. Buradaki üs `10`'un
+C'de bir noktalı sayı, üstel biçimde de yazılabilir. Bunun için sayıdan sonra `e` ya da `E` karakteri ve üs sayısı belirtilir. Buradaki üs 10'un
 kaçıncı kuvveti olduğunu belirtmektedir. Örneğin:
 
 ```
@@ -1707,7 +1707,7 @@ kaçıncı kuvveti olduğunu belirtmektedir. Örneğin:
 Doğrudan yazılan sayılara "_sabit (literal)_" denilmektedir. C'de yalnızca değişkenlerin değil, sabitlerin de türleri vardır. Bir sabitin türü onun
 nasıl yazıldığına ve niceliğine bakılarak belirlenmektedir. Bir C programcısının da, bir sabiti gördüğünde onun türünü tespit edebilmesi gerekir.
 
-**1.** Sayı nokta içermiyorsa, sonuda bir ek yoksa ve 10'luk sistemde yazılmışsa; sayı sırasıyla `int`, `long` ve `long long` türlerinin hangisinin
+**1.** Sayı nokta içermiyorsa, sonuda bir ek yoksa ve 10'luk sistemde yazılmışsa; sayı sırasıyla int, long ve long long türlerinin hangisinin
 içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
@@ -1718,7 +1718,7 @@ içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
 
-Şimdi çalıştığımız sistemde `int` ve `long` türünün 4 byte ancak `long long` türünün 8 byte olduğunu varsayalım. Bu durumda:
+Şimdi çalıştığımız sistemde int ve long türünün 4 byte ancak long long türünün 8 byte olduğunu varsayalım. Bu durumda:
 
 ```
 
@@ -1727,9 +1727,9 @@ içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
 
-**2.** Sayı nokta içermiyorsa, sonunda ek yoksa ve `16`'lık sistemde ya da `8`'lik sistemde yazılmışsa; sayı sırasıyla `int`, `unsigned int`, `long`, `unisgned long`,
-`long long` ve `unsigned long long` sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir. Çalıştığımız sistemde `int` ve `long` türünün `4 byte`
-ancak `long long` türünün `8 byte `olduğunu varsayalım.
+**2.** Sayı nokta içermiyorsa, sonunda ek yoksa ve 16'lık sistemde ya da 8'lik sistemde yazılmışsa; sayı sırasıyla int, unsigned int, long, unisgned long,
+long long ve unsigned long long sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir. Çalıştığımız sistemde int ve long türünün 4 byte
+ancak long long türünün `8 byte `olduğunu varsayalım.
 
 ```
 
@@ -1739,8 +1739,8 @@ ancak `long long` türünün `8 byte `olduğunu varsayalım.
 
 ```
 
-**3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde `u` ya da `U` varsa; sayı `10`'luk, `16`'lık, `8`'lik sistemde yazıldığında
-sırasıyla `unsigned int`, `unsigned long int` ve `unsigned long long` türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir.
+**3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde `u` ya da `U` varsa; sayı 10'luk, 16'lık, 8'lik sistemde yazıldığında
+sırasıyla unsigned int, unsigned long int ve unsigned long long türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir.
 Örneğin:
 
 ```
@@ -1753,8 +1753,8 @@ sırasıyla `unsigned int`, `unsigned long int` ve `unsigned long long` türleri
 
 ```
 
-**4.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde `l` ya da `L` harfi varsa ve sayı 10'luk sistemde yazılmışsa; sayı `long` ve
-`long long` türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
+**4.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde `l` ya da `L` harfi varsa ve sayı 10'luk sistemde yazılmışsa; sayı long ve
+long long türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
 
@@ -1764,7 +1764,7 @@ sırasıyla `unsigned int`, `unsigned long int` ve `unsigned long long` türleri
 ```
 
 **5.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde `l` ya da `L` harfi varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa;
-sayı `long` ve `unsigned long`, `long long` ve `unsigned long long` türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
+sayı long ve unsigned long, long long ve unsigned long long türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
 
@@ -1773,8 +1773,8 @@ sayı `long` ve `unsigned long`, `long long` ve `unsigned long long` türlerinin
 
 ```
 
-**6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık `ul` ya da `lu` varsa (`u` ya da `l` ler büyük ya da küçük olabilir) ve sayı `10`'luk sistemde,
-`16`'lık sistemde ya da `8`'lik sistemde yazıldığında sırasıyla `unsigned long` ve `unsigned long long` sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir.
+**6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık `ul` ya da `lu` varsa (`u` ya da `l` ler büyük ya da küçük olabilir) ve sayı 10'luk sistemde,
+16'lık sistemde ya da 8'lik sistemde yazıldığında sırasıyla unsigned long ve unsigned long long sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir.
 Örneğin:
 
 ```
@@ -1784,7 +1784,7 @@ sayı `long` ve `unsigned long`, `long long` ve `unsigned long long` türlerinin
 
 ```
 
-**7.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı `10`'luk sistemde yazılmışsa; `long long` türden sabit belirtir. Örneğin:
+**7.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı 10'luk sistemde yazılmışsa; long long türden sabit belirtir. Örneğin:
 
 ```
 
@@ -1793,7 +1793,7 @@ sayı `long` ve `unsigned long`, `long long` ve `unsigned long long` türlerinin
 
 ```
 
-**8.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı `16`'lık ya da `8`'lik sistemde yazılmışsa; `long long` ve `unsigned long long`
+**8.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa; long long ve unsigned long long
 türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir. Örneğin:
 
 ```
@@ -1802,7 +1802,7 @@ türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türden
 
 ```
 
-**9.** Sayı nokta içermiyorsa ve sayının sonunda `ull` ya da `llu` soneki varsa (burada `u` ve `ll` büyük harf ya da küçük harf olabilir); bu durumda sabit `unsigned long long` türündendir.
+**9.** Sayı nokta içermiyorsa ve sayının sonunda `ull` ya da `llu` soneki varsa (burada `u` ve `ll` büyük harf ya da küçük harf olabilir); bu durumda sabit unsigned long long türündendir.
 Örneğin:
 
 ```
@@ -1811,7 +1811,7 @@ türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türden
 
 ```
 
-**10.** Sayı nokta içeriyorsa ve sayının sonunda bir ek yoksa; sabit `double` türdendir. Örneğin:
+**10.** Sayı nokta içeriyorsa ve sayının sonunda bir ek yoksa; sabit double türdendir. Örneğin:
 
 ```
 
@@ -1821,7 +1821,7 @@ türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türden
 ```
 
 Not:
-Noktanın solunda ve sağında bir şey yoksa orada `0` olduğu kabul edilmektedir. Bu Fortran zamanından beri kullanılan bir gelenektir. Örneğin.
+Noktanın solunda ve sağında bir şey yoksa orada 0 olduğu kabul edilmektedir. Bu Fortran zamanından beri kullanılan bir gelenektir. Örneğin.
 
 ```
 
@@ -1830,15 +1830,15 @@ Noktanın solunda ve sağında bir şey yoksa orada `0` olduğu kabul edilmekted
 
 ```
 
-Sayı üstel biçimde yazılmışsa sayı nokta içermese bile `double` türden olur. Örneğin:
+Sayı üstel biçimde yazılmışsa sayı nokta içermese bile double türden olur. Örneğin:
 
 ```
 
-    1e3                     bu sayı 1000 anlamına geliyor olsa da üstel biçimde yazıldığı için `double` türden sabit belirtmektedir.
+    1e3                     bu sayı 1000 anlamına geliyor olsa da üstel biçimde yazıldığı için double türden sabit belirtmektedir.
 
 ```
 
-**11.** Sayı nokta içeriyorsa ve sayının sonunda `f` ya da `F` varsa; sabit `float` türdendir. Örneğin:
+**11.** Sayı nokta içeriyorsa ve sayının sonunda `f` ya da `F` varsa; sabit float türdendir. Örneğin:
 
 ```
 
@@ -1857,7 +1857,7 @@ Sayı nokta içermiyorsa sayının sonuna `f` ya da `F` soneki getirilemez. Örn
 
 ```
 
-**12.** Sayı nokta içeriyorsa ancak sayının sonunda `l` ya da `L` varsa; sabit `long double` türden olur. Örneğin:
+**12.** Sayı nokta içeriyorsa ancak sayının sonunda `l` ya da `L` varsa; sabit long double türden olur. Örneğin:
 
 ```
 
@@ -1873,7 +1873,7 @@ Sayı nokta içermiyorsa sayının sonuna `f` ya da `F` soneki getirilemez. Örn
 tek tırnak içerisine alınırsa bu ilgili karakterin karakter tablosundaki sıra numarasını belirten bir sayı anlamına gelir. Örneğin C'de `'a'` ifadesi
 aslında eğer ACII karakter tablosu kullanılıyorsa 97 sayısı ile aynı anlamdadır.
 
-C'de bir karakter tek tırnak içerisine alınırsa bu ifade `int` türden sabit kabul edilir. Bu biçimdeki ifadeleri "_`int` türden karakter sabitleri_" denilmektedir. Örneğin:
+C'de bir karakter tek tırnak içerisine alınırsa bu ifade int türden sabit kabul edilir. Bu biçimdeki ifadeleri "_int türden karakter sabitleri_" denilmektedir. Örneğin:
 
 ```
 
@@ -2032,8 +2032,8 @@ Tabii sorun yaratmıyor olsa da biz istersek tek tırnak içerisinde iki tırnak
 
 ```
 
-Aslında C'de tek tırnak içerisine tek bir karakter yerleştirilmek zorunluluğu yoktur. Tek tırnak içerisine `int` türünün byte uzunluğu kadar karakter
-yerleştirilebilir (örneğin `int` türü `4 byte` ise `4` karakter, `8 byte` ise `8` karakter yerleştirilebilir). Tek tırnak içerisine birden fazla karakter yerleştirildiğinde
+Aslında C'de tek tırnak içerisine tek bir karakter yerleştirilmek zorunluluğu yoktur. Tek tırnak içerisine int türünün byte uzunluğu kadar karakter
+yerleştirilebilir (örneğin int türü 4 byte ise 4 karakter, 8 byte ise 8 karakter yerleştirilebilir). Tek tırnak içerisine birden fazla karakter yerleştirildiğinde
 bunlara "_multibyte karakterler_" denilmektedir. Multibyte karakterlerin ne belirttiği derleyicileri yazanların isteğine bırakılmıştır. Biz bu multibyte
 karakter kavramını ileride yeniden ele alacağız.
 
@@ -2060,8 +2060,8 @@ C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık `u` ve `U`
 `u` öneki getirilmiş karakter sabitleri UNICODE UTF-16 encoding'ini, `U` öneki getirilmiş karakter sabitleri de UNICODE UTF-32 encoding'ini belirtir.
 Bunlar sırasıyla `char16_t` ve `char32_t` türündendir. Bu konu da ileride ele alınacaktır.
 
-**14.** C'de `int` türden küçük türlerin sabitleri yoktur. Yani C'de `char`, `signed char`, `unsigned char`, `short` ve `unsigned short` türünden sabitler yoktur.
-En küçük sabit `int` türündendir. Tek tırnak içerisine yazılmış karakter sabitlerinin de aslında `int` türden olduğunu anımsayınız.
+**14.** C'de int türden küçük türlerin sabitleri yoktur. Yani C'de char, signed char, unsigned char, short ve `unsigned short` türünden sabitler yoktur.
+En küçük sabit int türündendir. Tek tırnak içerisine yazılmış karakter sabitlerinin de aslında int türden olduğunu anımsayınız.
 
 C'de karakter sabitleri sayısal işlemlere sokulabilir. Çünkü zaten onlar birer sayı belirtmektedir.
 
@@ -2085,7 +2085,7 @@ int result;
 
 ### putchar fonksiyonu
 
-`putchar` fonksiyonu bizden `int` türden bir değer alır. O değere karşı gelen karakter numarasına ilişkin karakterin görüntüsünü ekrana (`stdout` dosyasına) yazar.
+putchar fonksiyonu bizden int türden bir değer alır. O değere karşı gelen karakter numarasına ilişkin karakterin görüntüsünü ekrana (stdout dosyasına) yazar.
 Yani `putchar(ch)` çağrısıyla `printf("%c", ch)` çağrısı işlevsel olarak tamamen eşdeğerdir.
 
 ```
@@ -2110,8 +2110,8 @@ int a;
 
 ### getchar fonksiyonu
 
-`getchar` fonksiyonu adeta `putchar` fonksiyonun tersini yapmaktadır. Bu fonksiyonun parametresi yoktur. Fonksiyon çağrıldığında klavyeden (`stdin` dosyasından)
-bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter tablosundaki sıra numarasına geri döner. `getchar` bize `int` türden bir değer vermektedir.
+getchar fonksiyonu adeta putchar fonksiyonun tersini yapmaktadır. Bu fonksiyonun parametresi yoktur. Fonksiyon çağrıldığında klavyeden (stdin dosyasından)
+bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter tablosundaki sıra numarasına geri döner. getchar bize int türden bir değer vermektedir.
 Örneğin:
 
 ```
@@ -2122,7 +2122,7 @@ bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter 
 
 ```
 
-`getchar` fonksiyonunu yanlışlıkla aşağıdaki gibi kullanmaya çalışmayınız:
+getchar fonksiyonunu yanlışlıkla aşağıdaki gibi kullanmaya çalışmayınız:
 
 ```
 
@@ -2130,7 +2130,7 @@ bir karaktere basılıp ENTER tuşuna basılır. getchar bu karakterin karakter 
 
 ```
 
-`getchar` fonksiyonun parametresi yoktur. Bunun verdiği değeri bir değişkene yerleştirmelisiniz:
+getchar fonksiyonun parametresi yoktur. Bunun verdiği değeri bir değişkene yerleştirmelisiniz:
 
 ```
 
@@ -2157,10 +2157,10 @@ int ch;
 
 ```
 
-Aslında klavyeden (`stdin` dosyasından) okumalar bir tampon eşliğinde yapılmaktadır. Biz `getchar` fonksiyonunda birden fazla karakter girebiliriz. Bu durumda
+Aslında klavyeden (stdin dosyasından) okumalar bir tampon eşliğinde yapılmaktadır. Biz getchar fonksiyonunda birden fazla karakter girebiliriz. Bu durumda
 girilen tüm karakterler önce bir "_tampona (buffer)_" yerleştirilir sonra o tampondan alınarak verilir. getchar için basılan ENTER tuşu da tampona `\n`
-karakteri olarak eklenmektedir. `getchar` (ve stdin dosyasından okuma yapan diğer fonksiyonlar) eğer tamponda zaten karakter varsa bizden karakter istemezler.
-`stdin` tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
+karakteri olarak eklenmektedir. getchar (ve stdin dosyasından okuma yapan diğer fonksiyonlar) eğer tamponda zaten karakter varsa bizden karakter istemezler.
+stdin tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
 
 ```
 
@@ -2174,7 +2174,7 @@ karakteri olarak eklenmektedir. `getchar` (ve stdin dosyasından okuma yapan di�
 
 ```
 
-Biz burada ilk `getchar` için `a` karakterine basıp ENTER tuşuna basmış olalım. Bu durumda taponun içeriği şöyle olacaktır:
+Biz burada ilk getchar için a karakterine basıp ENTER tuşuna basmış olalım. Bu durumda taponun içeriği şöyle olacaktır:
 
 ```
 
@@ -2182,13 +2182,13 @@ Biz burada ilk `getchar` için `a` karakterine basıp ENTER tuşuna basmış ola
 
 ```
 
-İlk `getchar` tampondaki sıradaki karakter olan `a` okuyacaktır. Ancak ikinci `getchar` tampon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
-Tampondaki `\n` karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o `getchar` tampon boş olduğu için klavyeden okuma
+İlk getchar tampondaki sıradaki karakter olan a okuyacaktır. Ancak ikinci getchar tampon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
+Tampondaki `\n` karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o getchar tampon boş olduğu için klavyeden okuma
 isteyecektir.
 
-`printf` fonksiyonunun klavyeden (`stdin` dosyasından) okuma yapan `scanf` isimli kardeşi vardır. `scanf` temel olarak `printf` gibi kullanılmaktadır. Ancak
-`scanf` fonksiyonundaki format karakterleri çıktı ile ilgili değil yapılan giriş ile ilgili bilgi verir. Örneğin `printf` fonksiyonunda `%d` "_`int` bir değeri 10'luk_
-_sistemde ekrana yaz_" anlamına gelirken `scanf` fonksiyonunda `%d`, "_`int` bir nesne için "10'luk sistemde giriş yap_" anlamına gelmektedir. `scanf` fonksiyonunda
+printf fonksiyonunun klavyeden (stdin dosyasından) okuma yapan scanf isimli kardeşi vardır. scanf temel olarak printf gibi kullanılmaktadır. Ancak
+scanf fonksiyonundaki format karakterleri çıktı ile ilgili değil yapılan giriş ile ilgili bilgi verir. Örneğin printf fonksiyonunda %d "_int bir değeri 10'luk_
+_sistemde ekrana yaz_" anlamına gelirken scanf fonksiyonunda %d, "_int bir nesne için "10'luk sistemde giriş yap_" anlamına gelmektedir. scanf fonksiyonunda
 iki tırnaktan sonraki değişkenlerin önümne `&` operatörü getirilir. (Bu operatör ileride ele alınacaktır). Örneğin:
 
 ```
@@ -2199,9 +2199,9 @@ iki tırnaktan sonraki değişkenlerin önümne `&` operatörü getirilir. (Bu o
 
 ```
 
-Burada klavyeden girilen sayı `a` nesnesinin içerisine yerleştirilir. `scanf` fonksiyonundaki iki tırnak içerisine format karakterlerindne başka bir şey
-yazmayınız. Buraya yazdığınız başka karakterler başka anlamlara gelmektedir. `scanf` buradaki karakterleri ekrana yazdırmaz. Ekrana bir şey yazdırmak istiyorsanız
-`printf` fonksiyonunu kullanmalısınız. Örneğin:
+Burada klavyeden girilen sayı a nesnesinin içerisine yerleştirilir. scanf fonksiyonundaki iki tırnak içerisine format karakterlerindne başka bir şey
+yazmayınız. Buraya yazdığınız başka karakterler başka anlamlara gelmektedir. scanf buradaki karakterleri ekrana yazdırmaz. Ekrana bir şey yazdırmak istiyorsanız
+printf fonksiyonunu kullanmalısınız. Örneğin:
 
 ```
 
@@ -2211,8 +2211,8 @@ yazmayınız. Buraya yazdığınız başka karakterler başka anlamlara gelmekte
 
 ```
 
-Burada `%x` klavyeden girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak `a` nesnesine yerleştirecektir. `printf` fonksiyonuyla `scanf` fonksiyonu arasındaki
-format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. ,`pintf` fonksiyonunda hem `float` hem de `double` `%f` ile yazdırılır. Ancak `scanf` fonksiyonunda
+Burada `%x` klavyeden girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak a nesnesine yerleştirecektir. printf fonksiyonuyla scanf fonksiyonu arasındaki
+format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. ,`pintf` fonksiyonunda hem float hem de double `%f` ile yazdırılır. Ancak scanf fonksiyonunda
 float `%f` ile double `%lf` ile okunmaktadır.
 
 ```
@@ -2234,7 +2234,7 @@ return 0;
 
 ```
 
-Tek bir `scanf` ile birden fazla nesne için okuma yapılabilir. Burada format karakterlerinin dışında şimdilik başka bir karakter bulundurmayınız.
+Tek bir scanf ile birden fazla nesne için okuma yapılabilir. Burada format karakterlerinin dışında şimdilik başka bir karakter bulundurmayınız.
 Girişler sırasında istenildiği kadar boşluk karakteri (SPACE, TAB, ENTER) bulundurulabilir.
 
 ```
@@ -2256,7 +2256,7 @@ int a, b;
 
 ```
 
-Aşağıdaki programda klavyeden (`stdin` dosyasından) iki `int` değer okunmuş, bunların çarpımı ekrana (`stdout` dosyasına) yazdırılmıştır.
+Aşağıdaki programda klavyeden (stdin dosyasından) iki int değer okunmuş, bunların çarpımı ekrana (stdout dosyasına) yazdırılmıştır.
 
 ```
 
@@ -2277,7 +2277,7 @@ int a, b;
 
 ```
 
-Yeni öğrenenler tarafından yanlışlıkla `scanf`'teki format karakterlerinin sonuna `\n` konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
+Yeni öğrenenler tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna `\n` konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
 
 ```
 
@@ -2320,7 +2320,7 @@ char ch;
 [14. Ders 07/07/2022 - Perşembe]()
 
 Bir işleme yol açan ve o işlem sonucunda bir değer üretilmesini sağlayan atomlara "_operatör_" denilmektedir. Bir operatörün işleme soktuğu ifadelere ise
-"_operand (operand)_" denir. Örneğin `a + b` ifadesinde `+` bir operatördür. `a` ve `b` bu operatörün operandlarıdır.
+"_operand (operand)_" denir. Örneğin `a + b` ifadesinde `+` bir operatördür. a ve b bu operatörün operandlarıdır.
 
 Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gerekir. Operatörler genel olarak üç biçimde sınıflandırılmaktadır:
 
@@ -2399,7 +2399,7 @@ Buradaki `()` operatörü öncellik parantezini ve fonksiyon çağırma operatö
 
 ```
 
-Burada aslında `b`'den `c * d`'nin çıkartıldığına dikkat ediniz. Örneğin:
+Burada aslında b'den `c * d`'nin çıkartıldığına dikkat ediniz. Örneğin:
 
 ```
 
@@ -2457,7 +2457,7 @@ bir önemi yoktur. "_Soldan-sağa_" ya da "_sağdan-sola_" ifade içerisindeki d
 
 `*`, `/`, `+` ve `-` operatörleri "_iki operandlı araek (binary infix) aritmetik operatörlerdir_". Bunlar klasik dört işlemi yaparlar.
 
-`%` operatörü iki operandlı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
+% operatörü iki operandlı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
 üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda `*` ve `/` ile soldan sağa eşit öncelik grupta bulunur.
 Negatif sayının pozitif sayıya bölümünden elde edilen kalan negatiftir. Pozitif sayının negatif sayıya bölümünden elde edilen kalan pozitiftir.
 
@@ -2545,7 +2545,7 @@ int a = -4;
 
 C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğimiz gibi `++` ve
 `--` operatmrleri de vardır. Dolayısıyla `++` ve `--` yan yana yazılırsa iki ayrı `işaret +` ve `işaret -` operatörü değil `++` ve `--` operatörleri anlaşılır
-Benzer biçimde `a>=3` gibi bir ifadede `a`, `>=` ve `3` biçiminde üç farklı atom vardır.
+Benzer biçimde `a>=3` gibi bir ifadede a, `>=` ve `3` biçiminde üç farklı atom vardır.
 
 `++` ve `--` operatörleri "_tek operandlı, öncek ve sonek olarak kullanılabilen_" operatörlerdir. Yani biz bu operatörleri `++a` gibi de `a++` gibi de kullanabiliriz.
 Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. `++` operatörüne "_artırma (increment)_", `--` operatörüne "_eksiltme (decrement)_" operatörleri
@@ -2605,8 +2605,8 @@ sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokul
 
 ```
 
-Burada 3 operatör vardır. En önceliklisi `++` operatördür. O halde `a` değişkeni 1 artırılacak ve 4 olacaktır. Sonraki işlem `*` işlemidir. O halde `*` işlemine,
-artırma önek yapıldığı için, artırılmış değer olan 4 sokulacaktır. Bu durumda `a` değişkeni 4 olurken `b` değişkeni 8 olacaktır. Şimdi aynı işlemisonek olarak yapalım:
+Burada 3 operatör vardır. En önceliklisi `++` operatördür. O halde a değişkeni 1 artırılacak ve 4 olacaktır. Sonraki işlem `*` işlemidir. O halde `*` işlemine,
+artırma önek yapıldığı için, artırılmış değer olan 4 sokulacaktır. Bu durumda a değişkeni 4 olurken b değişkeni 8 olacaktır. Şimdi aynı işlemisonek olarak yapalım:
 
 ```
 
@@ -2615,7 +2615,7 @@ artırma önek yapıldığı için, artırılmış değer olan 4 sokulacaktır. 
 
 ```
 
-Burada da `a` önce artırılır 4 olur. Ancak sonraki işlem olan `*` işlemine `a`'nın artırılmış değeri olan 3 sokulur. Bu durumda `a` 4 olurken `b` ise
+Burada da a önce artırılır 4 olur. Ancak sonraki işlem olan `*` işlemine a'nın artırılmış değeri olan 3 sokulur. Bu durumda a 4 olurken b ise
 6 olacaktır.
 
 ```
@@ -2651,7 +2651,7 @@ int a, b;
 
 ```
 
-Burada önce `a` eksiltilir, 2 olur. Sonraki işlem atama işlemidir. O halde `b`'ye `a`'nın eksiltilmiş değeri atanır. Yani `b` de 2 olacaktır. Fakat örneğin:
+Burada önce a eksiltilir, 2 olur. Sonraki işlem atama işlemidir. O halde b'ye a'nın eksiltilmiş değeri atanır. Yani b de 2 olacaktır. Fakat örneğin:
 
 ```
 
@@ -2660,7 +2660,7 @@ Burada önce `a` eksiltilir, 2 olur. Sonraki işlem atama işlemidir. O halde `b
 
 ```
 
-Burada yine `a` bir eksiltilir ve 2 olur. Ancak sonraki işlem olan atama işlemine `a`'nın eksiltilmemiş değeri olan 3 sokulur. Böylece `b` 3 olur.
+Burada yine a bir eksiltilir ve 2 olur. Ancak sonraki işlem olan atama işlemine a'nın eksiltilmemiş değeri olan 3 sokulur. Böylece b 3 olur.
 
 ```
 
@@ -2713,8 +2713,8 @@ arasında bir fark yoktur. Fark, ifadede başka operatörler varsa ortaya çıkm
 
 ```
 
-Burada önce `b` eksiltilir 1 olur. Sonra `a` artırılır 4 olur. Çarpma işlemine `a`'nın artırılmış değeri ancak `b`'nin eksiltilmemiş değeri sokulur. Bu durumda
-`c`'ye 8 atanacaktır.
+Burada önce b eksiltilir 1 olur. Sonra a artırılır 4 olur. Çarpma işlemine a'nın artırılmış değeri ancak b'nin eksiltilmemiş değeri sokulur. Bu durumda
+c'ye 8 atanacaktır.
 
 ```
 
@@ -2798,7 +2798,7 @@ programcının o kodu kullanmaması gerekir. Kullanırsa artık programın sağl
 
 C (ve C++) standartlarında karşılaşılan diğer bir kavram da **derleyiciye bağlı davranış (implementation depnedent (defined) behavior)** kavramıdır.
 Standratlarda bazı durumlarda ilgili özelliğin derleyiciden derleyiciye değişebileceği belirtilmiştir. Yani ilgili özellik için açık bir belirleme yapmak yerine
-standartlar bu belirlemenin derleyicileri yazanlar tarafından yapılacağını belirtmektedir. Örneğin `int` türünün (ve `char` dışındaki diğer türlerin)
+standartlar bu belirlemenin derleyicileri yazanlar tarafından yapılacağını belirtmektedir. Örneğin int türünün (ve char dışındaki diğer türlerin)
 uzunlukları derleyiden derleyiciye değişebilmektedir. Bu uzunluklar "_derleyiciye bağlı bir davranışa_" yol açmaktadır. Ancak derleyiciye bağlı davranışların
 ilgili derleyicinin dokümantasyonunda dokümante edilmiş olması gerekmektedir. Yani derleyicilerin bir referans gibi kitapları olmalıdır. Orada standartlarda
 belirtilen "_derleyiciye bağlı davranışların_" o derleyicide nasıl ele alındığının belirtilmesi gerekmektedir.
@@ -2857,7 +2857,7 @@ C'de toplam 6 tane karşılaştırma operatörü vardır:
 
 Karşılaştırma operatörlerinin de öncelik tablosunda iki farklı düzeyde bulunduğuna dikkat ediniz.
 
-C'de karşılaştırma operatörlerinin ürettiği değerler `int` türdendir. Eğer önerme doğruysa bu operatörler `1` değerini, yanlışsa `0` değerini üretirler.
+C'de karşılaştırma operatörlerinin ürettiği değerler int türdendir. Eğer önerme doğruysa bu operatörler 1 değerini, yanlışsa 0 değerini üretirler.
 
 ```
 
@@ -2887,7 +2887,7 @@ Aşağıdaki ifadeye dikkat ediniz:
 
 ```
 
-Bu ifade matematikte `a`'nın `10` ile `20` arasında olduğuna ilişkin bir anlama gelse de C'de böyle bir anlama gelmemektedir. C'de bu ifade şöyle ele alınmaktadır:
+Bu ifade matematikte a'nın 10 ile `20` arasında olduğuna ilişkin bir anlama gelse de C'de böyle bir anlama gelmemektedir. C'de bu ifade şöyle ele alınmaktadır:
 
 ```
 
@@ -2954,7 +2954,7 @@ diğer tek operand'lı operatörlerin bulunduğu ikinci düzeydedir. Ancak `&&` 
 
 ```
 
-Mantıksal operatörler her zaman `int` türden değer üretirler. İşlem sonucu Doğru ise `1` değerini, yanlış ise `0` değerini üretmektedirler. Bu operatörler
+Mantıksal operatörler her zaman int türden değer üretirler. İşlem sonucu Doğru ise 1 değerini, yanlış ise 0 değerini üretmektedirler. Bu operatörler
 önce operand'larını Doğru ya da Yanlış olarak ele alırlar. Eğer operand sıfır dışı (non-zero) herhangi bir değerdeyse Doğru olarak, sıfır değerindeyse
 Yanlış olarak ele alınmaktadır. Örneğin:
 
@@ -2964,7 +2964,7 @@ Yanlış olarak ele alınmaktadır. Örneğin:
 
 ```
 
-Burada `-3` Doğru olarak, `5.7` de Doğru olarak ele alınır. Doğru ve Doğru işlemi Doğru sonucunu verir. Doğru için `1` değeri üretilecektir. Örneğin:
+Burada `-3` Doğru olarak, `5.7` de Doğru olarak ele alınır. Doğru ve Doğru işlemi Doğru sonucunu verir. Doğru için 1 değeri üretilecektir. Örneğin:
 
 ```
 
@@ -2972,7 +2972,7 @@ Burada `-3` Doğru olarak, `5.7` de Doğru olarak ele alınır. Doğru ve Doğru
 
 ```
 
-Buradan `1` değeri üretilir. Örneğin:
+Buradan 1 değeri üretilir. Örneğin:
 
 ```
 
@@ -2980,7 +2980,7 @@ Buradan `1` değeri üretilir. Örneğin:
 
 ```
 
-Buradan `0` değeri üretilir.
+Buradan 0 değeri üretilir.
 
 `!` operatörü Doğruyu Yanlış, Yanlışı Doğru yapan bir operatördür. Öncelik tablosunun ikinci düzeyinde sağdan sola öncelikte bulunur. Örneğin:
 
@@ -2990,7 +2990,7 @@ Buradan `0` değeri üretilir.
 
 ```
 
-Burada `3.5` Doğru olarak ele alınır. `!` operatörü Yanlış değeri için `0` üretmektedir. Örneğin:
+Burada `3.5` Doğru olarak ele alınır. `!` operatörü Yanlış değeri için 0 üretmektedir. Örneğin:
 
 ```
 
@@ -3023,7 +3023,7 @@ Burada `3.5` Doğru olarak ele alınır. `!` operatörü Yanlış değeri için 
 
 ```
 
-Burada iki koşul da doğruysa `1` değeri diğer durumlarda `0` değeri elde edilecektir.
+Burada iki koşul da doğruysa 1 değeri diğer durumlarda 0 değeri elde edilecektir.
 
 ```
 
@@ -3050,7 +3050,7 @@ int result;
 `&&` ve `||` operatörlerinin "_kısa devre (short circuit)_" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
 sağında ne kadar öncelikli operatör olursa olsun bunların önce sol tarafı yapılır. Eğer `&&` operatöründe sol taraf sıfır ise sağ taraf hiç yapılmaz
 sonuç hemen 0 olarak belirlenir. Eğer `&&` operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı dırım `||` operatörü için de
-geçerlidir. Bu operatörün sol tarafı eğer sıfır dışı bir değerdeyse sağ tarafı hiç yapılmaz ve sonuç `1` olarak belirlenir. Eğer bu operatörün sol tarafı
+geçerlidir. Bu operatörün sol tarafı eğer sıfır dışı bir değerdeyse sağ tarafı hiç yapılmaz ve sonuç 1 olarak belirlenir. Eğer bu operatörün sol tarafı
 sıfır ise bu durumda sağ tarafı yapılır.
 
 Aşağıdaki program bu durumun anlaşılması için verilmiştir.
@@ -3129,7 +3129,7 @@ biçimde bulunmasına yol açmaktadır. Yoksa kısa devre özelliğinin olmadı�
 
 ```
 
-Burada önce `ifade1` yapılır. Eğer `ifade1` sıfır dışı bir değerse başka hiçbir şey yapılmaz. Sonuç `1` olarak elde edilir. Eğer `ifade1` sıfır ise bu durumda
+Burada önce `ifade1` yapılır. Eğer `ifade1` sıfır dışı bir değerse başka hiçbir şey yapılmaz. Sonuç 1 olarak elde edilir. Eğer `ifade1` sıfır ise bu durumda
 `ifade2` yapılır. `İfade2` de sıfır ise `ifade3` yapılmaz. Burada tüm ifadelerin yapılması için `ifade1`'in sıfır, `ifade2`'nin sıfır dışı bir değer vermesi gerekir.
 Örneğin:
 
@@ -3158,7 +3158,7 @@ işlemlerin yapılma sırası bakımından bir şeyi değiştirmeyecektir. Örne
 ```
 
 Burada her ne kadar `||` işlemi paranteze alınmışsa da bu parantez içi önce yapılmaz. Çünkü önce yapılsaydı `&&` operatörünün sağ tarafı önce yapılmış olurdu.
-Burada da yine önce `ifade1` yapılır. `İfade1` `0` ise başka bir şey yapılmaz.
+Burada da yine önce `ifade1` yapılır. `İfade1` 0 ise başka bir şey yapılmaz.
 
 ```
 
@@ -3230,7 +3230,7 @@ Bu durumda örneğin:
 
 ```
 
-Böylece burada `10` hem `b`'ye hem de `a`'ya atanmış olur. Örneğin:
+Böylece burada 10 hem b'ye hem de a'ya atanmış olur. Örneğin:
 
 ```
 
@@ -3238,7 +3238,7 @@ Böylece burada `10` hem `b`'ye hem de `a`'ya atanmış olur. Örneğin:
 
 ```
 
-Burada `a` ve `b`'ye `30` atanmaktadır. Ancak örneğin:
+Burada a ve b'ye 30 atanmaktadır. Ancak örneğin:
 
 ```
 
@@ -3246,7 +3246,7 @@ Burada `a` ve `b`'ye `30` atanmaktadır. Ancak örneğin:
 
 ```
 
-Burada parantez içi önce yapılacağına göre `b`'ye `10` atanacak ve bu işlemden `10` değeri elde edilecektir. Sonra bu `10` değeri `20` ile toplanıp `a`'ya atanacaktır.
+Burada parantez içi önce yapılacağına göre b'ye 10 atanacak ve bu işlemden 10 değeri elde edilecektir. Sonra bu 10 değeri `20` ile toplanıp a'ya atanacaktır.
 
 ```
 
@@ -3297,7 +3297,7 @@ C'de aşağıdaki gibi bir bildirim geçerli ancak anlamsızdır. Örneğin:
 
 ```
 
-Burada `a` yerel bir değişkense `a`'ya çöp değer, global bir değişkense `0` atanmaktadır.
+Burada a yerel bir değişkense a'ya çöp değer, global bir değişkense 0 atanmaktadır.
 
 Bazen programcı bir değeri önce atayıp, atanmış değeri başka bir değerle karşılaştırmak isteyebilir. Bunun için atama operatörüne öncelik vermek gerekir.
 Örneğin:
@@ -3308,7 +3308,7 @@ Bazen programcı bir değeri önce atayıp, atanmış değeri başka bir değerl
 
 ```
 
-Burada önce `getchar` ile klavyeden (`stdin` dosyasından) okunan değer `ch` değişkenine atanmıştır. Sonra bu atanan değer karşılaştırma işlemine sokulmuştur.
+Burada önce getchar ile klavyeden (stdin dosyasından) okunan değer `ch` değişkenine atanmıştır. Sonra bu atanan değer karşılaştırma işlemine sokulmuştur.
 
 C'de bir grup `+=`, `-=`, `_=`, `/=`, `%=`, ... biçiminde "bileşik atama operatörü (compound assignment operator)" vardır. Bu operatörlerin hepsi iki operand'lı
 araek operatörlerdir. "op", `+`, `-`, `\*`, `/` gibi bir operatör belirtmek üzere:
@@ -3385,7 +3385,7 @@ Bileşik atama operatörleri öncelik tablosunda atama operatör ile sağdan sol
 
 ```
 
-Burada önce `2` ile `3` toplanır. Sonra `*=` işlemi yapılır.
+Burada önce 2 ile `3` toplanır. Sonra `*=` işlemi yapılır.
 
 ```
 
@@ -3502,7 +3502,7 @@ Virgül operatörünün ürettiği değer sağ taraftaki ifadenin değeridir. Ya
 
 Burada parantezler sayesinde en soldaki atama operatörü virgül operatöründen ayrıştrılmıştır. Burada önce parantez içi yapılacaktır. Parantez içerisinde
 virgül operatörü vardır. O zaman virgül operatörünün sol tarafı önce yapılacağına göre önce `a = 10` işlemi sonra `b = 20` işlemi yapılır. Virgül operatöründen
-elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan `20` elde edilecektir. İşte bu `20` aynı zamanda `c`'ye atanmıştır.
+elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan `20` elde edilecektir. İşte bu `20` aynı zamanda c'ye atanmıştır.
 
 ```
 
@@ -3554,7 +3554,7 @@ Buradaki `,` operatör görevinde değildir. Dolayısıyla `foo` fonksiyonunun i
 
 ```
 
-Buradaki virgül artık paranteze alındığı için operatör görevinddir. Parantez içerisinden `b`'nin değeir elde edilecektir. Dolayısıyla fonksiyonun aslında
+Buradaki virgül artık paranteze alındığı için operatör görevinddir. Parantez içerisinden b'nin değeir elde edilecektir. Dolayısıyla fonksiyonun aslında
 tek parametresi vardır.
 
 ```
@@ -3649,8 +3649,8 @@ _tanımlanması (function definition)_" denilmektedir. Fonksiyon tanımlamanın 
 
 ```
 
-Burada `int` fonksiyonun geri dönüş değerinin türüdür. `foo` ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
-Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki `int` yazılmış gibi işlem yapılıyordu.
+Burada int fonksiyonun geri dönüş değerinin türüdür. `foo` ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
+Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki int yazılmış gibi işlem yapılıyordu.
 Ancak C99 ile birlikte fonksiyonun geri dönüş değerinin türünün yazılması zorunlu hale getirilmiştir.
 
 ```
@@ -3689,13 +3689,13 @@ C'de iç içe (nested) fonksiyon tanımlaması yapılamaz. Her fonksiyon, biribi
 [17. Ders 26/07/2022 - Salı]()
 
 Bir fonksiyon çağrıldıktan sonra onu çağıran fonksiyona ilettiği değere "_geri dönüş değeri (return value)_" denilmektedir. Fonksiyonun geri dönüş değerinin
-bir türü vardır. Bu tür fonksiyon isminin soluna yazılır. Geri dönüş değerini oluşturmak için `return` deyimi kullanılır. `return` deyiminin genel biçimi şöyledir:
+bir türü vardır. Bu tür fonksiyon isminin soluna yazılır. Geri dönüş değerini oluşturmak için return deyimi kullanılır. return deyiminin genel biçimi şöyledir:
 
 ```
     return [ifade]
 ```
 
-`return` deyimi hem fonksiyonu sonlandırır hem de geri dönüş değerini oluşturur.
+return deyimi hem fonksiyonu sonlandırır hem de geri dönüş değerini oluşturur.
 
 ```
 #include <stdio.h>
@@ -3743,7 +3743,7 @@ foo(); /_ foo çağrıldı ancak geri dönüş değeri kullanılmadı, tamamen g
 }
 ```
 
-Fonksiyon tanımlarken geri dönüş değerinin türü yerine `void` anahtar sözcüğü yazılırsa bu durum "_fonksiyonun bir değer geri döndürmediği_" anlamına gelmektedir.
+Fonksiyon tanımlarken geri dönüş değerinin türü yerine void anahtar sözcüğü yazılırsa bu durum "_fonksiyonun bir değer geri döndürmediği_" anlamına gelmektedir.
 Böyle fonksiyonlar geri dönüş değerinin kullanıldığı bir ifadede kullanılamazlar. Örneğin:
 
 ```
@@ -3774,7 +3774,7 @@ foo();
 }
 ```
 
-Geri dönüş değeri `void` olan fonksiyonlara "_void fonksiyonlar_" da denilmektedir. void fonksiyonlarda `return` deyimi kullanılabilir ancak `return` deyiminin yanına bir ifade
+Geri dönüş değeri void olan fonksiyonlara "_void fonksiyonlar_" da denilmektedir. void fonksiyonlarda return deyimi kullanılabilir ancak return deyiminin yanına bir ifade
 yazılamaz. Örneğin:
 
 ```
@@ -3793,8 +3793,8 @@ yazılamaz. Örneğin:
     }
 ```
 
-Peki o zaman void fonksiyonlardaki `return` deyimi ne işe yaramaktadır? İşte void fonksiyonlardaki `return` deyimleri fonksiyonu bir koşul altında
-erken sonlandırmak için kullanılabilir. void fonksiyonlarda `return` kullanılmazsa, akış fonksiyonun ana bloğunu bitirdiğinde, fonksiyon zaten sonlanmaktadır.
+Peki o zaman void fonksiyonlardaki return deyimi ne işe yaramaktadır? İşte void fonksiyonlardaki return deyimleri fonksiyonu bir koşul altında
+erken sonlandırmak için kullanılabilir. void fonksiyonlarda return kullanılmazsa, akış fonksiyonun ana bloğunu bitirdiğinde, fonksiyon zaten sonlanmaktadır.
 
 ```
 #include <stdio.h>
@@ -3816,9 +3816,9 @@ foo();
 }
 ```
 
-Geri dönüş değeri `void` olmayan fonksiyonlarda ana blok, eğer akış `return` deyimini görmeden sonlanırsa, bu durum C'de geçerlidir (halbuki C#, Java gibi dillerde
+Geri dönüş değeri void olmayan fonksiyonlarda ana blok, eğer akış return deyimini görmeden sonlanırsa, bu durum C'de geçerlidir (halbuki C#, Java gibi dillerde
 geçersizdir). Bu durumda geri dönüş değeri olarak çöp bir değer elde edilmektedir. Genellikle derleyiciler böylesi durumlarda bir uyarı mesajı ile programcıyı
-uyarmaktadır. Ancak geri dönüş değeri `void` olmayan fonksiyonlarda `return` deyiminde `return` ifadesinin mutlaka bulundurulması gerekir. Örneğin:
+uyarmaktadır. Ancak geri dönüş değeri void olmayan fonksiyonlarda return deyiminde return ifadesinin mutlaka bulundurulması gerekir. Örneğin:
 
 ```
     int foo(void)
@@ -3854,7 +3854,7 @@ int result;
 }
 ```
 
-Mademki akış `return` deyimini göründe fonksiyon sonlanmaktadır. O halde `return` deyiminin altına deyim yazmanın bir anlamı yoktur. Bu durum anlamsız olsa da
+Mademki akış return deyimini göründe fonksiyon sonlanmaktadır. O halde return deyiminin altına deyim yazmanın bir anlamı yoktur. Bu durum anlamsız olsa da
 C'de geçerlidir. Örneğin:
 
 ```
@@ -3873,17 +3873,17 @@ Akışın asla ulaşamayacağı erişilemeyen bölgelere İngilizce "_unreachabl
 mesajı ile programcıya bildirebilmektedir. Pek çok derleyici erişilemeyen kodları tamaman koddan çıkartarak bir optimizasyon yapmaktadır. Bu optimizasyon
 temasına "_dead code elimination_" denilmektedir.
 
-C'de main fonksiyonun geri dönüş değeri `int` türden olmak zorundadır. Ancak derleyiciler eğer isterlerse main fonksiyonunun başka türlerden geri
-dönüş değerine sahip olmasına izin verebilirler. `main` fonksiyonundaki `return` deyimi aynı zamanda programı da sonlandırmaktadır. İşletim sistemleri dünyasında
-çalışmakta olan programlara "_process_" denilmektedir. `main` fonksiyonu sonlandığında `return` deyimindeki ifade işletim sistemine "_exit code_" olarak iletilmektedir.
+C'de main fonksiyonun geri dönüş değeri int türden olmak zorundadır. Ancak derleyiciler eğer isterlerse main fonksiyonunun başka türlerden geri
+dönüş değerine sahip olmasına izin verebilirler. main fonksiyonundaki return deyimi aynı zamanda programı da sonlandırmaktadır. İşletim sistemleri dünyasında
+çalışmakta olan programlara "_process_" denilmektedir. main fonksiyonu sonlandığında return deyimindeki ifade işletim sistemine "_exit code_" olarak iletilmektedir.
 İşletim sistemleri bu exit kodu alır, eğer başka prosesler isterse belli koşullarda onlara verebilir. Ancak exit kodunun kaç olduğuyla ilgilenmez.
-Fakat geleneksel olarak C'de başarılı ve mutlu sonlanmalar için exit kodu olarak `0`, başarısız sonlanmalar için sıfır dışı değerler kullanılmaktadır.
-Biz örneklerimizde `main` fonksaiyonunu her zaman `0` ile geri döndüreceğiz. Aslında C standartlarında main fonksiyonuna özgü olarak, eğer `main` fonksiyonunda hiç
-`return` kullanılmazsa sanki ana bloğun sonuna `return 0` yazılmış gibi işlem uygulanmaktadır. Yani `main` fonksiyonunda biz hiç `return` yazmasak da zaten `return 0`
-yazmış gibi bir durum oluşmaktadır. Tabii bu durum yalnızca `main` fonksiyonuna özgüdür.
+Fakat geleneksel olarak C'de başarılı ve mutlu sonlanmalar için exit kodu olarak 0, başarısız sonlanmalar için sıfır dışı değerler kullanılmaktadır.
+Biz örneklerimizde main fonksaiyonunu her zaman 0 ile geri döndüreceğiz. Aslında C standartlarında main fonksiyonuna özgü olarak, eğer main fonksiyonunda hiç
+return kullanılmazsa sanki ana bloğun sonuna `return 0` yazılmış gibi işlem uygulanmaktadır. Yani main fonksiyonunda biz hiç return yazmasak da zaten `return 0`
+yazmış gibi bir durum oluşmaktadır. Tabii bu durum yalnızca main fonksiyonuna özgüdür.
 
-Fonksiyonların geri dönüş değerleri geçici nesne yoluyla onu çağıran fonksiyona iletilmektedir. Programın akışı `return` deyimini gördüğünde önce derleyici,
-geri dönüş değeri türünden geçici bir nesne yaratır. Sonra, `return` ifadesini bu geçici nesneye atar. Biz geri dönüş değerini kullandığımızda aslında o geçici
+Fonksiyonların geri dönüş değerleri geçici nesne yoluyla onu çağıran fonksiyona iletilmektedir. Programın akışı return deyimini gördüğünde önce derleyici,
+geri dönüş değeri türünden geçici bir nesne yaratır. Sonra, return ifadesini bu geçici nesneye atar. Biz geri dönüş değerini kullandığımızda aslında o geçici
 nesneyi kullanmış oluruz. Fonksiyonun çağrısı bittiğinde bu geçici nesne de derleyici tarafındna otomatik olarak yok edilmektedir. Örneğin:
 
 ```
@@ -3904,9 +3904,9 @@ nesneyi kullanmış oluruz. Fonksiyonun çağrısı bittiğinde bu geçici nesne
     /* temp yok ediliyor */
 ```
 
-O halde fonksiyonun geri dönüş değerinin türü, aslında `return` işlemiyle yaratılacak olan geçici nesnenin türünü belirtir. `return` işlemi de aslında
-bu geçici nesneye yapılan atama işlemi gibidir. O halde `return` işlemi aslında gizli bir atama işlemidir. Bizim ileride atama işlemi hakkında söyleceğimiz
-her şey `return` işlemi için de geçerlidir. Derleyiciler genel olarak mümkün olduğunca `return` işlemi sırasındaki geçici nesneleri CPU yazmaçlarında yaratmaktadır.
+O halde fonksiyonun geri dönüş değerinin türü, aslında return işlemiyle yaratılacak olan geçici nesnenin türünü belirtir. return işlemi de aslında
+bu geçici nesneye yapılan atama işlemi gibidir. O halde return işlemi aslında gizli bir atama işlemidir. Bizim ileride atama işlemi hakkında söyleceğimiz
+her şey return işlemi için de geçerlidir. Derleyiciler genel olarak mümkün olduğunca return işlemi sırasındaki geçici nesneleri CPU yazmaçlarında yaratmaktadır.
 
 void fonksiyonlarda böyle bir geçici nesnenin hiç yaratılmayacağına da dikkat ediniz.
 
@@ -3970,13 +3970,13 @@ yapılır. Sonra da akış fonksiyona geçirilir. Yani C'de parametre aktarımı
     foo(x + 1, y + 2)
 ```
 
-Burada foo fonksiyonu çağrıldığında önce `x + 1` ve `y + 2` ifadelerinin değerleri hesaplanacak sonra `x + 1` değeri `a`'ya, y` + 2` değeri ise `b`'ye atanacaktır.
+Burada foo fonksiyonu çağrıldığında önce `x + 1` ve `y + 2` ifadelerinin değerleri hesaplanacak sonra `x + 1` değeri a'ya, y` + 2` değeri ise b'ye atanacaktır.
 Sonra da akış, fonksiyona geçirilecektir. Parametre değişkenlerinin bağımsız ayrı nesneler olduğuna dikkat ediniz. Fonksiyon çağırma işlemi argümanlardan
 parametre değişkenlerine yapılan gizli bir atama işlemini gerektirmektedir. O halde C'de atama anlamına gelen üç durum vardır:
 
 1. Açıkça `=` operatörü ile yapılan atamalar,
 
-2. `return` işlemi sırasında geçici nesneye yapılan atamalar,
+2. return işlemi sırasında geçici nesneye yapılan atamalar,
 
 3. Fonksiyon çağırma sırasında argümanlardan parametre değişkenlerine yapılan atamalar.
 
@@ -4031,7 +4031,7 @@ C'de bir atama işleminde, kaynak tür ile hedef tür farklı olabilir. Örneği
     a = b;
 ```
 
-Burada `a` ve `b`'nin türleri farklı olabilir. Ancak bu konu ileride özel olarak ele alınacaktır. Siz şimdilik bu konu ele alınana kadar atama işleminde
+Burada a ve b'nin türleri farklı olabilir. Ancak bu konu ileride özel olarak ele alınacaktır. Siz şimdilik bu konu ele alınana kadar atama işleminde
 kaynak türle hedef türü aynı türden yapmaya özen gösteriniz. Örneğin:
 
 ```
@@ -4059,13 +4059,13 @@ kaynak türle hedef türü aynı türden yapmaya özen gösteriniz. Örneğin:
 ```
 
 C'de parametreleriyle aldığı değerler üzerinde işlemler yaparak sonucu geri dönüş değeri olarak veren standart matematiksel fonksiyonlar vardır.
-Bu fonksiyonları kullanmadan önce `<math.h>` dosyası `include` edilmelidir. Örneğin `sqrt` fonksiyonun parametrik yapısı şöyledir:
+Bu fonksiyonları kullanmadan önce `<math.h>` dosyası include edilmelidir. Örneğin `sqrt` fonksiyonun parametrik yapısı şöyledir:
 
 ```
     double sqrt(double x);
 ```
 
-Fonksiyon, parametresiyle aldığı `double` sayının kareköküne geri dönmektedir.
+Fonksiyon, parametresiyle aldığı double sayının kareköküne geri dönmektedir.
 
 ```
 #include <stdio.h>
@@ -4092,7 +4092,7 @@ double val, result;
     double pow(double a, double b);
 ```
 
-Fonksiyon, `a` üzeri `b` işlemine geri dönmektedir.
+Fonksiyon, a üzeri b işlemine geri dönmektedir.
 
 ```
 #include <stdio.h>
@@ -4116,7 +4116,7 @@ double a, b, result;
 }
 ```
 
-`sin`, `cos`, `tan`, `asin`, `acos`, `atan` fonksiyonları trigonometrik işlemler yapmaktadır. Bu fonksiyonların parametreleri ve geri dönüş değerleri `double`
+`sin`, `cos`, `tan`, `asin`, `acos`, `atan` fonksiyonları trigonometrik işlemler yapmaktadır. Bu fonksiyonların parametreleri ve geri dönüş değerleri double
 türdendir.
 
 ```
@@ -4138,7 +4138,7 @@ double result, radian;
 }
 ```
 
-`round` fonksiyonu, `double` bir değeri parametre olarak alıp ona en yakın tamsayıyı yine `double` bir değer olarak vermektedir.
+`round` fonksiyonu, double bir değeri parametre olarak alıp ona en yakın tamsayıyı yine double bir değer olarak vermektedir.
 Fonksiyonun parametrik yapısı şöyledir:
 
 ```
@@ -4198,8 +4198,8 @@ long result;
 }
 ```
 
-`floor` isimli fonksiyon, `double` bir sayıya en yakın ondan küçük ya da ona eşit tamsayıyı, bize `double` türden vermektedir. `ceil` ise tam tersi işlem yapar. Yani
-bir `double` sayıdan büyük ya da ona eşit en yakın tamsayıyı, `double` türden vermektedir.
+`floor` isimli fonksiyon, double bir sayıya en yakın ondan küçük ya da ona eşit tamsayıyı, bize double türden vermektedir. `ceil` ise tam tersi işlem yapar. Yani
+bir double sayıdan büyük ya da ona eşit en yakın tamsayıyı, double türden vermektedir.
 
 ```
 #include <stdio.h>
@@ -4226,7 +4226,7 @@ double result;
 }
 ```
 
-C99 ile birlikte, `float` ve long `double` için aşağıdaki fonksiyonlar da standartlara eklenmiştir:
+C99 ile birlikte, float ve long double için aşağıdaki fonksiyonlar da standartlara eklenmiştir:
 
 ```
     float floorf(float x);
@@ -9131,10 +9131,10 @@ belirtilir ve gene kullanımı şöyledir:
 
     ifade1 ? ifade2 : ifade3
 
-    Koşul operatörü `if` deyimini çağrıştıran ancak deyim olmayan bir operatördür. Her operatörde olduğu gibi koşul operatörü de bir değer üretir.
+    Koşul operatörü if deyimini çağrıştıran ancak deyim olmayan bir operatördür. Her operatörde olduğu gibi koşul operatörü de bir değer üretir.
     Koşul operatörü şöyle çalışır: Önce soru işaretinin solundaki ifade (yukarıdaki `ifade1`) yapılır. Bu ifade sıfır dışı bir değerse (yani doğruysa) yalnızca soru işareti ile
     iki nokta üst üste arasındaki ifade (yukarıdaki `ifade2`) yapılır. Eğer bu ifade sıfır ise (yani yanlış ise) bu durumda da yalnızca iki nokta üst üstenin sağındaki ifade
-    (yukarıdaki `ifade3`) yapılır. Koşul operatörünün çalışması `if` deyimine benziyor olsa da koşul bir değer üretmektedir. Programcı koşul operatörünün ürettiği değeri genellikle
+    (yukarıdaki `ifade3`) yapılır. Koşul operatörünün çalışması if deyimine benziyor olsa da koşul bir değer üretmektedir. Programcı koşul operatörünün ürettiği değeri genellikle
     bir nesneye atar. Koşul operatörü soru işaretinin solundaki ifade sıfır dışı bir değerdeyse soru işareti ve iki nokta üst üste arasındaki ifadenin değerini üretir,
     soru işaretinin solundaki ifade sıfır ise iki nokta üst üstenin sağındaki ifadenin değerini üretir.
 
