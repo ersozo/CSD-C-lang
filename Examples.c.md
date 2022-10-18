@@ -9033,9 +9033,10 @@ int result;
 
 Peki biz neden fonksiyon yazmıyoruz da fonksiyon etkisi yaratacak parametreli makro yazmaya çalışıyoruz? İşte fonksiyon çağırma işlemi bazı makine komutları
 kullanılarak yapılmaktadır. Oysa makronun enjekte edilmesi fonksiyon çağırma işlemi anlamına gelmediği için fonksiyonun çağrılması sırasındaki
-makine komutları elimine edilmiş olur. Bir fonksiyon çağrıldığında çağrılan koda eklenen makine komutlarının yarattığı dezavantaja İngilizce "function call overhead"
+makine komutları elimine edilmiş olur. Bir fonksiyon çağrıldığında çağrılan koda eklenen makine komutlarının yarattığı dezavantaja İngilizce "_function call overhead_"
 denilmektedir. Örneğin aşağıdaki gibi bir fonksiyon olsun:
 
+```
     int square(int a)
     {
     	return a * a;
@@ -9044,9 +9045,11 @@ denilmektedir. Örneğin aşağıdaki gibi bir fonksiyon olsun:
     Biz bu fonksiyonu şöyle çağırmış olalım:
 
     result = square(val);
+```
 
-    32 bit Intel işlemcilerinde burada üretileck makine komutları şunlardır:
+32 bit Intel işlemcilerinde burada üretileck makine komutları şunlardır:
 
+```
     square:
     	push ebp
     	mov	ebp, esp
@@ -9062,53 +9065,57 @@ denilmektedir. Örneğin aşağıdaki gibi bir fonksiyon olsun:
     call square
     add esp, 4
     move result, eax
+```
 
-    Aslında burada çarpma işlemini yalnızca iki makine komutu bu  yapmaktadır:
+Aslında burada çarpma işlemini yalnızca iki makine komutu yapmaktadır:
 
+```
     mov eax, [ebp + 8]
     imul eax
+```
 
-    Diğer komutlar fonksiyon çağırma nedeniyle mecburen koda eklenen komutlardır. İşte bir iki satırlık fonksiyonların fonksiyon olarak değil de parametreli
-    makro biçiminde yazılması fonksiyon çağırma sırasında gereken makine komutlarının elimine edilmesine yol açar. Yani makro, fonksiyon çağrısına göre
-    daha hızlı bir çalışmayı sağlar.
+Diğer komutlar fonksiyon çağırma nedeniyle mecburen koda eklenen komutlardır. İşte bir iki satırlık fonksiyonların fonksiyon olarak değil de parametreli
+makro biçiminde yazılması fonksiyon çağırma sırasında gereken makine komutlarının elimine edilmesine yol açar. Yani makro, fonksiyon çağrısına göre
+daha hızlı bir çalışmayı sağlar.
 
-    Uzun fonksiyonların makro olarak yazılması ise kötü bir tekniktir. Çünkü:
+Uzun fonksiyonların makro olarak yazılması ise kötü bir tekniktir. Çünkü:
 
-    1) Uzun bir fonksiyonda birkaç makine komutunun elimine edilmesinin pratik bir faydası olmayabilir.
-    2) Uzun makroların yazılması zordur ve okunabilirliği azaltmaktadır.
-    3) Uzun makrolar her çağrılan yere enjekte edileceği için kodu büyütürler. Elde edilen hıza kodda yaşanan büyüme, kar-zarar ilişkisi dikkate alındığında
-    toplamda zarar oluşturmaktadır.
+1. Uzun bir fonksiyonda birkaç makine komutunun elimine edilmesinin pratik bir faydası olmayabilir.
+2. Uzun makroların yazılması zordur ve okunabilirliği azaltmaktadır.
+3. Uzun makrolar her çağrılan yere enjekte edileceği için kodu büyütürler. Elde edilen hıza kodda yaşanan büyüme, kar-zarar ilişkisi dikkate alındığında
+   toplamda zarar oluşturmaktadır.
 
+Makroları çağırırken dikkat etmek gerekir. Makro argümanlarında ++ ve -- gibi operatörler "_tanımsız davranış (undefined behavior)_" oluşturabilirler. Örneğin:
 
-    Makroları çağırırken dikkat etmek gerekir. Makro argümanlarında ++ ve -- gibi operatörler "tanımsız davranış (undefined behavior)" oluşturabilirler. Örneğin:
-
+```
     #define square(a)			((a) * (a))
+```
 
-    Bu makroyu şöyle çağırmış olalım:
+Bu makroyu şöyle çağırmış olalım:
 
+```
     result = square(++val);
+```
 
-    Burada eğer square bir makro yerine fonksiyon olsaydı, val önce artırılır, artırılmış değerin karesi alınırdı. Halbuki square bir makro olduğunda
-    önişlemci şöyle bir açım uygulayacaktır:
+Burada eğer square bir makro yerine fonksiyon olsaydı, val önce artırılır, artırılmış değerin karesi alınırdı. Halbuki square bir makro olduğunda
+önişlemci şöyle bir açım uygulayacaktır:
 
+```
     result = ((++val) * (++val))
+```
 
-    Bu da "tanımsız davranış" oluşturacaktır.
+Bu da "_tanımsız davranış_" oluşturacaktır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aslında bazı küçük standart C fonksiyonları derleyicileri yazanlar tarafından birer fonksiyon olarak değil de makro olarak yazılabilmektedir. Örneğin
 <ctype.h> içerisindeki karakter test fonksiyonları pek çok derleyici tarafından makro olarak yazılmaktadır. Tabii programcı bunu bilmek zorunda değildir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir C programının yazıldığı editör dar ise biz uzun atomları nasıl yazabiliriz? Örneğin string'lerin tek bir satırda yazılması gerekir. Benzer biçimde
 #define komutunun da tek bir satırda yazılması gerekir. Peki ya editörümüzün genişliği yeterli değilse? Ya da tek satıra yazmak okunabilirliği bozuyorsa?
 İşte C'de üst satır ile alt satırı sanki tek bir satırmış gibi derleyiciye göstermenin bir yolu vardır: Eğer bir satırda \ karakterinden hemen sonra LF (Line Feed)
 karakteri gelirse (yani \ karakterinden hemen sonra ENTER tuşuna basılırsa) önişlemci tarafından işin başında bu iki satır, \ ve LF karakterleri silinerek sanki tek
 satır haline dönüştürülür. Böylece biz istersek bir satırı kesip aşağıdan bu yöntemle devam edebiliriz. Örneğin:
 
+```
     #include <stdio.h>
 
     int main(void)
@@ -9134,12 +9141,12 @@ satır haline dönüştürülür. Böylece biz istersek bir satırı kesip aşa�
 
     	return 0;
     }
+```
 
-    Bu sayede bir satırdan büyük olan makrolar daha okunabilir biçimde yazılabilirler. C standratlarına göre \ birleştirmesi yapıldıktan sonra derleyicilerin
-    en az 4095 karakterlik satırları desteklemesi gerekmektedir.
+Bu sayede bir satırdan büyük olan makrolar daha okunabilir biçimde yazılabilirler. C standratlarına göre \ birleştirmesi yapıldıktan sonra derleyicilerin
+en az 4095 karakterlik satırları desteklemesi gerekmektedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9160,11 +9167,12 @@ int test = 0;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Çok satırlı makro yazarken programcı makroyu blok içerisine alır. Ancak blok içerisine alma yine de makronun tam olarak fonksiyon taklidi yapmasına
 olanak sağlamaz. Örneğin:
 
+```
     #include <stdio.h>
     #include <stdlib.h>
 
@@ -9188,9 +9196,11 @@ olanak sağlamaz. Örneğin:
 
     	return 0;
     }
+```
 
-    Buradaki kodu önişlemci aşağıdaki gibi açacaktır:
+Buradaki kodu önişlemci aşağıdaki gibi açacaktır:
 
+```
     if (val > 0)
     	if (!status) {
     		printf("Error!\n");
@@ -9198,11 +9208,13 @@ olanak sağlamaz. Örneğin:
     	};
     else
     	printf("Everything is ok\n");
+```
 
-    Burada error_check(status) ifadesinin sonundaki noktalı virgül başımıza bela açmaktadır. Çünkü önişlemci kodu açtığında artık açılan kodda bu ';'
-    boş deyim olarak ele alınacak ve bloklama yapılmadığı için sentaks hatası oluşacaktır. Tabii biz dıştaki if deyimini bloklarsak sorun çözülür ancak
-    makromuzun da tam bir fonksiyon taklidi yapamadığı açıktır. İşte bu tür durumlarda do-while deyimi imdadımıza yetişmektedir. Yukarıdaki makroyu şöyle yzmış olalım:
+Burada error_check(status) ifadesinin sonundaki noktalı virgül başımıza bela açmaktadır. Çünkü önişlemci kodu açtığında artık açılan kodda bu ';'
+boş deyim olarak ele alınacak ve bloklama yapılmadığı için sentaks hatası oluşacaktır. Tabii biz dıştaki if deyimini bloklarsak sorun çözülür ancak
+makromuzun da tam bir fonksiyon taklidi yapamadığı açıktır. İşte bu tür durumlarda do-while deyimi imdadımıza yetişmektedir. Yukarıdaki makroyu şöyle yazmış olalım:
 
+```
     #define error_check(result)			\
     do  {								\
     	if (!result) {					\
@@ -9210,18 +9222,22 @@ olanak sağlamaz. Örneğin:
     		exit(1);					\
     	}								\
     } while (0)
+```
 
-    Burada while parantezinin sonuna ';' yerleştirmediğimize dikkat ediniz. Bu while döngüsü aslında hiç dönmeyecektir. while döngüsünün sonundaki ';'
-    bir boş deyim değildir. Olması gereken bir atomdur. O halde makroyu aşağıdaki gibi kullanan kişi gerçekten de koyduğu ';' ile sentaksı tamamlar. Böylece de
-    do-while tek deyim olarak ele alınır:
+Burada while parantezinin sonuna ';' yerleştirmediğimize dikkat ediniz. Bu while döngüsü aslında hiç dönmeyecektir. while döngüsünün sonundaki ';'
+bir boş deyim değildir. Olması gereken bir atomdur. O halde makroyu aşağıdaki gibi kullanan kişi gerçekten de koyduğu ';' ile sentaksı tamamlar. Böylece de
+do-while tek deyim olarak ele alınır:
 
+```
     if (val > 0)
     	error_check(status);			/* Burada ';' artık boş deyim olmayacak, do-while deyimini tamamlayan ';' haline gelecek
     else
     	printf("Everything is ok\n");
+```
 
-    Önişmeci makroyu açtığında şu durum oluşacaktır:
+Önişmeci makroyu açtığında şu durum oluşacaktır:
 
+```
     if (val > 0)
     	do {
     		if (!status) {
@@ -9231,15 +9247,15 @@ olanak sağlamaz. Örneğin:
     	} while (0);
     else
     	printf("Everything is ok\n");
+```
 
-    Artık if deyiminin doğru kısmında tek bir deyim vardır.
+Artık if deyiminin doğru kısmında tek bir deyim vardır.
 
-    Bu nedenle, çok satırlı makroların bu biçimde do-while tekniği ile yazıldığını görürseniz şaşırmayınız.
+Bu nedenle, çok satırlı makroların bu biçimde do-while tekniği ile yazıldığını görürseniz şaşırmayınız.
 
-    Tabii çok satırlı makrolar if gibi deyimlerin içerisine yerleştirilemezler. Çok satırları makrolar, geri dönüş değeri void olan fonksiyonlar gibi düşünülmelidir.
+Tabii çok satırlı makrolar if gibi deyimlerin içerisine yerleştirilemezler. Çok satırları makrolar, geri dönüş değeri void olan fonksiyonlar gibi düşünülmelidir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -9264,12 +9280,12 @@ int status = 0;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Tabii makrolar başka amaçlarla da kullanılabilir. Biz her ne kadar henüz dizileri görmesek de aşağıdaki örnekte tüm elemanları 1 olan bir diziyi
 makrolar yardımıyla kolay bir biçimde oluşturabilmekteyiz.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 #define FILL10(val) val, val, val, val, val, val, val, val, val, val
@@ -9286,31 +9302,30 @@ int a[1000] = {FILL1000(1)};
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C99 ile birlikte C'ye de "inline fonksiyonlar" eklenmiştir. Inline fonksiyonlar, "fonksiyon gibi makrolar"ın güvenli bir alternatifidir. Kursumuzda bu konu
+C99 ile birlikte C'ye de "_inline fonksiyonlar_" eklenmiştir. Inline fonksiyonlar, "_fonksiyon gibi makrolar_"ın güvenli bir alternatifidir. Kursumuzda bu konu
 ileride ele alınacaktır. Bu nedenle fonksiyona benzer makroların #define ile değil inline fonksiyonlar yoluyla yazılması C99 ve sonrasında daha uygun
 olabilmektedir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 En çok kullanılan diğer bir önişlemci komutu da #include komutudur. #include komutunu açısal parantezler içerisinde ya da iki tırnak içerisinde
 bir dosya ismi izler. Yani komutun genel biçimi şöyledir:
 
+```
     #include <dosya_ismi>
     #include "dosya_ismi"
+```
 
-    Biz şimdiye kadar hep include işleminde açısal parantezleri kullandık. Önişlemci #include komutunu gördüğünde belirtilen dosyayı açar. Dosyanın içeriğini
-    geçici dosya yoluyla komutun yerleştirildiği yere yapıştırır. Böylece artık kod derleme modülüne geldiğinde derleme modülü #include komutunu değil, o dosyanın içeriğini
-    görecektir.
+Biz şimdiye kadar hep include işleminde açısal parantezleri kullandık. Önişlemci #include komutunu gördüğünde belirtilen dosyayı açar. Dosyanın içeriğini geçici
+dosya yoluyla komutun yerleştirildiği yere yapıştırır. Böylece artık kod derleme modülüne geldiğinde derleme modülü #include komutunu değil, o dosyanın içeriğini
+görecektir.
 
-    include edilecek dosyanın uzantısı ".h" olmak zorunda değildir. Herhangi bir dosya da, örneğin bir .c dosyası da include edilebilir.
+include edilecek dosyanın uzantısı ".h" olmak zorunda değildir. Herhangi bir dosya da, örneğin bir .c dosyası da include edilebilir.
 
-    Aşağıdaki örnekte "sample.c" dosyası, "test.c" dosyasını include etmiştir.
+Aşağıdaki örnekte "sample.c" dosyası, "test.c" dosyasını include etmiştir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_ sample.c _/
+```
+/* sample.c */
 
 #include <stdio.h>
 #include "test.c"
@@ -9323,22 +9338,21 @@ foo();
 
 }
 
-/_ test.c _/
+/* test.c */
 
 void foo(void)
 {
 printf("foo\n");
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 #include komutu kaynak kodun herhangi bir yerine yerleştirilebilir. Tabii yerleştirme yerine göre yerleştirilen dosya içeriğinin anlamlı olması
 gerekir. #include komutu da tek bir satıra yazılmak zorundadır.
 
-    Aşağıdaki örnekte #include komutu yerel bir blokta bulundurulmuştur. İçerik itibari ile bulundurulanyer geçerli bir kod oluşturur.
+Aşağıdaki örnekte #include komutu yerel bir blokta bulundurulmuştur. İçerik itibari ile bulundurulanyer geçerli bir kod oluşturur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_ sample.c _/
+```
+/* sample.c */
 
 #include <stdio.h>
 
@@ -9354,17 +9368,17 @@ int a =
 
 }
 
-/_ test.c _/
+/* test.c */
 
 10
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 #include komutunda önişlemci, include edilen dosyayı komutun bulunduğu yere yapıştırdıktan sonra önişlem işlemlerini yeniden açtığı dosya üzerinde de yapar.
 Böylece biz include dosyalarına önişlemci komutlarını yerleştirebiliriz. Örneğin include ettiğimiz dosyaların içerisinde #define önişlemci komutları da
 olabilir. Bu durumda bu komutlar da etki gösterecektir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/_ sample.c _/
+```
+/* sample.c */
 
 #include <stdio.h>
 #include "test.h"
@@ -9380,17 +9394,17 @@ printf("%d\n", i);
 
 }
 
-/_ test.h _/
+/* test.h */
 
 #define SIZE 10
 #define square(a) ((a) \* (a))
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 include edilen dosyada başka include komutları da buılunabilir. Bu durumda yukarıda da belirtildiği gibi özyinelemeli bir biçimde include işlemi
 uygulanır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/_ sample.c _/
+```
+/* sample.c */
 
 #include "project.h"
 
@@ -9402,16 +9416,16 @@ printf("%f\n", sqrt(10));
 
 }
 
-/_ project.h _/
+/* project.h */
 
 #include <stdio.h>
 #include <math.h>
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C'nin standart başlık dosyalarında "include koruması (include guard)" uygulanmıştır. Bu nedenle bu standart başlık dosyalarının doğrudan ya da dolaylı
+C'nin standart başlık dosyalarında "_include koruması (include guard)_" uygulanmıştır. Bu nedenle bu standart başlık dosyalarının doğrudan ya da dolaylı
 olarak birden fazla kez include edilmiş olması bir soruna yol açmaz. include koruması ileride ele alınacaktır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 #include <stdio.h> /_ soruna yol açmaz, ama gereksiz _/
 #include <stdio.h> /_ soruna yol açmaz, ama gereksiz _/
@@ -9423,124 +9437,119 @@ printf("ok\n");
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-include işleminde "döngüsel (cyclic) durumlar" error oluşturmaktadır. Örneğin biz "a.h" dosyasını include etmiş olalım. Bu dosya da "b.h" dosyasını include
+include işleminde "_döngüsel (cyclic) durumlar_" error oluşturmaktadır. Örneğin biz "a.h" dosyasını include etmiş olalım. Bu dosya da "b.h" dosyasını include
 etmiş olsun. "b.h" dosyası da "a.h" dosyasını include etmiş olsun. Bu durum döngüsellik oluşturmaktadır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+[30. Ders - 20/09/2022 - Salı]()
+
 include işleminin açısal parantezlerle yapılması ile iki tırnak içerisinde yapılması arasında farklılık vardır. Ancak bu farklılık C standartlarında
-açık bir biçimde belirtilmemiş, daha çok "derleyicileri yazanların isteğine (implementation defined)" bırakılmıştır.
+açık bir biçimde belirtilmemiş, daha çok "_derleyicileri yazanların isteğine (implementation defined)_" bırakılmıştır.
 
-    Standartlarda bu konuda şunlar söylenmiştir:
+Standartlarda bu konuda şunlar söylenmiştir:
 
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 30. Ders - 20/09/2022 - Salı
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+- Eğer include işlemi açısal parantezlerle yapılmışsa önişlemci dosyayı kendisinin belirlediği bazı dizinlerde arar. Bu dizinlerin nasıl belirleneceği
+  derleyicileri yazanların isteğine bırakışmıştır.
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-include işleminin açısal parantezlerle yapılması ile iki tırnak içerisinde yapılması arasında farklılık vardır. Ancak bu farklılık C standartlarında
-açık bir biçimde belirtilmemiş, daha çok "derleyicileri yazanların isteğine (implementation defined)" bırakılmıştır.
+- Eğer dosya ismi iki tırnak içerisinde belirtilmişse bu durumda önişlemci dosyayı kendisinin belirlediği bir biçimde ve dizinlerde arar. Ancak dosya
+  bu aramada bulunamazsa sanki include işlemi açlsal parantezlerle yapılmış gibi bu kez dosya açısal parantezlerle belirtildiğinde aranan dizinlerde de aranır.
 
-    Standartlarda bu konuda şunlar söylenmiştir:
+  Her ne kadar standartlar belirlemeleri oldukça gevşek bırakmışsa da uygulamada pek çok derleyici şu biçimde işlem yapmaktadır:
 
-    - Eğer include işlemi açısal parantezlerle yapılmışsa önişlemci dosyayı kendisinin belirlediği bazı dizinlerde arar. Bu dizinlerin nasıl belirleneceği
-    derleyicileri yazanların isteğine bırakışmıştır.
+- Eğer dosya açısal parantezlerle include edilmişse dosya C'nin standart başlık dosyalarının yüklendiği dizinde aranmaktadır. Programcılar genellikle C'nin standart
+  başlık dosyalarını bu biçimde include ederler.
 
-    - Eğer dosya ismi iki tırnak içerisinde belirtilmişse bu durumda önişlemci dosyayı kendisinin belirlediği bir biçimde ve dizinlerde arar. Ancak dosya
-    bu aramada bulunamazsa sanki include işlemi açlsal parantezlerle yapılmış gibi bu kez dosya açısal parantezlerle belirtildiğinde aranan dizinlerde de aranır.
+- Eğer dosya iki tırnak içerisinde include edilmişse bu durumda yaygın derleyiciler dosyayı önce "o anda bulunulan dizinde (current working directory)" aramaktadır.
+  Eğer dosya o anda bulunulan dizinde bulunamazsa bu kez dosya standart C başlık dosyalarının bulunduğu dizinde de aranmaktadır.
 
-    Her ne kadar standartlar belirlemeleri oldukça gevşek bırakmışsa da uygulamada pek çok derleyici şu biçimde işlem yapmaktadır:
+Bu durumda en yaygın kullanım, programcının standart başlık dosyalarını açısal parantezlerle, kendi başlık dosyalarını ise iki tırnak ile include etmesidir. Örneğin:
 
-    - Eğer dosya açısal parantezlerle include edilmişse dosya C'nin standart başlık dosyalarının yüklendiği dizinde aranmaktadır. Programcılar genellikle C'nin standart
-    başlık dosyalarını bu biçimde include ederler.
-
-    - Eğer dosya iki tırnak içerisinde include edilmişse bu durumda yaygın derleyiciler dosyayı önce "o anda bulunulan dizinde (current working directory)" aramaktadır.
-    Eğer dosya o anda bulunulan dizinde bulunamazsa bu kez dosya standart C başlık dosyalarının bulunduğu dizinde de aranmaktadır.
-
-    Bu durumda en yaygın kullanım, programcının standart başlık dosyalarını açısal parantezlerle, kendi başlık dosyalarını ise iki tırnak ile include etmesidir. Örneğin:
-
+```
     #include <stdio.h>
     #include "project.h"
+```
 
-    İki tırnak ile include işlemi yapıldığında eğer Visual Studio gibi IDE'lerde çalışıyorsanız "içinde bulunulan dizin (current working directory)",
-    proje dizini olacaktır. Ancak komut satırından derleme işlemini yapıyorsanız içinde bulunulan dizin, promptta gördüğünüz dizin olacaktır.
+İki tırnak ile include işlemi yapıldığında eğer Visual Studio gibi IDE'lerde çalışıyorsanız "_içinde bulunulan dizin (current working directory)_",
+proje dizini olacaktır. Ancak komut satırından derleme işlemini yapıyorsanız içinde bulunulan dizin, promptta gördüğünüz dizin olacaktır.
 
-    C'nin standart başlık dosyalarının iki tırnak ile include edilmesinde bir sorun oluşmayacağına dikkat ediniz. Ancak kendi başlık dosyalarınızı açısal parantezlerle
-    include ederseniz muhtemelen önişlemci dosyayı bulamayacaktır.
+C'nin standart başlık dosyalarının iki tırnak ile include edilmesinde bir sorun oluşmayacağına dikkat ediniz. Ancak kendi başlık dosyalarınızı açısal parantezlerle
+include ederseniz muhtemelen önişlemci dosyayı bulamayacaktır.
 
-    C derleyicisi kurulurken (örneğin Visual Studio IDE'si kurulurken) başlık dosyalarının hangi dizine yerleştirileceği derleyiciden derleyiciye hatta aynı derleyicilerde
-    versyiondan versiyona değişebilmektedir. UNIX/Linux sistemleri geleneksel olarka standart başlık dosyalarını /usr/include dizinin içerisinde bulundurmaktadır.
-    Microsoft Visual Studio IDE'si, kurulum sırasında kurulum dizinini bize de sorabilmektedir. Ancak Microsoft versiyondan versiyona strateji değiştirebilmektedir.
+C derleyicisi kurulurken (örneğin Visual Studio IDE'si kurulurken) başlık dosyalarının hangi dizine yerleştirileceği derleyiciden derleyiciye hatta aynı derleyicilerde
+versyiondan versiyona değişebilmektedir. UNIX/Linux sistemleri geleneksel olarka standart başlık dosyalarını /usr/include dizinin içerisinde bulundurmaktadır.
+Microsoft Visual Studio IDE'si, kurulum sırasında kurulum dizinini bize de sorabilmektedir. Ancak Microsoft versiyondan versiyona strateji değiştirebilmektedir.
 
-    Aslında açısal parantez ile include işlemi yapıldığında önişlemcinin arama dizinlerine ekler yapılabilmektedir. Microsft Visual Studio IDE'sinde
-    Proje seçeneklerinde "C-C++/General/Additional Include Directories" sekmesinde dizinler, aralarına ';' konularak girilebilmektedir. Bu durumda
-    önişlemci açısal parantezlerle include işlemi yapıldığında burada girilen dizinlere de bakmaktadır. Hatta projeden bağımsız olarak bu dizinlere kalıcı eklemeler de
-    yapılabilmektedir. Microsoft cl.exe komut satırı derleyicisinde gcc ve clang derleyicilerinde -I seçeneği de bu amaçla kullanılabilmekltedir. Örneğin:
+Aslında açısal parantez ile include işlemi yapıldığında önişlemcinin arama dizinlerine ekler yapılabilmektedir. Microsft Visual Studio IDE'sinde
+Proje seçeneklerinde **C-C++/General/Additional Include Directories** sekmesinde dizinler, aralarına ';' konularak girilebilmektedir. Bu durumda
+önişlemci açısal parantezlerle include işlemi yapıldığında burada girilen dizinlere de bakmaktadır. Hatta projeden bağımsız olarak bu dizinlere kalıcı eklemeler de
+yapılabilmektedir. Microsoft cl.exe komut satırı derleyicisinde gcc ve clang derleyicilerinde -I seçeneği de bu amaçla kullanılabilmekltedir. Örneğin:
 
+```
     gcc -o sample -I /home/kaan/Study/C  sample.c
+```
 
-    Birden fazla dizine bakılması için birden fazla kez -I seçeneği kullanmak gerekir. Örneğin:
+Birden fazla dizine bakılması için birden fazla kez -I seçeneği kullanmak gerekir. Örneğin:
 
+```
     gcc -o sample -I /home/kaan/Study/C  -I /home/kaan/personal sample.c
+```
 
-    Ayrıca derleyiciler bu dizinleri belirlemek için bazı çevre değişkenlerinden de faydalanabilmektedir. Örneğin gcc derleyicilerinde CPATH çevre değişkenine
-    derleyici önişlem aşamasında başvurmaktadır.
+Ayrıca derleyiciler bu dizinleri belirlemek için bazı çevre değişkenlerinden de faydalanabilmektedir. Örneğin gcc derleyicilerinde CPATH çevre değişkenine
+derleyici önişlem aşamasında başvurmaktadır.
 
-    #include komutunda dosya isimlerinin yol ifadesi içerip içermeyeceği de derleyicileri yazanların isteğine bırakılmıştır. Genel olarak dosya isimlerinde yol ifadesi
-    kullanmayınız. Derleyicilerin çoğu en azından göreli yol ifadelerine izin vermektedir.
+#include komutunda dosya isimlerinin yol ifadesi içerip içermeyeceği de derleyicileri yazanların isteğine bırakılmıştır. Genel olarak dosya isimlerinde yol ifadesi
+kullanmayınız. Derleyicilerin çoğu en azından göreli yol ifadelerine izin vermektedir.
 
-    Standart C başlık dosyalarının include edilme sırasının hiçbir önemi yoktur. Programcılar genellikle çok kullanılan başlık dosyalarını daha daha yukarıda
-    include etme eğilimindedirler.
+Standart C başlık dosyalarının include edilme sırasının hiçbir önemi yoktur. Programcılar genellikle çok kullanılan başlık dosyalarını daha daha yukarıda
+include etme eğilimindedirler.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Bir derleyicinin standartlara uygunluğu "standartlara uygun programı başarılı bir biçimde derlemesi ile" ölçülmektedir. Daha önceden de belirtildiği gibi
+Bir derleyicinin standartlara uygunluğu "_standartlara uygun programı başarılı bir biçimde derlemesi ile_" ölçülmektedir. Daha önceden de belirtildiği gibi
 standartlara uygun olmayan hatalı kodların derleyiciler tarafından derlenip derlenmemesi derleyicilerin bir tercihidir. İşte C derleyicileri standartlarda
-olmayan ek birtakım özelliklere de sahip olabilmektedir. Bunlara "eklenti (extension)" denilmektedir. Örneğin bir C derleyicisi standartlarda olmayan ekstra
+olmayan ek birtakım özelliklere de sahip olabilmektedir. Bunlara "_eklenti (extension)_" denilmektedir. Örneğin bir C derleyicisi standartlarda olmayan ekstra
 deyimlere, ekstra türlere, ekstra fonksiyonlara sahip olabilir. Burada önemli olan standartlara uygun programların başarılı bir biçimde derlenip
 derlenmediğidir. Yani standartlar aslında asgariyi belirtmektedir. Tabii her derleyicinin kendine özgü eklentileri bulunabilmektedir. Bu durumda spesifik bir
 derleyicinin eklentilerini kodumuzda kullanırsak bu kod başka derleyicilerde derlenmeyebilir. Bazı eklentiler oldukça yaygındır. Hatta pek çok programcı bunu
 standart bir özellik sanmaktadır.
 
-    Örneğin Linux çekirdeğinin kaynak kodlarında çok sayıda gcc eklentisi kullanılmıştır. Bu durumda biz Linux kaynak kodlarını örneğin Microsoft derleyicilerinde
-    derleyemeyiz. Ancak gcc derleyicilerinde derleyebiliriz. Burada da görüldüğü gibi eklentilerin yoğun kullanılması kaynak kodun belli bir derleyiciye bağlı
-    olmasına yol açmaktadır.
+Örneğin Linux çekirdeğinin kaynak kodlarında çok sayıda gcc eklentisi kullanılmıştır. Bu durumda biz Linux kaynak kodlarını örneğin Microsoft derleyicilerinde
+derleyemeyiz. Ancak gcc derleyicilerinde derleyebiliriz. Burada da görüldüğü gibi eklentilerin yoğun kullanılması kaynak kodun belli bir derleyiciye bağlı
+olmasına yol açmaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-C'nin üç operand'lı (ternary) tek bir operatörü vardır. Bu operatöre "koşul operatörü (conditional operator)" denilmektedir. Koşul operatörü ?: ile
+C'nin üç operand'lı (ternary) tek bir operatörü vardır. Bu operatöre "_koşul operatörü (conditional operator)_" denilmektedir. Koşul operatörü ?: ile
 belirtilir ve gene kullanımı şöyledir:
 
+```
     ifade1 ? ifade2 : ifade3
+```
 
-    Koşul operatörü if deyimini çağrıştıran ancak deyim olmayan bir operatördür. Her operatörde olduğu gibi koşul operatörü de bir değer üretir.
-    Koşul operatörü şöyle çalışır: Önce soru işaretinin solundaki ifade (yukarıdaki `ifade1`) yapılır. Bu ifade sıfır dışı bir değerse (yani doğruysa) yalnızca soru işareti ile
-    iki nokta üst üste arasındaki ifade (yukarıdaki `ifade2`) yapılır. Eğer bu ifade sıfır ise (yani yanlış ise) bu durumda da yalnızca iki nokta üst üstenin sağındaki ifade
-    (yukarıdaki `ifade3`) yapılır. Koşul operatörünün çalışması if deyimine benziyor olsa da koşul bir değer üretmektedir. Programcı koşul operatörünün ürettiği değeri genellikle
-    bir nesneye atar. Koşul operatörü soru işaretinin solundaki ifade sıfır dışı bir değerdeyse soru işareti ve iki nokta üst üste arasındaki ifadenin değerini üretir,
-    soru işaretinin solundaki ifade sıfır ise iki nokta üst üstenin sağındaki ifadenin değerini üretir.
+Koşul operatörü if deyimini çağrıştıran ancak deyim olmayan bir operatördür. Her operatörde olduğu gibi koşul operatörü de bir değer üretir.
+Koşul operatörü şöyle çalışır: Önce soru işaretinin solundaki ifade (yukarıdaki ifade1) yapılır. Bu ifade sıfır dışı bir değerse (yani doğruysa) yalnızca soru işareti ile
+iki nokta üst üste arasındaki ifade (yukarıdaki ifade2) yapılır. Eğer bu ifade sıfır ise (yani yanlış ise) bu durumda da yalnızca iki nokta üst üstenin sağındaki ifade
+(yukarıdaki ifade3) yapılır. Koşul operatörünün çalışması if deyimine benziyor olsa da koşul bir değer üretmektedir. Programcı koşul operatörünün ürettiği değeri genellikle
+bir nesneye atar. Koşul operatörü soru işaretinin solundaki ifade sıfır dışı bir değerdeyse soru işareti ve iki nokta üst üste arasındaki ifadenin değerini üretir,
+soru işaretinin solundaki ifade sıfır ise iki nokta üst üstenin sağındaki ifadenin değerini üretir.
 
-    Örneğin:
+Örneğin:
 
+```
     result = val % 2 == 0 ? 100 : 200;
+```
 
-    Burada val çift ise koşul operatöründen 100, tek ise 200 elde edilecektir. Bu durumda result değişkenine 100 ya da 200 atanacaktır. Yukarıdaki kodun işlevsel eşdeğeri
-    if deyimi ile de oluşturulabilir:
+Burada val çift ise koşul operatöründen 100, tek ise 200 elde edilecektir. Bu durumda result değişkenine 100 ya da 200 atanacaktır. Yukarıdaki kodun işlevsel eşdeğeri
+if deyimi ile de oluşturulabilir:
 
+```
     if (val % 2 == 0)
     	result = 100;
     else
     	result = 200;
+```
 
-    Burada da görüldüğü gibi koşul operatörü ile yapılan her şey aslında if deyimiyle de yapılabilmektedir. Ancak koşul operatörü bazı durumlarda kompakt bir
-    görünüm sunduğu için daha kısa yazımlara olanak sağlamaktadır.
+Burada da görüldüğü gibi koşul operatörü ile yapılan her şey aslında if deyimiyle de yapılabilmektedir. Ancak koşul operatörü bazı durumlarda kompakt bir
+görünüm sunduğu için daha kısa yazımlara olanak sağlamaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -9556,17 +9565,20 @@ int val, result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Koşul operatöründe, operatörün ürettiği değerin bir biçimde kullanılması gerekir. Eğer operatörün ürettiği değer kullanılmazsa her ne kadar kod geçerli olsa da
 kötü bir teknik uygulanmış olur. Örneğin:
 
+```
     val % 2 == 0 ? ++x : ++y;		/* kötü teknik */
+```
 
-    Koşul operatörünün kullanılması gereken üç durum vardır.
+Koşul operatörünün kullanılması gereken üç durum vardır.
 
-    1) Bir karşılaştırmanın sonucuna göre elde edilen değerin bir nesneye atanması gerektiği durumlar. Örneğin:
+1. Bir karşılaştırmanın sonucuna göre elde edilen değerin bir nesneye atanması gerektiği durumlar. Örneğin:
 
+```
     result = val % 2 == 0 ? 100 : 200;
 
     Bu işlemin eşdeğer if karşılığı şöyledir:
@@ -9575,34 +9587,39 @@ kötü bir teknik uygulanmış olur. Örneğin:
     	result = 100;
     else
     	result = 200;
+```
 
-    2) Fonksiyon çağırırken argüman ifadelerinde koşul operatörü kullanılabilir. Örneğin:
+2. Fonksiyon çağırırken argüman ifadelerinde koşul operatörü kullanılabilir. Örneğin:
 
+```
     foo(val % 2 == 0 ? 100 : 200);
 
-    Bu işlemin eşdeğer if karşılığı şöyledir:
+Bu işlemin eşdeğer if karşılığı şöyledir:
+```
 
     if (val % 2 == 0)
     	foo(100);
     else
     	foo(200);
 
-    3) return ifadelerinde de koşul operatörü kullanılabilir. Örneğin:
+```
+3. return ifadelerinde de koşul operatörü kullanılabilir. Örneğin:
 
     return val % 2 == 0 ? 100 : 200;
+```
 
-    Bu ifadenin de eşdeğer if karşılığı şöyledir:
+Bu ifadenin de eşdeğer if karşılığı şöyledir:
 
+```
     if (val % 2 == 0)
     	return 100;
     else
     	return 200;
+```
 
+Aşağıdaki örnekte sayının çift ya da tek olduğu koşul operatörü sayesinde pratik bir biçimde ekrana yazdırılmaktadır.
 
-    Aşağıdaki örnekte sayının çift ya da tek olduğu koşul operatörü sayesinde pratik bir biçimde ekrana yazdırılmaktadır.
-
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -9617,19 +9634,20 @@ int val, result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Örneğin 0'dan 100'e kadar sayıları beşer beşer aşağıdkai gibi yazdırmak isteylim:
+Örneğin 0'dan 100'e kadar sayıları, beşer beşer aşağıdaki gibi yazdırmak isteyelim:
 
+```
     0 1 2 3 4
     5 6 7 8 9
     10 11 12 13 14
     ...
+```
 
-    Çözümlerden biri aşağıdaki gibi olabilir.
+Çözümlerden biri aşağıdaki gibi olabilir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -9642,15 +9660,17 @@ putchar(i % 5 == 4 ? '\n' : ' ');
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Aslında yukarıdaki kodu aşağıdaki gibi daha kompakt biçimde de yazabilirdik. Bu koddaki kritik bölüm şudur:
 
+```
     printf("%d%c", i, i % 5 == 4 ? '\n' : ' ');
+```
 
-    Burada %d format karakteri i ile, %c format karakteri ise '\n' ya da ' ' ile eşleşmektedir.
+Burada %d format karakteri i ile, %c format karakteri ise '\n' ya da ' ' ile eşleşmektedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+```
 
 #include <stdio.h>
 
@@ -9662,11 +9682,11 @@ printf("%d%c", i, i % 5 == 4 ? '\n' : ' ');
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki örnekte max fonksiyonu, iki parametresinin büyük olanına geri dönmektedir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int max(int a, int b)
@@ -9684,11 +9704,11 @@ int result;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Daha önceden de belirttiğimiz gibi birer satırlık fonksiyonların makro olarak yazıalması genel bir hız kazancı sağlamaktadır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
@@ -9703,10 +9723,11 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Koşul operatörü öncelik tablosunda atama operatörünün hemen yukarısında, sağdan sola grupta bulunmaktadır:
 
+```
     ()					Soldan-Sağa
     + - ++ -- !			Sağdan-Sola
     * / %				Soldan-Sağa
@@ -9718,16 +9739,15 @@ Koşul operatörü öncelik tablosunda atama operatörünün hemen yukarısında
     ?:					Sağdan-Sola
     =, +=, /=, *=,...	Sağdan-Sola
     ,					Soldan-Sağa
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Koşul operatörü iç içe (nested) kullanılabilir. İç içe kullanımda parantez kullanmaya gerek yoktur. Örneğin üç sayının en büyüğünü bulmaya çalışalım:
 
+```
     result = a > b ? a > c ? a : c : b > c ? b : c;
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -9750,14 +9770,15 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Yukarıdaki gibi iç içe koşul operatöründe gerekmese bile okunabilirliği artırmak için parantez kullanılmalıdır. Örneğin:
 
+```
     result = a > b ? (a > c ? a : c) : (b > c ? b : c);
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -9780,30 +9801,31 @@ int result;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 31. Ders - 22/09/2022 - Perşembe
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+[31. Ders - 22/09/2022 - Perşembe]()
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Koşul operatörünün öncelik tablosunda atama operatörlerinin hemen yukarısında olduğunu anımsayınız. Örneğin:
 
+```
     x = a % 2 == 0 ? 100 + 200 : 300 + 400;
+```
 
-    Burada derleyiciye göre iki operatör vardır: Koşul operatörü ve atama operatörü. Diğer operatörler aslında koşul operatörünün operand'larını oluşturmaktadır.
-    Peki neden yukarıdaki örnekte soru işaretinin solundaki her şey koşul operatörünün ilk operandını oluşturmamaktadır? İşte ayrıştırma (parsing) şöyle yapılmaktadır:
-    Derleyici soru işaretinin solunda, koşul operatöründen daha düşük öncelikli bir operatör görene kadar ilerler (örmeğimizde atama operatörüne kadar).
-    O kısım koşul operatörünün birinci operandını oluşturmaktadır. Soru işareti ile ':' arasındaki kısım, koşul operatörünün ikinci operandını ve ':' den koşul operatöründen
-    daha düşük öncelikli operatöre kadar olan kısım ise koşul operatörünün üçüncü kısmını oluşturmaktadır.
+Burada derleyiciye göre iki operatör vardır: Koşul operatörü ve atama operatörü. Diğer operatörler aslında koşul operatörünün operandlarını oluşturmaktadır.
+Peki neden yukarıdaki örnekte soru işaretinin solundaki her şey koşul operatörünün ilk operandını oluşturmamaktadır? İşte ayrıştırma (parsing) şöyle yapılmaktadır:
+Derleyici soru işaretinin solunda, koşul operatöründen daha düşük öncelikli bir operatör görene kadar ilerler (örmeğimizde atama operatörüne kadar).
+O kısım koşul operatörünün birinci operandını oluşturmaktadır. Soru işareti ile ':' arasındaki kısım, koşul operatörünün ikinci operandını ve ':' den koşul operatöründen
+daha düşük öncelikli operatöre kadar olan kısım ise koşul operatörünün üçüncü kısmını oluşturmaktadır.
 
-    Bazen bir operatörü koşul operatörünün operandı olmaktan çıkartmak isteyebiliriz. Bunun için parantezlerin kullanılması gerekir. Örneğin:
+Bazen bir operatörü koşul operatörünün operandı olmaktan çıkartmak isteyebiliriz. Bunun için parantezlerin kullanılması gerekir. Örneğin:
 
+```
     x = (a % 2 == 0 ? 100 : 200) + 300;
+```
 
-    Burada a çift ise x'e 100 + 300, tek ise 200 + 300 atanacaktır. Çünkü artık '+' operatörü koşul operatörünün üçüncü operandı olmaktan çıkarrılmıştır.
+Burada a çift ise x'e 100 + 300, tek ise 200 + 300 atanacaktır. Çünkü artık '+' operatörü koşul operatörünün üçüncü operandı olmaktan çıkarrılmıştır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -9820,17 +9842,18 @@ int result;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki örnekte belli bir tarihin hangi gün olduğunu ekrana (stdout dosyasına) yazan disp_day isimli fonksiyon yazılmıştır.
 Bu örneği anlayabilmek için şu noktalara dikkat ediniz:
 
-    - Bir yılın artık (leap year) olup olmadığı şöyle belirlenmektedir: 4'e tam bölünüp 100'e tam bölünmeyen ya da 400'e tam bölünen yıllar artıktır.
-    - Önce 01/01/1900'den ilgili tarihe kadar geçen gün sayısı hesaplanmıştır. Sonra bu değerin 7'ye bölümünden elde edilen kalana bakılmıştır.
-    - 01/01/1900 güneü Pazar günüdür.
+- Bir yılın artık (leap year) olup olmadığı şöyle belirlenmektedir: 4'e tam bölünüp 100'e tam bölünmeyen ya da 400'e tam bölünen yıllar artıktır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+- Önce 01/01/1900'den ilgili tarihe kadar geçen gün sayısı hesaplanmıştır. Sonra bu değerin 7'ye bölümünden elde edilen kalana bakılmıştır.
 
+- 01/01/1900 güneü Pazar günüdür.
+
+```
 #include <stdio.h>
 
 #define isleap(year) ((year) % 4 == 0 && (year) % 100 != 0 || (year) % 400 == 0 )
@@ -9914,137 +9937,138 @@ disp_day(23, 4, 1920);
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Bilgisayar sistemlerinde ""ana belleğin (main memory)" (RAM olarak da bilinir) her bir byte'ına ilk byte 0 olmak üzere artan sırada bir sayı karşılık
-getirilmiştir. Bu sayıya ilgili byte'ın "doğrusal adresi (linear address)" denilmektedir. Doğrusal adres terimi yerine "fiziksel adres (physical address)" terimi de
-kullanılabilmektedir. Ancak doğrusal adres terimi "sayfalama (paging)" mekanizmasının bulunduğu işlemcilerde daha çok tercih edilmektedir.
+Bilgisayar sistemlerinde "_ana belleğin (main memory)_" (RAM olarak da bilinir) her bir byte'ına, ilk byte 0 olmak üzere artan sırada bir sayı karşılık
+getirilmiştir. Bu sayıya ilgili byte'ın "_doğrusal adresi (linear address)_" denilmektedir. Doğrusal adres terimi yerine "_fiziksel adres (physical address)_" terimi de
+kullanılabilmektedir. Ancak doğrusal adres terimi "_sayfalama (paging)_" mekanizmasının bulunduğu işlemcilerde daha çok tercih edilmektedir.
 
-    Doğrusal adresler bilgisayarın çalışma prensibinde mikroişlemciler tarafından elektriksel düzeyde kullanılmaktadır. Çünkü mikroişlemciler RAM'de belli bir yere
-    onun doğrusal adresini bilerek erişirler. Her byte'ın ayrı bir doğrusal adresi vardır. Anımsanacağı gibi C Programlama Dilinde her byte 8 bit olmak zorunda değildir.
-    Dolayısıyla char türü de 8 bit olmak zorunda değildir. Ancak neredeyse sistemlerin hemen hepsinde 1 byte 8 bitten oluşmaktadır.
+Doğrusal adresler bilgisayarın çalışma prensibinde mikroişlemciler tarafından elektriksel düzeyde kullanılmaktadır. Çünkü mikroişlemciler RAM'de belli bir yere
+onun doğrusal adresini bilerek erişirler. Her byte'ın ayrı bir doğrusal adresi vardır. Anımsanacağı gibi C Programlama Dilinde her byte 8 bit olmak zorunda değildir.
+Dolayısıyla char türü de 8 bit olmak zorunda değildir. Ancak neredeyse sistemlerin hemen hepsinde 1 byte 8 bitten oluşmaktadır.
 
-    Doğrusal adresler geleneksel olarak 16'lık sistemde belirtilirler. Ancak böyle bir zorunluluk yoktur.
+Doğrusal adresler geleneksel olarak 16'lık sistemde belirtilirler. Ancak böyle bir zorunluluk yoktur.
 
-    Bir programdaki her nesne bellekte yer kaplayacağına göre onların birer doğrusal adresleri vardır. Bir byte'tan büyük nesnelerin doğrusal adresleri
-    onların en düşük adres değeriyle ifade edilmektedir. Örneğin int bir nesne bellekte aslında 4 byte oturmuş durumdadır. O halde bu int nesnenin 4 adresi olması gerekir.
-    Ancak biz bu int nesnenin doğrusal adresini ifade ederken onun en düşük adres değerini kullanırız. Örneğin int türden a nesnesi bellekte aşağıdaki gibi bulunuyor olsun:
+Bir programdaki her nesne bellekte yer kaplayacağına göre onların birer doğrusal adresleri vardır. Bir byte'tan büyük nesnelerin doğrusal adresleri onların en düşük adres değeriyle
+ifade edilmektedir. Örneğin int bir nesne bellekte aslında 4 byte oturmuş durumdadır. O halde bu int nesnenin 4 adresi olması gerekir. Ancak biz bu int nesnenin doğrusal adresini
+ifade ederken onun en düşük adres değerini kullanırız. Örneğin int türden a nesnesi bellekte aşağıdaki gibi bulunuyor olsun:
 
-    ...
+```...
     1FC14 --|
     1FC15	|
     1FC16	|	a
     1FC17---|
     ...
+```
 
-    Biz burada a'nın doğrsal adresini 1FC14 olarak ifade ederiz. Gerçekten de aslında işlemci de bir nesneyi RAM'den alırken ya da RAM'e yazarken,
-    eğer nesne 1 byte'tan uzunsa, onun en düşük adresini belirtir. Yani işlemci RAM'e şunu söylemektedir: "1FC14 doğrusal adresinden başlayan 4 byte'lık değeri bana ver".
-    Tabii aslında işlemci de derleyici tarafından üretilmiş olan makine komutlarını çalıştırmaktadır. Eğer kod derlendikten sonra bellekte uygun yere yüklenirse
-    tüm program sorunsuz çalışabilmektedir.
+Biz burada a'nın doğrsal adresini 1FC14 olarak ifade ederiz. Gerçekten de aslında işlemci de bir nesneyi RAM'den alırken ya da RAM'e yazarken,
+eğer nesne 1 byte'tan uzunsa, onun en düşük adresini belirtir. Yani işlemci RAM'e şunu söylemektedir: "_1FC14 doğrusal adresinden başlayan 4 byte'lık değeri bana ver_".
+Tabii aslında işlemci de derleyici tarafından üretilmiş olan makine komutlarını çalıştırmaktadır. Eğer kod derlendikten sonra bellekte uygun yere yüklenirse
+tüm program sorunsuz çalışabilmektedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+C'de adresler de ayrı bir tür belirtmektedir. Ancak yazılımsal adres iki bileşenli bir bilgidir. Yazılımsal adresin bileşenleri: "_tür bileşeni_" ve "_sayısal bileşendir._"
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de adresler de ayrı bir tür belirtmektedir. Ancak yazılımsal adres iki bileşenli bir bilgidir. Yazılımsal adresin bileşenleri: "tür bileşeni" ve "sayısal bileşendir."
-Sayısal bileşen, bir doğrusal adres numarası belirtir. Tür bileşeni ise o doğrusal adres numarasından başlayan bilginin türünü belirtmektedir.
-Donanımsal olarak adres yalnızca bir sayıdan oluşmaktadır. Yazılımsal adresin sayısal bileşeni bir doğrusal adres numarası belirtir. Tür bileşeni ise
-o doğrusal adresten başlayan nesnenin türüne ilişkindir.
+Sayısal bileşen, bir doğrusal adres numarası belirtir. Tür bileşeni ise o doğrusal adres numarasından başlayan bilginin türünü belirtmektedir.Donanımsal olarak adres yalnızca
+bir sayıdan oluşmaktadır. Yazılımsal adresin sayısal bileşeni bir doğrusal adres numarası belirtir. Tür bileşeni ise o doğrusal adresten başlayan nesnenin türüne ilişkindir.
 
-    Bundan sonra "adres" denildiğinde yalnızca" yazılımsal adres" belirtilecektir.
+Bundan sonra "_adres_" denildiğinde yalnızca "_yazılımsal adres_" belirtilecektir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+[32. Ders - 27/09/2022 - Salı]()
 
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 32. Ders - 27/09/2022 - Salı
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Adres bilgileri C'de ayrı bir tür belirtmektedir. Bir adres sabiti oluşturmanın genel biçimi şöyledir:
 
+```
     (tür_bileşeni *) saısal_bileşen
+```
 
-    Örneğin:
+Örneğin:
 
+```
     (int *) 0x1FC140
+```
 
-    Burada bu adres sabitinin sayısal bileşeni 0X1FC140 biçimindedir. Bu bir doğrusal adres belirtir. Bu adres sabitinin tür bileşeni int biçiminmdedir.
-    Adres sabitlerinin tür bileşenlerinin 16'lık sistemde belirtilmesi zorunlu değildir. Ancak yaygın bir gösterimdir. Aslında yukarıdaki adres sabiti
-    bir tür dönüştürme işlemidir. Bu işlemin (int *) kısmıdaki int, adresin tür bileşenini belirtir. Buradaki * ise adres kavramı için kullanılmaktadır.
+Burada bu adres sabitinin sayısal bileşeni 0X1FC140 biçimindedir. Bu bir doğrusal adres belirtir. Bu adres sabitinin tür bileşeni int biçiminmdedir.
+Adres sabitlerinin tür bileşenlerinin 16'lık sistemde belirtilmesi zorunlu değildir. Ancak yaygın bir gösterimdir. Aslında yukarıdaki adres sabiti
+bir tür dönüştürme işlemidir. Bu işlemin (int _) kısmıdaki int, adresin tür bileşenini belirtir. Buradaki _ ise adres kavramı için kullanılmaktadır.
 
-    C'de adres bilgileri adresin tür belişeni belirtilerek ifade edilir. Yani örneğin "adres" denmez, "int türden adres, double türden adres vs." denir.
-    İngilizce "adres" kavramı "pointer" sözcüğü ile ifade edilmektedir. "int türden adres" ise "pointer to int", "long türden adres" "pointer to long"
-    biçiminde belirtilir.
+C'de adres bilgileri adresin tür belişeni belirtilerek ifade edilir. Yani örneğin "_adres_" denmez, "_int türden adres, double türden adres vs._" denir.
+İngilizce "_adres_" kavramı "_pointer_" sözcüğü ile ifade edilmektedir. "_int türden adres_" ise "_pointer to int_", "_long türden adres_" "_pointer to long_"
+biçiminde belirtilir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Aralarında fiziksel ya da mantıksal ilişki bulunan bir grup nesnenin oluşturğu topluluğa "veri yapısı (data structure)" denilmektedir. Veri yapısı
+Aralarında fiziksel ya da mantıksal ilişki bulunan bir grup nesnenin oluşturğu topluluğa "_veri yapısı (data structure)_" denilmektedir. Veri yapısı
 kavramı bir grup nesneyi çağrıştırmalıdır. Örneğin diziler, bağlı listeler, kuyruk sistemleri bir grup nesneden oluşan topluluklardır. Bunlar birer veri yapısıdır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Diziler (arrays), elemanları aynı türden olan ve bellekte ardışıl bir biçimde bulunan veri ytapılarıdır. Dizilerin elemanları aynı türdendir. Elemanlar arasında
-hiç boşluk yoktur. Buradaki "ardışıl (contiguous)", bir elemandan sonra hemen diğerinin geldiği yani arada hiç boşluk olmadığı anlamına gelmektedir.
+hiç boşluk yoktur. Buradaki "_ardışıl (contiguous)_", bir elemandan sonra hemen diğerinin geldiği yani arada hiç boşluk olmadığı anlamına gelmektedir.
 
-    Dizi tanımlamanın genel biçimi şöyledir:
+Dizi tanımlamanın genel biçimi şöyledir:
 
+```
     <tür> <dizi_ismi><[<uzunluk_ifadesi>]>;
+```
 
-    Örneğin:
+Örneğin:
 
+```
     int a[10];
     double b[20];
+```
 
-    C90'da dizi tanımlamasında dizi uzunluklarının sabit ifadesi biçiminde belirtilmesi zorunludur. Ancak C99 ile birlikte yerel diziler için dizi uzunluklarının
-    sabit ifadesi yerine değişken içeren ifadelerle de belirtilmesine olanak sağlanmıştır. Örneğin:
+C90'da dizi tanımlamasında dizi uzunluklarının sabit ifadesi biçiminde belirtilmesi zorunludur. Ancak C99 ile birlikte yerel diziler için dizi uzunluklarının
+sabit ifadesi yerine değişken içeren ifadelerle de belirtilmesine olanak sağlanmıştır. Örneğin:
 
+```
     {
     	int n = 10;
     	int a[n];		/* C90'da geçersiz, C99 ve ötesinde geçerli */
     	...
     }
+```
 
-    C++ her ne kadar C'yi kapsıyor olsa da C99 ile eklenen bu özelliği hiçbir zaman benimsememiştir. Microsoft C derleicileri de dil ayarı C99, C11, C17 yapılsa
-    bile halen bu özelliği desteklememktedir.
+C++ her ne kadar C'yi kapsıyor olsa da C99 ile eklenen bu özelliği hiçbir zaman benimsememiştir. Microsoft C derleicileri de dil ayarı C99, C11, C17 yapılsa
+bile halen bu özelliği desteklememektedir.
 
-    Bir diziyi dizi yapan iki özellik vardır:
+Bir diziyi dizi yapan iki özellik vardır:
 
-    1) Dizinin tüm elemanları aynı türdendir.
-    2) Elemanlar arasında hiç boşluk yoktur. Yani elemanlar bellekte ardışıl bir biçimde tutulur.
+1. Dizinin tüm elemanları aynı türdendir.
 
-    Biz bir grup nesneyi tanımladığımızda bunların ardışıllığı konusunda C'de hiçbir garanti verilmemektedir. Örneğin:
+2. Elemanlar arasında hiç boşluk yoktur. Yani elemanlar bellekte ardışıl bir biçimde tutulur.
 
+Biz bir grup nesneyi tanımladığımızda bunların ardışıllığı konusunda C'de hiçbir garanti verilmemektedir. Örneğin:
+
+```
     int x, y, z;
+```
 
-    Burada x, y ve z'nin bellekteki yerleşimleri herhangi bir biçimde olabilir. Ardışıllığı garanti edilmemektedir. Oysa örneğin:
+Burada x, y ve z'nin bellekteki yerleşimleri herhangi bir biçimde olabilir. Ardışıllığı garanti edilmemektedir. Oysa örneğin:
 
+```
     int a[3];
+```
 
-    Buradaki 3 int eleman kesinlikle ardışıl bir biçimde tutulur.
+Buradaki 3 int eleman kesinlikle ardışıl bir biçimde tutulur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de bir dizi bütünsel olarak işleme sokulamaz. Dizinin elemanlarına erişlilir. Dizinin elemanları bağımısız nesneler biçiminde işleme sokulur.
 Dizi elemanlarıne erişmek için [...] operatörü kullanılır. Elemana erişmenin genel biçimi şöyledir:
 
+```
     dizi_ismi[ifade]
+```
 
-    Dizinin ilk elemanı 0'ıncı indeksli elemandır. Bu durumda n elemanlı bir dizinin son elemanı n - 1'inci indeksli elemanıdır. Dizi elemanlarına erişilirken
-    köşeli parantez içerisindeki ifade sabit ifadesi olmak zorunda değildir. Ancak index belirten ifadenin tamsayı türlerine ilişkin olması zorunludur.
-    Aslında eleman erişmekte kullanılan köşeli parantezler "tek operandlı sonek (unary postfix)" operatör belirtmektedir.
+Dizinin ilk elemanı 0'ıncı indeksli elemandır. Bu durumda n elemanlı bir dizinin son elemanı n - 1'inci indeksli elemanıdır. Dizi elemanlarına erişilirken
+köşeli parantez içerisindeki ifade sabit ifadesi olmak zorunda değildir. Ancak index belirten ifadenin tamsayı türlerine ilişkin olması zorunludur.
+Aslında eleman erişmekte kullanılan köşeli parantezler "tek operandlı sonek (unary postfix)" operatör belirtmektedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Dizilerin en önemli kullanılma nedeni bir döngü içerisinde onların tüm elemanlarının işleme sokulmasıdır. Örneğin:
 
+```
     int a[1000];
 
     for (int i = 0; i < 1000; ++i)
     	a[i] = 0;
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main()
@@ -10060,42 +10084,46 @@ int a[10];
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Global bir dizinin tüm elemanlarında başlangıçta 0 değerleri bulunur. Ancak yerel dizilerin içerisinde başlangıçta çöp değerler bulunmaktadır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Bir bildirimde tür belirten sözüğün dışındaki atomlara "dekleratör (declarator)" denilmektedir. Örneğin:
+Bir bildirimde tür belirten sözüğün dışındaki atomlara "_dekleratör (declarator)_" denilmektedir. Örneğin:
 
+```
     int a, b, c;
+```
 
-    Burada int tür, a, b, ve c dekleratörlerdir. Örneğin:
+Burada int tür, a, b, ve c dekleratörlerdir. Örneğin:
 
+```
     double a[10];
+```
 
-    Burada double tür, a[10] ise dekleratördür. C'de bildirimdeki tür tüm dekleratörlerin ortak türüdür. Örneğin:
+Burada double tür, a[10] ise dekleratördür. C'de bildirimdeki tür tüm dekleratörlerin ortak türüdür. Örneğin:
 
+```
     int a[10], b;
+```
 
-    Bu tanımlama geçerlidir. Burada a 10 elemanlı int bir dizi, b ise int bir nesnedir. Yani dizilerle normal nesneler beraber tanımlanabilirler.
+Bu tanımlama geçerlidir. Burada a 10 elemanlı int bir dizi, b ise int bir nesnedir. Yani dizilerle normal nesneler beraber tanımlanabilirler.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir diziye, diziyi tanımlar tanımlamaz, küme parantezleri içerisinde ilkdeğer verebiliriz. Bu durumda verilen ilkdeğerler sırasıyla dizi elemanlarına
 yerleştirilir. Örneğin:
 
+```
     int a[5] = {10, 20, 30, 40, 50};
+```
 
-    Babii bu işlem daha sonra yapılamaz. Örneğin:
+Tabii bu işlem daha sonra yapılamaz. Örneğin:
 
+```
     intr a[5];
 
     a = {10, 20, 30, 40, 50};		/* geçersiz! */
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main()
@@ -10109,16 +10137,17 @@ int a[5] = {10, 20, 30, 40, 50};
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Dizinin az sayıda elemanına ilkdeğer verilebilir. Bu durumda gerei kalan elemanlar dizi yerel de olsa, global da olsa kesinlikle derleyici tarafından
+Dizinin az sayıda elemanına ilkdeğer verilebilir. Bu durumda geri kalan elemanlar dizi yerel de olsa, global da olsa kesinlikle derleyici tarafından
 sıfırlanmaktadır. Ancak, dizinin fazla sayıda elemanına ilkdeğer vermek geçersizdir. Örneğin:
 
+```
     int a[5] = {10, 20, 30};				/* geri kalan 2 eleman 0 */
     int b[5] = {10, 20, 30, 40, 50, 60};	/* error! dizi 5 elemanlık ancak 6 elemana ilkdeğer verilmiş */
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main()
@@ -10132,32 +10161,32 @@ int a[5] = {10, 20};
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Dizilere ilkdeğer verme işleminde küme parantezlerinin içi boş bırakılamaz. Örneğin:
 
+```
     int a[10] = {};		/* geçersiz! */
+```
 
-    Yerel dizinin tüm elemanlarının 0 olmasını istiyorsak, bunu en yalın ancak aşağıdaki gibi sağlayabiliriz:
+Yerel dizinin tüm elemanlarının 0 olmasını istiyorsak, bunu en yalın ancak aşağıdaki gibi sağlayabiliriz:
 
+```
     int a[10] = {0};	/* a'nın tüm elemanları 0 */
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Dizilere ilkdeğer verilirken dizi uzunlukları belirtilmeyebilir. Bu durumda derleyici verilen ilkdeğerleri sayar ve dizinin o uzunlukta açılmış olduğunu kabul eder.
 Örneğin:
 
+```
     int a[] = {10, 20, 30};		/* burada dizi 3 uzunlukta */
     int b[];					/* geçersiz! dizi uzunluğu belirtilmek zorunda */
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir dizinin en büyük elemanı şöyle bulunur: Önce, ilk eleman en büyük kabul edilir ve bir değişkende saklanır. Sonra, diğer tüm elemanlar tek tek gözden geçirilir.
 Daha büyük eleman bulununca o eleman saklanır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 #define SIZE 10
@@ -10178,11 +10207,11 @@ int max;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıda bir dizinin aritmetik ortalamasını bulan bir program örneği verilmektedir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 #define SIZE 10
@@ -10204,11 +10233,11 @@ double avg;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir diziyi ters çevirmek için baştaki ve sondaki elemanları yer değiştirebiliriz. Tabii bu işlemi dizi uzunluğunun yarısı kadar yapmak gerekir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 #define SIZE 10
@@ -10231,13 +10260,13 @@ int temp;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Bir dizide bir elemanı arayıp, onu bulduğunda bulduğu yerin indeksini ekrana yazdıran bir program örneği aşağıda verilmiştir. Bir dizinin tüm elemanlarını
 kontrol ederek arama işlemine "sıralı arama (sequential search)" denilmektedir. Sıralı aramada eğer arama başarılı ise (successful search),
 ortalama karşılaştırma sayısı n / 2'dir. Ancak, arama başarısız olursa n karşılaştırma yapılır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 #define SIZE 10
@@ -10263,21 +10292,16 @@ int i;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+[33. Ders - 29/09/2022 - Perşembe]()
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 33. Ders - 29/09/2022 - Perşembe
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Dizilerin sıraya dizilmesine İngilizce "sorting" denilmektedir. Dizileri sıraya dizmek için pek çok algoritma vardır. Bunlardan en yalını
-"kabarcık sıralaması (bubble sort)" denilen yöntemdir. Bu yöntemde yan yana iki eleman karşılaştırılır. Duruma göre yer değiştirilir. Bu işlem bir kez
+Dizilerin sıraya dizilmesine İngilizce "_sorting_" denilmektedir. Dizileri sıraya dizmek için pek çok algoritma vardır. Bunlardan en yalını
+"_kabarcık sıralaması (bubble sort)_" denilen yöntemdir. Bu yöntemde yan yana iki eleman karşılaştırılır. Duruma göre yer değiştirilir. Bu işlem bir kez
 yapıldığında dizi sıraya dizilmiş olmaz. Ancak en büyük eleman (ya da en küçük eleman) sona gider. O halde bu işlemi diziyi daraltarak tekrar tekrar yapmak
 gerekir. Algoritmanın döngü yapısı şöyledir: Dizinin uzunluğu n olmak üzere iç içe iki döngü vardır. Dıştaki döngü n - 1 kez, içteki döngü n - 1 - i kez
 döndürülür.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+----------------------------------------------------------------------------------------------------------------------------------------------------\_/
 
 #include <stdio.h>
 
