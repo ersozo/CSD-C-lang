@@ -7253,9 +7253,11 @@ geri dönüyor olsun. Biz de bu fonksiyonla, bir dizi kaynağı tahsis etmek ist
     	return 1;		/* başarılı */
 
     }
+```
 
-    Burada kod tekrarı oldukça kötü bir yazım oluşturmaktadır. İşte bu tür durumlarda goto ile ters sırada boşaltım uygulayabiliriz:
+Burada kod tekrarı oldukça kötü bir yazım oluşturmaktadır. İşte bu tür durumlarda goto ile ters sırada boşaltım uygulayabiliriz:
 
+```
     int foo(void)
     {
     	int r1, r2, r3, r4, r5;
@@ -7445,9 +7447,9 @@ hedef türe atamaktadır.
     	signed char a = -1;
     	unsigned int b;
 
-    	b = a;					/* önce signed char, signed int türüne sonra da unsigned int türüne dönüştürülür */
+    	b = a;                  /* önce signed char, signed int türüne sonra da unsigned int türüne dönüştürülür */
 
-    	printf("%u\n", b);		/* 4294967295 */
+    	printf("%u\n", b);      /* 4294967295 */
 
     	return 0;
     }
@@ -7504,7 +7506,7 @@ hedef türe atamaktadır.
     double a = 1e200;
     float b;
 
-    b = a;						/* undefined behavior */
+    b = a;                      /* undefined behavior */
 
     Örneğin:
 
@@ -7516,7 +7518,7 @@ hedef türe atamaktadır.
     	float b;
 
     	b = a;
-    	printf("%.10f\n", b);	/* 1.2345678806 */
+    	printf("%.10f\n", b);   /* 1.2345678806 */
 
     	return 0;
     }
@@ -7849,16 +7851,16 @@ olarak alırlar. Bu fonksiyonlar, parametreleriyle aldıkları karakteri test ed
 geri dönerler. Bunların listesi şöyledir:
 
 ```
-    isupper			Büyük harf bir karakter mi?
-    islower			Küçük harf bir karakter mi?
-    isalpha			Alfabetik karakter mi?
-    isalnum			Alfabetik ya da nümerik bir karakter mi?
-    isdigit			Sayısal bir karakter mi?
-    isxdigit        HEx digit bir karakter mi?
-    isspace			Boşluk karakterlerinden biri mi?
-    ispunct			Noktalama karakterlerinden biri mi?
-    isascii			İlk 128 karakterden biri mi?
-    iscntrl			Kontrol karakterlerinden biri mi? (ASCII tablosunun ilk 32 karakteri kontrol karakterleridir)
+    isupper         Büyük harf bir karakter mi?
+    islower         Küçük harf bir karakter mi?
+    isalpha         Alfabetik karakter mi?
+    isalnum         Alfabetik ya da nümerik bir karakter mi?
+    isdigit         Sayısal bir karakter mi?
+    isxdigit        Hex digit bir karakter mi?
+    isspace         Boşluk karakterlerinden biri mi?
+    ispunct         Noktalama karakterlerinden biri mi?
+    isascii         İlk 128 karakterden biri mi?
+    iscntrl         Kontrol karakterlerinden biri mi? (ASCII tablosunun ilk 32 karakteri kontrol karakterleridir)
 
 ```
 
