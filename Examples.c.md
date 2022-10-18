@@ -9955,7 +9955,8 @@ Bir programdaki her nesne bellekte yer kaplayacağına göre onların birer doğ
 ifade edilmektedir. Örneğin int bir nesne bellekte aslında 4 byte oturmuş durumdadır. O halde bu int nesnenin 4 adresi olması gerekir. Ancak biz bu int nesnenin doğrusal adresini
 ifade ederken onun en düşük adres değerini kullanırız. Örneğin int türden a nesnesi bellekte aşağıdaki gibi bulunuyor olsun:
 
-```...
+```
+    ...
     1FC14---|
     1FC15   |
     1FC16   |   a
@@ -11620,8 +11621,8 @@ Bir fonksiyonun parametre değişkeni bir gösterici olabilir. Bu durumda fonksi
 
 Bir fonksiyonun parametre değişkeni bir gösterici ise, biz de o fonksiyonu aynı türden bir nesnenin adresi ile çağırmışsak, fonksiyonun içerisinde
 
-- operatörü kullanıldığında biz aslında adresini aldığımız nesneye erişiriz. İşte bir fonksiyonun başka bir fonksiyonun yerel değişkenini değiştirebilmesi
-  için onun adresini alması gerekir.
+\* operatörü kullanıldığında biz aslında adresini aldığımız nesneye erişiriz. İşte bir fonksiyonun başka bir fonksiyonun yerel değişkenini değiştirebilmesi
+için onun adresini alması gerekir.
 
 Bir fonksiyonu bir değerle çağırmaya İngilizce "_call by value_", bir adresle çağırmaya "_call by reference_" denilmektedir.
 
