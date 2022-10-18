@@ -3120,7 +3120,7 @@ int result;
 
 [16. Ders 21/07/2022 - Perşembe]()
 
-`&&` ve `||` operatörleri aynı ifadede kullanıldığında yine en soldaki operatörün sol tarafı önce yapılır. Aslında kısa devre özelliği yalnızca sonucun hızlı bir
+&& ve || operatörleri aynı ifadede kullanıldığında yine en soldaki operatörün sol tarafı önce yapılır. Aslında kısa devre özelliği yalnızca sonucun hızlı bir
 biçimde bulunmasına yol açmaktadır. Yoksa kısa devre özelliğinin olmadığı durumla, olduğu durum arasında bir sonuç farklılığı oluşmaz. Örneğin:
 
 ```
@@ -3129,8 +3129,8 @@ biçimde bulunmasına yol açmaktadır. Yoksa kısa devre özelliğinin olmadı�
 
 ```
 
-Burada önce `ifade1` yapılır. Eğer `ifade1` sıfır dışı bir değerse başka hiçbir şey yapılmaz. Sonuç 1 olarak elde edilir. Eğer `ifade1` sıfır ise bu durumda
-`ifade2` yapılır. `İfade2` de sıfır ise `ifade3` yapılmaz. Burada tüm ifadelerin yapılması için `ifade1`'in sıfır, `ifade2`'nin sıfır dışı bir değer vermesi gerekir.
+Burada önce ifade1 yapılır. Eğer ifade1 sıfır dışı bir değerse başka hiçbir şey yapılmaz. Sonuç 1 olarak elde edilir. Eğer ifade1 sıfır ise bu durumda
+ifade2 yapılır. İfade2 de sıfır ise ifade3 yapılmaz. Burada tüm ifadelerin yapılması için ifade1'in sıfır, ifade2'nin sıfır dışı bir değer vermesi gerekir.
 Örneğin:
 
 ```
@@ -3139,8 +3139,8 @@ Burada önce `ifade1` yapılır. Eğer `ifade1` sıfır dışı bir değerse ba�
 
 ```
 
-Burada yine `ifade1` önce yapılır. `İfade1` sıfır ise `ifade2` yapılmaz. Ancak `ifade3` yapılır. Eğer `ifade1` sıfır dışı bir değerde ise bu durumda `ifade2` yapılır.
-Eğer `ifade2` de sıfır dışı ise `ifade3` yapılmaz. Aşağıdaki ifadede önce `ifade3`'ün yapılması sonucun daha hızlı elde edilmesine yol açabileceği halde her zaman `&&` ve `||` operatörlerinin sol tarafı önce yapılmaktadır. Yani aşağıdaki örnekte yine `ifade1` önce yapılacaktır.:
+Burada yine ifade1 önce yapılır. İfade1 sıfır ise ifade2 yapılmaz. Ancak ifade3 yapılır. Eğer ifade1 sıfır dışı bir değerde ise bu durumda ifade2 yapılır.
+Eğer ifade2 de sıfır dışı ise ifade3 yapılmaz. Aşağıdaki ifadede önce ifade3'ün yapılması sonucun daha hızlı elde edilmesine yol açabileceği halde her zaman && ve || operatörlerinin sol tarafı önce yapılmaktadır. Yani aşağıdaki örnekte yine ifade1 önce yapılacaktır.:
 
 ```
 
@@ -3157,8 +3157,8 @@ işlemlerin yapılma sırası bakımından bir şeyi değiştirmeyecektir. Örne
 
 ```
 
-Burada her ne kadar `||` işlemi paranteze alınmışsa da bu parantez içi önce yapılmaz. Çünkü önce yapılsaydı `&&` operatörünün sağ tarafı önce yapılmış olurdu.
-Burada da yine önce `ifade1` yapılır. `İfade1` 0 ise başka bir şey yapılmaz.
+Burada her ne kadar || işlemi paranteze alınmışsa da bu parantez içi önce yapılmaz. Çünkü önce yapılsaydı && operatörünün sağ tarafı önce yapılmış olurdu.
+Burada da yine önce ifade1 yapılır. İfade1 0 ise başka bir şey yapılmaz.
 
 ```
 
@@ -3202,7 +3202,7 @@ int result;
 ```
 
 Atama operatörü iki operand'lı araek özel amaçlı bir operatördür. Bu operatörün sol tarafındaki operand'ın bir nesne belirtmesi gerekir. Yani sol taraf değeri
-(`LValue`) olması gerekir. Atama operatörü de bir değer üretmektedir. Atama operatörünün ürettiği değer sol taraftaki nesneye atanmış olan değerdir.
+(LValue) olması gerekir. Atama operatörü de bir değer üretmektedir. Atama operatörünün ürettiği değer sol taraftaki nesneye atanmış olan değerdir.
 Atama operatörü öncelik tablosunda düşük düzeyde sağdan sola grupta bulunmaktadır.
 
 ```
@@ -3246,7 +3246,7 @@ Burada a ve b'ye 30 atanmaktadır. Ancak örneğin:
 
 ```
 
-Burada parantez içi önce yapılacağına göre b'ye 10 atanacak ve bu işlemden 10 değeri elde edilecektir. Sonra bu 10 değeri `20` ile toplanıp a'ya atanacaktır.
+Burada parantez içi önce yapılacağına göre b'ye 10 atanacak ve bu işlemden 10 değeri elde edilecektir. Sonra bu 10 değeri 20 ile toplanıp a'ya atanacaktır.
 
 ```
 
@@ -3308,7 +3308,7 @@ Bazen programcı bir değeri önce atayıp, atanmış değeri başka bir değerl
 
 ```
 
-Burada önce getchar ile klavyeden (stdin dosyasından) okunan değer `ch` değişkenine atanmıştır. Sonra bu atanan değer karşılaştırma işlemine sokulmuştur.
+Burada önce getchar ile klavyeden (stdin dosyasından) okunan değer ch değişkenine atanmıştır. Sonra bu atanan değer karşılaştırma işlemine sokulmuştur.
 
 C'de bir grup `+=`, `-=`, `_=`, `/=`, `%=`, ... biçiminde "bileşik atama operatörü (compound assignment operator)" vardır. Bu operatörlerin hepsi iki operand'lı
 araek operatörlerdir. "op", `+`, `-`, `\*`, `/` gibi bir operatör belirtmek üzere:
@@ -3502,7 +3502,7 @@ Virgül operatörünün ürettiği değer sağ taraftaki ifadenin değeridir. Ya
 
 Burada parantezler sayesinde en soldaki atama operatörü virgül operatöründen ayrıştrılmıştır. Burada önce parantez içi yapılacaktır. Parantez içerisinde
 virgül operatörü vardır. O zaman virgül operatörünün sol tarafı önce yapılacağına göre önce `a = 10` işlemi sonra `b = 20` işlemi yapılır. Virgül operatöründen
-elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan `20` elde edilecektir. İşte bu `20` aynı zamanda c'ye atanmıştır.
+elde edilen değer sağ taraftaki ifadenin değeri olduğuna göre buradan 20 elde edilecektir. İşte bu 20 aynı zamanda c'ye atanmıştır.
 
 ```
 
@@ -3546,7 +3546,7 @@ Eğer argümandaki `,` atomunun virgül operatör olması isteniyorsa bu durumda
 
 ```
 
-Buradaki `,` operatör görevinde değildir. Dolayısıyla `foo` fonksiyonunun iki parametresi vardır. Fakat örneğin:
+Buradaki `,` operatör görevinde değildir. Dolayısıyla foo fonksiyonunun iki parametresi vardır. Fakat örneğin:
 
 ```
 
@@ -3649,7 +3649,7 @@ _tanımlanması (function definition)_" denilmektedir. Fonksiyon tanımlamanın 
 
 ```
 
-Burada int fonksiyonun geri dönüş değerinin türüdür. `foo` ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
+Burada int fonksiyonun geri dönüş değerinin türüdür. foo ise fonksiyonun ismini belirtir. Fonksiyon parametre değişkenlerine sahip değildir.
 Fonksiyonun geri dönüş değerinin türü klasik C'de (yani C90'da) yazılmak zorunda değildi. Bu durumda sanki int yazılmış gibi işlem yapılıyordu.
 Ancak C99 ile birlikte fonksiyonun geri dönüş değerinin türünün yazılması zorunlu hale getirilmiştir.
 
@@ -3666,7 +3666,7 @@ Eğer fonksiyonun parametresi yoksa parametre parantezinin içi boş bırakılab
 hiçbir farklılık yoktur. Biz kursumuzda genel olarak parametresiz fonksiyonlarda parametre parantezinin içine void anahtar sözcüğünü yazacağız.
 Ancak programcıların bir bölümü hiçbir şey yazmamayı tercih etmektedir.
 
-Biz kursumuzdaki örneklerde "_öylesine uydurulmuş fonksiyon isimleri_" olarak `foo`, `bar`, `tar`, `zar` gibi isimleri kullanacağız. Bu isimlerin hiçbir özel
+Biz kursumuzdaki örneklerde "_öylesine uydurulmuş fonksiyon isimleri_" olarak foo, bar, tar, zar gibi isimleri kullanacağız. Bu isimlerin hiçbir özel
 anlamı yoktur. Örneklerde öylesine uydurulmuş isimlerdir.
 
 Tanımlanan her fonksiyonun bir ana bloğu vardır. Buna "f*onksiyonun gövdesi (function body)*" de denilmektedir.
@@ -4059,7 +4059,7 @@ kaynak türle hedef türü aynı türden yapmaya özen gösteriniz. Örneğin:
 ```
 
 C'de parametreleriyle aldığı değerler üzerinde işlemler yaparak sonucu geri dönüş değeri olarak veren standart matematiksel fonksiyonlar vardır.
-Bu fonksiyonları kullanmadan önce `<math.h>` dosyası include edilmelidir. Örneğin `sqrt` fonksiyonun parametrik yapısı şöyledir:
+Bu fonksiyonları kullanmadan önce <math.h> dosyası include edilmelidir. Örneğin sqrt fonksiyonun parametrik yapısı şöyledir:
 
 ```
     double sqrt(double x);
@@ -4086,7 +4086,7 @@ double val, result;
 }
 ```
 
-`pow` fonksiyonu, bir sayının belli bir kuvvetine geri dönmektedir. Fonksiyonun parametrik yapısı şöyledir:
+pow fonksiyonu, bir sayının belli bir kuvvetine geri dönmektedir. Fonksiyonun parametrik yapısı şöyledir:
 
 ```
     double pow(double a, double b);
@@ -4116,7 +4116,7 @@ double a, b, result;
 }
 ```
 
-`sin`, `cos`, `tan`, `asin`, `acos`, `atan` fonksiyonları trigonometrik işlemler yapmaktadır. Bu fonksiyonların parametreleri ve geri dönüş değerleri double
+sin, cos, tan, asin, acos, atan fonksiyonları trigonometrik işlemler yapmaktadır. Bu fonksiyonların parametreleri ve geri dönüş değerleri double
 türdendir.
 
 ```
@@ -4138,7 +4138,7 @@ double result, radian;
 }
 ```
 
-`round` fonksiyonu, double bir değeri parametre olarak alıp ona en yakın tamsayıyı yine double bir değer olarak vermektedir.
+round fonksiyonu, double bir değeri parametre olarak alıp ona en yakın tamsayıyı yine double bir değer olarak vermektedir.
 Fonksiyonun parametrik yapısı şöyledir:
 
 ```
@@ -4164,7 +4164,7 @@ double result;
 }
 ```
 
-C99 ile birlikte, `roundf` ve `roundl` fonksiyonları da standartlara eklenmiştir. Bunların parametrik yapıları şöyledir:
+C99 ile birlikte, roundf ve roundl fonksiyonları da standartlara eklenmiştir. Bunların parametrik yapıları şöyledir:
 
 ```
     float roundf(float x);
@@ -4198,7 +4198,7 @@ long result;
 }
 ```
 
-`floor` isimli fonksiyon, double bir sayıya en yakın ondan küçük ya da ona eşit tamsayıyı, bize double türden vermektedir. `ceil` ise tam tersi işlem yapar. Yani
+floor isimli fonksiyon, double bir sayıya en yakın ondan küçük ya da ona eşit tamsayıyı, bize double türden vermektedir. ceil ise tam tersi işlem yapar. Yani
 bir double sayıdan büyük ya da ona eşit en yakın tamsayıyı, double türden vermektedir.
 
 ```
@@ -4237,20 +4237,19 @@ C99 ile birlikte, float ve long double için aşağıdaki fonksiyonlar da standa
 
 [18. Ders 28/07/2022 - Perşembe]()
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Bildirilen bir değişkenin kullanılabildiği program aralığına "faaliyet alanı (scope)" denilmektedir. C'de üç faaliyet alanı vardır:
+Bildirilen bir değişkenin kullanılabildiği program aralığına "_faaliyet alanı (scope)_" denilmektedir. C'de üç faaliyet alanı vardır:
 
-    1) Blok Faaliyet Alanı (Block Scope): Yalnızca bir blokta, o bloğun kapsadığı bloklarda tanınma aralığıdır.
-    2) Dosya Faaliyet Alanı (File Scope): Tüm fonksiyonlarda yani her yerde tanınma aralığıdır.
-    3) Fonksiyon Faaliyet Alanı (Function Scope): Bir fonksiyonun her yerinde tanınma aralığıdır.
+1. Blok Faaliyet Alanı (Block Scope): Yalnızca bir blokta, o bloğun kapsadığı bloklarda tanınma aralığıdır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+2. Dosya Faaliyet Alanı (File Scope): Tüm fonksiyonlarda yani her yerde tanınma aralığıdır.
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
+3. Fonksiyon Faaliyet Alanı (Function Scope): Bir fonksiyonun her yerinde tanınma aralığıdır.
+
 C'de yerel değişkenler blok faaliyet alanı kuralına uyarlar. Yani bildirildikleri yerden bildirildikleri bloğun sonuna kadarki bölgede kullanılabilirler.
 Anımsanacağı gibi C90'da yerel değişkenler blokların başlarında yani blokların ilk işlemleri olacak biçimde bildirilmek zorundaydı. Bu kural C99'da
 kaldırıldı. Yerel değişkenlerin bloğun herhangi bir yerinde bildirilmeleri sağlandı. Örneğin:
 
+```
     void foo(void)
     {
     	printf("foo\n");
@@ -4264,9 +4263,11 @@ kaldırıldı. Yerel değişkenlerin bloğun herhangi bir yerinde bildirilmeleri
 
     	printf("bar\n");
     }
+```
 
-    Bir fonksiyonun içerisinde içerisinde istenildiği kadar iç içe ve ayrık blok oluşturulabilir. Örneğin:
+Bir fonksiyonun içerisinde içerisinde istenildiği kadar iç içe ve ayrık blok oluşturulabilir. Örneğin:
 
+```
     void foo(void)
     {
     	{
@@ -4277,9 +4278,11 @@ kaldırıldı. Yerel değişkenlerin bloğun herhangi bir yerinde bildirilmeleri
     		printf("Ok\n");
     	}
     }
+```
 
-    Yerel değişkenler bildirildikleri yerden itibaren bildirildikleri bloğun sonuna kadarki bölgede kullanılabilirler. Örneğin:
+Yerel değişkenler bildirildikleri yerden itibaren bildirildikleri bloğun sonuna kadarki bölgede kullanılabilirler. Örneğin:
 
+```
     void foo(void)
     {
     	int a;
@@ -4298,9 +4301,11 @@ kaldırıldı. Yerel değişkenlerin bloğun herhangi bir yerinde bildirilmeleri
     {
     	a = 100;				/* geçersiz, a burada faaliyet göstermiyor */
     }
+```
 
-    Tabii C99 ve sonrasında bildirilen bir yeral değişken bildirim yerinden önce de kullanılamaz. Örneğin:
+Tabii C99 ve sonrasında bildirilen bir yeral değişken bildirim yerinden önce de kullanılamaz. Örneğin:
 
+```
     void bar(void)
     {
     	a = 10;					/* geçersiz! a faaliyet göstermiyor */
@@ -4309,23 +4314,24 @@ kaldırıldı. Yerel değişkenlerin bloğun herhangi bir yerinde bildirilmeleri
 
     	a = 20;					/* geçerli */
     }
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 C'de aynı faaliyet alanına ilişkin aynı isimli birden fazla değişken tanımlanamaz. Ancak farklı faaliyet alanlarına ilişkin aynı isimli değişkenler
 tanımlanabilir. Aynı bloğun farklı yerlerinde tanımlanan değişkenler bu bakımdan aynı faaliyet alanı içerisinde kabul edilirler. Bu nedenle C'de aynı
 blok içerisinde aynı isimli birden fazla değişken tanımlanamaz. Ancak farklı bloklarda aynı isimli değişkenler tanımlanabilir. Örneğin:
 
+```
     void foo(void)
     {
     	int a;
     	/* ....*/
     	double a;				/* geçersiz! aynı blok içerisinde aynı isimli tek bir değişken tanımlanabilir */
     }
+```
 
-    Örneğin:
+Örneğin:
 
+```
     void bar(void)
     {
     	int a;
@@ -4341,9 +4347,11 @@ blok içerisinde aynı isimli birden fazla değişken tanımlanamaz. Ancak farkl
     	int a;					/* geçerli */
     	/* ... */
     }
+```
 
-    Farklı bloklardaki aynı isimli değişkenler aslında tamamen farklı nesneler belirtirler, bunların yalnızca isimleri aynıdır. Örneğin:
+Farklı bloklardaki aynı isimli değişkenler aslında tamamen farklı nesneler belirtirler, bunların yalnızca isimleri aynıdır. Örneğin:
 
+```
     void foo(void)
     {
     	int a;
@@ -4353,10 +4361,12 @@ blok içerisinde aynı isimli birden fazla değişken tanımlanamaz. Ancak farkl
     		/* ... */
     	}
     }
+```
 
-    C'de aynı blokta birden fazla aynı isimli değişken faaliyet gösteriyorsa o blokta o değişken kullanıldığında her zaman "dar faaliyet alanına sahip olan"
-    değişkenin kullanılmış olduğu kabul edilir. Örneğin:
+C'de aynı blokta birden fazla aynı isimli değişken faaliyet gösteriyorsa o blokta o değişken kullanıldığında her zaman "_dar faaliyet alanına sahip olan_"
+değişkenin kullanılmış olduğu kabul edilir. Örneğin:
 
+```
     {
     	int a;
 
@@ -4368,13 +4378,15 @@ blok içerisinde aynı isimli birden fazla değişken tanımlanamaz. Ancak farkl
 
     	a = 20;					/* dış bloktaki a, zaten iç bloktaki a burada faaliyet göstermiyor */
     }
+```
 
-    İç içe bloklarda aynı isimli değişkenlerin bildirildiği durumda iç blokta, dış bloktaki değişkene erişmenin herhangi bir yolu yoktur. Bu duruma
-    "iç bloktaki değişkenin dış bloktakini gizlemesi (hiding)" denilmektedir.
+İç içe bloklarda aynı isimli değişkenlerin bildirildiği durumda iç blokta, dış bloktaki değişkene erişmenin herhangi bir yolu yoktur. Bu duruma
+"_iç bloktaki değişkenin dış bloktakini gizlemesi (hiding)_" denilmektedir.
 
-    C99 ve sonrasında bir yerel değişken bloğun herhangi bir yerinde bildirilebildiğine göre bildirim yerine kadar üst bloktaki değişken faaliyet gösteriyor
-    durumdadır ve henüz üst bloktaki aynı isimli değişken gizlenmemiştir. Örneğin:
+C99 ve sonrasında bir yerel değişken bloğun herhangi bir yerinde bildirilebildiğine göre bildirim yerine kadar üst bloktaki değişken faaliyet gösteriyor
+durumdadır ve henüz üst bloktaki aynı isimli değişken gizlenmemiştir. Örneğin:
 
+```
     #include <stdio.h>
 
     int main(void)
@@ -4394,13 +4406,14 @@ blok içerisinde aynı isimli birden fazla değişken tanımlanamaz. Ancak farkl
     	return 0;
     }
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Bildirimi fonksiyonların dışında yapılan global değişkenler "dosya faaliyet alanı (file scope)" kuralına uyarlar. Yani kaynak dosyanın her yerinde,
+Bildirimi fonksiyonların dışında yapılan global değişkenler "_dosya faaliyet alanı (file scope)_" kuralına uyarlar. Yani kaynak dosyanın her yerinde,
 tüm fonksiyonların içerisinde biz global değişkenleri kullanabiliriz. Ancak C'de derleme işleminin de bir yönü vardır. Bu yön yukarıdan aşağıya
 doğrudur. Bir değişken bildirilmeden önce kullanılamaz. Bu nedenle bir global değişkeni aşağıda bir yerde bildirirsek bildirim yerinden aşağıya kadar
 her yerde kullanırız. Ancak genel olarak global değişkenler kaynak dosyanın tepesinde bildirilirler. Öneğin:
+
+```
 
     int a;
 
@@ -4416,8 +4429,11 @@ her yerde kullanırız. Ancak genel olarak global değişkenler kaynak dosyanın
     	printf("%d\n", a);		/* global a, 20 çıkacak */
     }
 
-    Bir global değişken için en iyi tanımlama yeri kaynak kodun tepesidir. Örneğin:
+```
 
+Bir global değişken için en iyi tanımlama yeri kaynak kodun tepesidir. Örneğin:
+
+```
 
     void foo(void)
     {
@@ -4436,8 +4452,12 @@ her yerde kullanırız. Ancak genel olarak global değişkenler kaynak dosyanın
     	a = 30;					/* geçerli */
     }
 
-    Bir global değişkenle aynı isimli bir yerel değişken tanımlanabilir. Çünkü bunların faaliyet alanları farklıdır. Bir blokta aynı isimli birden fazla
-    değişken faaliyet gösteriyorsa o blokta dar faaliyet alanına sahip olan değişkene erişilmektedir. Örneğin:
+```
+
+Bir global değişkenle aynı isimli bir yerel değişken tanımlanabilir. Çünkü bunların faaliyet alanları farklıdır. Bir blokta aynı isimli birden fazla
+değişken faaliyet gösteriyorsa o blokta dar faaliyet alanına sahip olan değişkene erişilmektedir. Örneğin:
+
+```
 
     #include <stdio.h>
 
@@ -4460,14 +4480,15 @@ her yerde kullanırız. Ancak genel olarak global değişkenler kaynak dosyanın
     	return 0;
     }
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de istisnai olarak ilkdeğer verilmemiş birden fazla aynı isimli global değişken tanımlanabilir. Buna "tentative definition" denilmektedir.
+C'de istisnai olarak ilkdeğer verilmemiş birden fazla aynı isimli global değişken tanımlanabilir. Buna "_tentative definition_" denilmektedir.
 Bu durumda aslında toplamda tek bir nesne yaratılır. Yani birden fazla tanımlama bu istisnasi durumda birden fazla nesne anlamına gelmez.
-Aynı nesnenin gereksiz bir biçimde yeniden "tentative" olarak belirtilmesi anlamına gelir. Tabii bu durum yerel değişkenler için söz konusu değildir.
+Aynı nesnenin gereksiz bir biçimde yeniden "_tentative_" olarak belirtilmesi anlamına gelir. Tabii bu durum yerel değişkenler için söz konusu değildir.
 Tamamen istisnai bir durumdur ve yalnızca global değişkenler için söz konusudur. Bu nedenle aşağıdaki tanımlama geçerlidir. Ancak aşağıdaki kodda
-tek bir x nesnesi vardır. "Tentative" sözcüğü "deneme niteliğinde" gibi bir anlama gelmektedir:
+tek bir x nesnesi vardır. "_Tentative_" sözcüğü "_deneme niteliğinde_" gibi bir anlama gelmektedir:
+
+```
 
     #include <stdio.h>
 
@@ -4483,27 +4504,29 @@ tek bir x nesnesi vardır. "Tentative" sözcüğü "deneme niteliğinde" gibi bi
     }
 
     int x;						/* geçerli, tentative definiton */
+```
 
-    Tentative tanımlama olması için global değişkene ilkdeğer verilmemiş olması gerekmektedir. Aynı isimli bir global değişkene bir kez ilkdeğer verilebilir.
-    Ancak birden fazla kez ilkdeğer verilemez. Örneğin:
+Tentative tanımlama olması için global değişkene ilkdeğer verilmemiş olması gerekmektedir. Aynı isimli bir global değişkene bir kez ilkdeğer verilebilir.
+Ancak birden fazla kez ilkdeğer verilemez. Örneğin:
 
+```
     int a = 10;					/* geçerli, tentative değil */
     int a;						/* geçerli, tentative, aslında burada bir a yaratılmıyor */
+```
 
-    Ancak örneğin:
+Ancak örneğin:
 
+```
     int a = 10;
     int a = 20;					/* geçersiz! tentative değil */
+```
 
-    Bu kural ileride yeniden başka bir konunun içerisinde ele alınacaktır.
+Bu kural ileride yeniden başka bir konunun içerisinde ele alınacaktır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Daha önce de belirtidliği gibi içerisine henüz değer atanmamış yerel değişkenin içeisinde bellekte daha önceden kalmış olan "çöp bir değer (garbage value)"
+Daha önce de belirtidliği gibi içerisine henüz değer atanmamış yerel değişkenin içeisinde bellekte daha önceden kalmış olan "_çöp bir değer (garbage value)_"
 bulunur. Ancak içerisine henüz değer atanmamış global bir değişkende her zaman 0 değeri olması garanti edilmiştir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int x;
@@ -4518,15 +4541,14 @@ int a;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Genel olarak global değişkenlerin yalnızca gerektiği durumlarda kullanılması gerekir. Yerel değişkenlerle yapabileceğimiz şeyler için global değişken
 tanımlamak kötü bir tekniktir. Örneğin programımızda yalnızca main fonksiyonu olsun. Bu durumda global bir değişken tanımlamaya hiç gerek yoktur.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Fonksiyonların parametre değişkenleri faaliyet alanı bakımından ana bloğun başında tanımlanmış olan yerel değişkenler gibidir. Örneğin:
 
+```
     void foo(int a, int b)
     {
     	/* ... */
@@ -4540,10 +4562,12 @@ Fonksiyonların parametre değişkenleri faaliyet alanı bakımından ana bloğu
 
     	/* ... */
     }
+```
 
-    Görüldüğü gibi fonksiyonların parametre değişkenleri "blok faaliyet alanı (block scope)" uymaktadır. Yani yalnızca o fonksiyonda kullanılabilirler.
-    Dolayısıyla farklı iki fonksiyonun parametre değişkenleri aynı isimde olabilir. Örneğin:
+Görüldüğü gibi fonksiyonların parametre değişkenleri "_blok faaliyet alanı (block scope)_" uymaktadır. Yani yalnızca o fonksiyonda kullanılabilirler.
+Dolayısıyla farklı iki fonksiyonun parametre değişkenleri aynı isimde olabilir. Örneğin:
 
+```
     void foo(int a)
     {
     	/* ... */
@@ -4553,10 +4577,12 @@ Fonksiyonların parametre değişkenleri faaliyet alanı bakımından ana bloğu
     {
     	/* ... */
     }
+```
 
-    Mademki fonksiyonun parametre değişkenleri faaliyet alanı bakımından ana bloğun başında bildirilen değişkenler gibidir, o halde fonksiyonun ana bloğunda
-    parametre değişkeni ile	aynı isimli bir değişken bildirilemez. Örneğin:
+Mademki fonksiyonun parametre değişkenleri faaliyet alanı bakımından ana bloğun başında bildirilen değişkenler gibidir, o halde fonksiyonun ana bloğunda
+parametre değişkeni ile aynı isimli bir değişken bildirilemez. Örneğin:
 
+```
     void foo(int a)
     {
     	int a;					/* geçersiz! parametre değişkeni olan a da aynı faaliyet alanına sahip */
@@ -4574,93 +4600,96 @@ Fonksiyonların parametre değişkenleri faaliyet alanı bakımından ana bloğu
     		/* ... */
     	}
     }
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+C'de fonksiyon faaliyet alanına sahip tek değişken "_goto etiketleridir_". Goto deyimi, deyimlerin ele alındığı gelecek bölümlerde görülecektir.
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-C'de fonksiyon faaliyet alanına sahip tek değişken "goto etiketleridir". Goto deyimi, deyimlerin ele alındığı gelecek bölümlerde görülecektir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Daha önceden de belirtildiği gibi C Programlama Dili "Prosedürel Programlama Modeline (Procedural Programming Paradigm)" uygun tasarlanmıştır.
-Prosedürel programlamada "fonksiyonlar" birer yapı taşıdır. Programlar fonksiyonların birbirlerini çağırması biçiminde organize edilirler. Halbuki
-"Nesne Yönelimli Programlama Modeli"nin yapıtaşı "sınıf" denilen kavramdır. C++ Programlama Dili zaten C Programlama Dilinin, Nesne Yönelimli Programlama Modelinin
+Daha önceden de belirtildiği gibi C Programlama Dili "_Prosedürel Programlama Modeline (Procedural Programming Paradigm)_" uygun tasarlanmıştır.
+Prosedürel programlamada "_fonksiyonlar_" birer yapı taşıdır. Programlar fonksiyonların birbirlerini çağırması biçiminde organize edilirler. Halbuki
+"_Nesne Yönelimli Programlama Modeli_"nin yapıtaşı "_sınıf_" denilen kavramdır. C++ Programlama Dili zaten C Programlama Dilinin, Nesne Yönelimli Programlama Modelinin
 uygulanabilmesi için genişletilmiş bir biçimidir.
 
-    Peki prosedürel teknikte neden program fonksiyonların birbirlerini çağırması biçiminde organize edilmektedir? Yani, neden bürün program main fonksiyonunda
-    yazılıp bitirilmemektedir? Programın fonksiyonlar biçiminde organize edilmesinin birkaç açık sebebi vardır:
+Peki prosedürel teknikte neden program fonksiyonların birbirlerini çağırması biçiminde organize edilmektedir? Yani, neden bürün program main fonksiyonunda
+yazılıp bitirilmemektedir? Programın fonksiyonlar biçiminde organize edilmesinin birkaç açık sebebi vardır:
 
-    1) Mühendislikte karmaşık bir problem genellikle parçalarına ayrılarak çözülmektedir. İşte fonksiyonlar, karmaşık problemin parçalarını oluşturmak
-    için kulalnılmaktadır. Karmaşık işlemin parçaları fonksiyonlara yaptırılır. Sonra bu fonksiyonların çağrılmasıyla karmaşık işlem gerçekleştirilir.
-    Örneğin bir otomobil aslında çok fazla parçadan oluşmaktadır. Bu parçalar birbirleriyle monte edilmiştir. Sonuçta otomobil çalışır hale gelmiştir.
-    Aynı yöntem yazılımda da izlenmektedir.
+1. Mühendislikte karmaşık bir problem genellikle parçalarına ayrılarak çözülmektedir. İşte fonksiyonlar, karmaşık problemin parçalarını oluşturmak
+   için kulalnılmaktadır. Karmaşık işlemin parçaları fonksiyonlara yaptırılır. Sonra bu fonksiyonların çağrılmasıyla karmaşık işlem gerçekleştirilir.
+   Örneğin bir otomobil aslında çok fazla parçadan oluşmaktadır. Bu parçalar birbirleriyle monte edilmiştir. Sonuçta otomobil çalışır hale gelmiştir.
+   Aynı yöntem yazılımda da izlenmektedir.
 
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 19. Ders - 02.08.2022 - Salı
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
+[19. Ders - 02.08.2022 - Salı]()
 
-    2) Fonksiyonlar "yeniden kullanılabilirliği (reusability)" mümkün hale getirmektedir. Yani işin bir kısmını yapan kodları fonksiyon olarak yazarsak
-    başka projelerde de aynı fonksiyonları kullanabiliriz. Fonksiyonların oluşturduğu topluluğa "kütüphane (library)" denilmektedir. Örneğin standart C
-    fonksiyonları kütüphane biçiminde oluşturulmuştur. Biz onları farklı projelerde kullanabilmekteyiz.
+2. Fonksiyonlar "yeniden kullanılabilirliği (reusability)" mümkün hale getirmektedir. Yani işin bir kısmını yapan kodları fonksiyon olarak yazarsak
+   başka projelerde de aynı fonksiyonları kullanabiliriz. Fonksiyonların oluşturduğu topluluğa "kütüphane (library)" denilmektedir. Örneğin standart C
+   fonksiyonları kütüphane biçiminde oluşturulmuştur. Biz onları farklı projelerde kullanabilmekteyiz.
 
-    3) Fonksiyonlar tekrarı engellemek amacıyla kullanılmaktadır. Bir iş, kodun çeşitli yerlerinde yineleniyorsa onu fonksiyon olarak yazarsak projemizde
-    bu kodlardan toplamda bir tane bulundurmuş oluruz. Fonksiyonlar olmasaydı aynı kodu tekrar tekrar yazmak zorunda kalırdık. Bu durumda kod tekrarı
-    toplamda kodun fazla yer kaplamasına yol açardı. O kısımda yapılacak değişikler programın pek çok yerinde yapılmak zorunda kalırdı. Bu durum kodun aynı
-    zamanda daha karmaşık gözükmesine yol açardı.
+3. Fonksiyonlar tekrarı engellemek amacıyla kullanılmaktadır. Bir iş, kodun çeşitli yerlerinde yineleniyorsa onu fonksiyon olarak yazarsak projemizde
+   bu kodlardan toplamda bir tane bulundurmuş oluruz. Fonksiyonlar olmasaydı aynı kodu tekrar tekrar yazmak zorunda kalırdık. Bu durumda kod tekrarı
+   toplamda kodun fazla yer kaplamasına yol açardı. O kısımda yapılacak değişikler programın pek çok yerinde yapılmak zorunda kalırdı. Bu durum kodun aynı
+   zamanda daha karmaşık gözükmesine yol açardı.
 
-    4) Fonksiyonlar okunabilirliği de artırmaktadır. Fonksiyonların isimleri olduğu için kodu inceleyen kişiler onu daha kolay anlamlandırırlar.
-    Bu isimler aslında o kodun ne yaptığı hakkında da bilgi verir.
+4. Fonksiyonlar okunabilirliği de artırmaktadır. Fonksiyonların isimleri olduğu için kodu inceleyen kişiler onu daha kolay anlamlandırırlar.
+   Bu isimler aslında o kodun ne yaptığı hakkında da bilgi verir.
 
-    Bir programlama dilindeki "çalıştırma birimlerine" "deyim (statement)" denilmektedir. Yani program aslında deyim denilen kod parçalarının peşi sıra
-    çalıştırılmasıyla çalışmaktadır. Deyimler C'de 5 gruba ayrılmaktadır:
+Bir programlama dilindeki "_çalıştırma birimlerine_", "_deyim (statement)_" denilmektedir. Yani program aslında deyim denilen kod parçalarının peşi sıra
+çalıştırılmasıyla çalışmaktadır. Deyimler C'de 5 gruba ayrılmaktadır:
 
-    1) Basit Deyimler (Simple Statements): Bunlar bir ifadenin sonuna ';' atomu konularak elde edilen deyimlerdir. Yani,
+1. Basit Deyimler (Simple Statements): Bunlar bir ifadenin sonuna ';' atomu konularak elde edilen deyimlerdir. Yani,
 
+```
     	ifade;
+```
 
-    biçiminde bir görünüme sahiplerdir. Örneğin:
+biçiminde bir görünüme sahiplerdir. Örneğin:
 
+```
     	a = b + c;
     	foo();
+```
 
-    Bunlar birer basit deyimdir. İfade (expression) kavramının ';' atomunu içermediğine, ifadenin sonuna ';' getirildiğinde onun bir deyim olduğuna
-    dikkat ediniz.
+Bunlar birer basit deyimdir. İfade (expression) kavramının `;` atomunu içermediğine, ifadenin sonuna `;` getirildiğinde onun bir deyim olduğuna
+dikkat ediniz.
 
-    2) Bileşik Deyimler (Compound Statements): Bir blok içerisine sıfır tane ya da daha fazla deyim yerleştirilirse bloğun kendisi de bir deyim olur.
-    Buna "bileşik deyim" denilmektedir. Örneğin
+2. Bileşik Deyimler (Compound Statements): Bir blok içerisine sıfır tane ya da daha fazla deyim yerleştirilirse bloğun kendisi de bir deyim olur.
+   Buna "_bileşik deyim_" denilmektedir. Örneğin
 
+```
     {
     	ifade1;
     	ifade2;
     	ifade3;
     }
+```
 
-    Burada bu bloğun tamamı dışarıdan bakıldığında tek bir deyimdir.
+Burada bu bloğun tamamı dışarıdan bakıldığında tek bir deyimdir.
 
-    3) Kontrol Deyimleri (Control Statements): Programlama dillerinde programın akışı üzerinde etkili olan, if gibi, while gibi, for gibi deyimlere
-    "kontrol deyimleri" denilmektedir. Kontrol deyimleri dışarıdan bakıldığında tek bir deyim olarak ele alınırlar.
+3. Kontrol Deyimleri (Control Statements): Programlama dillerinde programın akışı üzerinde etkili olan, if gibi, while gibi, for gibi deyimlere
+   "_kontrol deyimleri_" denilmektedir. Kontrol deyimleri dışarıdan bakıldığında tek bir deyim olarak ele alınırlar.
 
-    4) Bildirim Deyimleri (Declaration Statements): Bildirim yapmakta kullandığımız sentaks biçimi de aslında bir deyim belirtir. Bunlara bildirim deyimleri
-    denilmektedir. Örneğin:
+4. Bildirim Deyimleri (Declaration Statements): Bildirim yapmakta kullandığımız sentaks biçimi de aslında bir deyim belirtir. Bunlara bildirim deyimleri
+   denilmektedir. Örneğin:
 
+```
     	int a, b, c;
+```
 
-    5) Boş Deyimler (Null Statements): Solunda ifade olmadan kullanılan noktalı virgüller de bir deyim belirtir. Bunlara boş deyim denilmektedir. Örneğin:
+5. Boş Deyimler (Null Statements): Solunda ifade olmadan kullanılan noktalı virgüller de bir deyim belirtir. Bunlara boş deyim denilmektedir. Örneğin:
 
+```
     	x = 10;;
+```
 
-    Burada iki deyim vardır. Birincisi x = 10; deyimidir. Bu bir basit deyimdir. İkincisi bundan sonraki noktalı virgüldür. Boş deyimler için bir şey yapılmıyor
-    olsa da bunlar yine bir deyim statüsündedir.
+Burada iki deyim vardır. Birincisi `x = 10;` deyimidir. Bu bir basit deyimdir. İkincisi bundan sonraki noktalı virgüldür (`;`). Boş deyimler için bir şey yapılmıyor
+olsa da bunlar yine bir deyim statüsündedir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Yukarıda da belirtildiği gibi bir program, deyimlerin çalıştırılmasıyla çalıştırılmaktadır. Her deyim çalıştığında bir şeyler yapılır. Şimdi bu deyimler
 çalıştırıldığında ne olacağı üzerinde duralım:
 
-    - Bir basit deyimin çalıştırılması demek o basit deyimdeki ifadenin çalıştırılması demektir.
+- Bir basit deyimin çalıştırılması demek o basit deyimdeki ifadenin çalıştırılması demektir.
 
-    - Bir bileşik deyimin çalıştırılması bileşik deyimi oluşturan deyimlerin sırasıyla çalıştırılması anlamına gelmektedir. Örneğin:
+- Bir bileşik deyimin çalıştırılması bileşik deyimi oluşturan deyimlerin sırasıyla çalıştırılması anlamına gelmektedir. Örneğin:
 
+```
     {
     	ifade1;
     	ifade2;
@@ -4670,23 +4699,27 @@ Yukarıda da belirtildiği gibi bir program, deyimlerin çalıştırılmasıyla 
     	}
     }
     ifade5;
+```
 
-    Burada dışarıdan bakıldığında iki deyim vardır: Bileşik deyim ve basit deyim. Bir bileşik deyimin çalıştırılması onu oluşturan deyimlerin sırasıyla
-    çalıştırılması anlamına geldiğine göre burada sırasıyla aslında ifade1, ifade2, ifade3, ifade4, ifade5 çalıştırılacaktır.
+Burada dışarıdan bakıldığında iki deyim vardır: Bileşik deyim ve basit deyim. Bir bileşik deyimin çalıştırılması onu oluşturan deyimlerin sırasıyla
+çalıştırılması anlamına geldiğine göre burada sırasıyla aslında ifade1, ifade2, ifade3, ifade4, ifade5 çalıştırılacaktır.
 
-    - Kontrol deyimleri çalıştırıldığında nelerin olacağı zaten sonraki başlıklarda ele alınacaktır.
+- Kontrol deyimleri çalıştırıldığında nelerin olacağı zaten sonraki başlıklarda ele alınacaktır.
 
-    - Bir bildirim deyimi çalıştırıldığında bildirilen değişkenler için bellekte yerler ayrılmaktadır. Örneğin:
+- Bir bildirim deyimi çalıştırıldığında bildirilen değişkenler için bellekte yerler ayrılmaktadır. Örneğin:
 
+```
     	int a, b, c;
+```
 
-    Burada a, b ve c nesneleri için yerler ayrılacaktır.
+Burada a, b ve c nesneleri için yerler ayrılacaktır.
 
-    - Boş deyimin çalıştırılması sırasında bir şey yapılmamaktadır. Yani boş deyimler bir yan etkiye yol açmamaktadır.
+- Boş deyimin çalıştırılması sırasında bir şey yapılmamaktadır. Yani boş deyimler bir yan etkiye yol açmamaktadır.
 
-    Bir fonksiyon çağrıldığında fonksiyonun belirttiği ana blok, yani bileşik deyim çalıştırılır. Bu durumda bir C programının çalışması demek aslında
-    main fonksiyonun çağrılması demektir. Örneğin:
+Bir fonksiyon çağrıldığında fonksiyonun belirttiği ana blok, yani bileşik deyim çalıştırılır. Bu durumda bir C programının çalışması demek aslında
+main fonksiyonun çağrılması demektir. Örneğin:
 
+```
     int add(int a, int b)
     {
     	return a + b;
@@ -4701,31 +4734,30 @@ Yukarıda da belirtildiği gibi bir program, deyimlerin çalıştırılmasıyla 
 
     	return 0;
     }
+```
 
-    Burada main fonksiyonu çağrıldığında onun ana bloğunun belirttiği bileşik deyim çalıştırılır. Bu bileşik deyim içerisinde bir bildirim deyimi, 2 tane basit deyim ve bir
-    tane kontrol deyimi vardır. a = add(10, 20) basit deyimi çalıştırılırken de add fonksiyonun ana beloğunun belrttiği bileşik deyim çalıştırılmış olur.
-    Yani görüldüğü gibi aslında program deyimlerin çalıştırılmasıyla çalıştırılmaktadır.
+Burada main fonksiyonu çağrıldığında onun ana bloğunun belirttiği bileşik deyim çalıştırılır. Bu bileşik deyim içerisinde bir bildirim deyimi, 2 tane basit deyim ve bir
+tane kontrol deyimi vardır. `a = add(10, 20)` basit deyimi çalıştırılırken de add fonksiyonun ana bloğunun belrttiği bileşik deyim çalıştırılmış olur.
+Yani görüldüğü gibi aslında program deyimlerin çalıştırılmasıyla çalıştırılmaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 En yaygın kullanılan kontrol deyimi if deyimidir. if deyiminin genel biçimi şöyledir:
 
+```
     if (<ifade>)
     	<deyim>
 
 [ else
 <deyim> ]
+```
 
-    if anahtar sözcüğünden sonra parantezler içerisinde bir ifadenin bulunması gerekir. if deyiminin "doğru" ve "yanlış" kısımları vardır. Doğru ve yanlış kısımlarında
-    tek bir deyim bulunmak zorundadır. Programcı burada birden fazla deyim bulundurmak istiyorsa onu bileşik deyim olarak ifade etmelidir. if deyimiin yanlış kısmı
-    olmak zorunda değildir. if deyiminin tamamı dışarıdan bakıldığında tek bir deyim olarak ele alınmaktadır.
+if anahtar sözcüğünden sonra parantezler içerisinde bir ifadenin bulunması gerekir. if deyiminin "_doğru_" ve "_yanlış_" kısımları vardır. Doğru ve yanlış kısımlarında
+tek bir deyim bulunmak zorundadır. Programcı burada birden fazla deyim bulundurmak istiyorsa onu bileşik deyim olarak ifade etmelidir. if deyimiin yanlış kısmı
+olmak zorunda değildir. if deyiminin tamamı dışarıdan bakıldığında tek bir deyim olarak ele alınmaktadır.
 
-    if deyimi şöyle çalıştırılmaktadır: Önce if parantezi içerisindeki ifadenin sayısal değeri hesaplanır. Bu değer sıfır dışı bir değerse deyimin yalnızca
-    "doğru" kısmındaki deyim çalıştırılır. Bu ifadenin değeri 0 ise deyimin yalnızca "yanlış" kısmındaki deyim çalıştırılır.
+if deyimi şöyle çalıştırılmaktadır: Önce if parantezi içerisindeki ifadenin sayısal değeri hesaplanır. Bu değer sıfır dışı bir değerse deyimin yalnızca
+"_doğru_" kısmındaki deyim çalıştırılır. Bu ifadenin değeri 0 ise deyimin yalnızca "_yanlış_" kısmındaki deyim çalıştırılır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -4744,11 +4776,11 @@ int a;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki programda ikinci derece denklemin kökleri yazdırılmıştır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 #include <math.h>
 
@@ -4787,11 +4819,11 @@ double a, b, c;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 İç içe (nested) if deyimi söz konusu olabilir. Örneğin aşağıda üç sayının en büyüğünü bulan bir if deyimi kullanılmıştır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -4821,18 +4853,19 @@ int a, b, c;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-if deyiminin "yanlış" kısmı yani else kısmı, olmak zoruda değildir. Eğer derleyici if deyiminin "doğru" kısmından sonra else anahtar sözcüğünü
-göremezse, bunun "else kısmı olmayan bir if" olduğuna karar verir ve if deyiminin bittiğini düşünür. Örneğin:
+if deyiminin "_yanlış_" kısmı yani else kısmı, olmak zoruda değildir. Eğer derleyici if deyiminin "_doğru_" kısmından sonra else anahtar sözcüğünü
+göremezse, bunun "_else kısmı olmayan bir if_" olduğuna karar verir ve if deyiminin bittiğini düşünür. Örneğin:
 
+```
     if (ifade1) ifade2; ifade3;
+```
 
-    Burada if eyiminin doğru kısmı ifade2 ile bitmiştir ve else anahtar sözcüğü gelmemiştir. Bu durumda artık ifade3, if içerisinde değildir. Bu kod parçasına
-    dışarıdan bakıldığında iki deyim vardır: if deyimi ve bir basit deyim (ifade3;).
+Burada if eyiminin doğru kısmı ifade2 ile bitmiştir ve else anahtar sözcüğü gelmemiştir. Bu durumda artık ifade3, if içerisinde değildir. Bu kod parçasına
+dışarıdan bakıldığında iki deyim vardır: if deyimi ve bir basit deyim (ifade3;).
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -4849,19 +4882,20 @@ int a;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bazen yeni programcılar if deyiminin doğru kısmını yanlışlıkla boş deyimle kapatırlar. Budurumda kod geçerli olduğu halde istenileni yapmaz hale
 gelir. Örneğin:
 
+```
     if (ifade1);				/* dikkat! yanlışlıkla yerleştirilmiş boş deyim */
     	ifade2
+```
 
-    Burada artık if deyiminin "doğru" kısmında boş deyim vardır. Boş deyimden sonra else anahtar sözcüğü gemediği için if deyimi bitmiştir.
-    Dolayısıyla ifade2; if deyimi dışındadır.
+Burada artık if deyiminin "_doğru_" kısmında boş deyim vardır. Boş deyimden sonra else anahtar sözcüğü gemediği için if deyimi bitmiştir.
+Dolayısıyla ifade2; if deyimi dışındadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -4877,57 +4911,65 @@ int a;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Aşağıdaki kod parçasında programcı if deyiminin "doğru" kısmına birden fazla deyim yerleştirmiştir. Bunları bloklayarak tek deyim biçiminde
+Aşağıdaki kod parçasında programcı if deyiminin "_doğru_" kısmına birden fazla deyim yerleştirmiştir. Bunları bloklayarak tek deyim biçiminde
 ifade etmesi gerekirdi:
 
+```
     if (ifade1)
     	ifade2;
     	ifade3;
     else
     	ifade4;
+```
 
-    Derleyici bakış açısıyla kodu incelediğimizde derleyici if parantezinden sonra blok açılmadığını gördüğünde yalnızca ifade2; deyiminin if deyiminin doğru
-    kısmını oluşturduğunu düşünmektedir. ifade2; deyiminden sonra else gelmediği için derleyiciye göre if deyimi sonlanmıştır. Derleyici daha sonra
-    else anahtar sözcüğünü gördüğünde durumu "sanki if olmadan yalnız başına else anahtar sözcüğü kullanılmış gibi" ele almaktadır. Bu durumda verilen mesaj
-    "error: else without if" gibi bir şey olabilir.
+Derleyici bakış açısıyla kodu incelediğimizde derleyici if parantezinden sonra blok açılmadığını gördüğünde yalnızca ifade2; deyiminin if deyiminin doğru
+kısmını oluşturduğunu düşünmektedir. ifade2; deyiminden sonra else gelmediği için derleyiciye göre if deyimi sonlanmıştır. Derleyici daha sonra
+else anahtar sözcüğünü gördüğünde durumu "_sanki if olmadan yalnız başına else anahtar sözcüğü kullanılmış gibi_" ele almaktadır. Bu durumda verilen mesaj
+"_error: else without if_" gibi bir şey olabilir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Bir koşul doğru iken diğerlerinin doğru olma olasılığı yoksa bu koşullara "ayrık koullar" denir. Yani ayrık koşullarda, koşulların yalnızca bir
+Bir koşul doğru iken diğerlerinin doğru olma olasılığı yoksa bu koşullara "_ayrık koşullar_" denir. Yani ayrık koşullarda, koşulların yalnızca bir
 tanesi doğru olabilmektedir. Örneğin:
 
+```
     a > 0
     a < 0
     a == 0
+```
 
-    Bu koşullar ayrıktır. Örneğin:
+Bu koşullar ayrıktır. Örneğin:
 
+```
     a == 1
     a == 2
     a == 3
+```
 
-    Bu koşullar da ayrıktır. Ancak örneğin:
+Bu koşullar da ayrıktır. Ancak örneğin:
 
+```
     a > 0
     a > 10
+```
 
-    Bu koşullar ayrık değildir.
+Bu koşullar ayrık değildir.
 
-    Ayrık koşulların ayrı if deyimleri ile ele alınması kötü bir tekniktir. Örneğin:
+Ayrık koşulların ayrı if deyimleri ile ele alınması kötü bir tekniktir. Örneğin:
 
+```
     if (a == 1)
     	printf("bir\n");
     if (a == 2)
     	printf("iki\n");
     if (a == 3)
     	printf("uc\n");
+```
 
-    Burada a == 1 ise gereksiz bir biçimde diğer iki koşul da -doğrulanmayacağı halde*- gereksiz bir biçimde yapılmaktadır. a == 2 ise de a == 3 koşulu
-    gereksiz biçimde yapılacaktır. İşte ayrık koşullar "else if" ile ele alınmalıdır. Örneğin:
+Burada `a == 1` ise gereksiz bir biçimde diğer iki koşul da doğrulanmayacağı halde gereksiz bir biçimde yapılmaktadır. a == 2 ise de a == 3 koşulu
+gereksiz biçimde yapılacaktır. İşte ayrık koşullar "_else if_" ile ele alınmalıdır. Örneğin:
 
+```
     if (a == 1)
     	printf("bir\n");
     else
@@ -4936,10 +4978,12 @@ tanesi doğru olabilmektedir. Örneğin:
     	else
     		if (a == 3)
     			printf("üc\n");
+```
 
-    Burada dışarıdan bakıldığında tek bir if deyimi vardır. Her if diğerinin else kısmı içerisindedir. Pek çok programcı böyle else-if merdivenlerini
-    aşağıdaki gibi alt alta yazmaktadır:
+Burada dışarıdan bakıldığında tek bir if deyimi vardır. Her if diğerinin else kısmı içerisindedir. Pek çok programcı böyle else-if merdivenlerini
+aşağıdaki gibi alt alta yazmaktadır:
 
+```
     if (a == 1)
     	printf("bir\n");
     else if (a == 2)
@@ -4950,9 +4994,9 @@ tanesi doğru olabilmektedir. Örneğin:
     	printf("dort\n");
     else
     	printf("hicbiri\n");
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -4976,11 +5020,9 @@ int a;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Aşağıdaki örnekte sayının işareti yazdırılmaktadır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -5000,98 +5042,104 @@ int a;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-C, C++, Java ve C# gibi dillerde "dangling else" denilen bir durum vardır. Eğer iki if için tek bir else varsa bu else, içteki if deyimine
+C, C++, Java ve C# gibi dillerde "_dangling else_" denilen bir durum vardır. Eğer iki if için tek bir else varsa bu else, içteki if deyimine
 ilişkin kabul edilmektedir. Örneğin:
 
+```
     if (ifade1) if (ifade2) ifade3; else ifade4;
+```
 
-    Buradaki else içteki if deyiminin else kısmıdır. Bunu daha güzel şöyle yazabiliriz:
+Buradaki else içteki if deyiminin else kısmıdır. Bunu daha güzel şöyle yazabiliriz:
 
+```
     if (ifade1)
     	if (ifade2)
     		ifade3;
     	else
     		ifade4;
+```
 
-    Bazen deneyimli programcılar bile bu "dangling else" durumunda hata yapabilmektedir. Örneğin aşağıdaki gibi bir kodla karşılaşmış olalım:
+Bazen deneyimli programcılar bile bu "_dangling else_" durumunda hata yapabilmektedir. Örneğin aşağıdaki gibi bir kodla karşılaşmış olalım:
 
+```
     if (ifade1)
     	if (ifade2)
     		ifade3;
     else
     	ifade4;
+```
 
-    Burada muhtemelen programcı ifade4; deyiminin dıştaki if deyimin else kısmında olmasını istemiştir. Çünkü hizalaması bunu düşündürmektedir.
-    Ancak derleyici hizalamaya bakmamaktadır. Dolayısıyla derleyici buradaki else kısmının içteki if deyiminin else kısmı olduğuna karar verir.
-    O halde programcı bir "bug" yapmıştır. Bu tür "dangling else" durumlarında eğer gerçekten else kısmın dıştaki if deyimine ilişkin olması isteniyorsa
-    bilinçli bloklama yapılmalıdır. Örneğin:
+Burada muhtemelen programcı ifade4; deyiminin dıştaki if deyimin else kısmında olmasını istemiştir. Çünkü hizalaması bunu düşündürmektedir.
+Ancak derleyici hizalamaya bakmamaktadır. Dolayısıyla derleyici buradaki else kısmının içteki if deyiminin else kısmı olduğuna karar verir.
+O halde programcı bir "_bug_" yapmıştır. Bu tür "_dangling else_" durumlarında eğer gerçekten else kısmın dıştaki if deyimine ilişkin olması isteniyorsa
+bilinçli bloklama yapılmalıdır. Örneğin:
 
+```
     if (ifade1) {
     	if (ifade2)
     		ifade3;
     }
     else
     	ifade4;
+```
 
-    Burada artık else kısmı dıştaki if deyimine ilişkindir.
+Burada artık else kısmı dıştaki if deyimine ilişkindir.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+[20. Ders - 04.08.2022 - Perşembe]()
 
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 20. Ders - 04.08.2022 - Perşembe
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 if deyiminin yalnızca yanlış kısmı bulunamaz. Bu işlem koşulun tersi oluşturularak dolaylı biçimde sağlanabilir. Örneğin:
 
+```
     if (a > 0)
     else {				/* geçersiz */
     	/* ... */
     }
+```
 
-    Burada aslında a > 0 değilse bir işlem yapılmak istenmiştir:
+Burada aslında a > 0 değilse bir işlem yapılmak istenmiştir:
 
+```
     if (a <= 0) {
     	/* ... */
     }
+```
 
-    Tabii mademki if deyiminin yalnızca else kısmı bulunamaz. O halde doğru kısmına bir boş deyim yerleştirilerek de aynı durum sağlanabilir:
+Tabii mademki if deyiminin yalnızca else kısmı bulunamaz. O halde doğru kısmına bir boş deyim yerleştirilerek de aynı durum sağlanabilir:
 
+```
     if (a > 0)
     	;
     else {				/* geçerli */
     	/* ... */
     }
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+Bir program parçasının yinelemeli olarak çalıştırılmasını sağlayan kontrol deyimlerine "_döngü (loop)_" denilmektedir. C'de döngüler iki kısma ayrılmaktadır:
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
-Bir program parçasının yinelemeli olarak çalıştırılmasını sağlayan kontrol deyimlerine "döngü (loop)" denilmektedir. C'de döngüler iki kısma ayrılmaktadır:
+1. while Döngüleri (while Loops)
 
-    1) while Döngüleri (while Loops)
-    2) for Döngüleri (for loops)
+2. for Döngüleri (for loops)
 
-    while döngüleri de kendi aralarında "kontrolün başta yapıldığı while döngüleri" ve "kontrolün sonra yapıldığı while döngüleri" olmak üzere ikiye ayrılmaktadır.
+while döngüleri de kendi aralarında "_kontrolün başta yapıldığı while döngüleri_" ve "_kontrolün sonra yapıldığı while döngüleri_" olmak üzere ikiye ayrılmaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Kontrolün başta yapıldığı while döngülerinin genel biçimi şöyledir:
 
+```
     while (<ifade>)
     	<deyim>
+```
 
-    while anahtar sözcüğünden sonra parantez içerisinde bir ifadenin bulunması gerekir. while döngüsü bir deyim içerir. Tabii bu deyim, basit, bileşik
-    ya da herhangi bir deyim olabilir. Yani döngünün içerisine birden fazla deyim yerleştirilecekse bloklama yapılmalıdır.
+while anahtar sözcüğünden sonra parantez içerisinde bir ifadenin bulunması gerekir. while döngüsü bir deyim içerir. Tabii bu deyim, basit, bileşik
+ya da herhangi bir deyim olabilir. Yani döngünün içerisine birden fazla deyim yerleştirilecekse bloklama yapılmalıdır.
 
-    while döngüsü şöyle çalışmaktadır: Derleyici while parantezinin içerisindeki ifadenin sayısal değerini hesaplar. Bu değer sıfır dışı bir değerese (yani doğru ise)
-    döngü deyimi çalıştırılıp başa dönülür. Döngü while parantezi içerisindeki ifadenin değeri 0 olduğunda sonlanır.
+while döngüsü şöyle çalışmaktadır: Derleyici while parantezinin içerisindeki ifadenin sayısal değerini hesaplar. Bu değer sıfır dışı bir değerese (yani doğru ise)
+döngü deyimi çalıştırılıp başa dönülür. Döngü while parantezi içerisindeki ifadenin değeri 0 olduğunda sonlanır.
 
-    Aşağıdaki örnekte 0'dan 10'a kadar (10 dahil değil) sayılar ekrana (stdout dosyasına) yazdırılmaktadır.
+Aşağıdaki örnekte 0'dan 10'a kadar (10 dahil değil) sayılar ekrana (stdout dosyasına) yazdırılmaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -5107,11 +5155,11 @@ int i;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki örnekte 10'dan başlanarak 0'a kadar (0 dahil değil) sayılar ekrana yazdırılmaktadır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -5127,13 +5175,13 @@ int i;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
-Aşağıdaki örnekte klavyeden (stdin dosyasından) 'q' karakteri girilene kadar döngü devam etmektedir. Burada atama operatörüne öncelik vermek için
+Aşağıdaki örnekte klavyeden (stdin dosyasından) `q` karakteri girilene kadar döngü devam etmektedir. Burada atama operatörüne öncelik vermek için
 parantez kullanıldığına dikkat ediniz. Ayrıca getchar fonksiyonunun ve stdin dosyasından okuma yapan diğer fonksiyonların tamponlu (buffered) çalıştırklarını
 anımsayınız. Eğer tampon doluysa getchar yeni bir giriş istememektedir. Ancak tampon boşsa yeni bir giriş istemektedir.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -5146,12 +5194,12 @@ int ch;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Virgül operatörünün önce sol tarafının sonra sağ tarafının yapıldığını ve virgül operatörünün sağ tarafındaki ifadenin değerini ürettiğini anımsayınız.
 O halde yukarıdaki döngü eşdeğer olarak aşağıdaki gibi de olabilirdi.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -5164,11 +5212,11 @@ int ch;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Aşağıdaki örnekte 1'den n'e kadar sayıların toplamı hesplanmaktadır. (Tabii aslında bu toplam tek bir ifade ile de hesaplanabilirdi).
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -5189,28 +5237,33 @@ int i, n, total;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Aslında scanf fonksiyonun da bir geri dönüş değeri vardır. scanf fonksiyonu başarılı bir biçimde yerleştirilen parça sayısı ile geri dönmektedir.
 scanf stdin tamponunun başındaki boşluk karakterlerini (leading space) atar. Sonra format karakterlerine uygun olmayan ilk karakter gördüğünde
 onu tampona geri bırakıp işlemini sonlandırır. Örneğin:
 
+```
     result = scanf("%d", &val);
+```
 
-    Burada biz bir sayı yerine "ali" gibi bir yazı girmiş olalım. Bu durumda scanf fonksiyonu a karakterini tampondan aldığında bunun %d format karakterine
-    uygun olmadığını tespit eder. Bu a karakterini tampona geri bırakıp 0 değeri ile geri döner. Örneğin:
+Burada biz bir sayı yerine "ali" gibi bir yazı girmiş olalım. Bu durumda scanf fonksiyonu a karakterini tampondan aldığında bunun %d format karakterine
+uygun olmadığını tespit eder. Bu a karakterini tampona geri bırakıp 0 değeri ile geri döner. Örneğin:
 
+```
     result = scanf("%d%d", &a, &b);
+```
 
-    Burada klavyeden şunları girmiş olalım:
+Burada klavyeden şunları girmiş olalım:
 
+```
     100 ali
+```
 
-    scanf burada yalnızca a için yerleştirme yapabilecektir. Tamponda ali kalacaktır ve b için yerleştirme yapmayacaktır. Bu durumda scanf, 1 değeri ile geri dönecektir.
-    Bu nedenle aşağıdaki örnekte eğer biz klavyeden bir sayı girmezsek sonsuz döngü oluşacaktır:
+scanf burada yalnızca a için yerleştirme yapabilecektir. Tamponda ali kalacaktır ve b için yerleştirme yapmayacaktır. Bu durumda scanf, 1 değeri ile geri dönecektir.
+Bu nedenle aşağıdaki örnekte eğer biz klavyeden bir sayı girmezsek sonsuz döngü oluşacaktır:
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -5223,12 +5276,12 @@ int val;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Yukarıdaki örnekte biz eğer klavyeden geçersiz bir karakter girildiğinde döngüyü sonlandırmak istiyorsak scanf fonksiyonunun geri dönüş değerine de
 bakmalıyız.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -5241,12 +5294,12 @@ int val;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 while parantezi içerisindeki ifadede önek ya da sonek ++ ya da -- operatörü kullanılabilir. Aşağıdaki örnekte önek ++ operatörü kullanılmıştır.
 Burada artırım önce yapılıp artırılmış değer karşılaştırmaya sokulacaktır. Dolayısıyla ilk yazılacak değer 1, son yazılacak değer 9 olacaktır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 int main(void)
@@ -5260,15 +5313,14 @@ int i;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Eğer while parantezi içerisindeki ++ ya da -- operatörü sonek durumundaysa artırım ya da eksiltim öncelik sırasına göre yapılmakla birlikte, sonraki
 işleme artırılmamış ya da eksiltilmemiş değer sokulacaktır.
 
-    Aşağıdaki örnekte ilk yazdırılacak değer 1'dir. Son yazdırılacak değer ise 10 olacaktır.
+Aşağıdaki örnekte ilk yazdırılacak değer 1'dir. Son yazdırılacak değer ise 10 olacaktır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -5282,18 +5334,19 @@ int i;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 n bir nesne belirtmek üzere biz n defa yinelenen bir döngüyü while ile şöyle oluşturabiliriz:
 
+```
     while (n-- > 0) {
     	/* ... */
     }
+```
 
     Bu bir kalıp olarak kullanılmaktadır.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -5307,11 +5360,12 @@ int n;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Aslında while parantezinin içerisinde yalnızca sonek ++ ya da -- operatörü varsa artırmak ya da eksiltme yapılır. Ancak, kontrole nesnenin artırılmamış ya da
 eksiltilmemiş değeri sokulur. Dolayısıyla n pozitif olmak üzere aşağıdaki döngüler işlevsel olarak eşdeğerdir:
 
+```
     while (n-- > 0) {
     	/* ... */
     }
@@ -5324,18 +5378,20 @@ eksiltilmemiş değeri sokulur. Dolayısıyla n pozitif olmak üzere aşağıdak
     	/* ... */
     }
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Kontrolün sonda yapıldığı while döngüleri (do-while döngüleri) seyrek kullanılmaktadır. Genel biçimleri şöyledir:
 
+```
     do
     	<deyim>
     while (<ifade>);
+```
 
-    while parantezi sonundaki ';' boş deyim belirtmez. Kullanılması zorunlu olan sentaksın bir parçasını oluşturmaktadır. Döngünün do anahtar sözcüğü ile
-    başlatıldığına dikkat ediniz. Yine, döngü içerisinde tek bir deyim vardır. Bu deyim basit, bileşik ya da herhangi bir deyim olabilir. Örneğin:
+while parantezi sonundaki `;` boş deyim belirtmez. Kullanılması zorunlu olan sentaksın bir parçasını oluşturmaktadır. Döngünün do anahtar sözcüğü ile
+başlatıldığına dikkat ediniz. Yine, döngü içerisinde tek bir deyim vardır. Bu deyim basit, bileşik ya da herhangi bir deyim olabilir. Örneğin:
 
+```
     do
     	ifade1;
     while (ifade2);
@@ -5347,23 +5403,25 @@ Kontrolün sonda yapıldığı while döngüleri (do-while döngüleri) seyrek k
     	ifade2;
     	ifade3;
     } while (ifade4);
+```
 
-    do-while döngüsünde kontrol noktasının sonda olduğuna dikkat ediniz. Dolayısıyla döngü en az bir kez yinelenmektedir. Burada do anahtar sözcüğü olmasaydı
-    döngü kontrolün başta yapıldığı while döngüsü olarak ele alınırdı. Örneğin:
+do-while döngüsünde kontrol noktasının sonda olduğuna dikkat ediniz. Dolayısıyla döngü en az bir kez yinelenmektedir. Burada do anahtar sözcüğü olmasaydı
+döngü kontrolün başta yapıldığı while döngüsü olarak ele alınırdı. Örneğin:
 
+```
     {
     	ifade1;
     	ifade2;
     	ifade3;
     } while (ifade4);
+```
 
-    Derleyiciye göre buarada iki deyim vardır: Bileşik deyim ve ondan bağımsız olarak kontrolün başta yapıldığı while döngüsü. Dolaysıyla buradaki ';'
-    boş deyim anlamına gelmektedir.
+Derleyiciye göre buarada iki deyim vardır: Bileşik deyim ve ondan bağımsız olarak kontrolün başta yapıldığı while döngüsü. Dolaysıyla buradaki `;`
+boş deyim anlamına gelmektedir.
 
-    Aşağıdaki örnekte ekrana ilk çıkacak değer 0, son çıkacak değer 9'dur.
+Aşağıdaki örnekte ekrana ilk çıkacak değer 0, son çıkacak değer 9'dur.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -5379,13 +5437,13 @@ int i;
     return 0;
 
 }
+```
 
-/_---------------------------------------------------------------------------------------------------------------------------------------------------
 Kontrolünm sonda yapıldığı while döngülerine yukarıda da belirttiğimiz gibi aslında oldukça seyrek gereksinim duyulmaktadır. Aşağıdaki örnekte
-kullanıcıdan 'e' ya da 'h' karakteri ile bir seçim yapması istenmiştir. Eğer kullanıcı e' ya da 'h' karakterinden birini girmemişse aynı soru yinelenmiş
+kullanıcıdan `e` ya da `h` karakteri ile bir seçim yapması istenmiştir. Eğer kullanıcı `e` ya da `h` karakterinden birini girmemişse aynı soru yinelenmiş
 ve kullanıcı bu karakterlerden birini girmeye zorlanmıştır. Buradaki döngünün, kontrolün sonda yapıldığı while döngüsü olması çok daha anlamlıdır.
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
 
+```
 #include <stdio.h>
 
 void clear_stdin(void)
@@ -5413,22 +5471,25 @@ int ch;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Programcılar, kontrolün başta yapıldığı while döngülerini yanlışlıkla boş deyim ile kapatabilmektedir. Örneğin:
 
+```
     while (n-- > 0);
     	printf("%d\n", n);
+```
 
-    Burada while parantezinin sonuna yerleştirilen ';' boş deyim belirtir. Dolayısıyla artık aşağıdaki printf, while döngüsünün içerisinde değildir.
-    Programcı eğer döngüyü gerçekten boş deyim ile kapatmak istiyorsa (örneğin bir gecikme sağlamak istemiş olabilir) bu durumda ';' atomu, sanki bir deyim gibi
-    hizalanmalıdır. Çünkü kodu gören kişi bunun yanlışlıkla yapılmadığını anlayacaktır:
+Burada while parantezinin sonuna yerleştirilen `;` boş deyim belirtir. Dolayısıyla artık aşağıdaki printf, while döngüsünün içerisinde değildir.
+Programcı eğer döngüyü gerçekten boş deyim ile kapatmak istiyorsa (örneğin bir gecikme sağlamak istemiş olabilir) bu durumda `;` atomu, sanki bir deyim gibi
+hizalanmalıdır. Çünkü kodu gören kişi bunun yanlışlıkla yapılmadığını anlayacaktır:
 
+```
     while (n-- > 0)
     	;
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
-
+```
 #include <stdio.h>
 
 int main(void)
@@ -5442,21 +5503,19 @@ int n;
     return 0;
 
 }
+```
 
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 Bazen sonsuz döngülerin oluşturulması gerekebilir. Bunun için while parantezi içerisine sıfırın dışında herhangi bir sayı yerleştirilebilir.
 Tabii, programcılar genellikle 1 sayısını tercih ederler. Örneğin:
 
+```
     while (1) {				/* sonsuz döngü (infinite loop) */
     	/* ... */
     }
+```
 
-----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+[21. Ders - 16.08.2022 - Salı]()
 
-/_--------------------------------------------------------------------------------------------------------------------------------------------------- 21. Ders - 16.08.2022 - Salı
-----------------------------------------------------------------------------------------------------------------------------------------------------_/
-
-/\*---------------------------------------------------------------------------------------------------------------------------------------------------
 En çok kullanılan döngüler for döngüleridir. for döngülerinin genel biçimi şöyledir:
 
     for ([ifade1]; [ifade2]; [ifade3])
@@ -11988,6 +12047,10 @@ NULL sözcüğünü kullanabiliriz:
     Biz henüz void adresleri görmediğimiz için (void *)0 ifadesini açıklamayacağız.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------\*/
+
+```
+
+```
 
 ```
 
