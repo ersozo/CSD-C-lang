@@ -719,7 +719,7 @@ C programını C derleyicisi ile derledikten sonra eğer hiçbir hata yoksa derl
 "_amaç kod dosyası_" da diyeceğiz. Amaç kod dosyası (relocatable object module) daha sonra "_bağlayıcı (linker)_" denilen bir programa sokulur. Bu linker programı
 "_çalıştırılabilir (executable)_" dosyaysı üretir. Biz de nihayetinde bu dosyayı çalıştırırz.
 
->                   .c -----> C Derleyicisi -----> Object file -----> Bağlayıcı (Linker) -----> Çalıştırılabilir (executable)
+>           .c -----> C Derleyicisi -----> Object file -----> Bağlayıcı (Linker) -----> Çalıştırılabilir (executable)
 
 Bağlayıcı (linker da diyeceğiz) aslında bir grup amaç dosyayı alıp tek bir çalıştırılabilir dosya oluşturmaktadır. Bir amaç dosyanın içerisinde derlenmiş kodların
 yanı sıra bağlayıcnın birleştirme yapabilmesi için çeşitli bilgiler de vardır.
