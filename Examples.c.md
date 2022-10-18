@@ -8193,10 +8193,12 @@ Prototipte yalnızca parametre değişkenlerinin türleri belirtilebilir, isimle
 
 ```
     double div(double, double);				/* geçerli */
+```
 
-    Prototipte belirtilen geri dönüş değeri türü ve parametre türlerinin, eğer tanımlama yapılmışsa, tanımlamadkiyle uyuşması zorunludur. Aksi takdirde
-    kod geçersizdir. Örneğin:
+Prototipte belirtilen geri dönüş değeri türü ve parametre türlerinin, eğer tanımlama yapılmışsa, tanımlamadkiyle uyuşması zorunludur. Aksi takdirde
+kod geçersizdir. Örneğin:
 
+```
     double div(double a, double b);
 
     /* .... */
@@ -8228,7 +8230,7 @@ C90'da prototip bildiriminde, her ne kadar anlamsız olsa da geri dönüş değe
 varsayılıyordu. Ancak bu kural C99 ile birlikte kaldırılmıştır. Artık prototipte geri dönüş değerinin türü yazılmak zorundadır. Örneğin:
 
 ```
-    foo(void);								/* Bu prototip C90'da geçerli ancak C99 ve sonrasında geçersiz! */
+    foo(void);                  /* Bu prototip C90'da geçerli ancak C99 ve sonrasında geçersiz! */
 
 ```
 
@@ -8239,12 +8241,12 @@ parantezinin içine void yazılması, fonksiyonun parametreye sahip olmadığı 
 ```
     #include <stdio.h>
 
-    void foo();             				/* Bu prototip parametrelerin herhangi bir biçimde olabileceği anlamına gelmektedir */
+    void foo();             	/* Bu prototip parametrelerin herhangi bir biçimde olabileceği anlamına gelmektedir */
 
     int main(void)
     {
 
-    	foo(10, 20);        				/* geçerli, parametreler sayıca kontrol edilmiyor */
+    	foo(10, 20);        	/* geçerli, parametreler sayıca kontrol edilmiyor */
 
 
     	return 0;
@@ -8259,12 +8261,12 @@ parantezinin içine void yazılması, fonksiyonun parametreye sahip olmadığı 
 
     #include <stdio.h>
 
-    void foo(void);             			/* bu prototip fonksiyonun parametreye sahip olmadığı anlamına gelmektedir */
+    void foo(void);             /* bu prototip fonksiyonun parametreye sahip olmadığı anlamına gelmektedir */
 
     int main(void)
     {
 
-    	foo(10, 20);        				/* geçersiz! Fonksiyon parametreye sahip değil */
+    	foo(10, 20);        	/* geçersiz! Fonksiyon parametreye sahip değil */
 
     	return 0;
     }
@@ -8282,9 +8284,9 @@ ile ya da fonksiyonun tanımlamasıyla karşılaşırsa, bu durumda artık param
 ```
     #include <stdio.h>
 
-    void foo();                 			/* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
+    void foo();                 /* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
 
-    void foo(int a, int b)					/* artın bu tanımlamayla fonksiyonun parametreleri çağrım sırasında derleyici tarafından kontrol edilecektir */
+    void foo(int a, int b)		/* artın bu tanımlamayla fonksiyonun parametreleri çağrım sırasında derleyici tarafından kontrol edilecektir */
     {
     	printf("foo\n");
     }
@@ -8292,7 +8294,7 @@ ile ya da fonksiyonun tanımlamasıyla karşılaşırsa, bu durumda artık param
     int main(void)
     {
 
-    	foo(10, 20, 30);        			/* geçersiz! */
+    	foo(10, 20, 30);        /* geçersiz! */
 
     	return 0;
     }
@@ -8302,8 +8304,8 @@ ile ya da fonksiyonun tanımlamasıyla karşılaşırsa, bu durumda artık param
 Aşağıdaki iki prototip birlikte bulunabilir:
 
 ```
-    void foo();                 			/* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
-    void foo(int a, int b);					/* artık derleyici parametre kontrolü yapacaktır */
+    void foo();                 /* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
+    void foo(int a, int b);     /* artık derleyici parametre kontrolü yapacaktır */
 
 ```
 
@@ -8313,12 +8315,12 @@ Tabii parametre parantezinin içi boş bırakıldığında fonksiyon yine uygun 
 ```
     #include <stdio.h>
 
-    void foo();                 			/* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
+    void foo();                 /* bu prototip parametre kontrolünün yapılmayacağı anlamına geliyor */
 
     int main(void)
     {
 
-    	foo(10, 20, 30);        			/* geçerli! derleme başarıyla sonuçlanır, ancak tanımsız davranış oluşur */
+    	foo(10, 20, 30);        /* geçerli! derleme başarıyla sonuçlanır, ancak tanımsız davranış oluşur */
 
     	return 0;
     }
@@ -8341,7 +8343,7 @@ boş bırakılmasıyla void yazılması arasında hiçbir farklılık yoktur. He
 
 ```
     void foo();
-    void foo(void);							// C++'ta ikisi arasında hiçbir farklılık yok
+    void foo(void);             // C++'ta ikisi arasında hiçbir farklılık yok
 
 ```
 
@@ -8352,7 +8354,7 @@ sahip olmadığı anlamına gelir. Örneğin:
 ```
     #include <stdio.h>
 
-    void foo()      						/* tanımlamada parametre parantezinin içinin boş bırakılmasıyla void yazılması arasında farklılık yok */
+    void foo()                  /* tanımlamada parametre parantezinin içinin boş bırakılmasıyla void yazılması arasında farklılık yok */
     {
     	printf("foo\n");
     }
@@ -8360,7 +8362,7 @@ sahip olmadığı anlamına gelir. Örneğin:
     int main(void)
     {
 
-    	foo(10);       						 /* geçersiz! foo'nun parametresi yok! */
+    	foo(10);                /* geçersiz! foo'nun parametresi yok! */
 
     	return 0;
     }
@@ -8633,7 +8635,7 @@ durumunda yazıya "_sembolik sabit (symbolic constant)_" denilmektedir. Örneği
 ```
     #define MAX_SIZE			100
     #define LINE_LENGTH			1024
-    #define NITEMS				12
+    #define NITEMS              12
 ```
 
 Önişlemciler tipik olarak geçici bir dosya açarak #'li satırlar üzerindeki düzenlemeyi bu geçici dosyada yaparlar. Sonra, derleme modülüne önişlemden
@@ -8649,7 +8651,7 @@ Sembolik sabitlerin, derleme modülü için bir sabit statüsünde olduğuna dik
 
     #define CMD_DEL		1
     #define CMD_DIR		2
-    #define CMD_COPY	3
+    #define CMD_COPY    3
     ...
 
     switch (a) {
@@ -8682,7 +8684,7 @@ Ancak komutun STR2 kısmı herhangi bir yazı olabilir. Aşağıdaki komutlar ge
 
 ```
     #define TERMINATOR		;
-    #define ADD				+
+    #define ADD             +
 
 ```
 
@@ -9176,12 +9178,12 @@ olanak sağlamaz. Örneğin:
     #include <stdio.h>
     #include <stdlib.h>
 
-    #define error_check(result)			\
-    {									\
-    	if (!result) {					\
-    		printf("Error!\n");			\
-    		exit(1);					\
-    	}								\
+    #define error_check(result)         \
+    {                                   \
+    	if (!result) {                  \
+    		printf("Error!\n");         \
+    		exit(1);                    \
+    	}                               \
     }
 
     int main(void)
@@ -9215,12 +9217,12 @@ boş deyim olarak ele alınacak ve bloklama yapılmadığı için sentaks hatas�
 makromuzun da tam bir fonksiyon taklidi yapamadığı açıktır. İşte bu tür durumlarda do-while deyimi imdadımıza yetişmektedir. Yukarıdaki makroyu şöyle yazmış olalım:
 
 ```
-    #define error_check(result)			\
-    do  {								\
-    	if (!result) {					\
-    		printf("Error!\n");			\
-    		exit(1);					\
-    	}								\
+    #define error_check(result)         \
+    do  {                               \
+    	if (!result) {                  \
+    		printf("Error!\n");         \
+    		exit(1);                    \
+    	}                               \
     } while (0)
 ```
 
@@ -9259,12 +9261,12 @@ Tabii çok satırlı makrolar if gibi deyimlerin içerisine yerleştirilemezler.
 #include <stdio.h>
 #include <stdlib.h>
 
-#define error_check(result) \
-do { \
- if (!result) { \
- printf("Error!\n"); \
- exit(1); \
- } \
+#define error_check(result)     \
+do {                            \
+ if (!result) {                 \
+ printf("Error!\n");            \
+ exit(1);                       \
+ }                              \
 } while (0)
 
 int main(void)
