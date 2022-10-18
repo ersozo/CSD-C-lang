@@ -597,8 +597,8 @@ Bilgisayar dünyasında 16'lık sistem aslında 2'lik sistemin yoğun bir göste
     1A 23 5C 78
 ```
 
-Burada 4 byte'lık bir bilgi vardır. Örneğin 2 byte içerisinde yazılabilecek en küçük negatif işaretli sayının hex karşılığı `8000` biçimindedir. Örneğin
-1 byte'lık işaretli sistemde yazılabilecek en büyük pozitif sayı `7F` biçimindedir. İşareti tamsayı sisteminde 4 byte içerisinde `-1` sayısı `FFFFFFFF`
+Burada 4 byte'lık bir bilgi vardır. Örneğin 2 byte içerisinde yazılabilecek en küçük negatif işaretli sayının hex karşılığı 8000 biçimindedir. Örneğin
+1 byte'lık işaretli sistemde yazılabilecek en büyük pozitif sayı 7F biçimindedir. İşareti tamsayı sisteminde 4 byte içerisinde -1 sayısı FFFFFFFF
 biçimindedir.
 
 Eskiden daha fazla kullanılıyor olsa da toplamda oldukça seyrek kullanılan dğer bir sayı sistemi de 8'lik sayı sistemidir. Bu sisteme İngilizce
