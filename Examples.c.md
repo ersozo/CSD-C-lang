@@ -700,7 +700,7 @@ Ekrana Merhaba Dünya yazısını çıkartan örnek C programı aşağıdaki gib
 
 ```
 
-Bir C programı en yalın olarak önce bir text editör ile yazılır ve diske uzantısı `.c` biçiminde kaydedilir. Sonra komut satırından C derleyicisi ile
+Bir C programı en yalın olarak önce bir text editör ile yazılır ve diske uzantısı .c biçiminde kaydedilir. Sonra komut satırından C derleyicisi ile
 derlenir. Derleyiciler genel olarak komut satırından çalıştırılacak biçimde yazılırlar. En çok kullanılan C derleyicileri şunlardır:
 
 - Microsoft C Derleyicisi
@@ -823,7 +823,7 @@ ismindedir. Bu dosyanın çalıştırılması şöyle yapılmalıdır:
 ```
 
 Windows sistemlerinde çalıştırılabilir dosyanın yalnızca isminin yazılması yeterlidir. Ancak UNIX/Linux ve Mac OS sistemlerinde ./isim biçiminde çalıştırma
-yapılır. gcc derleyicisinde çalıştırılabilir dosyaya isim vermek için `-o isim` seçeneği kullanılır. Örneğin:
+yapılır. gcc derleyicisinde çalıştırılabilir dosyaya isim vermek için -o isim seçeneği kullanılır. Örneğin:
 
 ```
 
@@ -832,7 +832,7 @@ yapılır. gcc derleyicisinde çalıştırılabilir dosyaya isim vermek için `-
 ```
 
 Burada sample.c dosyası derlenir ve sample isimli çalıştırılabilir dosya oluşturulur. Tabii istersek gcc derleyicilerinde de yalnızca derleme yapıp
-bağlayıcıyı çalıştırmayabiliriz. Bunun için `-c` seçeneği kullanılmaktadır. Örneğin:
+bağlayıcıyı çalıştırmayabiliriz. Bunun için -c seçeneği kullanılmaktadır. Örneğin:
 
 ```
 
