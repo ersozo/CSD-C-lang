@@ -1330,7 +1330,7 @@ değişkenlerin kullanılmadan önce derleyiciye tanıtılması işlemine "_bild
 
 ```
 
-Buradaki değişken listesi aralarına `,` atomu getirilmiş bir ya da birden fazla değişkenden oluşabilir. Örneğin:
+Buradaki değişken listesi aralarına ',' atomu getirilmiş bir ya da birden fazla değişkenden oluşabilir. Örneğin:
 
 ```
 
@@ -1676,7 +1676,7 @@ C'de bir tamsayıyı 2'lik sistemde yazmanın bir yolu yoktur.
 
 ```
 
-C'de bir noktalı sayı, üstel biçimde de yazılabilir. Bunun için sayıdan sonra `e` ya da `E` karakteri ve üs sayısı belirtilir. Buradaki üs 10'un
+C'de bir noktalı sayı, üstel biçimde de yazılabilir. Bunun için sayıdan sonra e ya da E karakteri ve üs sayısı belirtilir. Buradaki üs 10'un
 kaçıncı kuvveti olduğunu belirtmektedir. Örneğin:
 
 ```
@@ -1739,7 +1739,7 @@ ancak long long türünün `8 byte `olduğunu varsayalım.
 
 ```
 
-**3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde `u` ya da `U` varsa; sayı 10'luk, 16'lık, 8'lik sistemde yazıldığında
+**3.** Sayı nokta içermiyorsa, ancak sayının sonunda ona yapışık bir biçimde 'u' ya da 'U' varsa; sayı 10'luk, 16'lık, 8'lik sistemde yazıldığında
 sırasıyla unsigned int, unsigned long int ve unsigned long long türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir.
 Örneğin:
 
@@ -1753,7 +1753,7 @@ sırasıyla unsigned int, unsigned long int ve unsigned long long türlerinin ha
 
 ```
 
-**4.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde `l` ya da `L` harfi varsa ve sayı 10'luk sistemde yazılmışsa; sayı long ve
+**4.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde 'l' ya da 'L' harfi varsa ve sayı 10'luk sistemde yazılmışsa; sayı long ve
 long long türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
@@ -1763,7 +1763,7 @@ long long türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sab
 
 ```
 
-**5.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde `l` ya da `L` harfi varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa;
+**5.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık bir biçimde 'l' ya da 'L' harfi varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa;
 sayı long ve unsigned long, long long ve unsigned long long türlerinin hangisinin sınırları içerisinde ilk kez kalıyorsa sabit o türdendir. Örneğin:
 
 ```
@@ -1773,7 +1773,7 @@ sayı long ve unsigned long, long long ve unsigned long long türlerinin hangisi
 
 ```
 
-**6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık `ul` ya da `lu` varsa (`u` ya da `l` ler büyük ya da küçük olabilir) ve sayı 10'luk sistemde,
+**6.** Sayı nokta içermiyorsa, sayının sonunda onunla yapışık 'ul' ya da 'lu' varsa ('u' ya da 'l'ler büyük ya da küçük olabilir) ve sayı 10'luk sistemde,
 16'lık sistemde ya da 8'lik sistemde yazıldığında sırasıyla unsigned long ve unsigned long long sınırlarının hangisinin içerisinde ilk kez kalıyorsa sabit o türdendir.
 Örneğin:
 
@@ -1784,7 +1784,7 @@ sayı long ve unsigned long, long long ve unsigned long long türlerinin hangisi
 
 ```
 
-**7.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı 10'luk sistemde yazılmışsa; long long türden sabit belirtir. Örneğin:
+**7.** Sayı nokta içermiyorsa, sayının sonunda 'll' ya da 'LL' soneki varsa ve sayı 10'luk sistemde yazılmışsa; long long türden sabit belirtir. Örneğin:
 
 ```
 
@@ -1793,7 +1793,7 @@ sayı long ve unsigned long, long long ve unsigned long long türlerinin hangisi
 
 ```
 
-**8.** Sayı nokta içermiyorsa, sayının sonunda `ll` ya da `LL` soneki varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa; long long ve unsigned long long
+**8.** Sayı nokta içermiyorsa, sayının sonunda 'll' ya da 'LL' soneki varsa ve sayı 16'lık ya da 8'lik sistemde yazılmışsa; long long ve unsigned long long
 türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türdendir. Örneğin:
 
 ```
@@ -1802,7 +1802,7 @@ türlerinin hangisinin sınırları içerisine ilk kez giriyorsa sabit o türden
 
 ```
 
-**9.** Sayı nokta içermiyorsa ve sayının sonunda `ull` ya da `llu` soneki varsa (burada `u` ve `ll` büyük harf ya da küçük harf olabilir); bu durumda sabit unsigned long long türündendir.
+**9.** Sayı nokta içermiyorsa ve sayının sonunda 'ull' ya da 'llu' soneki varsa (burada 'u' ve 'll' büyük harf ya da küçük harf olabilir); bu durumda sabit unsigned long long türündendir.
 Örneğin:
 
 ```
@@ -1838,7 +1838,7 @@ Sayı üstel biçimde yazılmışsa sayı nokta içermese bile double türden ol
 
 ```
 
-**11.** Sayı nokta içeriyorsa ve sayının sonunda `f` ya da `F` varsa; sabit float türdendir. Örneğin:
+**11.** Sayı nokta içeriyorsa ve sayının sonunda 'f' ya da 'F' varsa; sabit float türdendir. Örneğin:
 
 ```
 
@@ -1848,7 +1848,7 @@ Sayı üstel biçimde yazılmışsa sayı nokta içermese bile double türden ol
 
 ```
 
-Sayı nokta içermiyorsa sayının sonuna `f` ya da `F` soneki getirilemez. Örneğin:
+Sayı nokta içermiyorsa sayının sonuna 'f' ya da 'F' soneki getirilemez. Örneğin:
 
 ```
 
@@ -1857,7 +1857,7 @@ Sayı nokta içermiyorsa sayının sonuna `f` ya da `F` soneki getirilemez. Örn
 
 ```
 
-**12.** Sayı nokta içeriyorsa ancak sayının sonunda `l` ya da `L` varsa; sabit long double türden olur. Örneğin:
+**12.** Sayı nokta içeriyorsa ancak sayının sonunda 'l' ya da 'L` varsa; sabit long double türden olur. Örneğin:
 
 ```
 
@@ -1870,7 +1870,7 @@ Sayı nokta içermiyorsa sayının sonuna `f` ya da `F` soneki getirilemez. Örn
 [13. Ders 05/07/2022 - Salı]()
 
 **13.** C'de tek tırnakla iki tırnak arasında çok fark vardır. (Halbuki bazı dillerde tek tırnak ile iki tırnak arasında farklılık yoktur.) C'de bir karakter
-tek tırnak içerisine alınırsa bu ilgili karakterin karakter tablosundaki sıra numarasını belirten bir sayı anlamına gelir. Örneğin C'de `'a'` ifadesi
+tek tırnak içerisine alınırsa bu ilgili karakterin karakter tablosundaki sıra numarasını belirten bir sayı anlamına gelir. Örneğin C'de 'a' ifadesi
 aslında eğer ACII karakter tablosu kullanılıyorsa 97 sayısı ile aynı anlamdadır.
 
 C'de bir karakter tek tırnak içerisine alınırsa bu ifade int türden sabit kabul edilir. Bu biçimdeki ifadeleri "_int türden karakter sabitleri_" denilmektedir. Örneğin:
@@ -1910,8 +1910,8 @@ görüntülenemeyen özek kontrol karakterinden oluşmaktadır. İşte çok kull
 
 ```
 
-Burada önemli olan nokta `\n` gibi bir karakter sabitin her ne kadar tırnak içerisinde iki karakter varsa da aslında tek bir karaktere ilişkin karakter sabiti
-belirttiğidir. Yani `\n` ne ters bölü karakterinin ne de `n` karakterinin sabitidir. Tamamen başka bir karakter olan `LF (line feed)` denilen karakterin karakter
+Burada önemli olan nokta '\n' gibi bir karakter sabitin her ne kadar tırnak içerisinde iki karakter varsa da aslında tek bir karaktere ilişkin karakter sabiti
+belirttiğidir. Yani '\n' ne ters bölü karakterinin ne de 'n' karakterinin sabitidir. Tamamen başka bir karakter olan LF (line feed) denilen karakterin karakter
 sabitidir.
 
 Ters bölü karakter sabitleri iki tırnak içerisinde tek bir karakter olarak ele alınmaktadır. Örneğin:
@@ -1929,9 +1929,9 @@ Ters bölü karakter sabitleri iki tırnak içerisinde tek bir karakter olarak e
 
 ```
 
-Ters bölü karakterinin kendisine ilişkin karakter sabiti `'\'` biçiminde yazılamaz. Eğer biz böle bir şey yazarsak derleyici sanki ters bölü karakter
+Ters bölü karakterinin kendisine ilişkin karakter sabiti '\' biçiminde yazılamaz. Eğer biz böle bir şey yazarsak derleyici sanki ters bölü karakter
 sabitlerinden birisni yazmak istiyormuşuz da onu yazamamışız gibi durumu değerlendirir. Ters bölü karakterinin kendisine ilişkin karakter sabitini
-`'\\'` biçiminde yazabiliriz. Örneğin:
+'\\' biçiminde yazabiliriz. Örneğin:
 
 ```
 
@@ -1965,8 +1965,8 @@ Benzer biçimde iki tırnak içerisinde de ters bölü karakterinin kendisini ya
 
 ```
 
-Tek tırnak karakterine ilişkin karakter sabiti `'''` biçiminde yazılamaz. Bu durumda derleyici durumu sanki tek tırnağın içerisine bir şey yazılmamış gibi
-yorumlayacaktır. Tek tırnak karakterinin karakter sabiti `'\''` biçiminde yazılmalıdır. Örneğin:
+Tek tırnak karakterine ilişkin karakter sabiti ''' biçiminde yazılamaz. Bu durumda derleyici durumu sanki tek tırnağın içerisine bir şey yazılmamış gibi
+yorumlayacaktır. Tek tırnak karakterinin karakter sabiti '\'' biçiminde yazılmalıdır. Örneğin:
 
 ```
 
@@ -2008,7 +2008,7 @@ Ancak iki tırnak içerisinde iki tırnak doğrudan yazılamaz. Örneğin:
 
 ```
 
-İki tırnak içerisinde iki tırnak karakteri `\"` biçiminde belirtilmelidir. Örneğin:
+İki tırnak içerisinde iki tırnak karakteri \" biçiminde belirtilmelidir. Örneğin:
 
 ```
 
@@ -2024,7 +2024,7 @@ Tabii tek tırnak içerisinde iki tırnak karakteri de sorunsuz olarak kullanıl
 
 ```
 
-Tabii sorun yaratmıyor olsa da biz istersek tek tırnak içerisinde iki tırnak karakterini `\"` biçiminde de belirtebiliriz. Örneğin:
+Tabii sorun yaratmıyor olsa da biz istersek tek tırnak içerisinde iki tırnak karakterini \" biçiminde de belirtebiliriz. Örneğin:
 
 ```
 
@@ -2037,7 +2037,7 @@ yerleştirilebilir (örneğin int türü 4 byte ise 4 karakter, 8 byte ise 8 kar
 bunlara "_multibyte karakterler_" denilmektedir. Multibyte karakterlerin ne belirttiği derleyicileri yazanların isteğine bırakılmıştır. Biz bu multibyte
 karakter kavramını ileride yeniden ele alacağız.
 
-Bir karakter sabitinin başına onunla yapışık bir `L` harfi (`L` harfi büyük harf olmak zorundadır) getirilebilir. Bu tür karakter sabitlerine "_geniş_
+Bir karakter sabitinin başına onunla yapışık bir 'L' harfi ('L' harfi büyük harf olmak zorundadır) getirilebilir. Bu tür karakter sabitlerine "_geniş_
 _karakter sabitleri (wide character constants)_" denilmektedir. Örneğin:
 
 ```
@@ -2046,9 +2046,9 @@ _karakter sabitleri (wide character constants)_" denilmektedir. Örneğin:
 
 ```
 
-Geniş sabitleri `wchar_t` türündendir. Bu konu ileride ele alınacaktır.
+Geniş sabitleri wchar_t türündendir. Bu konu ileride ele alınacaktır.
 
-C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık `u` ve `U` getirilebilmektedir. Örneğin:
+C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık 'u' ve 'U' getirilebilmektedir. Örneğin:
 
 ```
 
@@ -2057,10 +2057,10 @@ C11 ile birlikte karakter sabitlerinin önüne yine onunla yapışık `u` ve `U`
 
 ```
 
-`u` öneki getirilmiş karakter sabitleri UNICODE UTF-16 encoding'ini, `U` öneki getirilmiş karakter sabitleri de UNICODE UTF-32 encoding'ini belirtir.
-Bunlar sırasıyla `char16_t` ve `char32_t` türündendir. Bu konu da ileride ele alınacaktır.
+'u' öneki getirilmiş karakter sabitleri UNICODE UTF-16 encoding'ini, 'U' öneki getirilmiş karakter sabitleri de UNICODE UTF-32 encoding'ini belirtir.
+Bunlar sırasıyla char16_t ve char32_t türündendir. Bu konu da ileride ele alınacaktır.
 
-**14.** C'de int türden küçük türlerin sabitleri yoktur. Yani C'de char, signed char, unsigned char, short ve `unsigned short` türünden sabitler yoktur.
+**14.** C'de int türden küçük türlerin sabitleri yoktur. Yani C'de char, signed char, unsigned char, short ve unsigned short türünden sabitler yoktur.
 En küçük sabit int türündendir. Tek tırnak içerisine yazılmış karakter sabitlerinin de aslında int türden olduğunu anımsayınız.
 
 C'de karakter sabitleri sayısal işlemlere sokulabilir. Çünkü zaten onlar birer sayı belirtmektedir.
@@ -2086,7 +2086,7 @@ int result;
 ### putchar fonksiyonu
 
 putchar fonksiyonu bizden int türden bir değer alır. O değere karşı gelen karakter numarasına ilişkin karakterin görüntüsünü ekrana (stdout dosyasına) yazar.
-Yani `putchar(ch)` çağrısıyla `printf("%c", ch)` çağrısı işlevsel olarak tamamen eşdeğerdir.
+Yani putchar(ch) çağrısıyla printf("%c", ch) çağrısı işlevsel olarak tamamen eşdeğerdir.
 
 ```
 
@@ -2158,7 +2158,7 @@ int ch;
 ```
 
 Aslında klavyeden (stdin dosyasından) okumalar bir tampon eşliğinde yapılmaktadır. Biz getchar fonksiyonunda birden fazla karakter girebiliriz. Bu durumda
-girilen tüm karakterler önce bir "_tampona (buffer)_" yerleştirilir sonra o tampondan alınarak verilir. getchar için basılan ENTER tuşu da tampona `\n`
+girilen tüm karakterler önce bir "_tampona (buffer)_" yerleştirilir sonra o tampondan alınarak verilir. getchar için basılan ENTER tuşu da tampona '\n'
 karakteri olarak eklenmektedir. getchar (ve stdin dosyasından okuma yapan diğer fonksiyonlar) eğer tamponda zaten karakter varsa bizden karakter istemezler.
 stdin tamponunda karakter yoksa yeniden okuma talep ederler. Örneğin:
 
@@ -2183,7 +2183,7 @@ Biz burada ilk getchar için a karakterine basıp ENTER tuşuna basmış olalım
 ```
 
 İlk getchar tampondaki sıradaki karakter olan a okuyacaktır. Ancak ikinci getchar tampon dolu olduğu için klavyeden yeni bir giriş istemeyecektir.
-Tampondaki `\n` karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o getchar tampon boş olduğu için klavyeden okuma
+Tampondaki '\n' karakterini alıp geri dönecektir. Ancak bir tane daha getchar çağrısı yaparsak artık o getchar tampon boş olduğu için klavyeden okuma
 isteyecektir.
 
 printf fonksiyonunun klavyeden (stdin dosyasından) okuma yapan scanf isimli kardeşi vardır. scanf temel olarak printf gibi kullanılmaktadır. Ancak
@@ -2211,9 +2211,9 @@ printf fonksiyonunu kullanmalısınız. Örneğin:
 
 ```
 
-Burada `%x` klavyeden girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak a nesnesine yerleştirecektir. printf fonksiyonuyla scanf fonksiyonu arasındaki
-format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. ,`pintf` fonksiyonunda hem float hem de double `%f` ile yazdırılır. Ancak scanf fonksiyonunda
-float `%f` ile double `%lf` ile okunmaktadır.
+Burada %x klavyeden girilen değerin 16'lık sistemde girilmiş olduğunu varsayarak a nesnesine yerleştirecektir. printf fonksiyonuyla scanf fonksiyonu arasındaki
+format karakterleri aynı biçimdedir. Ancak birkaç istisna vardır. pintf fonksiyonunda hem float hem de double %f ile yazdırılır. Ancak scanf fonksiyonunda
+float %f ile double %lf ile okunmaktadır.
 
 ```
 
@@ -2277,7 +2277,7 @@ int a, b;
 
 ```
 
-Yeni öğrenenler tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna `\n` konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
+Yeni öğrenenler tarafından yanlışlıkla scanf'teki format karakterlerinin sonuna '\n' konulabilmektedir. Bu tamamen başka bir anlama gelir. Böyle yapmayınız.
 
 ```
 
@@ -2330,7 +2330,7 @@ Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gereki
 
 - _*Artirmetik Operatörler (Arithmetic Operators)*_: Bunlar toplama, çarpma gibi klasik operatörlerdir.
 
-- _*Karşılaştırma Operatörleri (Comparision Operators)*_: Bunlar `>`, `<`, `>=`, `<=`, `==`, `!=` gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
+- _*Karşılaştırma Operatörleri (Comparision Operators)*_: Bunlar '>', '<', '>=', '<=', '==', '!=' gibi iki değeri karşılaştırmak için kullanılan operatörlerdir. Bu
   operatörlere "_ilişkisel operatörler (relational operators)_" da denilmektedir.
 
 - _*Mantıksal Operatörler (Logical Operators)*_: Bunlar AND, OR, NOT işlemleri yapan operatörlerdir.
@@ -2346,11 +2346,11 @@ Operatör konusunu iyi anlayabilmek için operatörleri sınıflandırmak gereki
 
 Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
 
-- _*İki operandlı Operatörler (Binary Operators)*_: Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin `+`, `*`, `/`, `-`
+- _*İki operandlı Operatörler (Binary Operators)*_: Bunlar iki operand alırlar. Yani bir şeyle bir şeyi işleme sokarlar. Örneğin '+', '\*', '/', '-'
   operatörleri iki operandlı operatörlerdir.
 
 - _*Tek operandlı Operatörler (Unary Operators)*_: Bunlar tek bir değeri işleme sokarlar. Örneğin NOT operatörü programlama dillerinde bir değerin NOT'ını
-  alır, iki değerin NOT'ını almaz. Ya da örneğin `-5` ifadesindeki `-` operatörü çıkartma operatörü değildir, `işaret eksi` operatörüdür ve tek operandlı bir operatördür.
+  alır, iki değerin NOT'ını almaz. Ya da örneğin -5 ifadesindeki '-' operatörü çıkartma operatörü değildir, 'işaret eksi' operatörüdür ve tek operandlı bir operatördür.
 
 - _*Üç operandlı Operatörler (Ternary Operators)*_: Üç operandlı operatörler aslında çok seyrek bulunurlar. Örneğin C'de üç operandlı tek bir operatör vardır.
 
@@ -2358,18 +2358,18 @@ Operand sayılarına göre operatörler üç grubu ayrılmaktadır:
 
 Operatörler, operatörün operandlarına olan konumuna göre de üçe ayrılmaktadır:
 
-- _*Araek Operatörler (Infix Operators)*_: Bu operatörler iki operandlıdır ve operandlarının arasına getirilerek kullanılmaktadır. Örneğin `a + b` işleminde
-  `+` operatörlerinin araek bir operatör olduğuna dikkat ediniz.
+- _*Araek Operatörler (Infix Operators)*_: Bu operatörler iki operandlıdır ve operandlarının arasına getirilerek kullanılmaktadır. Örneğin a + b işleminde
+  '+' operatörlerinin araek bir operatör olduğuna dikkat ediniz.
 
-- _*Önek Operatörler (Prefix Operators)*_: Bunlar operandlarının önüne getirilerek kullanılırlar. Örneğin `!a` gibi bir kullanımda `!` operatörü operandının önüne
+- _*Önek Operatörler (Prefix Operators)*_: Bunlar operandlarının önüne getirilerek kullanılırlar. Örneğin !a gibi bir kullanımda ! operatörü operandının önüne
   getirilmiştir.
 
-- _*Sonek Operatörler (Postfix Operators)*_: Bunlar da operandlarının sonuna getirilerek kullanılırlar. Örneğin `foo()` gibi bir ifadede parantezler operatör
-  görevindedir. `foo` ise bu operatörün operandıdır. Burada operatör operandının sonuna getirilmiştir.
+- _*Sonek Operatörler (Postfix Operators)*_: Bunlar da operandlarının sonuna getirilerek kullanılırlar. Örneğin foo() gibi bir ifadede parantezler operatör
+  görevindedir. foo ise bu operatörün operandıdır. Burada operatör operandının sonuna getirilmiştir.
 
 Bir operatör ele alınırken önce yukarıdaki üç sınıflandırmada da operatörün nereye düştüğü ifade edilmelidir. Sonra operatöre ilişkin başka özellikler belirtilmelidir.
-Örneğin, "_`/` operatörü iki operandlı araek (binary infix) bir artimetik operatördür_". Ya da örneğin "_`!` operatörü tek operandlı öncek (unary prefix) bir mantıksal operatördür_".
-Ya da örneğin "_`&` operatörü iki operandlı araek bir bit operatörüdür_".
+Örneğin, "_'/' operatörü iki operandlı araek (binary infix) bir artimetik operatördür_". Ya da örneğin "_'!' operatörü tek operandlı öncek (unary prefix) bir mantıksal operatördür_".
+Ya da örneğin "_'&' operatörü iki operandlı araek bir bit operatörüdür_".
 
 Bir ifadede birden fazla operatör kullanıldığında bunlar birbirlerine göre belli bir sırada yapılırlar. Bu duruma "_operatörler arasındaki öncelik_
 _ilişkisi (operator precedency)_" denilmektedir. Operatörlerin arasındaki öncelik ilişkisi "_operatörlerin öncelik tablousu_" denilen bir tabloyla
@@ -2407,7 +2407,7 @@ Burada aslında b'den `c * d`'nin çıkartıldığına dikkat ediniz. Örneğin:
 
 ```
 
-Burada `/` ve `*` soldan-sağa eşit önceliklidir. İfade içerisinde (öncelik tablosunda değil) solda `/` olduğu için önce `/` sonra `*` yapılacaktır:
+Burada '/' ve '\*' soldan-sağa eşit önceliklidir. İfade içerisinde (öncelik tablosunda değil) solda '/' olduğu için önce '/' sonra '\*' yapılacaktır:
 
 ```
 
@@ -2425,7 +2425,7 @@ Burada `/` ve `*` soldan-sağa eşit önceliklidir. İfade içerisinde (öncelik
 
 ```
 
-Burada solda olan `+` önce yapılacaktır:
+Burada solda olan '+' önce yapılacaktır:
 
 ```
 
@@ -2455,10 +2455,10 @@ Atama operatörünün sağdan-sola grupta olduğuna dikkat ediniz:
 Öncelik tablosundaki satırlarda bulunan operatörler o satırda değişik sırada yazılabilirler. Çünkü aynı satırdaki operatörlerin o satırdaki sırasının
 bir önemi yoktur. "_Soldan-sağa_" ya da "_sağdan-sola_" ifade içerisindeki duruma ilişkindir.
 
-`*`, `/`, `+` ve `-` operatörleri "_iki operandlı araek (binary infix) aritmetik operatörlerdir_". Bunlar klasik dört işlemi yaparlar.
+'\*', '/', '+' ve '-' operatörleri "_iki operandlı araek (binary infix) aritmetik operatörlerdir_". Bunlar klasik dört işlemi yaparlar.
 
 % operatörü iki operandlı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
-üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda `*` ve `/` ile soldan sağa eşit öncelik grupta bulunur.
+üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda '\*' ve '/' ile soldan sağa eşit öncelik grupta bulunur.
 Negatif sayının pozitif sayıya bölümünden elde edilen kalan negatiftir. Pozitif sayının negatif sayıya bölümünden elde edilen kalan pozitiftir.
 
 ```
@@ -2496,9 +2496,9 @@ int result;
 
 ```
 
-`+` ve `-` sembolleri hem toplama ve çıkartma operatörü hem de `işaret -` ve `işaret +` operatörünü temsil etmektedir. `işaret +` ve `işaret -` operatörleri
-"_tek operandlı öncek (unary prefix)_" operatörlerdir. `işaret -` operatörü operandının negatif değerini üretir. `işaret +` operatörü ise operandı ile aynı
-değeri üretmektedir. (Yani aslında `işaret +` operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
+- ve - sembolleri hem toplama ve çıkartma operatörü hem de 'işaret -' ve 'işaret +' operatörünü temsil etmektedir. 'işaret +' ve 'işaret -' operatörleri
+  "_tek operandlı öncek (unary prefix)_" operatörlerdir. 'işaret -' operatörü operandının negatif değerini üretir. 'işaret +' operatörü ise operandı ile aynı
+  değeri üretmektedir. (Yani aslında 'işaret +' operatörü bir şey yapmamaktadır). Bu iki operatör öncelik tablosunun ikinci düzeyinde sağdan-sola grupta bulunurlar:
 
 ```
 
@@ -2523,7 +2523,7 @@ değeri üretmektedir. (Yani aslında `işaret +` operatörü bir şey yapmamakt
 
 ```
 
-Burada işl `-` sembolün "_çıkartma_" diğerlerinin "_işaret -_" olduğuna dikkat ediniz.
+Burada işl - sembolün "_çıkartma_" diğerlerinin "_işaret -_" olduğuna dikkat ediniz.
 
 ```
 
@@ -2543,13 +2543,13 @@ int a = -4;
 
 ```
 
-C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğimiz gibi `++` ve
-`--` operatmrleri de vardır. Dolayısıyla `++` ve `--` yan yana yazılırsa iki ayrı `işaret +` ve `işaret -` operatörü değil `++` ve `--` operatörleri anlaşılır
-Benzer biçimde `a>=3` gibi bir ifadede a, `>=` ve `3` biçiminde üç farklı atom vardır.
+C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğimiz gibi ++ ve
+-- operatmrleri de vardır. Dolayısıyla ++ ve -- yan yana yazılırsa iki ayrı 'işaret +' ve 'işaret -' operatörü değil ++ ve -- operatörleri anlaşılır
+Benzer biçimde a>=3 gibi bir ifadede a, >= ve 3 biçiminde üç farklı atom vardır.
 
-`++` ve `--` operatörleri "_tek operandlı, öncek ve sonek olarak kullanılabilen_" operatörlerdir. Yani biz bu operatörleri `++a` gibi de `a++` gibi de kullanabiliriz.
-Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. `++` operatörüne "_artırma (increment)_", `--` operatörüne "_eksiltme (decrement)_" operatörleri
-denilmektedir. `++` operatörü "_operandı içerisindeki değeri 1 artır_", `--` operatörü "_operandı içerisindeki değeri 1 eksilt_" anlamına gelir.
+++ ve -- operatörleri "_tek operandlı, öncek ve sonek olarak kullanılabilen_" operatörlerdir. Yani biz bu operatörleri ++a gibi de a++ gibi de kullanabiliriz.
+Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. ++ operatörüne "_artırma (increment)_", -- operatörüne "_eksiltme (decrement)_" operatörleri
+denilmektedir. ++ operatörü "_operandı içerisindeki değeri 1 artır_", -- operatörü "_operandı içerisindeki değeri 1 eksilt_" anlamına gelir.
 
 ```
 
@@ -2581,7 +2581,7 @@ int a;
 
 ```
 
-`++` ve `--` operatörleri öncelik tablosunun ikinci düzeyinde sağda-sola grupta bulunmaktadır:
+++ ve -- operatörleri öncelik tablosunun ikinci düzeyinde sağda-sola grupta bulunmaktadır:
 
 ```
 
@@ -2595,7 +2595,7 @@ int a;
 
 Aslında C'nin tek operandlı (unary) bütün operatörleri zaten öncelik tablosunun ikinci düzeyinde sağdan-sola gruba yerleştirilmiştir.
 
-`++` ve `--` operatörleri her zaman tablodaki öncelikte yapılır. Ancak sonraki işleme eğer operatörler önek olarak kullanılmışsa artırılmış ya da eksiltilmiş değer,
+++ ve -- operatörleri her zaman tablodaki öncelikte yapılır. Ancak sonraki işleme eğer operatörler önek olarak kullanılmışsa artırılmış ya da eksiltilmiş değer,
 sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokulmaktadır. Örneğin:
 
 ```
@@ -2605,8 +2605,8 @@ sonek olarak kullanılmışsa artırılmamış ya da eksiltilmemiş değer sokul
 
 ```
 
-Burada 3 operatör vardır. En önceliklisi `++` operatördür. O halde a değişkeni 1 artırılacak ve 4 olacaktır. Sonraki işlem `*` işlemidir. O halde `*` işlemine,
-artırma önek yapıldığı için, artırılmış değer olan 4 sokulacaktır. Bu durumda a değişkeni 4 olurken b değişkeni 8 olacaktır. Şimdi aynı işlemisonek olarak yapalım:
+Burada 3 operatör vardır. En önceliklisi ++ operatördür. O halde a değişkeni 1 artırılacak ve 4 olacaktır. Sonraki işlem çarpma işlemidir. O halde çarpma işlemine,
+artırma önek yapıldığı için, artırılmış değer olan 4 sokulacaktır. Bu durumda a değişkeni 4 olurken b değişkeni 8 olacaktır. Şimdi aynı işlemi sonek olarak yapalım:
 
 ```
 
@@ -2615,8 +2615,7 @@ artırma önek yapıldığı için, artırılmış değer olan 4 sokulacaktır. 
 
 ```
 
-Burada da a önce artırılır 4 olur. Ancak sonraki işlem olan `*` işlemine a'nın artırılmış değeri olan 3 sokulur. Bu durumda a 4 olurken b ise
-6 olacaktır.
+Burada da a önce artırılır 4 olur. Ancak sonraki işlem olan \* işlemine a'nın artırılmış değeri olan 3 sokulur. Bu durumda a 4 olurken b ise 6 olacaktır.
 
 ```
 
@@ -2686,7 +2685,7 @@ int a, b;
 
 ```
 
-Tabii `++` ve `--` operatörleri tek başlarına kullanılıyorsa bunların önek ve sonek kullanımları arasında bir fark oluşmaz yani örneğin:
+Tabii ++ ve -- operatörleri tek başlarına kullanılıyorsa bunların önek ve sonek kullanımları arasında bir fark oluşmaz yani örneğin:
 
 ```
 
@@ -2738,7 +2737,7 @@ int a, b, c;
 
 [15. Ders 19/07/2022 - Salı]()
 
-Tabii başka bir hiçbir operatör yoksa `++` ve `--` operatörlerinin önek ve sonek kullanımları arasında bir fark oluşmaz. Örneğin:
+Tabii başka bir hiçbir operatör yoksa ++ ve -- operatörlerinin önek ve sonek kullanımları arasında bir fark oluşmaz. Örneğin:
 
 ```
 
@@ -2780,7 +2779,7 @@ int a;
 
 ```
 
-`++` ve `--` operatörlerinin operand'larının nesne belirtmesi yani sol tarafa değeri olması gerekir. Örneğin aşağıdaki gibi bir ifade geçerli değildir:
+++ ve -- operatörlerinin operand'larının nesne belirtmesi yani sol tarafa değeri olması gerekir. Örneğin aşağıdaki gibi bir ifade geçerli değildir:
 
 ```
 
@@ -2905,7 +2904,7 @@ Karşılaştırma operatörleri aritmektik operatörlerden düşük önceliklidi
 
 ```
 
-Böyle bir işlemde `a + b` ile `c + d` karşılaştırılmaktadır.
+Böyle bir işlemde a + b ile c + d karşılaştırılmaktadır.
 
 ```
 
@@ -2937,8 +2936,8 @@ C'de üç mantıksal operatör vardır:
 
 ```
 
-`&&` ve `||` operatörleri iki operand'lı arek operatörlerdir. Ancak `!` operatörü tek operand'lı önek bir operatördür. Öncelik tablosunda `!` operatörü
-diğer tek operand'lı operatörlerin bulunduğu ikinci düzeydedir. Ancak `&&` ve `||` operatörleri karşılaştırma operatörlerinden daha düşük önceliklidir.
+&& ve || operatörleri iki operand'lı arek operatörlerdir. Ancak ! operatörü tek operand'lı önek bir operatördür. Öncelik tablosunda `!` operatörü
+diğer tek operand'lı operatörlerin bulunduğu ikinci düzeydedir. Ancak && ve || operatörleri karşılaştırma operatörlerinden daha düşük önceliklidir.
 
 ```
 
@@ -2964,7 +2963,7 @@ Yanlış olarak ele alınmaktadır. Örneğin:
 
 ```
 
-Burada `-3` Doğru olarak, `5.7` de Doğru olarak ele alınır. Doğru ve Doğru işlemi Doğru sonucunu verir. Doğru için 1 değeri üretilecektir. Örneğin:
+Burada -3 Doğru olarak, 5.7 de Doğru olarak ele alınır. Doğru ve Doğru işlemi Doğru sonucunu verir. Doğru için 1 değeri üretilecektir. Örneğin:
 
 ```
 
@@ -2982,7 +2981,7 @@ Buradan 1 değeri üretilir. Örneğin:
 
 Buradan 0 değeri üretilir.
 
-`!` operatörü Doğruyu Yanlış, Yanlışı Doğru yapan bir operatördür. Öncelik tablosunun ikinci düzeyinde sağdan sola öncelikte bulunur. Örneğin:
+! operatörü Doğruyu Yanlış, Yanlışı Doğru yapan bir operatördür. Öncelik tablosunun ikinci düzeyinde sağdan sola öncelikte bulunur. Örneğin:
 
 ```
 
@@ -2990,7 +2989,7 @@ Buradan 0 değeri üretilir.
 
 ```
 
-Burada `3.5` Doğru olarak ele alınır. `!` operatörü Yanlış değeri için 0 üretmektedir. Örneğin:
+Burada 3.5 Doğru olarak ele alınır. ! operatörü Yanlış değeri için 0 üretmektedir. Örneğin:
 
 ```
 
@@ -3015,7 +3014,7 @@ Burada `3.5` Doğru olarak ele alınır. `!` operatörü Yanlış değeri için 
 
 ```
 
-`&&` ve `||` operatörlerinin karşılaştırma operatörlerinden düşük öncelikli olması karşılaştırmanın sonuçlarının mantıksal işleme sokulacağı anlamına gelmektedir. Örneğin:
+&& ve || operatörlerinin karşılaştırma operatörlerinden düşük öncelikli olması karşılaştırmanın sonuçlarının mantıksal işleme sokulacağı anlamına gelmektedir. Örneğin:
 
 ```
 
@@ -3047,9 +3046,9 @@ int result;
 
 ```
 
-`&&` ve `||` operatörlerinin "_kısa devre (short circuit)_" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
-sağında ne kadar öncelikli operatör olursa olsun bunların önce sol tarafı yapılır. Eğer `&&` operatöründe sol taraf sıfır ise sağ taraf hiç yapılmaz
-sonuç hemen 0 olarak belirlenir. Eğer `&&` operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı dırım `||` operatörü için de
+&& ve || operatörlerinin "_kısa devre (short circuit)_" özelliği vardır. Bu operatörler klasik öncelik tablosu kuralına uymazlar. Bu operatörlerin
+sağında ne kadar öncelikli operatör olursa olsun bunların önce sol tarafı yapılır. Eğer && operatöründe sol taraf sıfır ise sağ taraf hiç yapılmaz
+sonuç hemen 0 olarak belirlenir. Eğer && operatöründe sol taraf sıfır dışı bir değer ise bu durumda sağ taraf yapılmaktadır. Aynı dırım || operatörü için de
 geçerlidir. Bu operatörün sol tarafı eğer sıfır dışı bir değerdeyse sağ tarafı hiç yapılmaz ve sonuç 1 olarak belirlenir. Eğer bu operatörün sol tarafı
 sıfır ise bu durumda sağ tarafı yapılır.
 
@@ -3082,7 +3081,7 @@ int result;
 
 ```
 
-Her ne kadar henüz fonksiyonlar konusunu görmediysek de aşağıdaki örnekte `bar` fonksiyonu çağrılmayacaktır.
+Her ne kadar henüz fonksiyonlar konusunu görmediysek de aşağıdaki örnekte bar fonksiyonu çağrılmayacaktır.
 
 ```
 
@@ -3270,8 +3269,8 @@ int a, b;
 
 ```
 
-Tanımlama sırasında tanımlanan değişkene `=` atomu ile ilkdeğer verilebiliyordu. İlkdeğer vermedeki `=` bir operatör olarak değerlendirilmemektedir.
-Bu işlem bildirim işleminin bir parçasıdır. Dolayısıyla buradaki `=` bir operatör olarak ele alınmaz. Böyle olunca da buradaki `=` atomunun bir değer
+Tanımlama sırasında tanımlanan değişkene = atomu ile ilkdeğer verilebiliyordu. İlkdeğer vermedeki = bir operatör olarak değerlendirilmemektedir.
+Bu işlem bildirim işleminin bir parçasıdır. Dolayısıyla buradaki = bir operatör olarak ele alınmaz. Böyle olunca da buradaki = atomunun bir değer
 üretmesi söz konusu değildir. Örneğin aşağıdaki gibi bir bildirim geçerli değildir:
 
 ```
@@ -3430,7 +3429,7 @@ int a = 2, b;
 
 ```
 
-Virgül (`,`) de iki operand'lı araek bir operatördür. Öncelik tablosunun en düşük öncelikli operatörüdür.
+Virgül (',') de iki operand'lı araek bir operatördür. Öncelik tablosunun en düşük öncelikli operatörüdür.
 
 ```
 
@@ -3538,7 +3537,7 @@ ayıraç atom görevindedir. Örneğin:
 
 ```
 
-Eğer argümandaki `,` atomunun virgül operatör olması isteniyorsa bu durumda parantezler kullanılmalıdır. Örneğin:
+Eğer argümandaki ',' atomunun virgül operatör olması isteniyorsa bu durumda parantezler kullanılmalıdır. Örneğin:
 
 ```
 
@@ -3546,7 +3545,7 @@ Eğer argümandaki `,` atomunun virgül operatör olması isteniyorsa bu durumda
 
 ```
 
-Buradaki `,` operatör görevinde değildir. Dolayısıyla foo fonksiyonunun iki parametresi vardır. Fakat örneğin:
+Buradaki ',' operatör görevinde değildir. Dolayısıyla foo fonksiyonunun iki parametresi vardır. Fakat örneğin:
 
 ```
 
@@ -3611,9 +3610,9 @@ int a;
 
 ```
 
-C'de `;` ifadeleri sonlandırmak için kullanılmaktadır. Bu görevdeki atomlara programlama dillerinde "_sonlandırıcı (terminator)_" denilmektedir.
-Biz ifadenin sonuna `;` koyduğumuzda artık o ifadeyle sonraki ifadenin ayrı ifadeler olduğunu derleyiciye söylemiş oluruz. Eğer bir ifadenin sonundaki
-`;` unutulursa derleyici önceki ifadeyle sonraki ifadeyi tek bir ifade olarak ele alır. Bu da sentaks hatasına yol açar. Örneğin:
+C'de ';' ifadeleri sonlandırmak için kullanılmaktadır. Bu görevdeki atomlara programlama dillerinde "_sonlandırıcı (terminator)_" denilmektedir.
+Biz ifadenin sonuna ';' koyduğumuzda artık o ifadeyle sonraki ifadenin ayrı ifadeler olduğunu derleyiciye söylemiş oluruz. Eğer bir ifadenin sonundaki
+';' unutulursa derleyici önceki ifadeyle sonraki ifadeyi tek bir ifade olarak ele alır. Bu da sentaks hatasına yol açar. Örneğin:
 
 ```
 
@@ -3622,7 +3621,7 @@ Biz ifadenin sonuna `;` koyduğumuzda artık o ifadeyle sonraki ifadenin ayrı i
 
 ```
 
-Burada muhtemelen `a = 10`'dan sonraki `;` atomu unutulmuştur. O halde derleyiciye göre burada tek bir ifade vardır. Ancak bu ifade geçerli değildir.
+Burada muhtemelen `a = 10`'dan sonraki ';' atomu unutulmuştur. O halde derleyiciye göre burada tek bir ifade vardır. Ancak bu ifade geçerli değildir.
 
 Bazı dillerde sonlandırıcı olarak `LF` karakteri kullanılmaktadır. Dolayısıyla o dillerde aynı satıra tek bir ifade yazılmak zorundadır.
 
@@ -3911,7 +3910,7 @@ her şey return işlemi için de geçerlidir. Derleyiciler genel olarak mümkün
 void fonksiyonlarda böyle bir geçici nesnenin hiç yaratılmayacağına da dikkat ediniz.
 
 Fonksiyonların dış dünyadan aldıkları değerlere "_parametre (parameter)_" denilmektedir. C'de fonksiyon parametreleri, parametre parantezinin içerisinde
-tür ve değişken ismi belirtilerek ve `,` atomu ile parametreler ayrılarak bildirilmektedir. Örneğin:
+tür ve değişken ismi belirtilerek ve ',' atomu ile parametreler ayrılarak bildirilmektedir. Örneğin:
 
 ```
     void foo(int a, long b, double c)
@@ -3954,7 +3953,7 @@ Parametreli bir fonksiyon parametre sayısı kadar "_argümanla_" çağrılmalı
     foo(10 + 20, 30 + 40);		/* geçerli */
 ```
 
-Argüman olan ifadeler yine `,` atomu ile ayrılmaktadır. Fonksiyonu çağırırken yazılan ifadelere "_argüman (argument)_" denilmektedir.
+Argüman olan ifadeler yine ',' atomu ile ayrılmaktadır. Fonksiyonu çağırırken yazılan ifadelere "_argüman (argument)_" denilmektedir.
 
 Parametreli bir fonksiyon çağrıldığında önce, argümanların değerleri hesaplanır. Sonra, argümanlardan parametre değişkenlerine karşılık bir atama
 yapılır. Sonra da akış fonksiyona geçirilir. Yani C'de parametre aktarımı, atama (ya da kopyalama) biçiminde yapılmaktadır. Örneğin:
@@ -3970,11 +3969,11 @@ yapılır. Sonra da akış fonksiyona geçirilir. Yani C'de parametre aktarımı
     foo(x + 1, y + 2)
 ```
 
-Burada foo fonksiyonu çağrıldığında önce `x + 1` ve `y + 2` ifadelerinin değerleri hesaplanacak sonra `x + 1` değeri a'ya, y` + 2` değeri ise b'ye atanacaktır.
+Burada foo fonksiyonu çağrıldığında önce x + 1 ve y + 2 ifadelerinin değerleri hesaplanacak sonra x + 1 değeri a'ya, y + 2 değeri ise b'ye atanacaktır.
 Sonra da akış, fonksiyona geçirilecektir. Parametre değişkenlerinin bağımsız ayrı nesneler olduğuna dikkat ediniz. Fonksiyon çağırma işlemi argümanlardan
 parametre değişkenlerine yapılan gizli bir atama işlemini gerektirmektedir. O halde C'de atama anlamına gelen üç durum vardır:
 
-1. Açıkça `=` operatörü ile yapılan atamalar,
+1. Açıkça = operatörü ile yapılan atamalar,
 
 2. return işlemi sırasında geçici nesneye yapılan atamalar,
 
@@ -4647,7 +4646,7 @@ biçiminde bir görünüme sahiplerdir. Örneğin:
     	foo();
 ```
 
-Bunlar birer basit deyimdir. İfade (expression) kavramının `;` atomunu içermediğine, ifadenin sonuna `;` getirildiğinde onun bir deyim olduğuna
+Bunlar birer basit deyimdir. İfade (expression) kavramının ';' atomunu içermediğine, ifadenin sonuna ';' getirildiğinde onun bir deyim olduğuna
 dikkat ediniz.
 
 2. Bileşik Deyimler (Compound Statements): Bir blok içerisine sıfır tane ya da daha fazla deyim yerleştirilirse bloğun kendisi de bir deyim olur.
@@ -4679,7 +4678,7 @@ Burada bu bloğun tamamı dışarıdan bakıldığında tek bir deyimdir.
     	x = 10;;
 ```
 
-Burada iki deyim vardır. Birincisi `x = 10;` deyimidir. Bu bir basit deyimdir. İkincisi bundan sonraki noktalı virgüldür (`;`). Boş deyimler için bir şey yapılmıyor
+Burada iki deyim vardır. Birincisi `x = 10;` deyimidir. Bu bir basit deyimdir. İkincisi bundan sonraki noktalı virgüldür (';'). Boş deyimler için bir şey yapılmıyor
 olsa da bunlar yine bir deyim statüsündedir.
 
 Yukarıda da belirtildiği gibi bir program, deyimlerin çalıştırılmasıyla çalıştırılmaktadır. Her deyim çalıştığında bir şeyler yapılır. Şimdi bu deyimler
@@ -5388,7 +5387,7 @@ Kontrolün sonda yapıldığı while döngüleri (do-while döngüleri) seyrek k
     while (<ifade>);
 ```
 
-while parantezi sonundaki `;` boş deyim belirtmez. Kullanılması zorunlu olan sentaksın bir parçasını oluşturmaktadır. Döngünün do anahtar sözcüğü ile
+while parantezi sonundaki ';' boş deyim belirtmez. Kullanılması zorunlu olan sentaksın bir parçasını oluşturmaktadır. Döngünün do anahtar sözcüğü ile
 başlatıldığına dikkat ediniz. Yine, döngü içerisinde tek bir deyim vardır. Bu deyim basit, bileşik ya da herhangi bir deyim olabilir. Örneğin:
 
 ```
@@ -5416,7 +5415,7 @@ döngü kontrolün başta yapıldığı while döngüsü olarak ele alınırdı.
     } while (ifade4);
 ```
 
-Derleyiciye göre buarada iki deyim vardır: Bileşik deyim ve ondan bağımsız olarak kontrolün başta yapıldığı while döngüsü. Dolaysıyla buradaki `;`
+Derleyiciye göre buarada iki deyim vardır: Bileşik deyim ve ondan bağımsız olarak kontrolün başta yapıldığı while döngüsü. Dolaysıyla buradaki ';'
 boş deyim anlamına gelmektedir.
 
 Aşağıdaki örnekte ekrana ilk çıkacak değer 0, son çıkacak değer 9'dur.
@@ -5480,8 +5479,8 @@ Programcılar, kontrolün başta yapıldığı while döngülerini yanlışlıkl
     	printf("%d\n", n);
 ```
 
-Burada while parantezinin sonuna yerleştirilen `;` boş deyim belirtir. Dolayısıyla artık aşağıdaki printf, while döngüsünün içerisinde değildir.
-Programcı eğer döngüyü gerçekten boş deyim ile kapatmak istiyorsa (örneğin bir gecikme sağlamak istemiş olabilir) bu durumda `;` atomu, sanki bir deyim gibi
+Burada while parantezinin sonuna yerleştirilen ';' boş deyim belirtir. Dolayısıyla artık aşağıdaki printf, while döngüsünün içerisinde değildir.
+Programcı eğer döngüyü gerçekten boş deyim ile kapatmak istiyorsa (örneğin bir gecikme sağlamak istemiş olabilir) bu durumda ';' atomu, sanki bir deyim gibi
 hizalanmalıdır. Çünkü kodu gören kişi bunun yanlışlıkla yapılmadığını anlayacaktır:
 
 ```
@@ -5523,7 +5522,7 @@ En çok kullanılan döngüler for döngüleridir. for döngülerinin genel biç
     	<deyim>
 ```
 
-for anahtar sözcüğünden sonra parantezler içerisinde iki tane `;` bulunmak zorundadır. Bu iki `;` for döngüsünü üç kısma ayırır. for döngüsünün
+for anahtar sözcüğünden sonra parantezler içerisinde iki tane ';' bulunmak zorundadır. Bu iki ';' for döngüsünü üç kısma ayırır. for döngüsünün
 bu kısımlarında "_ifade (expression)_" tanımna uyan herhangi ifadeler bulunabilir. for döngüsünün içeirsindeki deyim yine herhangi bir deyim olabilir.
 
 for döngüleri en fazla aşağıdaki gibi karşımıza çıkar:
@@ -5891,7 +5890,7 @@ int i;
 
 ```
 
-Aslında for döngüsünün hiçbir kısmı olmayabilir. Ancak her zaman iki tane `;` parantez içerisinde bulunmak zorundadır. Böyle for döngüleri "_sonsuz döngü_"
+Aslında for döngüsünün hiçbir kısmı olmayabilir. Ancak her zaman iki tane ';' parantez içerisinde bulunmak zorundadır. Böyle for döngüleri "_sonsuz döngü_"
 oluşturmak için kullanılabilmektedir. Örneğin:
 
 ```
@@ -8143,7 +8142,7 @@ Prototip bildirimi oluşturmanın en pratik yolu, fonksiyon tanımlamasının il
 
 ```
 
-Burada bu fonksiyonun ilk satırı alınıp sonuna `;` konulursa zaten prototip haline gelir.
+Burada bu fonksiyonun ilk satırı alınıp sonuna ';' konulursa zaten prototip haline gelir.
 
 ```
     double div(double a, double b);
