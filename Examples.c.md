@@ -6677,12 +6677,10 @@ int val;
 Farklı case değerleri için aynı şeylerin yapılması isteniyorsa bunun en pratik yöntemi aşağıdaki gibidir:
 
 ```
-
     case 1:
     case 2:
     	...
     	break;
-
 ```
 
 Bunun daha pratik bir yolu yoktur. Burada switch ifadesi 1 ise fall through nedeniyle zaten 2 ile aynı kod çalıştırılacaktır.
@@ -9502,7 +9500,7 @@ Birden fazla dizine bakılması için birden fazla kez -I seçeneği kullanmak g
 Ayrıca derleyiciler bu dizinleri belirlemek için bazı çevre değişkenlerinden de faydalanabilmektedir. Örneğin gcc derleyicilerinde CPATH çevre değişkenine
 derleyici önişlem aşamasında başvurmaktadır.
 
-#include komutunda dosya isimlerinin yol ifadesi içerip içermeyeceği de derleyicileri yazanların isteğine bırakılmıştır. Genel olarak dosya isimlerinde yol ifadesi
+\#include komutunda dosya isimlerinin yol ifadesi içerip içermeyeceği de derleyicileri yazanların isteğine bırakılmıştır. Genel olarak dosya isimlerinde yol ifadesi
 kullanmayınız. Derleyicilerin çoğu en azından göreli yol ifadelerine izin vermektedir.
 
 Standart C başlık dosyalarının include edilme sırasının hiçbir önemi yoktur. Programcılar genellikle çok kullanılan başlık dosyalarını daha daha yukarıda
@@ -9520,12 +9518,10 @@ standart bir özellik sanmaktadır.
 derleyemeyiz. Ancak gcc derleyicilerinde derleyebiliriz. Burada da görüldüğü gibi eklentilerin yoğun kullanılması kaynak kodun belli bir derleyiciye bağlı
 olmasına yol açmaktadır.
 
-C'nin üç operand'lı (ternary) tek bir operatörü vardır. Bu operatöre "_koşul operatörü (conditional operator)_" denilmektedir. Koşul operatörü ?: ile
-belirtilir ve gene kullanımı şöyledir:
+C'nin üç operandlı (ternary) tek bir operatörü vardır. Bu operatöre "_koşul operatörü (conditional operator)_" denilmektedir. Koşul operatörü ?: ile
+belirtilir ve genel kullanımı şöyledir:
 
-```
-    ifade1 ? ifade2 : ifade3
-```
+>        ifade1 ? ifade2 : ifade3
 
 Koşul operatörü if deyimini çağrıştıran ancak deyim olmayan bir operatördür. Her operatörde olduğu gibi koşul operatörü de bir değer üretir.
 Koşul operatörü şöyle çalışır: Önce soru işaretinin solundaki ifade (yukarıdaki ifade1) yapılır. Bu ifade sıfır dışı bir değerse (yani doğruysa) yalnızca soru işareti ile
@@ -12501,3 +12497,711 @@ define edilmiş de olabilir:
 ```
 
 Biz henüz void adresleri görmediğimiz için (void \*)0 ifadesini açıklamayacağız.
+
+[38. Ders - 18/10/2022 - Salı]()
+
+C'de prototipleri <string.h> içerisinde bulunan yazılar üzerinde işlem yapan, ismi str ile başlayan bir grup standart C fonksiyonu vardır. Bunlara string
+fonksiyonları denilmektedir. Bu bölümde bu string fonksiyonlarının önemli olanlarını tanıtacağız.
+
+**strlen fonksiyonu**, bir yazının uzunluğu ile geri dönen bir string fonksiyondur. Fonksiyonun orijinal prototipi şöyledir:
+
+>        size_t strlen(const char \*str);
+
+Fonksiyonun protipindeki const anahtar söczüğünü henüz görmedik. Bu anahtar sözcüğe şimdilik dikkat etmeyiniz. Fonksiyonun geri dönüş değeri size_t türündendir.
+size_t işaretsiz bir tamsayı türü olmak üzere standart türlerden birini temsil etmektedir. Ancak bu türün hangi işaretsiz tamsayı türünü temsil ettiği derleyicileri
+yazanların isteğine bırakılmıştır. size_t türü printf fonksiyonu ile yazdırılırkan %z format karakteri kullanılır. Buradaki z'nin yanında d (decimal), x (hex), o (octal)
+karakterlerinden biri getirilmelidir.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	size_t result;
+
+	result = strlen(s);
+	printf("%zd\n", result);		/* 6 */
+
+	return 0;
+}
+
+```
+
+strlen fonksiyonunu biz de yazabiliriz. Tek yapacağımız şey null karakter görene kadar karakterlerin sayısını hesaplamaktır.
+
+```
+#include <stdio.h>
+
+size_t mystrlen(char *str)
+{
+	size_t i;
+
+	for (i = 0; str[i] != '\0'; ++i)
+		;
+
+	return i;
+}
+
+int main(void)
+{
+	char s[] = "ankara";			/* dikkat Türkçe karakterleri editörünüz UTF-8 olarak iki byte halinde kodluyor olabilir */
+	size_t result;
+
+	result = mystrlen(s);
+	printf("%zd\n", result);		/* 6 görebilirsiniz */
+
+	return 0;
+}
+```
+
+Aşağıdaki örnekte klavyeden (stdin dosyasından) girilen bir yazının uzunluğu ekrana (stdout dosyasına) yazdırılmıştır.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[1024];
+
+	printf("Bir yazi giriniz:");
+	gets(s);
+
+	printf("%zd\n", strlen(s));
+
+	return 0;
+}
+
+```
+
+Bu tür örneklerde Türkçe karakterleri kullanmayınız. Çünkü günümüz editörlerinin çoğu Türkçe karakterleri UTF-8 olarak kodlamaktadır. Türkçe karakterler
+UTF-8 kodlamasında 2 byte yer kaplarlar. Bu nedenle örneğin "ağrı" gibi bir yazı için strlen fonksiyonu uygulanırsa 4 değil 6 değeri bulabilirsiniz.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "ağrı";				/* dikkat Türkçe karakterleri editörünüz UTF-8 olarak iki byte halinde kodluyor olabilir */
+	size_t result;
+
+	result = strlen(s);
+	printf("%zd\n", result);		/* 6 görebilirsiniz */
+
+	return 0;
+}
+
+```
+
+**strcpy fonksiyonu**, char türden bir dizi içerisindeki yazıyı başka bir diziye kopyalamak için kullanılır. Orijinal prototipi şöyledir:
+
+>         char *strcpy(char *dest, const char *source);
+
+Burada const anahtar sözcüğünü henüz görmedik. Fonksiyon ikinci parametresi ile belirtilen adresten başlayarak birincici parametresiyle belirtilen adrese
+null karakter görene kadar (null karakter de dahil) kopyalama yapar. Fonksiyon birinci parametresiyle verilen adresin aynısına geri dönmektedir. Tabii
+genellikle bu geri dönüş değerine gereksinim duyulmaz.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	char d[1024];
+
+	strcpy(d, s);
+
+	puts(d);		/* ankara */
+
+	return 0;
+}
+
+```
+
+strcpy fonksiyonu birinci parametresiyle belirtilen yani kopyalamanın yapıldığı hedef adresin aynısına geri dönmektedir. Genellikle programcılar
+bu geri dönüş değerini kullanmazlar. Ancak bazen aşağıdaki gibi kodlarda bu geri dönüş değerinin kullanıldığını görebilirsiniz:
+
+```
+	printf("%s\n", strcpy(d, s));
+```
+
+Burada strcpy, s adresindeki yazıyı d adresinden itibaren kopyalar. d adresinin aynısına geri döndüğü için buradaki yazı aynı zamanda printf ile yazdırılmıştır.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	char d[1024];
+
+	printf("%s\n", strcpy(d, s));		/* ankara */
+
+	return 0;
+}
+
+```
+
+strcpy fonksiyonu genellikle düz bir mantıkla programcılar tarafından aşağıdaki gibi yazılmaktadır:
+
+```
+	char *mystrcpy(char *dest, char *source)
+	{
+		char *temp = dest;
+
+		while (*source != '\0') {
+			*dest = *source;
+			++source;
+			++dest;
+		}
+		*dest = '\0';
+
+		return temp;
+	}
+
+```
+
+Aslında atama işlemi while parantezi içerisinde yapılabilir. Böylece null karakter de atanmış olur:
+
+```
+	char *mystrcpy(char *dest, char *source)
+	{
+		char *temp = dest;
+
+		while ((*dest = *source) != '\0') {
+			++source;
+			++dest;
+		}
+
+		return temp;
+	}
+
+	Tabii aslında en sade yazım aşağıdaki gibi olabilir:
+
+	char *mystrcpy(char *dest, char *source)
+	{
+		for (size_t i = 0; (dest[i] = source[i]) != '\0'; ++i)
+			;
+
+		return dest;
+	}
+
+```
+
+```
+#include <stdio.h>
+
+char *mystrcpy(char *dest, char *source);
+
+int main(void)
+{
+	char s[] = "ankara";
+	char d[1024];
+
+	mystrcpy(d, s);
+	printf("%s\n", d);
+
+	return 0;
+}
+
+char *mystrcpy(char *dest, char *source)
+{
+	for (size_t i = 0; (dest[i] = source[i]) != '\0'; ++i)
+		;
+
+	return dest;
+}
+
+```
+
+Aşağıdaki örnekte s adresinden iki ilerinin adresi fonksiyona gönderilmiştir. Bu durumda fonksiyon "kara" yazısını hedef diziye kopyalayacaktır.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	char d[1024];
+
+	strcpy(d, s + 2);
+	printf("%s\n", d);	/* kara */
+
+	return 0;
+}
+
+```
+
+**strcat fonksiyonu**, bir yazının sonuna başka bir yazıyı eklemek için kullanılmaktadır. Fonksiyonun orijinal prototipi şöyledir:
+
+>        char *strcat(char *dest, const char *source);
+
+Buradaki const anahtar sözcüğünü henüz görmedik. Fonksiyon, birinci parametresiyle belirtilen adreste bulunan yazının sonuna, oradaki null karakteri ezerek
+ikinci parametresiyle belirtilen adresten başlayarak, null karakter görene kadar (null karakter dahil) karakterleri kopyalar. Birinci parametresiyle
+belirtilen hedef adresin aynısına geri döner. (Buradaki "cat" sözcüğü "concatenate" sözcüğünden gelmektedir.) Burada programcı eklemenin yapılacağı hedef dizinin
+yeterince büyük olmasına dikkat etmelidir.
+
+```
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	char d[1024] = "istanbul";
+
+	strcat(d, s);
+
+	puts(d);		/* istanbulankara */
+
+	return 0;
+}
+
+```
+
+Aşağıdaki gibi bir kullanım tanımsız davranışa yol açar:
+
+```
+
+	char s[1024] = "ankara";
+	char d[1024];
+
+	strcat(d, s);
+```
+
+Çünkü burada d dizisinin içerisinde çöp değerler olduğu için, o çöp değerlerin sonunda tesadüfen bulunan bir null karakterden sonra karakter kopyalanacaktır. Örneğin:
+
+```
+
+	char s[1024] = "ankara";
+	char d[1024] = "";
+
+	strcat(d, s);
+```
+
+Burada d dizisinin tüm elemanları sıfırlanacaktır. Tabii 0 aynı zamanda null karakter anlamındadır. Bu durumda yapılan işlemin strcpy işleminden bir farkı kalmayacaktır.
+
+Aşağıdaki örnekte 5 kez klavyeden (stdin dosyasından) girilen yazı diğer bir dizinin içerisindeki yazının sonuna eklenmiştir.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[1024];
+	char d[1024] = "";
+
+	for (int i = 0; i < 5; ++i) {
+		printf("Bir yazi giriniz:");
+		gets(s);
+		strcat(d, s);
+	}
+	printf("%s\n", d);
+
+	return 0;
+}
+
+```
+
+strcat fonksiyonunu da kolay bir biçimde yazabiliriz. İlk akla gelen yazım biçimi şöyle olabilir:
+
+```
+
+	char *mystrcat(char *dest, char *source)
+	{
+		char *temp = dest;
+
+		while (*dest != '\0')
+			++dest;
+
+		strcpy(dest, source);
+
+		return temp;
+	}
+```
+
+Burada dest göstericisi artırılarak null karakteri gösterir hale getirilmiştir. Ondan o adrese kopyalama yapılmıştır. Tabii buradaki stcpy kısmını da
+kod olarak yazabilirdik:
+
+```
+	char *mystrcat(char *dest, char *source)
+	{
+		char *temp = dest;
+
+		while (*dest != '\0')
+			++dest;
+
+		while ((*dest = *source) != '\0') {
+			++source;
+			++dest;
+		}
+
+		return temp;
+	}
+
+```
+
+Ya da aynı fonksiyonu [ ] operatörü ile de yazabilirdik:
+
+```
+	char *mystrcat(char *dest, char *source)
+	{
+		size_t i;
+
+		for (i = 0; dest[i] != '\0'; ++i)
+			;
+		for (size_t k = 0; (dest[i + k] = source[k]) != '\0'; ++k)
+			;
+
+		return dest;
+	}
+
+```
+
+```
+#include <stdio.h>
+
+char *mystrcat(char *dest, char *source);
+
+int main(void)
+{
+	char s[] = "ankara";
+	char d[1024] = "istanbul";
+
+	mystrcat(d, s);
+
+	puts(d);		/* istanbulankara */
+
+	return 0;
+}
+
+char *mystrcat(char *dest, char *source)
+{
+	size_t i;
+
+	for (i = 0; dest[i] != '\0'; ++i)
+		;
+	for (size_t k = 0; (dest[i + k] = source[k]) != '\0'; ++k)
+		;
+
+	return dest;
+}
+
+```
+
+**strchr fonksiyonu**, bir yazı içerisinde bir karakteri aramak için kullanılır. Fonksiyonun orijinal prototipi şöyledir:
+
+>         char *strchr(const char *str, int ch);
+
+Buradaki const anahtar sözcüğünü henüz görmedik. Fonksiyon, birinci parametresiyle belirtilen adresten başlayarak null karakter görene kadar, ikinci parametresiyle belirtilen
+karakteri arar. Eğer bulursa ilk bulduğu yerin yazı içerisindeki adresiyle geri döner. Eğer bulmazsa NULL adresle geri döner. Fonksiyon null karakterin
+kendisini de arayabilmektedir.
+
+```
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	char *str;
+
+	str = strchr(s, 'k');
+	if (str != NULL)
+		printf("%s\n", str);		/* kara */
+	else
+		printf("cannot find!");
+
+	return 0;
+}
+
+```
+
+foo fonksiyonu bir adres bilgisine geri dönüyor olsun. \*foo() gibi bir işlem geçerlidir. Burada önce foo fonksiyonu çağrılır. Ele edilen adrese \_
+operatörü uygulanmıştır. Benzer biçimde foo()[n] ifadesi de geçerlidir. Burada fonksiyon çağırma operatörü ile [ ] operatörü soldan sağa eşit öncelikli
+gruptadır. Bu durumda önce fonksiyon çağrılır. Fonksiyonun geri döndürdüğü adresten n ilerinin içeriği elde edilir.
+
+```
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	char *str;
+
+	*strchr(s, 'k') = 'x';
+
+	puts(s);	/* anxara */
+
+	return 0;
+}
+```
+
+Aşağıda benzer bir örnek verilmiştir.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "ankara";
+	char *str;
+
+	strchr(s, 'k')[2] = 'x';
+
+	puts(s);	/* ankaxa  */
+
+	return 0;
+}
+
+```
+
+strchr fonksiyonu ile null karakterin kendisi de aranabilir. Örneğin biz null karakterin adresini bulmak için şöyle yapabiliriz:
+
+```
+	str = strchr(s, '\0');
+```
+
+Örneğin aslında strcat aşağıdaki ile eşdeğerdir:
+
+```
+	strcpy(strchr(dest, '\0'), source);
+```
+
+s char türden bir adres olmak üzere biz s adresinde bulunan yazının sonundaki null karakterin adresini s + strlen(s) biçiminde ya da strchr(s, '\0')
+biçiminde elde edebiliriz.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+char *mystrcat(char *dest, char *source)
+{
+	strcpy(strchr(dest, '\0'), source);
+
+	return dest;
+}
+
+int main(void)
+{
+	char s[] = "ankara";
+	char d[1024] = "istanbul";
+
+	mystrcat(d, s);
+	puts(d);
+
+	return 0;
+}
+
+```
+
+strchr fonksiyonunu basit bir biçimde yazabiliriz. Ancak gerçekleşirimde null karakterin de aranabileceğini göz önünde bulundurmalısınız:
+
+```
+	char *mystrchr(char *str, int ch)
+	{
+		while (*str != '\0') {
+			if (*str == ch)
+				return str;
+			++str;
+		}
+
+		return ch == '\0' ? str : NULL;
+	}
+
+```
+
+```
+#include <stdio.h>
+
+char *mystrchr(char *str, int ch);
+
+int main(void)
+{
+	char s[] = "ankara";
+	char *str;
+
+	str = mystrchr(s, 'k');
+	puts(str);			/* kara */
+
+	return 0;
+}
+
+char *mystrchr(char *str, int ch)
+{
+	while (*str != '\0') {
+		if (*str == ch)
+			return str;
+		++str;
+	}
+
+	return ch == '\0' ? str : NULL;
+}
+
+```
+
+strchr fonksiyonunun, karakteri son blduğu yerin adresiyle geri dönen (yani başka bir deyişle aramayı sondan başa doğru yapan) strrchr isimli bir benzeri de vardır.
+
+**strrchr fonksiyonunun** orijinal prototipi şöyledir:
+
+>        char *strrchr(const char *str, int ch);
+
+Biz henüz buradaki const anahtar sözcüğünü görmedik.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s[] = "izmir";
+	char *str;
+
+	str = strrchr(s, 'i');
+	if (str)
+		puts(str);		/* ir */
+	else
+		printf("cannt find!..\n");
+
+	return 0;
+}
+
+```
+
+Aşağıdaki örnekte UNIX/Linux işletim sistemlerinde bir yol ifadesinin (path) sonundaki dosya ismi yazdırılmıştır.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char path[] = "/home/kaan/study/test.c";
+	char *fname;
+
+	fname = strrchr(path, '/');
+	if (fname)
+		puts(fname + 1);
+
+	return 0;
+}
+
+```
+
+Tabii aslında bir yol ifadesi hiç '/' karakteri içermeyebilir. O halde yukarıdaki programı bu durumu da ele alacak biçimde aşağıdaki gibi düzeltebiliriz.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char path[4096];
+	char *fname;
+
+	printf("Bir yol ifadesi giriniz:");
+	gets(path);
+
+	fname = strrchr(path, '/');
+	if (fname)
+		puts(fname + 1);
+	else
+		puts(path);
+
+	return 0;
+}
+
+```
+
+Yukarıdaki gibi durumlarda programcılar genellikle daha kompakt bir yazım sağlamak için atama işlemini if parantezi içerisinde yaparlar. Tabii bu durumda
+atama operatörünün paranteze alınarak önceliklendirilmesi gerekir.
+
+```
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char path[4096];
+	char *fname;
+
+	printf("Bir yol ifadesi giriniz:");
+	gets(path);
+
+	if ((fname = strrchr(path, '/')) != NULL)
+		puts(fname + 1);
+	else
+		puts(path);
+
+	return 0;
+}
+
+```
+
+strrchr fonksiyonunu şöyle yazabiliriz:
+
+```
+	char *mystrrchr(char *str, int ch)
+	{
+		char *result = NULL;
+
+		while (*str != '\0') {
+			if (*str == ch)
+				result = str;
+			++str;
+		}
+
+		return ch == '\0' ? str : result;
+	}
+
+```
+
+```
+
+#include <stdio.h>
+#include <string.h>
+
+char *mystrrchr(char *str, int ch);
+
+int main(void)
+{
+	char path[4096];
+	char *fname;
+
+	printf("Bir yol ifadesi giriniz:");
+	gets(path);
+
+	if ((fname = mystrrchr(path, '/')) != NULL)
+		puts(fname + 1);
+	else
+		puts(path);
+
+	return 0;
+}
+
+char *mystrrchr(char *str, int ch)
+{
+	char *result = NULL;
+
+	while (*str != '\0') {
+		if (*str == ch)
+			result = str;
+		++str;
+	}
+
+	return ch == '\0' ? str : result;
+}
+
+```
