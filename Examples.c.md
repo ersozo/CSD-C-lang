@@ -1155,7 +1155,7 @@ sırasıyla çalıştırılır. Ana blok bittiğinde fonksiyon sonlanmış olur.
 programında main fonksiyonun ana bloğunun içerisinde printf isimli bir fonksiyon çağrılmıştır. Bir fonksiyonun çağrılması (call) demek onun çalıştırılması demektir.
 Bir fonksiyon çağrıldığında akış, fonksiyona gider, fonksiyonun içerisindeki deyimler tek tek çalıştırılır. Fonksiyon bitince akış çağırma noktasından devam eder.
 printf fonksiyonu çağrıldığında iki tırnak içerisindeki yazıları ekrana basmaktadır. Ekranda bir imleç (cursor) vardır. Yazı bu imlecin bulunduğu yerden itibaren
-ekrana yazdırılır. Sonra imleç yazının sonunda bırakılır. İmleç program çalışmaya başladığında sol üst köşededir. printf fonksiyonunda iki tırnak içerisindeki `\n`
+ekrana yazdırılır. Sonra imleç yazının sonunda bırakılır. İmleç program çalışmaya başladığında sol üst köşededir. printf fonksiyonunda iki tırnak içerisindeki \n
 "_imleci aşağı satırın başına geçir_" biçiminde özel bir anlama gelmektedir. Yani bundan sonra biz bir daha printf fonksiyonunu çağıracak olsak artık o yazı aşağı
 satırın başından itibaren yazılacaktır. printf bir standart C fonksiyonudur. Standart C fonksiyonları derleyicileri yazanlar tarafından yazılmış (tanımlanmış)
 biçimde bulunan fonksiyonlardır. main fonksiyonun sonundaki return deyimi bulunmak zorunda değildir. Bu deyim ileride açıklanacaktır.
@@ -2390,7 +2390,7 @@ Aşağıda operatörlerin öncelik tablosunun iskelet hali verilmiştir:
 
 ```
 
-Buradaki `()` operatörü öncellik parantezini ve fonksiyon çağırma operatörünü anlatmaktadır. Örneğin:
+Buradaki () operatörü öncellik parantezini ve fonksiyon çağırma operatörünü anlatmaktadır. Örneğin:
 
 ```
 
@@ -2402,7 +2402,7 @@ Buradaki `()` operatörü öncellik parantezini ve fonksiyon çağırma operatö
 
 ```
 
-Burada aslında b'den `c * d`'nin çıkartıldığına dikkat ediniz. Örneğin:
+Burada aslında b'den (c \* d)'nin çıkartıldığına dikkat ediniz. Örneğin:
 
 ```
 
@@ -2458,7 +2458,7 @@ Atama operatörünün sağdan-sola grupta olduğuna dikkat ediniz:
 Öncelik tablosundaki satırlarda bulunan operatörler o satırda değişik sırada yazılabilirler. Çünkü aynı satırdaki operatörlerin o satırdaki sırasının
 bir önemi yoktur. "_Soldan-sağa_" ya da "_sağdan-sola_" ifade içerisindeki duruma ilişkindir.
 
-'\*', '/', '+' ve '-' operatörleri "_iki operandlı araek (binary infix) aritmetik operatörlerdir_". Bunlar klasik dört işlemi yaparlar.
+\*, /, + ve - operatörleri "_iki operandlı araek (binary infix) aritmetik operatörlerdir_". Bunlar klasik dört işlemi yaparlar.
 
 % operatörü iki operandlı araek bir aritmetik operatördür. Bu operatör sol taraftaki operandın sağ taraftaki operanda bölümünden elde edilen kalan değerini
 üretir. Bu operatörün her iki operandı da tamsayı türlerine ilişkin olmak zorundadır. Öncelik tablosunda '\*' ve '/' ile soldan sağa eşit öncelik grupta bulunur.
@@ -2466,10 +2466,10 @@ Negatif sayının pozitif sayıya bölümünden elde edilen kalan negatiftir. Po
 
 ```
 
-    ()				Soldan-Sağa
-    * / %			Soldan-Sağa
-    + -				Soldan-Sağa
-    =				Sağdan-Sola
+    ()              Soldan-Sağa
+    * / %           Soldan-Sağa
+    + -             Soldan-Sağa
+    =               Sağdan-Sola
 
 ```
 
@@ -2505,11 +2505,11 @@ değeri üretmektedir. (Yani aslında 'işaret +' operatörü bir şey yapmamakt
 
 ```
 
-    ()				Soldan-Sağa
-    + -				Sağdan-Sola
-    * / %			Soldan-Sağa
-    + -				Soldan-Sağa
-    =				Sağdan-Sola
+    ()              Soldan-Sağa
+    + -             Sağdan-Sola
+    * / %           Soldan-Sağa
+    + -             Soldan-Sağa
+    =               Sağdan-Sola
 
 ```
 
@@ -2526,7 +2526,7 @@ değeri üretmektedir. (Yani aslında 'işaret +' operatörü bir şey yapmamakt
 
 ```
 
-Burada işl - sembolün "_çıkartma_" diğerlerinin "_işaret -_" olduğuna dikkat ediniz.
+Burada i3'deki - sembolün "_çıkartma_" diğerlerinin "_işaret -_" olduğuna dikkat ediniz.
 
 ```
 
@@ -2547,7 +2547,7 @@ int a = -4;
 ```
 
 C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topluluğundan atom yapılmaya çalışılır. C'de sonraki konuda göreceğimiz gibi ++ ve
--- operatmrleri de vardır. Dolayısıyla ++ ve -- yan yana yazılırsa iki ayrı 'işaret +' ve 'işaret -' operatörü değil ++ ve -- operatörleri anlaşılır
+-- operatörleri de vardır. Dolayısıyla ++ ve -- yan yana yazılırsa iki ayrı 'işaret +' ve 'işaret -' operatörü değil ++ ve -- operatörleri anlaşılır
 Benzer biçimde a>=3 gibi bir ifadede a, >= ve 3 biçiminde üç farklı atom vardır.
 
 ++ ve -- operatörleri "_tek operandlı, öncek ve sonek olarak kullanılabilen_" operatörlerdir. Yani biz bu operatörleri ++a gibi de a++ gibi de kullanabiliriz.
@@ -3387,7 +3387,7 @@ Bileşik atama operatörleri öncelik tablosunda atama operatör ile sağdan sol
 
 ```
 
-Burada önce 2 ile `3` toplanır. Sonra `*=` işlemi yapılır.
+Burada önce 2 ile 3 toplanır. Sonra \*= işlemi yapılır.
 
 ```
 
