@@ -2564,19 +2564,19 @@ int a;
 
     a = 3;
 
-    ++a;					/* a = a + 1 */;
-    printf("%d\n", a);		/* 4 */
+    ++a;                    /* a = a + 1 */;
+    printf("%d\n", a);      /* 4 */
 
     a++;
-    printf("%d\n", a);		/* 5 */
+    printf("%d\n", a);      /* 5 */
 
     a = 3;
 
-    --a;					/* a = a - 1 */
-    printf("%d\n", a);		/* 2 */
+    --a;                    /* a = a - 1 */
+    printf("%d\n", a);      /* 2 */
 
     a--;
-    printf("%d\n", a);		/* 1 */
+    printf("%d\n", a);      /* 1 */
 
     return 0;
 
@@ -2786,7 +2786,7 @@ int a;
 
 ```
 
-    ++3;		/* geçersiz! */
+    ++3;                        /* geçersiz! */
 
 ```
 
@@ -3754,9 +3754,9 @@ Böyle fonksiyonlar geri dönüş değerinin kullanıldığı bir ifadede kullan
     	printf("foo\n");
     }
     ...
-    x = foo();			/* geçersiz! foo'nun geri dönüş değer yok */
-    x = foo() * 2;		/* geçersiz! foo'nun geri dönüş değeri yok */
-    foo();				/* geçerli */
+    x = foo();          /* geçersiz! foo'nun geri dönüş değer yok */
+    x = foo() * 2;      /* geçersiz! foo'nun geri dönüş değeri yok */
+    foo();              /* geçerli */
 ```
 
 ```
@@ -3784,14 +3784,14 @@ yazılamaz. Örneğin:
     {
     	printf("foo\n");
 
-    	return;			/* geçerli */
+    	return;             /* geçerli */
     }
 
     void bar(void)
     {
     	printf("foo\n");
 
-    	return 10;			/* geçersiz! void fonksiyon bir değerle geri döndürülemez */
+    	return 10;          /* geçersiz! void fonksiyon bir değerle geri döndürülemez */
     }
 ```
 
@@ -3805,7 +3805,7 @@ void foo(void)
 {
 printf("foo\n");
 
-    return;			/* geçerli */
+    return;                 /* geçerli */
 
 }
 
@@ -3826,13 +3826,13 @@ uyarmaktadır. Ancak geri dönüş değeri void olmayan fonksiyonlarda return de
     int foo(void)
     {
     	printf("foo\n");
-    }					/* dikkat! fonksiyon çöp değerle geri dönüyor */
+    }                       /* dikkat! fonksiyon çöp değerle geri dönüyor */
 
     int bar(void)
     {
     	printf("bar\n");
 
-    	return;			/* geçersiz! return anahtar sözcüğünün yanında bir ifade olması gerekirdi */
+        return;             /* geçersiz! return anahtar sözcüğünün yanında bir ifade olması gerekirdi */
     }
 ```
 
@@ -3848,7 +3848,7 @@ int main(void)
 {
 int result;
 
-    result = foo();					/* dikkat! geçerli ama çöp değer elde ediliyor */
+    result = foo();                     /* dikkat! geçerli ama çöp değer elde ediliyor */
     printf("%d\n", result);
 
     return 0;
@@ -3866,7 +3866,7 @@ C'de geçerlidir. Örneğin:
 
     	return 100;
 
-    	printf("foo ends...\n");		/* unreachable code */
+        printf("foo ends...\n");        /* unreachable code */
     }
 
 ```
@@ -4292,16 +4292,16 @@ Yerel değişkenler bildirildikleri yerden itibaren bildirildikleri bloğun sonu
     	{
     		int b;
 
-    		a = 10;				/* geçerli, a faaliyet gösteriyor */
-    		b = 20;				/* geçerli, b faaliyet gösteriyor */
+            a = 10;             /* geçerli, a faaliyet gösteriyor */
+            b = 20;             /* geçerli, b faaliyet gösteriyor */
     	}
-    	printf("%d\n", a);      /* geçerli, a faaliyet gösteriyor */
-    	printf("%d\n", b);      /* geçersiz! b burada faaliyet göstermiyor */
+        printf("%d\n", a);      /* geçerli, a faaliyet gösteriyor */
+        printf("%d\n", b);      /* geçersiz! b burada faaliyet göstermiyor */
     }
 
     void bar(void)
     {
-    	a = 100;				/* geçersiz, a burada faaliyet göstermiyor */
+    	a = 100;                /* geçersiz, a burada faaliyet göstermiyor */
     }
 ```
 
