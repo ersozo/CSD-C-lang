@@ -1314,12 +1314,11 @@ Ayrıca yazım kolaylığı için <complex.h> dosyası içerisinde \_COMPLEX ana
 include edersek \_COMPLEX yerine complex sözcüğünü de kullanabiliriz. Benzer biçimde <complex.h> içerisinde i isimli sembolik sabit de \_COMPLEX_I olacak biçimde
 define edilmiştir. Yani biz <complex.h> dosyasını include etmiş isek, i sayısı için \_COMPLEX_I yerine i harfini de kullanabiliriz.
 
-> C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep int türünü, gerçek sayı türü olarak da double
-> türünü tercih ederler. C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni char, short olarak değil
-> yine int olarak tanımlar. Fakat, örneğin bir nicelik int türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. int türünden küçük
-> türler programcılar tarafından tekil nesneler için değil, büyük diziler için tercih edilmektedir. Örneğin bir kişinin yaşını bir değişkende tutacak olalım.
-> Biz yine bu değişkeni int türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi int türünden değil de char türünden
-> oluşturabiliriz. Aynı durum double türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa float türünü tercih etmelidir.
+> C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep **int** türünü, gerçek sayı türü olarak da **double** türünü tercih ederler.
+> C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni char, short olarak değil yine int olarak tanımlar. Fakat, örneğin bir nicelik
+> int türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. int türünden küçük türler programcılar tarafından tekil nesneler için değil, büyük diziler için tercih edilmektedir.
+>  Örneğin, bir kişinin yaşını bir değişkende tutacak olalım. Biz yine bu değişkeni int türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi
+> int türünden değil de char türünden oluşturabiliriz. Aynı durum double türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa float türünü tercih etmelidir.
 
 [11. Ders - 28/06/2022 - Salı]()
 
@@ -8555,7 +8554,7 @@ En azından bu garanti edilmiştir.
 
 Aslında C derleyicisi kendi içerisinde iki modülden oluşmaktadır: Önişlemci (Preprocessor) ve Derleme (Compile) Modülleri:
 
->                           .c ----> Önişlemci Modülü -----> Derleme Modülü -----> Object Dosya
+>                   .c ----> Önişlemci Modülü -----> Derleme Modülü -----> Object Dosya
 
 Kaynak kod önişlemci modülü tarafından alınır. Önişlemci, kaynak kod üzerinde çeşitli düzenlemeleri yapar ve kodu derleme modülüne verir. Derleme işleminin
 bütün faaliyetleri derleme modülü tarafından yapılmaktadır. Yani C derleyicisi dediğimiz şey aslında bu derleme modülüdür. Ancak, önişlemci de derleyicinin bir parçasıdır.
@@ -8570,12 +8569,9 @@ bu iki komutu inceleyeceğiz. Diğer önişlemci komutlarını kursumuzun son b�
 
 En çok kullanılan önişlemci komutlarından biri #define komutudur. Bu komutun genel biçimi şöyledir:
 
-```
-    #define STR1	STR2
+>        #define STR1	STR2
 
-```
-
-Burada #define komutundan sonra boşluk karakterleri atılıp ilk boşluksuz yazı kümesi elde edilir. Buna STR1 diyelim. Sonra yeniden boşluk karakterleri atılıp
+Burada \#define komutundan sonra boşluk karakterleri atılıp ilk boşluksuz yazı kümesi elde edilir. Buna STR1 diyelim. Sonra yeniden boşluk karakterleri atılıp
 satır sonuna kadar tüm karakterler elde edilir. Buna da STR2 diyelim. Önişlemci kaynak kodda, STR1 gördüğü yerlere STR2 yazısını yerleştirmektedir. Örneğin:
 
 ```
@@ -12500,10 +12496,12 @@ Biz henüz void adresleri görmediğimiz için (void \*)0 ifadesini açıklamaya
 
 [38. Ders - 18/10/2022 - Salı]()
 
+### string fonksiyonları
+
 C'de prototipleri <string.h> içerisinde bulunan yazılar üzerinde işlem yapan, ismi str ile başlayan bir grup standart C fonksiyonu vardır. Bunlara string
 fonksiyonları denilmektedir. Bu bölümde bu string fonksiyonlarının önemli olanlarını tanıtacağız.
 
-**strlen fonksiyonu**, bir yazının uzunluğu ile geri dönen bir string fonksiyondur. Fonksiyonun orijinal prototipi şöyledir:
+- **strlen fonksiyonu**, bir yazının uzunluğu ile geri dönen bir string fonksiyondur. Fonksiyonun orijinal prototipi şöyledir:
 
 >        size_t strlen(const char \*str);
 
@@ -12596,7 +12594,7 @@ int main(void)
 
 ```
 
-**strcpy fonksiyonu**, char türden bir dizi içerisindeki yazıyı başka bir diziye kopyalamak için kullanılır. Orijinal prototipi şöyledir:
+- **strcpy fonksiyonu**, char türden bir dizi içerisindeki yazıyı başka bir diziye kopyalamak için kullanılır. Orijinal prototipi şöyledir:
 
 >         char *strcpy(char *dest, const char *source);
 
@@ -12738,7 +12736,7 @@ int main(void)
 
 ```
 
-**strcat fonksiyonu**, bir yazının sonuna başka bir yazıyı eklemek için kullanılmaktadır. Fonksiyonun orijinal prototipi şöyledir:
+- **strcat fonksiyonu**, bir yazının sonuna başka bir yazıyı eklemek için kullanılmaktadır. Fonksiyonun orijinal prototipi şöyledir:
 
 >        char *strcat(char *dest, const char *source);
 
@@ -12897,7 +12895,7 @@ char *mystrcat(char *dest, char *source)
 
 ```
 
-**strchr fonksiyonu**, bir yazı içerisinde bir karakteri aramak için kullanılır. Fonksiyonun orijinal prototipi şöyledir:
+- **strchr fonksiyonu**, bir yazı içerisinde bir karakteri aramak için kullanılır. Fonksiyonun orijinal prototipi şöyledir:
 
 >         char *strchr(const char *str, int ch);
 
@@ -13052,9 +13050,10 @@ char *mystrchr(char *str, int ch)
 
 ```
 
-strchr fonksiyonunun, karakteri son blduğu yerin adresiyle geri dönen (yani başka bir deyişle aramayı sondan başa doğru yapan) strrchr isimli bir benzeri de vardır.
+- **strrchr fonksiyonu**
 
-**strrchr fonksiyonunun** orijinal prototipi şöyledir:
+strchr fonksiyonunun, karakteri son blduğu yerin adresiyle geri dönen (yani başka bir deyişle aramayı sondan başa doğru yapan) strrchr isimli bir benzeri de vardır.
+strrchr fonksiyonunun orijinal prototipi şöyledir:
 
 >        char *strrchr(const char *str, int ch);
 
