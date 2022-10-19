@@ -2383,10 +2383,10 @@ Aşağıda operatörlerin öncelik tablosunun iskelet hali verilmiştir:
 
 ```
 
-    ()				Soldan-Sağa
-    * /				Soldan-Sağa
-    + -				Soldan-Sağa
-    =				Sağdan-Sola
+    ()              Soldan-Sağa
+    * /             Soldan-Sağa
+    + -             Soldan-Sağa
+    =               Sağdan-Sola
 
 ```
 
