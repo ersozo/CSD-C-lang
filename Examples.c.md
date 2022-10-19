@@ -4290,7 +4290,7 @@ Yerel değişkenler bildirildikleri yerden itibaren bildirildikleri bloğun sonu
     	int a;
 
     	{
-    		int b;
+            int b;
 
             a = 10;             /* geçerli, a faaliyet gösteriyor */
             b = 20;             /* geçerli, b faaliyet gösteriyor */
