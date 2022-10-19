@@ -12546,11 +12546,11 @@ size_t mystrlen(char *str)
 
 int main(void)
 {
-	char s[] = "ankara";			/* dikkat Türkçe karakterleri editörünüz UTF-8 olarak iki byte halinde kodluyor olabilir */
+	char s[] = "ankara";        /* dikkat Türkçe karakterleri editörünüz UTF-8 olarak iki byte halinde kodluyor olabilir */
 	size_t result;
 
 	result = mystrlen(s);
-	printf("%zd\n", result);		/* 6 görebilirsiniz */
+	printf("%zd\n", result);    /* 6 görebilirsiniz */
 
 	return 0;
 }
@@ -12585,11 +12585,11 @@ UTF-8 kodlamasında 2 byte yer kaplarlar. Bu nedenle örneğin "ağrı" gibi bir
 
 int main(void)
 {
-	char s[] = "ağrı";				/* dikkat Türkçe karakterleri editörünüz UTF-8 olarak iki byte halinde kodluyor olabilir */
+	char s[] = "ağrı";          /* dikkat Türkçe karakterleri editörünüz UTF-8 olarak iki byte halinde kodluyor olabilir */
 	size_t result;
 
 	result = strlen(s);
-	printf("%zd\n", result);		/* 6 görebilirsiniz */
+	printf("%zd\n", result);    /* 6 görebilirsiniz */
 
 	return 0;
 }
