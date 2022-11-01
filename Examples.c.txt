@@ -11752,3 +11752,326 @@ char *mystrrchr(char *str, int ch)
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+								39. Ders - 18/10/2022 - Perşembe
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	strcmp fonksiyonu iki yazıyı karşılaştırmak için kullanılmaktadır. Fonksiynun orijinal prototipi şöyledir:
+
+	int strcmp(const char *s1, const char *s2);
+
+	Biz henüz const anahtar sözcüğünü görmedik. Fonksiyonun iki parametresi karşılaştırılacak iki yazının adreslerini almaktadır. Fonksiyon "leksikografik"
+	bir karşılaştırma yapar. Leksikografik karşılaştırma demek "eşit olduğu sürece ilerle, ilk eşit olmayanın durumuna bak" demektir. Yani sözlükteki sıraya
+	göre karşılaştırma anlamına gelir. Örneğin:
+
+	- "ali" yazısı "alm" yazısından küçüktür.
+	- "aliye" yazısı "ali" yazısından büyüktür.
+	- "ali" yazısı "Ali" yazısından ASCII karakter tablosu kullanılıyorsa büyüktür.
+	- "ali" yazısı ile "ali" yazısı biribirine eşittir.
+
+	strcmp fonksiyonu birinci yazı ikinci yazıdan büyükse pozitif herhangi bir değere, ikinci yazı birinci yazıdan büyükse negatif herhangi bir değere
+	ve iki yazı eşitse sıfır değerine geri döner.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char passwd[] = "maviay";
+	char s[1024];
+
+	printf("Enter password:");
+	gets(s);
+
+	if (!strcmp(s, passwd))
+		printf("Ok\n");
+	else
+		printf("Incorrect password!..\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	Yukarıdaki programı üç kere denemeli hale getirebiliriz.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char passwd[] = "maviay";
+	char s[1024];
+	int i;
+
+	for (i = 0; i < 3; ++i) {
+		printf("Enter password:");
+		gets(s);
+		if (!strcmp(s, passwd))
+			break;
+		printf("Incorrect password!..\n");
+	}
+
+	if (i == 3)
+		printf("Sorry you must wait 5 minutes to try again...\n");
+	else
+		printf("Ok\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	strcmp fonksiyonunu aşağıdaki gibi yazabiliriz:
+
+	int mystrcmp(char *s1, char *s2)
+	{
+		while (*s1 == *s2) {
+			if (*s1 == '\0')
+				return 0;
+			++s1;
+			++s2;
+		}
+		return *s1 - *s2;
+	}
+
+	if karşılaştırmasında return yerine break deyimini de kullanabilirdik:
+
+	int mystrcmp(char *s1, char *s2)
+	{
+		while (*s1 == *s2) {
+			if (*s1 == '\0')
+				break;
+			++s1;
+			++s2;
+		}
+		return *s1 - *s2;
+	}
+
+	Ya da örneğin if deyimi yerine while parantezinin içerisinde && operatörü de kullanılabilir.
+
+	int mystrcmp(char *s1, char *s2)
+	{
+		while (*s1 == *s2 && *s1 != '\0') {
+			++s1;
+			++s2;
+		}
+		return *s1 - *s2;
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+int mystrcmp(char *s1, char *s2);
+
+int main(void)
+{
+	char passwd[] = "maviay";
+	char s[1024];
+
+	printf("Enter password:");
+	gets(s);
+
+	if (!mystrcmp(s, passwd))
+		printf("Ok\n");
+	else
+		printf("Incorrect password!..\n");
+
+	return 0;
+}
+
+int mystrcmp(char *s1, char *s2)
+{
+	while (*s1 == *s2) {
+		if (*s1 == '\0')
+			return 0;
+		++s1;
+		++s2;
+	}
+	return *s1 - *s2;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	strcpy, strcat ve strcmp fonksiyonlarının n'li versiyonları da vardır. Bunlar strncpy, strncat ve strncmp ismindedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	strncpy fonksiyonu bir yazının belli sayıda karakterini bir diziye kopyalamak için kullanılmaktadır. Fonksiyonun orijinal prototipi şöyledir:
+
+	char *strncpy(char *dest, const char *source, size_t n);
+
+	Burada fonksiyon ikinci parametresiyle belirtilen adresten başlayarak birinci parametresiyle belirtilen adrese üçüncü parametresiyle belirtilen miktarda
+	karakteri kopyalar. Fonksiyon eğer n <= strlen(source) ise null karakteri hedefe yerleştirmez. Ancak n > strlen(source) ise n - strlen(source) kadar null karakteri
+	hedefe kopyalamaktadır. Örneğin "ankara" yazısını kopyalama istediğimizi ve n değerinin 3 olduğunu düşünelim. Fonksiyon "ank" karakterlerini kopyalar ve
+	null karakteri eklemez. Ancak örneğin n değeri 30 ise fonksiyon "ankara" yazısının hepsini kopyalar. 30 - 6 = 24 tane null karakteri hedefe ekler.
+	Yani fonksiyon her zaman n tane karakteri hedefe kopyalamaktadır. strncpy fonksiyonu genellikle bir yazının belli bir kısmını başka bir yazıyla yer değiştirmek
+	amacıyla kullanılmaktadır. Bu durumda:
+
+	strcpy(dest, source);
+
+	çağısının strncp ile eşdeğeri şöyledir:
+
+	strncpy(dest source, strlen(source) + 1);
+
+	strncpy fonksiyonu da kopyalamanın yapıldığı hedef adrese geri dönmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char d[] = "yenisehir";
+	char s[] = "eskihisar";
+
+	strncpy(d, s, 4);
+
+	puts(d);		/* eskisehir */
+
+	return 0;
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	strncpy fonksiyonu çeşitli biçimlerde yazılabilir. Örneğin:
+
+	char *mystrncpy(char *dest, char *source, size_t n)
+	{
+		size_t i;
+
+		for (i = 0; i < n && source[i] != '\0'; ++i)
+			dest[i] = source[i];
+
+		for (; i < n; ++i)
+			dest[i] = '\0';
+
+		return dest;
+	}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+char *mystrncpy(char *dest, char *source, size_t n);
+
+int main(void)
+{
+	char d[1024] = "yenisehir";
+	char s[] = "eski";
+
+	mystrncpy(d, s, 10);
+
+	puts(d);		/* eskisehir */
+
+	return 0;
+}
+
+char *mystrncpy(char *dest, char *source, size_t n)
+{
+	size_t i;
+
+	for (i = 0; i < n && source[i] != '\0'; ++i)
+		dest[i] = source[i];
+
+	for (; i < n; ++i)
+		dest[i] = '\0';
+
+	return dest;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	strncat fonksiyonu bir yazının sonuna başka bir yazının ilk n karakterini eklemek için kullanılmaktadır. Fonksiyonun orijinal prototipi şöyledir:
+
+	char *strncat(char *dest, const char *source, size_t n);
+
+	Fonksiyon ikinci parametresiyle belirtilen yazının ilk n karakterini birinci parametresiyle belirtilen yazının sonuna ekler. Fonksiyon her zaman hedefe
+	null karakteri eklemektedir. Eğer n değeir büyükse yani n > strlen(source) ise en son null karakteri ekler ve işlemini sonlandırır. Yani başka bir deyişle
+	eğer n değeri büyükse fonksiyon strcat gibi davranmaktadır. Fonksiyon yine birinci parametreyle girilen adresin aynısına geri dönmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char d[1024] = "eski";
+	char s[] = "hisarustu";
+
+	strncat(d, s, 5);
+
+	puts(d);		/* eskihisar */
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	strncat fonksiyonu da değişik biçimlerde yazılabilir. Aşağıda bunlardan bir örnek verilmiştir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+
+char *mystrncat(char *dest, char *source, size_t n);
+
+int main(void)
+{
+	char d[1024] = "eski";
+	char s[] = "hisarustu";
+
+	mystrncat(d, s, 5);
+
+	puts(d);		/* eskihisar */
+
+	return 0;
+}
+
+char *mystrncat(char *dest, char *source, size_t n)
+{
+	size_t i, k;
+
+	for (i = 0; dest[i] != '\0'; ++i)
+		;
+
+	for (k = 0; k < n && source[k] != '\0'; ++k)
+		dest[i + k] = source[k];
+	dest[i + k] = '\0';
+
+	return dest;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
+	strncmp fonksiyonu iki yazının ilk n karakterini karşılaştırmak için kullanılmaktadır. Fonksiyonun orijinal prototipi şöyledir:
+
+	int strncmp(const char *s1, const char *s2, size_t n);
+
+	Biz henüz const anahtar sözcüğünü görmedik. Burada n değeri strlen(s1) ya da strlen(s2)'den büyükse karşılaştırma sonlandırılmaktadır. Başka bir deyişle
+	iki yazının herhangi birinde null karakter görülürse karşılaştırma sonlandırılmaktadır. Yani n > strlen(s1) ya da n > strlen(s2) ise bu durumda fonksiyonun
+	strcmp'den bir farkı kalmaz. Fonksiyon yine birinci yazı ikinci yazdıdan büyükse pozitif herhangi bir değere, ikinci yazı birinci yazıdan büyükse negatif herhangi bir
+	değere ve iki yazı birbirine eşitse sıfır değerine geri dönmektedir.
+----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	char s1[] = "eskis";
+	char s2[] = "eskihisar";
+	int result;
+
+	result = strncmp(s1, s2, 4);
+
+	if (result > 0)
+		printf("s1 > s2\n");
+	else if (result < 0)
+		printf("s1 < s2\n");
+	else
+		printf("s1 == s2\n");
+
+	return 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------------------------
