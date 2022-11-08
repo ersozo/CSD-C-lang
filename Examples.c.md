@@ -10195,7 +10195,7 @@ atamak isteyebiliriz. "Designated initializer" sentaksı şöyledir:
 Örneğin:
 
 ```
-	int a[100] = {[25] = 100, [50] = 200, [75] = 300, [99] = 400};
+    int a[100] = {[25] = 100, [50] = 200, [75] = 300, [99] = 400};
 ```
 
 ```
@@ -10217,7 +10217,7 @@ Designated initilizer sentaksından sonra normal ilkdeğer vermelere devam edile
 belirtilen indeksi izlemektedir. Örneğin:
 
 ```
-	int a[10] = {1, 2, 3, [6] = 100, 4, [8] = 200};
+    int a[10] = {1, 2, 3, [6] = 100, 4, [8] = 200};
 ```
 
 Burada 4 değeri 7'inci elemana yerleştirilecektir.
@@ -10262,7 +10262,7 @@ Designated initializer sentaksında dizinin aynı elemanına birden fazla kez de
 Örneğin:
 
 ```
-	int a[10] = {10, 20, 30, [0] = 100, 200};		/* geçerli ama anlamsız */
+    int a[10] = {10, 20, 30, [0] = 100, 200};		/* geçerli ama anlamsız */
 ```
 
 ```
@@ -10292,13 +10292,13 @@ Burada dizi 92 eleman uzunluğunda açılacaktır.
 Ancak dizi uzunluğu belirtilmişse designated initializer sentaksında indeks değeri dizinin uzunluğuna eşit ya da ondan büyük olamaz. Örneğin:
 
 ```
-int a[50] = {10, 20, 30, [90] = 100};       /* geçersiz! */
+    int a[50] = {10, 20, 30, [90] = 100};   /* geçersiz! */
 ```
 
 Tabii köşeli parantez içerisindeki indeks belirten ifadenin sabit ifadesi olması zorunludur:
 
 ```
-	int i = 20;
+    int i = 20;
     int a[50] = {10, 20, 30, [i] = 100};    /* geçersiz! i sabit ifadesi değil */
 ```
 
