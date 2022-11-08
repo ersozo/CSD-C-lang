@@ -10180,8 +10180,8 @@ Dizilere ilkdeğer verilirken dizi uzunlukları belirtilmeyebilir. Bu durumda de
 Örneğin:
 
 ```
-    int a[] = {10, 20, 30};		/* burada dizi 3 uzunlukta */
-    int b[];					/* geçersiz! dizi uzunluğu belirtilmek zorunda */
+    int a[] = {10, 20, 30};     /* burada dizi 3 uzunlukta */
+    int b[];                    /* geçersiz! dizi uzunluğu belirtilmek zorunda */
 ```
 
 C99 ile birlikte dizilere ilkdeğer vermede "designated initializer" denilen bir sentaks da dile eklenmiştir. Bu sentaks sayesinde dizinin
@@ -10189,7 +10189,7 @@ ardışıl olmayan elemanlarına ilkdeğer verilebilmektedir. Örneğin biz 100 
 atamak isteyebiliriz. "Designated initializer" sentaksı şöyledir:
 
 ```
-	[<sabit ifadesi>] = değer
+    [<sabit ifadesi>] = değer
 ```
 
 Örneğin:
@@ -10220,7 +10220,7 @@ belirtilen indeksi izlemektedir. Örneğin:
 	int a[10] = {1, 2, 3, [6] = 100, 4, [8] = 200};
 ```
 
-    Burada 4 değeri 7'inci elemana yerleştirilecektir.
+Burada 4 değeri 7'inci elemana yerleştirilecektir.
 
 ```
 #include <stdio.h>
@@ -10280,15 +10280,11 @@ int main(void)
 }
 ```
 
-```
 Designated initializer sentaksında dizi uzunluğu yine belirtilmeyebilir. Bu durumda sentaksta belirtilen en yüksek indeks temel alınarak dizi uzunluğu
 belirlenmektedir. Örneğin:
-```
 
+```
     int a[] = {10, 20, 30, [90] = 100, 200};
-
-```
-
 ```
 
 Burada dizi 92 eleman uzunluğunda açılacaktır.
@@ -10296,14 +10292,14 @@ Burada dizi 92 eleman uzunluğunda açılacaktır.
 Ancak dizi uzunluğu belirtilmişse designated initializer sentaksında indeks değeri dizinin uzunluğuna eşit ya da ondan büyük olamaz. Örneğin:
 
 ```
-int a[50] = {10, 20, 30, [90] = 100};		/* geçersiz! */
+int a[50] = {10, 20, 30, [90] = 100};       /* geçersiz! */
 ```
 
 Tabii köşeli parantez içerisindeki indeks belirten ifadenin sabit ifadesi olması zorunludur:
 
 ```
 	int i = 20;
-    int a[50] = {10, 20, 30, [i] = 100};		/* geçersiz! i sabit ifadesi değil */
+    int a[50] = {10, 20, 30, [i] = 100};    /* geçersiz! i sabit ifadesi değil */
 ```
 
 Bir dizinin en büyük elemanı şöyle bulunur: Önce, ilk eleman en büyük kabul edilir ve bir değişkende saklanır. Sonra, diğer tüm elemanlar tek tek gözden geçirilir.
