@@ -1317,7 +1317,7 @@ define edilmiştir. Yani biz <complex.h> dosyasını include etmiş isek, i say�
 > C'de bu kadar çok tür varken aslında programcılar özel bir neden olmadıktan sonra tamsayı türü olarak hep **int** türünü, gerçek sayı türü olarak da **double** türünü tercih ederler.
 > C programcısı bir değişkenin içerisine küçük tamsayı değerleri yerleştirecek olsa bile o değişkeni char, short olarak değil yine int olarak tanımlar. Fakat, örneğin bir nicelik
 > int türünün sınırları içerisine sığmıyorsa, daha büyük türler seçilmelidir. int türünden küçük türler programcılar tarafından tekil nesneler için değil, büyük diziler için tercih edilmektedir.
->  Örneğin, bir kişinin yaşını bir değişkende tutacak olalım. Biz yine bu değişkeni int türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi
+> Örneğin, bir kişinin yaşını bir değişkende tutacak olalım. Biz yine bu değişkeni int türden almalıyız. Ancak, bir milyon kişinin yaşını tutacaksak, artık bu bir milyonluk diziyi
 > int türünden değil de char türünden oluşturabiliriz. Aynı durum double türü için de geçerlidir. Programcı, ancak çok miktarda noktalı sayıyı tutacaksa float türünü tercih etmelidir.
 
 [11. Ders - 28/06/2022 - Salı]()
@@ -10182,6 +10182,128 @@ Dizilere ilkdeğer verilirken dizi uzunlukları belirtilmeyebilir. Bu durumda de
 ```
     int a[] = {10, 20, 30};		/* burada dizi 3 uzunlukta */
     int b[];					/* geçersiz! dizi uzunluğu belirtilmek zorunda */
+```
+
+C99 ile birlikte dizilere ilkdeğer vermede "designated initializer" denilen bir sentaks da dile eklenmiştir. Bu sentaks sayesinde dizinin
+ardışıl olmayan elemanlarına ilkdeğer verilebilmektedir. Örneğin biz 100 elemanlı int bir dizide dizinin yalnızca 25, 50, 75 ve 99'uncu elemanlarına değer
+atamak isteyebiliriz. "Designated initializer" sentaksı şöyledir:
+
+```
+	[<sabit ifadesi>] = değer
+```
+
+Örneğin:
+
+```
+	int a[100] = {[25] = 100, [50] = 200, [75] = 300, [99] = 400};
+```
+
+```
+#include <stdio.h>
+
+int main(void)
+{
+    int a[100] = {[25] = 100, [50] = 200, [75] = 300, [99] = 400};
+
+    for (int i = 0; i < 100; ++i)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+```
+
+Designated initilizer sentaksından sonra normal ilkdeğer vermelere devam edilebilir. Bu durumda sonra verilen ilkdeğerler designated initilizer'da
+belirtilen indeksi izlemektedir. Örneğin:
+
+```
+	int a[10] = {1, 2, 3, [6] = 100, 4, [8] = 200};
+```
+
+    Burada 4 değeri 7'inci elemana yerleştirilecektir.
+
+```
+#include <stdio.h>
+
+int main(void)
+{
+    int a[10] = {1, 2, 3, [6] = 100, 4, [8] = 200};
+
+    for (int i = 0; i < 10; ++i)
+        printf("%d ", a[i]);        /* 1 2 3 0 0 0 100 4 200 0 */
+    printf("\n");
+
+    return 0;
+}
+```
+
+Designated initlizer sentaksında köşeli parantez içerisindeki indeks değerlerinin artan sırada olma zorunluluğu yoktur. Örneğin:
+
+```
+    int a[10] = {[5] = 100, 200, [1] = 300};
+```
+
+```
+#include <stdio.h>
+
+int main(void)
+{
+    int a[10] = {[5] = 100, 200, [1] = 300};
+
+    for (int i = 0; i < 10; ++i)
+        printf("%d ", a[i]);        /* 0 300 0 0 0 100 200 0 0 0 */
+    printf("\n");
+
+    return 0;
+}
+```
+
+Designated initializer sentaksında dizinin aynı elemanına birden fazla kez değer atama durumu oluşabilir. Bu tür işlemler anlamsız olsa da yasaklanmamıştır.
+Örneğin:
+
+```
+	int a[10] = {10, 20, 30, [0] = 100, 200};		/* geçerli ama anlamsız */
+```
+
+```
+#include <stdio.h>
+
+int main(void)
+{
+    int a[10] = {10, 20, 30, [0] = 100, 200};
+
+    for (int i = 0; i < 10; ++i)
+        printf("%d ", a[i]);        /* 100 200 30 0 0 0 0 0 0 0 */
+    printf("\n");
+
+    return 0;
+}
+```
+
+```
+Designated initializer sentaksında dizi uzunluğu yine belirtilmeyebilir. Bu durumda sentaksta belirtilen en yüksek indeks temel alınarak dizi uzunluğu
+belirlenmektedir. Örneğin:
+```
+
+    int a[] = {10, 20, 30, [90] = 100, 200};
+
+```
+
+```
+
+Burada dizi 92 eleman uzunluğunda açılacaktır.
+
+Ancak dizi uzunluğu belirtilmişse designated initializer sentaksında indeks değeri dizinin uzunluğuna eşit ya da ondan büyük olamaz. Örneğin:
+
+```
+int a[50] = {10, 20, 30, [90] = 100};		/* geçersiz! */
+```
+
+Tabii köşeli parantez içerisindeki indeks belirten ifadenin sabit ifadesi olması zorunludur:
+
+```
+	int i = 20;
+    int a[50] = {10, 20, 30, [i] = 100};		/* geçersiz! i sabit ifadesi değil */
 ```
 
 Bir dizinin en büyük elemanı şöyle bulunur: Önce, ilk eleman en büyük kabul edilir ve bir değişkende saklanır. Sonra, diğer tüm elemanlar tek tek gözden geçirilir.
