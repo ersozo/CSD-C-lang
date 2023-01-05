@@ -1370,7 +1370,7 @@ denilmektedir. Bu kavram ileride açıklanacaktır.) Başı tek alt tire ile ba�
 C'de ağırlıklı bir biçimde küçük harfli isimlendirmeler tercih edilmektedir. Değişken isimlerinin anlamlı ve telaffuz edilebilir olması tavsiye edilir.
 Birden çok sözcükten oluşan değişken isimlerinde sözcüklerin ayrımsanması için üç çeşit harflendirme biçimi kullanılmaktadır:
 
-**1. Klasik C Tarzı Harflendirme:** Buna "_yılan notasyonu (Snake Casting)_" de denilmektedir. Burada sözcüklerin arasında alt tire bulundurulur. Örneğin:
+**1. Klasik C Tarzı Harflendirme:** Buna "_yılan notasyonu (Snake Case)_" de denilmektedir. Burada sözcüklerin arasında alt tire bulundurulur. Örneğin:
 
 ```
 
@@ -1380,7 +1380,7 @@ Birden çok sözcükten oluşan değişken isimlerinde sözcüklerin ayrımsanma
 
 ```
 
-**2. Deve Notasyonu (Camel Casting):** Burada ilk sözcüğün tamamı küçük harflerle yazılır. Ancak sonraki sözcüklerin yalnızca ilk harfleri büyük yazılır.
+**2. Deve Notasyonu (Camel Case):** Burada ilk sözcüğün tamamı küçük harflerle yazılır. Ancak sonraki sözcüklerin yalnızca ilk harfleri büyük yazılır.
 Örneğin:
 
 ```
@@ -1391,7 +1391,7 @@ Birden çok sözcükten oluşan değişken isimlerinde sözcüklerin ayrımsanma
 
 ```
 
-**3. Pascal Notasyonu (Pascal Casting):** Burada da her sözcüğün ilk harfi büyük yazılır. Örneğin:
+**3. Pascal Notasyonu (Pascal Case):** Burada da her sözcüğün ilk harfi büyük yazılır. Örneğin:
 
 ```
 
