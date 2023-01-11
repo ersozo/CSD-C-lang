@@ -2549,7 +2549,7 @@ C'de programın atomlarına ayrılma aşamasında yan yana en uzun karakter topl
 -- operatörleri de vardır. Dolayısıyla ++ ve -- yan yana yazılırsa iki ayrı 'işaret +' ve 'işaret -' operatörü değil ++ ve -- operatörleri anlaşılır
 Benzer biçimde a>=3 gibi bir ifadede a, >= ve 3 biçiminde üç farklı atom vardır.
 
-++ ve -- operatörleri "_tek operandlı, öncek ve sonek olarak kullanılabilen_" operatörlerdir. Yani biz bu operatörleri ++a gibi de a++ gibi de kullanabiliriz.
+++ ve -- operatörleri "_tek operandlı, önek ve sonek olarak kullanılabilen_" operatörlerdir. Yani biz bu operatörleri ++a gibi de a++ gibi de kullanabiliriz.
 Bu operatörlerin önek ve sonek kullanımlarında semantik farklılık vardır. ++ operatörüne "_artırma (increment)_", -- operatörüne "_eksiltme (decrement)_" operatörleri
 denilmektedir. ++ operatörü "_operandı içerisindeki değeri 1 artır_", -- operatörü "_operandı içerisindeki değeri 1 eksilt_" anlamına gelir.
 
@@ -2617,7 +2617,7 @@ artırma önek yapıldığı için, artırılmış değer olan 4 sokulacaktır. 
 
 ```
 
-Burada da a önce artırılır 4 olur. Ancak sonraki işlem olan \* işlemine a'nın artırılmış değeri olan 3 sokulur. Bu durumda a 4 olurken b ise 6 olacaktır.
+Burada da a önce artırılır 4 olur. Ancak sonraki işlem olan \* işlemine a'nın artırılmamış değeri olan 3 sokulur. Bu durumda a 4 olurken b ise 6 olacaktır.
 
 ```
 
